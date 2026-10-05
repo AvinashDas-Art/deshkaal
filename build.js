@@ -14,7 +14,8 @@ const words = a => [a.h, a.dek, ...a.body, ...a.nazar].join(" ").split(/\s+/).le
 const readMin = a => Math.max(1, Math.round(words(a) / 200));
 const listenMin = a => Math.max(1, Math.round(words(a) / 130));
 const href = a => `/lekh/${a.id}/`;
-const art = (a, cls = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" role="img" aria-label="${esc(a.h)} के लिए कोलाज"></canvas>`;
+const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}"${a.photo ? ` data-photo="${esc(a.photo.src)}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(word || a.h)} के लिए कोलाज"></canvas>`;
+const credit = a => a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}तस्वीर: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
 const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${esc(a.h)}" aria-pressed="false">+ सहेजें</button>`;
 
 /* ---------- data ---------- */
@@ -124,19 +125,34 @@ function splitHead(h) {
   if (i > 0 && i < h.length - 4) return [h.slice(0, i + 1), h.slice(i + 1).trim()];
   const w = h.split(" "); return [w.slice(0, 2).join(" "), w.slice(2).join(" ")];
 }
-const hero = L => { const [a1, a2] = splitHead(L.h); return `<section class="hero">
-  <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>
-  <div class="hero-text">
-    <p class="kicker">आज की बड़ी बहस · ${L.cat}</p>
-    <a href="${href(L)}"><h2 class="hero-h"><span class="acc">${esc(a1)}</span> ${esc(a2)}</h2></a>
-    ${L.ank && L.ank.length ? `<div class="ank">${L.ank.slice(0, 2).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>` : ""}
-    <p class="dek">${esc(L.dek)}</p>
+const heroText = (L, kick) => { const [a1, a2] = splitHead(L.h); return `
+    <p class="kicker">${kick} · ${L.cat}</p>
+    <a href="${href(L)}"><h2 class="hero-h"><span class="acc">${esc(a1)}</span> ${esc(a2)}</h2></a>`; };
+const ankBlock = L => L.ank && L.ank.length ? `<div class="ank">${L.ank.slice(0, 2).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>` : "";
+const heroFoot = L => `<p class="dek">${esc(L.dek)}</p>
     <div class="hero-foot">
       <div class="hero-open"><p>${esc(L.body[0])}</p><a class="hero-more" href="${href(L)}">पूरा सार पढ़ें →</a></div>
       <aside class="sawal"><small>आज का सवाल</small><p>${esc(L.sawal)}</p></aside>
     </div>
-    <div class="row"><span>मूल: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>पढ़ें ${readMin(L)} मिनट · सुनें ${listenMin(L)} मिनट</span>${saveBtn(L)}</div>
-  </div></section>`; };
+    <div class="row"><span>मूल: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>पढ़ें ${readMin(L)} मिनट · सुनें ${listenMin(L)} मिनट</span>${saveBtn(L)}</div>`;
+function chartSVG(c) {
+  const W = 640, H = 420, pad = 56, base = H - 64, max = Math.max(...c.bars.map(b => b[1])) * 1.12, bw = (W - pad * 2) / c.bars.length;
+  const bars = c.bars.map(([lab, v], k) => { const h = (v / max) * (base - 40), x = pad + k * bw + bw * .14, w = bw * .72, last = k === c.bars.length - 1;
+    return `<rect x="${x}" y="${base - h}" width="${w}" height="${h}" class="${last ? "bar-hi" : "bar"}"/><text x="${x + w / 2}" y="${base - h - 14}" class="bar-v">${v}</text><text x="${x + w / 2}" y="${base + 34}" class="bar-l">${esc(lab)}</text>`; }).join("");
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)}"><line x1="${pad - 10}" y1="${base}" x2="${W - pad + 10}" y2="${base}" class="axis"/>${bars}</svg>`;
+}
+function hero(L, kick = "आज की बड़ी बहस") {
+  const type = L.hero || "poster";
+  if (type === "shabd" && L.shabd) return `<section class="hero hero-shabd">
+    <a class="shabd-art" href="${href(L)}" tabindex="-1">${art(L, "", L.shabd)}</a>
+    <div class="shabd-grid"><div>${heroText(L, kick)}${ankBlock(L)}</div><div>${heroFoot(L)}</div></div></section>`;
+  if (type === "ank" && L.chart) return `<section class="hero hero-ank">
+    <div class="ank-text">${heroText(L, kick)}${heroFoot(L)}</div>
+    <figure class="ank-chart"><figcaption><b>${esc(L.chart.title)}</b><span>${esc(L.chart.unit)}</span></figcaption>${chartSVG(L.chart)}<p class="ank-note">${esc(L.chart.note || "")}</p></figure></section>`;
+  return `<section class="hero">
+  <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>${L.photo ? `<span class="hero-credit">${credit(L)}</span>` : ""}
+  <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
+}
 const connect = `<section class="band">
   <div><h4>रविवार विशेष</h4><p>हफ़्ते की पांच सबसे ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ, हर रविवार।</p><div class="act"><span class="chip">हर रविवार सुबह</span></div></div>
   <div><h4>हर सुबह आपके पास</h4><p>सुबह 7 बजे की सारी टिप्पणियां, सीधे आपके ईमेल इनबॉक्स में।</p><div class="act"><form class="sub" id="subf"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="ईमेल"><button class="btn">जुड़ें</button></form></div><p class="note" id="subnote"></p></div>
@@ -162,7 +178,7 @@ function catPage(c) {
   const list = all.filter(a => a.cat === c);
   let body;
   if (!list.length) body = `<p class="empty">“${c}” श्रेणी में अभी कोई टिप्पणी नहीं है। कल सुबह 7 बजे फिर देखिए।</p>`;
-  else { const [L, ...rest] = list; body = lead(L, "ताज़ा") + (rest.length ? `<section class="grid">${rest.map(card).join("")}</section>` : ""); }
+  else { const [L, ...rest] = list; body = hero(L, "ताज़ा") + (rest.length ? `<section class="grid">${rest.map(card).join("")}</section>` : ""); }
   return layout({ title: c, desc: `${c}: देशकाल पर चुनी गयी टिप्पणियों के सार।`, url: `/shreni/${SLUG[c]}/`, body, tab: c === "साहित्य" ? "" : "", catOn: c });
 }
 function articlePage(a) {
@@ -175,7 +191,7 @@ function articlePage(a) {
     <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>
     <div class="meta"><span>मूल: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">▶ सुनें · ${listenMin(a)} मिनट</button>${saveBtn(a)}</span></div>
-    <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">कोलाज: देशकाल</figcaption></figure>
+    <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">कोलाज: देशकाल${a.photo ? " · " + credit(a) : ""}</figcaption></figure>
     <div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>देशकाल की नज़र</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
     <aside class="sawal"><small>सोचने के लिए</small><p>${esc(a.sawal)}</p></aside>

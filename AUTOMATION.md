@@ -55,5 +55,18 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 
 `motif` picks the collage drawing; choose the one closest to the subject. `seed` is any number, different for each piece.
 
+## Lead (front-page hero): pick one of three forms
+Choose by what makes today's lead piece strongest, and vary across days:
+- `"hero": "poster"` (default): split headline, diagonal collage, `ank` figures. Best with a photo.
+- `"hero": "shabd"` + `"shabd": "एक शब्द"`: one word that carries the whole story (e.g. "नाकेबंदी", "कचरा") printed huge, the collage showing through its letters. Keep it to 3-5 letters' width; one word only.
+- `"hero": "ank"` + `"chart"`: when the story is about numbers. `{"title": "...", "unit": "...", "bars": [["लेबल", संख्या], ...], "note": "एक लाइन"}`, 3-6 bars, the last bar is highlighted in red, all figures from the article only.
+
+## Photos (`photo`)
+Give the lead piece, and any other piece where a strong human image exists, a real photo:
+- Source: Unsplash, via WebFetch of `https://unsplash.com/napi/search/photos?query=...&per_page=15`. Use only results that are not premium/plus (`images.unsplash.com`, never `plus.unsplash.com`).
+- Pick people, places or crowds that fit the story. Never a photo that shows a party flag or slogan unrelated to the story, never a photo that could be mistaken for the actual event unless it is: add `"note": "प्रतीकात्मक तस्वीर"` when illustrative.
+- Format: `"photo": {"src": "https://images.unsplash.com/photo-...?fit=max&fm=jpg&q=75&w=1400", "credit": "Photographer / Unsplash", "page": "https://unsplash.com/photos/<id>", "note": "प्रतीकात्मक तस्वीर"}`
+- Never use photos from the source article or any news agency.
+
 ## Sunday special (रविवार विशेष)
 On Sundays, also pick the five most important pieces of the week from the last 7 day files and list their ids in `data/weekly/YYYY-MM-DD.json` as `{"ids": [...], "intro": "दो-तीन वाक्य"}`.

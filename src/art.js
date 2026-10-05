@@ -102,11 +102,20 @@ function strip(g,R,w,x,y,fs,font,fill,txt){g.font=`${fs}px ${font}`;const tw=g.m
 function tape(g,x,y,deg,len,col){g.save();g.translate(x,y);g.rotate(deg*Math.PI/180);g.fillStyle=col;g.globalAlpha=.4;g.fillRect(-len/2,-8,len,16);g.restore();g.globalAlpha=1}
 function halftone(g,x,y,w,h,step,col,R,alpha){const fx=R()*6.28,fy=R()*6.28;g.fillStyle=col;g.globalAlpha=alpha||.85;
   for(let yy=0;yy<h;yy+=step)for(let xx=0;xx<w;xx+=step){const t=.5+.5*Math.sin(xx/w*3+fx)*Math.cos(yy/h*2.4+fy);g.beginPath();g.arc(x+xx+step/2,y+yy+step/2,step*.48*t,0,7);g.fill()}g.globalAlpha=1}
+const PHOTOS={};
+function getPhoto(src){if(!src)return null;let im=PHOTOS[src];if(im)return im.complete&&im.naturalWidth?im:null;
+  im=new Image();im.crossOrigin="anonymous";im.decoding="async";im.onload=()=>drawAll();im.src=src;PHOTOS[src]=im;return null}
+/* fill a w×h region (already translated/clipped) with the photo, toned to the category colour; falls back to the drawn motif */
+function fillPiece(g,a,w,h,C,R){const im=getPhoto(a.photo);
+  if(!im){paintMotif(g,a,w,h,rng(a.seed),C.paper,C.main,C.accent,C.soft,C.ink,C.soft);return}
+  const s=Math.max(w/im.naturalWidth,h/im.naturalHeight),iw=im.naturalWidth*s,ih=im.naturalHeight*s;
+  g.save();g.filter="grayscale(1) contrast(1.15) brightness(1.04)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";
+  g.globalCompositeOperation="color";g.globalAlpha=.42;g.fillStyle=C.main;g.fillRect(0,0,w,h);g.restore()}
 function motifPiece(g,a,x,y,w,h,rot,R,c){g.save();g.translate(x+w/2,y+h/2);g.rotate(rot);g.translate(-w/2,-h/2);
   g.save();g.translate(3,4);torn(g,0,0,w,h,R);g.fillStyle=c.ink;g.globalAlpha=.16;g.fill();g.restore();g.globalAlpha=1;
-  torn(g,0,0,w,h,R);g.fillStyle=c.paper;g.fill();g.clip();paintMotif(g,a,w,h,rng(a.seed),c.paper,c.main,c.accent,c.soft,c.ink,c.soft);g.restore()}
+  torn(g,0,0,w,h,R);g.fillStyle=c.paper;g.fill();g.clip();fillPiece(g,a,w,h,c,R);g.restore()}
 function draw(c){
-  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||""};
+  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||"",photo:ds.photo||"",word:ds.word||""};
   const r=c.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
   const W=Math.max(1,Math.round(r.width)), H=Math.max(1,Math.round(r.height));
   c.width=W*d;c.height=H*d;const g=c.getContext("2d");g.scale(d,d);
@@ -116,7 +125,7 @@ function draw(c){
   const pal=(CATCOL[a.cat]||CATCOL["दुनिया"])[dark?1:0];
   const C={paper,ink,main:pal[0],soft:pal[1],accent:a.cat==="समाज"?lal:haldi};
   const R=rng(a.seed*7+3), small=W<200, m=Math.min(W,H);
-  const pos=parseInt((a.id||"").slice(-2),10);const variant=Number.isFinite(pos)?(pos*5+1)%6:Math.abs(a.seed)%6;
+  const pos=parseInt((a.id||"").slice(-2),10);const variant=a.word?(a.photo?0:1):(Number.isFinite(pos)?(pos*5+1)%6:Math.abs(a.seed)%6);
   const F1='"Yatra One", serif',F2='"Laila", serif',F3='"Noto Sans Devanagari", sans-serif';
   g.fillStyle=bg;g.fillRect(0,0,W,H);
   for(let i=0;i<W*H/900;i++){g.fillStyle=ink;g.globalAlpha=.05+R()*.06;g.fillRect(R()*W,R()*H,1.2,1.2)}g.globalAlpha=1;
@@ -130,7 +139,7 @@ function draw(c){
   }else if(variant===1){ /* poster: colour field, circular cut-out */
     g.fillStyle=C.main;g.fillRect(0,0,W,H);halftone(g,W*.45,0,W*.55,H,step,C.soft,R,.35);
     const cx=W*(.36+R()*.06),cy=H*.5,rr=m*.38;
-    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);paintMotif(g,a,rr*2,rr*2,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);fillPiece(g,a,rr*2,rr*2,C,R);g.restore();
     g.strokeStyle=paper;g.lineWidth=Math.max(3,m*.02);g.beginPath();g.arc(cx,cy,rr+m*.03,0,7);g.stroke();
     if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.2)}px ${F1}`;g.fillStyle=paper;g.textBaseline="alphabetic";g.save();g.translate(W*.55,H*.88);g.rotate(-.04);g.fillText(w,0,0);g.restore()}
   }else if(variant===2){ /* split: category block with oversized word */
@@ -141,7 +150,7 @@ function draw(c){
     if(!small)strip(g,R,pickWords(a,R,1)[0],W*.06,H*.18,Math.round(H*.1),F2,paper,ink);
   }else if(variant===3){ /* triptych: three torn strips of one picture */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
-    const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.scale(d,d);paintMotif(og,a,W,H,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);
+    const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.scale(d,d);fillPiece(og,a,W,H,C,R);
     const sw=W*.29;[0,1,2].forEach(k=>{const x=W*(.04+k*.32),y=H*(.08+(k%2)*.06),hh=H*.8;
       g.save();g.translate(x+sw/2,y+hh/2);g.rotate((R()-.5)*.06);g.translate(-sw/2,-hh/2);
       g.save();g.translate(3,4);torn(g,0,0,sw,hh,R);g.fillStyle=ink;g.globalAlpha=.15;g.fill();g.restore();g.globalAlpha=1;
@@ -152,18 +161,22 @@ function draw(c){
     g.strokeStyle=ink;g.globalAlpha=.18;g.lineWidth=1.5;
     for(let col=0;col<4;col++)for(let y=H*.1;y<H*.92;y+=Math.max(7,H/28)){const x=W*(.05+col*.235),w=W*.2*(R()<.12?.5:1);g.beginPath();g.moveTo(x,y);g.lineTo(x+w,y);g.stroke()}
     g.globalAlpha=1;const cx=W*(.55+R()*.15),cy=H*.48,rr=m*.36;
-    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);paintMotif(g,a,rr*2,rr*2,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);fillPiece(g,a,rr*2,rr*2,C,R);g.restore();
     g.strokeStyle=C.main;g.lineWidth=Math.max(4,m*.035);g.beginPath();g.arc(cx,cy,rr,0,7);g.stroke();
     g.save();g.translate(W*.2,H*.72);g.rotate(-.18);g.strokeStyle=lal;g.lineWidth=3;g.strokeRect(-W*.12,-H*.1,W*.24,H*.2);
     if(!small){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.cat,0,0)}g.restore();g.textAlign="start";
   }else{ /* frame: thick stamp border, word overprinted */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
     g.save();g.translate(W/2,H/2);g.rotate((R()-.5)*.08);const fw=W*.74,fh=H*.74;
-    g.fillStyle=paper;g.fillRect(-fw/2,-fh/2,fw,fh);g.save();g.beginPath();g.rect(-fw/2,-fh/2,fw,fh);g.clip();g.translate(-fw/2,-fh/2);paintMotif(g,a,fw,fh,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.fillStyle=paper;g.fillRect(-fw/2,-fh/2,fw,fh);g.save();g.beginPath();g.rect(-fw/2,-fh/2,fw,fh);g.clip();g.translate(-fw/2,-fh/2);fillPiece(g,a,fw,fh,C,R);g.restore();
     g.strokeStyle=C.main;g.lineWidth=Math.max(6,m*.05);g.strokeRect(-fw/2,-fh/2,fw,fh);g.restore();
     halftone(g,0,H*.78,W,H*.22,step,C.main,R,.5);
     if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.18)}px ${F1}`;g.fillStyle=C.main;g.globalAlpha=.92;g.textBaseline="alphabetic";g.fillText(w,W*.08,H*.9);g.globalAlpha=1}
   }
+  if(a.word){ /* शब्द-चित्र: collage shows only through the letters */
+    let fs=H*1.02;g.font=`${fs}px ${F1}`;let tw=g.measureText(a.word).width;if(tw>W*.96){fs*=W*.96/tw;g.font=`${fs}px ${F1}`;tw=g.measureText(a.word).width}
+    g.globalCompositeOperation="destination-in";g.fillStyle="#000";g.textBaseline="alphabetic";g.fillText(a.word,(W-tw)/2,H*.5+fs*.36);
+    g.globalCompositeOperation="destination-over";g.fillStyle=paper;g.fillRect(0,0,W,H);g.globalCompositeOperation="source-over";return}
   if(variant!==1&&variant!==4&&R()<.45){g.fillStyle=lal;g.globalAlpha=.9;g.beginPath();g.arc(W*(.62+R()*.2),H*(.18+R()*.15),m*(.06+R()*.04),0,7);g.fill();g.globalAlpha=1}
 }
 function drawAll(){document.querySelectorAll("canvas.art").forEach(draw)}
