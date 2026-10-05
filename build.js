@@ -130,7 +130,8 @@ const lead = (L, kick) => `<section class="lead"><a href="${href(L)}" tabindex="
 /* poster-style hero: split headline, diagonal art panel, big figures, drop-cap opening */
 function splitHead(h) {
   let i = h.indexOf(":"); if (i < 0) i = h.indexOf(",");
-  if (i > 0 && i < h.length - 4) return [h.slice(0, i + 1), h.slice(i + 1).trim()];
+  /* Teko में कोलन बहुत छोटा दिखता है; लाल-काले रंग का बंटवारा ही विराम का काम करता है, इसलिए कोलन हटा देते हैं */
+  if (i > 0 && i < h.length - 4) return [h.slice(0, h[i] === ":" ? i : i + 1).trim(), h.slice(i + 1).trim()];
   const w = h.split(" "); return [w.slice(0, 2).join(" "), w.slice(2).join(" ")];
 }
 const heroText = (L, kick) => { const [a1, a2] = splitHead(L.h); return `

@@ -85,14 +85,16 @@ def make(a):
     kick = font("NotoSansDevanagari.ttf", 26, 700)
     d.text((62, 128), a["cat"], font=kick, fill=col)
     # headline: first part (before colon/comma) in red, rest in ink
+    # Teko का कोलन बहुत छोटा दिखता है: लाल हिस्से के बाद का कोलन हटा दें, रंग ही विराम है
+    h0 = a["h"]; a = dict(a, h=h0.replace(":", "", 1))
     f, lines, size = None, None, None
     for s_ in [96, 88, 80, 72, 64, 58]:
         f, lines, size = fit_headline(d, a["h"], 600, 4, [s_])
         if len(lines) * int(s_ * 1.02) <= 360 and not lines[-1].endswith("…"): break
     y = 172; lh = int(size * 1.02)
-    cut = a["h"].find(":")
-    if cut < 0: cut = a["h"].find(",")
-    red_words = a["h"][:cut + 1].split() if 0 < cut < len(a["h"]) - 4 else []
+    cut = h0.find(":")
+    if cut < 0: cut = h0.find(",")
+    red_words = h0[:cut + 1].split() if 0 < cut < len(h0) - 4 else []
     n = 0
     for ln in lines:
         x = 60
