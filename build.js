@@ -210,8 +210,11 @@ out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
 out("art.js", fs.readFileSync("src/art.js", "utf8"));
 out("client.js", fs.readFileSync("src/client.js", "utf8"));
-for (const f of fs.readdirSync("public", { recursive: true })) {
-  const src = path.join("public", f); if (fs.statSync(src).isFile()) { const dst = path.join("dist", f); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(src, dst); }
-}
+(function copyDir(from, to) {
+  for (const f of fs.readdirSync(from)) {
+    const src = path.join(from, f), dst = path.join(to, f);
+    if (fs.statSync(src).isDirectory()) copyDir(src, dst); else { fs.mkdirSync(to, { recursive: true }); fs.copyFileSync(src, dst); }
+  }
+})("public", "dist");
 out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length));
 console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप्पणियां, ${CATS.length} श्रेणियां`);
