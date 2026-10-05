@@ -12,19 +12,39 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const M = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
 const d = new Date(day + "T00:00:00Z"), label = `${d.getUTCDate()} ${M[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 
+const short = a => `${SITE}/k/${a.id.slice(2).replace(/-/g, "")}`;
+const cut = (t, n) => t.length > n ? t.slice(0, n - 1).trim() + "…" : t;
+
 async function telegram() {
   if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return console.log("Telegram: secret नहीं, छोड़ा");
   const lead = news[0];
-  const lines = [`<b>देशकाल · ${label}</b>`, "ज़रूरी ख़बरों तक जाती एक पगडंडी", "",
-    `<b>आज की बड़ी बहस</b>`, `<a href="${url(lead)}">${esc(lead.h)}</a>`, esc(lead.dek), "", `<i>आज का सवाल: ${esc(lead.sawal)}</i>`, "",
-    `<b>और ज़रूरी टिप्पणियां</b>`, ...news.slice(1, 9).map(a => `• <a href="${url(a)}">${esc(a.h)}</a>`), "",
-    ...(lit.length ? [`<b>साहित्य</b>`, ...lit.map(a => `• <a href="${url(a)}">${esc(a.h)}</a>`), ""] : []),
-    `पूरा अंक: ${SITE}`];
+  // छिपे लिंक Telegram पर "Open this link?" पूछते हैं, इसलिए हर लेख एक बटन है: एक टैप, सीधे साइट.
+  const text = [`<b>देशकाल · ${label}</b>`, "<i>ज़रूरी ख़बरों तक जाती एक पगडंडी</i>", "",
+    `<b>आज की बड़ी बहस</b>`, `<b>${esc(lead.h)}</b>`, esc(lead.dek), "", `<i>आज का सवाल: ${esc(lead.sawal)}</i>`, "",
+    "नीचे किसी भी शीर्षक को छू कर पूरा सार पढ़िए।"].join("\n");
+  const btn = (a, pre = "") => [{ text: cut(pre + a.h, 60), url: url(a) }];
+  const keyboard = [btn(lead, "▶ "), ...news.slice(1, 10).map(a => btn(a)), ...lit.slice(0, 3).map(a => btn(a, "साहित्य · ")), [{ text: "पूरा अंक देखें", url: SITE }]];
   const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: "POST", headers: { "content-type": "application/json" },
-    body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: lines.join("\n"), parse_mode: "HTML", link_preview_options: { url: url(lead), prefer_large_media: true } })
+    body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: "HTML", link_preview_options: { is_disabled: true }, reply_markup: { inline_keyboard: keyboard } })
   });
   console.log("Telegram:", r.status, r.ok ? "भेजा" : await r.text());
+}
+
+/* WhatsApp चैनल अपने आप पोस्ट नहीं होने देता, इसलिए रोज़ एक तैयार संदेश sampark@ पर आता है: कॉपी कर के चैनल में चिपकाइए. */
+async function whatsappDraft() {
+  if (!env.RESEND_API_KEY) return console.log("WhatsApp मसौदा: secret नहीं, छोड़ा");
+  const lead = news[0];
+  const msg = [`*देशकाल · ${label}*`, "_ज़रूरी ख़बरों तक जाती एक पगडंडी_", "",
+    `*आज की बड़ी बहस*`, `*${lead.h}*`, lead.dek, short(lead), "", `_आज का सवाल: ${lead.sawal}_`, "",
+    `*और ज़रूरी टिप्पणियां*`, ...news.slice(1, 9).flatMap(a => [`▪️ ${a.h}`, short(a)]), "",
+    ...(lit.length ? [`*साहित्य*`, ...lit.slice(0, 3).flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
+    `पूरा अंक: ${SITE}`].join("\n");
+  const html = `<div style="font-family:Arial,sans-serif;max-width:640px"><p style="color:#555">नीचे का संदेश पूरा कॉपी कर के WhatsApp चैनल में चिपकाइए। सितारे (*) WhatsApp में मोटे अक्षर बन जाएंगे।</p>
+<pre style="white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.6;background:#F1F2EE;padding:18px;border:1px solid #CFD2C8">${esc(msg)}</pre></div>`;
+  const r = await fetch("https://api.resend.com/emails", { method: "POST", headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ from: env.MAIL_FROM || "देशकाल <patra@deshkaal.xyz>", to: [env.ADMIN_EMAIL || "sampark@deshkaal.xyz"], subject: `WhatsApp के लिए तैयार: देशकाल · ${label}`, html, text: msg }) });
+  console.log("WhatsApp मसौदा:", r.status);
 }
 
 async function newsletter() {
@@ -56,4 +76,4 @@ ${lit.length ? `<div style="font-size:26px;font-weight:800;margin:26px 0 4px">�
   const s = await fetch(`https://api.resend.com/broadcasts/${cj.id}/send`, { method: "POST", headers: H, body: "{}" });
   console.log("न्यूज़लेटर:", s.status, s.ok ? "भेजा" : await s.text());
 }
-(async () => { await telegram(); await newsletter(); })().catch(e => { console.error(e); process.exit(1); });
+(async () => { await telegram(); await newsletter(); await whatsappDraft(); })().catch(e => { console.error(e); process.exit(1); });

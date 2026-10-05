@@ -9,11 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - name: क्या नया अंक आया है? (पुराने अंक में सुधार पर दोबारा नहीं भेजना)
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || git diff --name-only --diff-filter=A HEAD~1 HEAD -- data/days | grep -q .; then echo "new=yes" >> "$GITHUB_OUTPUT"; else echo "new=no" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-node@v4
+        if: steps.check.outputs.new == 'yes'
         with: { node-version: 20 }
       - name: साइट के अपडेट होने का इंतज़ार
+        if: steps.check.outputs.new == 'yes'
         run: sleep 180
-      - name: Telegram और न्यूज़लेटर
+      - name: Telegram, न्यूज़लेटर और WhatsApp मसौदा
+        if: steps.check.outputs.new == 'yes'
         run: node scripts/broadcast.js
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

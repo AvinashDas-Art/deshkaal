@@ -45,7 +45,7 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "" }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F1F2EE">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="देशकाल">
@@ -78,7 +78,7 @@ ${extraHead}
   <footer>
     <span class="mast small" aria-label="देशकाल"><span class="w">देशकाल</span></span>
     <span>यहां छपे सार देशकाल का अपना लेखन हैं। मूल लेख और उनके अधिकार मूल लेखकों और प्रकाशकों के हैं, हर पन्ने पर उनका लिंक दिया गया है। हम सिर्फ़ वही लेख चुनते हैं जो बिना सब्सक्रिप्शन के पढ़े जा सकते हैं।</span>
-    <span><a href="/niti/" style="color:var(--geru)">हमारी संपादकीय नीति</a> · <a href="/purane/" style="color:var(--geru)">आर्काइव</a> · <a href="/feed.xml" style="color:var(--geru)">RSS</a></span>
+    <span><a href="/niti/" style="color:var(--geru)">हमारी संपादकीय नीति</a> · <a href="/purane/" style="color:var(--geru)">आर्काइव</a></span>
   </footer>
 </div>
 <nav class="tabbar" aria-label="ऐप नेविगेशन">

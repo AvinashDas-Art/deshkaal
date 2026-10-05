@@ -8,7 +8,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 ## Steps
 1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md` and this file.
 2. Collect candidates published in the last 72 hours from the sources in `SOURCES.md` (WebFetch the listed opinion/section pages; WebSearch to fill gaps). Skip anything already in `data/days/*.json` (match on `url`).
-3. Select **15-16 news/opinion pieces + 3 literature pieces**, scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces.
+3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces.
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
 5. Write `data/days/YYYY-MM-DD.json` (schema below). Order: strongest India-relevant piece first (becomes the lead), literature last.
 6. Run `node build.js`. It must finish without errors.
@@ -70,3 +70,6 @@ Give the lead piece, and any other piece where a strong human image exists, a re
 
 ## Sunday special (रविवार विशेष)
 On Sundays, also pick the five most important pieces of the week from the last 7 day files and list their ids in `data/weekly/YYYY-MM-DD.json` as `{"ids": [...], "intro": "दो-तीन वाक्य"}`.
+
+## Literature: always six
+jankipul.com and samalochan.com often refuse the cloud fetcher (robots.txt time-outs). Try each once (homepage, then /feed). If blocked, use WebSearch for the site name plus this week to find new posts and their URLs, and WebFetch the post URL directly. If a source still cannot be read, take more pieces from sammukh.com and hindwi.org (homepage lists the newest बेला posts). Never summarise a piece you could not read. Literature pieces may be up to 3 weeks old.
