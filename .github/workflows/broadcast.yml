@@ -1,0 +1,22 @@
+name: देशकाल रोज़ का प्रसारण
+on:
+  push:
+    branches: [main]
+    paths: ["data/days/**"]
+  workflow_dispatch: {}
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: साइट के अपडेट होने का इंतज़ार
+        run: sleep 180
+      - name: Telegram और न्यूज़लेटर
+        run: node scripts/broadcast.js
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}

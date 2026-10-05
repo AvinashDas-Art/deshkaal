@@ -46,14 +46,27 @@ $("#who").onclick=()=>{user?location.href="/mera/":openSheet()};
 $("#si-x").onclick=closeSheet;
 ov.addEventListener("click",e=>{if(e.target===ov)closeSheet()});
 addEventListener("keydown",e=>{if(e.key==="Escape"&&!ov.hidden)closeSheet()});
-$("#sif").onsubmit=e=>{e.preventDefault();
-  user={name:$("#si-name").value.trim()||"पाठक",email:$("#si-mail").value.trim()};
-  store.set("dk-user",JSON.stringify(user));closeSheet();setWho();paintSaves();renderMine();renderLast()};
+const note=$("#sif .note");
+$("#sif").onsubmit=async e=>{e.preventDefault();
+  const name=$("#si-name").value.trim()||"पाठक", email=$("#si-mail").value.trim();
+  const btn=$("#sif .btn");btn.disabled=true;note.textContent="भेजा जा रहा है…";
+  try{const r=await fetch("/api/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({name,email})});const d=await r.json().catch(()=>({}));
+    if(r.ok){note.textContent=d.msg;btn.disabled=false;return}
+    if(!d.offline){note.textContent=d.msg||"कुछ गड़बड़ हुई, थोड़ी देर बाद फिर कोशिश कीजिए।";btn.disabled=false;return}
+  }catch(err){}
+  /* सर्वर तैयार न हो तो इसी फ़ोन/कंप्यूटर पर */
+  user={name,email,local:true};store.set("dk-user",JSON.stringify(user));btn.disabled=false;closeSheet();setWho();paintSaves();renderMine();renderLast()};
+async function syncUp(){if(user&&!user.local){try{await fetch("/api/me",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({saved,favs})})}catch(e){}}}
+async function syncDown(){try{const r=await fetch("/api/me",{credentials:"same-origin"});if(!r.ok)return;const d=await r.json();
+  user={name:d.name,email:d.email};store.set("dk-user",JSON.stringify(user));
+  const merged=[...d.saved];saved.forEach(x=>{if(!merged.some(y=>y.id===x.id))merged.push(x)});saved=merged;store.set("dk-saved2",JSON.stringify(saved));
+  favs=d.favs.length?d.favs:favs;store.set("dk-fav",JSON.stringify(favs));
+  setWho();paintSaves();renderMine();renderLast();if(merged.length!==d.saved.length)syncUp()}catch(e){}}
 function paintSaves(){$$("[data-save]").forEach(b=>{const on=saved.some(x=>x.id===b.dataset.save);b.setAttribute("aria-pressed",on);b.textContent=on?"✓ सहेजा गया":"+ सहेजें"})}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-save]");if(!b)return;e.preventDefault();
   if(!user){openSheet();return}
   const id=b.dataset.save;saved=saved.some(x=>x.id===id)?saved.filter(x=>x.id!==id):[{id,h:b.dataset.h},...saved];
-  store.set("dk-saved2",JSON.stringify(saved));paintSaves()});
+  store.set("dk-saved2",JSON.stringify(saved));paintSaves();syncUp()});
 function renderLast(){const el=$("#lastread");if(!el)return;const l=J("dk-last",null);
   if(user&&l){el.hidden=false;el.innerHTML=`<span>${esc(user.name.split(" ")[0])}, आप पिछली बार ये पढ़ रहे थे:</span><a href="/lekh/${esc(l.id)}/">${esc(l.h)}</a>`}}
 function renderMine(){const el=$("#mine");if(!el)return;
@@ -63,8 +76,8 @@ function renderMine(){const el=$("#mine");if(!el)return;
     <h4>पसंद की श्रेणियां</h4><div class="favs">${cats.map(c=>`<label><input type="checkbox" data-fav="${c}" ${favs.includes(c)?"checked":""}>${c}</label>`).join("")}</div>
     <h4>सहेजे गये लेख</h4>${saved.length?`<div class="more" style="border:0;margin:0;padding:0">${saved.map(a=>`<a href="/lekh/${esc(a.id)}/">${esc(a.h)}</a>`).join("")}</div>`:`<p style="color:var(--ink-2)">अभी कोई लेख नहीं सहेजा। किसी भी लेख पर "+ सहेजें" दबाइए।</p>`}
     <div class="acts" style="margin-top:28px"><button class="ghost" id="out">साइन आउट</button></div>`;
-  $$("[data-fav]").forEach(c=>c.onchange=()=>{favs=$$("[data-fav]:checked").map(x=>x.dataset.fav);store.set("dk-fav",JSON.stringify(favs))});
-  $("#out").onclick=()=>{user=null;store.set("dk-user","null");setWho();renderMine()};
+  $$("[data-fav]").forEach(c=>c.onchange=()=>{favs=$$("[data-fav]:checked").map(x=>x.dataset.fav);store.set("dk-fav",JSON.stringify(favs));syncUp()});
+  $("#out").onclick=async()=>{try{await fetch("/api/logout",{method:"POST"})}catch(e){}user=null;store.set("dk-user","null");setWho();renderMine()};
 }
 
 /* आर्काइव में खोज */
@@ -77,7 +90,9 @@ if(aq){let acat="सब";
   aq.oninput=run;$$("[data-ac]").forEach(b=>b.onclick=()=>{acat=b.dataset.ac;$$("[data-ac]").forEach(x=>x.setAttribute("aria-pressed",x===b));run()});run()}
 
 /* न्यूज़लेटर (सेवा जुड़ने तक) */
-const sf=$("#subf");if(sf)sf.onsubmit=e=>{e.preventDefault();$("#subnote").textContent="शुक्रिया। न्यूज़लेटर शुरू होते ही आपको पहला अंक मिलेगा।"};
+const sf=$("#subf");if(sf)sf.onsubmit=async e=>{e.preventDefault();const n=$("#subnote");n.textContent="जोड़ा जा रहा है…";
+  try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:$("#email").value})});const d=await r.json();n.textContent=d.msg||"शुक्रिया।";if(r.ok)sf.reset()}
+  catch(err){n.textContent="अभी जुड़ नहीं पाये, थोड़ी देर बाद फिर कोशिश कीजिए।"}};
 
 /* ऐप की तरह */
 let deferredInstall=null;
@@ -85,5 +100,6 @@ addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstall=e;
 const ib=$("#install");if(ib)ib.onclick=()=>{deferredInstall&&deferredInstall.prompt()};
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 
-setWho();paintSaves();renderLast();renderMine();applySize();applyMode();
+setWho();paintSaves();renderLast();renderMine();applySize();applyMode();syncDown();
+if(/link=expired/.test(location.search)){const m=$("#mine");if(m)m.insertAdjacentHTML("afterbegin",`<p class="note">ये लिंक पुराना हो गया है। फिर से साइन इन कीजिए।</p>`)}
 document.fonts&&document.fonts.ready.then(()=>typeof drawAll==="function"&&drawAll());

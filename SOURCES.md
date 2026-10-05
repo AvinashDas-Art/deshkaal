@@ -22,11 +22,12 @@ Only free-to-read sources. Re-check a source if it starts showing a paywall, and
 - People's Dispatch: https://peoplesdispatch.org
 - Global Voices: https://globalvoices.org
 
-## साहित्य
-- सम्मुख: https://sammukh.com
-- हिंदवी (बेला): https://www.hindwi.org
-- समालोचन: https://samalochan.com
-- जानकीपुल: https://jankipul.com
+## साहित्य (3-4 pieces daily; try every source, use what opens)
+- सम्मुख: https://sammukh.com (homepage lists newest posts; reliable)
+- हिंदवी (बेला): https://www.hindwi.org (use the HOMEPAGE, it lists the latest बेला posts with links; /blog returns errors)
+- समालोचन: https://samalochan.com (often times out for the run's tools; try once, then try a WebSearch for "समालोचन" + this week)
+- जानकीपुल: https://jankipul.com (often times out; try https://jankipul.com/feed once, then WebSearch)
+Prefer essays, criticism, memoir and reviews. Poems and stories: describe and link, never reproduce. Skip deeply personal trauma writing unless the author frames it publicly.
 
 ## Not used
 - Frontline: mostly behind a subscription.

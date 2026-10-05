@@ -101,7 +101,7 @@ ${extraHead}
     <form id="sif">
       <label for="si-name">नाम</label><input id="si-name" type="text" required autocomplete="name">
       <label for="si-mail">ईमेल</label><input id="si-mail" type="email" required autocomplete="email">
-      <p class="note">अभी ये जानकारी सिर्फ़ आपके इसी फ़ोन या कंप्यूटर में रहती है।</p>
+      <p class="note">पासवर्ड की ज़रूरत नहीं। आपके ईमेल पर साइन इन का एक लिंक आएगा।</p>
       <div class="acts"><button class="btn" type="submit">जुड़ें</button><button class="ghost" type="button" id="si-x">अभी नहीं</button></div>
     </form>
   </div>
