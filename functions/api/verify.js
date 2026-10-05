@@ -6,7 +6,7 @@ export async function onRequestGet({ request, env }) {
   if (!env.DB || !t) return bad();
   const row = await env.DB.prepare("SELECT email,name FROM tokens WHERE token=? AND exp>?").bind(t, Date.now()).first();
   if (!row) return bad();
-  await env.DB.prepare("DELETE FROM tokens WHERE token=?").bind(t).run();
+  // टोकन 30 मिनट तक दोबारा भी चल सकता है (ईमेल स्कैनर पहले खोल लें तो भी पाठक का क्लिक काम करे)
   await env.DB.prepare("INSERT INTO users(email,name,created) VALUES(?,?,?) ON CONFLICT(email) DO UPDATE SET name=excluded.name").bind(row.email, row.name, Date.now()).run();
   const sid = token(), days = 180;
   await env.DB.prepare("INSERT INTO sessions(sid,email,exp) VALUES(?,?,?)").bind(sid, row.email, Date.now() + days * 864e5).run();
