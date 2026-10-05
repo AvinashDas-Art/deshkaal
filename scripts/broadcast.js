@@ -28,7 +28,7 @@ async function telegram() {
 }
 
 async function newsletter() {
-  if (!env.RESEND_API_KEY || !env.RESEND_AUDIENCE_ID) return console.log("न्यूज़लेटर: secret नहीं, छोड़ा");
+  if (!env.RESEND_API_KEY) return console.log("न्यूज़लेटर: secret नहीं, छोड़ा");
   const row = a => `<tr><td style="padding:16px 0;border-top:1px solid #CFD2C8">
     <div style="font-size:13px;color:#B27D1E;font-weight:600">${esc(a.cat)} · ${esc(a.pub)}</div>
     <a href="${url(a)}" style="display:block;font-size:21px;line-height:1.4;color:#1F2126;text-decoration:none;font-weight:700;margin:4px 0">${esc(a.h)}</a>
@@ -50,7 +50,7 @@ ${lit.length ? `<div style="font-size:26px;font-weight:800;margin:26px 0 4px">�
 <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#555963">न्यूज़लेटर बंद करें</a></p></div></body></html>`;
   const H = { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" };
   const c = await fetch("https://api.resend.com/broadcasts", { method: "POST", headers: H, body: JSON.stringify({
-    audience_id: env.RESEND_AUDIENCE_ID, from: env.MAIL_FROM || "देशकाल <patra@deshkaal.xyz>", reply_to: env.MAIL_REPLY_TO || "sampark@deshkaal.xyz",
+    segment_id: env.RESEND_SEGMENT_ID || "e42dda3d-4db2-43ff-8c3d-15458393f636", from: env.MAIL_FROM || "देशकाल <patra@deshkaal.xyz>", reply_to: env.MAIL_REPLY_TO || "sampark@deshkaal.xyz",
     subject: `देशकाल · ${label}: ${lead.h}`, html, name: `देशकाल ${day}` }) });
   const cj = await c.json(); if (!c.ok) return console.log("न्यूज़लेटर बनाने में दिक़्क़त:", JSON.stringify(cj));
   const s = await fetch(`https://api.resend.com/broadcasts/${cj.id}/send`, { method: "POST", headers: H, body: "{}" });
