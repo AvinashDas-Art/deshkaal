@@ -26,7 +26,7 @@ if (!days.length) throw new Error("data/days में कोई दिन न�
 const today = days[0];
 
 /* ---------- layout ---------- */
-function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "" }) {
+function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "" }) {
   const full = title ? `${title} · देशकाल` : `देशकाल · ${TAGLINE}`;
   return `<!doctype html>
 <html lang="hi">
@@ -41,7 +41,15 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "" }
 <meta property="og:title" content="${esc(title || "देशकाल")}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITE}${url}">
-<meta property="og:image" content="${SITE}/og.png">
+<meta property="og:image" content="${SITE}${image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(title || "देशकाल")}">
+<meta property="og:locale" content="hi_IN">
+<meta name="twitter:title" content="${esc(title || "देशकाल")}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${SITE}${image}">${published ? `
+<meta property="article:published_time" content="${published}T07:00:00+05:30">` : ""}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F1F2EE">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -181,6 +189,15 @@ function catPage(c) {
   else { const [L, ...rest] = list; body = hero(L, "ताज़ा") + (rest.length ? `<section class="grid">${rest.map(card).join("")}</section>` : ""); }
   return layout({ title: c, desc: `${c}: देशकाल पर चुनी गयी टिप्पणियों के सार।`, url: `/shreni/${SLUG[c]}/`, body, tab: c === "साहित्य" ? "" : "", catOn: c });
 }
+const shareBlock = a => { const u = encodeURIComponent(SITE + href(a)), t = encodeURIComponent(a.h);
+  return `<div class="share" data-url="${SITE}${href(a)}" data-title="${esc(a.h)}"><span class="share-l">साझा कीजिए</span>
+    <button class="sh sh-native" type="button" hidden>साझा करें</button>
+    <a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a>
+    <a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a>
+    <a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a>
+    <a class="sh" href="https://www.linkedin.com/sharing/share-offsite/?url=${u}" target="_blank" rel="noopener">LinkedIn</a>
+    <button class="sh sh-copy" type="button">लिंक कॉपी</button></div>`; };
 function articlePage(a) {
   const others = all.filter(x => x.id !== a.id && x.cat === a.cat).concat(today.items.filter(x => x.id !== a.id && x.cat !== a.cat)).slice(0, 6);
   const data = { id: a.id, h: a.h, dek: a.dek, body: a.body };
@@ -191,6 +208,7 @@ function articlePage(a) {
     <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>
     <div class="meta"><span>मूल: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">▶ सुनें · ${listenMin(a)} मिनट</button>${saveBtn(a)}</span></div>
+    ${shareBlock(a)}
     <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">कोलाज: देशकाल${a.photo ? " · " + credit(a) : ""}</figcaption></figure>
     <div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>देशकाल की नज़र</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
@@ -198,11 +216,12 @@ function articlePage(a) {
     <aside class="box ref"><h5>संदर्भ</h5><dl>${a.ref.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl></aside>
     <a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>पूरा लेख पढ़ने के लिए यहां क्लिक करें</strong><span>${esc(a.pub)} पर, ${esc(a.lang)} में · मुफ़्त</span></a>
     <p class="fine">ये सार देशकाल का अपना लेखन है। मूल लेख के सारे अधिकार ${esc(a.pub)} के पास हैं।</p>
+    ${shareBlock(a)}
     <div class="more"><h6>आगे पढ़ें</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>
   </article>
   <script type="application/json" id="article-data">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>
   <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`;
-  return layout({ title: a.h, desc: a.dek, url: href(a), body, catOn: a.cat });
+  return layout({ title: a.h, desc: a.dek, url: href(a), body, catOn: a.cat, published: a.day, image: fs.existsSync(path.join("public", "og", a.id + ".png")) ? `/og/${a.id}.png` : "/og.png" });
 }
 function archivePage() {
   const body = `<section class="page2"><h2>आर्काइव</h2><p style="color:var(--ink-2);margin:0">देशकाल पर छपी हर टिप्पणी यहां तारीख़ के हिसाब से जमा होती है।</p>

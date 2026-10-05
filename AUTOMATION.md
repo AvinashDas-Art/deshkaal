@@ -11,9 +11,9 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces.
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
 5. Write `data/days/YYYY-MM-DD.json` (schema below). Order: strongest India-relevant piece first (becomes the lead), literature last.
-6. Run `node build.js`. It must finish without errors.
+6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors.
 7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय"` over the new day file must return nothing).
-8. Commit `data/days/YYYY-MM-DD.json` with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
+8. Commit `data/days/YYYY-MM-DD.json` and the new `public/og/*.png` files with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
 9. Report: number of pieces, sources used, sources that failed.
 
 ## Writing rules

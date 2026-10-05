@@ -100,6 +100,10 @@ addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstall=e;
 const ib=$("#install");if(ib)ib.onclick=()=>{deferredInstall&&deferredInstall.prompt()};
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 
+/* साझा करना */
+$$(".share").forEach(box=>{const url=box.dataset.url,title=box.dataset.title;const nb=box.querySelector(".sh-native");
+  if(navigator.share&&matchMedia("(pointer:coarse)").matches){nb.hidden=false;nb.onclick=()=>navigator.share({title,text:title,url}).catch(()=>{})}
+  const cb=box.querySelector(".sh-copy");cb.onclick=async()=>{try{await navigator.clipboard.writeText(url);cb.textContent="कॉपी हो गया"}catch(e){prompt("लिंक कॉपी कीजिए",url)}setTimeout(()=>cb.textContent="लिंक कॉपी",2000)}});
 setWho();paintSaves();renderLast();renderMine();applySize();applyMode();syncDown();
 if(/link=expired/.test(location.search)){const m=$("#mine");if(m)m.insertAdjacentHTML("afterbegin",`<p class="note">ये लिंक पुराना हो गया है। फिर से साइन इन कीजिए।</p>`)}
 document.fonts&&document.fonts.ready.then(()=>typeof drawAll==="function"&&drawAll());
