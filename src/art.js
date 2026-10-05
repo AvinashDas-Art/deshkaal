@@ -92,49 +92,79 @@ function torn(g,x,y,w,h,R,j){j=j||3;g.beginPath();
   for(let t=0;t<=h;t+=st)pt(x+w+(R()-.5)*j*2,y+t);
   for(let t=w;t>=0;t-=st)pt(x+t,y+h+(R()-.5)*j*2);
   for(let t=h;t>=0;t-=st)pt(x+(R()-.5)*j*2,y+t);g.closePath()}
+/* each category has its own ink; light and dark versions */
+const CATCOL={"देश":[["#B23A2E","#F2D8D2"],["#E8796C","#3B2421"]],"दुनिया":[["#2E3F8F","#DDE1F0"],["#9AA8EA","#262C45"]],"समाज":[["#A2650E","#F2E2C4"],["#DDA94F","#3A2E1C"]],"अर्थ":[["#2D6A4F","#D6EADF"],["#7CC4A0","#1D3329"]],"पर्यावरण":[["#5B7A1E","#E3ECCB"],["#A9C766","#2A331A"]],"स्त्री":[["#9A2F67","#F1D6E4"],["#E07DB0","#3A1F2E"]],"संस्कृति":[["#5A3E91","#E3DCF2"],["#B39AE6","#2C2440"]],"साहित्य":[["#6E4423","#EDDFD0"],["#D2A27A","#33261C"]]};
+function pickWords(a,R,n){const ws=a.h.replace(/[,:?।]/g,"").split(/\s+/).filter(w=>w.length>2&&!STOP.includes(w));if(!ws.length)ws.push(a.cat);
+  const out=[];n=Math.min(n,ws.length);let guard=0;while(out.length<n&&guard++<50){const w=ws[Math.floor(R()*ws.length)];if(!out.includes(w))out.push(w)}return out}
+function strip(g,R,w,x,y,fs,font,fill,txt){g.font=`${fs}px ${font}`;const tw=g.measureText(w).width;
+  g.save();g.translate(x,y);g.rotate((R()-.5)*.1);torn(g,-fs*.25,-fs*.95,tw+fs*.5,fs*1.35,R,1.5);g.fillStyle=fill;g.fill();
+  g.fillStyle=txt;g.textBaseline="alphabetic";g.fillText(w,0,0);g.restore()}
+function tape(g,x,y,deg,len,col){g.save();g.translate(x,y);g.rotate(deg*Math.PI/180);g.fillStyle=col;g.globalAlpha=.4;g.fillRect(-len/2,-8,len,16);g.restore();g.globalAlpha=1}
+function halftone(g,x,y,w,h,step,col,R,alpha){const fx=R()*6.28,fy=R()*6.28;g.fillStyle=col;g.globalAlpha=alpha||.85;
+  for(let yy=0;yy<h;yy+=step)for(let xx=0;xx<w;xx+=step){const t=.5+.5*Math.sin(xx/w*3+fx)*Math.cos(yy/h*2.4+fy);g.beginPath();g.arc(x+xx+step/2,y+yy+step/2,step*.48*t,0,7);g.fill()}g.globalAlpha=1}
+function motifPiece(g,a,x,y,w,h,rot,R,c){g.save();g.translate(x+w/2,y+h/2);g.rotate(rot);g.translate(-w/2,-h/2);
+  g.save();g.translate(3,4);torn(g,0,0,w,h,R);g.fillStyle=c.ink;g.globalAlpha=.16;g.fill();g.restore();g.globalAlpha=1;
+  torn(g,0,0,w,h,R);g.fillStyle=c.paper;g.fill();g.clip();paintMotif(g,a,w,h,rng(a.seed),c.paper,c.main,c.accent,c.soft,c.ink,c.soft);g.restore()}
 function draw(c){
   const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||""};
   const r=c.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
   const W=Math.max(1,Math.round(r.width)), H=Math.max(1,Math.round(r.height));
   c.width=W*d;c.height=H*d;const g=c.getContext("2d");g.scale(d,d);
   const cs=getComputedStyle(root),v=n=>cs.getPropertyValue(n).trim();
-  const paper=v("--paper"),bg=v("--paper-2"),neel=v("--neel"),haldi=v("--haldi"),soft=v("--haldi-soft"),ink=v("--ink"),nsoft=v("--neel-soft"),lal=v("--lal");
-  const R=rng(a.seed*7+3), small=W<200;
-  /* ground: newsprint with specks */
+  const paper=v("--paper"),bg=v("--paper-2"),ink=v("--ink"),lal=v("--lal"),haldi=v("--haldi");
+  const dark=cs.colorScheme.includes("dark")||root.dataset.theme==="dark"||(!root.dataset.theme&&matchMedia("(prefers-color-scheme: dark)").matches);
+  const pal=(CATCOL[a.cat]||CATCOL["दुनिया"])[dark?1:0];
+  const C={paper,ink,main:pal[0],soft:pal[1],accent:a.cat==="समाज"?lal:haldi};
+  const R=rng(a.seed*7+3), small=W<200, m=Math.min(W,H);
+  const pos=parseInt((a.id||"").slice(-2),10);const variant=Number.isFinite(pos)?(pos*5+1)%6:Math.abs(a.seed)%6;
+  const F1='"Yatra One", serif',F2='"Laila", serif',F3='"Noto Sans Devanagari", sans-serif';
   g.fillStyle=bg;g.fillRect(0,0,W,H);
   for(let i=0;i<W*H/900;i++){g.fillStyle=ink;g.globalAlpha=.05+R()*.06;g.fillRect(R()*W,R()*H,1.2,1.2)}g.globalAlpha=1;
-  /* piece B: halftone "print" panel */
-  const bx=W*(.5+R()*.08),by=H*(.05+R()*.06),bw=W*.44,bh=H*(.5+R()*.2);
-  g.save();g.translate(bx+bw/2,by+bh/2);g.rotate((R()*5+1)*Math.PI/180);g.translate(-bw/2,-bh/2);
-  torn(g,0,0,bw,bh,R,2.5);g.fillStyle=soft;g.fill();g.clip();
-  const step=Math.max(5,Math.round(W/70)),fx=R()*6.28,fy=R()*6.28;
-  for(let y=0;y<bh;y+=step)for(let x=0;x<bw;x+=step){
-    const t=.5+.5*Math.sin(x/bw*3+fx)*Math.cos(y/bh*2.4+fy);g.fillStyle=neel;g.globalAlpha=.85;
-    g.beginPath();g.arc(x+step/2,y+step/2,step*.48*t,0,7);g.fill()}
-  g.restore();g.globalAlpha=1;
-  /* piece A: the motif, on torn paper with a soft drop */
-  const ax=W*.05,ay=H*(.12+R()*.06),aw=W*.6,ah=H*.74,rot=(-1-R()*3)*Math.PI/180;
-  g.save();g.translate(ax+aw/2,ay+ah/2);g.rotate(rot);g.translate(-aw/2,-ah/2);
-  g.save();g.translate(3,4);torn(g,0,0,aw,ah,R);g.fillStyle=ink;g.globalAlpha=.16;g.fill();g.restore();g.globalAlpha=1;
-  torn(g,0,0,aw,ah,R);g.fillStyle=paper;g.fill();g.clip();
-  paintMotif(g,a,aw,ah,rng(a.seed),paper,neel,haldi,soft,ink,nsoft);
-  g.restore();
-  /* red stamp */
-  if(R()<.6){g.fillStyle=lal;g.globalAlpha=.9;g.beginPath();g.arc(W*(.6+R()*.1),H*(.62+R()*.1),Math.min(W,H)*(.07+R()*.05),0,7);g.fill();g.globalAlpha=1}
-  /* our own headline fragments as cut-out strips */
-  if(!small){
-    const ws=a.h.replace(/[,:?।]/g,"").split(/\s+/).filter(w=>w.length>2&&!STOP.includes(w));
-    const pick=[];if(!ws.length)ws.push(a.cat);const n=Math.min(2,ws.length);while(pick.length<n){const w=ws[Math.floor(R()*ws.length)];if(!pick.includes(w))pick.push(w)}
-    const fonts=['"Yatra One", serif','"Laila", serif','"Noto Sans Devanagari", sans-serif'];
-    pick.forEach((w,i)=>{const fs=Math.round(H*(i?.085:.12));g.font=`${i?500:400} ${fs}px ${fonts[(i+Math.floor(R()*3))%3]}`;
-      const tw=g.measureText(w).width,px=W*(.5+R()*.12),py=H*(.7+i*.15);
-      g.save();g.translate(px,py);g.rotate((R()-.5)*.12);
-      torn(g,-10,-fs*.95,tw+20,fs*1.35,R,1.5);g.fillStyle=i?ink:paper;g.fill();
-      g.fillStyle=i?paper:ink;g.textBaseline="alphabetic";g.fillText(w,0,0);g.restore()});
+  const step=Math.max(5,Math.round(W/70));
+  if(variant===0){ /* torn motif + halftone panel */
+    const bx=W*(.5+R()*.08),by=H*(.05+R()*.06),bw=W*.44,bh=H*(.5+R()*.2);
+    g.save();g.translate(bx+bw/2,by+bh/2);g.rotate((R()*5+1)*Math.PI/180);g.translate(-bw/2,-bh/2);torn(g,0,0,bw,bh,R,2.5);g.fillStyle=C.soft;g.fill();g.clip();halftone(g,0,0,bw,bh,step,C.main,R);g.restore();
+    const ax=W*.05,ay=H*(.12+R()*.06),aw=W*.6,ah=H*.74;motifPiece(g,a,ax,ay,aw,ah,(-1-R()*3)*Math.PI/180,R,C);
+    tape(g,ax+aw*.1,ay-6,-8,W*.1,haldi);
+    if(!small)pickWords(a,R,2).forEach((w,i)=>strip(g,R,w,W*(.5+R()*.1),H*(.72+i*.15),Math.round(H*(i?.085:.12)),i?F3:F1,i?ink:paper,i?paper:ink));
+  }else if(variant===1){ /* poster: colour field, circular cut-out */
+    g.fillStyle=C.main;g.fillRect(0,0,W,H);halftone(g,W*.45,0,W*.55,H,step,C.soft,R,.35);
+    const cx=W*(.36+R()*.06),cy=H*.5,rr=m*.38;
+    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);paintMotif(g,a,rr*2,rr*2,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.strokeStyle=paper;g.lineWidth=Math.max(3,m*.02);g.beginPath();g.arc(cx,cy,rr+m*.03,0,7);g.stroke();
+    if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.2)}px ${F1}`;g.fillStyle=paper;g.textBaseline="alphabetic";g.save();g.translate(W*.55,H*.88);g.rotate(-.04);g.fillText(w,0,0);g.restore()}
+  }else if(variant===2){ /* split: category block with oversized word */
+    g.fillStyle=C.main;g.fillRect(0,0,W*.42,H);
+    g.save();g.beginPath();g.rect(0,0,W*.42,H);g.clip();g.font=`${Math.round(H*.62)}px ${F1}`;g.fillStyle=C.soft;g.globalAlpha=.9;g.textBaseline="alphabetic";g.fillText(a.cat,-W*.04,H*.98);g.restore();g.globalAlpha=1;
+    motifPiece(g,a,W*.34,H*.12,W*.6,H*.72,(1+R()*2.5)*Math.PI/180,R,C);
+    tape(g,W*.36,H*.14,-30,W*.09,haldi);tape(g,W*.92,H*.8,-28,W*.09,haldi);
+    if(!small)strip(g,R,pickWords(a,R,1)[0],W*.06,H*.18,Math.round(H*.1),F2,paper,ink);
+  }else if(variant===3){ /* triptych: three torn strips of one picture */
+    g.fillStyle=C.soft;g.fillRect(0,0,W,H);
+    const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.scale(d,d);paintMotif(og,a,W,H,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);
+    const sw=W*.29;[0,1,2].forEach(k=>{const x=W*(.04+k*.32),y=H*(.08+(k%2)*.06),hh=H*.8;
+      g.save();g.translate(x+sw/2,y+hh/2);g.rotate((R()-.5)*.06);g.translate(-sw/2,-hh/2);
+      g.save();g.translate(3,4);torn(g,0,0,sw,hh,R);g.fillStyle=ink;g.globalAlpha=.15;g.fill();g.restore();g.globalAlpha=1;
+      torn(g,0,0,sw,hh,R);g.clip();g.drawImage(off,(x-W*.02)*d,y*d,sw*d,hh*d,0,0,sw,hh);g.restore();
+      tape(g,x+sw/2,y-4,(R()-.5)*20,sw*.4,haldi)});
+    if(!small)strip(g,R,pickWords(a,R,1)[0],W*.58,H*.9,Math.round(H*.11),F1,ink,paper);
+  }else if(variant===4){ /* newsprint: ruled columns, round photo, stamp */
+    g.strokeStyle=ink;g.globalAlpha=.18;g.lineWidth=1.5;
+    for(let col=0;col<4;col++)for(let y=H*.1;y<H*.92;y+=Math.max(7,H/28)){const x=W*(.05+col*.235),w=W*.2*(R()<.12?.5:1);g.beginPath();g.moveTo(x,y);g.lineTo(x+w,y);g.stroke()}
+    g.globalAlpha=1;const cx=W*(.55+R()*.15),cy=H*.48,rr=m*.36;
+    g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);paintMotif(g,a,rr*2,rr*2,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.strokeStyle=C.main;g.lineWidth=Math.max(4,m*.035);g.beginPath();g.arc(cx,cy,rr,0,7);g.stroke();
+    g.save();g.translate(W*.2,H*.72);g.rotate(-.18);g.strokeStyle=lal;g.lineWidth=3;g.strokeRect(-W*.12,-H*.1,W*.24,H*.2);
+    if(!small){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.cat,0,0)}g.restore();g.textAlign="start";
+  }else{ /* frame: thick stamp border, word overprinted */
+    g.fillStyle=C.soft;g.fillRect(0,0,W,H);
+    g.save();g.translate(W/2,H/2);g.rotate((R()-.5)*.08);const fw=W*.74,fh=H*.74;
+    g.fillStyle=paper;g.fillRect(-fw/2,-fh/2,fw,fh);g.save();g.beginPath();g.rect(-fw/2,-fh/2,fw,fh);g.clip();g.translate(-fw/2,-fh/2);paintMotif(g,a,fw,fh,rng(a.seed),paper,C.main,C.accent,C.soft,ink,C.soft);g.restore();
+    g.strokeStyle=C.main;g.lineWidth=Math.max(6,m*.05);g.strokeRect(-fw/2,-fh/2,fw,fh);g.restore();
+    halftone(g,0,H*.78,W,H*.22,step,C.main,R,.5);
+    if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.18)}px ${F1}`;g.fillStyle=C.main;g.globalAlpha=.92;g.textBaseline="alphabetic";g.fillText(w,W*.08,H*.9);g.globalAlpha=1}
   }
-  /* tape */
-  [[ax+aw*.1,ay-6,-8],[ax+aw*.86,ay+ah-10,10]].forEach(([x,y,deg])=>{g.save();g.translate(x,y);g.rotate(deg*Math.PI/180);g.fillStyle=haldi;g.globalAlpha=.38;g.fillRect(-W*.05,-8,W*.1,16);g.restore()});
-  g.globalAlpha=1;
+  if(variant!==1&&variant!==4&&R()<.45){g.fillStyle=lal;g.globalAlpha=.9;g.beginPath();g.arc(W*(.62+R()*.2),H*(.18+R()*.15),m*(.06+R()*.04),0,7);g.fill();g.globalAlpha=1}
 }
 function drawAll(){document.querySelectorAll("canvas.art").forEach(draw)}
 addEventListener("resize",()=>{clearTimeout(window.__t);window.__t=setTimeout(drawAll,120)});
