@@ -241,7 +241,7 @@ nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--
 .ank{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .ank div{display:flex;align-items:center;gap:12px;background:var(--lal);color:#fff;padding:8px 16px 8px 12px;max-width:340px}
 .ank b{font-family:var(--f-paint);font-weight:400;font-size:44px;line-height:1;white-space:nowrap}
-.ank span{font-family:var(--f-ui);font-size:14.5px;line-height:1.35}
+.ank span{font-family:var(--f-paint);font-size:19px;line-height:1.3}
 .hero .dek{font-family:var(--f-head);font-weight:300;font-size:clamp(20px,2vw,24px);line-height:1.6;color:var(--ink-2);margin:20px 0 0;max-width:34em}
 .hero-foot{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;margin-top:22px;align-items:start}
 .hero-open p{margin:0;font-size:17px;line-height:1.85}
@@ -302,3 +302,4 @@ nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--
 @media (max-width:699px){.hero .hero-h{font-size:clamp(46px,12.5vw,60px)}.ank b{font-size:38px}}
 /* tagline sized to the masthead */
 .tag{font-size:clamp(20px,3vw,32px);margin-top:4px}
+@media (max-width:699px){.ank span{font-size:16.5px}}
