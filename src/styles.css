@@ -223,3 +223,37 @@ footer{border-top:1px solid var(--rule);padding-block:28px 40px;font-family:var(
 .policy h4{font-size:15px;margin-top:34px}
 nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--neel)}
 .kicker a:hover{color:var(--neel)}
+
+/* hero (poster front page) */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.13fr);min-height:640px;padding-block:28px 44px;border-bottom:1px solid var(--rule);isolation:isolate}
+.hero-art{position:absolute;z-index:0;top:28px;bottom:44px;right:0;width:56%;clip-path:polygon(40% 0,100% 0,100% 100%,12% 100%)}
+.hero-art .art{width:100%;height:100%;aspect-ratio:auto}
+.hero-slash{position:absolute;z-index:1;top:28px;bottom:44px;right:0;width:56%;background:var(--lal);clip-path:polygon(37% 0,40% 0,12% 100%,9% 100%);pointer-events:none}
+.hero-text{position:relative;z-index:2;grid-column:1/2;min-width:0;width:94%}
+.hero-h{font-family:var(--f-head);font-weight:600;font-size:clamp(44px,5.6vw,84px);line-height:1.16;margin:4px 0 0;letter-spacing:-.005em;width:118%;text-wrap:balance}
+.hero-h .acc{color:var(--lal);display:block}
+.hero a:hover .hero-h{color:var(--neel)}
+.hero a:hover .hero-h .acc{color:var(--lal)}
+.ank{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.ank div{display:flex;align-items:center;gap:12px;background:var(--lal);color:#fff;padding:8px 16px 8px 12px;max-width:340px}
+.ank b{font-family:var(--f-paint);font-weight:400;font-size:44px;line-height:1}
+.ank span{font-family:var(--f-ui);font-size:14.5px;line-height:1.35}
+.hero .dek{font-family:var(--f-head);font-weight:300;font-size:clamp(20px,2vw,24px);line-height:1.6;color:var(--ink-2);margin:20px 0 0;max-width:34em}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;margin-top:22px;align-items:start}
+.hero-open p{margin:0;font-size:17px;line-height:1.85}
+.hero-open p::first-letter{font-family:var(--f-paint);font-size:3.4em;float:left;line-height:.9;padding:6px 10px 0 0;color:var(--lal)}
+.hero-more{display:inline-block;margin-top:8px;font-family:var(--f-ui);font-size:15px;color:var(--neel)}
+.hero .sawal{margin-top:0;border-top:0;padding-top:0}
+.hero .row{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:20px;font-family:var(--f-ui);font-size:14.5px;color:var(--ink-2)}
+@media (max-width:1023px){
+  .hero{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:0}
+  .hero-art,.hero-slash{position:relative;top:auto;bottom:auto;width:auto;margin-inline:-20px;height:min(62vw,440px);clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+  .hero-slash{position:absolute;top:0;left:0;right:0;height:min(62vw,440px);margin:0;clip-path:polygon(0 97%,100% 79%,100% 82%,0 100%)}
+  .hero-text{grid-column:1;margin-top:8px;width:auto}
+  .hero-h{width:auto;font-size:clamp(46px,7.4vw,70px)}
+}
+@media (max-width:699px){
+  .hero-foot{grid-template-columns:minmax(0,1fr)}
+  .ank b{font-size:36px}
+  .hero-h{font-size:clamp(36px,10vw,48px)}
+}

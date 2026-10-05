@@ -46,10 +46,13 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
     "body": ["अनुच्छेद", "..."],
     "nazar": ["..."],
     "sawal": "सवाल?",
-    "ref": [["शब्द", "दो लाइन की व्याख्या"]]
+    "ref": [["शब्द", "दो लाइन की व्याख्या"]],
+    "ank": [["700", "दिल्ली में हिरासत में लिये गये प्रदर्शनकारी"]]
   }
 ]
 ```
+`ank` (optional, lead piece only): one or two striking figures from the article, each a number plus a label under 8 words. They print as red blocks in the front-page hero. Use only figures stated in the article. The lead headline should have a natural break after a colon or comma: the part before it prints in red, the rest in black.
+
 `motif` picks the collage drawing; choose the one closest to the subject. `seed` is any number, different for each piece.
 
 ## Sunday special (रविवार विशेष)

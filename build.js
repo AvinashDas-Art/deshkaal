@@ -118,6 +118,25 @@ const lead = (L, kick) => `<section class="lead"><a href="${href(L)}" tabindex="
   <div><p class="kicker">${kick} · ${L.cat}</p><a href="${href(L)}"><h2>${esc(L.h)}</h2></a><p class="dek">${esc(L.dek)}</p>
     <div class="row"><span>मूल: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>पढ़ें ${readMin(L)} मिनट · सुनें ${listenMin(L)} मिनट</span>${saveBtn(L)}</div>
     <div class="sawal"><small>आज का सवाल</small><p>${esc(L.sawal)}</p></div></div></section>`;
+/* poster-style hero: split headline, diagonal art panel, big figures, drop-cap opening */
+function splitHead(h) {
+  let i = h.indexOf(":"); if (i < 0) i = h.indexOf(",");
+  if (i > 0 && i < h.length - 4) return [h.slice(0, i + 1), h.slice(i + 1).trim()];
+  const w = h.split(" "); return [w.slice(0, 2).join(" "), w.slice(2).join(" ")];
+}
+const hero = L => { const [a1, a2] = splitHead(L.h); return `<section class="hero">
+  <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>
+  <div class="hero-text">
+    <p class="kicker">आज की बड़ी बहस · ${L.cat}</p>
+    <a href="${href(L)}"><h2 class="hero-h"><span class="acc">${esc(a1)}</span> ${esc(a2)}</h2></a>
+    ${L.ank && L.ank.length ? `<div class="ank">${L.ank.slice(0, 2).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>` : ""}
+    <p class="dek">${esc(L.dek)}</p>
+    <div class="hero-foot">
+      <div class="hero-open"><p>${esc(L.body[0])}</p><a class="hero-more" href="${href(L)}">पूरा सार पढ़ें →</a></div>
+      <aside class="sawal"><small>आज का सवाल</small><p>${esc(L.sawal)}</p></aside>
+    </div>
+    <div class="row"><span>मूल: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>पढ़ें ${readMin(L)} मिनट · सुनें ${listenMin(L)} मिनट</span>${saveBtn(L)}</div>
+  </div></section>`; };
 const connect = `<section class="band">
   <div><h4>रविवार विशेष</h4><p>हफ़्ते की पांच सबसे ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ, हर रविवार।</p><div class="act"><span class="chip">हर रविवार सुबह</span></div></div>
   <div><h4>हर सुबह आपके पास</h4><p>सुबह 7 बजे की सारी टिप्पणियां, सीधे आपके ईमेल इनबॉक्स में।</p><div class="act"><form class="sub" id="subf"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="ईमेल"><button class="btn">जुड़ें</button></form></div><p class="note" id="subnote"></p></div>
@@ -132,7 +151,7 @@ const connect = `<section class="band">
 function homePage() {
   const news = today.items.filter(a => a.cat !== "साहित्य"), lits = today.items.filter(a => a.cat === "साहित्य");
   const [L, ...rest] = news, top = rest.slice(0, 8), tail = rest.slice(8);
-  const body = `<div class="lastread" id="lastread" hidden></div>${lead(L, "आज की बड़ी बहस")}
+  const body = `<div class="lastread" id="lastread" hidden></div>${hero(L)}
   <section class="grid">${top.map(card).join("")}</section>
   ${lits.length ? `<section class="litband"><div class="sechead"><h3>साहित्य</h3><p>कविता, कहानी, आलोचना और संस्मरण की दुनिया से, हर रोज़</p></div><div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
   ${tail.length ? `<section class="more-sec"><h3>आज की और टिप्पणियां</h3><div class="clist">${tail.map(a => `<article><a href="${href(a)}"><p class="kicker">${a.cat} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4></a><p class="src">${esc(a.by)} · पढ़ें ${readMin(a)} मिनट · ${saveBtn(a)}</p></article>`).join("")}</div></section>` : ""}
