@@ -260,7 +260,10 @@ out("purane/index.html", archivePage());
 out("mera/index.html", minePage());
 out("niti/index.html", policyPage());
 out("feed.xml", feed());
-out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["/", "/purane/", "/niti/", ...CATS.map(c => `/shreni/${SLUG[c]}/`), ...all.map(href)].map(u => `<url><loc>${SITE}${u}</loc></url>`).join("")}</urlset>`);
+{ const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
+  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"],
+    ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"])];
+  out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
 out("art.js", fs.readFileSync("src/art.js", "utf8"));
 out("client.js", fs.readFileSync("src/client.js", "utf8"));

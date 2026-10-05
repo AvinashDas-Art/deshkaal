@@ -8,7 +8,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 ## Steps
 1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md` and this file.
 2. Collect candidates published in the last 72 hours from the sources in `SOURCES.md` (WebFetch the listed opinion/section pages; WebSearch to fill gaps). Skip anything already in `data/days/*.json` (match on `url`).
-3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces.
+3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces. **Every day include at least 2 PARI (ruralindiaonline.org) reports** among the news pieces (see `SOURCES.md` for how to find them; up to 14 days old, never one already used). Place one in the top five.
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
 5. Write `data/days/YYYY-MM-DD.json` (schema below). Order: strongest India-relevant piece first (becomes the lead), literature last.
 6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors.

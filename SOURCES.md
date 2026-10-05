@@ -3,6 +3,10 @@
 Only free-to-read sources. Re-check a source if it starts showing a paywall, and drop it.
 
 ## भारत
+- **PARI, People's Archive of Rural India (हर दिन ज़रूरी, कम से कम 2 रिपोर्ट)**: https://ruralindiaonline.org
+  - Listing: the homepage and /articles are rendered by JavaScript, so WebFetch sees no list. Find new stories with WebSearch (`site:ruralindiaonline.org/article` plus this week's topics) or the X account @PARInetwork; if a browser is available, https://ruralindiaonline.org/articles lists the newest with dates.
+  - Article pages (`https://ruralindiaonline.org/article/<slug>`) DO open with WebFetch. Free to read, many in Hindi too.
+  - Ground reporting, often 1-3 weeks old: allowed up to 14 days old. Credit the reporter in `by`, `pub` = "PARI".
 - Scroll: https://scroll.in (opinion, politics)
 - The Wire: https://thewire.in/category/opinion/all (often needs WebSearch to find pieces)
 - Article 14: https://article-14.com
