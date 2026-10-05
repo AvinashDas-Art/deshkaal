@@ -2,7 +2,7 @@
 // data/days/*.json पढ़ कर dist/ में पूरी साइट लिखती है।
 const fs = require("fs"), path = require("path");
 const SITE = "https://deshkaal.xyz";
-const TAGLINE = "ख़बरों का शोर नहीं, अवाम के सवालों की आवाज़";
+const TAGLINE = "ज़रूरी ख़बरों तक जाती एक पगडंडी";
 const CATS = ["देश","दुनिया","समाज","अर्थ","पर्यावरण","स्त्री","संस्कृति","साहित्य"];
 const SLUG = {"देश":"desh","दुनिया":"duniya","समाज":"samaj","अर्थ":"arth","पर्यावरण":"paryavaran","स्त्री":"stri","संस्कृति":"sanskriti","साहित्य":"sahitya"};
 const MONTHS = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];

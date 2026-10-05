@@ -1,6 +1,6 @@
 # देशकाल
 
-**ख़बरों का शोर नहीं, अवाम के सवालों की आवाज़** · https://deshkaal.xyz
+**ज़रूरी ख़बरों तक जाती एक पगडंडी** · https://deshkaal.xyz
 
 A daily Hindi website that summarises left-leaning editorials from around the world, with a link to every original.
 

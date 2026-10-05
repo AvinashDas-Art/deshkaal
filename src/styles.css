@@ -1,9 +1,13 @@
+@font-face{font-family:"Teko";src:url(/fonts/Teko-SemiBold.ttf) format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Teko";src:url(/fonts/Teko-Medium.ttf) format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Teko";src:url(/fonts/Teko-Light.ttf) format("truetype");font-weight:300;font-display:swap}
 /* Layout: brush-lettered masthead on a red sun; lead (art + text), 8-card art grid, a literature band, a compact list; phone gets an app-style bottom bar */
 :root{
   --paper:#F1F2EE; --paper-2:#E6E8E1; --ink:#1F2126; --ink-2:#555963; --rule:#CFD2C8;
   --neel:#2E3F8F; --neel-soft:#DDE1F0; --haldi:#B27D1E; --haldi-soft:#F0E3C6;
   --geru:#A63E26; --lal:#CF3A2E;
   --f-paint:"Yatra One", "Laila", Georgia, serif;
+  --f-poster:"Teko", "Laila", sans-serif;
   --f-hand:"Kalam", "Noto Sans Devanagari", cursive;
   --f-head:"Laila", "Noto Serif Devanagari", Georgia, serif;
   --f-body:"Noto Serif Devanagari", "Nirmala UI", Georgia, serif;
@@ -287,3 +291,14 @@ nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--
 .chart .bar-l{fill:var(--ink-2);font-family:"Noto Sans Devanagari",sans-serif;font-size:20px;text-anchor:middle}
 .ank-note{margin:4px 0 0;font-family:var(--f-ui);font-size:15px;color:var(--lal)}
 @media (max-width:1023px){.hero-ank{grid-template-columns:minmax(0,1fr);gap:20px}.hero-ank .ank-chart{grid-row:1}}
+
+/* poster headline in Teko */
+.hero .hero-h{font-family:var(--f-poster);font-weight:600;font-size:clamp(58px,7.4vw,112px);line-height:1.02;letter-spacing:0}
+.hero-shabd .hero-h,.hero-ank .hero-h{font-size:clamp(48px,5.4vw,84px)}
+.ank b{font-family:var(--f-poster);font-weight:600;font-size:54px;line-height:.9;padding-top:4px}
+.hero a:hover .hero-h{color:var(--ink)} .hero a:hover .hero-h .acc{color:var(--lal)}
+.hero a:hover .hero-h{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-color:var(--lal)}
+@media (max-width:1023px){.hero .hero-h{font-size:clamp(52px,9.5vw,88px)}}
+@media (max-width:699px){.hero .hero-h{font-size:clamp(46px,12.5vw,60px)}.ank b{font-size:44px}}
+/* tagline sized to the masthead */
+.tag{font-size:clamp(20px,3vw,32px);margin-top:4px}
