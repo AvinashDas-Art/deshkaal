@@ -63,12 +63,11 @@ def photo(a):
     except Exception:
         return None
 
-def make(a):
+def make(a, ph=None):
     col = CAT.get(a["cat"], CAT["दुनिया"])
     img = Image.new("RGB", (W, H), PAPER); d = ImageDraw.Draw(img)
     # right panel: photo (toned) or halftone in the category colour, cut diagonally
     panel = Image.new("RGB", (W, H), col)
-    ph = photo(a)
     if ph:
         s = max(560 / ph.width, H / ph.height); ph = ph.resize((int(ph.width * s), int(ph.height * s)))
         g = ph.convert("L").convert("RGB"); tone = Image.new("RGB", g.size, col)
@@ -109,15 +108,25 @@ def make(a):
     return img
 
 def main():
+    """--all: सब दोबारा. --photos: सिर्फ़ तस्वीर वाले लेख, और तभी जब तस्वीर सचमुच डाउनलोड हो
+    (GitHub Actions में चलता है, जहां Unsplash तक पहुंच है; बनी हुई तस्वीर का निशान data/og-photo/<id> में रहता है)."""
     os.makedirs(OUT, exist_ok=True)
-    redo = "--all" in sys.argv
-    n = 0
+    redo, photos = "--all" in sys.argv, "--photos" in sys.argv
+    n, miss = 0, 0
     for f in sorted(glob.glob(os.path.join(ROOT, "data", "days", "*.json"))):
         for a in json.load(open(f, encoding="utf-8")):
-            out = os.path.join(OUT, a["id"] + ".png")
+            out = os.path.join(OUT, a["id"] + ".png"); mark = os.path.join(ROOT, "data", "og-photo", a["id"]); os.makedirs(os.path.dirname(mark), exist_ok=True)
+            if photos:
+                if not a.get("photo") or (os.path.exists(mark) and not redo): continue
+                ph = photo(a)
+                if ph is None: miss += 1; print("तस्वीर नहीं मिली:", a["id"]); continue
+                make(a, ph).save(out, optimize=True); open(mark, "w").write(a["photo"]["src"]); n += 1
+                continue
             if os.path.exists(out) and not redo: continue
-            make(a).save(out, optimize=True); n += 1
-    print(f"प्रिव्यू तस्वीरें बनीं: {n}")
+            ph = photo(a) if a.get("photo") else None
+            make(a, ph).save(out, optimize=True); n += 1
+            if ph is not None: open(mark, "w").write(a["photo"]["src"])
+    print(f"प्रिव्यू तस्वीरें बनीं: {n}" + (f", तस्वीर न मिलने से छूटीं: {miss}" if miss else ""))
 
 if __name__ == "__main__":
     main()

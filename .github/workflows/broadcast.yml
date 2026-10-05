@@ -19,7 +19,7 @@ jobs:
         with: { node-version: 20 }
       - name: साइट के अपडेट होने का इंतज़ार
         if: steps.check.outputs.new == 'yes'
-        run: sleep 180
+        run: sleep 300
       - name: Telegram, न्यूज़लेटर और WhatsApp मसौदा
         if: steps.check.outputs.new == 'yes'
         run: node scripts/broadcast.js
