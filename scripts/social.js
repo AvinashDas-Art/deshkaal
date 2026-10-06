@@ -110,6 +110,14 @@ async function next() {
 
 (async () => {
   if (!fbOn() && !igOn() && !DRY) return console.log("Facebook/Instagram: secret नहीं, छोड़ा");
+  // FB_PAGE_TOKEN में यूज़र टोकन भी चलेगा: उससे पेज का अपना टोकन यहीं मांग लिया जाता है.
+  if (fbOn() && !DRY) {
+    try {
+      const j = await (await fetch(`${G}/${env.FB_PAGE_ID}?fields=access_token&access_token=${encodeURIComponent(env.FB_PAGE_TOKEN)}`)).json();
+      if (j.access_token) { env.FB_PAGE_TOKEN = j.access_token; console.log("पेज टोकन मिला"); }
+      else if (j.error) console.log("पेज टोकन नहीं मिला:", j.error.message);
+    } catch (e) { console.log("पेज टोकन मांगने में दिक़्क़त:", e.message); }
+  }
   const mode = process.argv[2] || "next";
   try { mode === "morning" ? await morning() : await next(); }
   catch (e) { save(); console.error(e.message); process.exitCode = 1; }
