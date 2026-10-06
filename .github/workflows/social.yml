@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "45 1 * * *"
     - cron: "*/30 2-16 * * *"
+  push:
+    branches: [main]
+    paths: [".github/run-social"]   # इस फ़ाइल को बदलकर push करने से एक बार हाथ से चलता है (mode: next)
   workflow_dispatch:
     inputs:
       mode: { description: "morning या next", default: "next" }
