@@ -58,7 +58,8 @@ def photo(a):
     p = a.get("photo")
     if not p: return None
     try:
-        with urllib.request.urlopen(p["src"].replace("w=1400", "w=900"), timeout=20) as r:
+        req = urllib.request.Request(p["src"].replace("w=1400", "w=900"), headers={"User-Agent": "Mozilla/5.0 (deshkaal.xyz preview cards)"})
+        with urllib.request.urlopen(req, timeout=25) as r:
             return Image.open(io.BytesIO(r.read())).convert("RGB")
     except Exception:
         return None
