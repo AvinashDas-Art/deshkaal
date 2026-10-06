@@ -27,7 +27,7 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-      - name: क्या गया, दर्ज करना (साइट दोबारा नहीं बनती: [skip ci])
+      - name: "क्या गया, दर्ज करना (साइट दोबारा नहीं बनती, skip ci)"
         if: always()
         run: |
           git add data/social || true
