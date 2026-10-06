@@ -3,11 +3,19 @@
 const fs = require("fs"), path = require("path");
 const SITE = "https://deshkaal.xyz";
 const TAGLINE = "ज़रूरी ख़बरों तक जाती एक पगडंडी";
+/* चैनलों के लिंक: ख़ाली हों तो बटन "जल्द" दिखाते हैं */
+const CHANNELS = { whatsapp: "", telegram: "" };
 const CATS = ["देश","दुनिया","समाज","अर्थ","पर्यावरण","स्त्री","संस्कृति","साहित्य"];
 const SLUG = {"देश":"desh","दुनिया":"duniya","समाज":"samaj","अर्थ":"arth","पर्यावरण":"paryavaran","स्त्री":"stri","संस्कृति":"sanskriti","साहित्य":"sahitya"};
 const MONTHS = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
 const DAYS = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
 
+const CHAN_ICON = {
+  whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>',
+  telegram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.5c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg>' };
+const chanBtn = (k, label) => CHANNELS[k]
+  ? `<a class="chip chan chan-${k}" href="${CHANNELS[k]}" target="_blank" rel="noopener">${CHAN_ICON[k]}${label} पर जुड़ें</a>`
+  : `<span class="chip">${label} · जल्द</span>`;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dayLabel = d => { const t = new Date(d + "T00:00:00Z"); return `${DAYS[t.getUTCDay()]}, ${t.getUTCDate()} ${MONTHS[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
 const words = a => [a.h, a.dek, ...a.body, ...a.nazar].join(" ").split(/\s+/).length;
@@ -165,7 +173,7 @@ function hero(L, kick = "आज की बड़ी बहस") {
 const connect = `<section class="band">
   <div><h4>रविवार विशेष</h4><p>हफ़्ते की पांच सबसे ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ, हर रविवार।</p><div class="act"><span class="chip">हर रविवार सुबह</span></div></div>
   <div><h4>हर सुबह आपके पास</h4><p>सुबह 7 बजे की सारी टिप्पणियां, सीधे आपके ईमेल इनबॉक्स में।</p><div class="act"><form class="sub" id="subf"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="ईमेल"><button class="btn">जुड़ें</button></form></div><p class="note" id="subnote"></p></div>
-  <div><h4>चैनल पर भी</h4><p>नयी टिप्पणियां WhatsApp और Telegram पर भी, अपने आप, हर सुबह।</p><div class="act"><span class="chip">WhatsApp · जल्द</span><span class="chip">Telegram · जल्द</span></div></div>
+  <div><h4>चैनल पर भी</h4><p>हर सुबह की टिप्पणियां सीधे आपके फ़ोन पर। चैनल से जुड़िए।</p><div class="act">${chanBtn("whatsapp","WhatsApp")}${chanBtn("telegram","Telegram")}</div></div>
 </section>
 <section class="appband"><svg class="appicon" viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" rx="18" class="ai-bg"/><circle cx="36" cy="36" r="23" class="ai-sun"/><text x="36" y="36" text-anchor="middle" dominant-baseline="central" class="ai-t">दे</text></svg>
   <div><h4>देशकाल को फ़ोन पर ऐप की तरह रखिए</h4>

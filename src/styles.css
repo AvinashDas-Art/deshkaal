@@ -101,6 +101,11 @@ nav.cats .arch{color:var(--geru)}
 .band .act{margin-top:auto;padding-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;min-height:44px}
 .band .act .sub{margin:0;width:100%}
 .band .act .chip{display:inline-flex;align-items:center;height:40px;padding:0 16px}
+.chip.chan{gap:8px;text-decoration:none;color:var(--ink);border-color:currentColor;font-weight:600;transition:background .15s,color .15s}
+.chip.chan svg{width:18px;height:18px;flex:none}
+.chip.chan-whatsapp svg{color:#1f9d55}.chip.chan-telegram svg{color:#2a8bc9}
+.chip.chan:hover,.chip.chan:focus-visible{background:var(--ink);color:var(--paper)}
+.chip.chan:hover svg,.chip.chan:focus-visible svg{color:inherit}
 .sub{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .sub input,.search{flex:1 1 180px;min-width:0;font:16px var(--f-ui);padding:9px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:6px}
 .btn{background:var(--neel);color:var(--paper);border:0;border-radius:6px;padding:9px 18px;font-size:15.5px}
