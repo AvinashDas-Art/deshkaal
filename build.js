@@ -94,7 +94,7 @@ ${extraHead}
   <footer>
     <span class="mast small" aria-label="देशकाल"><span class="w">देशकाल</span></span>
     <span>यहां छपे सार देशकाल का अपना लेखन हैं। मूल लेख और उनके अधिकार मूल लेखकों और प्रकाशकों के हैं, हर पन्ने पर उनका लिंक दिया गया है। हम सिर्फ़ वही लेख चुनते हैं जो बिना सब्सक्रिप्शन के पढ़े जा सकते हैं।</span>
-    <span><a href="/niti/" style="color:var(--geru)">हमारी संपादकीय नीति</a> · <a href="/purane/" style="color:var(--geru)">आर्काइव</a></span>
+    <span><a href="/niti/" style="color:var(--geru)">हमारी संपादकीय नीति</a> · <a href="/nijta/" style="color:var(--geru)">निजता नीति</a> · <a href="/purane/" style="color:var(--geru)">आर्काइव</a></span>
   </footer>
 </div>
 <nav class="tabbar" aria-label="ऐप नेविगेशन">
@@ -244,16 +244,18 @@ function archivePage() {
 function minePage() {
   return layout({ title: "मेरा देशकाल", desc: "सहेजे गये लेख और पसंद की श्रेणियां।", url: "/mera/", body: `<section class="page2" id="mine" data-cats='${JSON.stringify(CATS)}'></section>`, tab: "mera" });
 }
-function policyPage() {
-  const md = fs.readFileSync("EDITORIAL.md", "utf8");
+function mdPage(file, title, desc, url, h2) {
+  const md = fs.readFileSync(file, "utf8");
   const html = md.split(/\n\n+/).map(b => {
     if (b.startsWith("# ")) return "";
     if (b.startsWith("## ")) return `<h4>${esc(b.slice(3))}</h4>`;
     if (/^- /m.test(b)) return `<ul>${b.split("\n").filter(l => l.startsWith("- ")).map(l => `<li>${esc(l.slice(2))}</li>`).join("")}</ul>`;
     return `<p>${esc(b)}</p>`;
   }).join("");
-  return layout({ title: "संपादकीय नीति", desc: "देशकाल किन टिप्पणियों को चुनता है और क्यों।", url: "/niti/", body: `<section class="page2 policy"><h2>हमारी संपादकीय नीति</h2>${html}</section>` });
+  return layout({ title, desc, url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>` });
 }
+const policyPage = () => mdPage("EDITORIAL.md", "संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "/niti/", "हमारी संपादकीय नीति");
+const privacyPage = () => mdPage("PRIVACY.md", "निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "/nijta/", "निजता नीति");
 function feed() {
   const items = all.slice(0, 40).map(a => `<item><title>${esc(a.h)}</title><link>${SITE}${href(a)}</link><guid>${SITE}${href(a)}</guid><pubDate>${new Date(a.day + "T01:30:00Z").toUTCString()}</pubDate><category>${esc(a.cat)}</category><description>${esc(a.dek)}</description></item>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>देशकाल</title><link>${SITE}/</link><description>${esc(TAGLINE)}</description><language>hi</language>${items}</channel></rss>`;
@@ -268,9 +270,10 @@ all.forEach(a => out(`lekh/${a.id}/index.html`, articlePage(a)));
 out("purane/index.html", archivePage());
 out("mera/index.html", minePage());
 out("niti/index.html", policyPage());
+out("nijta/index.html", privacyPage());
 out("feed.xml", feed());
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"],
+  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"],
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"])];
   out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
