@@ -29,7 +29,9 @@ const readMin = a => Math.max(1, Math.round(words(a) / 200));
 const listenMin = a => Math.max(1, Math.round(words(a) / 130));
 const href = a => `${PRE}/lekh/${a.id}/`;
 const hrefL = (a, l) => `${l === "hi" ? "" : "/" + l}/lekh/${a.id}/`;
-const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(a.photo.src)}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
+/* पेंटिंग वग़ैरह GitHub पर public/media/<id>.jpg में उतर आती हैं; हों तो वही, वरना मूल पता */
+const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : a.photo.src;
+const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(imgSrc(a))}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
 const credit = a => a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
 const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${esc(a.h)}" aria-pressed="false">${T.save}</button>`;
 

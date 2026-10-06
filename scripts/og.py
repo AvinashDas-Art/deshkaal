@@ -57,6 +57,9 @@ def halftone(img, box, col, step=14):
 def photo(a):
     p = a.get("photo")
     if not p: return None
+    local = os.path.join(ROOT, "public", "media", a["id"] + ".jpg")
+    if os.path.exists(local):
+        return Image.open(local).convert("RGB")
     try:
         req = urllib.request.Request(p["src"].replace("w=1400", "w=900"), headers={"User-Agent": "Mozilla/5.0 (deshkaal.xyz preview cards)"})
         with urllib.request.urlopen(req, timeout=25) as r:
