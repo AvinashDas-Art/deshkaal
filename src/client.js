@@ -3,17 +3,21 @@ const root=document.documentElement;
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const J=(k,d)=>{try{return JSON.parse(store.get(k))??d}catch(e){return d}};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const LG=document.documentElement.lang||"hi", PRE=LG==="hi"?"":"/"+LG;
+const TX={hi:{modes:["अपने आप","दिन","सीपिया","रात"],col:"रंग: ",listen:"▶ सुनें",stop:"■ रोकें",nolisten:"इस ब्राउज़र में सुनना उपलब्ध नहीं",saved:"✓ सहेजा गया",save:"+ सहेजें",hi:"नमस्ते, ",signin:"साइन इन",copied:"कॉपी हो गया",copy:"लिंक कॉपी",count:n=>`${n} टिप्पणियां`,none:"इस खोज से कोई टिप्पणी नहीं मिली। कोई और शब्द आज़माइए।",last:n=>`${n}, आप पिछली बार ये पढ़ रहे थे:`,mine:"मेरा देशकाल",mineP:"लेख सहेजने और अपना पहला पन्ना सजाने के लिए जुड़िए।",join:"जुड़ें",whose:n=>`${n} का देशकाल`,fav:"पसंद की श्रेणियां",savedH:"सहेजे गये लेख",noSaved:'अभी कोई लेख नहीं सहेजा। किसी भी लेख पर "+ सहेजें" दबाइए।',out:"साइन आउट",speech:"hi-IN"},
+ en:{modes:["auto","day","sepia","night"],col:"Colour: ",listen:"▶ Listen",stop:"■ Stop",nolisten:"Listening is not available in this browser",saved:"✓ Saved",save:"+ Save",hi:"Hello, ",signin:"Sign in",copied:"Copied",copy:"Copy link",count:n=>`${n} pieces`,none:"Nothing found. Try another word.",last:n=>`${n}, you were last reading:`,mine:"My Deshkaal",mineP:"Join to save pieces and arrange your own front page.",join:"Join",whose:n=>`${n}'s Deshkaal`,fav:"Favourite sections",savedH:"Saved pieces",noSaved:'Nothing saved yet. Press "+ Save" on any piece.',out:"Sign out",speech:"en-IN"},
+ ur:{modes:["خود بخود","دن","سیپیا","رات"],col:"رنگ: ",listen:"▶ سنیں",stop:"■ روکیں",nolisten:"اس براؤزر میں سننا دستیاب نہیں",saved:"✓ محفوظ",save:"+ محفوظ کریں",hi:"آداب، ",signin:"سائن اِن",copied:"کاپی ہو گیا",copy:"لنک کاپی",count:n=>`${n} تبصرے`,none:"اس تلاش سے کچھ نہیں ملا۔ کوئی اور لفظ آزمائیے۔",last:n=>`${n}، آپ پچھلی بار یہ پڑھ رہے تھے:`,mine:"میرا دیش کال",mineP:"مضامین محفوظ کرنے اور اپنا پہلا صفحہ سجانے کے لیے جڑیے۔",join:"جڑیں",whose:n=>`${n} کا دیش کال`,fav:"پسند کے زمرے",savedH:"محفوظ مضامین",noSaved:'ابھی کچھ محفوظ نہیں۔ کسی بھی مضمون پر "+ محفوظ کریں" دبائیے۔',out:"سائن آؤٹ",speech:"ur-PK"}}[LG]||{};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 /* रंग और अक्षर */
-const MODES=[["auto","अपने आप"],["day","दिन"],["sepia","सीपिया"],["night","रात"]];
+const MODES=[["auto",TX.modes[0]],["day",TX.modes[1]],["sepia",TX.modes[2]],["night",TX.modes[3]]];
 let mode=store.get("dk-mode")||"auto", size=+(store.get("dk-size2")||22);
 function applyMode(){
   root.removeAttribute("data-theme");root.removeAttribute("data-paper");
   if(mode==="day")root.dataset.theme="light";
   if(mode==="sepia"){root.dataset.theme="light";root.dataset.paper="sepia"}
   if(mode==="night")root.dataset.theme="dark";
-  const t=$("#theme");if(t)t.textContent="रंग: "+MODES.find(m=>m[0]===mode)[1];
+  const t=$("#theme");if(t)t.textContent=TX.col+MODES.find(m=>m[0]===mode)[1];
   if(typeof drawAll==="function")drawAll();
 }
 function applySize(){root.style.setProperty("--read",size+"px")}
@@ -26,12 +30,12 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>typeof 
 let speaking=false;
 function listen(a,btn){
   const ss=window.speechSynthesis;
-  if(!ss){btn.textContent="इस ब्राउज़र में सुनना उपलब्ध नहीं";return}
-  if(speaking){ss.cancel();speaking=false;btn.textContent="▶ सुनें";return}
+  if(!ss){btn.textContent=TX.nolisten;return}
+  if(speaking){ss.cancel();speaking=false;btn.textContent=TX.listen;return}
   const u=new SpeechSynthesisUtterance([a.h,a.dek,...a.body].join("। "));
-  u.lang="hi-IN";u.rate=.95;const hv=ss.getVoices().find(v=>v.lang&&v.lang.startsWith("hi"));if(hv)u.voice=hv;
-  u.onend=()=>{speaking=false;btn.textContent="▶ सुनें"};
-  ss.cancel();ss.speak(u);speaking=true;btn.textContent="■ रोकें";
+  u.lang=TX.speech;u.rate=.95;const hv=ss.getVoices().find(v=>v.lang&&v.lang.startsWith(TX.speech.slice(0,2)));if(hv)u.voice=hv;
+  u.onend=()=>{speaking=false;btn.textContent=TX.listen};
+  ss.cancel();ss.speak(u);speaking=true;btn.textContent=TX.stop;
 }
 const ART=$("#article-data")?JSON.parse($("#article-data").textContent):null;
 if(ART){const b=$("#listen");if(b)b.onclick=()=>listen(ART,b);store.set("dk-last",JSON.stringify({id:ART.id,h:ART.h}))}
@@ -39,7 +43,7 @@ if(ART){const b=$("#listen");if(b)b.onclick=()=>listen(ART,b);store.set("dk-last
 /* जुड़ना, सहेजना */
 let user=J("dk-user",null), saved=J("dk-saved2",[]), favs=J("dk-fav",[]);
 const ov=$("#ov");
-function setWho(){$("#who").textContent=user?("नमस्ते, "+user.name.split(" ")[0]):"साइन इन"}
+function setWho(){$("#who").textContent=user?(TX.hi+user.name.split(" ")[0]):TX.signin}
 function openSheet(){ov.hidden=false;$("#si-name").focus()}
 function closeSheet(){ov.hidden=true}
 $("#who").onclick=()=>{user?location.href="/mera/":openSheet()};
@@ -62,20 +66,20 @@ async function syncDown(){try{const r=await fetch("/api/me",{credentials:"same-o
   const merged=[...d.saved];saved.forEach(x=>{if(!merged.some(y=>y.id===x.id))merged.push(x)});saved=merged;store.set("dk-saved2",JSON.stringify(saved));
   favs=d.favs.length?d.favs:favs;store.set("dk-fav",JSON.stringify(favs));
   setWho();paintSaves();renderMine();renderLast();if(merged.length!==d.saved.length)syncUp()}catch(e){}}
-function paintSaves(){$$("[data-save]").forEach(b=>{const on=saved.some(x=>x.id===b.dataset.save);b.setAttribute("aria-pressed",on);b.textContent=on?"✓ सहेजा गया":"+ सहेजें"})}
+function paintSaves(){$$("[data-save]").forEach(b=>{const on=saved.some(x=>x.id===b.dataset.save);b.setAttribute("aria-pressed",on);b.textContent=on?TX.saved:TX.save})}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-save]");if(!b)return;e.preventDefault();
   if(!user){openSheet();return}
   const id=b.dataset.save;saved=saved.some(x=>x.id===id)?saved.filter(x=>x.id!==id):[{id,h:b.dataset.h},...saved];
   store.set("dk-saved2",JSON.stringify(saved));paintSaves();syncUp()});
 function renderLast(){const el=$("#lastread");if(!el)return;const l=J("dk-last",null);
-  if(user&&l){el.hidden=false;el.innerHTML=`<span>${esc(user.name.split(" ")[0])}, आप पिछली बार ये पढ़ रहे थे:</span><a href="/lekh/${esc(l.id)}/">${esc(l.h)}</a>`}}
+  if(user&&l){el.hidden=false;el.innerHTML=`<span>${esc(TX.last(user.name.split(" ")[0]))}</span><a href="${PRE}/lekh/${esc(l.id)}/">${esc(l.h)}</a>`}}
 function renderMine(){const el=$("#mine");if(!el)return;
-  if(!user){el.innerHTML=`<h2>मेरा देशकाल</h2><p style="color:var(--ink-2)">लेख सहेजने और अपना पहला पन्ना सजाने के लिए जुड़िए।</p><button class="btn" id="join">जुड़ें</button>`;$("#join").onclick=openSheet;return}
-  const cats=JSON.parse(el.dataset.cats);
-  el.innerHTML=`<h2>${esc(user.name)} का देशकाल</h2>
-    <h4>पसंद की श्रेणियां</h4><div class="favs">${cats.map(c=>`<label><input type="checkbox" data-fav="${c}" ${favs.includes(c)?"checked":""}>${c}</label>`).join("")}</div>
-    <h4>सहेजे गये लेख</h4>${saved.length?`<div class="more" style="border:0;margin:0;padding:0">${saved.map(a=>`<a href="/lekh/${esc(a.id)}/">${esc(a.h)}</a>`).join("")}</div>`:`<p style="color:var(--ink-2)">अभी कोई लेख नहीं सहेजा। किसी भी लेख पर "+ सहेजें" दबाइए।</p>`}
-    <div class="acts" style="margin-top:28px"><button class="ghost" id="out">साइन आउट</button></div>`;
+  if(!user){el.innerHTML=`<h2>${TX.mine}</h2><p style="color:var(--ink-2)">${TX.mineP}</p><button class="btn" id="join">${TX.join}</button>`;$("#join").onclick=openSheet;return}
+  const cats=JSON.parse(el.dataset.cats),catn=JSON.parse(el.dataset.catn||el.dataset.cats);
+  el.innerHTML=`<h2>${esc(TX.whose(user.name))}</h2>
+    <h4>${TX.fav}</h4><div class="favs">${cats.map((c,i)=>`<label><input type="checkbox" data-fav="${c}" ${favs.includes(c)?"checked":""}>${catn[i]}</label>`).join("")}</div>
+    <h4>${TX.savedH}</h4>${saved.length?`<div class="more" style="border:0;margin:0;padding:0">${saved.map(a=>`<a href="${PRE}/lekh/${esc(a.id)}/">${esc(a.h)}</a>`).join("")}</div>`:`<p style="color:var(--ink-2)">${TX.noSaved}</p>`}
+    <div class="acts" style="margin-top:28px"><button class="ghost" id="out">${TX.out}</button></div>`;
   $$("[data-fav]").forEach(c=>c.onchange=()=>{favs=$$("[data-fav]:checked").map(x=>x.dataset.fav);store.set("dk-fav",JSON.stringify(favs));syncUp()});
   $("#out").onclick=async()=>{try{await fetch("/api/logout",{method:"POST"})}catch(e){}user=null;store.set("dk-user","null");setWho();renderMine()};
 }
@@ -86,7 +90,7 @@ if(aq){let acat="सब";
   const run=()=>{const q=aq.value.trim();let n=0;
     $$(".arow").forEach(r=>{const ok=(acat==="सब"||r.dataset.cat===acat)&&(!q||r.textContent.includes(q));r.hidden=!ok;if(ok)n++});
     $$(".aday").forEach(d=>{d.hidden=!d.querySelector(".arow:not([hidden])")});
-    $("#acount").textContent=n?`${n} टिप्पणियां`:"इस खोज से कोई टिप्पणी नहीं मिली। कोई और शब्द आज़माइए।"};
+    $("#acount").textContent=n?TX.count(n):TX.none};
   aq.oninput=run;$$("[data-ac]").forEach(b=>b.onclick=()=>{acat=b.dataset.ac;$$("[data-ac]").forEach(x=>x.setAttribute("aria-pressed",x===b));run()});run()}
 
 /* न्यूज़लेटर (सेवा जुड़ने तक) */
@@ -103,7 +107,9 @@ if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWor
 /* साझा करना */
 $$(".share").forEach(box=>{const url=box.dataset.url,title=box.dataset.title;const nb=box.querySelector(".sh-native");
   if(navigator.share&&matchMedia("(pointer:coarse)").matches){nb.hidden=false;nb.onclick=()=>navigator.share({title,text:title,url}).catch(()=>{})}
-  const cb=box.querySelector(".sh-copy");cb.onclick=async()=>{try{await navigator.clipboard.writeText(url);cb.textContent="कॉपी हो गया"}catch(e){prompt("लिंक कॉपी कीजिए",url)}setTimeout(()=>cb.textContent="लिंक कॉपी",2000)}});
+  const cb=box.querySelector(".sh-copy");cb.onclick=async()=>{try{await navigator.clipboard.writeText(url);cb.textContent=TX.copied}catch(e){prompt("लिंक कॉपी कीजिए",url)}setTimeout(()=>cb.textContent=TX.copy,2000)}});
 setWho();paintSaves();renderLast();renderMine();applySize();applyMode();syncDown();
 if(/link=expired/.test(location.search)){const m=$("#mine");if(m)m.insertAdjacentHTML("afterbegin",`<p class="note">ये लिंक पुराना हो गया है। फिर से साइन इन कीजिए।</p>`)}
 document.fonts&&document.fonts.ready.then(()=>typeof drawAll==="function"&&drawAll());
+/* भाषा मेन्यू: बाहर क्लिक पर बंद */
+document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.contains(e.target))d.open=false});

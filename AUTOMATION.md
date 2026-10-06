@@ -6,14 +6,15 @@ This file is the instruction set for the daily scheduled run that publishes Desh
 Every day, finish by 07:00 IST. Sunday runs additionally write the weekly special (see below).
 
 ## Steps
-1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md` and this file.
+1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md`, `TRANSLATION.md` and this file.
 2. Collect candidates published in the last 72 hours from the sources in `SOURCES.md` (WebFetch the listed opinion/section pages; WebSearch to fill gaps). Skip anything already in `data/days/*.json` (match on `url`).
 3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces. **Every day include at least 2 PARI (ruralindiaonline.org) reports** among the news pieces (see `SOURCES.md` for how to find them; up to 14 days old, never one already used). Place one in the top five.
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
 5. Write `data/days/YYYY-MM-DD.json` (schema below). Order: strongest India-relevant piece first (becomes the lead), literature last.
+5a. **Translate** the day into English and Urdu: write `data/i18n/en/YYYY-MM-DD.json` and `data/i18n/ur/YYYY-MM-DD.json` exactly as `TRANSLATION.md` says (plain, natural English; easy everyday Urdu). Run the two languages as two parallel subagents if you can. Every item of the day file must be translated; check counts and ids with python. If time is short before 07:00, push the Hindi day first (step 8) and the translations in a second commit right after; the English and Urdu pages show only translated pieces.
 6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors. Cards for pieces with a `photo` will show the halftone here (Unsplash is not reachable from the run); the GitHub workflow `og-photos.yml` redraws them with the real photo within a couple of minutes of the push. Do not try to fix this in the run.
 7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय"` over the new day file must return nothing).
-8. Commit `data/days/YYYY-MM-DD.json` and the new `public/og/*.png` files with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
+8. Commit `data/days/YYYY-MM-DD.json`, `data/i18n/en/YYYY-MM-DD.json`, `data/i18n/ur/YYYY-MM-DD.json` and the new `public/og/*.png` files with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
 9. Report: number of pieces, sources used, sources that failed.
 
 ## Writing rules

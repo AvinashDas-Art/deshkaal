@@ -84,7 +84,7 @@ function paintMotif(g,a,W,H,R,bg,neel,haldi,soft,ink,nsoft){
   }
 
 }
-const STOP=["है","का","की","के","में","एक","और","से","को","पर","फिर","भी","क्यों","कौन","नहीं","अब","जब","तो","ये","वो","उनका","इन्हें","करने","जिस","दो","कोशिश","सिर्फ़","लगभग","बाद","तीन","साल","पहले","किसके","किसका","इसके","उसके","भरेगा","होने"];
+const STOP=["है","का","की","के","में","एक","और","से","को","पर","फिर","भी","क्यों","कौन","नहीं","अब","जब","तो","ये","वो","उनका","इन्हें","करने","जिस","दो","कोशिश","सिर्फ़","लगभग","बाद","तीन","साल","पहले","किसके","किसका","इसके","उसके","भरेगा","होने","the","and","for","with","from","that","this","are","was","has","have","its","into","not","but","who","what","why","how","when","after","over","than","their","they","them","our","you","your","kے","کے","کی","کا","میں","اور","سے","کو","پر","ہے","ایک","نہیں","بھی","یہ","وہ","تھا","تھی","ہیں","کیا","جو"];
 /* collage: torn paper pieces, halftone print, our own headline fragments, tape */
 function torn(g,x,y,w,h,R,j){j=j||3;g.beginPath();
   const st=7;let first=true;const pt=(px,py)=>{first?g.moveTo(px,py):g.lineTo(px,py);first=false};
@@ -94,7 +94,7 @@ function torn(g,x,y,w,h,R,j){j=j||3;g.beginPath();
   for(let t=h;t>=0;t-=st)pt(x+(R()-.5)*j*2,y+t);g.closePath()}
 /* each category has its own ink; light and dark versions */
 const CATCOL={"देश":[["#B23A2E","#F2D8D2"],["#E8796C","#3B2421"]],"दुनिया":[["#2E3F8F","#DDE1F0"],["#9AA8EA","#262C45"]],"समाज":[["#A2650E","#F2E2C4"],["#DDA94F","#3A2E1C"]],"अर्थ":[["#2D6A4F","#D6EADF"],["#7CC4A0","#1D3329"]],"पर्यावरण":[["#5B7A1E","#E3ECCB"],["#A9C766","#2A331A"]],"स्त्री":[["#9A2F67","#F1D6E4"],["#E07DB0","#3A1F2E"]],"संस्कृति":[["#5A3E91","#E3DCF2"],["#B39AE6","#2C2440"]],"साहित्य":[["#6E4423","#EDDFD0"],["#D2A27A","#33261C"]]};
-function pickWords(a,R,n){const ws=a.h.replace(/[,:?।]/g,"").split(/\s+/).filter(w=>w.length>2&&!STOP.includes(w));if(!ws.length)ws.push(a.cat);
+function pickWords(a,R,n){const ws=a.h.replace(/[,:?।]/g,"").split(/\s+/).filter(w=>w.length>2&&!STOP.includes(w));if(!ws.length)ws.push(a.catl);
   const out=[];n=Math.min(n,ws.length);let guard=0;while(out.length<n&&guard++<50){const w=ws[Math.floor(R()*ws.length)];if(!out.includes(w))out.push(w)}return out}
 function strip(g,R,w,x,y,fs,font,fill,txt){g.font=`${fs}px ${font}`;const tw=g.measureText(w).width;
   g.save();g.translate(x,y);g.rotate((R()-.5)*.1);torn(g,-fs*.25,-fs*.95,tw+fs*.5,fs*1.35,R,1.5);g.fillStyle=fill;g.fill();
@@ -119,10 +119,10 @@ function motifPiece(g,a,x,y,w,h,rot,R,c){g.save();g.translate(x+w/2,y+h/2);g.rot
   g.save();g.translate(3,4);torn(g,0,0,w,h,R);g.fillStyle=c.ink;g.globalAlpha=.16;g.fill();g.restore();g.globalAlpha=1;
   torn(g,0,0,w,h,R);g.fillStyle=c.paper;g.fill();g.clip();fillPiece(g,a,w,h,c,R);g.restore()}
 function draw(c){
-  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||"",photo:ds.photo||"",kind:ds.kind||"photo",word:ds.word||""};
+  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||"",photo:ds.photo||"",kind:ds.kind||"photo",word:ds.word||"",catl:ds.catl||ds.cat||""};
   const r=c.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
   const W=Math.max(1,Math.round(r.width)), H=Math.max(1,Math.round(r.height));
-  c.width=W*d;c.height=H*d;const g=c.getContext("2d");g.scale(d,d);
+  c.width=W*d;c.height=H*d;const g=c.getContext("2d");g.direction="ltr";g.scale(d,d);
   const cs=getComputedStyle(root),v=n=>cs.getPropertyValue(n).trim();
   const paper=v("--paper"),bg=v("--paper-2"),ink=v("--ink"),lal=v("--lal"),haldi=v("--haldi");
   const dark=cs.colorScheme.includes("dark")||root.dataset.theme==="dark"||(!root.dataset.theme&&matchMedia("(prefers-color-scheme: dark)").matches);
@@ -148,13 +148,13 @@ function draw(c){
     if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.2)}px ${F1}`;g.fillStyle=paper;g.textBaseline="alphabetic";g.save();g.translate(W*.55,H*.88);g.rotate(-.04);g.fillText(w,0,0);g.restore()}
   }else if(variant===2){ /* split: category block with oversized word */
     g.fillStyle=C.main;g.fillRect(0,0,W*.42,H);
-    g.save();g.beginPath();g.rect(0,0,W*.42,H);g.clip();g.font=`${Math.round(H*.62)}px ${F1}`;g.fillStyle=C.soft;g.globalAlpha=.9;g.textBaseline="alphabetic";g.fillText(a.cat,-W*.04,H*.98);g.restore();g.globalAlpha=1;
+    g.save();g.beginPath();g.rect(0,0,W*.42,H);g.clip();g.font=`${Math.round(H*.62)}px ${F1}`;g.fillStyle=C.soft;g.globalAlpha=.9;g.textBaseline="alphabetic";g.fillText(a.catl,-W*.04,H*.98);g.restore();g.globalAlpha=1;
     motifPiece(g,a,W*.34,H*.12,W*.6,H*.72,(1+R()*2.5)*Math.PI/180,R,C);
     tape(g,W*.36,H*.14,-30,W*.09,haldi);tape(g,W*.92,H*.8,-28,W*.09,haldi);
     if(!small)strip(g,R,pickWords(a,R,1)[0],W*.06,H*.18,Math.round(H*.1),F2,paper,ink);
   }else if(variant===3){ /* triptych: three torn strips of one picture */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
-    const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.scale(d,d);fillPiece(og,a,W,H,C,R);
+    const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.direction="ltr";og.scale(d,d);fillPiece(og,a,W,H,C,R);
     const sw=W*.29;[0,1,2].forEach(k=>{const x=W*(.04+k*.32),y=H*(.08+(k%2)*.06),hh=H*.8;
       g.save();g.translate(x+sw/2,y+hh/2);g.rotate((R()-.5)*.06);g.translate(-sw/2,-hh/2);
       g.save();g.translate(3,4);torn(g,0,0,sw,hh,R);g.fillStyle=ink;g.globalAlpha=.15;g.fill();g.restore();g.globalAlpha=1;
@@ -168,7 +168,7 @@ function draw(c){
     g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);fillPiece(g,a,rr*2,rr*2,C,R);g.restore();
     g.strokeStyle=C.main;g.lineWidth=Math.max(4,m*.035);g.beginPath();g.arc(cx,cy,rr,0,7);g.stroke();
     g.save();g.translate(W*.2,H*.72);g.rotate(-.18);g.strokeStyle=lal;g.lineWidth=3;g.strokeRect(-W*.12,-H*.1,W*.24,H*.2);
-    if(!small){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.cat,0,0)}g.restore();g.textAlign="start";
+    if(!small){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.catl,0,0)}g.restore();g.textAlign="start";
   }else{ /* frame: thick stamp border, word overprinted */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
     g.save();g.translate(W/2,H/2);g.rotate((R()-.5)*.08);const fw=W*.74,fh=H*.74;
