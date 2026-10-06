@@ -4,7 +4,7 @@ const fs = require("fs"), path = require("path");
 const SITE = "https://deshkaal.xyz";
 const TAGLINE = "ज़रूरी ख़बरों तक जाती एक पगडंडी";
 /* चैनलों के लिंक: ख़ाली हों तो बटन "जल्द" दिखाते हैं */
-const CHANNELS = { whatsapp: "", telegram: "" };
+const CHANNELS = { whatsapp: "https://whatsapp.com/channel/0029Vb8hHGPBadmUpTWYYI1W", telegram: "https://t.me/deshkaal" };
 const CATS = ["देश","दुनिया","समाज","अर्थ","पर्यावरण","स्त्री","संस्कृति","साहित्य"];
 const SLUG = {"देश":"desh","दुनिया":"duniya","समाज":"samaj","अर्थ":"arth","पर्यावरण":"paryavaran","स्त्री":"stri","संस्कृति":"sanskriti","साहित्य":"sahitya"};
 const MONTHS = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
