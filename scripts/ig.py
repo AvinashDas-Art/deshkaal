@@ -74,7 +74,7 @@ def panel(img, a, box, cut_left, cut_right):
         s = max((x1 - x0) / ph.width, (y1 - y0) / ph.height)
         ph = ph.resize((int(ph.width * s) + 1, int(ph.height * s) + 1))
         g = ph.convert("L").convert("RGB")
-        ph = Image.blend(g, Image.new("RGB", g.size, col), .40)
+        ph = Image.blend(ph, Image.new("RGB", ph.size, col), .12) if (a.get("photo") or {}).get("kind") == "painting" else Image.blend(g, Image.new("RGB", g.size, col), .42)
         pnl.paste(ph, (x0 + (x1 - x0 - ph.width) // 2, y0 + (y1 - y0 - ph.height) // 2))
     else:
         og.halftone(pnl, (x0, y0, x1, y1 + 40), tuple(min(255, c + 70) for c in col), step=18)

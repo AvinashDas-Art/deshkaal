@@ -55,7 +55,7 @@ function morningText(forIG) {
 }
 function storyText(a, forIG) {
   const nz = (a.nazar || [])[0] || "";
-  return [a.h, "", a.dek, "", ...(nz ? [`देशकाल की नज़र: ${cut(nz, forIG ? 600 : 400)}`, ""] : []),
+  return [a.h, "", a.dek, "", ...(nz ? [cut(nz, forIG ? 600 : 400), ""] : []),
     `मूल: ${a.by} · ${a.pub}`, forIG ? `पूरा सार: deshkaal.xyz (लिंक बायो में)` : "", "", tags(a)].filter((x, i, arr) => !(x === "" && arr[i - 1] === "")).join("\n");
 }
 

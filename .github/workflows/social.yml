@@ -28,7 +28,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 2 }
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: "पोस्ट (सुबह का अंक और दिन भर की ख़बरें)"
@@ -44,14 +44,20 @@ jobs:
           MODE="${{ github.event.inputs.mode }}"
           EV="${{ github.event_name }}"; SCHED="${{ github.event.schedule }}"
           NEWDAY=no
-          if [ "$EV" = "push" ] && git diff --name-only --diff-filter=A HEAD~1 HEAD -- data/days | grep -q .; then NEWDAY=yes; fi
-          if [ "$EV" = "push" ] && [ "$NEWDAY" = no ] && ! git diff --name-only HEAD~1 HEAD | grep -q run-social; then echo "पुराने अंक में सुधार, कुछ नहीं भेजना"; exit 0; fi
+          BEFORE="${{ github.event.before }}"; AFTER="${{ github.sha }}"
+          git cat-file -e "$BEFORE" 2>/dev/null || BEFORE="$AFTER~1"
+          if [ "$EV" = "push" ] && git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- data/days | grep -q .; then NEWDAY=yes; fi
+          if [ "$EV" = "push" ] && [ "$NEWDAY" = no ] && ! git diff --name-only "$BEFORE" "$AFTER" | grep -q run-social; then echo "पुराने अंक में सुधार, कुछ नहीं भेजना"; exit 0; fi
           [ "$SCHED" = "45 1 * * *" ] && MODE=morning
           [ "$EV" = "schedule" ] && [ -z "$MODE" ] && MODE=next
           [ "$NEWDAY" = yes ] && MODE=loop
           [ -z "$MODE" ] && MODE=next
           echo "mode=$MODE"
-          if [ "$MODE" != loop ]; then node scripts/social.js "$MODE"; record; exit 0; fi
+          if [ "$MODE" != loop ]; then
+            m=$(ist_min)
+            if [ "$EV" != "push" ] && { [ $m -lt 430 ] || [ $m -ge 1320 ]; }; then echo "सुबह 7:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
+            node scripts/social.js "$MODE"; record; exit 0
+          fi
           # loop: 7:15 तक रुकना, सुबह का अंक, फिर हर 30 मिनट अगली ख़बर
           start=$SECONDS
           now=$(ist_min); if [ $now -lt 435 ]; then sleep $(( (435 - now) * 60 )); fi

@@ -61,12 +61,23 @@ Choose by what makes today's lead piece strongest, and vary across days:
 - `"hero": "shabd"` + `"shabd": "एक शब्द"`: one word that carries the whole story (e.g. "नाकेबंदी", "कचरा") printed huge, the collage showing through its letters. Keep it to 3-5 letters' width; one word only.
 - `"hero": "ank"` + `"chart"`: when the story is about numbers. `{"title": "...", "unit": "...", "bars": [["लेबल", संख्या], ...], "note": "एक लाइन"}`, 3-6 bars, the last bar is highlighted in red, all figures from the article only.
 
-## Photos (`photo`)
-Give the lead piece, and any other piece where a strong human image exists, a real photo:
-- Source: Unsplash, via WebFetch of `https://unsplash.com/napi/search/photos?query=...&per_page=15`. Use only results that are not premium/plus (`images.unsplash.com`, never `plus.unsplash.com`).
-- Pick people, places or crowds that fit the story. Never a photo that shows a party flag or slogan unrelated to the story, never a photo that could be mistaken for the actual event unless it is: add `"note": "प्रतीकात्मक तस्वीर"` when illustrative.
-- Format: `"photo": {"src": "https://images.unsplash.com/photo-...?fit=max&fm=jpg&q=75&w=1400", "credit": "Photographer / Unsplash", "page": "https://unsplash.com/photos/<id>", "note": "प्रतीकात्मक तस्वीर"}`
-- Never use photos from the source article or any news agency.
+## Images: photos and paintings (`photo`) — the collage is the face of the site
+The site is a collage of real photographs and paintings. Every day:
+- **At least 12 of the news pieces** get an image, and the lead always does. Aim for a mix: roughly two thirds photographs, one third paintings.
+- **Every literature piece** gets a painting.
+- Never use the same image twice in a day, and do not reuse an image from the last 7 day files (check `src` in them).
+
+Photographs (`"kind": "photo"`):
+- Source: Unsplash, via WebFetch of `https://unsplash.com/napi/search/photos?query=...&per_page=15`. Only results on `images.unsplash.com` (never `plus.unsplash.com`, never premium).
+- People, places, work, crowds, landscapes that fit the story. Never a photo with a party flag or slogan unrelated to the story; never one that could pass for the actual event unless it is. Add `"note": "प्रतीकात्मक तस्वीर"` when illustrative.
+- `"photo": {"kind": "photo", "src": "https://images.unsplash.com/photo-...?fit=max&fm=jpg&q=75&w=1400", "credit": "Photographer / Unsplash", "page": "https://unsplash.com/photos/<id>", "note": "प्रतीकात्मक तस्वीर"}`
+
+Paintings (`"kind": "painting"`), public domain only:
+- Source: Art Institute of Chicago open API (all CC0). WebFetch `https://api.artic.edu/api/v1/artworks/search?q=<words>&query[term][is_public_domain]=true&fields=id,title,artist_display,image_id&limit=15`. Prefer Indian and South Asian art (Mughal, Rajput, Pahari, Company school, Kalighat, Bengal school), then any painting whose subject fits: labour, fields, rivers, cities, women, crowds, letters, books.
+- Image URL: `https://www.artic.edu/iiif/2/<image_id>/full/1200,/0/default.jpg`; page: `https://www.artic.edu/artworks/<id>`.
+- `"photo": {"kind": "painting", "src": "https://www.artic.edu/iiif/2/<image_id>/full/1200,/0/default.jpg", "credit": "<artist, short> / Art Institute of Chicago", "page": "https://www.artic.edu/artworks/<id>", "note": "<title, in Hindi, short>"}`
+- Paintings show in their own colours with a light category tint; photographs are toned in the category colour. Both sit inside the hand-cut collage.
+- Never use photos from the source article or from any news agency.
 
 ## Sunday special (रविवार विशेष)
 On Sundays, also pick the five most important pieces of the week from the last 7 day files and list their ids in `data/weekly/YYYY-MM-DD.json` as `{"ids": [...], "intro": "दो-तीन वाक्य"}`.

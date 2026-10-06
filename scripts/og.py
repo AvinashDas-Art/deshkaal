@@ -71,7 +71,7 @@ def make(a, ph=None):
     if ph:
         s = max(560 / ph.width, H / ph.height); ph = ph.resize((int(ph.width * s), int(ph.height * s)))
         g = ph.convert("L").convert("RGB"); tone = Image.new("RGB", g.size, col)
-        ph = Image.blend(g, tone, .42); panel.paste(ph, (W - ph.width, (H - ph.height) // 2))
+        ph = Image.blend(ph, Image.new("RGB", ph.size, col), .12) if (a.get("photo") or {}).get("kind") == "painting" else Image.blend(g, tone, .42); panel.paste(ph, (W - ph.width, (H - ph.height) // 2))
     else:
         halftone(panel, (640, 0, W, H), tuple(min(255, c + 70) for c in col))
     mask = Image.new("L", (W, H), 0); ImageDraw.Draw(mask).polygon([(760, 0), (W, 0), (W, H), (640, H)], fill=255)

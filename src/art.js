@@ -109,13 +109,17 @@ function getPhoto(src){if(!src)return null;let im=PHOTOS[src];if(im)return im.co
 function fillPiece(g,a,w,h,C,R){const im=getPhoto(a.photo);
   if(!im){paintMotif(g,a,w,h,rng(a.seed),C.paper,C.main,C.accent,C.soft,C.ink,C.soft);return}
   const s=Math.max(w/im.naturalWidth,h/im.naturalHeight),iw=im.naturalWidth*s,ih=im.naturalHeight*s;
-  g.save();g.filter="grayscale(1) contrast(1.15) brightness(1.04)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";
+  g.save();
+  if(a.kind==="painting"){ /* पेंटिंग अपने रंगों में, बस श्रेणी के रंग की हल्की परत */
+    g.filter="saturate(1.05) contrast(1.05)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";
+    g.globalCompositeOperation="multiply";g.globalAlpha=.12;g.fillStyle=C.main;g.fillRect(0,0,w,h);g.restore();return}
+  g.filter="grayscale(1) contrast(1.15) brightness(1.04)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";
   g.globalCompositeOperation="color";g.globalAlpha=.42;g.fillStyle=C.main;g.fillRect(0,0,w,h);g.restore()}
 function motifPiece(g,a,x,y,w,h,rot,R,c){g.save();g.translate(x+w/2,y+h/2);g.rotate(rot);g.translate(-w/2,-h/2);
   g.save();g.translate(3,4);torn(g,0,0,w,h,R);g.fillStyle=c.ink;g.globalAlpha=.16;g.fill();g.restore();g.globalAlpha=1;
   torn(g,0,0,w,h,R);g.fillStyle=c.paper;g.fill();g.clip();fillPiece(g,a,w,h,c,R);g.restore()}
 function draw(c){
-  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||"",photo:ds.photo||"",word:ds.word||""};
+  const ds=c.dataset; if(!ds.motif)return; const a={id:ds.id,motif:ds.motif,seed:+ds.seed,h:ds.h||"",cat:ds.cat||"",photo:ds.photo||"",kind:ds.kind||"photo",word:ds.word||""};
   const r=c.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
   const W=Math.max(1,Math.round(r.width)), H=Math.max(1,Math.round(r.height));
   c.width=W*d;c.height=H*d;const g=c.getContext("2d");g.scale(d,d);
