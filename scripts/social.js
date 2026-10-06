@@ -106,6 +106,10 @@ async function next() {
       const r = await igPublish(c.id); state.ig.items[pick.id] = r.id; save(); console.log("Instagram:", pick.id, r.id);
     }
   }
+  // सब जा चुका हो तो बाहर के लूप को बताने के लिए निशान
+  const fbLeft = fbOn() && items.some(x => !state.fb.items[x.id]);
+  const igLeft = igOn() && Object.keys(state.ig.items).length < IG_SINGLES && [...news.slice(0, IG_SINGLES - 1), ...lit.slice(0, 1)].some(x => !state.ig.items[x.id]);
+  if (!fbLeft && !igLeft) { console.log("आज का सब जा चुका"); fs.writeFileSync(".social-done", "1"); }
 }
 
 (async () => {
