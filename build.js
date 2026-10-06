@@ -241,6 +241,22 @@ function archivePage() {
   </section>`;
   return layout({ title: "आर्काइव", desc: "देशकाल पर छपी सारी टिप्पणियां, तारीख़ के हिसाब से।", url: "/purane/", body, tab: "purane" });
 }
+function joinPage() {
+  const news = today.items.filter(a => a.cat !== "साहित्य").slice(0, 3);
+  const body = `<section class="page2 join">
+  <p class="kicker">न्योता</p>
+  <h2>हर सुबह, ज़रूरी ख़बरों तक एक पगडंडी</h2>
+  <p class="lede">देशकाल दुनिया भर के अख़बारों, पत्रिकाओं और स्वतंत्र मंचों से रोज़ की सबसे ज़रूरी टिप्पणियां चुनता है और उनका सार आसान हिंदी में लिखता है। अवाम की नज़र से: अल्पसंख्यक, दलित, आदिवासी, औरतें, मेहनतकश। हर सार के आख़िर में मूल लेख का लिंक। कोई विज्ञापन नहीं, कोई शुल्क नहीं।</p>
+  <form class="sub big" id="subf" data-source="nyota"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="ईमेल"><button class="btn">हर सुबह ईमेल पर पाएं</button></form>
+  <p class="note" id="subnote"></p>
+  <p class="small">जब चाहें, हर ईमेल के नीचे एक क्लिक से हट सकते हैं। <a href="/nijta/">निजता नीति</a></p>
+  <div class="act chans">${chanBtn("whatsapp","WhatsApp")}${chanBtn("telegram","Telegram")}</div>
+  <h4>आज के अंक से</h4>
+  <ul class="joinlist">${news.map(a => `<li><a href="${href(a)}"><b>${esc(a.h)}</b><span>${esc(a.dek)}</span></a></li>`).join("")}</ul>
+  <p><a class="btn ghost" href="/">पूरा अंक पढ़ें</a></p>
+</section>`;
+  return layout({ title: "देशकाल से जुड़िए", desc: "हर सुबह 7 बजे ज़रूरी टिप्पणियों का सार, आसान हिंदी में, सीधे आपके ईमेल पर।", url: "/judiye/", body });
+}
 function minePage() {
   return layout({ title: "मेरा देशकाल", desc: "सहेजे गये लेख और पसंद की श्रेणियां।", url: "/mera/", body: `<section class="page2" id="mine" data-cats='${JSON.stringify(CATS)}'></section>`, tab: "mera" });
 }
@@ -271,9 +287,10 @@ out("purane/index.html", archivePage());
 out("mera/index.html", minePage());
 out("niti/index.html", policyPage());
 out("nijta/index.html", privacyPage());
+out("judiye/index.html", joinPage());
 out("feed.xml", feed());
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"],
+  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"])];
   out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));

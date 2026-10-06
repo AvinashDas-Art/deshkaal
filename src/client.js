@@ -91,7 +91,7 @@ if(aq){let acat="सब";
 
 /* न्यूज़लेटर (सेवा जुड़ने तक) */
 const sf=$("#subf");if(sf)sf.onsubmit=async e=>{e.preventDefault();const n=$("#subnote");n.textContent="जोड़ा जा रहा है…";
-  try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:$("#email").value})});const d=await r.json();n.textContent=d.msg||"शुक्रिया।";if(r.ok)sf.reset()}
+  try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:$("#email").value,source:sf.dataset.source||"site"})});const d=await r.json();n.textContent=d.msg||"शुक्रिया।";if(r.ok)sf.reset()}
   catch(err){n.textContent="अभी जुड़ नहीं पाये, थोड़ी देर बाद फिर कोशिश कीजिए।"}};
 
 /* ऐप की तरह */

@@ -5,7 +5,7 @@ export async function onRequestPost({ request, env }) {
   const email = String(b.email || "").trim().toLowerCase();
   if (!okEmail(email)) return json({ ok: false, msg: "ईमेल पता सही नहीं लग रहा। एक बार देख लीजिए।" }, 400);
   if (!env.DB) return json({ ok: false, msg: "न्यूज़लेटर कुछ ही दिनों में शुरू होगा।" }, 503);
-  await env.DB.prepare("INSERT OR IGNORE INTO subscribers(email,created,source) VALUES(?,?,?)").bind(email, Date.now(), "site").run();
+  await env.DB.prepare("INSERT OR IGNORE INTO subscribers(email,created,source) VALUES(?,?,?)").bind(email, Date.now(), ["site","nyota"].includes(b.source) ? b.source : "site").run();
   if (env.RESEND_API_KEY) {
     const seg = env.RESEND_SEGMENT_ID || "e42dda3d-4db2-43ff-8c3d-15458393f636";
     await fetch("https://api.resend.com/contacts", {
