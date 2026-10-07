@@ -579,10 +579,10 @@
   ],
   "photo": {
    "kind": "painting",
-   "src": "https://www.artic.edu/iiif/2/3a193912-941b-bea3-4969-74bf9171f533/full/1200,/0/default.jpg",
-   "credit": "India and Iran / Art Institute of Chicago",
-   "page": "https://www.artic.edu/artworks/76888",
-   "note": "सेंट पीटर्सबर्ग एल्बम का एक पन्ना"
+   "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Raja_Ravi_Varma%2C_Galaxy_of_Musicians.jpg",
+   "credit": "राजा रवि वर्मा / Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Galaxy_of_Musicians.jpg",
+   "note": "संगीतकारों की महफ़िल"
   }
  },
  {
@@ -670,14 +670,7 @@
     "इतालो काल्विनो",
     "(1923-1985) इतालवी लेखक, अपने प्रयोगधर्मी और कल्पनाशील गद्य के लिए मशहूर। 'अदृश्य शहर' 1972 में छपी।"
    ]
-  ],
-  "photo": {
-   "kind": "painting",
-   "src": "https://www.artic.edu/iiif/2/bd98c41e-20ec-3dbb-9aa0-b1fe66c97d5a/full/1200,/0/default.jpg",
-   "credit": "Iran / Art Institute of Chicago",
-   "page": "https://www.artic.edu/artworks/52296",
-   "note": "महल का आंगन"
-  }
+  ]
  },
  {
   "id": "2026-10-06-21",

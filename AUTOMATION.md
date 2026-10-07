@@ -73,10 +73,12 @@ Photographs (`"kind": "photo"`):
 - People, places, work, crowds, landscapes that fit the story. Never a photo with a party flag or slogan unrelated to the story; never one that could pass for the actual event unless it is. Add `"note": "प्रतीकात्मक तस्वीर"` when illustrative.
 - `"photo": {"kind": "photo", "src": "https://images.unsplash.com/photo-...?fit=max&fm=jpg&q=75&w=1400", "credit": "Photographer / Unsplash", "page": "https://unsplash.com/photos/<id>", "note": "प्रतीकात्मक तस्वीर"}`
 
-Paintings (`"kind": "painting"`), public domain only:
-- Source: Art Institute of Chicago open API (all CC0). WebFetch `https://api.artic.edu/api/v1/artworks/search?q=<words>&query[term][is_public_domain]=true&fields=id,title,artist_display,image_id&limit=15`. Prefer Indian and South Asian art (Mughal, Rajput, Pahari, Company school, Kalighat, Bengal school), then any painting whose subject fits: labour, fields, rivers, cities, women, crowds, letters, books.
-- Image URL: `https://www.artic.edu/iiif/2/<image_id>/full/1200,/0/default.jpg`; page: `https://www.artic.edu/artworks/<id>`.
-- `"photo": {"kind": "painting", "src": "https://www.artic.edu/iiif/2/<image_id>/full/1200,/0/default.jpg", "credit": "<artist, short> / Art Institute of Chicago", "page": "https://www.artic.edu/artworks/<id>", "note": "<title, in Hindi, short>"}`
+Paintings (`"kind": "painting"`), public domain only, from **Wikimedia Commons** (museum sites like the Art Institute block outside use, do not use them):
+- WebFetch `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=<words>&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=1200&format=json`. Take only results whose `extmetadata.LicenseShortName` is "Public domain" and that are paintings (not photos of pages, maps or PDFs).
+- Prefer Indian and South Asian art: Raja Ravi Varma, Amrita Sher-Gil, Abanindranath Tagore, Kalighat pat, Company school, Mughal, Rajput and Pahari miniatures; then any public-domain painting whose subject fits (labour, fields, rivers, cities, women, crowds, letters, books).
+- `src` = the `thumburl` (1200 px wide) without anything after `?`; `page` = `descriptionurl`.
+- `"photo": {"kind": "painting", "src": "<thumburl>", "credit": "<artist> / Wikimedia Commons", "page": "<descriptionurl>", "note": "<title, in Hindi, short>"}`
+- GitHub copies every painting onto the site (`public/media/<id>.jpg`, by `scripts/media.py`), so the collage never depends on the museum's server.
 - Paintings show in their own colours with a light category tint; photographs are toned in the category colour. Both sit inside the hand-cut collage.
 - Never use photos from the source article or from any news agency.
 
