@@ -98,7 +98,7 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
 <link rel="alternate" type="application/rss+xml" title="देशकाल" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}&display=swap">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/styles.css?v=${AV}">
 ${extraHead}
 </head>
 <body>
@@ -112,7 +112,7 @@ ${extraHead}
       <button class="ctl" id="bigger" aria-label="${T.bigger}">${LG === "hi" ? "अ" : LG === "ur" ? "ا" : "A"}+</button>
       <button class="ctl" id="theme">${T.theme}</button>
       <button class="ctl" id="who">${T.signin}</button>
-      <button class="sic" id="sopen" type="button" aria-haspopup="dialog" aria-label="${SR[LG].t}" title="${SR[LG].t}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+      <button class="sic" id="sopen" type="button" aria-haspopup="dialog" aria-label="${SR[LG].t}" title="${SR[LG].t}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.2" stroke="currentColor" stroke-width="2.2"/><path d="M7.4 8.4a3.2 3.2 0 0 1 2.6-1.6" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M14.7 14.7 20.5 20.5" stroke="#CF3A2E" stroke-width="3.4"/></svg></button>
     </div>
   </div>
   <header class="masthead">
@@ -149,17 +149,18 @@ ${extraHead}
 </div>
 <div class="sov" id="sov" hidden>
   <div class="sbox" role="dialog" aria-modal="true" aria-label="${SR[LG].t}">
-    <div class="sin"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
+    <div class="sin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
     <div class="shint" id="shint">${SR[LG].hint}</div>
     <ol class="sres" id="sres"></ol>
   </div>
 </div>
-<script src="/art.js"></script>
-<script src="/client.js"></script>
+<script src="/art.js?v=${AV}"></script>
+<script src="/client.js?v=${AV}"></script>
 </body>
 </html>`;
 }
 
+const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
 const SR = {
   hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },

@@ -375,8 +375,10 @@ html[lang="ur"] .hero-open p::first-letter{font:inherit;float:none;padding:0;col
 
 /* खोज */
 .sic{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-inline-start:4px;padding:0;border:0;background:none;color:var(--ink);border-radius:50%}
-.sic svg,.sin svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
-.sic:hover{color:var(--lal)}
+.sic svg{width:24px;height:24px;flex:none;transition:transform .15s}
+.sin svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+.sic:hover svg{transform:rotate(-12deg) scale(1.08)}
+.sic:focus-visible{outline:2px solid var(--lal);outline-offset:2px}
 .sin svg{color:var(--lal)}
 body.noscroll{overflow:hidden}
 .sov{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--ink) 38%,transparent);backdrop-filter:blur(3px);display:flex;justify-content:center;align-items:flex-start;padding:7vh 16px 16px}
