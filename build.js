@@ -120,6 +120,7 @@ ${extraHead}
     <nav class="cats" aria-label="${T.cats}">
       <a href="${PRE}/" class="${catOn === "सब" ? "on" : ""}">${T.all}</a>${CATS.map(c => `<a href="${PRE}/shreni/${SLUG[c]}/" class="${catOn === c ? "on" : ""}">${cn(c)}</a>`).join("")}<a href="${PRE}/purane/" class="arch ${tab === "purane" ? "on" : ""}">${T.archive}</a>
     </nav>
+    <button class="sbar" id="sopen" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span>${SR[LG].ph}</span><kbd>/</kbd></button>
   </header>
   <main>${body}</main>
   <footer>
@@ -146,11 +147,26 @@ ${extraHead}
     </form>
   </div>
 </div>
+<div class="sov" id="sov" hidden>
+  <div class="sbox" role="dialog" aria-modal="true" aria-label="${SR[LG].t}">
+    <div class="sin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
+    <div class="shint" id="shint">${SR[LG].hint}</div>
+    <ol class="sres" id="sres"></ol>
+  </div>
+</div>
 <script src="/art.js"></script>
 <script src="/client.js"></script>
 </body>
 </html>`;
 }
+
+const SR = {
+  hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
+  en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
+  ur: { ph: "کوئی خبر، مصنف، جگہ یا مسئلہ تلاش کیجیے", t: "تلاش", close: "بند کریں", hint: "جیسے: مزدور، بہار، غزہ، کسان" }
+};
+/* खोज का सूचकांक: हर भाषा का अलग, खोज खोलने पर ही लोड होता है */
+const searchIndex = () => JSON.stringify(all.map(a => ({ u: href(a), h: a.h, d: a.dek || "", c: cn(a.cat), k: a.cat, p: a.pub || "", b: a.by || "", t: a.date || "", x: (a.body || []).join(" ").slice(0, 280) + " " + (a.ref || []).map(r => r[0]).join(" ") })));
 
 /* ---------- pieces ---------- */
 const card = a => `<article class="card"><a href="${href(a)}">${art(a)}<div class="ct"><p class="kicker">${cn(a.cat)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p></div></a><p class="src">${esc(a.pub)} · ${T.read(readMin(a))} · ${saveBtn(a)}</p></article>`;
@@ -314,6 +330,7 @@ for (const l of LANGS) {
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
   out(P + "mera/index.html", minePage());
+  out(P + "khoj.json", searchIndex());
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage()); }
 }
 setLang("hi"); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];

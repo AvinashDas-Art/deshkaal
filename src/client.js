@@ -113,3 +113,38 @@ if(/link=expired/.test(location.search)){const m=$("#mine");if(m)m.insertAdjacen
 document.fonts&&document.fonts.ready.then(()=>typeof drawAll==="function"&&drawAll());
 /* भाषा मेन्यू: बाहर क्लिक पर बंद */
 document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.contains(e.target))d.open=false});
+
+/* खोज: ऊपर की पट्टी दबाने या "/" दबाने पर खुलती है; सूचकांक पहली बार खुलने पर लोड */
+(function(){
+  const ov=$("#sov"),q=$("#sq"),res=$("#sres"),hint=$("#shint"),op=$("#sopen");if(!ov||!q)return;
+  const CC={"देश":"#B23A2E","दुनिया":"#2E3F8F","समाज":"#A2650E","अर्थ":"#2D6A4F","पर्यावरण":"#5B7A1E","स्त्री":"#9A2F67","संस्कृति":"#5A3E91","साहित्य":"#6E4423"};
+  const NONE={hi:"इससे मिलती कोई टिप्पणी नहीं मिली। कोई और शब्द आज़माइए।",en:"Nothing matches. Try another word.",ur:"اس سے ملتا کچھ نہیں ملا۔ کوئی اور لفظ آزمائیے۔"}[LG];
+  const CNT={hi:n=>`${n} टिप्पणियां मिलीं`,en:n=>`${n} ${n===1?"piece":"pieces"} found`,ur:n=>`${n} تبصرے ملے`}[LG];
+  let idx=null,loading=null,last=null;
+  /* हिंदी में नुक़्ता, चंद्रबिंदु और मात्राओं के छोटे फ़र्क़ से खोज न चूके */
+  const norm=s=>String(s).toLowerCase().normalize("NFC").replace(/\u093C/g,"").replace(/\u0901/g,"\u0902").replace(/[\u0610-\u061A\u064B-\u065F\u0670]/g,"").replace(/[ي]/g,"ی").replace(/[ك]/g,"ک").replace(/[^\p{L}\p{N}\p{M}\s]/gu," ");
+  const load=()=>loading||(loading=fetch(PRE+"/khoj.json").then(r=>r.json()).then(d=>{idx=d.map(a=>({a,h:norm(a.h),d:norm(a.d+" "+a.c+" "+a.k),m:norm(a.p+" "+a.b),x:norm(a.x)}))}).catch(()=>{loading=null}));
+  const mark=(s,ws)=>{let t=esc(s);ws.forEach(w=>{if(w.length<2)return;const re=new RegExp("("+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");t=t.replace(re,"<mark>$1</mark>")});return t};
+  function run(){
+    const raw=q.value.trim();if(raw===last)return;last=raw;
+    if(!raw){res.innerHTML="";hint.hidden=false;return}
+    if(!idx){load().then(run);last=null;return}
+    const ws=norm(raw).split(/\s+/).filter(Boolean);
+    const hits=[];
+    for(const r of idx){let sc=0,ok=true;
+      for(const w of ws){const s=(r.h.includes(w)?8:0)+(r.d.includes(w)?4:0)+(r.m.includes(w)?5:0)+(r.x.includes(w)?1:0);if(!s){ok=false;break}sc+=s}
+      if(ok)hits.push([sc,r.a])}
+    hits.sort((x,y)=>y[0]-x[0]);
+    hint.hidden=true;
+    const vis=raw.split(/\s+/);
+    res.innerHTML=hits.length?`<li class="scount">${CNT(hits.length)}</li>`+hits.slice(0,40).map(([,a])=>`<li><a href="${a.u}" style="--kc:${CC[a.k]||"#2E3F8F"}"><span class="r-k">${esc(a.c)}</span><span class="r-h">${mark(a.h,vis)}</span><span class="r-d">${mark(a.d,vis)}</span><span class="r-m">${esc(a.b)} · ${esc(a.p)} · ${esc(a.t)}</span></a></li>`).join(""):`<li class="snone">${NONE}</li>`;
+  }
+  let tmr;q.addEventListener("input",()=>{clearTimeout(tmr);tmr=setTimeout(run,120)});
+  const open=()=>{ov.hidden=false;document.body.classList.add("noscroll");load();setTimeout(()=>q.focus(),30);const u=new URL(location);u.searchParams.set("khoj",q.value||"");history.replaceState(null,"",u)};
+  const close=()=>{ov.hidden=true;document.body.classList.remove("noscroll");const u=new URL(location);u.searchParams.delete("khoj");history.replaceState(null,"",u)};
+  op&&op.addEventListener("click",open);$("#sclose").addEventListener("click",close);
+  ov.addEventListener("click",e=>{if(e.target===ov)close()});
+  q.addEventListener("keydown",e=>{if(e.key==="Enter"){const f=res.querySelector("a");if(f)location.href=f.getAttribute("href")}});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!ov.hidden)close();else if(e.key==="/"&&ov.hidden&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();open()}});
+  const p=new URLSearchParams(location.search).get("khoj");if(p!==null){q.value=p;open();run()}
+})();
