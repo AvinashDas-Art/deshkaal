@@ -374,13 +374,10 @@ html[lang="ur"] .card h3,html[lang="ur"] .lit h3{line-height:1.9}
 html[lang="ur"] .hero-open p::first-letter{font:inherit;float:none;padding:0;color:inherit;line-height:inherit}
 
 /* खोज */
-.sbar{display:flex;align-items:center;gap:12px;width:min(620px,100%);margin:18px auto 4px;padding:11px 16px 11px 18px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink-2);font-family:var(--f-ui);font-size:16.5px;text-align:start;box-shadow:4px 4px 0 var(--lal);transition:transform .15s,box-shadow .15s}
-.sbar:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--lal);color:var(--ink)}
-.sbar:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--lal)}
-.sbar svg,.sin svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--lal);stroke-width:2.4;stroke-linecap:round}
-.sbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sbar kbd{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);border-radius:6px;padding:0 7px;color:var(--ink-2)}
-@media (max-width:640px){.sbar{font-size:15.5px;margin-top:14px}.sbar kbd{display:none}}
+.sic{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-inline-start:4px;padding:0;border:0;background:none;color:var(--ink);border-radius:50%}
+.sic svg,.sin svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+.sic:hover{color:var(--lal)}
+.sin svg{color:var(--lal)}
 body.noscroll{overflow:hidden}
 .sov{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--ink) 38%,transparent);backdrop-filter:blur(3px);display:flex;justify-content:center;align-items:flex-start;padding:7vh 16px 16px}
 .sov[hidden]{display:none}
@@ -401,6 +398,5 @@ body.noscroll{overflow:hidden}
 .scount,.snone{font-family:var(--f-ui);font-size:14px;color:var(--ink-2);padding:12px 12px 0}
 .snone{padding:18px 12px;font-size:16px}
 @media (max-width:640px){.sov{padding:0}.sbox{max-height:100vh;height:100%;border-radius:0;border:0;box-shadow:none}.r-h{font-size:18.5px}}
-[dir="rtl"] .sbar{box-shadow:-4px 4px 0 var(--lal)}
 [dir="rtl"] .sbox{box-shadow:-7px 7px 0 var(--lal)}
 [dir="rtl"] .sin input{font-family:var(--f-body)}

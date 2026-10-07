@@ -112,6 +112,7 @@ ${extraHead}
       <button class="ctl" id="bigger" aria-label="${T.bigger}">${LG === "hi" ? "अ" : LG === "ur" ? "ا" : "A"}+</button>
       <button class="ctl" id="theme">${T.theme}</button>
       <button class="ctl" id="who">${T.signin}</button>
+      <button class="sic" id="sopen" type="button" aria-haspopup="dialog" aria-label="${SR[LG].t}" title="${SR[LG].t}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
     </div>
   </div>
   <header class="masthead">
@@ -120,7 +121,6 @@ ${extraHead}
     <nav class="cats" aria-label="${T.cats}">
       <a href="${PRE}/" class="${catOn === "सब" ? "on" : ""}">${T.all}</a>${CATS.map(c => `<a href="${PRE}/shreni/${SLUG[c]}/" class="${catOn === c ? "on" : ""}">${cn(c)}</a>`).join("")}<a href="${PRE}/purane/" class="arch ${tab === "purane" ? "on" : ""}">${T.archive}</a>
     </nav>
-    <button class="sbar" id="sopen" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span>${SR[LG].ph}</span><kbd>/</kbd></button>
   </header>
   <main>${body}</main>
   <footer>
@@ -149,7 +149,7 @@ ${extraHead}
 </div>
 <div class="sov" id="sov" hidden>
   <div class="sbox" role="dialog" aria-modal="true" aria-label="${SR[LG].t}">
-    <div class="sin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
+    <div class="sin"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
     <div class="shint" id="shint">${SR[LG].hint}</div>
     <ol class="sres" id="sres"></ol>
   </div>
@@ -349,5 +349,5 @@ out("client.js", fs.readFileSync("src/client.js", "utf8"));
     if (fs.statSync(src).isDirectory()) copyDir(src, dst); else { fs.mkdirSync(to, { recursive: true }); fs.copyFileSync(src, dst); }
   }
 })("public", "dist");
-out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length));
+out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length + "-" + require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8)));
 console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप्पणियां, ${CATS.length} श्रेणियां · English ${HAS.en.size}, اردو ${HAS.ur.size}`);
