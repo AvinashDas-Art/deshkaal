@@ -11,7 +11,8 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 
 /* रंग और अक्षर */
 const MODES=[["auto",TX.modes[0]],["day",TX.modes[1]],["sepia",TX.modes[2]],["night",TX.modes[3]]];
-let mode=store.get("dk-mode")||"auto", size=+(store.get("dk-size2")||22);
+let mode=store.get("dk-mode")||"auto", zi=+(store.get("dk-zoom")||3);
+const ZOOM=[.8,.88,.94,1,1.08,1.16,1.25,1.35];if(!(zi>=0&&zi<ZOOM.length))zi=3;
 function applyMode(){
   root.removeAttribute("data-theme");root.removeAttribute("data-paper");
   if(mode==="day")root.dataset.theme="light";
@@ -20,10 +21,10 @@ function applyMode(){
   const t=$("#theme");if(t)t.textContent=TX.col+MODES.find(m=>m[0]===mode)[1];
   if(typeof drawAll==="function")drawAll();
 }
-function applySize(){root.style.setProperty("--read",size+"px")}
+function applySize(){const m=$("main"),hd=$(".masthead"),z=ZOOM[zi];[m,hd].forEach(e=>{if(e)e.style.zoom=z===1?"":z});const b=$("#bigger"),sm=$("#smaller");if(b)b.disabled=zi===ZOOM.length-1;if(sm)sm.disabled=zi===0;if(typeof drawAll==="function")drawAll()}
 $("#theme").onclick=()=>{const i=MODES.findIndex(m=>m[0]===mode);mode=MODES[(i+1)%MODES.length][0];store.set("dk-mode",mode);applyMode()};
-$("#bigger").onclick=()=>{size=Math.min(28,size+1);store.set("dk-size2",size);applySize()};
-$("#smaller").onclick=()=>{size=Math.max(16,size-1);store.set("dk-size2",size);applySize()};
+$("#bigger").onclick=()=>{zi=Math.min(ZOOM.length-1,zi+1);store.set("dk-zoom",zi);applySize()};
+$("#smaller").onclick=()=>{zi=Math.max(0,zi-1);store.set("dk-zoom",zi);applySize()};
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>typeof drawAll==="function"&&drawAll());
 
 /* सुनना */

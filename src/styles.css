@@ -402,3 +402,4 @@ body.noscroll{overflow:hidden}
 @media (max-width:640px){.sov{padding:0}.sbox{max-height:100vh;height:100%;border-radius:0;border:0;box-shadow:none}.r-h{font-size:18.5px}}
 [dir="rtl"] .sbox{box-shadow:-7px 7px 0 var(--lal)}
 [dir="rtl"] .sin input{font-family:var(--f-body)}
+.ctl:disabled{opacity:.35;cursor:default}
