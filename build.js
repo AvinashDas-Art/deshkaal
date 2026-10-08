@@ -167,7 +167,7 @@ ${extraHead}
 
 const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js", "src/akhbar.css"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
 /* "आज का अख़बार" का बटन: मालिक की मंज़ूरी के बाद true */
-const SHOW_PAPER = false;
+const SHOW_PAPER = true;
 const SR = {
   hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
@@ -358,6 +358,17 @@ function akhbarPage(day, issueNo, allDays) {
   const [h1, h2] = splitHead(L.h);
   const promos = [vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रौशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
   const pages = [];
+  /* विज्ञापन: ख़ाली जगहें, हर जगह अलग अंदाज़ */
+  const mail = "mailto:sampark@deshkaal.xyz?subject=" + encodeURIComponent("देशकाल में विज्ञापन") + "&body=" + encodeURIComponent("नमस्ते, मैं देशकाल के अख़बार में विज्ञापन देना चाहता/चाहती हूं। मेरा नाम, संस्था और फ़ोन:");
+  const ADS = {
+    coupon: () => `<a class="np-ad coupon" href="${mail}"><span class="cut" aria-hidden="true">✂</span><small>विज्ञापन के लिए</small><b>यह कोना<br>ख़ाली नहीं,<br>आपका है</b><span class="price">₹1,000 से</span><em>sampark@deshkaal.xyz</em></a>`,
+    poster: () => `<a class="np-ad poster" href="${mail}"><small>विज्ञापन</small><b>जो पढ़ते हैं,<br>वो यहां मिलते हैं</b><p>किताब, फ़िल्म, नाटक, खादी, खेत की उपज, आपका हुनर: उन पाठकों तक जो सुबह की चाय के साथ पूरा पढ़ते हैं, सिर्फ़ स्क्रॉल नहीं करते।</p><span class="price">₹1,000 से ₹1,00,000 तक</span><em>संपर्क: sampark@deshkaal.xyz</em></a>`,
+    stamp: () => `<a class="np-ad stamp" href="${mail}"><span class="seal">ख़ाली<br>जगह</span><b>यहां आपका नाम छपे, तो पढ़ा भी जाए</b><p>एक कोने से पूरे पन्ने तक। बात कीजिए, दाम तय कीजिए।</p><em>sampark@deshkaal.xyz</em></a>`,
+    rate: () => `<a class="np-ad rate" href="${mail}"><div class="rate-h"><small>विज्ञापन दर-सूची</small><b>देशकाल में आपकी जगह</b><p>हर सुबह, उन पाठकों के बीच जो ख़बर को सोचकर पढ़ते हैं।</p></div>
+      <ol><li><span>कोना</span><b>₹1,000</b><i>एक दिन</i></li><li><span>चौथाई पन्ना</span><b>₹10,000</b><i>एक दिन</i></li><li><span>आधा पन्ना</span><b>₹40,000</b><i>एक दिन</i></li><li class="top"><span>पहला पन्ना, पूरा</span><b>₹1,00,000</b><i>एक दिन</i></li></ol>
+      <em>sampark@deshkaal.xyz · विज्ञापन देशकाल की संपादकीय नीति के दायरे में ही छपते हैं</em></a>`
+  };
+  const pad = (n, cols) => (cols - (n % cols)) % cols;
   /* पहला पन्ना */
   pages.push(`<section class="sheet front" id="p1">
     <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${href(a)}">${a.yt ? `<img class="photo" src="https://i.ytimg.com/vi/${esc(a.yt)}/hqdefault.jpg" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
@@ -382,7 +393,7 @@ function akhbarPage(day, issueNo, allDays) {
       </aside>
     </div>
     ${khabar.length ? `<section class="np-digest"><h3><span>कल का कच्चा चिट्ठा</span><small>बीते दिन की वो ख़बरें, जो दबनी नहीं चाहिए · विस्तार पन्ना 3 पर</small></h3>
-      <ol>${khabar.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}</ol></section>` : ""}
+      <ol>${khabar.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}${pad(khabar.length, 4) ? `<li class="adcell" style="grid-column:span ${pad(khabar.length, 4)}">${pad(khabar.length, 4) > 1 ? ADS.poster() : ADS.coupon()}</li>` : ""}</ol></section>` : ""}
     ${folio(1, "पहला पन्ना")}</section>`);
   /* संपादकीय पन्ना */
   const [F, ...ops] = vichar;
@@ -392,7 +403,7 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-ops">
         ${F ? `<article class="np-feature"><div class="np-fhead">${tile(F)}<div><p class="np-kick">${cn(F.cat)} · ${esc(F.pub)}</p><h3><a href="${href(F)}">${esc(F.h)}</a></h3><p class="np-author">${esc(F.by)}</p></div></div>
           ${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body, 3)}${more(F)}</div></article>` : ""}
-        <div class="np-opgrid">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body, 2)}${more(a)}</article>`).join("")}</div>
+        <div class="np-opgrid">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body, 2)}${more(a)}</article>`).join("")}${pad(Math.max(0, ops.length - 3), 3) ? `<div class="adcell" style="grid-column:span ${pad(Math.max(0, ops.length - 3), 3)}">${ADS.stamp()}</div>` : ""}</div>
       </div>
     </div>
     ${folio(2, "संपादकीय")}</section>`);
@@ -403,7 +414,7 @@ function akhbarPage(day, issueNo, allDays) {
     ${T1 ? `<div class="np-news">
       <article class="np-top"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols2">${P(T1.body, 3)}${more(T1)}</div>
       ${rest.length > 3 ? `<div class="np-under">${rest.splice(0, 2).map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}</article>
-      <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}</div>
+      <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}${ADS.coupon()}</div>
     </div>` : ""}
     ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
     ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="https://i.ytimg.com/vi/${esc(vid.yt)}/hqdefault.jpg" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रौशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
@@ -414,7 +425,8 @@ function akhbarPage(day, issueNo, allDays) {
     const [H, ...ls] = lits, n = pages.length + 1;
     pages.push(`<section class="sheet lit" id="p${n}">${run(n, "सुख़न-सराय")}
     <article class="np-gallery"><figure>${img(H)}</figure><div class="np-plate"><p class="np-kick">${esc(H.pub)}</p><h3><a href="${href(H)}">${esc(H.h)}</a></h3>${by1(H)}${P(H.body, 2)}${more(H)}</div>${cap(H)}</article>
-    <div class="np-litgrid">${ls.map(a => `<article><figure>${img(a)}</figure><div><p class="np-kick">${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div>
+    <div class="np-litgrid">${ls.map(a => `<article><figure>${img(a)}</figure><div><p class="np-kick">${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}${ls.length % 2 ? `<div class="adcell">${ADS.stamp()}</div>` : ""}</div>
+    ${ADS.rate()}
     <div class="np-imprint">देशकाल हर सुबह दुनिया भर की ज़रूरी टिप्पणियों का सार सहज हिंदुस्तानी में लाता है। सारे सार देशकाल का अपना लेखन हैं, मूल लेख, लेखक और प्रकाशक का नाम और लिंक हर सार के साथ है। यह अख़बार उसी अंक से अपने आप बनता है।</div>
     ${folio(n, "साहित्य")}</section>`);
   }
@@ -427,7 +439,7 @@ function akhbarPage(day, issueNo, allDays) {
 <link rel="canonical" href="${SITE}${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:image" content="${SITE}${fs.existsSync(path.join("public", "og", L.id + ".png")) ? "/og/" + L.id + ".png" : "/og.png"}"><meta property="og:url" content="${SITE}${url}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rozha+One&family=Eczar:wght@500;600;700;800&family=Martel:wght@400;600;800&family=Mukta:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Teko:wght@500;600;700&family=Eczar:wght@500;600;700;800&family=Martel:wght@400;600;800&family=Mukta:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/akhbar.css?v=${AV}"></head>
 <body class="np">
 <div class="np-bar"><a class="np-home" href="/">← देशकाल</a><nav class="np-pages" aria-label="पन्ने"><span>पन्ना</span>${nav}</nav><span class="np-act">${pdf ? `<a href="${pdf}" download>PDF डाउनलोड</a>` : ""}<button type="button" onclick="window.print()">छापें</button></span></div>
