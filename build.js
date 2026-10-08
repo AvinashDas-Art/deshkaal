@@ -221,7 +221,8 @@ function hero(L, kick = T.bigDebate) {
 /* ---------- तिरछी नज़र: राजेंद्र धोड़पकर के कार्टून (data/cartoons/<दिन>.json, public/cartoon/<दिन>.jpg) ---------- */
 const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
-const toonFor = date => CARTOONS.find(c => c.date === date);
+/* उस दिन या उससे पहले का सबसे नया कार्टून: नया कार्टून आने तक पिछला ही बना रहता है */
+const toonFor = date => CARTOONS.find(c => c.date <= date);
 const toonBand = c => `<section class="toon">
   <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p></div>
   <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
