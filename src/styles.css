@@ -470,6 +470,5 @@ body.noscroll{overflow:hidden}
 .tc-k{margin:0;font-family:var(--f-ui);font-size:13.5px;font-weight:700;letter-spacing:.08em;color:var(--lal)}
 .toon-chutki h3{margin:2px 0 14px;font-family:var(--f-paint);font-weight:400;font-size:40px;line-height:1.1}
 .toon-chutki p:not(.tc-k){font-family:var(--f-body);font-size:var(--read);line-height:1.9;margin:0 0 1em}
-.toon-chutki p:nth-of-type(2)::first-letter{font-family:var(--f-paint);font-size:2.4em;float:left;line-height:.9;margin:.06em .1em 0 0;color:var(--lal)}
 .toon-tease{font-family:var(--f-hand);font-size:19px!important;line-height:1.55;color:var(--ink)!important;margin:16px 0 8px!important}
 .toon-read{font-family:var(--f-ui);font-weight:700;font-size:15px;color:var(--lal)}
