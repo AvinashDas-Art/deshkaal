@@ -111,6 +111,7 @@ ${extraHead}
   <div class="strip">
     <span class="date">${dayLabel(today.date)} · ${T.daily}</span>
     <div class="controls">
+      ${SHOW_PAPER ? `<a class="paper" href="/akhbar/" title="${T.paper}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12.5h7M7 16h4"/></svg><span>${T.paper}</span></a>` : ""}
       <details class="langs"><summary aria-label="${T.langLabel}">${LANGNAME[LG]}</summary><div class="lmenu">${LANGS.map(l => `<a href="${pageIn(l)}" lang="${l}"${l === LG ? ' aria-current="true"' : ""}>${LANGNAME[l]}</a>`).join("")}</div></details>
       <button class="ctl" id="smaller" aria-label="${T.smaller}">${LG === "hi" ? "अ" : LG === "ur" ? "ا" : "A"}−</button>
       <button class="ctl" id="bigger" aria-label="${T.bigger}">${LG === "hi" ? "अ" : LG === "ur" ? "ا" : "A"}+</button>
@@ -164,7 +165,9 @@ ${extraHead}
 </html>`;
 }
 
-const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
+const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js", "src/akhbar.css"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
+/* "आज का अख़बार" का बटन: मालिक की मंज़ूरी के बाद true */
+const SHOW_PAPER = false;
 const SR = {
   hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
@@ -336,6 +339,82 @@ function feed() {
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>देशकाल</title><link>${SITE}/</link><description>${esc(TAGLINE)}</description><language>hi</language>${items}</channel></rss>`;
 }
 
+
+/* ---------- आज का अख़बार: उसी दिन के अंक से अख़बार के लेआउट वाले पन्ने (सिर्फ़ हिंदी) ---------- */
+function akhbarPage(day, issueNo, allDays) {
+  const items = day.items, by = k => items.filter(a => a.sec === k);
+  const L = by("amukh")[0] || items.find(a => a.sec !== "sahitya"), vichar = by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
+  const date = dayLabel(day.date), url = `/akhbar/${day.date}/`;
+  const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
+  const P = (arr, n) => arr.slice(0, n).map(p => `<p>${esc(p)}</p>`).join("");
+  const more = a => `<a class="np-more" href="${href(a)}">पूरा पढ़ें →</a>`;
+  const fig = (a, cls = "") => a.photo ? `<figure class="np-fig ${cls}${a.photo.kind === "painting" ? " paint" : ""}"><img src="${esc(imgSrc(a))}" alt="" loading="lazy"><figcaption>${a.photo.note ? esc(a.photo.note) + " · " : ""}${esc(a.photo.credit)}</figcaption></figure>` : "";
+  const byline = a => `<p class="np-by">${esc(a.by)} · ${esc(a.pub)}</p>`;
+  const run = n => `<div class="np-run"><span>देशकाल</span><span>${date}</span><span>पन्ना ${n}</span></div>`;
+  const folio = (n, t) => `<footer class="np-folio"><span>${t}</span><span>deshkaal.xyz</span><span>${n}</span></footer>`;
+  const [h1, h2] = splitHead(L.h);
+  const pages = [];
+  pages.push(`<section class="sheet" id="p1">
+    <header class="np-mast">
+      <div class="np-ears"><p class="ear">ज़रूरी ख़बरों तक<br>जाती एक पगडंडी</p><h1 class="np-title">देशकाल</h1><p class="ear r">आज का सवाल<br><b>${esc(L.sawal)}</b></p></div>
+      <div class="np-dateline"><span>वर्ष 1 · अंक ${issueNo}</span><span>${date}</span><span>मूल्य: बस थोड़ा-सा ध्यान</span></div>
+    </header>
+    <div class="np-front">
+      <article class="np-lead">
+        <p class="np-kick">आमुख · ${esc(L.by)}</p>
+        <h2 class="np-lead-h"><a href="${href(L)}"><span class="acc">${esc(h1)}</span> ${esc(h2)}</a></h2>
+        <p class="np-dek">${esc(L.dek)}</p>
+        ${fig(L, "wide")}
+        <div class="cols3">${byline(L)}${P(L.body, 9)}${more(L)}</div>
+      </article>
+      <aside class="np-index"><h3>आज के अंक में</h3>
+        <ol>
+          <li><b>पन्ना 2</b> नुक़्ता-ए-नज़र: हमारा संपादकीय और ${vichar.length} टिप्पणियां</li>
+          <li><b>पन्ना 3</b> कल का कच्चा चिट्ठा${pari.length ? ", गांव-जवार" : ""}${vid ? ", रौशनदान" : ""}</li>
+          ${lits.length ? `<li><b>पन्ना 4</b> सुख़न-सराय: साहित्य</li>` : ""}
+        </ol>
+        ${ankBlockNp(L)}
+        <div class="np-q"><h3>सोचने के लिए</h3><p>${esc(L.sawal)}</p></div>
+      </aside>
+    </div>
+    ${khabar.length ? `<section class="np-briefs"><h3 class="np-band">कल का कच्चा चिट्ठा</h3><div class="cols4">${khabar.map(a => `<div class="np-brief"><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div>`).join("")}</div></section>` : ""}
+    ${folio(1, "पहला पन्ना")}</section>`);
+  pages.push(`<section class="sheet" id="p2">${run(2)}
+    <h3 class="np-band big">नुक़्ता-ए-नज़र</h3>
+    <div class="np-edit">
+      <aside class="np-our"><h3>हमारा संपादकीय</h3><h4>${esc(L.h)}</h4>${P(L.nazar, 4)}<p class="np-sawal">${esc(L.sawal)}</p></aside>
+      <div class="np-grid3">${vichar.map(a => `<article class="np-op"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${byline(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>
+    </div>
+    ${folio(2, "संपादकीय")}</section>`);
+  if (khabar.length || pari.length || vid) pages.push(`<section class="sheet" id="p3">${run(3)}
+    ${khabar.length ? `<h3 class="np-band big">कल का कच्चा चिट्ठा</h3><div class="cols3 np-news">${khabar.map(a => `<article class="np-story"><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${byline(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}
+    ${pari.length ? `<h3 class="np-band">गांव-जवार</h3><div class="np-grid3">${pari.map(a => `<article class="np-op">${fig(a)}<h3><a href="${href(a)}">${esc(a.h)}</a></h3>${byline(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}</div>` : ""}
+    ${vid ? `<h3 class="np-band">रौशनदान</h3><article class="np-vid"><a href="${href(vid)}" class="np-vthumb"><img src="https://i.ytimg.com/vi/${esc(vid.yt)}/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></a><div><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${byline(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></article>` : ""}
+    ${folio(3, "देश-दुनिया")}</section>`);
+  if (lits.length) pages.push(`<section class="sheet" id="p4">${run(pages.length + 1)}
+    <h3 class="np-band big">सुख़न-सराय</h3>
+    <div class="np-grid3 np-lit">${lits.map(a => `<article class="np-op">${fig(a)}<p class="np-kick">${esc(a.pub)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${byline(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}</div>
+    <div class="np-imprint">देशकाल हर सुबह दुनिया भर की ज़रूरी टिप्पणियों का सार सहज हिंदुस्तानी में लाता है। सारे सार देशकाल का अपना लेखन हैं; मूल लेख, लेखक और प्रकाशक का नाम और लिंक हर सार के साथ है। · deshkaal.xyz</div>
+    ${folio(pages.length + 1, "साहित्य")}</section>`);
+  const nav = pages.map((_, i) => `<a href="#p${i + 1}">${i + 1}</a>`).join("");
+  const past = allDays.slice(0, 30).map(d => `<a href="/akhbar/${d.date}/"${d.date === day.date ? ' aria-current="true"' : ""}>${dayLabel(d.date)}</a>`).join("");
+  const title = `आज का अख़बार · ${date} · देशकाल`;
+  return `<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title><meta name="description" content="${esc("देशकाल का " + date + " का अंक, अख़बार के रूप में: " + L.h)}">
+<link rel="canonical" href="${SITE}${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:image" content="${SITE}${fs.existsSync(path.join("public", "og", L.id + ".png")) ? "/og/" + L.id + ".png" : "/og.png"}"><meta property="og:url" content="${SITE}${url}"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Teko:wght@500;600&family=Laila:wght@500;600;700&family=Noto+Serif+Devanagari:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
+<link rel="stylesheet" href="/akhbar.css?v=${AV}"></head>
+<body class="np">
+<div class="np-bar"><a class="np-home" href="/">← देशकाल</a><nav class="np-pages" aria-label="पन्ने"><span>पन्ना</span>${nav}</nav><span class="np-act">${pdf ? `<a href="${pdf}" download>PDF डाउनलोड</a>` : ""}<button type="button" onclick="window.print()">छापें</button></span></div>
+<main class="np-wrap">${pages.join("\n")}</main>
+<nav class="np-past" aria-label="पिछले अख़बार"><h3>पिछले अख़बार</h3>${past}</nav>
+</body></html>`;
+}
+const ankBlockNp = L => L.ank && L.ank.length ? `<div class="np-ank">${L.ank.slice(0, 2).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>` : "";
+
 /* ---------- write ---------- */
 fs.rmSync("dist", { recursive: true, force: true });
 const out = (p, s) => { const f = path.join("dist", p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
@@ -352,8 +431,12 @@ for (const l of LANGS) {
 }
 setLang("hi"); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
 out("feed.xml", feed());
+{ const asc = [...DAYS_HI].sort((a, b) => a.date.localeCompare(b.date)), desc = [...asc].reverse();
+  asc.forEach((d, i) => out(`akhbar/${d.date}/index.html`, akhbarPage(d, i + 1, desc)));
+  out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
+out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
+  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
     ...["en", "ur"].flatMap(l => daysFor(l).length ? [[`/${l}/`, latest, "daily"], ...daysFor(l).flatMap(d => d.items.map(a => [hrefL(a, l), a.day, "monthly"]))] : [])];
   out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }

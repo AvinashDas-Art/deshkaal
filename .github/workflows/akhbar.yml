@@ -1,0 +1,40 @@
+name: आज का अख़बार (PDF)
+on:
+  push:
+    branches: [main]
+    paths: ["data/days/**", "src/akhbar.css", "scripts/akhbar-pdf.js"]
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "किस दिन की PDF (YYYY-MM-DD, ख़ाली = आज का अंक)"
+        required: false
+        default: ""
+permissions:
+  contents: write
+concurrency: { group: akhbar-pdf, cancel-in-progress: false }
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Playwright
+        run: |
+          npm i --no-save playwright@1.47.2
+          npx playwright install --with-deps chromium
+      - name: साइट बनाना और PDF
+        run: |
+          DAY="${{ github.event.inputs.day }}"
+          if [ -z "$DAY" ]; then DAY=$(ls data/days | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' | sort | tail -1 | cut -c1-10); fi
+          node build.js
+          (python3 -m http.server 8080 --directory dist >/dev/null 2>&1 &)
+          sleep 2
+          node scripts/akhbar-pdf.js "$DAY"
+      - name: साइट में वापस भेजना
+        run: |
+          git add public/akhbar || true
+          if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
+          git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "आज का अख़बार: PDF"
+          git pull --rebase -q origin main && git push -q origin HEAD:main
