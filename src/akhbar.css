@@ -1,114 +1,225 @@
-/* देशकाल: आज का अख़बार. अख़बारी काग़ज़, काली स्याही, कॉलम और लकीरें */
-:root{--np-paper:#F4F0E6;--np-ink:#151515;--np-ink2:#45433E;--np-rule:#2a2a2a;--np-hair:#C9C3B4;--np-red:#C8342A;--np-desk:#D8D4CA;color-scheme:light}
+/* देशकाल: आज का अख़बार.
+   पहला पन्ना पोस्टर की तरह (द टेलीग्राफ़, कोलकाता), पूरी चौड़ाई की तस्वीर पर बड़ी सुर्ख़ी (लिबरेशन),
+   भीतर के पन्ने साफ़ ग्रिड और पतली लकीरों में (गार्डियन, ल मोंद). */
+:root{
+  --paper:#F3EFE4; --ink:#121212; --ink2:#4A4740; --ink3:#77736A; --rule:#121212; --hair:#CFC8B8;
+  --red:#D2302B; --desk:#2A2A2A;
+  --f-mast:"Yatra One",serif; --f-poster:"Rozha One","Eczar",serif; --f-head:"Eczar","Martel",serif;
+  --f-body:"Martel","Noto Serif Devanagari",Georgia,serif; --f-ui:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;
+  color-scheme:light}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
-body.np{margin:0;background:var(--np-desk);color:var(--np-ink);font-family:"Noto Serif Devanagari",Georgia,serif;-webkit-font-smoothing:antialiased}
-.np a{color:inherit;text-decoration:none}
-.np a:hover{color:var(--np-red)}
-/* ऊपर की पट्टी */
-.np-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 20px;background:var(--np-ink);color:#eee;font-family:"Noto Sans Devanagari",system-ui,sans-serif;font-size:15px}
+body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-body);-webkit-font-smoothing:antialiased}
+:where(.np) a{color:inherit;text-decoration:none}
+.np a:hover{color:var(--red)}
+:where(.np) img{display:block;width:100%;height:100%;object-fit:cover}
+.np img.photo{filter:grayscale(1) contrast(1.15) brightness(1.02)}
+
+/* ऊपर की काली पट्टी */
+.np-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 20px;background:#0d0d0d;color:#eee;font-family:var(--f-ui);font-size:15px}
 .np-bar a,.np-bar button{color:#eee}
-.np-home{font-weight:600}
+.np-home{font-weight:700}
 .np-pages{display:flex;align-items:center;gap:6px}
-.np-pages span{opacity:.7;margin-inline-end:4px}
-.np-pages a{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid #666;border-radius:50%;font-weight:600}
-.np-pages a:hover{background:var(--np-red);border-color:var(--np-red);color:#fff}
+.np-pages span{opacity:.6;margin-inline-end:4px}
+.np-pages a{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid #555;border-radius:50%;font-weight:700}
+.np-pages a:hover{background:var(--red);border-color:var(--red);color:#fff}
 .np-act{display:flex;gap:10px;align-items:center}
-.np-act a,.np-act button{font:inherit;background:none;border:1px solid #888;border-radius:999px;padding:3px 14px;cursor:pointer}
-.np-act a{background:var(--np-red);border-color:var(--np-red);color:#fff;font-weight:600}
-/* पन्ना */
-.np-wrap{padding:26px 16px 10px}
-.sheet{position:relative;max-width:1240px;margin:0 auto 34px;background:radial-gradient(ellipse at 15% 8%,rgba(255,255,255,.45),transparent 55%),radial-gradient(ellipse at 85% 92%,rgba(120,100,60,.07),transparent 60%),var(--np-paper);padding:30px 40px 18px;box-shadow:0 1px 0 #bdb7a8,0 18px 50px rgba(0,0,0,.18)}
+.np-act a,.np-act button{font:inherit;font-weight:600;background:none;border:1px solid #777;border-radius:999px;padding:2px 14px;cursor:pointer}
+.np-act a{background:var(--red);border-color:var(--red);color:#fff}
+
+/* काग़ज़ */
+.np-wrap{padding:28px 16px 8px}
+.sheet{max-width:1240px;margin:0 auto 36px;padding:26px 38px 16px;
+  background:radial-gradient(ellipse at 12% 6%,rgba(255,255,255,.5),transparent 50%),radial-gradient(ellipse at 90% 96%,rgba(110,90,50,.08),transparent 55%),var(--paper);
+  box-shadow:0 2px 0 #bdb6a6,0 24px 60px rgba(0,0,0,.45)}
+
+/* छोटे अक्षर, बाइलाइन, लिंक */
+.np-kick{margin:0 0 4px;font-family:var(--f-ui);font-size:13px;font-weight:700;color:var(--red);letter-spacing:.02em}
+.np-by{margin:0 0 8px;font-family:var(--f-ui);font-size:13.5px;color:var(--ink2)}
+.np-by b{color:var(--ink)}
+.np-more{display:inline-block;font-family:var(--f-ui);font-size:14px;font-weight:700;color:var(--red)!important;margin:2px 0 6px}
+.np-cap{display:block;font-family:var(--f-ui);font-size:12px;color:var(--ink3);margin-top:5px}
+:where(.np) p{font-size:15.5px;line-height:1.78;margin:0 0 .75em}
+.cols2{column-count:2;column-gap:26px;column-rule:1px solid var(--hair)}
+.cols3{column-count:3;column-gap:26px;column-rule:1px solid var(--hair)}
+.cols2 p,.cols3 p{text-align:justify}
+.dropcap>p:nth-of-type(2)::first-letter{float:left;font-family:var(--f-poster);font-size:4.4em;line-height:.82;margin:.08em .1em 0 0;color:var(--red)}
+
+/* स्काईबॉक्स: मास्टहेड के ऊपर अंदर के पन्नों की झलक */
+.np-sky{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.np-sky a{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:center;padding-inline:14px;border-inline-start:1px solid var(--hair)}
+.np-sky a:first-child{border:0;padding-inline-start:0}
+.np-sky img{width:74px;height:74px}
+.np-sky span{font-family:var(--f-head);font-weight:600;font-size:17px;line-height:1.3}
+.np-sky small{display:block;font-family:var(--f-ui);font-weight:700;font-size:12.5px;color:var(--red);margin-bottom:2px}
+
 /* मास्टहेड */
-.np-mast{border-bottom:4px double var(--np-rule);margin-bottom:18px}
-.np-ears{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;border-top:1px solid var(--np-rule);padding-top:8px}
-.np-title{font-family:"Yatra One",serif;font-weight:400;font-size:clamp(64px,10vw,132px);line-height:1;margin:0;text-align:center;letter-spacing:.01em;position:relative}
-.np-title::before{content:"";position:absolute;z-index:0;width:.62em;height:.62em;border-radius:50%;background:var(--np-red);left:50%;top:55%;transform:translate(-36%,-50%);opacity:.92}
-.np-title{isolation:isolate}
-.np-title::before{z-index:-1}
-.ear{margin:0;font-family:"Noto Sans Devanagari",sans-serif;font-size:13.5px;line-height:1.5;color:var(--np-ink2);border:1px solid var(--np-rule);padding:8px 12px;max-width:260px}
-.ear.r{justify-self:end;text-align:end}
-.ear b{color:var(--np-ink);font-family:"Laila",serif;font-size:15px}
-.np-dateline{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:3px solid var(--np-rule);margin-top:10px;padding:6px 0;font-family:"Noto Sans Devanagari",sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em}
-.np-run{display:flex;justify-content:space-between;border-bottom:3px double var(--np-rule);padding-bottom:6px;margin-bottom:16px;font-family:"Noto Sans Devanagari",sans-serif;font-size:13.5px;font-weight:600}
-.np-run span:first-child{font-family:"Yatra One",serif;font-weight:400;font-size:22px;line-height:1}
-/* पहला पन्ना */
-.np-front{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:26px}
-.np-lead{border-inline-end:1px solid var(--np-hair);padding-inline-end:26px}
-.np-kick{margin:0 0 4px;font-family:"Noto Sans Devanagari",sans-serif;font-size:12.5px;font-weight:600;color:var(--np-red);letter-spacing:.03em}
-.np-lead-h{font-family:"Teko",sans-serif;font-weight:600;font-size:clamp(46px,6.2vw,86px);line-height:.98;margin:2px 0 10px}
-.np-lead-h .acc{color:var(--np-red)}
-.np-dek{font-family:"Laila",serif;font-size:21px;line-height:1.55;color:var(--np-ink2);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--np-hair)}
-.np-fig{margin:0 0 14px}
-.np-fig img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(1.02)}
-.np-fig.wide img{aspect-ratio:21/9}
-.np-fig.paint img{filter:saturate(.9) contrast(1.03)}
-.np-fig figcaption{font-family:"Noto Sans Devanagari",sans-serif;font-size:11.5px;color:var(--np-ink2);margin-top:4px}
-.cols3{column-count:3;column-gap:24px;column-rule:1px solid var(--np-hair)}
-.cols4{column-count:4;column-gap:22px;column-rule:1px solid var(--np-hair)}
-.cols3 p,.np-op p,.np-story p,.np-our p,.np-vid p{font-size:15.5px;line-height:1.72;margin:0 0 .7em;text-align:justify;hyphens:auto}
-.np-lead .cols3>p:nth-child(2)::first-letter{float:left;font-family:"Laila",serif;font-weight:700;font-size:3.2em;line-height:.9;margin:.06em .08em 0 0;color:var(--np-red)}
-.np-by{font-family:"Noto Sans Devanagari",sans-serif!important;font-size:12.5px!important;font-weight:600;color:var(--np-ink2);text-align:start!important;margin:0 0 6px!important}
-.np-more{display:inline-block;font-family:"Noto Sans Devanagari",sans-serif;font-size:13px;font-weight:600;color:var(--np-red)!important;margin-bottom:6px}
-.np-index h3,.np-q h3,.np-our>h3{font-family:"Noto Sans Devanagari",sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid var(--np-rule)}
-.np-index ol{list-style:none;margin:0 0 18px;padding:0}
-.np-index li{font-family:"Laila",serif;font-size:16px;line-height:1.5;padding:8px 0;border-bottom:1px solid var(--np-hair)}
-.np-index li b{display:block;font-family:"Noto Sans Devanagari",sans-serif;font-size:12px;color:var(--np-red)}
-.np-ank{display:grid;gap:8px;margin-bottom:18px}
-.np-ank div{border:2px solid var(--np-ink);padding:8px 10px}
-.np-ank b{display:block;font-family:"Teko",sans-serif;font-size:44px;line-height:1;color:var(--np-red)}
-.np-ank span{font-family:"Noto Sans Devanagari",sans-serif;font-size:13px}
-.np-q{background:var(--np-ink);color:var(--np-paper);padding:12px 14px}
-.np-q h3{border-color:var(--np-paper)}
-.np-q p{font-family:"Laila",serif;font-size:20px;line-height:1.45;margin:0}
-.np-band{display:flex;align-items:center;gap:12px;font-family:"Yatra One",serif;font-weight:400;font-size:28px;margin:22px 0 12px;padding:4px 0;border-top:3px solid var(--np-rule);border-bottom:1px solid var(--np-rule)}
-.np-band::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--np-red)}
-.np-band.big{font-size:40px;margin-top:4px}
-.np-brief{break-inside:avoid;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--np-hair)}
-.np-brief h4{font-family:"Laila",serif;font-weight:600;font-size:17.5px;line-height:1.35;margin:0 0 4px}
-.np-brief p:not(.np-kick){font-size:14px;line-height:1.6;margin:0;color:var(--np-ink2)}
+.np-mast{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;padding:6px 0 4px}
+.np-title{margin:0;line-height:.9;font-family:var(--f-mast);font-weight:400;font-size:clamp(84px,13.5vw,176px);letter-spacing:-.01em}
+.np-title span{position:relative;isolation:isolate;display:inline-block}
+.np-title span::before{content:"";position:absolute;z-index:-1;width:.7em;height:.7em;border-radius:50%;background:var(--red);left:49%;top:56%;transform:translate(-50%,-50%)}
+.np-date{display:grid;justify-items:end;gap:2px;font-family:var(--f-ui);padding-bottom:16px;text-align:end}
+.np-date b{font-family:var(--f-head);font-weight:800;font-size:30px;line-height:1}
+.np-date span{font-size:15px;color:var(--ink2);font-weight:600}
+.np-tagbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:13.5px;font-weight:600;padding:5px 12px;margin-bottom:14px}
+
+/* पोस्टर: पूरी चौड़ाई की तस्वीर पर सुर्ख़ी */
+.np-poster{position:relative;margin:0 0 16px;background:#111;overflow:hidden}
+.np-poster figure{margin:0;height:min(58vw,600px)}
+.np-poster figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.82) 100%)}
+.np-poster figcaption{position:absolute;z-index:2;right:12px;top:10px}
+.np-poster figcaption .np-cap{color:rgba(255,255,255,.75);margin:0;font-size:11.5px}
+.np-poster-t{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 34px 26px}
+.np-poster h2{margin:0;font-family:var(--f-poster);font-weight:400;font-size:clamp(46px,7.4vw,104px);line-height:1.06;color:#fff;max-width:15ch}
+.np-poster h2 a:hover{color:#fff}
+.np-poster h2 .acc{background:var(--red);color:#fff;padding:0 .14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.np-flag{display:inline-flex;align-items:center;gap:10px;margin:0 0 12px;font-family:var(--f-ui);font-size:15px;font-weight:600;color:#fff}
+.np-flag b{background:#fff;color:var(--ink);padding:1px 10px;font-weight:800}
+
+.np-leadgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:30px;padding-bottom:18px;border-bottom:4px double var(--rule)}
+.np-dek{font-family:var(--f-head);font-weight:600;font-size:25px;line-height:1.45;color:var(--ink);margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid var(--hair)}
+.np-dek.sm{font-size:19px;border:0;padding:0;margin-bottom:10px;color:var(--ink2)}
+.np-rail{border-inline-start:1px solid var(--rule);padding-inline-start:24px;display:flex;flex-direction:column;gap:18px}
+.np-big b{display:block;font-family:var(--f-poster);font-weight:400;font-size:84px;line-height:.95;color:var(--red)}
+.np-big span{display:block;font-family:var(--f-ui);font-weight:600;font-size:15px;line-height:1.35;border-top:2px solid var(--ink);padding-top:6px;margin-top:4px}
+.np-quote{margin:0;font-family:var(--f-head);font-weight:700;font-size:27px;line-height:1.35;padding:16px 0;border-block:3px solid var(--ink)}
+.np-quote .q{display:block;font-family:var(--f-poster);font-size:90px;line-height:.5;color:var(--red);height:38px}
+.np-quote cite{display:block;margin-top:10px;font-family:var(--f-ui);font-style:normal;font-size:13px;font-weight:700;color:var(--red)}
+.np-inside h3{margin:0 0 6px;font-family:var(--f-ui);font-size:13px;letter-spacing:.08em;font-weight:800}
+.np-inside ol{list-style:none;margin:0;padding:0}
+.np-inside li{display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:baseline;font-family:var(--f-head);font-weight:600;font-size:16px;line-height:1.35;padding:7px 0;border-top:1px solid var(--hair)}
+.np-inside li b{font-family:var(--f-poster);font-weight:400;font-size:28px;color:var(--red)}
+
+/* कल का कच्चा चिट्ठा: नंबर वाली पट्टी */
+.np-digest{margin-top:16px}
+.np-digest h3{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px;padding:6px 12px;background:var(--red);color:#fff}
+.np-digest h3 span{font-family:var(--f-mast);font-weight:400;font-size:28px;line-height:1.2}
+.np-digest h3 small{font-family:var(--f-ui);font-size:13.5px;font-weight:600;opacity:.92}
+.np-digest ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.np-digest li{display:grid;grid-template-columns:40px 1fr;gap:8px;padding:10px 14px 12px;border-inline-start:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.np-digest li:nth-child(4n+1){border-inline-start:0;padding-inline-start:0}
+.np-digest li>b{font-family:var(--f-poster);font-weight:400;font-size:44px;line-height:.9;color:var(--ink)}
+.np-digest h4{margin:0 0 4px;font-family:var(--f-head);font-weight:700;font-size:18px;line-height:1.3}
+.np-digest li p:not(.np-kick){font-size:14px;line-height:1.6;color:var(--ink2);margin:0}
+
+/* भीतर के पन्नों का सिरा */
+.np-run{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:12px;padding-bottom:8px;border-bottom:4px double var(--rule);margin-bottom:20px}
+.np-run-m{font-family:var(--f-mast);font-size:34px;line-height:1}
+.np-run h2{margin:0;font-family:var(--f-poster);font-weight:400;font-size:52px;line-height:1}
+.np-run>span{justify-self:end;font-family:var(--f-ui);font-size:14px;font-weight:700;color:var(--ink2)}
+
 /* संपादकीय पन्ना */
-.np-edit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:26px}
-.np-our{border-inline-end:1px solid var(--np-hair);padding-inline-end:24px}
-.np-our h4{font-family:"Laila",serif;font-weight:700;font-size:24px;line-height:1.3;margin:4px 0 10px}
-.np-sawal{font-family:"Laila",serif!important;font-size:19px!important;font-style:italic;border-top:2px solid var(--np-rule);padding-top:8px;text-align:start!important}
-.np-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 24px}
-.np-op{padding-inline-start:0}
-.np-grid3>.np-op+.np-op{}
-.np-op h3,.np-story h3,.np-vid h3{font-family:"Laila",serif;font-weight:700;font-size:21px;line-height:1.3;margin:0 0 6px}
-.np-grid3 .np-op{border-top:1px solid var(--np-rule);padding-top:10px}
-.np-story{break-inside:avoid;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--np-hair)}
-.np-vid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px;align-items:start}
-.np-vthumb{position:relative;display:block}
-.np-vthumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.1)}
-.np-vthumb .play{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:var(--np-red)}
-.np-vthumb .play::after{content:"";position:absolute;left:24px;top:18px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #fff}
-.np-imprint{margin-top:22px;padding:10px 0;border-top:3px double var(--np-rule);font-family:"Noto Sans Devanagari",sans-serif;font-size:12.5px;color:var(--np-ink2);text-align:center}
-.np-folio{display:flex;justify-content:space-between;margin-top:16px;padding-top:6px;border-top:1px solid var(--np-rule);font-family:"Noto Sans Devanagari",sans-serif;font-size:12px;font-weight:600;color:var(--np-ink2)}
+.np-edit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:30px}
+.np-rai{background:var(--ink);color:var(--paper);padding:20px 20px 10px;align-self:start}
+.np-rai h3{margin:0 0 10px;font-family:var(--f-mast);font-weight:400;font-size:30px;color:#fff;border-bottom:2px solid var(--red);padding-bottom:6px}
+.np-rai h4{margin:0 0 12px;font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.35;color:#fff}
+.np-rai p{font-size:15px;color:#e9e4d8}
+.np-ask{font-family:var(--f-head)!important;font-weight:700;font-size:20px!important;line-height:1.4!important;color:#fff!important;border-top:1px solid #555;padding-top:10px}
+.np-fhead{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;margin-bottom:10px}
+.np-tile{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--f-poster);font-size:32px;line-height:1}
+.np-author{margin:0!important;font-family:var(--f-ui)!important;font-weight:700;font-size:16px!important;line-height:1.2!important}
+.np-feature{padding-bottom:16px;border-bottom:3px solid var(--ink);margin-bottom:16px}
+.np-feature h3{margin:2px 0 4px;font-family:var(--f-poster);font-weight:400;font-size:44px;line-height:1.12}
+.np-feature .np-tile{width:84px;height:84px;font-size:48px}
+.np-feature figure{margin:6px 0 14px;height:340px}
+.np-feature figure .np-cap{margin-top:5px}
+.np-opgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 26px}
+.np-op{border-top:1px solid var(--rule);padding-top:12px}
+.np-op h3{margin:0 0 8px;font-family:var(--f-head);font-weight:800;font-size:22px;line-height:1.3}
+.np-op .np-tile{width:44px;height:44px;font-size:24px}
+.np-pull{grid-column:1/-1;margin:4px 0;padding:14px 0;border-block:3px solid var(--ink);font-family:var(--f-head);font-weight:700;font-size:30px;line-height:1.35;text-align:center;color:var(--ink)}
+.np-pull::before{content:"“";color:var(--red);font-family:var(--f-poster);font-size:1.4em;line-height:0;vertical-align:-.3em;margin-inline-end:.15em}
+
+/* देश-दुनिया */
+.np-news{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:30px}
+.np-top h3{margin:0 0 8px;font-family:var(--f-poster);font-weight:400;font-size:48px;line-height:1.12}
+.np-top figure{margin:0 0 12px;height:320px}
+.np-stack{border-inline-start:1px solid var(--rule);padding-inline-start:24px}
+.np-story{padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--hair)}
+.np-story h3{margin:0 0 6px;font-family:var(--f-head);font-weight:800;font-size:21px;line-height:1.3}
+.np-band{display:flex;align-items:baseline;gap:14px;margin:24px 0 14px;padding-top:8px;border-top:4px double var(--rule)}
+.np-band span{font-family:var(--f-poster);font-weight:400;font-size:40px;line-height:1}
+.np-band small{font-family:var(--f-ui);font-weight:700;font-size:14px;color:var(--red)}
+.np-pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.np-pgrid article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+.np-pgrid figure{margin:0;height:230px}
+.np-pgrid h4{margin:0 0 6px;font-family:var(--f-head);font-weight:800;font-size:21px;line-height:1.3}
+/* रौशनदान: फ़िल्म की रील */
+.np-film{margin-top:24px;background:#0f0f0f;color:#f2efe6;padding:26px 26px;position:relative}
+.np-film::before,.np-film::after{content:"";position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,transparent 0 10px,#f3efe4 10px 26px,transparent 26px 34px);opacity:.9}
+.np-film::before{top:6px}.np-film::after{bottom:6px}
+.np-film-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px;align-items:center;padding-block:14px}
+.np-film h3{margin:0 0 8px;font-family:var(--f-poster);font-weight:400;font-size:40px;line-height:1.15;color:#fff}
+.np-film p{color:#d9d4c8}
+.np-film .np-by,.np-film .np-by b{color:#cfc9bc}
+.np-flag.light b{background:var(--red);color:#fff}
+.np-flag.light{color:#cfc9bc}
+.np-vthumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden}
+.np-vthumb img{filter:contrast(1.05)}
+.np-vthumb .play{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:var(--red);box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.np-vthumb .play::after{content:"";position:absolute;left:27px;top:20px;border-style:solid;border-width:15px 0 15px 24px;border-color:transparent transparent transparent #fff}
+
+/* सुख़न-सराय */
+.np-gallery{position:relative;margin:0 0 22px}
+.np-gallery figure{margin:0;height:520px;border:10px solid #fff;outline:1px solid var(--hair);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.np-plate{position:absolute;left:34px;bottom:34px;max-width:470px;background:var(--paper);padding:18px 22px 10px;box-shadow:0 10px 30px rgba(0,0,0,.25);border-top:6px solid var(--red)}
+.np-plate h3{margin:0 0 6px;font-family:var(--f-poster);font-weight:400;font-size:36px;line-height:1.15}
+.np-gallery>.np-cap{text-align:end}
+.np-litgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 30px}
+.np-litgrid article{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.np-litgrid figure{margin:0;height:180px;border:6px solid #fff;outline:1px solid var(--hair)}
+.np-litgrid h4{margin:0 0 6px;font-family:var(--f-head);font-weight:800;font-size:21px;line-height:1.3}
+.np-imprint{margin-top:22px;padding:10px 0;border-top:4px double var(--rule);font-family:var(--f-ui);font-size:13px;color:var(--ink2);text-align:center}
+
+.np-folio{display:flex;justify-content:space-between;gap:10px;margin-top:16px;padding-top:6px;border-top:1px solid var(--rule);font-family:var(--f-ui);font-size:12.5px;font-weight:700;color:var(--ink2)}
+
 /* पिछले अख़बार */
-.np-past{max-width:1240px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px;font-family:"Noto Sans Devanagari",sans-serif;font-size:14px}
-.np-past h3{width:100%;margin:0 0 4px;font-size:15px}
-.np-past a{background:var(--np-paper);padding:4px 12px;border-radius:999px}
-.np-past a[aria-current]{background:var(--np-ink);color:var(--np-paper)}
-/* मोबाइल और टैबलेट */
-@media (max-width:980px){.cols4{column-count:2}.cols3{column-count:2}.np-grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:720px){
-  .sheet{padding:18px 16px 12px}
-  .np-ears{grid-template-columns:1fr}.ear{display:none}
-  .np-front,.np-edit,.np-vid{grid-template-columns:1fr}
-  .np-lead,.np-our{border:0;padding:0}
-  .cols3,.cols4{column-count:1}
-  .np-grid3{grid-template-columns:1fr}
-  .np-dateline{font-size:12.5px}
-  .np-pages span{display:none}
-  .np-band.big{font-size:32px}
+.np-past{max-width:1240px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--f-ui);font-size:14px;color:#ddd}
+.np-past h3{width:100%;margin:0 0 4px;font-size:16px}
+.np-past a{background:#3a3a3a;padding:3px 12px;border-radius:999px}
+.np-past a[aria-current]{background:var(--red);color:#fff}
+
+/* टैबलेट और फ़ोन */
+@media (max-width:1000px){
+  .np-digest ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .np-digest li:nth-child(odd){border-inline-start:0;padding-inline-start:0}
+  .np-digest li:nth-child(4n+1){border-inline-start:0}
+  .np-opgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols3{column-count:2}
+  .np-pgrid{grid-template-columns:1fr}
 }
-/* छपाई और PDF: हर पन्ना अलग काग़ज़ पर */
+@media (max-width:720px){
+  .np-wrap{padding:12px 8px}
+  .sheet{padding:16px 16px 10px}
+  .np-sky{grid-template-columns:1fr;gap:10px}
+  .np-sky a{border:0;padding:0}
+  .np-mast{grid-template-columns:1fr;justify-items:center}
+  .np-date{justify-items:center;text-align:center;padding-bottom:6px}
+  .np-tagbar span:nth-child(2){display:none}
+  .np-poster figure{height:440px}
+  .np-poster-t{padding:0 16px 18px}
+  .np-leadgrid,.np-edit,.np-news,.np-film-in,.np-pgrid article{grid-template-columns:1fr}
+  .np-rail,.np-stack{border:0;padding:0}
+  .cols2,.cols3{column-count:1}
+  .np-digest ol,.np-opgrid,.np-litgrid{grid-template-columns:1fr}
+  .np-digest li{border-inline-start:0;padding-inline:0}
+  .np-run{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .np-run>span{justify-self:center}
+  .np-run h2{font-size:40px}
+  .np-feature h3,.np-top h3{font-size:34px}
+  .np-gallery figure{height:360px}
+  .np-plate{position:static;max-width:none;margin-top:-30px;margin-inline:12px}
+  .np-litgrid article{grid-template-columns:110px 1fr}
+  .np-litgrid figure{height:130px}
+  .np-pages span{display:none}
+}
+
+/* छपाई और PDF: हर पन्ना एक काग़ज़ */
 @page{margin:0}
 @media print{
-  body.np{background:var(--np-paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.np{background:var(--paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .np-bar,.np-past{display:none}
   .np-wrap{padding:0}
-  .sheet{max-width:none;margin:0;box-shadow:none;break-after:page;padding:28px 36px 16px}
+  .sheet{max-width:none;margin:0;box-shadow:none;break-after:page}
   .np-more{display:none}
 }
