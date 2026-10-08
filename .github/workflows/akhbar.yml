@@ -36,6 +36,11 @@ jobs:
           (python3 -m http.server 8080 --directory dist >/dev/null 2>&1 &)
           sleep 2
           node scripts/akhbar-pdf.js "$DAY"
+          # PDF हल्की करना (तस्वीरें 150 dpi); बिगड़े या बड़ी हो तो मूल रखना
+          sudo apt-get install -y -qq ghostscript >/dev/null
+          F="public/akhbar/$DAY.pdf"
+          if gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dColorImageResolution=150 -dGrayImageResolution=150 -sOutputFile=/tmp/small.pdf "$F" && [ -s /tmp/small.pdf ] && [ $(stat -c%s /tmp/small.pdf) -lt $(stat -c%s "$F") ]; then mv /tmp/small.pdf "$F"; fi
+          ls -la "$F"
       - name: साइट में वापस भेजना
         run: |
           git add public/akhbar || true
