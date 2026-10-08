@@ -404,7 +404,7 @@ body.noscroll{overflow:hidden}
 [dir="rtl"] .sin input{font-family:var(--f-body)}
 .ctl:disabled{opacity:.35;cursor:default}
 
-/* खंड: नुक़्ता-ए-नज़र, कल का कच्चा चिट्ठा, गांव-जवार, रौशनदान, सुख़न-सराय */
+/* खंड: नुक़्ता-ए-नज़र, कल का कच्चा चिट्ठा, गांव-जवार, रोशनदान, सुख़न-सराय */
 .vichar,.khabar,.pariband,.ytband{margin-top:26px;padding-top:26px;border-top:3px solid var(--ink)}
 .sechead h3{position:relative;padding-inline-start:26px}
 .sechead h3::before{content:"";position:absolute;inset-inline-start:0;top:.32em;width:14px;height:14px;border-radius:50%;background:var(--lal)}

@@ -50,7 +50,7 @@ async function whatsappDraft() {
     `*नुक़्ता-ए-नज़र*`, ...news.filter(a => a.sec === "vichar").slice(0, 6).flatMap(a => [`▪️ ${a.h}`, short(a)]), "",
     ...(news.some(a => a.sec === "khabar") ? [`*कल का कच्चा चिट्ठा*`, ...news.filter(a => a.sec === "khabar").slice(0, 6).flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
     ...(news.some(a => a.sec === "pari") ? [`*गांव-जवार*`, ...news.filter(a => a.sec === "pari").flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
-    ...(vid ? [`*रौशनदान*`, `▪️ ${vid.h}`, short(vid), ""] : []),
+    ...(vid ? [`*रोशनदान*`, `▪️ ${vid.h}`, short(vid), ""] : []),
     ...(lit.length ? [`*सुख़न-सराय*`, ...lit.slice(0, 3).flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
     `पूरा अंक: ${SITE}`].join("\n");
   const html = `<div style="font-family:Arial,sans-serif;max-width:640px"><p style="color:#555">नीचे का संदेश पूरा कॉपी कर के WhatsApp चैनल में चिपकाइए। सितारे (*) WhatsApp में मोटे अक्षर बन जाएंगे।</p>

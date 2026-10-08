@@ -150,6 +150,6 @@ document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.conta
   const p=new URLSearchParams(location.search).get("khoj");if(p!==null){q.value=p;open();run()}
 })();
 
-/* रौशनदान: वीडियो इसी पन्ने पर, दबाने पर ही YouTube लोड होता है */
+/* रोशनदान: वीडियो इसी पन्ने पर, दबाने पर ही YouTube लोड होता है */
 document.addEventListener("click",e=>{const b=e.target.closest(".ytlite");if(!b)return;const f=document.createElement("iframe");
 f.src=`https://www.youtube.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&playsinline=1&rel=0`;f.referrerPolicy="strict-origin-when-cross-origin";f.setAttribute("frameborder","0");f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";f.allowFullscreen=true;f.title=b.getAttribute("aria-label")||"video";b.replaceWith(f)});

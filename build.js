@@ -39,7 +39,7 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
 const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
-/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रौशनदान, sahitya साहित्य.
+/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रोशनदान, sahitya साहित्य.
    पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
 const SECS = ["amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
 DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : a.yt ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
@@ -377,7 +377,7 @@ function akhbarPage(day, issueNo, allDays) {
   const folio = (n, t) => `<footer class="np-folio"><span>${t}</span><span>deshkaal.xyz · ज़रूरी ख़बरों तक जाती एक पगडंडी</span><span>${n}</span></footer>`;
   const [h1, h2] = splitHead(L.h);
   const toon = toonFor(day.date);
-  const promos = [toon && [2, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p2" }], vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रौशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
+  const promos = [toon && [2, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p2" }], vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रोशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
   const pages = [];
   /* विज्ञापन: ख़ाली जगहें, हर जगह अलग अंदाज़ */
   const mail = "mailto:sampark@deshkaal.xyz?subject=" + encodeURIComponent("देशकाल में विज्ञापन") + "&body=" + encodeURIComponent("नमस्ते, मैं देशकाल के अख़बार में विज्ञापन देना चाहता/चाहती हूं। मेरा नाम, संस्था और फ़ोन:");
@@ -409,7 +409,7 @@ function akhbarPage(day, issueNo, allDays) {
         <blockquote class="np-quote"><span class="q">“</span>${esc(L.sawal)}<cite>आज का सवाल</cite></blockquote>
         <div class="np-inside"><h3>अंदर</h3><ol>
           <li><b>2</b>नुक़्ता-ए-नज़र: देशकाल की राय और ${vichar.length} टिप्पणियां</li>
-          <li><b>3</b>देश-दुनिया${pari.length ? ", गांव-जवार" : ""}${vid ? ", रौशनदान" : ""}</li>
+          <li><b>3</b>देश-दुनिया${pari.length ? ", गांव-जवार" : ""}${vid ? ", रोशनदान" : ""}</li>
           ${lits.length ? `<li><b>4</b>सुख़न-सराय: साहित्य</li>` : ""}</ol></div>
       </aside>
     </div>
@@ -439,7 +439,7 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}${ADS.coupon()}</div>
     </div>` : ""}
     ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
-    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="https://i.ytimg.com/vi/${esc(vid.yt)}/hqdefault.jpg" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रौशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
+    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="https://i.ytimg.com/vi/${esc(vid.yt)}/hqdefault.jpg" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
     ${folio(3, "देश-दुनिया")}</section>`);
   }
   /* सुख़न-सराय */

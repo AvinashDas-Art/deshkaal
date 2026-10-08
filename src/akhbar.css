@@ -147,7 +147,7 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-pgrid article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
 .np-pgrid figure{margin:0;height:230px}
 .np-pgrid h4{margin:0 0 6px;font-family:var(--f-head);font-weight:500;font-size:28px;line-height:1.05}
-/* रौशनदान: फ़िल्म की रील */
+/* रोशनदान: फ़िल्म की रील */
 .np-film{margin-top:24px;background:#0f0f0f;color:#f2efe6;padding:26px 26px;position:relative}
 .np-film::before,.np-film::after{content:"";position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,transparent 0 10px,#f3efe4 10px 26px,transparent 26px 34px);opacity:.9}
 .np-film::before{top:6px}.np-film::after{bottom:6px}

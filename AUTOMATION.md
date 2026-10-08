@@ -13,7 +13,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
    - `vichar` (exactly 6): editorial and opinion pieces from around the world on contemporary social and political events. Commentary and analysis only, no everyday news reports. Mix India, South Asia and the world.
    - `khabar` (6-8): the important news reports of **yesterday only** (published the previous calendar day, IST; at most the day before that if nothing else). Reports, ground stories, fact-checks: the Form 6 / students' march / attack-on-journalist kind of story.
    - `pari` (every new PARI story): every PARI (ruralindiaonline.org) story published in the **last 3 months** that is not already on the site, newest first, at most 4 a day (keep the rest for the next days). **Never anything older than 3 months.** If there is none, the section is skipped that day.
-   - `video` (about 1-2 a week, only when it is truly worth it): see "रौशनदान" below.
+   - `video` (about 1-2 a week, only when it is truly worth it): see "रोशनदान" below.
    - `sahitya` (exactly 6): literature, as before.
    PARI pieces do not count towards `vichar` or `khabar`. Never select paywalled pieces. At most 2 pieces from one source in a day (PARI excepted).
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
@@ -32,7 +32,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 - `sawal`: one question, under 12 words, that stays with the reader.
 - `ref` (संदर्भ): 1-2 terms or events a general reader may not know, two lines each.
 - Headline (`h`): our own, sharp, under 12 words. Dek: one sentence.
-- Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
+- Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). रोशनदान (not रौशनदान). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
 - Facts only from the article itself or well-established background knowledge. If unsure, leave it out.
 
 ## Day file schema
@@ -65,9 +65,9 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 `motif` picks the collage drawing; choose the one closest to the subject. `seed` is any number, different for each piece.
 
 ## The issue: sections
-The front page shows, in order: आमुख (lead), नुक़्ता-ए-नज़र (6 editorials), कल का कच्चा चिट्ठा (yesterday's news), गांव-जवार (PARI), रौशनदान (video, the newest one on the site), सुख़न-सराय (literature). The page code reads `sec`; never rely on order alone.
+The front page shows, in order: आमुख (lead), नुक़्ता-ए-नज़र (6 editorials), कल का कच्चा चिट्ठा (yesterday's news), गांव-जवार (PARI), रोशनदान (video, the newest one on the site), सुख़न-सराय (literature). The page code reads `sec`; never rely on order alone.
 
-## रौशनदान (video)
+## रोशनदान (video)
 - About once or twice a week, when there is something truly worth it: a highly regarded documentary or lecture from the **last 30 days**, closely tied to the editorial policy (rights, caste, communal harmony, Adivasi and rural life, labour, environment, South Asia, Global South). Prefer established makers: Al Jazeera Witness / 101 East / Fault Lines, PARI films, Karwan e Mohabbat, Newslaundry and The Wire documentaries, university or public lectures by the writers in `WRITERS.md`.
 - How to find it: program pages such as https://www.aljazeera.com/program/witness/ list films with dates; the film page carries the YouTube id in the `meta-featuredMedia` field as `YT-<id>`. Always verify the id with WebFetch of `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>&format=json` (title must match).
 - Item: `"sec": "video"`, `"yt": "<id>"`, `url` = the YouTube watch URL, `pub` = the channel/strand, `by` = director(s) or speaker, optional `"dur": "25 मिनट"`. `photo` = `{"kind":"photo","src":"https://i.ytimg.com/vi/<id>/hqdefault.jpg","credit":"<channel> / YouTube","page":"<watch url>","note":"फ़िल्म का एक दृश्य"}`.
