@@ -219,16 +219,18 @@ function hero(L, kick = T.bigDebate) {
   <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
 }
 /* ---------- तिरछी नज़र: राजेंद्र धोड़पकर के कार्टून (data/cartoons/<दिन>.json, public/cartoon/<दिन>.jpg) ---------- */
-const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
+const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
-/* उस दिन या उससे पहले का सबसे नया कार्टून: नया कार्टून आने तक पिछला ही बना रहता है */
-const toonFor = date => CARTOONS.find(c => c.date <= date);
+/* हर दिन का अपना कार्टून, कोई कार्टून दो दिन नहीं दोहराया जाता. आगे की तारीख़ वाले कार्टून तब तक छिपे रहते हैं जब तक वो दिन न आ जाए */
+const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
+const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
+const toonFor = date => PUB_TOONS.find(c => c.date === date);
 const toonBand = c => `<section class="toon">
   <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p></div>
   <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
   <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`;
 function cartoonPage(c) {
-  const i = CARTOONS.indexOf(c), others = CARTOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
+  const others = PUB_TOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
   const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
     <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
     <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
@@ -502,7 +504,9 @@ out("feed.xml", feed());
   asc.forEach((d, i) => out(`akhbar/${d.date}/index.html`, akhbarPage(d, i + 1, desc)));
   out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
-CARTOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
+PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
+/* कार्टून की तस्वीर सिर्फ़ उसी दिन से साइट पर जाती है: रिज़र्व वाले data/cartoons/img में छिपे रहते हैं */
+PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
   const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
