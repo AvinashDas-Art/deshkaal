@@ -439,3 +439,27 @@ body.noscroll{overflow:hidden}
 .paper{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:14.5px;font-weight:600;color:var(--ink);padding:3px 12px 3px 10px;border:1px solid var(--ink);border-radius:999px;line-height:1.6;background:var(--paper)}
 .paper:hover{background:var(--ink);color:var(--paper)}
 .paper svg{flex:none}
+
+/* तिरछी नज़र: कार्टून, पिन-बोर्ड पर टेप से चिपका */
+.toon{margin-top:34px;padding:34px 0 40px;border-top:3px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3.2fr);gap:34px;align-items:center}
+.toon-head h3{font-family:var(--f-paint);font-weight:400;font-size:clamp(46px,5.6vw,74px);line-height:1.05;margin:0;transform:rotate(-4deg);transform-origin:left;display:inline-block;padding-bottom:6px;background:linear-gradient(var(--lal),var(--lal)) left bottom/100% 6px no-repeat}
+.toon-head p{font-family:var(--f-ui);font-size:16px;color:var(--ink-2);margin:18px 0 0}
+.toon-head p b{display:block;font-family:var(--f-hand);font-size:30px;font-weight:700;color:var(--ink);line-height:1.2}
+.toon-board{margin:0;position:relative}
+.toon-frame{position:relative;display:block;background:#fff;padding:16px;border:2px solid var(--ink);box-shadow:10px 12px 0 var(--ink);transform:rotate(-1.2deg);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.toon-frame:hover{transform:rotate(0) scale(1.012);box-shadow:14px 16px 0 var(--lal)}
+.toon-frame img{display:block;width:100%;height:auto}
+.toon-tape{position:absolute;top:-16px;width:120px;height:34px;background:rgba(207,58,46,.78);box-shadow:0 2px 6px rgba(0,0,0,.15);z-index:2}
+.toon-tape.l{left:-26px;transform:rotate(-24deg)}
+.toon-tape.r{right:-26px;transform:rotate(22deg);background:rgba(178,125,30,.8)}
+.toon-board figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:22px;font-family:var(--f-ui);font-size:14.5px;color:var(--ink-2)}
+.toon-sig{font-family:var(--f-hand);font-size:24px;font-weight:700;color:var(--ink)}
+.toon-page{max-width:1080px;margin:0 auto;padding:10px 0 30px}
+.toon-page h1{font-family:var(--f-head);font-weight:600;font-size:clamp(30px,4vw,46px);margin:6px 0 30px}
+.toon-board.big .toon-frame{transform:rotate(-.6deg)}
+.toon-more{font-family:var(--f-paint);font-weight:400;font-size:36px;margin:40px 0 16px}
+.toon-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.toon-grid a{display:block;background:#fff;padding:8px;border:1px solid var(--rule);color:var(--ink-2);font-family:var(--f-ui);font-size:13.5px}
+.toon-grid img{display:block;width:100%;height:auto;margin-bottom:6px}
+:root[data-theme="dark"] .toon-frame{background:#EDEBE4}
+@media (max-width:860px){.toon{grid-template-columns:1fr;gap:22px}.toon-head h3{transform:rotate(-3deg)}.toon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toon-frame{padding:8px;box-shadow:6px 8px 0 var(--ink)}.toon-tape{width:80px;height:26px}.toon-tape.l{left:-6px}.toon-tape.r{right:-6px}}

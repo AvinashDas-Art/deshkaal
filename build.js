@@ -218,6 +218,24 @@ function hero(L, kick = T.bigDebate) {
   <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>${L.photo ? `<span class="hero-credit">${credit(L)}</span>` : ""}
   <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
 }
+/* ---------- तिरछी नज़र: राजेंद्र धोड़पकर के कार्टून (data/cartoons/<दिन>.json, public/cartoon/<दिन>.jpg) ---------- */
+const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
+const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
+const toonFor = date => CARTOONS.find(c => c.date === date);
+const toonBand = c => `<section class="toon">
+  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p></div>
+  <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
+  <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`;
+function cartoonPage(c) {
+  const i = CARTOONS.indexOf(c), others = CARTOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
+  const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
+    <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
+    <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
+    <div class="share" data-url="${SITE}/cartoon/${c.date}/" data-title="तिरछी नज़र"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
+    <p class="fine">कार्टून के सारे अधिकार ${esc(c.artist)} के हैं। देशकाल पर उनकी अनुमति से।</p>
+    ${others.length ? `<h3 class="toon-more">और कार्टून</h3><div class="toon-grid">${others.map(o => `<a href="/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
+  return layout({ title: `तिरछी नज़र: ${c.artist} का कार्टून, ${dayLabel(c.date)}`, desc: c.alt, url: `/cartoon/${c.date}/`, body, image: c.img, published: c.date });
+}
 const connect = () => `<section class="band">
   <div><h4>${T.sunT}</h4><p>${T.sunP}</p><div class="act"><span class="chip">${T.sunChip}</span></div></div>
   <div><h4>${T.mailT}</h4><p>${T.mailP}</p><div class="act"><form class="sub" id="subf"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="${T.email}"><button class="btn">${T.join}</button></form></div><p class="note" id="subnote"></p></div>
@@ -237,6 +255,7 @@ function homePage() {
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const body = `<div class="lastread" id="lastread" hidden></div>${hero(L, T.sec.amukh[0] + (L.by ? " · " + esc(L.by) : ""))}
+  ${toonFor(today.date) ? toonBand(toonFor(today.date)) : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
@@ -356,7 +375,8 @@ function akhbarPage(day, issueNo, allDays) {
   const run = (n, t) => `<header class="np-run"><a class="np-run-m" href="/">देशकाल</a><h2>${t}</h2><span>${dt} · पन्ना ${n}</span></header>`;
   const folio = (n, t) => `<footer class="np-folio"><span>${t}</span><span>deshkaal.xyz · ज़रूरी ख़बरों तक जाती एक पगडंडी</span><span>${n}</span></footer>`;
   const [h1, h2] = splitHead(L.h);
-  const promos = [vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रौशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
+  const toon = toonFor(day.date);
+  const promos = [toon && [2, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p2" }], vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रौशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
   const pages = [];
   /* विज्ञापन: ख़ाली जगहें, हर जगह अलग अंदाज़ */
   const mail = "mailto:sampark@deshkaal.xyz?subject=" + encodeURIComponent("देशकाल में विज्ञापन") + "&body=" + encodeURIComponent("नमस्ते, मैं देशकाल के अख़बार में विज्ञापन देना चाहता/चाहती हूं। मेरा नाम, संस्था और फ़ोन:");
@@ -371,7 +391,7 @@ function akhbarPage(day, issueNo, allDays) {
   const pad = (n, cols) => (cols - (n % cols)) % cols;
   /* पहला पन्ना */
   pages.push(`<section class="sheet front" id="p1">
-    <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${href(a)}">${a.yt ? `<img class="photo" src="https://i.ytimg.com/vi/${esc(a.yt)}/hqdefault.jpg" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
+    <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${a.toon ? a.href : href(a)}">${a.toon ? `<img class="paint" src="${a.img}" alt="">` : a.yt ? `<img class="photo" src="https://i.ytimg.com/vi/${esc(a.yt)}/hqdefault.jpg" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
     <header class="np-mast">
       <h1 class="np-title"><span>देशकाल</span></h1>
       <div class="np-date"><b>${wd}</b><span>${dt}</span><span>वर्ष 1 · अंक ${issueNo}</span></div>
@@ -398,6 +418,7 @@ function akhbarPage(day, issueNo, allDays) {
   /* संपादकीय पन्ना */
   const [F, ...ops] = vichar;
   pages.push(`<section class="sheet" id="p2">${run(2, "नुक़्ता-ए-नज़र")}
+    ${toon ? `<section class="np-toon"><div class="np-toon-l"><h3>तिरछी<br>नज़र</h3><p>${esc(toon.artist)}</p></div><a class="np-toon-f" href="/cartoon/${toon.date}/"><img class="paint" src="${toon.img}" alt="${esc(toon.alt)}"></a></section>` : ""}
     <div class="np-edit">
       <aside class="np-rai"><h3>देशकाल की राय</h3><h4>${esc(L.h)}</h4>${P(L.nazar, 4)}<p class="np-ask">${esc(L.sawal)}</p></aside>
       <div class="np-ops">
@@ -480,6 +501,7 @@ out("feed.xml", feed());
   asc.forEach((d, i) => out(`akhbar/${d.date}/index.html`, akhbarPage(d, i + 1, desc)));
   out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
+CARTOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
   const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
