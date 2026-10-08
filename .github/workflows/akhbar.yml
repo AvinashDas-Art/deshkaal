@@ -41,4 +41,5 @@ jobs:
           git add public/akhbar || true
           if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
           git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "आज का अख़बार: PDF"
+          git reset -q --hard HEAD && git clean -fdq public data
           git pull --rebase -q origin main && git push -q origin HEAD:main
