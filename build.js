@@ -246,7 +246,7 @@ const ytThumb = a => `https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`;
 const videoBand = a => `<section class="ytband"><div class="sechead"><h3>${T.sec.video[0]}</h3><p>${T.sec.video[1]}</p></div>
   <a class="ytcard" href="${href(a)}"><span class="ytthumb"><img src="${ytThumb(a)}" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true"></span>${a.dur ? `<span class="dur">${esc(a.dur)}</span>` : ""}</span>
   <span class="yttext"><span class="kicker">${cn(a.cat)} · ${esc(a.by)}</span><span class="yth">${esc(a.h)}</span><span class="dek">${esc(a.dek)}</span><span class="ytmore">${T.watchRead}</span></span></a></section>`;
-const ytEmbed = a => `<figure class="ytembed"><button class="ytlite" type="button" data-yt="${esc(a.yt)}" aria-label="${T.watch}: ${esc(a.h)}"><img src="${ytThumb(a)}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button><figcaption class="cap">${esc(a.by)} · ${esc(a.pub)}${a.dur ? " · " + esc(a.dur) : ""}</figcaption></figure>`;
+const ytEmbed = a => `<figure class="ytembed"><button class="ytlite" type="button" data-yt="${esc(a.yt)}" aria-label="${T.watch}: ${esc(a.h)}"><img src="${ytThumb(a)}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button><figcaption class="cap">${esc(a.by)} · ${esc(a.pub)}${a.dur ? " · " + esc(a.dur) : ""} · <a href="https://www.youtube.com/watch?v=${esc(a.yt)}" target="_blank" rel="noopener">${T.ytOpen}</a></figcaption></figure>`;
 function catPage(c) {
   const list = all.filter(a => a.cat === c);
   let body;
