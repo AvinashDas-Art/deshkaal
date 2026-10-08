@@ -3,7 +3,13 @@ on:
   push:
     branches: [main]
     paths: ["data/days/**"]
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "सिर्फ़ एक हिस्सा भेजें: whatsapp, telegram या newsletter (ख़ाली = सब)"
+        required: false
+        default: ""
+
 jobs:
   broadcast:
     runs-on: ubuntu-latest
@@ -19,7 +25,7 @@ jobs:
         with: { node-version: 20 }
       - name: साइट के अपडेट होने का इंतज़ार
         if: steps.check.outputs.new == 'yes'
-        run: sleep 300
+        run: if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then sleep 300; fi
       - name: Telegram, न्यूज़लेटर और WhatsApp मसौदा
         if: steps.check.outputs.new == 'yes'
         run: node scripts/broadcast.js
@@ -27,3 +33,4 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ONLY: ${{ github.event.inputs.only }}

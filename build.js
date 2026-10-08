@@ -39,6 +39,10 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
 const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
+/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रौशनदान, sahitya साहित्य.
+   पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
+const SECS = ["amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
+DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : a.yt ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
 /* अनुवाद: data/i18n/<lang>/<दिन>.json, id से मिलाकर हिंदी के ऊपर रखे जाते हैं; जिनका अनुवाद नहीं, वो उस भाषा में नहीं दिखते */
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
@@ -223,15 +227,26 @@ const connect = () => `<section class="band">
 
 /* ---------- pages ---------- */
 function homePage() {
-  const news = today.items.filter(a => a.cat !== "साहित्य"), lits = today.items.filter(a => a.cat === "साहित्य");
-  const [L, ...rest] = news, top = rest.slice(0, 8), tail = rest.slice(8);
-  const body = `<div class="lastread" id="lastread" hidden></div>${hero(L)}
-  <section class="grid">${top.map(card).join("")}</section>
-  ${lits.length ? `<section class="litband"><div class="sechead"><h3>${T.litHead}</h3><p>${T.litSub}</p></div><div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
-  ${tail.length ? `<section class="more-sec"><h3>${T.moreToday}</h3><div class="clist">${tail.map(a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4></a><p class="src">${esc(a.by)} · ${T.read(readMin(a))} · ${saveBtn(a)}</p></article>`).join("")}</div></section>` : ""}
+  const by = k => today.items.filter(a => a.sec === k);
+  const L = by("amukh")[0] || today.items.find(a => a.sec !== "sahitya");
+  const vichar = by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya");
+  const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
+  const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
+  const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
+  const body = `<div class="lastread" id="lastread" hidden></div>${hero(L, T.sec.amukh[0] + (L.by ? " · " + esc(L.by) : ""))}
+  ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
+  ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
+  ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
+  ${vid ? videoBand(vid) : ""}
+  ${lits.length ? `<section class="litband">${head("sahitya")}<div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
   ${connect()}`;
   return layout({ title: "", desc: T.homeDesc(dayLabel(today.date), today.items.length), url: PRE + "/", body, tab: "home", catOn: "सब", alt: { hi: "/", en: "/en/", ur: "/ur/" } });
 }
+const ytThumb = a => `https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`;
+const videoBand = a => `<section class="ytband"><div class="sechead"><h3>${T.sec.video[0]}</h3><p>${T.sec.video[1]}</p></div>
+  <a class="ytcard" href="${href(a)}"><span class="ytthumb"><img src="${ytThumb(a)}" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true"></span>${a.dur ? `<span class="dur">${esc(a.dur)}</span>` : ""}</span>
+  <span class="yttext"><span class="kicker">${cn(a.cat)} · ${esc(a.by)}</span><span class="yth">${esc(a.h)}</span><span class="dek">${esc(a.dek)}</span><span class="ytmore">${T.watchRead}</span></span></a></section>`;
+const ytEmbed = a => `<figure class="ytembed"><button class="ytlite" type="button" data-yt="${esc(a.yt)}" aria-label="${T.watch}: ${esc(a.h)}"><img src="${ytThumb(a)}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button><figcaption class="cap">${esc(a.by)} · ${esc(a.pub)}${a.dur ? " · " + esc(a.dur) : ""}</figcaption></figure>`;
 function catPage(c) {
   const list = all.filter(a => a.cat === c);
   let body;
@@ -256,7 +271,7 @@ function articlePage(a) {
   const body = `<article class="read">
     <a class="back" href="${PRE}/">${T.back}</a>
     <p class="kicker" style="margin-top:22px"><a href="${PRE}/shreni/${SLUG[a.cat]}/">${cn(a.cat)}</a></p>
-    <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>
+    <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>${a.yt ? `<p class="ytnote">${T.ytNote}</p>` : ""}
     <div class="meta"><span>${T.orig}: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">${T.listenBtn(listenMin(a))}</button>${saveBtn(a)}</span></div>
     ${shareBlock(a)}
@@ -264,8 +279,9 @@ function articlePage(a) {
     <div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>${T.nazar}</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
     <aside class="sawal"><small>${T.think}</small><p>${esc(a.sawal)}</p></aside>
+    ${a.yt ? `<h5 class="ythead">${T.watch}</h5>${ytEmbed(a)}` : ""}
     <aside class="box ref"><h5>${T.ref}</h5><dl>${a.ref.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl></aside>
-    <a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>
+    ${a.yt ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
     <p class="fine">${esc(T.fine(a.pub))}</p>
     ${shareBlock(a)}
     <div class="more"><h6>${T.next}</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>

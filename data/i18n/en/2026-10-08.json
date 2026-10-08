@@ -1,5 +1,47 @@
 [
  {
+  "id": "2026-10-08-23",
+  "h": "A million small mutinies: the myth of invincibility cracks",
+  "dek": "Investigative journalist Vidya Krishnan writes that separate angers from Delhi to Pune are becoming one voice, and that the government now runs less on trust and more on fear.",
+  "by": "Vidya Krishnan",
+  "pub": "Al Jazeera",
+  "date": "6 October 2026",
+  "lang": "English",
+  "body": [
+   "On Gandhi Jayanti, 2 October, supporters of the Cockroach Janta Party (CJP) were back on the streets. These young people jokingly call themselves 'cockroaches'. Vidya Krishnan describes a festive mood, with students, women and young men in front. Their main demand is that Chief Election Commissioner Gyanesh Kumar resign. They accuse him of manipulating voter rolls to help the BJP.",
+   "She points out that this is not the only front. In Delhi, young women and queer students are protesting after the alleged gang rape of a minor by men posing as police officers. In Mumbai, the parents of IIT Bombay student Sahil Wakode are on an indefinite hunger strike after his death, demanding the arrest of teachers they accuse of caste harassment. In Pune, aspirants for the state public service commission (MPSC) want its chairman to resign over exam irregularities.",
+   "Krishnan argues that these scattered grievances, rising together, are squeezing the government from both sides. A divided young generation is coming together and the opposition looks like a national force again. In her reading, one thread runs through every demand: power must come with accountability, whether it sits with an election commissioner, upper-caste teachers or men in fake police uniforms.",
+   "She recalls that the resignation of Education Minister Dharmendra Pradhan in July was seen as the CJP's first victory, and that this is the second big wave of protest in three months. Reels and memes have worn down the Prime Minister's image, but the real turning point came when ordinary students stopped believing nothing could change. Protests will continue through October and the opposition plans five large rallies. Along with Kumar's resignation, they want paper ballots back in place of EVMs.",
+   "On the same day the Prime Minister laid flowers at Gandhi's memorial, while paramilitary forces were deployed in Delhi and Mumbai, roads to Jantar Mantar were blocked and many people were detained. She calls it an irony that the tools Gandhi opposed, bans on assembly, curfews and preventive detention, are back. Her conclusion: streets can be cleared, but people cannot be made to accept that being powerful is the same as being legitimate. She also warns against romanticising the movement. It is still unfinished."
+  ],
+  "nazar": [
+   "The most important point of this piece is not about any leader. It is about accountability. When trust in the Election Commission, universities and the police erodes, every citizen loses, whichever party they vote for. And the deepest damage falls on those who have nothing but these institutions to rely on: Dalit students, Muslim voters, young women who have come from villages to cities.",
+   "The weakness of the piece is also clear. Many angers appearing together is one thing; turning them into a shared programme is another. The writer herself admits the story is unfinished. What comes next will depend on how far these movements stay away from violence and hatred, and how many ordinary people they can bring along."
+  ],
+  "sawal": "What makes power legitimate: votes or accountability?",
+  "ref": [
+   [
+    "Cockroach Janta Party (CJP)",
+    "A new youth front whose supporters jokingly call themselves 'cockroaches'. According to the article, it counts the Education Minister's resignation in July as its first win."
+   ],
+   [
+    "Million Mutinies",
+    "From the title of V.S. Naipaul's 1990 book 'India: A Million Mutinies Now', a portrait of discontent rising in different corners of the country."
+   ]
+  ],
+  "ank": [
+   [
+    "5",
+    "nationwide opposition rallies this October"
+   ],
+   [
+    "3 months",
+    "and a second big wave of protest"
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
   "id": "2026-10-08-01",
   "h": "The Rejinagar bypoll: police on the road to the booth, voters sent back",
   "dek": "On bypoll day in Muslim-majority Rejinagar in Bengal, people in several villages said they were stopped from voting, and local journalists' pages were shut down before polling.",
@@ -697,5 +739,38 @@
    ]
   ],
   "photo_note": "The Last Unfinished Painting, Amrita Sher-Gil"
+ },
+ {
+  "id": "2026-10-08-24",
+  "h": "The Tempe 57: a father who reads the names every night",
+  "dek": "This Al Jazeera documentary follows a father three years after Greece's worst rail disaster, as he becomes a voice for those demanding accountability.",
+  "by": "Anna Prokou and Nina Maria Pashalidou",
+  "pub": "Al Jazeera Witness",
+  "date": "8 September 2026",
+  "lang": "English",
+  "body": [
+   "On the night of 28 February 2023, a passenger train from Athens to Thessaloniki collided head-on with a freight train on the same track near the Tempe valley. Fifty-seven people died, many of them young people and students returning from a holiday weekend. It is the deadliest rail disaster in Greece's history.",
+   "The film opens with a ritual. Every night at 11:18 pm, the exact time of the crash, families of the dead gather outside the Greek Parliament in Athens and read out the 57 names one by one. It is not a slogan but an insistence that no name be forgotten.",
+   "Among them is Panos, whose 23-year-old son Denis was on the train. The film follows him: an ordinary father who took his grief out of the house and onto the street, and slowly became one of the leading faces of the movement for accountability.",
+   "Right after the crash, the government blamed a station master's error. In the years since, questions kept growing that signalling and safety systems on the line had been incomplete for a long time, and the hurried clearing of the crash site led to allegations that evidence was lost. In 2025, hundreds of thousands of people across Greece took to the streets over these questions.",
+   "The film notes that three years on, the authorities have still not fully explained what happened that night. Allegations of safety failures and missing evidence have deepened the families' anger. The long-delayed trial is now close, and the film ends in that wait.",
+   "It is less a film about the accident than about what came after: how private grief becomes a public question, and how people try to make a government accept that a death is not just a number."
+  ],
+  "nazar": [
+   "In India, rail accidents often stay in the news for a week or two. In 2023 itself, nearly three hundred people died in the Balasore accident in Odisha, yet their families hold no nightly vigil and nobody reads their names outside Parliament.",
+   "The Tempe families remind us that accountability does not arrive on its own. It has to be won by remembering and by asking again and again. And in any country, it is the poor and ordinary passengers who pay for negligence that no one at the top answers for."
+  ],
+  "sawal": "How many years do we remember an accident?",
+  "ref": [
+   [
+    "Tempe valley",
+    "A narrow valley in the Thessaly region of northern Greece, through which the main rail line between Athens and Thessaloniki runs."
+   ],
+   [
+    "Witness",
+    "Al Jazeera English's documentary strand, featuring films by independent filmmakers about ordinary people around the world."
+   ]
+  ],
+  "photo_note": "A still from the film"
  }
 ]

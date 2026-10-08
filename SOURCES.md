@@ -2,6 +2,8 @@
 
 Only free-to-read pieces. Several of these sites mix free and paid articles (The Hindu, Frontline, The Caravan, Newslaundry, The Quint): use a piece only if the full text opens without login or payment. If a site starts showing a paywall on everything, skip it that day.
 
+What opens from the run's tools (checked 8 Oct 2026): The Wire article pages open on `m.thewire.in/article/...` (the main site and its listings are JavaScript). Scroll's opinion feed opens: https://feeds.scroll.in/feeds/categories/75/full/dailyhunt.rss. Al Jazeera opinion listing opens: https://www.aljazeera.com/opinion/. Blocked for the tools: indianexpress.com, thehindu.com (and Frontline), telegraphindia.com; for these use WebSearch to find the piece, and if the article page itself is blocked, skip it.
+
 How to use the list: every day spread the news pieces across the groups below, so that the issue carries independent Indian journalism, rural India, anti-caste and minority voices, environment, South Asia and the Global South together. **No more than 2 pieces from any one source in a day.** Hindi editions count as the same source as their English parent. When a homepage does not open with WebFetch, use WebSearch (`site:<domain>` plus this week's topics) and fetch the article page directly.
 
 ## भारतीय स्वतंत्र पत्रकारिता, संविधान और नागरिक अधिकार
@@ -17,10 +19,10 @@ How to use the list: every day spread the news pieces across the groups below, s
 - The Hindu: https://www.thehindu.com/ (editorials and op-eds, if free to read)
 
 ## ग्रामीण भारत, किसान, मज़दूर और जन-आंदोलन
-- **PARI, People's Archive of Rural India (हर दिन ज़रूरी, कम से कम 2 रिपोर्ट)**: https://ruralindiaonline.org
+- **PARI, People's Archive of Rural India (पिछले 3 महीने की हर रिपोर्ट, अपने खंड गांव-जवार में)**: https://ruralindiaonline.org
   - Listing: the homepage and /articles are rendered by JavaScript, so WebFetch sees no list. Find new stories with WebSearch (`site:ruralindiaonline.org/article` plus this week's topics) or the X account @PARInetwork; if a browser is available, https://ruralindiaonline.org/articles lists the newest with dates.
   - Article pages (`https://ruralindiaonline.org/article/<slug>`) DO open with WebFetch. Free to read, many in Hindi too.
-  - PARI stories have no expiry date: any story from the whole archive, of any age, may be used. To find older ones, WebSearch `site:ruralindiaonline.org/article` with a topic word (मज़दूर, आदिवासी, दलित, किसान, पानी, विस्थापन, बुनकर, घुमंतू, औरतें, the current season or festival, or a place in the news). Never repeat a story already on the site. Credit the reporter in `by`, `pub` = "PARI".
+  - **Every PARI story of the last 3 months** goes into the issue (section `pari`), newest first, up to 4 a day, never one already on the site. **Never anything older than 3 months.** Keep the PARI `date` exactly as published. Credit the reporter in `by`, `pub` = "PARI".
 - NewsClick: https://www.newsclick.in/
 - NewsClick Hindi: https://hindi.newsclick.in/
 - Gaon Connection: https://www.gaonconnection.com/

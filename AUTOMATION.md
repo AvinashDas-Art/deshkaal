@@ -6,11 +6,18 @@ This file is the instruction set for the daily scheduled run that publishes Desh
 Every day, finish by 07:00 IST. Sunday runs additionally write the weekly special (see below).
 
 ## Steps
-1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md`, `TRANSLATION.md` and this file.
+1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md`, `WRITERS.md`, `TRANSLATION.md` and this file.
 2. Scan the day's biggest world and India developments first (see "दुनिया पर नज़र" in `SOURCES.md`). Then collect candidates published in the last 72 hours from the sources in `SOURCES.md`, across all its groups, at most 2 pieces from one source (WebFetch the listed opinion/section pages; WebSearch to fill gaps). Skip anything already in `data/days/*.json` (match on `url`).
-3. Select **15-16 news/opinion pieces + exactly 6 literature pieces** (the front page shows literature in rows of three; never 4 or 5), scored against `EDITORIAL.md`. Prefer India relevance, then South Asia, then Global South. Spread across categories: देश, दुनिया, समाज, अर्थ, पर्यावरण, स्त्री, संस्कृति, साहित्य. Never select paywalled pieces. **Every day include 2-3 PARI (ruralindiaonline.org) reports** among the news pieces (see `SOURCES.md` for how to find them). PARI reporting does not go stale: a PARI story of **any age**, even years old, may be taken; the 72-hour rule does not apply to PARI. Never take one already used (check `url` in all `data/days/*.json`). Prefer a new PARI story if there is one, otherwise pick an older one that speaks to today's news or season. Keep its original publication date in `date`. Place one in the top five.
+3. Select the issue **section by section** (every item gets a `sec` field; see "The issue: sections" below):
+   - `amukh` (1): the lead. A long, serious editorial essay or column by a major writer/thinker (see `WRITERS.md`) on the most relevant subject of the moment, published in the last 72 hours. Never a news report. If no such essay is free to read, take the strongest long editorial essay from any source in `SOURCES.md`, never a plain news story.
+   - `vichar` (exactly 6): editorial and opinion pieces from around the world on contemporary social and political events. Commentary and analysis only, no everyday news reports. Mix India, South Asia and the world.
+   - `khabar` (6-8): the important news reports of **yesterday only** (published the previous calendar day, IST; at most the day before that if nothing else). Reports, ground stories, fact-checks: the Form 6 / students' march / attack-on-journalist kind of story.
+   - `pari` (every new PARI story): every PARI (ruralindiaonline.org) story published in the **last 3 months** that is not already on the site, newest first, at most 4 a day (keep the rest for the next days). **Never anything older than 3 months.** If there is none, the section is skipped that day.
+   - `video` (about 1-2 a week, only when it is truly worth it): see "रौशनदान" below.
+   - `sahitya` (exactly 6): literature, as before.
+   PARI pieces do not count towards `vichar` or `khabar`. Never select paywalled pieces. At most 2 pieces from one source in a day (PARI excepted).
 4. For each piece, WebFetch the article and write an **original** Hindi summary (rules below).
-5. Write `data/days/YYYY-MM-DD.json` (schema below). Order: strongest India-relevant piece first (becomes the lead), literature last.
+5. Write `data/days/YYYY-MM-DD.json` (schema below), every item with its `sec`. Order in the file: amukh, vichar, khabar, pari, video, sahitya.
 5a. **Translate** the day into English and Urdu: write `data/i18n/en/YYYY-MM-DD.json` and `data/i18n/ur/YYYY-MM-DD.json` exactly as `TRANSLATION.md` says (plain, natural English; easy everyday Urdu). Run the two languages as two parallel subagents if you can. Every item of the day file must be translated; check counts and ids with python. If time is short before 07:00, push the Hindi day first (step 8) and the translations in a second commit right after; the English and Urdu pages show only translated pieces.
 6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors. Cards for pieces with a `photo` will show the halftone here (Unsplash is not reachable from the run); the GitHub workflow `og-photos.yml` redraws them with the real photo within a couple of minutes of the push. Do not try to fix this in the run.
 7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय"` over the new day file must return nothing).
@@ -34,6 +41,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
   {
     "id": "2026-10-05-01",
     "day": "2026-10-05",
+    "sec": "amukh | vichar | khabar | pari | video | sahitya",
     "cat": "देश",
     "motif": "list | arc | scales | tents | coins | rings | book | soil | mountain | marks | waves",
     "seed": 11,
@@ -56,8 +64,18 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 
 `motif` picks the collage drawing; choose the one closest to the subject. `seed` is any number, different for each piece.
 
+## The issue: sections
+The front page shows, in order: आमुख (lead), नुक़्ता-ए-नज़र (6 editorials), कल का कच्चा चिट्ठा (yesterday's news), गांव-जवार (PARI), रौशनदान (video, the newest one on the site), सुख़न-सराय (literature). The page code reads `sec`; never rely on order alone.
+
+## रौशनदान (video)
+- About once or twice a week, when there is something truly worth it: a highly regarded documentary or lecture from the **last 30 days**, closely tied to the editorial policy (rights, caste, communal harmony, Adivasi and rural life, labour, environment, South Asia, Global South). Prefer established makers: Al Jazeera Witness / 101 East / Fault Lines, PARI films, Karwan e Mohabbat, Newslaundry and The Wire documentaries, university or public lectures by the writers in `WRITERS.md`.
+- How to find it: program pages such as https://www.aljazeera.com/program/witness/ list films with dates; the film page carries the YouTube id in the `meta-featuredMedia` field as `YT-<id>`. Always verify the id with WebFetch of `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>&format=json` (title must match).
+- Item: `"sec": "video"`, `"yt": "<id>"`, `url` = the YouTube watch URL, `pub` = the channel/strand, `by` = director(s) or speaker, optional `"dur": "25 मिनट"`. `photo` = `{"kind":"photo","src":"https://i.ytimg.com/vi/<id>/hqdefault.jpg","credit":"<channel> / YouTube","page":"<watch url>","note":"फ़िल्म का एक दृश्य"}`.
+- Body: a detailed summary, 5-7 paragraphs (300-450 words), only from what the film's page/description and well-established background say. Never invent scenes. Then `nazar`, `sawal`, `ref` as usual. The page plays the video itself at the end; there is no "read original" button.
+- Do not repeat a video already on the site.
+
 ## Lead (front-page hero): pick one of three forms
-Choose by what makes today's lead piece strongest, and vary across days:
+The lead is always the `amukh` piece. Choose the form by what makes it strongest, and vary across days:
 - `"hero": "poster"` (default): split headline, diagonal collage, `ank` figures. Best with a photo.
 - `"hero": "shabd"` + `"shabd": "एक शब्द"`: one word that carries the whole story (e.g. "नाकेबंदी", "कचरा") printed huge, the collage showing through its letters. Keep it to 3-5 letters' width; one word only.
 - `"hero": "ank"` + `"chart"`: when the story is about numbers. `{"title": "...", "unit": "...", "bars": [["लेबल", संख्या], ...], "note": "एक लाइन"}`, 3-6 bars, the last bar is highlighted in red, all figures from the article only.
@@ -84,6 +102,12 @@ Paintings (`"kind": "painting"`), public domain only, from **Wikimedia Commons**
 
 ## Sunday special (रविवार विशेष)
 On Sundays, also pick the five most important pieces of the week from the last 7 day files and list their ids in `data/weekly/YYYY-MM-DD.json` as `{"ids": [...], "intro": "दो-तीन वाक्य"}`.
+
+## Permissions
+The owner is asleep during the run and has given standing permission for all routine work on the site: choose, write, translate, build, commit and push, and fix anything that breaks. Never stop to ask; decide, and note the decision in the report.
+
+## Be an editor, not a filler
+Think like an experimental, creative editor. Each issue should feel considered: a lead that sets the day's argument, commentary that disagrees with itself where useful, news that would otherwise be buried, rural reporting, one good film a week, and literature. When a pattern repeats for several days (one subject dominating, one source over-used), correct it.
 
 ## Literature: always six
 jankipul.com and samalochan.com often refuse the cloud fetcher (robots.txt time-outs). Try each once (homepage, then /feed). If blocked, use WebSearch for the site name plus this week to find new posts and their URLs, and WebFetch the post URL directly. If a source still cannot be read, take more pieces from sammukh.com and hindwi.org (homepage lists the newest बेला posts). Never summarise a piece you could not read. Literature pieces may be up to 3 weeks old.

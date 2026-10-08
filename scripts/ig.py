@@ -125,7 +125,7 @@ def cover_card(day, items):
     d.text((W / 2, 520), "ज़रूरी ख़बरों तक जाती एक पगडंडी", font=tag, fill=INK2, anchor="ma")
     d.text((W / 2, 590), daylabel(day) + " · आज की टिप्पणियां", font=ns(32, 700), fill=LAL, anchor="ma")
     y = 680
-    news = [a for a in items if a["cat"] != "साहित्य"][:5]
+    news = ([a for a in items if a.get("sec") == "amukh"] + [a for a in items if a.get("sec") == "vichar"] + [a for a in items if a.get("sec") in ("khabar", "pari")] or [a for a in items if a["cat"] != "साहित्य"])[:5]
     for i, a in enumerate(news, 1):
         d.text((92, y - 4), str(i), font=og.font("YatraOne.ttf", 60), fill=LAL, anchor="ra")
         f = ns(38, 600); allw = og.wrap(d, a["h"].replace(":", ","), f, W - 220); lines = allw[:2]
