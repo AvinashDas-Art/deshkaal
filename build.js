@@ -363,7 +363,7 @@ function akhbarPage(day, issueNo, allDays) {
   const ADS = {
     coupon: () => `<a class="np-ad coupon" href="${mail}"><span class="cut" aria-hidden="true">✂</span><small>विज्ञापन के लिए</small><b>यह कोना<br>ख़ाली नहीं,<br>आपका है</b><span class="price">₹1,000 से</span><em>sampark@deshkaal.xyz</em></a>`,
     poster: () => `<a class="np-ad poster" href="${mail}"><small>विज्ञापन</small><b>जो पढ़ते हैं,<br>वो यहां मिलते हैं</b><p>किताब, फ़िल्म, नाटक, खादी, खेत की उपज, आपका हुनर: उन पाठकों तक जो सुबह की चाय के साथ पूरा पढ़ते हैं, सिर्फ़ स्क्रॉल नहीं करते।</p><span class="price">₹1,000 से ₹1,00,000 तक</span><em>संपर्क: sampark@deshkaal.xyz</em></a>`,
-    stamp: () => `<a class="np-ad stamp" href="${mail}"><span class="seal">ख़ाली<br>जगह</span><b>यहां आपका नाम छपे, तो पढ़ा भी जाए</b><p>एक कोने से पूरे पन्ने तक। बात कीजिए, दाम तय कीजिए।</p><em>sampark@deshkaal.xyz</em></a>`,
+    stamp: () => `<a class="np-ad stamp" href="${mail}"><span class="seal">ख़ाली<br>जगह</span><b>यहां आपका नाम छपे, तो पढ़ा भी जाए</b><p>एक कोने से पूरे पन्ने तक। बात कीजिए, दाम तय कीजिए।</p><ul class="ladder"><li><span>कोना</span><i></i><b>₹1,000</b></li><li><span>चौथाई पन्ना</span><i></i><b>₹10,000</b></li><li><span>आधा पन्ना</span><i></i><b>₹40,000</b></li><li><span>पहला पन्ना</span><i></i><b>₹1,00,000</b></li></ul><em>sampark@deshkaal.xyz</em></a>`,
     rate: () => `<a class="np-ad rate" href="${mail}"><div class="rate-h"><small>विज्ञापन दर-सूची</small><b>देशकाल में आपकी जगह</b><p>हर सुबह, उन पाठकों के बीच जो ख़बर को सोचकर पढ़ते हैं।</p></div>
       <ol><li><span>कोना</span><b>₹1,000</b><i>एक दिन</i></li><li><span>चौथाई पन्ना</span><b>₹10,000</b><i>एक दिन</i></li><li><span>आधा पन्ना</span><b>₹40,000</b><i>एक दिन</i></li><li class="top"><span>पहला पन्ना, पूरा</span><b>₹1,00,000</b><i>एक दिन</i></li></ol>
       <em>sampark@deshkaal.xyz · विज्ञापन देशकाल की संपादकीय नीति के दायरे में ही छपते हैं</em></a>`
@@ -413,7 +413,7 @@ function akhbarPage(day, issueNo, allDays) {
     pages.push(`<section class="sheet" id="p3">${run(3, "देश-दुनिया")}
     ${T1 ? `<div class="np-news">
       <article class="np-top"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols2">${P(T1.body, 3)}${more(T1)}</div>
-      ${rest.length > 3 ? `<div class="np-under">${rest.splice(0, 2).map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}</article>
+      ${rest.length > 3 ? `<div class="np-under">${rest.splice(0, 2).map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}${ADS.poster()}</article>
       <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}${ADS.coupon()}</div>
     </div>` : ""}
     ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}

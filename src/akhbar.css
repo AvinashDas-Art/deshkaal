@@ -284,3 +284,16 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 :root[data-np="night"] .np-gallery figure,:root[data-np="night"] .np-litgrid figure{border-color:#2c2d31}
 :root[data-np="night"] .np-past a{background:#222}
 :root[data-np="sepia"] img.photo{filter:grayscale(1) sepia(.35) contrast(1.1)}
+
+/* ख़ाली जगह न छूटे: विज्ञापन बची हुई ऊंचाई भर लेते हैं */
+.np-news{align-items:stretch}
+.np-top,.np-stack{display:flex;flex-direction:column}
+.np-top>.np-ad,.np-stack>.np-ad{flex:1 1 auto;justify-content:center;margin-top:18px;min-height:220px}
+.np-top>.np-ad.poster b{font-size:clamp(52px,6vw,78px)}
+.adcell .np-ad{height:100%}
+.np-ad.stamp{justify-content:space-between;gap:12px}
+.np-ad .ladder{list-style:none;margin:6px 0;padding:0;width:100%;display:grid;gap:6px}
+.np-ad .ladder li{display:flex;align-items:baseline;gap:8px;font-family:var(--f-ui);font-weight:700;font-size:14.5px}
+.np-ad .ladder i{flex:1;border-bottom:2px dotted var(--ink3);transform:translateY(-4px)}
+.np-ad .ladder b{font-family:var(--f-poster);font-weight:600;font-size:26px;line-height:1;color:var(--red)}
+.np-ad .ladder li:last-child b{font-size:32px}
