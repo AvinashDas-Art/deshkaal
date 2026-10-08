@@ -464,11 +464,17 @@ body.noscroll{overflow:hidden}
 :root[data-theme="dark"] .toon-frame{background:#EDEBE4}
 @media (max-width:860px){.toon{grid-template-columns:1fr;gap:22px}.toon-head h3{transform:rotate(-3deg)}.toon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toon-frame{padding:8px;box-shadow:6px 8px 0 var(--ink)}.toon-tape{width:80px;height:26px}.toon-tape.l{left:-6px}.toon-tape.r{right:-6px}}
 
-/* रेखाओं के बीच: कार्टून पर देशकाल की चुटकी */
-.toon-chutki{position:relative;margin:44px 0 10px;padding:28px 30px 16px;background:var(--paper-2);border-inline-start:6px solid var(--lal)}
-.toon-chutki::before{content:"“";position:absolute;top:-38px;right:22px;font-family:Georgia,serif;font-size:140px;line-height:1;color:var(--lal);opacity:.25}
-.tc-k{margin:0;font-family:var(--f-ui);font-size:13.5px;font-weight:700;letter-spacing:.08em;color:var(--lal)}
-.toon-chutki h3{margin:2px 0 14px;font-family:var(--f-paint);font-weight:400;font-size:40px;line-height:1.1}
-.toon-chutki p:not(.tc-k){font-family:var(--f-body);font-size:var(--read);line-height:1.9;margin:0 0 1em}
+/* रेखाओं के बीच: कार्टून पर देशकाल की चुटकी. हाशिये पर लिखी टिप्पणी जैसा, खुली जगह और आराम से पढ़ने लायक़ */
+.toon-chutki{display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr);gap:48px;margin:60px 0 24px;padding:40px 0 30px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tc-side{align-self:start;position:sticky;top:24px}
+.tc-k{display:inline-block;font-family:var(--f-ui);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--lal);border:1.5px solid var(--lal);border-radius:999px;padding:3px 14px 2px;transform:rotate(-3deg)}
+.toon-chutki h3{margin:26px 0 0;font-family:var(--f-paint);font-weight:400;font-size:44px;line-height:1.18;color:var(--ink)}
+.tc-squiggle{display:block;width:150px;height:14px;margin:14px 0 0;color:var(--lal)}
+.tc-note{margin:16px 0 0;font-family:var(--f-hand);font-size:17px;line-height:1.5;color:var(--ink-2)}
+.tc-text{max-width:64ch}
+.tc-text p{font-family:var(--f-body);font-size:var(--read);line-height:2.05;color:var(--ink);margin:0 0 1.3em}
+.tc-text p:first-child{font-family:var(--f-head);font-size:calc(var(--read) + 2px);line-height:1.95}
+.tc-text p:last-child{margin-bottom:0}
+@media (max-width:760px){.toon-chutki{grid-template-columns:1fr;gap:22px;padding:30px 0 22px}.tc-side{position:static}.toon-chutki h3{font-size:38px;margin-top:20px}.toon-chutki h3 br{display:none}}
 .toon-tease{font-family:var(--f-hand);font-size:19px!important;line-height:1.55;color:var(--ink)!important;margin:16px 0 8px!important}
 .toon-read{font-family:var(--f-ui);font-weight:700;font-size:15px;color:var(--lal)}
