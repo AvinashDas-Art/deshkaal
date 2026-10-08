@@ -2,7 +2,7 @@ name: आज का अख़बार (PDF)
 on:
   push:
     branches: [main]
-    paths: ["data/days/**", "src/akhbar.css", "scripts/akhbar-pdf.js"]
+    paths: ["data/days/**", "src/akhbar.css", "scripts/akhbar-pdf.js", "build.js"]
   workflow_dispatch:
     inputs:
       day:
@@ -22,8 +22,12 @@ jobs:
         with: { node-version: 20 }
       - name: Playwright
         run: |
-          npm i --no-save playwright@1.47.2
+          npm i --no-save playwright@1.47.2 pdf-lib@1.17.1
           npx playwright install --with-deps chromium
+      - name: पेंटिंग उतारना (PDF में दिखें)
+        run: |
+          pip install -q pillow
+          python3 scripts/media.py || true
       - name: साइट बनाना और PDF
         run: |
           DAY="${{ github.event.inputs.day }}"

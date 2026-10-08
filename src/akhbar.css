@@ -223,3 +223,6 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
   .sheet{max-width:none;margin:0;box-shadow:none;break-after:page}
   .np-more{display:none}
 }
+.np-under{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:14px;padding-top:12px;border-top:3px solid var(--ink)}
+.np-under .np-story{border:0;margin:0}
+@media (max-width:720px){.np-under{grid-template-columns:1fr}}

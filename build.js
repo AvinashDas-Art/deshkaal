@@ -392,7 +392,7 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-ops">
         ${F ? `<article class="np-feature"><div class="np-fhead">${tile(F)}<div><p class="np-kick">${cn(F.cat)} · ${esc(F.pub)}</p><h3><a href="${href(F)}">${esc(F.h)}</a></h3><p class="np-author">${esc(F.by)}</p></div></div>
           ${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body, 3)}${more(F)}</div></article>` : ""}
-        <div class="np-opgrid">${ops.map((a, i) => `${i === 2 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body, 2)}${more(a)}</article>`).join("")}</div>
+        <div class="np-opgrid">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body, 2)}${more(a)}</article>`).join("")}</div>
       </div>
     </div>
     ${folio(2, "संपादकीय")}</section>`);
@@ -401,7 +401,8 @@ function akhbarPage(day, issueNo, allDays) {
     const [T1, ...rest] = khabar;
     pages.push(`<section class="sheet" id="p3">${run(3, "देश-दुनिया")}
     ${T1 ? `<div class="np-news">
-      <article class="np-top"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols2">${P(T1.body, 3)}${more(T1)}</div></article>
+      <article class="np-top"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols2">${P(T1.body, 3)}${more(T1)}</div>
+      ${rest.length > 3 ? `<div class="np-under">${rest.splice(0, 2).map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}</article>
       <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}</div>
     </div>` : ""}
     ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
