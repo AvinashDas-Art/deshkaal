@@ -463,3 +463,13 @@ body.noscroll{overflow:hidden}
 .toon-grid img{display:block;width:100%;height:auto;margin-bottom:6px}
 :root[data-theme="dark"] .toon-frame{background:#EDEBE4}
 @media (max-width:860px){.toon{grid-template-columns:1fr;gap:22px}.toon-head h3{transform:rotate(-3deg)}.toon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toon-frame{padding:8px;box-shadow:6px 8px 0 var(--ink)}.toon-tape{width:80px;height:26px}.toon-tape.l{left:-6px}.toon-tape.r{right:-6px}}
+
+/* रेखाओं के बीच: कार्टून पर देशकाल की चुटकी */
+.toon-chutki{position:relative;margin:44px 0 10px;padding:28px 30px 16px;background:var(--paper-2);border-inline-start:6px solid var(--lal)}
+.toon-chutki::before{content:"“";position:absolute;top:-38px;right:22px;font-family:Georgia,serif;font-size:140px;line-height:1;color:var(--lal);opacity:.25}
+.tc-k{margin:0;font-family:var(--f-ui);font-size:13.5px;font-weight:700;letter-spacing:.08em;color:var(--lal)}
+.toon-chutki h3{margin:2px 0 14px;font-family:var(--f-paint);font-weight:400;font-size:40px;line-height:1.1}
+.toon-chutki p:not(.tc-k){font-family:var(--f-body);font-size:var(--read);line-height:1.9;margin:0 0 1em}
+.toon-chutki p:nth-of-type(2)::first-letter{font-family:var(--f-paint);font-size:2.4em;float:left;line-height:.9;margin:.06em .1em 0 0;color:var(--lal)}
+.toon-tease{font-family:var(--f-hand);font-size:19px!important;line-height:1.55;color:var(--ink)!important;margin:16px 0 8px!important}
+.toon-read{font-family:var(--f-ui);font-weight:700;font-size:15px;color:var(--lal)}

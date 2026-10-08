@@ -226,7 +226,7 @@ const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
 const toonFor = date => PUB_TOONS.find(c => c.date === date);
 const toonBand = c => `<section class="toon">
-  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p></div>
+  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p>${c.chutki && LG === "hi" ? `<p class="toon-tease">${esc(c.chutki[0].split("।")[0])}।</p><a class="toon-read" href="/cartoon/${c.date}/">पूरी चुटकी पढ़ें →</a>` : ""}</div>
   <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
   <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`;
 function cartoonPage(c) {
@@ -235,6 +235,7 @@ function cartoonPage(c) {
     <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
     <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
     <div class="share" data-url="${SITE}/cartoon/${c.date}/" data-title="तिरछी नज़र"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
+    ${c.chutki ? `<aside class="toon-chutki"><p class="tc-k">देशकाल की चुटकी</p><h3>रेखाओं के बीच</h3>${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</aside>` : ""}
     <p class="fine">कार्टून के सारे अधिकार ${esc(c.artist)} के हैं। देशकाल पर उनकी अनुमति से।</p>
     ${others.length ? `<h3 class="toon-more">और कार्टून</h3><div class="toon-grid">${others.map(o => `<a href="/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
   return layout({ title: `तिरछी नज़र: ${c.artist} का कार्टून, ${dayLabel(c.date)}`, desc: c.alt, url: `/cartoon/${c.date}/`, body, image: c.img, published: c.date });
