@@ -24,6 +24,7 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-pages a{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid #555;border-radius:50%;font-weight:700}
 .np-pages a:hover{background:var(--red);border-color:var(--red);color:#fff}
 .np-act{display:flex;gap:10px;align-items:center}
+.np-act button:disabled{opacity:.35;cursor:default}
 .np-act a,.np-act button{font:inherit;font-weight:600;background:none;border:1px solid #777;border-radius:999px;padding:2px 14px;cursor:pointer}
 .np-act a{background:var(--red);border-color:var(--red);color:#fff}
 
@@ -54,7 +55,8 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-sky small{display:block;font-family:var(--f-ui);font-weight:700;font-size:12.5px;color:var(--red);margin-bottom:2px}
 
 /* मास्टहेड */
-.np-mast{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;padding:6px 0 4px}
+.np-mast{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;padding:.42em 0 4px;font-size:clamp(84px,13.5vw,176px)}
+.np-mast .np-date{font-size:16px}
 .np-title{margin:0;line-height:.9;font-family:var(--f-mast);font-weight:400;font-size:clamp(84px,13.5vw,176px);letter-spacing:-.01em}
 .np-title span{position:relative;isolation:isolate;display:inline-block}
 .np-title span::before{content:"";position:absolute;z-index:-1;width:.7em;height:.7em;border-radius:50%;background:var(--red);left:49%;top:56%;transform:translate(-50%,-50%)}
@@ -267,3 +269,17 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-ad.rate em{grid-column:1/-1;color:#d8d3c7;font-weight:600}
 .np-litgrid .adcell,.np-opgrid .adcell{border:0;padding:14px 0 0}
 @media (max-width:720px){.np-ad.rate{grid-template-columns:1fr}.adcell{padding-inline-start:0;border:0}}
+
+/* आंखों का आराम: सीपिया और रात */
+:root[data-np="sepia"]{--paper:#EADBBE;--ink:#2E261A;--ink2:#5C4F3B;--ink3:#7D6F58;--rule:#2E261A;--hair:#CDB98F;--desk:#3A3226}
+:root[data-np="night"]{--paper:#1C1D20;--ink:#E4E1D8;--ink2:#B4B0A6;--ink3:#8E8A80;--rule:#E4E1D8;--hair:#3C3E44;--red:#E0574A;--desk:#0B0B0C;color-scheme:dark}
+:root[data-np="night"] .sheet{background:var(--paper);box-shadow:0 2px 0 #000,0 24px 60px rgba(0,0,0,.6)}
+:root[data-np="night"] img.photo{filter:grayscale(1) contrast(1.05) brightness(.85)}
+:root[data-np="night"] img.paint{filter:brightness(.88)}
+:root[data-np="night"] .np-tagbar,:root[data-np="night"] .np-rai,:root[data-np="night"] .np-ad.poster,:root[data-np="night"] .np-ad.rate{background:#000;color:#E4E1D8}
+:root[data-np="night"] .np-flag b{background:#E4E1D8;color:#111}
+:root[data-np="night"] .np-quote,:root[data-np="night"] .np-pull{color:var(--ink)}
+:root[data-np="night"] .np-ad.coupon .cut{background:var(--paper)}
+:root[data-np="night"] .np-gallery figure,:root[data-np="night"] .np-litgrid figure{border-color:#2c2d31}
+:root[data-np="night"] .np-past a{background:#222}
+:root[data-np="sepia"] img.photo{filter:grayscale(1) sepia(.35) contrast(1.1)}

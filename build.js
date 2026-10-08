@@ -442,9 +442,21 @@ function akhbarPage(day, issueNo, allDays) {
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Teko:wght@500;600;700&family=Eczar:wght@500;600;700;800&family=Martel:wght@400;600;800&family=Mukta:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/akhbar.css?v=${AV}"></head>
 <body class="np">
-<div class="np-bar"><a class="np-home" href="/">← देशकाल</a><nav class="np-pages" aria-label="पन्ने"><span>पन्ना</span>${nav}</nav><span class="np-act">${pdf ? `<a href="${pdf}" download>PDF डाउनलोड</a>` : ""}<button type="button" onclick="window.print()">छापें</button></span></div>
+<div class="np-bar"><a class="np-home" href="/">← देशकाल</a><nav class="np-pages" aria-label="पन्ने"><span>पन्ना</span>${nav}</nav><span class="np-act"><button type="button" id="np-s" aria-label="अक्षर छोटे">अ−</button><button type="button" id="np-b" aria-label="अक्षर बड़े">अ+</button><button type="button" id="np-m">रंग</button>${pdf ? `<a href="${pdf}" download>PDF डाउनलोड</a>` : ""}<button type="button" onclick="window.print()">छापें</button></span></div>
 <main class="np-wrap">${pages.join("\n")}</main>
 <nav class="np-past" aria-label="पिछले अख़बार"><h3>पिछले अख़बार</h3>${past}</nav>
+<script>
+/* आंखों का आराम: वेबसाइट वाली पसंद (रंग और अक्षर का आकार) यहां भी, वही याद रखी जाती है */
+(function(){var r=document.documentElement,S={g:function(k){try{return localStorage.getItem(k)}catch(e){return null}},s:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+var M=[["auto","अपने आप"],["day","दिन"],["sepia","सीपिया"],["night","रात"]],Z=[.8,.88,.94,1,1.08,1.16,1.25,1.35];
+var m=S.g("dk-mode")||"auto",z=+(S.g("dk-zoom")||3);if(!(z>=0&&z<Z.length))z=3;
+function am(){var t=m==="auto"?(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day"):m;r.dataset.np=t;document.getElementById("np-m").textContent="रंग: "+M.filter(function(x){return x[0]===m})[0][1]}
+function az(){var w=document.querySelector(".np-wrap");w.style.zoom=Z[z]===1?"":Z[z];document.getElementById("np-b").disabled=z===Z.length-1;document.getElementById("np-s").disabled=z===0}
+document.getElementById("np-m").onclick=function(){var i=M.findIndex(function(x){return x[0]===m});m=M[(i+1)%M.length][0];S.s("dk-mode",m);am()};
+document.getElementById("np-b").onclick=function(){z=Math.min(Z.length-1,z+1);S.s("dk-zoom",z);az()};
+document.getElementById("np-s").onclick=function(){z=Math.max(0,z-1);S.s("dk-zoom",z);az()};
+am();az();window.addEventListener("beforeprint",function(){r.dataset.np="day"});window.addEventListener("afterprint",am)})();
+</script>
 </body></html>`;
 }
 
