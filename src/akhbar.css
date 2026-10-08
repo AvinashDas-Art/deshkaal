@@ -297,3 +297,10 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-ad .ladder i{flex:1;border-bottom:2px dotted var(--ink3);transform:translateY(-4px)}
 .np-ad .ladder b{font-family:var(--f-poster);font-weight:600;font-size:26px;line-height:1;color:var(--red)}
 .np-ad .ladder li:last-child b{font-size:32px}
+
+/* सुख़न-सराय: पत्ता पेंटिंग पर चढ़ा हुआ, पर अपनी जगह में, ऊपर किसी चीज़ पर नहीं */
+.np-gallery{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);align-items:center}
+.np-gallery .np-plate{position:relative;left:auto;bottom:auto;grid-column:1;grid-row:1;z-index:1;max-width:none;margin-inline-end:-70px}
+.np-gallery figure{grid-column:2;grid-row:1;height:auto;min-height:520px;align-self:stretch}
+.np-gallery>.np-cap{grid-column:1/-1}
+@media (max-width:720px){.np-gallery{grid-template-columns:1fr}.np-gallery figure{grid-column:1;grid-row:1;min-height:320px}.np-gallery .np-plate{grid-row:2;margin:-30px 12px 0}}

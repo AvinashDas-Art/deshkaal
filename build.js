@@ -424,7 +424,7 @@ function akhbarPage(day, issueNo, allDays) {
   if (lits.length) {
     const [H, ...ls] = lits, n = pages.length + 1;
     pages.push(`<section class="sheet lit" id="p${n}">${run(n, "सुख़न-सराय")}
-    <article class="np-gallery"><figure>${img(H)}</figure><div class="np-plate"><p class="np-kick">${esc(H.pub)}</p><h3><a href="${href(H)}">${esc(H.h)}</a></h3>${by1(H)}${P(H.body, 2)}${more(H)}</div>${cap(H)}</article>
+    <article class="np-gallery"><div class="np-plate"><p class="np-kick">${esc(H.pub)}</p><h3><a href="${href(H)}">${esc(H.h)}</a></h3>${by1(H)}${P(H.body, 2)}${more(H)}</div><figure>${img(H)}</figure>${cap(H)}</article>
     <div class="np-litgrid">${ls.map(a => `<article><figure>${img(a)}</figure><div><p class="np-kick">${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}${ls.length % 2 ? `<div class="adcell">${ADS.stamp()}</div>` : ""}</div>
     ${ADS.rate()}
     <div class="np-imprint">देशकाल हर सुबह दुनिया भर की ज़रूरी टिप्पणियों का सार सहज हिंदुस्तानी में लाता है। सारे सार देशकाल का अपना लेखन हैं, मूल लेख, लेखक और प्रकाशक का नाम और लिंक हर सार के साथ है। यह अख़बार उसी अंक से अपने आप बनता है।</div>
