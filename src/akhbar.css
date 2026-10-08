@@ -75,7 +75,7 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-poster h2{margin:0;font-family:var(--f-poster);font-weight:600;font-size:clamp(60px,9.6vw,136px);line-height:1.14;color:#fff;max-width:16ch;text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .np-poster h2 .acc{text-shadow:none}
 .np-poster h2 a:hover{color:#fff}
-.np-poster h2 .acc{background:var(--red);color:#fff;padding:0 .14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.np-poster h2 .acc{display:table;background:var(--red);color:#fff;padding:.12em .16em 0;line-height:1.02;margin-bottom:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .np-flag{display:inline-flex;align-items:center;gap:10px;margin:0 0 30px;font-family:var(--f-ui);font-size:15px;font-weight:700;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
 .np-flag b{background:#fff;color:var(--ink);padding:1px 10px;font-weight:800}
 
