@@ -11,6 +11,8 @@ const fs = require("fs");
   await p.goto(`http://localhost:8080/akhbar/${day}/`, { waitUntil: "load", timeout: 90000 });
   await p.emulateMedia({ media: "print" });
   await p.evaluate(async () => { await document.fonts.ready; await Promise.race([Promise.all([...document.images].map(i => { i.loading = "eager"; return i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; }); })), new Promise(r => setTimeout(r, 30000))]); });
+  /* PDF में हर लिंक deshkaal.xyz का पूरा पता हो, localhost का नहीं */
+  await p.evaluate(() => document.querySelectorAll("a[href]").forEach(a => { const h = a.getAttribute("href"); if (/^(mailto:|tel:|https?:)/.test(h)) return; a.setAttribute("href", new URL(h, "https://deshkaal.xyz" + location.pathname).href); }));
   const ids = await p.evaluate(() => [...document.querySelectorAll(".sheet")].map(s => s.id));
   const out = await PDFDocument.create();
   for (const id of ids) {
