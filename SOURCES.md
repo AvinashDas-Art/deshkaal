@@ -79,7 +79,8 @@ Many fine independent writers publish on Substack (for example Dilip Khan / द�
 - Finding posts: WebSearch `site:substack.com` plus the writer's name or the day's subject (in Hindi and English). Every Substack has a feed at `https://<name>.substack.com/feed` (or `<custom-domain>/feed`) that lists the newest posts with dates; WebFetch it, then fetch the post.
 - Free posts only. Skip anything that shows "This post is for paid subscribers" or cuts off for non-subscribers.
 - `pub` = the newsletter's name (e.g. "Dilip Khan · Substack"), `by` = the writer. Same rules as any source: last 72 hours, fits `EDITORIAL.md`, no party propaganda, no rumour.
-- Known newsletters (add to this list as good ones are found): Dilip Khan (find the address with WebSearch "Dilip Khan Substack" / "दिलीप ख़ान सबस्टैक" and write it here once found).
+- Known newsletters (check these first, every day; add good new ones here):
+  - Dilip Khan / दिलीप ख़ान: https://dilipkhan.substack.com (feed: https://dilipkhan.substack.com/feed; profile: https://substack.com/@dilipkhan)
 
 ## और भी (जब ऊपर से कम पड़े)
 - समकालीन जनमत: https://samkaleenjanmat.in (slow; retry once)
