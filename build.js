@@ -43,8 +43,10 @@ const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
 /* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रोशनदान, sahitya साहित्य.
    पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
-const SECS = ["amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
+const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
 DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
+/* विशेष खंड "सड़क की संसद" (sec: morcha): आंदोलन चलने तक आमुख (lead: true) और छह विश्लेषण, नुक़्ता-ए-नज़र के ऊपर. data/special.json से चालू/बंद */
+const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
 /* अनुवाद: data/i18n/<lang>/<दिन>.json, id से मिलाकर हिंदी के ऊपर रखे जाते हैं; जिनका अनुवाद नहीं, वो उस भाषा में नहीं दिखते */
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
@@ -253,15 +255,40 @@ const connect = () => `<section class="band">
   <ol><li>${T.app1}</li><li>${T.app2}</li></ol>
   <button class="btn" id="install" hidden style="margin-top:10px">${T.appBtn}</button></div></section>`;
 
+/* सड़क की संसद: आज के (न हों तो हाल के) morcha लेख; पहला lead, बाक़ी छह आवाज़ें, उससे आगे "और" */
+function morchaSet(ds, upto) {
+  if (!SPECIAL.active) return null;
+  const d = ds.find(x => x.date <= upto && x.date >= (SPECIAL.since || "") && x.items.some(a => a.sec === "morcha"));
+  if (!d) return null;
+  const its = d.items.filter(a => a.sec === "morcha"), lead = its.find(a => a.lead) || its[0], rest = its.filter(a => a !== lead);
+  return { day: d.date, lead, six: rest.slice(0, 6), more: rest.slice(6) };
+}
+const morchaAll = () => all.filter(a => a.sec === "morcha");
+function morchaBand(M) {
+  const voice = (a, i) => `<article class="mv"><span class="mv-n">${i + 1}</span><a href="${href(a)}"><p class="mv-by">${esc(a.by)}<small>${esc(a.pub)}</small></p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.date)} · ${T.read(readMin(a))} · ${saveBtn(a)}</p></article>`;
+  const n = morchaAll().length;
+  return `<section class="morcha"><div class="sechead sec-morcha"><h3>${T.sec.morcha[0]}</h3><p>${T.sec.morcha[1]}</p></div>
+  <div class="mvgrid">${M.six.map(voice).join("")}</div>
+  ${M.more.length ? `<div class="mvmore"><h5>${T.morchaMore}</h5>${M.more.map(a => `<a href="${href(a)}"><b>${esc(a.by)}</b> · ${esc(a.h)}</a>`).join("")}</div>` : ""}
+  <a class="mvall" href="${PRE}/morcha/">${T.morchaAll(n)}</a></section>`;
+}
+function morchaPage() {
+  const list = morchaAll(), groups = [...new Set(list.map(a => a.day))];
+  const body = `<section class="page2 morcha-page"><p class="kicker">${T.special}</p><h2>${T.sec.morcha[0]}</h2><p class="mp-intro">${T.morchaIntro}</p>
+    ${groups.map(g => `<div class="aday"><h4>${dayLabel(g)}</h4>${list.filter(a => a.day === g).map(a => `<div class="arow"><span class="k">${a.lead ? T.sec.amukh[0] : esc(a.pub)}</span><a href="${href(a)}"><h4>${esc(a.h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</span></a></div>`).join("")}</div>`).join("")}</section>`;
+  return layout({ title: T.sec.morcha[0], desc: T.sec.morcha[1], url: PRE + "/morcha/", body, alt: { hi: "/morcha/", en: "/en/morcha/", ur: "/ur/morcha/" } });
+}
 /* ---------- pages ---------- */
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
-  const L = by("amukh")[0] || today.items.find(a => a.sec !== "sahitya");
-  const vichar = by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya");
+  const M = morchaSet(days, today.date), amukh = by("amukh")[0];
+  const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
+  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya");
   const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
-  const body = `<div class="lastread" id="lastread" hidden></div>${hero(L, T.sec.amukh[0] + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span></div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  ${M ? morchaBand(M) : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
@@ -373,7 +400,8 @@ function feed() {
 function akhbarPage(day, issueNo, allDays) {
   /* प्रेरणा: द टेलीग्राफ़ (कोलकाता) का पोस्टर जैसा पहला पन्ना, लिबरेशन की पूरी चौड़ाई वाली तस्वीर, गार्डियन की साफ़ ग्रिड */
   const items = day.items, by = k => items.filter(a => a.sec === k);
-  const L = by("amukh")[0] || items.find(a => a.sec !== "sahitya"), vichar = by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
+  const M = morchaSet([day], day.date), amukh = by("amukh")[0];
+  const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr, n) => (arr || []).slice(0, n).map(p => `<p>${esc(p)}</p>`).join("");
@@ -409,7 +437,7 @@ function akhbarPage(day, issueNo, allDays) {
     <div class="np-tagbar"><span>ज़रूरी ख़बरों तक जाती एक पगडंडी</span><span>दुनिया भर की संपादकीय टिप्पणियां, सहज हिंदुस्तानी में</span><span>मूल्य: बस थोड़ा-सा ध्यान</span></div>
     <article class="np-poster">
       <figure>${img(L)}<figcaption>${cap(L)}</figcaption></figure>
-      <div class="np-poster-t"><p class="np-flag"><b>आमुख</b> ${esc(L.by)}</p><h2><a href="${href(L)}"><span class="acc">${esc(h1)}</span> <span class="rest">${esc(h2)}</span></a></h2></div>
+      <div class="np-poster-t"><p class="np-flag"><b>${M ? "सड़क की संसद · विशेष" : "आमुख"}</b> ${esc(L.by)}</p><h2><a href="${href(L)}"><span class="acc">${esc(h1)}</span> <span class="rest">${esc(h2)}</span></a></h2></div>
     </article>
     <div class="np-leadgrid">
       <div class="np-leadtext"><p class="np-dek">${esc(L.dek)}</p><div class="cols3 dropcap">${by1(L)}${P(L.body, 9)}${more(L)}</div></div>
@@ -422,6 +450,8 @@ function akhbarPage(day, issueNo, allDays) {
           ${lits.length ? `<li><b>4</b>सुख़न-सराय: साहित्य</li>` : ""}</ol></div>
       </aside>
     </div>
+    ${M && M.six.length ? `<section class="np-morcha"><h3><span>सड़क की संसद</span><small>वोट चोरी के ख़िलाफ़ आंदोलन पर सबसे प्रखर और मुखर विश्लेषण</small></h3>
+      <ol>${M.six.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${esc(a.by)} · ${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}</ol></section>` : ""}
     ${khabar.length ? `<section class="np-digest"><h3><span>कल का कच्चा चिट्ठा</span><small>बीते दिन की वो ख़बरें, जो दबनी नहीं चाहिए · विस्तार पन्ना 3 पर</small></h3>
       <ol>${khabar.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}${pad(khabar.length, 4) ? `<li class="adcell" style="grid-column:span ${pad(khabar.length, 4)}">${pad(khabar.length, 4) > 1 ? ADS.poster() : ADS.coupon()}</li>` : ""}</ol></section>` : ""}
     ${folio(1, "पहला पन्ना")}</section>`);
@@ -501,6 +531,7 @@ for (const l of LANGS) {
   CATS.forEach(c => out(`${P}shreni/${SLUG[c]}/index.html`, catPage(c)));
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
+  if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage()); }

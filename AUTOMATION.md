@@ -116,3 +116,22 @@ jankipul.com and samalochan.com often refuse the cloud fetcher (robots.txt time-
 
 ## तिरछी नज़र (cartoons)
 Rajendra Dhodapkar's cartoons are added by hand when the owner sends one: `data/cartoons/img/YYYY-MM-DD.jpg` + `data/cartoons/YYYY-MM-DD.json`. The daily run never edits or deletes them. Each cartoon has its own date and shows only on that day (front page, its own page, e-paper). A cartoon is never repeated on a second day. Cartoons for future dates are kept in reserve and stay hidden until their day.
+
+## सड़क की संसद (special: the movement section)
+Switched on by `data/special.json` (`"active": true`). It covers the movement against "vote chori" by the Election Commission (Cockroach Janta Party, student and left groups, the INDIA bloc; Jantar Mantar, Delhi; started 10 Oct 2026). It stays on until the owner says the movement is over; then set `"active": false`.
+
+While it is on, every daily issue has:
+- `sec: "morcha"`: 1 lead (`"lead": true`, written like an amukh, with `ank` if the article has figures) plus at least 6 analyses, first in the day file. **No separate `amukh` that day**: the morcha lead is the issue's lead. The rest of the issue (6 vichar on other subjects, khabar, pari, video, sahitya) stays as usual.
+- **Analysis only, never news reports**: editorials, columns, op-eds, signed essays, explainers with a clear argument, satire. The sharpest and most outspoken voices first. Order in the file = order on the page (lead, then the six best; anything beyond six shows as "आज और भी").
+- Search **Hindi, English and Urdu** sources: The Wire / द वायर हिंदी (m.thewire.in, thewirehindi.com), Scroll, Newslaundry, The News Minute, Article 14, Frontline, The Caravan, Outlook, ThePrint opinion, Deccan Herald, The Quint, National Herald / नवजीवन, सत्य हिंदी, न्यूज़क्लिक हिंदी, जनसत्ता, अमर उजाला and दैनिक भास्कर columns, BBC हिंदी / BBC اردو, DW हिंदी, Al Jazeera opinion, Inquilab, Siasat, روزنامہ راشٹریہ سہارا, Qaumi Awaz (qaumiawaz.com), Substack writers, plus WebSearch in all three languages (e.g. "कॉकरोच जनता पार्टी विश्लेषण", "Gyanesh Kumar opinion", "ووٹ چوری الیکشن کمیشن"). Indian Express, The Hindu, Telegraph are blocked from here: reach their columns via WebSearch only if a readable copy opens.
+- Prefer the last 72 hours; older pieces are fine if they speak directly to the day (for example a piece on metro shutdowns on a shutdown day) and are not already on the site (match `url`). Never paywalled.
+- Facts: allegations stay allegations ("आरोप है", "लेखक के मुताबिक़"). Our `nazar` can be sharp, never invented.
+- Set `data/special.json` `"updated"` to the IST time of publishing, like `2026-10-10T07:00+05:30`.
+
+### Live updates during the day
+Separate scheduled runs check through the day (from about 10-11 am IST). Each run:
+1. `git pull`. Work on **today's** IST day file only. If it does not exist yet, stop.
+2. Search for new analysis on the movement published since the last update (same sources and rules as above). Skip anything already on the site.
+3. If there is something new and worth it, add it as `sec: "morcha"` with the next free id (`YYYY-MM-DD-NN`). If it is clearly stronger than one of the current six, place it among the six; the lead changes only if a far stronger long essay appears. If nothing new is worth adding, change nothing and do not commit.
+4. Translate only the new items and append them to `data/i18n/en/` and `data/i18n/ur/` for the day (TRANSLATION.md).
+5. Update `"updated"` in `data/special.json`, run `python3 scripts/og.py` and `node build.js`, run the spelling grep, commit `सड़क की संसद: अपडेट HH:MM`, push.

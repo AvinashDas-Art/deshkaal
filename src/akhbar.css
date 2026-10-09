@@ -317,3 +317,16 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-toon-f img{height:auto!important;filter:none!important}
 :root[data-np="night"] .np-toon-f{background:#EDEBE4}
 @media (max-width:720px){.np-toon{grid-template-columns:1fr}.np-toon-l h3{font-size:44px}}
+/* सड़क की संसद: आंदोलन का विशेष खंड, पहले पन्ने पर */
+.np-morcha{margin-top:18px;border:3px solid var(--ink);border-top-width:8px;padding:0 14px 6px}
+.np-morcha h3{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 -14px 10px;padding:6px 14px;background:var(--ink);color:var(--paper)}
+.np-morcha h3 span{font-family:var(--f-mast);font-weight:400;font-size:30px;line-height:1.2}
+.np-morcha h3 small{font-family:var(--f-ui);font-size:13.5px;font-weight:600;opacity:.9}
+.np-morcha ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.np-morcha li{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:10px 14px 12px;border-inline-start:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.np-morcha li:nth-child(3n+1){border-inline-start:0;padding-inline-start:0}
+.np-morcha li:nth-last-child(-n+3){border-bottom:0}
+.np-morcha li>b{font-family:var(--f-poster);font-weight:600;font-size:56px;line-height:.9;color:var(--red)}
+.np-morcha h4{margin:0 0 4px;font-family:var(--f-head);font-weight:500;font-size:25px;line-height:1.08}
+.np-morcha li p:not(.np-kick){font-size:14px;line-height:1.6;color:var(--ink2);margin:0}
+@media (max-width:720px){.np-morcha ol{grid-template-columns:1fr}.np-morcha li{border-inline-start:0;padding-inline-start:0;border-bottom:1px solid var(--hair)}}
