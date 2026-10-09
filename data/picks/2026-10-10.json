@@ -1,0 +1,6 @@
+[
+ {
+  "url": "https://substack.com/inbox/post/219581657",
+  "note": "मालिक की पसंद: कल के अंक में ज़रूर. Substack पोस्ट. पहले इस पते को WebFetch करें; न खुले तो https://substack.com/api/v1/posts/by-id/219581657 (JSON में canonical_url, title, publication) आज़माएं, फिर उस canonical_url को. लेख बड़ा और गंभीर हो तो आमुख, वरना नुक़्ता-ए-नज़र में. मूल लिंक में canonical_url ही लगाएं, inbox वाला नहीं."
+ }
+]
