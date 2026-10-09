@@ -130,7 +130,7 @@ While it is on, every daily issue has:
 
 ### Live updates during the day
 Separate scheduled runs check through the day (from about 10-11 am IST). Each run:
-1. `git pull`. Work on **today's** IST day file only. If it does not exist yet, stop.
+1. `git pull`. Work on **today's** IST day file only. If it does not exist yet, or today is earlier than `since` in `data/special.json`, stop.
 2. Search for new analysis on the movement published since the last update (same sources and rules as above). Skip anything already on the site.
 3. If there is something new and worth it, add it as `sec: "morcha"` with the next free id (`YYYY-MM-DD-NN`). If it is clearly stronger than one of the current six, place it among the six; the lead changes only if a far stronger long essay appears. If nothing new is worth adding, change nothing and do not commit.
 4. Translate only the new items and append them to `data/i18n/en/` and `data/i18n/ur/` for the day (TRANSLATION.md).
