@@ -152,7 +152,7 @@ document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.conta
 
 /* रोशनदान: वीडियो इसी पन्ने पर, दबाने पर ही YouTube लोड होता है */
 document.addEventListener("click",e=>{const b=e.target.closest(".ytlite");if(!b)return;const f=document.createElement("iframe");
-f.src=`https://www.youtube.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&playsinline=1&rel=0`;f.referrerPolicy="strict-origin-when-cross-origin";f.setAttribute("frameborder","0");f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";f.allowFullscreen=true;f.title=b.getAttribute("aria-label")||"video";b.replaceWith(f)});
+f.src=b.dataset.ia?`https://archive.org/embed/${encodeURIComponent(b.dataset.ia)}?autoplay=1`:`https://www.youtube.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&playsinline=1&rel=0`;f.referrerPolicy="strict-origin-when-cross-origin";f.setAttribute("frameborder","0");f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";f.allowFullscreen=true;f.title=b.getAttribute("aria-label")||"video";b.replaceWith(f)});
 
 /* पाठकों की गिनती: बिना कुकी, सिर्फ़ इस ब्राउज़र की याद (localStorage) से पहली बार और रोज़ की पहली बार तय होती है */
 (function(){const el=$("#ginti");if(!el||!window.fetch)return;

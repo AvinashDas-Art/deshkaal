@@ -44,7 +44,7 @@ if (!DAYS_HI.length) throw new Error("data/days में कोई दिन �
 /* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रोशनदान, sahitya साहित्य.
    पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
 const SECS = ["amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
-DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : a.yt ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
+DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
 /* अनुवाद: data/i18n/<lang>/<दिन>.json, id से मिलाकर हिंदी के ऊपर रखे जाते हैं; जिनका अनुवाद नहीं, वो उस भाषा में नहीं दिखते */
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
@@ -271,11 +271,14 @@ function homePage() {
   ${connect()}`;
   return layout({ title: "", desc: T.homeDesc(dayLabel(today.date), today.items.length), url: PRE + "/", body, tab: "home", catOn: "सब", alt: { hi: "/", en: "/en/", ur: "/ur/" } });
 }
-const ytThumb = a => `https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`;
+/* वीडियो YouTube (yt) पर हो या Internet Archive (ia) पर */
+const isVid = a => !!(a.yt || a.ia);
+const ytThumb = a => a.poster || (a.ia ? `https://archive.org/services/img/${a.ia}` : `https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`);
+const vidOpen = a => a.ia ? `https://archive.org/details/${a.ia}` : `https://www.youtube.com/watch?v=${a.yt}`;
 const videoBand = a => `<section class="ytband"><div class="sechead"><h3>${T.sec.video[0]}</h3><p>${T.sec.video[1]}</p></div>
   <a class="ytcard" href="${href(a)}"><span class="ytthumb"><img src="${ytThumb(a)}" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true"></span>${a.dur ? `<span class="dur">${esc(a.dur)}</span>` : ""}</span>
   <span class="yttext"><span class="kicker">${cn(a.cat)} · ${esc(a.by)}</span><span class="yth">${esc(a.h)}</span><span class="dek">${esc(a.dek)}</span><span class="ytmore">${T.watchRead}</span></span></a></section>`;
-const ytEmbed = a => `<figure class="ytembed"><button class="ytlite" type="button" data-yt="${esc(a.yt)}" aria-label="${T.watch}: ${esc(a.h)}"><img src="${ytThumb(a)}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button><figcaption class="cap">${esc(a.by)} · ${esc(a.pub)}${a.dur ? " · " + esc(a.dur) : ""} · <a href="https://www.youtube.com/watch?v=${esc(a.yt)}" target="_blank" rel="noopener">${T.ytOpen}</a></figcaption></figure>`;
+const ytEmbed = a => `<figure class="ytembed"><button class="ytlite" type="button" ${a.ia ? `data-ia="${esc(a.ia)}"` : `data-yt="${esc(a.yt)}"`} aria-label="${T.watch}: ${esc(a.h)}"><img src="${ytThumb(a)}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button><figcaption class="cap">${esc(a.by)} · ${esc(a.pub)}${a.dur ? " · " + esc(a.dur) : ""} · <a href="${esc(vidOpen(a))}" target="_blank" rel="noopener">${a.ia ? T.ytOpen.replace("YouTube", "Internet Archive") : T.ytOpen}</a></figcaption></figure>`;
 function catPage(c) {
   const list = all.filter(a => a.cat === c);
   let body;
@@ -300,7 +303,7 @@ function articlePage(a) {
   const body = `<article class="read">
     <a class="back" href="${PRE}/">${T.back}</a>
     <p class="kicker" style="margin-top:22px"><a href="${PRE}/shreni/${SLUG[a.cat]}/">${cn(a.cat)}</a></p>
-    <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>${a.yt ? `<p class="ytnote">${T.ytNote}</p>` : ""}
+    <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>${isVid(a) ? `<p class="ytnote">${T.ytNote}</p>` : ""}
     <div class="meta"><span>${T.orig}: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">${T.listenBtn(listenMin(a))}</button>${saveBtn(a)}</span></div>
     ${shareBlock(a)}
@@ -308,9 +311,9 @@ function articlePage(a) {
     <div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>${T.nazar}</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
     <aside class="sawal"><small>${T.think}</small><p>${esc(a.sawal)}</p></aside>
-    ${a.yt ? `<h5 class="ythead">${T.watch}</h5>${ytEmbed(a)}` : ""}
+    ${isVid(a) ? `<h5 class="ythead">${T.watch}</h5>${ytEmbed(a)}` : ""}
     <aside class="box ref"><h5>${T.ref}</h5><dl>${a.ref.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl></aside>
-    ${a.yt ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
+    ${isVid(a) ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
     <p class="fine">${esc(T.fine(a.pub))}</p>
     ${shareBlock(a)}
     <div class="more"><h6>${T.next}</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>
@@ -398,7 +401,7 @@ function akhbarPage(day, issueNo, allDays) {
   const pad = (n, cols) => (cols - (n % cols)) % cols;
   /* पहला पन्ना */
   pages.push(`<section class="sheet front" id="p1">
-    <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${a.toon ? a.href : href(a)}">${a.toon ? `<img class="paint" src="${a.img}" alt="">` : a.yt ? `<img class="photo" src="https://i.ytimg.com/vi/${esc(a.yt)}/hqdefault.jpg" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
+    <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${a.toon ? a.href : href(a)}">${a.toon ? `<img class="paint" src="${a.img}" alt="">` : isVid(a) ? `<img class="photo" src="${esc(ytThumb(a))}" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
     <header class="np-mast">
       <h1 class="np-title"><span>देशकाल</span></h1>
       <div class="np-date"><b>${wd}</b><span>${dt}</span><span>वर्ष 1 · अंक ${issueNo}</span></div>
@@ -445,7 +448,7 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}${ADS.coupon()}</div>
     </div>` : ""}
     ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
-    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="https://i.ytimg.com/vi/${esc(vid.yt)}/hqdefault.jpg" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
+    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="${esc(ytThumb(vid))}" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
     ${folio(3, "देश-दुनिया")}</section>`);
   }
   /* सुख़न-सराय */
