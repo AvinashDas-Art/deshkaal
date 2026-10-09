@@ -478,3 +478,11 @@ body.noscroll{overflow:hidden}
 @media (max-width:760px){.toon-chutki{grid-template-columns:1fr;gap:22px;padding:30px 0 22px}.tc-side{position:static}.toon-chutki h3{font-size:38px;margin-top:20px}.toon-chutki h3 br{display:none}}
 .toon-tease{font-family:var(--f-hand);font-size:19px!important;line-height:1.55;color:var(--ink)!important;margin:16px 0 8px!important}
 .toon-read{font-family:var(--f-ui);font-weight:700;font-size:15px;color:var(--lal)}
+
+/* मास्टहेड: अंग्रेज़ी और उर्दू में भी वही ब्रश और लाल सूरज */
+html[lang="en"] .mast{font-size:clamp(58px,10.5vw,124px);letter-spacing:.015em}
+html[lang="en"] .mast .w{-webkit-text-stroke:.03em var(--ink)}
+html[lang="en"] .mast.small{font-size:42px}
+html[lang="ur"] .mast{font-family:"Lalezar","Yatra One",serif;font-size:clamp(84px,15vw,168px);line-height:1.25;padding-top:.05em}
+html[lang="ur"] .mast::before{top:56%}
+html[lang="ur"] .mast.small{font-size:58px}

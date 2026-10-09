@@ -5,6 +5,8 @@ const SITE = "https://deshkaal.xyz";
 const { CATN, MONTHS: MON, DAYS: WD, LANGNAME, S } = require("./src/i18n.js");
 const LANGS = ["hi", "en", "ur"];
 const BRAND = { hi: "देशकाल", en: "Deshkaal", ur: "دیش کال" };
+/* मास्टहेड हर भाषा की अपनी लिपि में, एक ही ब्रश वाले मिज़ाज में */
+const MAST = { hi: "देशकाल", en: "DESHKAAL", ur: "دیش کال" };
 const LOCALE = { hi: "hi_IN", en: "en_IN", ur: "ur_IN" };
 /* जो भाषा अभी बन रही है */
 let LG = "hi", T = S.hi, PRE = "";
@@ -68,7 +70,7 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
   const pageIn = l => (alt && alt[l]) || (l === "hi" ? "/" : `/${l}/`);
   const hreflang = alt ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
   const fonts = LG === "ur"
-    ? "family=Yatra+One&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&family=Teko:wght@500;600"
+    ? "family=Yatra+One&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&family=Teko:wght@500;600"
     : "family=Yatra+One&family=Kalam:wght@400;700&family=Laila:wght@300;500;600&family=Noto+Serif+Devanagari:wght@400;600&family=Noto+Sans+Devanagari:wght@400;500" + (LG === "en" ? "&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fraunces:opsz,wght@9..144,500;9..144,600" : "");
   return `<!doctype html>
 <html lang="${LG}"${LG === "ur" ? ' dir="rtl"' : ""}>
@@ -121,7 +123,7 @@ ${extraHead}
     </div>
   </div>
   <header class="masthead">
-    <${title ? "p" : "h1"} class="mh"><a href="${PRE}/" class="mast" aria-label="${B}"><span class="w">देशकाल</span></a></${title ? "p" : "h1"}>
+    <${title ? "p" : "h1"} class="mh"><a href="${PRE}/" class="mast" aria-label="${B}"><span class="w">${MAST[LG]}</span></a></${title ? "p" : "h1"}>
     <p class="tag">${T.tagline}</p>
     <nav class="cats" aria-label="${T.cats}">
       <a href="${PRE}/" class="${catOn === "सब" ? "on" : ""}">${T.all}</a>${CATS.map(c => `<a href="${PRE}/shreni/${SLUG[c]}/" class="${catOn === c ? "on" : ""}">${cn(c)}</a>`).join("")}<a href="${PRE}/purane/" class="arch ${tab === "purane" ? "on" : ""}">${T.archive}</a>
@@ -129,7 +131,7 @@ ${extraHead}
   </header>
   <main>${body}</main>
   <footer>
-    <span class="mast small" aria-label="${B}"><span class="w">देशकाल</span></span>
+    <span class="mast small" aria-label="${B}"><span class="w">${MAST[LG]}</span></span>
     <span>${T.foot}</span>
     <span><a href="/niti/" style="color:var(--geru)">${T.policy}</a> · <a href="/nijta/" style="color:var(--geru)">${T.privacy}</a> · <a href="${PRE}/purane/" style="color:var(--geru)">${T.archive}</a> · ${LANGS.filter(l => l !== LG).map(l => `<a href="${pageIn(l)}" lang="${l}" style="color:var(--geru)">${LANGNAME[l]}</a>`).join(" · ")}</span>
   </footer>
