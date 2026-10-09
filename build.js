@@ -457,7 +457,7 @@ function akhbarPage(day, issueNo, allDays) {
   }
   const nav = pages.map((_, i) => `<a href="#p${i + 1}">${i + 1}</a>`).join("");
   const past = allDays.slice(0, 30).map(d => `<a href="/akhbar/${d.date}/"${d.date === day.date ? ' aria-current="true"' : ""}>${dayLabel(d.date)}</a>`).join("");
-  const title = `आज का अख़बार · ${date} · देशकाल`;
+  const title = `ई-पेपर · ${date} · देशकाल`;
   return `<!doctype html>
 <html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc("देशकाल का " + date + " का अंक, अख़बार के रूप में: " + L.h)}">
