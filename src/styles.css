@@ -486,3 +486,9 @@ html[lang="en"] .mast.small{font-size:42px}
 html[lang="ur"] .mast{font-family:"Lalezar","Yatra One",serif;font-size:clamp(84px,15vw,168px);line-height:1.25;padding-top:.05em}
 html[lang="ur"] .mast::before{top:56%}
 html[lang="ur"] .mast.small{font-size:58px}
+
+/* पाठकों की गिनती: फ़ुटर के नीचे एक पतली पट्टी */
+.ginti{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px 16px;margin:0 0 26px;padding:10px 16px;border-block:1px solid var(--rule);font-family:var(--f-ui);font-size:14.5px;color:var(--ink-2)}
+.ginti b{font-family:var(--f-poster);font-weight:600;font-size:24px;line-height:1;color:var(--lal);letter-spacing:.01em;vertical-align:-2px;margin-inline:2px}
+.ginti i{width:5px;height:5px;border-radius:50%;background:var(--rule)}
+@media (max-width:640px){.ginti{margin-bottom:90px}}

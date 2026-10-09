@@ -135,6 +135,7 @@ ${extraHead}
     <span>${T.foot}</span>
     <span><a href="/niti/" style="color:var(--geru)">${T.policy}</a> · <a href="/nijta/" style="color:var(--geru)">${T.privacy}</a> · <a href="${PRE}/purane/" style="color:var(--geru)">${T.archive}</a> · ${LANGS.filter(l => l !== LG).map(l => `<a href="${pageIn(l)}" lang="${l}" style="color:var(--geru)">${LANGNAME[l]}</a>`).join(" · ")}</span>
   </footer>
+  <p class="ginti" id="ginti" hidden></p>
 </div>
 <nav class="tabbar" aria-label="${B}">
   <a href="${PRE}/" class="${tab === "home" ? "on" : ""}"><b>${T.tabHome[0]}</b>${T.tabHome[1]}</a>
