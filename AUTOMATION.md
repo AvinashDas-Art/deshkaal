@@ -21,7 +21,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 5. Write `data/days/YYYY-MM-DD.json` (schema below), every item with its `sec`. Order in the file: amukh, vichar, khabar, pari, video, sahitya.
 5a. **Translate** the day into English and Urdu: write `data/i18n/en/YYYY-MM-DD.json` and `data/i18n/ur/YYYY-MM-DD.json` exactly as `TRANSLATION.md` says (plain, natural English; easy everyday Urdu). Run the two languages as two parallel subagents if you can. Every item of the day file must be translated; check counts and ids with python. If time is short before 07:00, push the Hindi day first (step 8) and the translations in a second commit right after; the English and Urdu pages show only translated pieces.
 6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors. Cards for pieces with a `photo` will show the halftone here (Unsplash is not reachable from the run); the GitHub workflow `og-photos.yml` redraws them with the real photo within a couple of minutes of the push. Do not try to fix this in the run.
-7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय"` over the new day file must return nothing).
+7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय|श्रृ"` over the new day file must return nothing).
 8. Commit `data/days/YYYY-MM-DD.json`, `data/i18n/en/YYYY-MM-DD.json`, `data/i18n/ur/YYYY-MM-DD.json` and the new `public/og/*.png` files with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
 9. Report: number of pieces, sources used, sources that failed.
 
@@ -33,7 +33,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 - `sawal`: one question, under 12 words, that stays with the reader.
 - `ref` (संदर्भ): 1-2 terms or events a general reader may not know, two lines each.
 - Headline (`h`): our own, sharp, under 12 words. Dek: one sentence.
-- Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). रोशनदान (not रौशनदान). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
+- Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). रोशनदान (not रौशनदान). शृंखला, शृंगार (not श्रृंखला, श्रृंगार: never श्रृ). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
 - Facts only from the article itself or well-established background knowledge. If unsure, leave it out.
 
 ## Day file schema
