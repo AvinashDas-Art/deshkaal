@@ -318,7 +318,7 @@ function livePage() {
   </div>
   ${reels.length ? `<section class="lv-reels" data-k="reel"><h3>रील्स <small>आंदोलन पर बन रही रीलें, सरहद के इस पार और उस पार से</small></h3><div class="lv-rrow">${reels.map(reel).join("")}</div></section>` : ""}
   <div class="lv-wall"><div class="lv-newsfeed"><h3>ख़बरें</h3><div class="lv-ncols">${wall.filter(x => x.kind === "news").map(card).join("")}</div></div>
-    <aside class="lv-xfeed"><h3>X पर</h3>${wall.filter(x => x.kind === "post").map(card).join("")}</aside></div>
+    <aside class="lv-xfeed"><h3>X पर <small>${wall.filter(x => x.kind === "post").length} पोस्ट, नीचे सरकाइए</small></h3><div class="lv-xbox"><div class="lv-xlist">${wall.filter(x => x.kind === "post").map(card).join("")}</div></div></aside></div>
   <p class="lv-note">यह दीवार देशकाल हर कुछ घंटे में ताज़ा करता है। हर चीज़ अपने मूल स्रोत से जुड़ी है; जो बात सिर्फ़ एक पक्ष या एक स्रोत से आयी है, उस पर "अपुष्ट" लिखा है। वीडियो और पोस्ट उनके बनाने वालों के हैं।</p>
 </section>`;
   return layout({ title: "लाइव: सड़क की संसद", desc: "वोट चोरी के ख़िलाफ़ आंदोलन पर पल-पल की ख़बर, वीडियो और सोशल मीडिया, एक जगह।", url: "/live/", body });

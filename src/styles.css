@@ -773,3 +773,15 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .live[data-f="post"] .lv-xfeed{position:static;max-height:none;columns:3 260px;column-gap:var(--s3)}
 .live[data-f="post"] .lv-xfeed h3{column-span:all}
 @media (max-width:900px){.lv-wall{grid-template-columns:minmax(0,1fr)}.lv-xfeed{position:static;max-height:none}}
+/* X की फ़ीड ख़बरों जितनी ही ऊंची, भीतर सरकती हुई: नीचे कोई ख़ाली जगह नहीं */
+.lv-wall{align-items:stretch}
+.lv-xfeed{display:flex;flex-direction:column;min-height:0}
+.lv-xfeed h3 small{display:inline-block;margin-inline-start:10px;font-family:var(--f-ui);font-size:13px;color:var(--lv-dim)}
+.lv-xbox{position:relative;flex:1 1 auto;min-height:420px}
+.lv-xlist{position:absolute;inset:0;overflow-y:auto;padding-inline-end:6px;scrollbar-width:thin;scrollbar-color:var(--lv-line) transparent;
+  -webkit-mask-image:linear-gradient(to bottom,#000 88%,transparent);mask-image:linear-gradient(to bottom,#000 88%,transparent)}
+.lv-xlist>article:last-child{margin-bottom:var(--s6)}
+.live[data-f="post"] .lv-xbox{min-height:0}
+.live[data-f="post"] .lv-xlist{position:static;overflow:visible;-webkit-mask-image:none;mask-image:none;columns:3 260px;column-gap:var(--s3)}
+.live[data-f="post"] .lv-xfeed{columns:auto}
+@media (max-width:900px){.lv-xbox{min-height:0}.lv-xlist{position:static;overflow:visible;-webkit-mask-image:none;mask-image:none}}
