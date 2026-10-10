@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T13:55+05:30",
+ "updated": "2026-10-10T15:51+05:30",
  "counters": [
   {
    "n": "45",
@@ -8,10 +8,10 @@
    "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/"
   },
   {
-   "n": "500+",
+   "n": "1,000",
    "label": "दिल्ली में हिरासत",
-   "src": "दिल्ली पुलिस",
-   "url": "https://m.thewire.in/article/rights/detentions-delhi-police-jantar-mantar-protests"
+   "src": "दिल्ली पुलिस सूत्र, एएनआई; आजतक के सार में क़रीब 2,000",
+   "url": "https://www.aninews.in/news/national/politics/around-1000-protesters-detained-across-delhi-over-cjps-jantar-mantar-20-protest-sources20261010145158/"
   },
   {
    "n": "10,000+",
@@ -27,6 +27,160 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-10T15:42+05:30",
+   "kind": "video",
+   "yt": "wA8lb2lC5mY",
+   "text": "जोरबाग फ़्लाईओवर के पास दिल्ली हाट से निकला मार्च रोका गया, नेहा बोरा, जेएनयूएसयू के दानिश अली और भाकपा-माले के रवि राय समेत कई लोगों की हिरासत की ख़बर; एक प्रदर्शनकारी के घायल होने का दावा",
+   "src": "LokmatHindi",
+   "url": "https://www.youtube.com/watch?v=wA8lb2lC5mY",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T15:40+05:30",
+   "kind": "update",
+   "text": "पीटीआई के वीडियो के हवाले से ख़बर है कि ममता बनर्जी को टीएमसी नेता डोला सेन के साथ पुलिस बस में ले जाया गया। कनॉट प्लेस में भारी सुरक्षा के बीच दुकानें बंद रहीं।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T15:36+05:30",
+   "kind": "video",
+   "yt": "O8xHFF6LtSo",
+   "text": "जंतर-मंतर की ओर बढ़ते अरविंद केजरीवाल को पुलिस ने हिरासत में लिया",
+   "src": "ABP News",
+   "url": "https://www.youtube.com/watch?v=O8xHFF6LtSo",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T15:32+05:30",
+   "kind": "video",
+   "yt": "DJO_OYJpWrk",
+   "text": "ममता बनर्जी और केजरीवाल की हिरासत पर अंग्रेज़ी रिपोर्ट",
+   "src": "CNN-News18",
+   "url": "https://www.youtube.com/watch?v=DJO_OYJpWrk",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T15:16+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस सूत्रों के मुताबिक़ हिरासत में रखे गये अभिजीत दिपके को उनकी दादी के निधन की ख़बर दी गयी और फ़ैसला उन पर छोड़ा गया कि वे हिरासत में रहकर आंदोलन जारी रखें या अंतिम संस्कार के लिए लौटें।",
+   "src": "Aaj Tak, Oneindia",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T15:14+05:30",
+   "kind": "video",
+   "yt": "ClHEiyK73gA",
+   "text": "'सरफ़रोशी की तमन्ना' के नारों के बीच दिल्ली हाट से जंतर-मंतर की ओर बढ़तीं नेहा बोरा हिरासत में",
+   "src": "The Federal Desh",
+   "url": "https://www.youtube.com/watch?v=ClHEiyK73gA",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T15:08+05:30",
+   "kind": "news",
+   "h": "हिरासत के कुछ घंटे बाद दिपके की दादी का निधन, अंतिम संस्कार रविवार को",
+   "src": "Onmanorama",
+   "url": "https://www.onmanorama.com/news/india/2026/10/10/abhijeet-dipke-grandmother-dies-hours-after-cjp-founder-detained-in-delhi.html"
+  },
+  {
+   "t": "2026-10-10T15:06+05:30",
+   "kind": "video",
+   "yt": "waPODQ_DPcQ",
+   "text": "ममता और केजरीवाल की हिरासत पर लगातार लाइव कवरेज",
+   "src": "TV9 भारतवर्ष",
+   "url": "https://www.youtube.com/watch?v=waPODQ_DPcQ",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T15:01+05:30",
+   "kind": "video",
+   "yt": "e1VPrqi_4I0",
+   "text": "नेहा बोरा: दिल्ली हाट को जंतर-मंतर बताकर ज्ञानेश कुमार को हटाने के नारे",
+   "src": "Prabhat Khabar",
+   "url": "https://www.youtube.com/watch?v=e1VPrqi_4I0",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T15:00+05:30",
+   "kind": "update",
+   "text": "जंतर-मंतर की ओर जा रहे आप संयोजक अरविंद केजरीवाल और सौरभ भारद्वाज को पुलिस ने हिरासत में लिया। रिपोर्ट के मुताबिक़ आप समर्थकों और पुलिस में झड़प हुई।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T14:57+05:30",
+   "kind": "video",
+   "yt": "KurooAwvtbs",
+   "text": "ममता बनर्जी और डोला सेन समेत टीएमसी सांसद हिरासत में",
+   "src": "India Today",
+   "url": "https://www.youtube.com/watch?v=KurooAwvtbs",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T14:51+05:30",
+   "kind": "news",
+   "h": "पुलिस सूत्र: दिल्ली भर में क़रीब 1,000 प्रदर्शनकारी हिरासत में, हर ज़ोन के लिए अलग हिरासत केंद्र",
+   "src": "ANI",
+   "url": "https://www.aninews.in/news/national/politics/around-1000-protesters-detained-across-delhi-over-cjps-jantar-mantar-20-protest-sources20261010145158/"
+  },
+  {
+   "t": "2026-10-10T14:49+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: भाजपा सांसद संबित पात्रा ने आरोप लगाया कि विपक्ष चुनाव जीते बिना सत्ता चाहता है।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T14:44+05:30",
+   "kind": "update",
+   "text": "कनॉट प्लेस में पथराव की ख़बर, एक पुलिस अधिकारी के घायल होने की बात कही गयी है। पुलिस का आधिकारिक ब्योरा अभी नहीं आया।",
+   "src": "Aaj Tak (एएनआई वीडियो)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T14:43+05:30",
+   "kind": "update",
+   "text": "मुंह पर पट्टी बांधकर टीएमसी नेताओं के साथ जंतर-मंतर की ओर जा रहीं ममता बनर्जी को पुलिस ने हिरासत में लिया। डेरेक ओ'ब्रायन और साकेत गोखले भी ले जाये गये; अधिकारियों ने इसे एहतियाती हिरासत बताया।",
+   "src": "Aaj Tak, Sentinel Assam",
+   "url": "https://www.sentinelassam.com/north-east-india-news/assam-news/mamata-banerjee-detained-in-delhi-amid-jantar-mantar-protest-row",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T14:41+05:30",
+   "kind": "news",
+   "h": "दिल्ली हाट की ओर मार्च करतीं नेहा बोरा हिरासत में, दीपंकर भट्टाचार्य भी साथ",
+   "src": "The Week",
+   "url": "https://www.theweek.in/news/india/2026/10/10/aisa-leader-neha-bora-detained-near-dilli-haat.html"
+  },
+  {
+   "t": "2026-10-10T14:34+05:30",
+   "kind": "news",
+   "h": "भाजपा मुख्यालय के बाहर आइसा और वाम कार्यकर्ताओं का प्रदर्शन, पिनराई विजयन भी हिरासत में",
+   "src": "NewsDrum (PTI)",
+   "url": "https://www.newsdrum.in/national/aisa-left-workers-protest-outside-bjp-hq-former-kerala-cm-vijayan-detained-12663127"
+  },
+  {
+   "t": "2026-10-10T14:30+05:30",
+   "kind": "update",
+   "text": "नेहा बोरा ने एक्स पर लिखा कि एक जंतर-मंतर रोका गया तो पूरी दिल्ली जंतर-मंतर बन जाएगी, और समर्थकों को दिल्ली हाट बुलाया। पूर्व मुख्यमंत्री पिनराई विजयन ने कहा कि सत्ता जनता की आवाज़ से डरे तो लोकतंत्र पर हमला होता है।",
+   "src": "NewsDrum (PTI)",
+   "url": "https://www.newsdrum.in/national/aisa-left-workers-protest-outside-bjp-hq-former-kerala-cm-vijayan-detained-12663127",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T14:20+05:30",
+   "kind": "news",
+   "h": "'लोकतंत्र बचाओ' के नारों के साथ केरल के वाम नेता सड़क पर, विजयन, ब्रिटास और बालगोपाल हिरासत में",
+   "src": "Onmanorama",
+   "url": "https://www.onmanorama.com/news/india/2026/10/10/cpm-kerala-leaders-cjp-protest-delhi-live.html"
+  },
   {
    "t": "2026-10-10T13:50+05:30",
    "kind": "update",
