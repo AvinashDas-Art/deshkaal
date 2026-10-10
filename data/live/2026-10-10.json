@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T18:55+05:30",
+ "updated": "2026-10-10T19:55+05:30",
  "counters": [
   {
    "n": "45",
@@ -10,7 +10,7 @@
   {
    "n": "3,000+",
    "label": "दिल्ली में हिरासत",
-   "src": "पीटीआई (बिज़नेस स्टैंडर्ड); दिप्रिंट हिंदी के मुताबिक़ 3,500 से ज़्यादा; दोपहर में दिल्ली पुलिस सूत्रों (एएनआई) ने क़रीब 1,000 बताये थे",
+   "src": "पीटीआई (बिज़नेस स्टैंडर्ड); दिप्रिंट हिंदी के मुताबिक़ 3,500 से ज़्यादा; दोपहर में दिल्ली पुलिस सूत्रों (एएनआई) ने क़रीब 1,000 बताये थे; शाम को ट्रिब्यून के लाइव ब्लॉग के शीर्षक में 7,000",
    "url": "https://www.business-standard.com/india-news/cjp-protest-over-3-000-detained-as-delhi-police-tightens-security-126101000584_1.html"
   },
   {
@@ -28,6 +28,14 @@
  ],
  "items": [
   {
+   "t": "2026-10-10T18:55+05:30",
+   "kind": "update",
+   "text": "पीटीआई के मुताबिक़ ममता बनर्जी और टीएमसी सांसद द्वारका नॉर्थ थाने में धरने पर बैठे रहे; ममता ने हालात को 'सुपर इमरजेंसी' कहा, कोलकाता की उड़ान रद्द की और सोमवार के इंडिया गठबंधन मार्च तक दिल्ली में रुकने की बात कही। उन्होंने कहा कि थाने में धरने के दौरान वे पानी भी नहीं पियेंगे।",
+   "src": "Deccan Chronicle / PTI",
+   "url": "https://www.deccanchronicle.com/nation/mamata-detention-like-kidnapping-situation-worse-than-emergency-1994686",
+   "verified": true
+  },
+  {
    "t": "2026-10-10T18:31+05:30",
    "kind": "news",
    "h": "डिटेंशन सेंटर बने नये जंतर-मंतर: 3,500 से ज़्यादा हिरासत में, नारों और राष्ट्रगान के बीच नांगलोई स्टेडियम में भूख हड़ताल",
@@ -42,6 +50,13 @@
    "src": "The Indian Express",
    "url": "https://www.youtube.com/watch?v=ub7BE0nCIhc",
    "live": false
+  },
+  {
+   "t": "2026-10-10T18:15+05:30",
+   "kind": "news",
+   "h": "दिल्ली पुलिस: दिपके को दादी के निधन की ख़बर संवेदनशीलता से दी, घर जाने में मदद की पेशकश; दिपके ने अभी फ़ैसला नहीं किया",
+   "src": "The Federal",
+   "url": "https://thefederal.com/category/news/police-inform-detained-cjp-founder-abhijeet-dipke-of-grandmother-death-259182"
   },
   {
    "t": "2026-10-10T17:56+05:30",
@@ -196,6 +211,22 @@
    "src": "Aaj Tak",
    "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
    "verified": false
+  },
+  {
+   "t": "2026-10-10T16:00+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@MamataOfficial",
+   "by": "ममता बनर्जी",
+   "text": "ममता बनर्जी ने लिखा कि उन्हें और टीएमसी सांसदों को क़ैदी वैन में दो घंटे घुमाया गया, जिसे उन्होंने अगवा करना कहा; द्वारका नॉर्थ थाने में धरना शुरू करने और आज रात कोलकाता न लौटने का एलान किया।",
+   "url": "https://x.com/MamataOfficial/status/2108870977010442659"
+  },
+  {
+   "t": "2026-10-10T15:54+05:30",
+   "kind": "news",
+   "h": "इंडिया गठबंधन सोमवार 12 अक्टूबर को दिल्ली में बड़ा प्रदर्शन करेगा, उसी दिन मुख्य न्यायाधीश से मिलने की बात: केसी वेणुगोपाल",
+   "src": "Business Today / PTI",
+   "url": "https://www.businesstoday.in/india/story/india-bloc-to-step-up-fight-over-voting-rights-announces-delhi-protest-on-monday-560816-2026-10-10"
   },
   {
    "t": "2026-10-10T15:53+05:30",
@@ -624,6 +655,23 @@
    "text": "दूसरा पक्ष: बेंगलुरु प्रदर्शन में कम भीड़ का दावा, आंदोलन पर तंज़",
    "views": "19 लाख",
    "url": "https://www.instagram.com/reel/DeOktk1J2Ka/"
+  },
+  {
+   "t": "2026-10-10T13:04+05:30",
+   "kind": "update",
+   "text": "अमर उजाला के मुताबिक़ विमान उतरते ही एक महिला अधिकारी समेत दिल्ली पुलिस के जवान अंदर पहुंचे; वीडियो में दिपके हाथ जोड़कर कहते दिखे कि वे गिरफ़्तार होने आये हैं, पुलिस ने कहा कि यह गिरफ़्तारी नहीं है और सहयोग करें।",
+   "src": "Amar Ujala",
+   "url": "https://amarujala.com/amp/india-news/cjp-protest-in-jantar-mantar-abhijeet-dipke-detained-cockroach-janata-party-cec-sir-row-news-in-hindi-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T13:00+05:30",
+   "kind": "video",
+   "yt": "ZjQkhbeF_FE",
+   "text": "एयरपोर्ट से अभिजीत दिपके का बयान, ध्रुव राठी की हिरासत पर भी रिपोर्ट",
+   "src": "Oneindia Hindi",
+   "url": "https://www.youtube.com/watch?v=ZjQkhbeF_FE",
+   "live": true
   },
   {
    "t": "2026-10-10T12:49+05:30",
