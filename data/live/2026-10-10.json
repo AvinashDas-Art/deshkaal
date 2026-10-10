@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T17:47+05:30",
+ "updated": "2026-10-10T18:55+05:30",
  "counters": [
   {
    "n": "45",
@@ -8,10 +8,10 @@
    "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/"
   },
   {
-   "n": "1,000",
+   "n": "3,000+",
    "label": "दिल्ली में हिरासत",
-   "src": "दिल्ली पुलिस सूत्र, एएनआई; आजतक के सार में क़रीब 2,000",
-   "url": "https://www.aninews.in/news/national/politics/around-1000-protesters-detained-across-delhi-over-cjps-jantar-mantar-20-protest-sources20261010145158/"
+   "src": "पीटीआई (बिज़नेस स्टैंडर्ड); दिप्रिंट हिंदी के मुताबिक़ 3,500 से ज़्यादा; दोपहर में दिल्ली पुलिस सूत्रों (एएनआई) ने क़रीब 1,000 बताये थे",
+   "url": "https://www.business-standard.com/india-news/cjp-protest-over-3-000-detained-as-delhi-police-tightens-security-126101000584_1.html"
   },
   {
    "n": "10,000+",
@@ -27,6 +27,30 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-10T18:31+05:30",
+   "kind": "news",
+   "h": "डिटेंशन सेंटर बने नये जंतर-मंतर: 3,500 से ज़्यादा हिरासत में, नारों और राष्ट्रगान के बीच नांगलोई स्टेडियम में भूख हड़ताल",
+   "src": "दिप्रिंट हिंदी",
+   "url": "https://hindi.theprint.in/india/protest-against-sir-and-gyanesh-kumar-continues-in-detention-centres/1041979/"
+  },
+  {
+   "t": "2026-10-10T18:20+05:30",
+   "kind": "video",
+   "yt": "ub7BE0nCIhc",
+   "text": "नेहा बोरा: हिरासत के बाद बोलीं, जंतर-मंतर 2.0 ख़त्म नहीं हुआ, आंदोलन तो अभी शुरू हुआ है",
+   "src": "The Indian Express",
+   "url": "https://www.youtube.com/watch?v=ub7BE0nCIhc",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T17:56+05:30",
+   "kind": "update",
+   "text": "पीटीआई के मुताबिक़ दिल्ली में 3,000 से ज़्यादा लोग हिरासत में लिये गये। स्पेशल पुलिस कमिश्नर देवेश श्रीवास्तव ने कहा कि हालात क़ाबू में हैं और प्रदर्शन की इजाज़त नहीं थी, इसलिए जंतर-मंतर जाने वालों को रोका जा रहा है; पुलिस सूत्रों का दावा है कि इनमें 600 से ज़्यादा आपराधिक रिकॉर्ड वाले लोग भी हैं।",
+   "src": "Business Standard / PTI",
+   "url": "https://www.business-standard.com/india-news/cjp-protest-over-3-000-detained-as-delhi-police-tightens-security-126101000584_1.html",
+   "verified": true
+  },
   {
    "t": "2026-10-10T17:45+05:30",
    "kind": "video",
@@ -92,6 +116,13 @@
    "src": "ThePrint",
    "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
    "verified": true
+  },
+  {
+   "t": "2026-10-10T16:45+05:30",
+   "kind": "news",
+   "h": "अखिलेश यादव ने ज्ञानेश कुमार का इस्तीफ़ा मांगा, कहा संवैधानिक संस्था को निष्पक्ष दिखना होगा",
+   "src": "ANI",
+   "url": "https://www.aninews.in/news/national/politics/constitutional-body-must-ensure-impartial-decisions-akhilesh-yadav-calls-for-cec8217s-resignation20261010164526/"
   },
   {
    "t": "2026-10-10T16:43+05:30",
@@ -218,6 +249,14 @@
    "live": false
   },
   {
+   "t": "2026-10-10T15:20+05:30",
+   "kind": "update",
+   "text": "टाइम्स केरल के मुताबिक़ पिनराई विजयन और दूसरे वाम नेताओं को साढ़े तीन घंटे तक पुलिस गाड़ी में घुमाने के बाद मंदिर मार्ग थाने ले जाया गया। गाड़ी में मौजूद केएन बालगोपाल और जॉन ब्रिटास ने लाइव वीडियो में दावा किया कि विजयन का खाना और समय पर ली जाने वाली दवाएं छूट गयीं।",
+   "src": "Times Kerala",
+   "url": "https://timeskerala.com/national/pinarayi-vijayan-detained-delhi-police-cjp-protest-gyanesh-kumar/",
+   "verified": false
+  },
+  {
    "t": "2026-10-10T15:16+05:30",
    "kind": "update",
    "text": "दिल्ली पुलिस सूत्रों के मुताबिक़ हिरासत में रखे गये अभिजीत दिपके को उनकी दादी के निधन की ख़बर दी गयी और फ़ैसला उन पर छोड़ा गया कि वे हिरासत में रहकर आंदोलन जारी रखें या अंतिम संस्कार के लिए लौटें।",
@@ -335,6 +374,14 @@
    "h": "'लोकतंत्र बचाओ' के नारों के साथ केरल के वाम नेता सड़क पर, विजयन, ब्रिटास और बालगोपाल हिरासत में",
    "src": "Onmanorama",
    "url": "https://www.onmanorama.com/news/india/2026/10/10/cpm-kerala-leaders-cjp-protest-delhi-live.html"
+  },
+  {
+   "t": "2026-10-10T14:16+05:30",
+   "kind": "update",
+   "text": "द वायर उर्दू की रिपोर्ट के मुताबिक़ द हिंदू के दो पत्रकारों ने एक्स पर दावा किया कि रात भर चले पुलिस अभियान में दिल्ली में क़रीब 4,800 लोग हिरासत में लिये गये; पुलिस ने ऐसा कोई आंकड़ा नहीं दिया है।",
+   "src": "The Wire Urdu",
+   "url": "https://thewireurdu.com/115710/cjp-and-left-leaders-among-several-thousands-detained-ahead-of-protests/",
+   "verified": false
   },
   {
    "t": "2026-10-10T13:50+05:30",
