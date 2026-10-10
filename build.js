@@ -267,10 +267,10 @@ const morchaAll = () => all.filter(a => a.sec === "morcha");
 function morchaBand(M) {
   const voice = (a, i) => `<article class="mv"><span class="mv-n">${i + 1}</span><a href="${href(a)}"><p class="mv-by">${esc(a.by)}<small>${esc(a.pub)}</small></p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.date)} · ${T.read(readMin(a))} · ${saveBtn(a)}</p></article>`;
   const n = morchaAll().length;
-  return `<section class="morcha"><div class="sechead sec-morcha"><h3>${T.sec.morcha[0]}</h3><p>${T.sec.morcha[1]}</p></div>
+  return `<div class="morcha"><div class="sechead sec-morcha"><h3>${T.sec.morcha[0]}</h3><p>${T.sec.morcha[1]}</p></div>
   <div class="mvgrid">${M.six.map(voice).join("")}</div>
   ${M.more.length ? `<div class="mvmore"><h5>${T.morchaMore}</h5>${M.more.map(a => `<a href="${href(a)}"><b>${esc(a.by)}</b> · ${esc(a.h)}</a>`).join("")}</div>` : ""}
-  <a class="mvall" href="${PRE}/morcha/">${T.morchaAll(n)}</a></section>`;
+  <a class="mvall" href="${PRE}/morcha/">${T.morchaAll(n)}</a></div>`;
 }
 function morchaPage() {
   const list = morchaAll(), groups = [...new Set(list.map(a => a.day))];
@@ -287,8 +287,8 @@ function homePage() {
   const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
-  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span></div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
-  ${M ? morchaBand(M) : ""}
+  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span></div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  ${M ? morchaBand(M) + "</section>" : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
@@ -404,8 +404,8 @@ function akhbarPage(day, issueNo, allDays) {
   const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
-  const P = (arr, n) => (arr || []).slice(0, n).map(p => `<p>${esc(p)}</p>`).join("");
-  const more = a => `<a class="np-more" href="${href(a)}">पूरा पढ़ें →</a>`;
+  const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join(""); /* अख़बार में पूरा सार, कोई कटौती नहीं */
+  const more = a => `${a.nazar && a.nazar.length && a.sec !== "sahitya" ? `<div class="np-nz"><b>देशकाल की नज़र</b>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<a class="np-more" href="${esc(a.url || href(a))}">मूल लेख: ${esc(a.pub || "")} →</a>`;
   const img = a => a && a.photo ? `<img class="${a.photo.kind === "painting" ? "paint" : "photo"}" src="${esc(imgSrc(a))}" alt="" loading="lazy">` : "";
   const cap = a => a && a.photo ? `<span class="np-cap">${a.photo.note ? esc(a.photo.note) + " · " : ""}${esc(a.photo.credit)}</span>` : "";
   const by1 = a => `<p class="np-by"><b>${esc(a.by)}</b> · ${esc(a.pub)}</p>`;
@@ -414,7 +414,8 @@ function akhbarPage(day, issueNo, allDays) {
   const folio = (n, t) => `<footer class="np-folio"><span>${t}</span><span>deshkaal.xyz · ज़रूरी ख़बरों तक जाती एक पगडंडी</span><span>${n}</span></footer>`;
   const [h1, h2] = splitHead(L.h);
   const toon = toonFor(day.date);
-  const promos = [toon && [2, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p2" }], vichar[0] && [2, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [3, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [3, "रोशनदान", vid], lits[0] && [4, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
+  const pgM = M && M.six.length ? 2 : 0, pgEd = pgM ? 3 : 2, pgNews = pgEd + 1;
+  const promos = [toon && [pgEd, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p" + pgEd }], vichar[0] && [pgEd, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [pgNews, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [pgNews, "रोशनदान", vid], lits[0] && [pgNews + 1, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
   const pages = [];
   /* विज्ञापन: ख़ाली जगहें, हर जगह अलग अंदाज़ */
   const mail = "mailto:sampark@deshkaal.xyz?subject=" + encodeURIComponent("देशकाल में विज्ञापन") + "&body=" + encodeURIComponent("नमस्ते, मैं देशकाल के अख़बार में विज्ञापन देना चाहता/चाहती हूं। मेरा नाम, संस्था और फ़ोन:");
@@ -440,53 +441,55 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-poster-t"><p class="np-flag"><b>${M ? "सड़क की संसद · विशेष" : "आमुख"}</b> ${esc(L.by)}</p><h2><a href="${href(L)}"><span class="acc">${esc(h1)}</span> <span class="rest">${esc(h2)}</span></a></h2></div>
     </article>
     <div class="np-leadgrid">
-      <div class="np-leadtext"><p class="np-dek">${esc(L.dek)}</p><div class="cols3 dropcap">${by1(L)}${P(L.body, 9)}${more(L)}</div></div>
+      <div class="np-leadtext"><p class="np-dek">${esc(L.dek)}</p><div class="cols3 dropcap">${by1(L)}${P(L.body)}${more(L)}</div></div>
       <aside class="np-rail">
         ${(L.ank || []).slice(0, 2).map(([n, t]) => `<div class="np-big"><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}
         <blockquote class="np-quote"><span class="q">“</span>${esc(L.sawal)}<cite>आज का सवाल</cite></blockquote>
         <div class="np-inside"><h3>अंदर</h3><ol>
-          <li><b>2</b>नुक़्ता-ए-नज़र: देशकाल की राय और ${vichar.length} टिप्पणियां</li>
-          <li><b>3</b>देश-दुनिया${pari.length ? ", गांव-जवार" : ""}${vid ? ", रोशनदान" : ""}</li>
-          ${lits.length ? `<li><b>4</b>सुख़न-सराय: साहित्य</li>` : ""}</ol></div>
+          ${pgM ? `<li><b>2</b>सड़क की संसद: ${M.six.length + M.more.length} विश्लेषण, पूरे पाठ के साथ</li>` : ""}<li><b>${pgEd}</b>नुक़्ता-ए-नज़र: देशकाल की राय और ${vichar.length} टिप्पणियां</li>
+          <li><b>${pgNews}</b>देश-दुनिया${pari.length ? ", गांव-जवार" : ""}${vid ? ", रोशनदान" : ""}</li>
+          ${lits.length ? `<li><b>${pgNews + 1}</b>सुख़न-सराय: साहित्य</li>` : ""}</ol></div>
       </aside>
     </div>
-    ${M && M.six.length ? `<section class="np-morcha"><h3><span>सड़क की संसद</span><small>वोट चोरी के ख़िलाफ़ आंदोलन पर सबसे प्रखर और मुखर विश्लेषण</small></h3>
+    ${M && M.six.length ? `<section class="np-morcha"><h3><span>सड़क की संसद</span><small>वोट चोरी के ख़िलाफ़ आंदोलन पर सबसे प्रखर और मुखर विश्लेषण · पूरा पाठ पन्ना 2 पर</small></h3>
       <ol>${M.six.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${esc(a.by)} · ${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}</ol></section>` : ""}
-    ${khabar.length ? `<section class="np-digest"><h3><span>कल का कच्चा चिट्ठा</span><small>बीते दिन की वो ख़बरें, जो दबनी नहीं चाहिए · विस्तार पन्ना 3 पर</small></h3>
+    ${khabar.length ? `<section class="np-digest"><h3><span>कल का कच्चा चिट्ठा</span><small>बीते दिन की वो ख़बरें, जो दबनी नहीं चाहिए · पूरी ख़बरें पन्ना ${pgNews} पर</small></h3>
       <ol>${khabar.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}${pad(khabar.length, 4) ? `<li class="adcell" style="grid-column:span ${pad(khabar.length, 4)}">${pad(khabar.length, 4) > 1 ? ADS.poster() : ADS.coupon()}</li>` : ""}</ol></section>` : ""}
     ${folio(1, "पहला पन्ना")}</section>`);
+  /* सड़क की संसद: पूरा पाठ, अख़बार की तरह कॉलम में बहता हुआ */
+  if (pgM) pages.push(`<section class="sheet morcha-sheet" id="p2">${run(2, "सड़क की संसद")}
+    <p class="np-mintro">चुनाव आयोग की वोट चोरी के ख़िलाफ़ आंदोलन पर देश-दुनिया में छपे सबसे तीखे विश्लेषण, देशकाल के शब्दों में, पूरे के पूरे।</p>
+    <div class="np-flow np-mflow">${[...M.six, ...M.more].map((a, i) => `<article class="np-fs"><p class="np-kick"><b class="np-mn">${i + 1}</b>${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3><p class="np-dek sm">${esc(a.dek)}</p>${P(a.body)}${more(a)}</article>`).join("")}</div>
+    ${folio(2, "सड़क की संसद")}</section>`);
   /* संपादकीय पन्ना */
   const [F, ...ops] = vichar;
-  pages.push(`<section class="sheet" id="p2">${run(2, "नुक़्ता-ए-नज़र")}
+  pages.push(`<section class="sheet" id="p${pgEd}">${run(pgEd, "नुक़्ता-ए-नज़र")}
     ${toon ? `<section class="np-toon"><div class="np-toon-l"><h3>तिरछी<br>नज़र</h3><p>${esc(toon.artist)}</p></div><a class="np-toon-f" href="/cartoon/${toon.date}/"><img class="paint" src="${toon.img}" alt="${esc(toon.alt)}"></a></section>` : ""}
     <div class="np-edit">
-      <aside class="np-rai"><h3>देशकाल की राय</h3><h4>${esc(L.h)}</h4>${P(L.nazar, 4)}<p class="np-ask">${esc(L.sawal)}</p></aside>
+      <aside class="np-rai"><h3>देशकाल की राय</h3><h4>${esc(L.h)}</h4>${P(L.nazar)}<p class="np-ask">${esc(L.sawal)}</p></aside>
       <div class="np-ops">
         ${F ? `<article class="np-feature"><div class="np-fhead">${tile(F)}<div><p class="np-kick">${cn(F.cat)} · ${esc(F.pub)}</p><h3><a href="${href(F)}">${esc(F.h)}</a></h3><p class="np-author">${esc(F.by)}</p></div></div>
-          ${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body, 3)}${more(F)}</div></article>` : ""}
-        <div class="np-opgrid">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body, 2)}${more(a)}</article>`).join("")}${pad(Math.max(0, ops.length - 3), 3) ? `<div class="adcell" style="grid-column:span ${pad(Math.max(0, ops.length - 3), 3)}">${ADS.stamp()}</div>` : ""}</div>
+          ${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body)}${more(F)}</div></article>` : ""}
+        <div class="np-opgrid np-flow">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body)}${more(a)}</article>`).join("")}${pad(Math.max(0, ops.length - 3), 3) ? `<div class="adcell" style="grid-column:span ${pad(Math.max(0, ops.length - 3), 3)}">${ADS.stamp()}</div>` : ""}</div>
       </div>
     </div>
-    ${folio(2, "संपादकीय")}</section>`);
+    ${folio(pgEd, "संपादकीय")}</section>`);
   /* देश-दुनिया */
   if (khabar.length || pari.length || vid) {
     const [T1, ...rest] = khabar;
-    pages.push(`<section class="sheet" id="p3">${run(3, "देश-दुनिया")}
-    ${T1 ? `<div class="np-news">
-      <article class="np-top"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols2">${P(T1.body, 3)}${more(T1)}</div>
-      ${rest.length > 3 ? `<div class="np-under">${rest.splice(0, 2).map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 2)}${more(a)}</article>`).join("")}</div>` : ""}${ADS.poster()}</article>
-      <div class="np-stack">${rest.map(a => `<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body, 1)}${more(a)}</article>`).join("")}${ADS.coupon()}</div>
-    </div>` : ""}
-    ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
-    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="${esc(ytThumb(vid))}" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body, 2)}<a class="np-more" href="${href(vid)}">सार पढ़ें और वहीं देखें →</a></div></div></section>` : ""}
-    ${folio(3, "देश-दुनिया")}</section>`);
+    pages.push(`<section class="sheet" id="p${pgNews}">${run(pgNews, "देश-दुनिया")}
+    ${T1 ? `<article class="np-top np-topwide"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols3">${P(T1.body)}${more(T1)}</div></article>
+    ${rest.length ? `<div class="np-flow np-nflow">${rest.map((a, i) => `${i === 2 ? `<div class="adcell">${ADS.coupon()}</div>` : ""}<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body)}${more(a)}</article>`).join("")}<div class="adcell">${ADS.poster()}</div></div>` : ""}` : ""}
+    ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid np-flow">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
+    ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="${esc(ytThumb(vid))}" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body)}<a class="np-more" href="${href(vid)}">फ़िल्म देखिए →</a></div></div></section>` : ""}
+    ${folio(pgNews, "देश-दुनिया")}</section>`);
   }
   /* सुख़न-सराय */
   if (lits.length) {
     const [H, ...ls] = lits, n = pages.length + 1;
     pages.push(`<section class="sheet lit" id="p${n}">${run(n, "सुख़न-सराय")}
-    <article class="np-gallery"><div class="np-plate"><p class="np-kick">${esc(H.pub)}</p><h3><a href="${href(H)}">${esc(H.h)}</a></h3>${by1(H)}${P(H.body, 2)}${more(H)}</div><figure>${img(H)}</figure>${cap(H)}</article>
-    <div class="np-litgrid">${ls.map(a => `<article><figure>${img(a)}</figure><div><p class="np-kick">${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body, 1)}${more(a)}</div></article>`).join("")}${ls.length % 2 ? `<div class="adcell">${ADS.stamp()}</div>` : ""}</div>
+    <article class="np-gallery"><div class="np-plate"><p class="np-kick">${esc(H.pub)}</p><h3><a href="${href(H)}">${esc(H.h)}</a></h3>${by1(H)}${P(H.body)}${more(H)}</div><figure>${img(H)}</figure>${cap(H)}</article>
+    <div class="np-litgrid np-flow">${ls.map(a => `<article><figure>${img(a)}</figure><div><p class="np-kick">${esc(a.pub)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body)}${more(a)}</div></article>`).join("")}${ls.length % 2 ? `<div class="adcell">${ADS.stamp()}</div>` : ""}</div>
     ${ADS.rate()}
     <div class="np-imprint">देशकाल हर सुबह दुनिया भर की ज़रूरी टिप्पणियों का सार सहज हिंदुस्तानी में लाता है। सारे सार देशकाल का अपना लेखन हैं, मूल लेख, लेखक और प्रकाशक का नाम और लिंक हर सार के साथ है। यह अख़बार उसी अंक से अपने आप बनता है।</div>
     ${folio(n, "साहित्य")}</section>`);

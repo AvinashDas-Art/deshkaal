@@ -494,14 +494,14 @@ html[lang="ur"] .mast.small{font-size:58px}
 @media (max-width:640px){.ginti{margin-bottom:90px}}
 
 /* ---------- सड़क की संसद: आंदोलन का विशेष खंड ---------- */
-.morcha-rib{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;padding:10px 0;border-top:6px solid var(--lal);border-bottom:1px solid var(--rule);font-family:var(--f-ui);font-size:15px}
+.morcha-rib{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 0 10px;border-bottom:1px solid color-mix(in srgb,var(--lal) 30%,transparent);font-family:var(--f-ui);font-size:15px}
 .morcha-rib b{font-family:var(--f-paint);font-weight:400;font-size:26px;line-height:1.2}
 .mr-tag{background:var(--lal);color:#fff;padding:2px 10px 1px;border-radius:2px;font-weight:600;letter-spacing:.04em}
 .mr-live{margin-inline-start:auto;display:inline-flex;align-items:center;gap:8px;color:var(--ink-2)}
 .mr-live i{width:9px;height:9px;border-radius:50%;background:var(--lal);box-shadow:0 0 0 0 rgba(207,58,46,.5);animation:mrpulse 2s infinite}
 @keyframes mrpulse{0%{box-shadow:0 0 0 0 rgba(207,58,46,.5)}70%{box-shadow:0 0 0 9px rgba(207,58,46,0)}100%{box-shadow:0 0 0 0 rgba(207,58,46,0)}}
 @media (prefers-reduced-motion:reduce){.mr-live i{animation:none}}
-.morcha{margin-top:6px;padding:26px 0 30px;border-top:3px solid var(--ink);border-bottom:6px solid var(--lal)}
+.morcha{padding:30px 0 6px}
 .sec-morcha h3::before{border-radius:2px;transform:rotate(45deg)}
 .mvgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
 .mv{position:relative;padding-block:22px 18px;padding-inline:58px 22px;border-bottom:1px solid var(--rule)}
@@ -520,3 +520,50 @@ html[lang="ur"] .mast.small{font-size:58px}
 .morcha-page .mp-intro{color:var(--ink-2);max-width:42em}
 @media (max-width:900px){.mvgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.mv:not(:nth-child(3n)){border-inline-end:0}.mv:nth-child(odd){border-inline-end:1px solid var(--rule)}}
 @media (max-width:620px){.mvgrid{grid-template-columns:minmax(0,1fr)}.mv:nth-child(odd){border-inline-end:0}.mv{padding-block:18px 16px;padding-inline:50px 4px}.mv-n{inset-inline-start:2px;font-size:42px}.mr-live{margin-inline-start:0}}
+
+/* ---------- विशेष प्रस्तुति: पूरा खंड एक हल्के लाल काग़ज़ पर ---------- */
+.special{position:relative;margin:22px -20px 0;padding:0 20px 30px;background:color-mix(in srgb,var(--lal) 6%,var(--paper));border-top:6px solid var(--lal);isolation:isolate}
+.special::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(-45deg,transparent 0 14px,color-mix(in srgb,var(--lal) 4%,transparent) 14px 15px);opacity:.6}
+.special .hero{border-bottom:0;padding-bottom:30px}
+.special .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:color-mix(in srgb,var(--lal) 30%,transparent)}
+.special .mvgrid{border-top-color:color-mix(in srgb,var(--lal) 25%,var(--rule))}
+.special .mv{border-color:color-mix(in srgb,var(--lal) 18%,var(--rule))}
+.mvmore{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px 30px;margin-top:22px}
+.mvmore h5{grid-column:1/-1}
+.mvmore a{display:block;padding-inline-start:12px;border-inline-start:3px solid var(--lal);line-height:1.55}
+.mvall{margin-top:24px}
+
+/* ---------- खंडों के बीच: भारी दोहरी लकीर की जगह एक छोटी पतली लकीर ---------- */
+.vichar,.khabar,.toon{position:relative;border-top:0;margin-top:30px;padding-top:40px}
+.vichar::before,.khabar::before,.toon::before{content:"";position:absolute;top:0;left:50%;width:84px;height:1px;background:var(--ink);transform:translateX(-50%)}
+.pariband{border-top:0;margin-top:34px}
+.ytband{margin-top:0}
+
+/* ---------- ग्रिड में ख़ाली जगह न रहे: आख़िरी कार्ड बची जगह भर ले ---------- */
+.card.wide > a{display:grid;gap:0 30px;align-items:start}
+.card.wide .art{margin:0}
+.card.wide h3{font-size:30px}
+@media (min-width:901px){
+  .grid.g3>.card:last-child:nth-child(3n+1){grid-column:1/-1}
+  .grid.g3>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
+  .grid.g3>.card:last-child:nth-child(3n+2){grid-column:span 2}
+  .grid.g3>.card:last-child:nth-child(3n+2)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 30px;align-items:center}
+  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .art{margin:0}
+  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) h3{font-size:30px;line-height:1.3}
+  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .dek{font-size:18px;max-width:36em}
+  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
+  .grid.g3>.card:last-child:nth-child(3n+2)>.src{margin-inline-start:calc(50% + 15px)}
+}
+@media (min-width:641px) and (max-width:900px){
+  .grid.g3>.card:last-child:nth-child(odd){grid-column:1/-1}
+  .grid.g3>.card:last-child:nth-child(odd)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 24px;align-items:center}
+  .grid.g3>.card:last-child:nth-child(odd) .art{margin:0}
+}
+@media (min-width:641px){
+  .clist>article:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 40px;align-items:start}
+  .clist>article:last-child:nth-child(odd)>a{display:contents}
+  .clist>article:last-child:nth-child(odd) .kicker,.clist>article:last-child:nth-child(odd) h4{grid-column:1}
+  .clist>article:last-child:nth-child(odd) .dek{grid-column:2;grid-row:1 / span 2;margin:0}
+  .clist>article:last-child:nth-child(odd)>.src{grid-column:1}
+}
+@media (max-width:640px){.special{margin-inline:-20px}.vichar,.khabar,.toon{padding-top:30px}}
