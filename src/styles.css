@@ -785,3 +785,8 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .live[data-f="post"] .lv-xlist{position:static;overflow:visible;-webkit-mask-image:none;mask-image:none;columns:3 260px;column-gap:var(--s3)}
 .live[data-f="post"] .lv-xfeed{columns:auto}
 @media (max-width:900px){.lv-xbox{min-height:0}.lv-xlist{position:static;overflow:visible;-webkit-mask-image:none;mask-image:none}}
+.lv-empty{margin:var(--s5) 0;padding:var(--s6) var(--s4);border:1px dashed var(--lv-line);text-align:center}
+.lv-empty b{font-family:var(--f-paint);font-weight:400;font-size:34px}
+.lv-empty p{margin:var(--s1) 0 0;color:var(--lv-dim);font-family:var(--f-ui)}
+.lv-days{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s5);font-family:var(--f-ui);font-size:14.5px;color:var(--lv-dim)}
+.lv-days a{color:var(--haldi);text-decoration:underline;text-underline-offset:3px}
