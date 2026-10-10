@@ -164,3 +164,11 @@ f.src=b.dataset.ia?`https://archive.org/embed/${encodeURIComponent(b.dataset.ia)
   fetch("/api/ginti",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({first,newday})}).then(r=>r.ok?r.json():null).then(g=>{if(!g||!g.ok)return;
     el.innerHTML=`<span><b>${n(g.people)}</b> ${L[1]} ${L[0]}</span><i></i><span><b>${n(g.views)}</b> ${L[2]}</span><i></i><span>${L[3]} <b>${n(g.today)}</b> ${L[4]}</span>`;el.hidden=false}).catch(()=>{});
 })();
+/* लाइव दीवार: छंटाई, और नये अपडेट की सूचना */
+(function(){const L=document.getElementById("live");if(!L)return;
+const bs=L.querySelectorAll(".lv-filter button");
+bs.forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;bs.forEach(x=>x.setAttribute("aria-pressed",x===b));
+L.dataset.f=f;L.querySelectorAll("[data-k]").forEach(el=>{if(el.classList.contains("lv-vids")||el.classList.contains("lv-time"))return;el.hidden=f!=="all"&&el.dataset.k!==f});}));
+const nb=document.getElementById("lvnew");
+setInterval(()=>{fetch("/live/feed.json?_="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(j=>{if(j.updated&&j.updated!==L.dataset.updated)nb.hidden=false}).catch(()=>{})},120000);
+nb&&nb.addEventListener("click",()=>location.reload());})();

@@ -138,3 +138,16 @@ Separate scheduled runs check through the day (from about 10-11 am IST). Each ru
 
 ## Layout: no holes
 The owner's rule: an empty slot in a grid is filled with **one more piece**, never by stretching a card. So `vichar` is always 6, `khabar` always 6 or 8, the special section always lead + 6 (extra pieces go to "आज और भी"). Only गांव-जवार (PARI) may end on a single wide card. See DESIGN.md.
+
+## लाइव दीवार (/live/), while the special section is on
+`data/live/YYYY-MM-DD.json` (IST day) feeds https://deshkaal.xyz/live/. Shape:
+```json
+{"updated":"2026-10-10T13:05+05:30",
+ "counters":[{"n":"500+","label":"दिल्ली में हिरासत","src":"दिल्ली पुलिस","url":"..."}],
+ "items":[
+  {"t":"2026-10-10T12:49+05:30","kind":"update","text":"हिंदी में एक-दो वाक्य, अपने शब्दों में","src":"प्रकाशन","url":"...","verified":true},
+  {"t":"...","kind":"video","yt":"11-char id","text":"हिंदी में एक लाइन","src":"चैनल","url":"https://www.youtube.com/watch?v=...","live":false},
+  {"t":"...","kind":"post","net":"X","handle":"@...","by":"नाम","text":"हिंदी में सार, पूरी पोस्ट का अनुवाद नहीं","url":"https://x.com/.../status/..."},
+  {"t":"...","kind":"news","h":"हिंदी शीर्षक, अपने शब्दों में","src":"प्रकाशन","url":"..."}]}
+```
+Rules: every url must be one you actually opened or saw in results; YouTube ids verified (vidIQ YouTube tools or oembed) and from the current day, not old protests. `verified:false` (shown as "अपुष्ट") for anything from only one side or one source; cautious wording ("दावा है"). Police and protesters both. No private individuals' names, no graphic violence, no hate. Newest first. Counters: only numbers with a named source; when sources disagree, say so in `src`. Each live run appends new items to today's file (start a new file each day, carry forward counters only if still current) and sets `updated`. Hindi spelling rules apply.

@@ -290,6 +290,36 @@ function morchaPage() {
     ${groups.map(g => `<div class="aday"><h4>${dayLabel(g)}</h4>${list.filter(a => a.day === g).map(a => `<div class="arow"><span class="k">${a.lead ? T.sec.amukh[0] : esc(a.pub)}</span><a href="${href(a)}"><h4>${esc(a.h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</span></a></div>`).join("")}</div>`).join("")}</section>`;
   return layout({ title: T.sec.morcha[0], desc: T.sec.morcha[1], url: PRE + "/morcha/", body, alt: { hi: "/morcha/", en: "/en/morcha/", ur: "/ur/morcha/" } });
 }
+/* ---------- लाइव दीवार: data/live/<दिन>.json (counters, items), आंदोलन चलने तक ---------- */
+const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
+const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
+function livePage() {
+  const all = LIVE_DAYS.flatMap(d => (d.items || []).map(x => ({ ...x, day: d.date }))).sort((a, b) => (b.t || "").localeCompare(a.t || ""));
+  const latest = LIVE_DAYS[0], updated = latest.updated || (all[0] || {}).t || "";
+  const hm = t => (t || "").slice(11, 16), dd = t => { const d = (t || "").slice(0, 10); return d === latest.date ? "" : dayLabel(d).split(", ")[1] + " · "; };
+  const when = t => `<time datetime="${esc(t)}">${dd(t)}${hm(t)}</time>`;
+  const unv = x => x.verified === false ? `<span class="lv-unv">अपुष्ट</span>` : "";
+  const vids = all.filter(x => x.kind === "video" && x.yt), ups = all.filter(x => x.kind === "update"), wall = all.filter(x => x.kind === "post" || x.kind === "news");
+  const vid = (x, i) => `<article class="lv-vid${i === 0 ? " big" : ""}" data-k="video"><button class="ytlite" type="button" data-yt="${esc(x.yt)}" aria-label="चलाएं: ${esc(x.text)}"><img src="https://i.ytimg.com/vi/${esc(x.yt)}/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span>${x.live ? `<span class="lv-badge">लाइव</span>` : ""}</button><p>${esc(x.text)}</p><small>${esc(x.src)} · ${when(x.t)} · <a href="${esc(x.url)}" target="_blank" rel="noopener">YouTube पर</a></small></article>`;
+  const up = x => `<li data-k="update">${when(x.t)}<div><p>${esc(x.text)} ${unv(x)}</p><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.src)}</a></div></li>`;
+  const card = x => x.kind === "post"
+    ? `<article class="lv-post" data-k="post"><div class="lv-ph"><span class="lv-net">${esc(x.net || "X")}</span><b>${esc(x.by || "")}</b><span>${esc(x.handle || "")}</span></div><p>${esc(x.text)}</p><div class="lv-ft">${when(x.t)} · <a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.net || "X")} पर पूरी पोस्ट →</a></div></article>`
+    : `<article class="lv-news" data-k="news"><span class="lv-src">${esc(x.src)}</span><h4><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.h || x.text)}</a></h4><div class="lv-ft">${when(x.t)}</div></article>`;
+  const F = [["all", "सब"], ["video", "देखिए"], ["update", "पल-पल"], ["post", "सोशल मीडिया"], ["news", "ख़बरें"]];
+  const body = `<section class="live" id="live" data-updated="${esc(updated)}">
+  <header class="lv-top"><div class="lv-title"><p class="lv-kick"><span class="lv-dot" aria-hidden="true"></span>लाइव · ${dayLabel(latest.date)}</p><h2>सड़क की संसद</h2><p class="lv-sub">वोट चोरी के ख़िलाफ़ आंदोलन, पल-पल। अख़बारों, चैनलों और सोशल मीडिया से छांटकर, जांचकर, एक दीवार पर।</p></div>
+    <div class="lv-meta"><span>आख़िरी अपडेट</span><b>${hm(updated)}</b><button class="lv-new" id="lvnew" type="button" hidden>नये अपडेट आये हैं, देखिए ↻</button><a href="/morcha/">विश्लेषण पढ़िए →</a></div></header>
+  ${latest.counters && latest.counters.length ? `<div class="lv-count">${latest.counters.map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener"><b>${esc(c.n)}</b><span>${esc(c.label)}</span><small>${esc(c.src)}</small></a>`).join("")}</div>` : ""}
+  <nav class="lv-filter" aria-label="छांटिए">${F.map(([k, l], i) => `<button type="button" data-f="${k}" aria-pressed="${i === 0}">${l}</button>`).join("")}</nav>
+  <div class="lv-main">
+    <div class="lv-vids" data-k="video">${vids.map(vid).join("")}</div>
+    <aside class="lv-time" data-k="update"><h3>पल-पल</h3><ol>${ups.map(up).join("")}</ol></aside>
+  </div>
+  <div class="lv-wall">${wall.map(card).join("")}</div>
+  <p class="lv-note">यह दीवार देशकाल हर कुछ घंटे में ताज़ा करता है। हर चीज़ अपने मूल स्रोत से जुड़ी है; जो बात सिर्फ़ एक पक्ष या एक स्रोत से आयी है, उस पर "अपुष्ट" लिखा है। वीडियो और पोस्ट उनके बनाने वालों के हैं।</p>
+</section>`;
+  return layout({ title: "लाइव: सड़क की संसद", desc: "वोट चोरी के ख़िलाफ़ आंदोलन पर पल-पल की ख़बर, वीडियो और सोशल मीडिया, एक जगह।", url: "/live/", body });
+}
 /* ---------- pages ---------- */
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
@@ -299,7 +329,7 @@ function homePage() {
   const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
-  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span></div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? morchaBand(M) + "</section>" : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
@@ -553,6 +583,7 @@ for (const l of LANGS) {
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
+  if (l === "hi" && LIVE_ON) { out("live/index.html", livePage()); out("live/feed.json", JSON.stringify({ updated: LIVE_DAYS[0].updated || "" })); }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage()); }
 }
 setLang("hi"); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];

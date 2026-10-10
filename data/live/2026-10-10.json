@@ -1,0 +1,546 @@
+{
+ "updated": "2026-10-10T13:05+05:30",
+ "counters": [
+  {
+   "n": "45",
+   "label": "मेट्रो स्टेशनों के गेट बंद",
+   "src": "डीएमआरसी (कुछ रिपोर्टों में 57)",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/"
+  },
+  {
+   "n": "500+",
+   "label": "दिल्ली में हिरासत",
+   "src": "दिल्ली पुलिस",
+   "url": "https://m.thewire.in/article/rights/detentions-delhi-police-jantar-mantar-protests"
+  },
+  {
+   "n": "10,000+",
+   "label": "देशभर में हिरासत",
+   "src": "सीजेपी का दावा (9 अक्टूबर)",
+   "url": "https://scroll.in/latest/1096278/at-least-10000-detained-across-india-ahead-of-october-10-delhi-protest-against-gyanesh-kumar-cjp"
+  },
+  {
+   "n": "23,000",
+   "label": "केंद्रीय बलों के जवान",
+   "src": "गृह मंत्रालय, 221 कंपनियां",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/"
+  }
+ ],
+ "items": [
+  {
+   "t": "2026-10-10T12:49+05:30",
+   "kind": "update",
+   "text": "जदयू नेता श्याम रजक ने कहा कि प्रदर्शन करना ग़लत नहीं है, लेकिन सुरक्षा बनाए रखना प्रशासन की ज़िम्मेदारी है।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T12:48+05:30",
+   "kind": "news",
+   "h": "सीजेपी प्रदर्शन: दिल्ली में अब तक क्या-क्या हुआ, हिरासत और गिरफ़्तारियों का ब्योरा",
+   "src": "The Federal",
+   "url": "https://thefederal.com/category/states/north/delhi/cjp-protests-mass-detention-arrests-what-happened-so-far-in-delhi-259146"
+  },
+  {
+   "t": "2026-10-10T12:40+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट बार एसोसिएशन ने मुख्य न्यायाधीश को पत्र लिखकर हिरासत में लिये गये वकीलों की सुरक्षा और रिहाई के लिए तुरंत दख़ल की मांग की है।",
+   "src": "LawBeat",
+   "url": "https://lawbeat.in/top-stories/scba-seeks-cjis-urgent-intervention-against-detention-of-advocates-protesting-outside-supreme-court-1640312",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T12:40+05:30",
+   "kind": "news",
+   "h": "वकीलों की हिरासत पर सुप्रीम कोर्ट बार एसोसिएशन ने मुख्य न्यायाधीश से दख़ल मांगा",
+   "src": "LawBeat",
+   "url": "https://lawbeat.in/top-stories/scba-seeks-cjis-urgent-intervention-against-detention-of-advocates-protesting-outside-supreme-court-1640312"
+  },
+  {
+   "t": "2026-10-10T12:31+05:30",
+   "kind": "update",
+   "text": "ख़बर है कि सीपीएम नेता एमए बेबी और बृंदा करात को जंतर-मंतर के पास हिरासत में लिया गया, वे सीजेपी के समर्थन में पहुंच रहे थे।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T12:28+05:30",
+   "kind": "news",
+   "h": "दिपके, रांका और सौरव दास विमान से हिरासत में, एक हज़ार से ज़्यादा लोग रोके गये",
+   "src": "ETV Bharat",
+   "url": "https://www.etvbharat.com/hi/bharat/cjp-founder-abhijit-dipke-and-several-other-leaders-have-been-detained-dln26101002169"
+  },
+  {
+   "t": "2026-10-10T12:22+05:30",
+   "kind": "news",
+   "h": "आप का आरोप: प्रदर्शन के दिन केजरीवाल के घर को क़िले में बदला गया",
+   "src": "Business Standard (PTI)",
+   "url": "https://www.business-standard.com/amp/india-news/arvind-kejriwal-s-residence-heavily-guarded-on-day-of-cjp-protest-126101000276_1.html"
+  },
+  {
+   "t": "2026-10-10T12:18+05:30",
+   "kind": "update",
+   "text": "दावा है कि आप नेता मनीष सिसोदिया को चंडीगढ़ में हिरासत में लिया गया। पुलिस की ओर से इसकी पुष्टि नहीं मिली है।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T12:14+05:30",
+   "kind": "video",
+   "yt": "k_DMcnCBamY",
+   "text": "ध्रुव राठी और सीजेपी नेताओं की हिरासत पर छोटी रिपोर्ट",
+   "src": "The Hindu",
+   "url": "https://www.youtube.com/watch?v=k_DMcnCBamY",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T12:06+05:30",
+   "kind": "video",
+   "yt": "GoPyG1rX2cM",
+   "text": "फ़्लाइट के भीतर से दिपके की हिरासत पर लाइव कवरेज",
+   "src": "The Azadi",
+   "url": "https://www.youtube.com/watch?v=GoPyG1rX2cM",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T12:01+05:30",
+   "kind": "update",
+   "text": "नेताओं की हिरासत के बाद सीजेपी ने कहा कि देशभर में प्रदर्शन उनके बिना भी जारी रहेगा और लोगों से आंदोलन आगे ले जाने की अपील की।",
+   "src": "India.com",
+   "url": "https://www.india.com/news/india/cjp-protest-live-updates-october-10-delhi-on-high-alert-abhijeet-dipke-gyanesh-kumar-jantar-mantar-march-over-250-trains-cancelled-45-metro-stations-shut-chilla-border-sealed-delhi-police-traffic-8534545/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T12:01+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@barandbench",
+   "by": "Bar & Bench",
+   "text": "सुप्रीम कोर्ट के पास वकीलों को हिरासत में लिये जाने की जानकारी साझा की।",
+   "url": "https://x.com/barandbench/status/2108807582869762152"
+  },
+  {
+   "t": "2026-10-10T12:00+05:30",
+   "kind": "news",
+   "h": "न्यूज़लॉन्ड्री का कहना है कि उसके चार रिपोर्टरों को प्रदर्शन कवर करते समय हिरासत में लिया गया",
+   "src": "Newslaundry",
+   "url": "https://www.newslaundry.com/2026/10/10/four-newslaundry-reporters-detained-by-delhi-police"
+  },
+  {
+   "t": "2026-10-10T11:56+05:30",
+   "kind": "video",
+   "yt": "iexFRtpYlMw",
+   "text": "दिपके को हिरासत में लिये जाने का वीडियो और दिल्ली के हालात",
+   "src": "NDTV India",
+   "url": "https://www.youtube.com/watch?v=iexFRtpYlMw",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T11:55+05:30",
+   "kind": "video",
+   "yt": "2R_McCg_s3M",
+   "text": "जंतर-मंतर पर प्रदर्शनकारियों की हिरासत की लाइव तस्वीरें",
+   "src": "India Today",
+   "url": "https://www.youtube.com/watch?v=2R_McCg_s3M",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T11:33+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@sharmasupriya",
+   "by": "सुप्रिया शर्मा",
+   "text": "स्क्रॉल के एक रिपोर्टर को प्रदर्शन कवर करते समय हिरासत में लिये जाने की बात कही।",
+   "url": "https://x.com/sharmasupriya/status/2108800572229071052"
+  },
+  {
+   "t": "2026-10-10T11:31+05:30",
+   "kind": "update",
+   "text": "मुंबई में अगस्त क्रांति मैदान पर प्रस्तावित समर्थन प्रदर्शन से पहले सामाजिक कार्यकर्ता तुषार गांधी को हिरासत में लिये जाने की ख़बर है। मुंबई पुलिस ने कहा कि वहां प्रदर्शन की अनुमति नहीं दी गयी थी।",
+   "src": "The Federal",
+   "url": "https://thefederal.com/category/states/north/delhi/cjp-protests-mass-detention-arrests-what-happened-so-far-in-delhi-259146",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T11:25+05:30",
+   "kind": "video",
+   "yt": "e4XDe-SWCCQ",
+   "text": "प्रदर्शन से पहले अभिजीत दिपके के बयान पर लाइव चर्चा",
+   "src": "Mojo Story",
+   "url": "https://www.youtube.com/watch?v=e4XDe-SWCCQ",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T11:24+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस सूत्रों के मुताबिक़ कनॉट प्लेस इलाक़े से क़रीब 200 प्रदर्शनकारियों को हिरासत में लिया गया।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T11:24+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@TheQuint",
+   "by": "The Quint",
+   "text": "प्रदर्शन वाले इलाक़े से ग्राउंड रिपोर्ट साझा की।",
+   "url": "https://x.com/TheQuint/status/2108798379631521984"
+  },
+  {
+   "t": "2026-10-10T11:24+05:30",
+   "kind": "news",
+   "h": "भारत में प्रदर्शन: कॉकरोच नेताओं की हिरासत, नयी दिल्ली में पाबंदियां",
+   "src": "Al Jazeera",
+   "url": "https://www.aljazeera.com/news/liveblog/2026/10/10/india-protest-live-police-detain-cockroach-leaders-new-delhi-in-lockdown"
+  },
+  {
+   "t": "2026-10-10T11:23+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@Saurabh_MLAgk",
+   "by": "सौरभ भारद्वाज",
+   "text": "कहा कि अरविंद केजरीवाल परिवार के साथ जंतर-मंतर जाएंगे।",
+   "url": "https://x.com/Saurabh_MLAgk/status/2108798138538721351"
+  },
+  {
+   "t": "2026-10-10T11:19+05:30",
+   "kind": "video",
+   "yt": "JlFRQnPC6gg",
+   "text": "विमान में पुलिस और दिपके के बीच हुई बातचीत पर रिपोर्ट",
+   "src": "Satya Hindi",
+   "url": "https://www.youtube.com/watch?v=JlFRQnPC6gg",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T11:17+05:30",
+   "kind": "video",
+   "yt": "i7uTQ_s11ic",
+   "text": "दिल्ली उतरते ही विमान में रोके गये सीजेपी नेता, लाइव",
+   "src": "NDTV",
+   "url": "https://www.youtube.com/watch?v=i7uTQ_s11ic",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T11:15+05:30",
+   "kind": "news",
+   "h": "अवमानना याचिका में आरोप: मेट्रो और ट्रेन पर अदालत के आदेश का पालन नहीं हुआ",
+   "src": "Outlook",
+   "url": "https://www.outlookindia.com/national/supreme-court-contempt-plea-alleges-delhi-authorities-defied-order-on-metro-train-curbs"
+  },
+  {
+   "t": "2026-10-10T11:10+05:30",
+   "kind": "news",
+   "h": "ऑस्ट्रेलियाई प्रसारक एबीसी: चुनाव आयोग के ख़िलाफ़ प्रदर्शन से पहले कॉकरोच आंदोलन के संस्थापक हिरासत में",
+   "src": "ABC News",
+   "url": "https://www.abc.net.au/news/2026-10-10/indian-police-detain-cockroach-movement-founder-abhijeet-dipke/107251654"
+  },
+  {
+   "t": "2026-10-10T11:00+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट से जंतर-मंतर की ओर मार्च कर रहे वकीलों के एक समूह को पुलिस ने रोककर हिरासत में लिया। वकीलों का कहना है कि उन्हें यह नहीं बताया गया कि कहां ले जाया जा रहा है।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T10:59+05:30",
+   "kind": "news",
+   "h": "दिल्ली पुलिस ने दिपके, रांका और सौरव दास को हिरासत में लिया",
+   "src": "Outlook",
+   "url": "https://www.outlookindia.com/national/abhijeet-dipke-ashutosh-ranka-saurav-das-detained-by-delhi-police"
+  },
+  {
+   "t": "2026-10-10T10:55+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "ANI",
+   "text": "दिल्ली हवाई अड्डे पर पुलिस के विमान में पहुंचकर दिपके को हिरासत में लेने का वीडियो।",
+   "url": "https://x.com/ANI/status/2108791096415502341"
+  },
+  {
+   "t": "2026-10-10T10:54+05:30",
+   "kind": "update",
+   "text": "आम आदमी पार्टी ने केंद्र पर काला आपातकाल थोपने का आरोप लगाया। गोपाल राय ने कहा कि एक व्यक्ति को बचाने के लिए मेट्रो और ट्रेनें बंद की गयीं।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T10:53+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@Cockroachisback",
+   "by": "Cockroach Janta Party",
+   "text": "पार्टी ने दिपके, सौरव दास और आशुतोष रांका की हिरासत की जानकारी दी और सरकार पर तीखा हमला किया।",
+   "url": "https://x.com/Cockroachisback/status/2108790482989965740"
+  },
+  {
+   "t": "2026-10-10T10:43+05:30",
+   "kind": "video",
+   "yt": "aHxtwFJXYXw",
+   "text": "दिपके के दिल्ली पहुंचने और जंतर-मंतर के हालात पर लाइव",
+   "src": "India Today",
+   "url": "https://www.youtube.com/watch?v=aHxtwFJXYXw",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T10:42+05:30",
+   "kind": "video",
+   "yt": "m0QfL-idnAk",
+   "text": "ध्रुव राठी की हिरासत की ख़बर और दिपके के दिल्ली पहुंचने पर लाइव",
+   "src": "ABP News",
+   "url": "https://www.youtube.com/watch?v=m0QfL-idnAk",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T10:40+05:30",
+   "kind": "update",
+   "text": "भाजपा अध्यक्ष नितिन नवीन ने राहुल गांधी, सीजेपी और इंडिया गठबंधन पर देश को अस्थिर करने की कोशिश का आरोप लगाया।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T10:30+05:30",
+   "kind": "update",
+   "text": "मुंबई से आयी उड़ान के दिल्ली हवाई अड्डे पर उतरते ही पुलिस विमान में पहुंची और सीजेपी संस्थापक अभिजीत दिपके, सौरव दास और आशुतोष रांका को हिरासत में ले लिया। दिपके ने कहा कि वे गिरफ़्तारी देने आये हैं, जबकि पुलिस ने इसे गिरफ़्तारी नहीं बताया।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T10:26+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@Cockroachisback",
+   "by": "Cockroach Janta Party",
+   "text": "पार्टी ने अपनी क़ानूनी प्रमुख रत्ना सिंह को हिरासत में लिये जाने का दावा किया।",
+   "url": "https://x.com/Cockroachisback/status/2108783796820889923"
+  },
+  {
+   "t": "2026-10-10T10:22+05:30",
+   "kind": "update",
+   "text": "सीपीएम सांसद जॉन ब्रिटास ने कहा कि उन्हें कम से कम छह जगह रोका गया और शहर को घेराबंदी जैसी हालत में डाल दिया गया है।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T10:18+05:30",
+   "kind": "update",
+   "text": "आप सांसद संजय सिंह ने कहा कि देश को छावनी बना दिया गया है और उनकी पार्टी प्रदर्शन में शामिल होगी।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T10:11+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@AHindinews",
+   "by": "ANI हिंदी",
+   "text": "संजय सिंह का बयान कि एक व्यक्ति को बचाने के लिए पूरी दिल्ली बंद कर दी गयी।",
+   "url": "https://x.com/AHindinews/status/2108779978779414828"
+  },
+  {
+   "t": "2026-10-10T10:01+05:30",
+   "kind": "news",
+   "h": "सीजेपी और वाम नेताओं समेत हज़ारों लोग प्रदर्शन से पहले हिरासत में",
+   "src": "The Wire",
+   "url": "https://m.thewire.in/article/rights/detentions-delhi-police-jantar-mantar-protests"
+  },
+  {
+   "t": "2026-10-10T09:54+05:30",
+   "kind": "update",
+   "text": "टाइम्स ऑफ़ इंडिया के हवाले से ख़बर है कि दिल्ली में कम से कम 600 लोगों को दिल्ली पुलिस अधिनियम की धारा 65 के तहत हिरासत में लिया गया।",
+   "src": "India.com",
+   "url": "https://www.india.com/news/india/cjp-protest-live-updates-october-10-delhi-on-high-alert-abhijeet-dipke-gyanesh-kumar-jantar-mantar-march-over-250-trains-cancelled-45-metro-stations-shut-chilla-border-sealed-delhi-police-traffic-8534545/",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T09:41+05:30",
+   "kind": "update",
+   "text": "धौला कुआं के पास सुरक्षाबलों ने प्रदर्शन कवर करने जा रहे कई कंटेंट क्रिएटरों समेत कुछ लोगों को हिरासत में लिया।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T09:29+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "ANI",
+   "text": "दिल्ली पुलिस के हवाले से क़रीब 500 लोगों की हिरासत की जानकारी।",
+   "url": "https://x.com/ANI/status/2108769254460023081"
+  },
+  {
+   "t": "2026-10-10T09:24+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस ने कहा कि अलग-अलग जगहों से आ रहे क़रीब 500 लोगों को हिरासत में लिया गया है और आपराधिक पृष्ठभूमि वाले लगभग 50 लोग पकड़े गये हैं। नयी दिल्ली को 20 ज़ोन में बांटकर हर ज़ोन में हिरासत केंद्र बनाया गया है।",
+   "src": "The Wire",
+   "url": "https://m.thewire.in/article/rights/detentions-delhi-police-jantar-mantar-protests",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T09:15+05:30",
+   "kind": "update",
+   "text": "सीजेपी का दावा है कि यूट्यूबर ध्रुव राठी को सुबह गुरुग्राम स्थित घर से हिरासत में लिया गया। कई चैनलों ने यह ख़बर चलायी, पर पुलिस की आधिकारिक पुष्टि नहीं मिली है।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T09:12+05:30",
+   "kind": "update",
+   "text": "पुलिस के मुताबिक़ सुबह से अब तक क़रीब 150 प्रदर्शनकारियों को हिरासत में लिया गया है। कुछ स्टेडियमों को अस्थायी हिरासत केंद्र बनाया गया है।",
+   "src": "Times Now Navbharat",
+   "url": "https://www.timesnowhindi.com/india/cjp-protest-at-jantar-mantar-live-updates-10-th-october-2026-delhi-police-security-abhijieet-dipke-dhruv-rathee-pm-modi-rahul-gandhi-cp-latest-breaking-news-updates-liveblog-156308168",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T08:54+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@CJP_for_India",
+   "by": "Cockroaches of India",
+   "text": "ध्रुव राठी को हिरासत में लिये जाने का दावा किया।",
+   "url": "https://x.com/CJP_for_India/status/2108760579481682014"
+  },
+  {
+   "t": "2026-10-10T08:39+05:30",
+   "kind": "update",
+   "text": "ख़बर है कि दिल्ली पुलिस को क़रीब 7,000 प्रदर्शनकारियों के आने का अनुमान है और जवानों को अधिकतम संयम बरतने तथा उकसावे पर प्रतिक्रिया न देने को कहा गया है।",
+   "src": "The Tribune",
+   "url": "https://www.tribuneindia.com/liveblog/commuteralert/delhi-cjp-protest-live-updates-cjps-jantar-mantar-2-0-today-amid-traffic-curbs",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T08:37+05:30",
+   "kind": "update",
+   "text": "नयी दिल्ली ट्रेडर्स एसोसिएशन ने सुरक्षा का हवाला देकर कनॉट प्लेस बाज़ार शनिवार को बंद रखने की बात कही।",
+   "src": "The Tribune",
+   "url": "https://www.tribuneindia.com/liveblog/commuteralert/delhi-cjp-protest-live-updates-cjps-jantar-mantar-2-0-today-amid-traffic-curbs",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T08:30+05:30",
+   "kind": "update",
+   "text": "जंतर-मंतर के पास जुटने लगे लोगों को पुलिस ने हिरासत में लेकर बसों में बिठाना शुरू किया।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T08:30+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "ANI",
+   "text": "जंतर-मंतर के पास जुटे लोगों को पुलिस द्वारा हिरासत में लेने का वीडियो।",
+   "url": "https://x.com/ANI/status/2108754495731806539"
+  },
+  {
+   "t": "2026-10-10T08:20+05:30",
+   "kind": "video",
+   "yt": "yo3EVErhlwU",
+   "text": "जंतर-मंतर पर जुटते प्रदर्शनकारियों की सुबह से लाइव तस्वीरें",
+   "src": "Hindustan Times",
+   "url": "https://www.youtube.com/watch?v=yo3EVErhlwU",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T08:03+05:30",
+   "kind": "update",
+   "text": "सीजेपी संस्थापक अभिजीत दिपके जंतर-मंतर के प्रदर्शन के लिए मुंबई से दिल्ली रवाना हुए।",
+   "src": "The Tribune",
+   "url": "https://www.tribuneindia.com/liveblog/commuteralert/delhi-cjp-protest-live-updates-cjps-jantar-mantar-2-0-today-amid-traffic-curbs",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T08:00+05:30",
+   "kind": "update",
+   "text": "गौतम बुद्ध नगर पुलिस कमिश्नरेट ने नोएडा के कई इलाक़ों में 10 से 20 अक्टूबर तक धारा 163 लागू की, चार से ज़्यादा लोगों के जमा होने पर रोक है।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T07:06+05:30",
+   "kind": "update",
+   "text": "सूत्रों के हवाले से ख़बर है कि पुलिस ने सभी 15 ज़िलों में आपराधिक रिकॉर्ड वाले 30 से 40 लोगों को एहतियातन उठाया।",
+   "src": "The Federal",
+   "url": "https://thefederal.com/category/news/cjp-october-10-protests-live-fortress-delhi-capital-sealed-internet-shut-259126",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T06:55+05:30",
+   "kind": "update",
+   "text": "पुलिस ने गंभीर क़ानून-व्यवस्था की आशंका बताकर जंतर-मंतर प्रदर्शन की अनुमति देने से इनकार किया। पुलिस का कहना है कि सीजेपी ने औपचारिक अर्ज़ी नहीं, केवल सूचना दी थी और नियमों के मुताबिक़ कम से कम 10 दिन पहले आवेदन ज़रूरी है।",
+   "src": "The Federal",
+   "url": "https://thefederal.com/category/news/cjp-october-10-protests-live-fortress-delhi-capital-sealed-internet-shut-259126",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T06:31+05:30",
+   "kind": "news",
+   "h": "सीजेपी प्रदर्शन के बीच सुप्रीम कोर्ट के पास कई वकील हिरासत में",
+   "src": "Bar & Bench",
+   "url": "https://www.barandbench.com/news/lawyers-detained-by-police-near-supreme-court-amid-cjp-protests"
+  },
+  {
+   "t": "2026-10-10T04:36+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट में अवमानना याचिका दायर कर आरोप लगाया गया कि अदालत के 9 अक्टूबर के निर्देश के बावजूद 45 मेट्रो स्टेशनों के गेट बंद रखे गये और ट्रेनें रद्द होती रहीं।",
+   "src": "Bar & Bench",
+   "url": "https://www.barandbench.com/news/litigation/cjp-protests-contempt-plea-in-supreme-court-alleges-delhi-metro-stations-closed-despite-court-order",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T02:45+05:30",
+   "kind": "update",
+   "text": "प्रदर्शन से पहले बदरपुर बॉर्डर पर बैरिकेड लगा दिये गये और वाहनों की जांच शुरू हुई।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T02:35+05:30",
+   "kind": "update",
+   "text": "डीएमआरसी ने सुरक्षा कारणों से राजीव चौक, सेंट्रल सेक्रेटेरिएट और ख़ान मार्केट समेत क़रीब 45 मेट्रो स्टेशनों के प्रवेश और निकास गेट बंद किये।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T01:18+05:30",
+   "kind": "update",
+   "text": "उत्तरी ज़िले की डीसीपी ने कहा कि प्रवेश और निकास बिंदुओं पर पिकेट तैनात हैं, बीएनएसएस की धारा 163 लागू है और प्रदर्शन की कोई अनुमति नहीं दी गयी है।",
+   "src": "Amar Ujala",
+   "url": "https://www.amarujala.com/live/delhi-ncr/sir-row-cjp-jantar-mantar-protest-call-live-update-cec-gyanesh-kr-delhi-police-border-security-dmrc-train-news-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T00:10+05:30",
+   "kind": "update",
+   "text": "गृह मंत्रालय ने 8 से 12 अक्टूबर के लिए दिल्ली में केंद्रीय सशस्त्र बलों की 221 कंपनियां, यानी क़रीब 23,000 जवान उपलब्ध कराये हैं।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-09T14:08+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@DelhiPolice",
+   "by": "Delhi Police",
+   "text": "प्रदर्शन से पहले नागरिकों के नाम खुला पत्र जारी कर नियमों के पालन की अपील की।",
+   "url": "https://x.com/DelhiPolice/status/2108477064986980565"
+  }
+ ]
+}
