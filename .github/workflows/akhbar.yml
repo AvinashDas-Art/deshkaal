@@ -47,4 +47,4 @@ jobs:
           if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
           git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "आज का अख़बार: PDF"
           git reset -q --hard HEAD && git clean -fdq public data
-          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1
+          for i in 1 2 3 4; do git pull --rebase -X theirs -q origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1

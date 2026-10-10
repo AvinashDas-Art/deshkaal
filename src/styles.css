@@ -567,3 +567,109 @@ html[lang="ur"] .mast.small{font-size:58px}
   .clist>article:last-child:nth-child(odd)>.src{grid-column:1}
 }
 @media (max-width:640px){.special{margin-inline:-20px}.vichar,.khabar,.toon{padding-top:30px}}
+
+/* ================= हफ़्ते के सात आमुख: हर दिन अलग पहला पन्ना ================= */
+.hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi){min-height:0}
+.hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi) .hero-h{width:auto}
+.hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi) .hero-credit{position:static;display:block;margin-top:8px;text-align:end}
+
+/* मंगल: बैनर, पूरी चौड़ाई की सुर्ख़ी और नीचे चौड़ी पट्टी */
+.hero-banner{display:block}
+.hero-banner .hero-h{font-size:clamp(64px,8.8vw,136px);line-height:.96;max-width:15ch}
+.hero-banner .hero-h .acc{display:inline}
+.hb-strip{position:relative;margin:24px -20px 0}
+.hb-art{display:block}
+.hb-art .art{width:100%;height:clamp(220px,27vw,380px);aspect-ratio:auto}
+.hb-strip .ank{position:absolute;inset-inline-start:20px;bottom:18px;margin:0}
+.hb-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr);gap:0 34px;margin-top:22px}
+.hb-foot>.hero-foot{display:contents}
+.hb-foot>.dek{margin:0!important;font-size:22px!important}
+.hb-foot>.row{grid-column:1/-1}
+
+/* बुध: सूरज, गोल तस्वीर और लाल परछाईं */
+.hero-sun{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.hs-art{display:block;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:22px 22px 0 var(--lal);margin:10px 22px 22px 0}
+.hs-art .art{width:100%;height:100%;aspect-ratio:auto}
+.hero-sun .hero-text{width:auto}
+.hero-sun .hero-h{font-size:clamp(54px,6.2vw,96px)}
+html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22px}
+
+/* गुरु: स्याह, रात जैसा काला पन्ना */
+.hero-ink{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:50px;align-items:center;margin-inline:-20px;padding:48px 20px 52px;background:var(--ink);color:var(--paper);border-bottom:0}
+.hero-ink .hero-text{width:auto}
+.hero-ink .hero-h{color:var(--paper);font-size:clamp(58px,6.8vw,104px)}
+.hero-ink a:hover .hero-h{color:var(--paper)}
+.hero-ink .kicker{color:var(--haldi)}
+.hero-ink .dek,.hero-ink .row,.hero-ink .hero-open p{color:color-mix(in srgb,var(--paper) 82%,transparent)}
+.hero-ink .sawal small{color:var(--haldi)} .hero-ink .sawal p{color:var(--paper)}
+.hero-ink .hero-more{color:var(--haldi)}
+.hero-ink .credit{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+.hi-art{display:block;height:clamp(380px,40vw,560px);box-shadow:-18px 18px 0 var(--lal)}
+.hi-art .art{width:100%;height:100%;aspect-ratio:auto}
+
+/* शुक्र: सवाल, दिन का सवाल ही सुर्ख़ी बनता है */
+.hero-q{display:block}
+.hq-top{position:relative;margin-inline:-20px;min-height:clamp(300px,30vw,420px);display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--lal)}
+.hq-art{position:absolute;inset:0;opacity:.22}
+.hq-art .art{width:100%;height:100%;aspect-ratio:auto}
+.hq-q{position:relative;text-align:center;padding:30px 20px}
+.hq-q small{font-family:var(--f-ui);font-size:15px;font-weight:600;letter-spacing:.08em;color:var(--lal)}
+.hq-q p{margin:10px auto 0;max-width:15em;font-family:var(--f-paint);font-size:clamp(40px,5.4vw,82px);line-height:1.25;color:var(--ink);text-wrap:balance}
+.hq-q p::before{content:"“";color:var(--lal)} .hq-q p::after{content:"”";color:var(--lal)}
+.hq-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;margin-top:28px;align-items:start}
+.hero-q .hero-h{font-size:clamp(50px,5.6vw,90px)}
+.hero-q .hero-foot{grid-template-columns:minmax(0,1fr)}
+.hero-q .hero-foot .sawal{display:none}
+.hero-q .dek{margin-top:0}
+
+/* शनि: लाल पट्टी, आधा पन्ना लाल */
+.hero-red{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch;padding-top:28px}
+.hr-block{background:var(--lal);color:#fff;padding:40px 36px 36px 20px;margin-inline-start:-20px;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(420px,42vw,600px)}
+.hr-block .kicker{color:#fff;opacity:.85}
+.hero-red .hero-h{color:#fff;font-size:clamp(56px,6.4vw,100px)}
+.hero-red .hero-h .acc{color:#1F2126}
+.hero-red a:hover .hero-h{color:#fff;text-decoration-color:#1F2126}
+.hr-block .ank div{background:#fff;color:var(--lal)}
+.hr-art{display:block;margin-inline-end:-20px}
+.hr-art .art{width:100%;height:100%;aspect-ratio:auto}
+.hr-foot{grid-column:1/-1;max-width:1100px}
+
+/* रविवार: पत्रिका का कवर */
+.hero-ravi{display:block;padding-top:0}
+.hrv-cover{position:relative;margin-inline:-20px;height:clamp(440px,52vw,700px);overflow:hidden}
+.hrv-art{position:absolute;inset:0}
+.hrv-art .art{width:100%;height:100%;aspect-ratio:auto}
+.hrv-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,18,22,0) 30%,rgba(18,18,22,.55) 58%,rgba(18,18,22,.92));pointer-events:none}
+.hrv-stamp{position:absolute;top:26px;inset-inline-end:26px;width:128px;height:128px;border-radius:50%;background:var(--lal);color:#fff;display:grid;place-items:center;font-family:var(--f-paint);font-size:27px;transform:rotate(-9deg);box-shadow:0 0 0 6px color-mix(in srgb,#fff 70%,transparent)}
+.hrv-title{position:absolute;inset-inline:20px;bottom:30px;max-width:1160px}
+.hrv-title .kicker{color:#F1F2EE;opacity:.85}
+.hero-ravi .hero-h{color:#F1F2EE;font-size:clamp(58px,7.4vw,118px)}
+.hero-ravi a:hover .hero-h{color:#fff}
+.hrv-read{max-width:900px;margin:30px auto 0}
+.hrv-read .dek{font-size:clamp(22px,2.3vw,28px)!important;text-align:center;margin:0 auto!important;font-style:italic}
+.hrv-read .ank{justify-content:center;margin:0 0 20px}
+.hrv-read .hero-open p{font-size:19px;line-height:1.9}
+.hrv-read .row{justify-content:center}
+
+@media (max-width:1023px){
+  .hero:is(.hero-sun,.hero-ink,.hero-red),.hb-foot,.hq-body{grid-template-columns:minmax(0,1fr)}
+  .hb-foot>.hero-foot{display:grid}
+  .hero-sun{gap:24px}
+  .hs-art{width:min(74vw,420px);margin:16px auto 22px}
+  .hero-ink{gap:28px;padding-top:30px}
+  .hi-side{order:-1}
+  .hi-art{height:min(62vw,420px)}
+  .hq-body{gap:8px}
+  .hr-block{margin-inline:-20px;min-height:0;padding:28px 20px}
+  .hr-art{margin-inline:-20px;height:min(62vw,420px)}
+  .hrv-cover{height:min(120vw,620px)}
+  .hrv-stamp{width:92px;height:92px;font-size:20px;top:16px;inset-inline-end:16px}
+}
+@media (max-width:699px){
+  .hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi) .hero-h{font-size:clamp(42px,11.5vw,58px)}
+  .hq-q p{font-size:clamp(30px,8.5vw,40px)}
+}
+.hero-sun .hero-text{grid-column:2}
+.hero-ink .hero-text{grid-column:1}
+.hrv-shade{background:linear-gradient(to bottom,rgba(18,18,22,0) 12%,rgba(18,18,22,.62) 42%,rgba(18,18,22,.94) 78%)}
+@media (max-width:1023px){.hero-sun .hero-text,.hero-ink .hero-text{grid-column:1}}

@@ -219,6 +219,18 @@ function hero(L, kick = T.bigDebate) {
   if (type === "ank" && L.chart) return `<section class="hero hero-ank">
     <div class="ank-text">${heroText(L, kick)}${heroFoot(L)}</div>
     <figure class="ank-chart"><figcaption><b>${esc(L.chart.title)}</b><span>${esc(L.chart.unit)}</span></figcaption>${chartSVG(L.chart)}<p class="ank-note">${esc(L.chart.note || "")}</p></figure></section>`;
+  /* हफ़्ते के सात दिन, सात लेआउट (रविवार ख़ास); HERO_DAY से जांच के लिए बदला जा सकता है */
+  const wd = process.env.HERO_DAY !== undefined ? +process.env.HERO_DAY : new Date((L.day || today.date) + "T00:00:00Z").getUTCDay();
+  const A = (cls) => `<a class="${cls}" href="${href(L)}" tabindex="-1">${art(L)}</a>`;
+  const cr = L.photo ? `<span class="hero-credit">${credit(L)}</span>` : "";
+  if (wd === 0) return `<section class="hero hero-ravi"><div class="hrv-cover">${A("hrv-art")}<span class="hrv-shade" aria-hidden="true"></span><span class="hrv-stamp" aria-hidden="true">${T.sunday}</span><div class="hrv-title">${heroText(L, kick)}</div></div>${cr}
+    <div class="hrv-read">${ankBlock(L)}${heroFoot(L)}</div></section>`;
+  if (wd === 2) return `<section class="hero hero-banner"><div class="hb-top">${heroText(L, kick)}</div><div class="hb-strip">${A("hb-art")}${ankBlock(L)}</div>${cr}<div class="hb-foot">${heroFoot(L)}</div></section>`;
+  if (wd === 3) return `<section class="hero hero-sun">${A("hs-art")}<div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}${cr}</div></section>`;
+  if (wd === 4) return `<section class="hero hero-ink"><div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div><div class="hi-side">${A("hi-art")}${cr}</div></section>`;
+  if (wd === 5) return `<section class="hero hero-q"><div class="hq-top">${A("hq-art")}<div class="hq-q"><small>${T.question}</small><p>${esc(L.sawal)}</p></div></div>${cr}
+    <div class="hq-body"><div>${heroText(L, kick)}${ankBlock(L)}</div><div>${heroFoot(L)}</div></div></section>`;
+  if (wd === 6) return `<section class="hero hero-red"><div class="hr-block">${heroText(L, kick)}${ankBlock(L)}</div>${A("hr-art")}<div class="hr-foot">${cr}${heroFoot(L)}</div></section>`;
   return `<section class="hero">
   <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>${L.photo ? `<span class="hero-credit">${credit(L)}</span>` : ""}
   <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
