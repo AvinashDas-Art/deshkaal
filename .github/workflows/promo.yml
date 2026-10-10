@@ -1,0 +1,29 @@
+name: प्रचार पोस्ट
+# हाथ से चलता है: data/promo/<नाम>.json की तस्वीर और कैप्शन Facebook, Instagram और Telegram पर.
+on:
+  workflow_dispatch:
+    inputs:
+      name: { description: "data/promo में फ़ाइल का नाम (बिना .json)", required: true }
+permissions:
+  contents: write
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/promo.js "${{ github.event.inputs.name }}"
+      - if: always()
+        run: |
+          git add data/promo || true
+          git diff --cached --quiet && exit 0
+          git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "प्रचार पोस्ट का हिसाब [skip ci]"
+          for i in 1 2 3; do git pull --rebase -X theirs -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
