@@ -723,8 +723,8 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .lv-time p{margin:0;font-size:16px;line-height:1.6}
 .lv-time li a{font-family:var(--f-ui);font-size:12.5px;color:var(--lv-dim);text-decoration:underline}
 .lv-unv{display:inline-block;margin-inline-start:4px;padding:0 6px;border:1px solid var(--haldi);color:var(--haldi);font-family:var(--f-ui);font-size:11.5px;font-weight:600}
-.lv-wall{columns:3 280px;column-gap:var(--s3);margin-top:var(--s5)}
-.lv-wall>article{break-inside:avoid;margin:0 0 var(--s3);background:var(--lv-card);border:1px solid var(--lv-line);padding:var(--s3)}
+.lv-wall{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:var(--s4);align-items:start;margin-top:var(--s5)}
+.lv-wall article{break-inside:avoid;margin:0 0 var(--s3);background:var(--lv-card);border:1px solid var(--lv-line);padding:var(--s3)}
 .lv-ph{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;font-family:var(--f-ui);font-size:14px}
 .lv-ph b{font-weight:600}
 .lv-ph span:last-child{color:var(--lv-dim)}
@@ -764,3 +764,12 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .lv-reel>a{font-family:var(--f-ui);font-size:13px;color:var(--haldi)}
 .live[data-f="reel"] .lv-main,.live[data-f="reel"] .lv-wall,.live[data-f="video"] .lv-reels,.live[data-f="update"] .lv-reels,.live[data-f="post"] .lv-reels,.live[data-f="news"] .lv-reels{display:none}
 .live[data-f="reel"] .lv-rrow{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));overflow:visible}
+
+.lv-wall h3{margin:0 0 var(--s3);font-family:var(--f-paint);font-weight:400;font-size:30px;color:var(--lv-ink)}
+.lv-ncols{columns:2 260px;column-gap:var(--s3)}
+.lv-xfeed{min-width:0}
+.live[data-f="news"] .lv-xfeed,.live[data-f="post"] .lv-newsfeed{display:none}
+.live[data-f="news"] .lv-wall,.live[data-f="post"] .lv-wall{grid-template-columns:minmax(0,1fr)}
+.live[data-f="post"] .lv-xfeed{position:static;max-height:none;columns:3 260px;column-gap:var(--s3)}
+.live[data-f="post"] .lv-xfeed h3{column-span:all}
+@media (max-width:900px){.lv-wall{grid-template-columns:minmax(0,1fr)}.lv-xfeed{position:static;max-height:none}}
