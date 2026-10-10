@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T19:55+05:30",
+ "updated": "2026-10-10T20:50+05:30",
  "counters": [
   {
    "n": "45",
@@ -28,12 +28,89 @@
  ],
  "items": [
   {
+   "t": "2026-10-10T20:33+05:30",
+   "kind": "news",
+   "h": "सुप्रीम कोर्ट रविवार को अवमानना याचिका सुनेगा: गृह सचिव, दिल्ली पुलिस कमिश्नर और डीएमआरसी प्रमुख के ख़िलाफ़ आरोप",
+   "src": "Vartha Bharati / PTI",
+   "url": "https://english.varthabharati.in/india/cjp-protest-sc-to-hear-on-sunday-plea-seeking-contempt-action-against-authorities-2281753"
+  },
+  {
+   "t": "2026-10-10T20:17+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट रविवार 11 अक्टूबर को विशेष बैठक करेगा। जस्टिस जॉयमाल्य बागची और जस्टिस वी. मोहना की बेंच टीएमसी सांसद मेनका गुरुस्वामी की याचिका सुनेगी, जिसमें चार पूर्व मुख्यमंत्रियों समेत विपक्षी नेताओं की एहतियाती हिरासत को चुनौती दी गयी है, साथ में मेट्रो बंदी पर अवमानना याचिका भी।",
+   "src": "Bar & Bench, Aaj Tak",
+   "url": "https://www.barandbench.com/news/delhi-protests-supreme-court-to-hold-special-sunday-sitting-to-hear-pleas-against-detention-of-opposition-leaders",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T20:00+05:30",
+   "kind": "update",
+   "text": "आइसा अध्यक्ष नेहा बोरा रिहा कर दी गयीं। मैदानगढ़ी थाने से हिरासत में रखी गयी दूसरी महिला प्रदर्शनकारियों को भी छोड़ा गया।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T19:51+05:30",
+   "kind": "update",
+   "text": "अरविंद केजरीवाल, संजय सिंह और दुर्गेश पाठक रिहा। एक वीडियो में केजरीवाल ने प्रधानमंत्री से कहा कि आपकी जेलें कम पड़ जाएंगी, और ज्ञानेश कुमार के इस्तीफ़े की मांग दोहरायी।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T19:35+05:30",
+   "kind": "news",
+   "h": "सीजेपी रविवार को फिर जंतर-मंतर कूच करेगी, अजिंक्य शिंदे बोले: इस्तीफ़े के बिना आंदोलन ख़त्म नहीं; पुलिस सूत्र: महिलाओं और बुज़ुर्गों की रिहाई जारी, तैनाती बनी रहेगी",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-jantar-mantar-march-on-sunday-ajinkya-shinde-ntc-apdy-dskc-2666746-2026-10-10"
+  },
+  {
+   "t": "2026-10-10T19:31+05:30",
+   "kind": "update",
+   "text": "रिहाई के बाद ममता बनर्जी ने कहा कि उनकी हिरासत ग़ैरक़ानूनी थी और उनसे अपराधी जैसा बर्ताव हुआ। उनके मुताबिक़ अभिजीत दिपके ने उन्हें कई बार बुलाया था और इस बार उन्होंने जाने का फ़ैसला किया था।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T19:22+05:30",
+   "kind": "update",
+   "text": "केरल के पूर्व मुख्यमंत्री पिनराई विजयन थाने से रिहा। उन्होंने दिल्ली पुलिस के बर्ताव को पुलिस बल के लायक़ नहीं बताया और कहा कि उन्हें इस प्रदर्शन में शामिल होने पर गर्व है।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
    "t": "2026-10-10T18:55+05:30",
    "kind": "update",
    "text": "पीटीआई के मुताबिक़ ममता बनर्जी और टीएमसी सांसद द्वारका नॉर्थ थाने में धरने पर बैठे रहे; ममता ने हालात को 'सुपर इमरजेंसी' कहा, कोलकाता की उड़ान रद्द की और सोमवार के इंडिया गठबंधन मार्च तक दिल्ली में रुकने की बात कही। उन्होंने कहा कि थाने में धरने के दौरान वे पानी भी नहीं पियेंगे।",
    "src": "Deccan Chronicle / PTI",
    "url": "https://www.deccanchronicle.com/nation/mamata-detention-like-kidnapping-situation-worse-than-emergency-1994686",
    "verified": true
+  },
+  {
+   "t": "2026-10-10T18:55+05:30",
+   "kind": "update",
+   "text": "पटना ज़िला प्रशासन का नया आदेश: शहर में हर धरना-प्रदर्शन सिर्फ़ गर्दनीबाग के तय स्थल पर होगा, उल्लंघन पर क़ानूनी कार्रवाई।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T18:43+05:30",
+   "kind": "update",
+   "text": "अहमदाबाद में एलिसब्रिज के एमजे लाइब्रेरी के पास Gen Z प्रदर्शनकारियों ने मुख्य चुनाव आयुक्त और एसआईआर के ख़िलाफ़ प्रदर्शन किया; पुलिस ने महिलाओं समेत कई को हिरासत में लिया।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T18:42+05:30",
+   "kind": "news",
+   "h": "पत्रकार संगठनों ने कहा, यह प्रेस की आज़ादी पर हमला: सीपीजे, डिजीपब और एनएजे ने हिरासत में लिये गये पत्रकारों की रिहाई मांगी",
+   "src": "The Wire",
+   "url": "https://m.thewire.in/article/rights/journalists-bodies-slam-police-crackdown-against-scribes-covering-delhi-protests"
   },
   {
    "t": "2026-10-10T18:31+05:30",
@@ -52,11 +129,60 @@
    "live": false
   },
   {
+   "t": "2026-10-10T18:20+05:30",
+   "kind": "news",
+   "h": "अल जज़ीरा: दिल्ली में तालाबंदी जैसे हालात, एमनेस्टी और सीपीजे ने सबकी रिहाई मांगी, भाजपा ने प्रदर्शन को 'फ़्लॉप शो' कहा",
+   "src": "Al Jazeera",
+   "url": "https://www.aljazeera.com/news/2026/10/10/indias-cockroach-leaders-detained-new-delhi-in-lockdown"
+  },
+  {
    "t": "2026-10-10T18:15+05:30",
    "kind": "news",
    "h": "दिल्ली पुलिस: दिपके को दादी के निधन की ख़बर संवेदनशीलता से दी, घर जाने में मदद की पेशकश; दिपके ने अभी फ़ैसला नहीं किया",
    "src": "The Federal",
    "url": "https://thefederal.com/category/news/police-inform-detained-cjp-founder-abhijeet-dipke-of-grandmother-death-259182"
+  },
+  {
+   "t": "2026-10-10T18:14+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: दिल्ली की मुख्यमंत्री रेखा गुप्ता ने आरोप लगाया कि राहुल गांधी और केजरीवाल अपनी 'बी-टीम' सीजेपी के ज़रिये दिल्ली को अखाड़ा बनाना चाहते हैं।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T18:13+05:30",
+   "kind": "update",
+   "text": "डीएमआरसी: शुक्रवार रात से बंद 45 मेट्रो स्टेशन आज रात 10 बजे तक बंद रहेंगे, उसके बाद सुरक्षा एजेंसियां हालात की समीक्षा करेंगी।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T18:05+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@Cockroachisback",
+   "by": "कॉकरोच जनता पार्टी",
+   "text": "पार्टी का दावा कि उसके राष्ट्रीय प्रवक्ता सिद्धांत भारद्वाज और उनकी टीम को शांति से प्रदर्शन करते हुए हिरासत में लिया गया।",
+   "url": "https://x.com/Cockroachisback/status/2108893036554195129"
+  },
+  {
+   "t": "2026-10-10T17:59+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "एएनआई",
+   "text": "मुंबई में सीजेपी के समर्थन में प्रस्तावित प्रदर्शन की जगह अगस्त क्रांति मैदान पर अभिनेता इमरान ख़ान को पुलिस ने हिरासत में लिया।",
+   "url": "https://x.com/ANI/status/2108892942052237720"
+  },
+  {
+   "t": "2026-10-10T17:58+05:30",
+   "kind": "update",
+   "text": "साकेत कोर्ट ने सीजेपी की क़ानूनी प्रमुख रत्ना सिंह की वह अर्ज़ी ख़ारिज की जिसमें घर पर हिरासत के ख़िलाफ़ एफ़आईआर और फ़ौरन रिहाई मांगी गयी थी; शाम को पुलिस ने उन्हें छोड़ दिया।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
   },
   {
    "t": "2026-10-10T17:56+05:30",
@@ -398,6 +524,13 @@
    "src": "NewsDrum (PTI)",
    "url": "https://www.newsdrum.in/national/aisa-left-workers-protest-outside-bjp-hq-former-kerala-cm-vijayan-detained-12663127",
    "verified": true
+  },
+  {
+   "t": "2026-10-10T14:23+05:30",
+   "kind": "news",
+   "h": "प्रेस कार्ड के बावजूद द क्विंट, स्क्रॉल, न्यूज़लॉन्ड्री और नवभारत टाइम्स के पत्रकार हिरासत में",
+   "src": "The Quint",
+   "url": "https://www.thequint.com/news/several-journalists-detained-while-covering-cjp-protest-despite-press-card"
   },
   {
    "t": "2026-10-10T14:20+05:30",
