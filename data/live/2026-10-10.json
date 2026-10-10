@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T16:47+05:30",
+ "updated": "2026-10-10T17:47+05:30",
  "counters": [
   {
    "n": "45",
@@ -27,6 +27,80 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-10T17:45+05:30",
+   "kind": "video",
+   "yt": "8XBZHhny0dg",
+   "text": "जंतर-मंतर 2.0: दिल्ली से इंडिया टुडे का लाइव, ताज़ा तस्वीरें",
+   "src": "India Today",
+   "url": "https://www.youtube.com/watch?v=8XBZHhny0dg",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T17:44+05:30",
+   "kind": "video",
+   "yt": "6mhJ4oh7lQM",
+   "text": "जंतर-मंतर 2.0: ज्ञानेश कुमार के ख़िलाफ़ प्रदर्शन पर एबीपी न्यूज़ की रिपोर्ट",
+   "src": "ABP News",
+   "url": "https://www.youtube.com/watch?v=6mhJ4oh7lQM",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T17:23+05:30",
+   "kind": "update",
+   "text": "सोनम वांगचुक ने हालात को अघोषित आपातकाल कहा और चेतावनी दी कि अभिजीत दिपके, सौरभ दास और आशुतोष रांका को कल तक रिहा नहीं किया गया तो वे अनशन या पदयात्रा पर विचार करेंगे।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/sonam-wangchuk-undeclared-emergency-arrested-leaders-release-hunger-strike-march-cjp-dipke-ranka-ntc-agkp-dskc-2666654-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T17:05+05:30",
+   "kind": "update",
+   "text": "एक वायरल वीडियो में हिरासत वाली बस का गेट खुलने पर कुछ प्रदर्शनकारी उतरकर भागते दिखते हैं; दावा है कि पुलिस ने बाद में गेट फिर बंद कर दिया। पुलिस का पक्ष नहीं आया।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T16:58+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@RahulGandhi",
+   "by": "राहुल गांधी",
+   "text": "राहुल गांधी ने कहा कि सरकार 10, 20 या 50 हज़ार पुलिस बुला ले, प्रदर्शनकारी पीछे नहीं हटेंगे; उन्होंने प्रधानमंत्री, गृह मंत्री, ज्ञानेश कुमार और दूसरों पर घिरते जाने का आरोप लगाया।",
+   "url": "https://x.com/RahulGandhi/status/2108879919535341863"
+  },
+  {
+   "t": "2026-10-10T16:46+05:30",
+   "kind": "news",
+   "h": "केजरीवाल बोले, जहां रोका जाए वहीं जंतर-मंतर बना दो; संजय सिंह और सौरभ भारद्वाज समेत आप नेता हिरासत में",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/kejriwal-says-protest-where-youre-stopped-turn-country-into-jantar-mantar-detained-with-aap-leaders/3067762/"
+  },
+  {
+   "t": "2026-10-10T16:46+05:30",
+   "kind": "update",
+   "text": "बेंगलुरु में केआर सर्किल के पास चुनाव आयोग दफ़्तर का घेराव करने जा रहे आइसा, एसएफ़आई, एआईडीएसओ और एआईएसएफ़ के प्रदर्शनकारी हिरासत में लिये गये।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T16:45+05:30",
+   "kind": "update",
+   "text": "सीजेपी, एसएफ़आई और एआईएसएफ़ शाम 5 बजे हरकिशन सिंह सुरजीत भवन में साझा प्रेस कॉन्फ़्रेंस करेंगे, कुछ जाने-माने बुद्धिजीवी भी मौजूद रहेंगे।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T16:43+05:30",
+   "kind": "update",
+   "text": "सुबह से बंद दिल्ली के कई रास्ते फिर खोले गये, यातायात में कुछ राहत।",
+   "src": "Aaj Tak",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
   {
    "t": "2026-10-10T16:29+05:30",
    "kind": "update",
@@ -76,6 +150,13 @@
    "src": "The Lallantop",
    "url": "https://www.youtube.com/watch?v=FV4xA1GqIao",
    "live": false
+  },
+  {
+   "t": "2026-10-10T16:08+05:30",
+   "kind": "news",
+   "h": "सुप्रीम कोर्ट बार एसोसिएशन की गुहार के बाद मुख्य न्यायाधीश सूर्यकांत का फ़ोन, हिरासत में लिये गये वकील छोड़े गये",
+   "src": "The Daily Jagran / ANI",
+   "url": "https://www.thedailyjagran.com/india/news/cji-surya-kant-intervenes-after-scba-flags-lawyer-detentions-advocates-being-released-on-verbal-directive-10332247"
   },
   {
    "t": "2026-10-10T16:06+05:30",
@@ -302,6 +383,13 @@
    "text": "हिरासत में ली गयीं नेहा बोरा का बैग, और उनकी साथी से सड़क पर बातचीत",
    "views": "22 लाख",
    "url": "https://www.instagram.com/reel/DeE22g6Txny/"
+  },
+  {
+   "t": "2026-10-10T13:40+05:30",
+   "kind": "news",
+   "h": "पड़ोस की नज़र: काठमांडू पोस्ट ने लिखा, दिल्ली में सामूहिक हिरासत, द वायर, स्क्रॉल और न्यूज़लॉन्ड्री के पत्रकार भी रोके गये",
+   "src": "The Kathmandu Post",
+   "url": "https://kathmandupost.com/world/2026/10/10/mass-detentions-journalist-arrests-as-delhi-police-move-to-block-protest"
   },
   {
    "t": "2026-10-10T13:38+05:30",
