@@ -11,8 +11,8 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 2. Scan the day's biggest world and India developments first (see "दुनिया पर नज़र" in `SOURCES.md`). Then collect candidates published in the last 72 hours from the sources in `SOURCES.md`, across all its groups, at most 2 pieces from one source (WebFetch the listed opinion/section pages; WebSearch to fill gaps). Skip anything already in `data/days/*.json` (match on `url`).
 3. Select the issue **section by section** (every item gets a `sec` field; see "The issue: sections" below):
    - `amukh` (1): the lead. A long, serious editorial essay or column by a major writer/thinker (see `WRITERS.md`) on the most relevant subject of the moment, published in the last 72 hours. Never a news report. If no such essay is free to read, take the strongest long editorial essay from any source in `SOURCES.md`, never a plain news story.
-   - `vichar` (exactly 6): editorial and opinion pieces from around the world on contemporary social and political events. Commentary and analysis only, no everyday news reports. Mix India, South Asia and the world.
-   - `khabar` (6-8): the important news reports of **yesterday only** (published the previous calendar day, IST; at most the day before that if nothing else). Reports, ground stories, fact-checks: the Form 6 / students' march / attack-on-journalist kind of story.
+   - `vichar` (exactly 6, never fewer: the grid is three columns and a missing piece leaves a hole; if one fails, find another): editorial and opinion pieces from around the world on contemporary social and political events. Commentary and analysis only, no everyday news reports. Mix India, South Asia and the world.
+   - `khabar` (6 or 8, **never an odd number**: the list is two columns and an odd count leaves a hole): the important news reports of **yesterday only** (published the previous calendar day, IST; at most the day before that if nothing else). Reports, ground stories, fact-checks: the Form 6 / students' march / attack-on-journalist kind of story.
    - `pari` (every new PARI story): every PARI (ruralindiaonline.org) story published in the **last 3 months** that is not already on the site, newest first, at most 4 a day (keep the rest for the next days). **Never anything older than 3 months.** If there is none, the section is skipped that day.
    - `video` (exactly 1, every day, never repeated): see "रोशनदान" below.
    - `sahitya` (exactly 6): literature, as before.
@@ -135,3 +135,6 @@ Separate scheduled runs check through the day (from about 10-11 am IST). Each ru
 3. If there is something new and worth it, add it as `sec: "morcha"` with the next free id (`YYYY-MM-DD-NN`). If it is clearly stronger than one of the current six, place it among the six; the lead changes only if a far stronger long essay appears. If nothing new is worth adding, change nothing and do not commit.
 4. Translate only the new items and append them to `data/i18n/en/` and `data/i18n/ur/` for the day (TRANSLATION.md).
 5. Update `"updated"` in `data/special.json`, run `python3 scripts/og.py` and `node build.js`, run the spelling grep, commit `सड़क की संसद: अपडेट HH:MM`, push.
+
+## Layout: no holes
+The owner's rule: an empty slot in a grid is filled with **one more piece**, never by stretching a card. So `vichar` is always 6, `khabar` always 6 or 8, the special section always lead + 6 (extra pieces go to "आज और भी"). Only गांव-जवार (PARI) may end on a single wide card. See DESIGN.md.

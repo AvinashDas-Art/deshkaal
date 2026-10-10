@@ -533,40 +533,7 @@ html[lang="ur"] .mast.small{font-size:58px}
 .mvmore a{display:block;padding-inline-start:12px;border-inline-start:3px solid var(--lal);line-height:1.55}
 .mvall{margin-top:24px}
 
-/* ---------- खंडों के बीच: भारी दोहरी लकीर की जगह एक छोटी पतली लकीर ---------- */
-.vichar,.khabar,.toon{position:relative;border-top:0;margin-top:30px;padding-top:40px}
-.vichar::before,.khabar::before,.toon::before{content:"";position:absolute;top:0;left:50%;width:84px;height:1px;background:var(--ink);transform:translateX(-50%)}
-.pariband{border-top:0;margin-top:34px}
-.ytband{margin-top:0}
 
-/* ---------- ग्रिड में ख़ाली जगह न रहे: आख़िरी कार्ड बची जगह भर ले ---------- */
-.card.wide > a{display:grid;gap:0 30px;align-items:start}
-.card.wide .art{margin:0}
-.card.wide h3{font-size:30px}
-@media (min-width:901px){
-  .grid.g3>.card:last-child:nth-child(3n+1){grid-column:1/-1}
-  .grid.g3>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
-  .grid.g3>.card:last-child:nth-child(3n+2){grid-column:span 2}
-  .grid.g3>.card:last-child:nth-child(3n+2)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 30px;align-items:center}
-  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .art{margin:0}
-  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) h3{font-size:30px;line-height:1.3}
-  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .dek{font-size:18px;max-width:36em}
-  .grid.g3>.card:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
-  .grid.g3>.card:last-child:nth-child(3n+2)>.src{margin-inline-start:calc(50% + 15px)}
-}
-@media (min-width:641px) and (max-width:900px){
-  .grid.g3>.card:last-child:nth-child(odd){grid-column:1/-1}
-  .grid.g3>.card:last-child:nth-child(odd)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 24px;align-items:center}
-  .grid.g3>.card:last-child:nth-child(odd) .art{margin:0}
-}
-@media (min-width:641px){
-  .clist>article:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 40px;align-items:start}
-  .clist>article:last-child:nth-child(odd)>a{display:contents}
-  .clist>article:last-child:nth-child(odd) .kicker,.clist>article:last-child:nth-child(odd) h4{grid-column:1}
-  .clist>article:last-child:nth-child(odd) .dek{grid-column:2;grid-row:1 / span 2;margin:0}
-  .clist>article:last-child:nth-child(odd)>.src{grid-column:1}
-}
-@media (max-width:640px){.special{margin-inline:-20px}.vichar,.khabar,.toon{padding-top:30px}}
 
 /* ================= हफ़्ते के सात आमुख: हर दिन अलग पहला पन्ना ================= */
 .hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi){min-height:0}
@@ -624,7 +591,7 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 
 /* शनि: लाल पट्टी, आधा पन्ना लाल */
 .hero-red{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch;padding-top:28px}
-.hr-block{background:var(--lal);color:#fff;padding:40px 36px 36px 20px;margin-inline-start:-20px;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(420px,42vw,600px)}
+.hr-block{background:var(--lal);color:#fff;padding:var(--s6) 36px var(--s6) 20px;margin-inline-start:-20px;display:flex;flex-direction:column;justify-content:center;min-height:clamp(420px,42vw,600px)}
 .hr-block .kicker{color:#fff;opacity:.85}
 .hero-red .hero-h{color:#fff;font-size:clamp(56px,6.4vw,100px)}
 .hero-red .hero-h .acc{color:#1F2126}
@@ -673,3 +640,39 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .hero-ink .hero-text{grid-column:1}
 .hrv-shade{background:linear-gradient(to bottom,rgba(18,18,22,0) 12%,rgba(18,18,22,.62) 42%,rgba(18,18,22,.94) 78%)}
 @media (max-width:1023px){.hero-sun .hero-text,.hero-ink .hero-text{grid-column:1}}
+
+/* ================= स्पेसिंग का नियम (DESIGN.md देखें) =================
+   एक ही पैमाना: 8 के गुणक। हर खंड ऊपर-नीचे बराबर सांस लेता है: लकीर के ऊपर s7, नीचे s7.
+   खंडों के बीच पूरी चौड़ाई की 2px गेरुआ लकीर; खंड के भीतर की लकीरें 1px हल्की (--rule). */
+:root{--s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s7:56px;--s8:72px;--sec-line:var(--geru)}
+.vichar,.khabar,.toon{position:relative;margin-top:var(--s7);padding-top:var(--s7);border-top:2px solid var(--sec-line)}
+.pariband,.litband{margin-top:var(--s7);padding-block:var(--s7);border-top:0}
+.ytband{margin-top:0;padding-block:var(--s7)}
+.sechead{margin-bottom:var(--s4)}
+.grid.g3{padding-block:0}
+.vichar .grid.g3,.pariband .grid.g3{gap:var(--s6) 30px}
+.special{padding-bottom:var(--s7)}
+.morcha{padding-top:var(--s6)}
+.special+.vichar{margin-top:var(--s7)}
+/* हर आमुख में शीर्षक-खंड के ऊपर-नीचे बराबर जगह */
+.hero{padding-block:var(--s6)}
+.hero-ink{padding-block:var(--s7)}
+.hero-ink .hero-text,.hero-sun .hero-text{padding-block:0}
+.hb-strip{margin-top:var(--s6)} .hb-foot{margin-top:var(--s6)}
+.hq-body{margin-top:var(--s6)}
+.hr-foot{margin-top:var(--s6)}
+.hrv-title{bottom:var(--s6)} .hrv-read{margin-top:var(--s6)}
+.hero-red{padding-top:var(--s6)}
+.hero-red .hr-block>.kicker{margin-top:0}
+.hero-red .ank{margin-top:var(--s4)}
+.hero-red .hero-h{margin-top:var(--s1)}
+.hero .row{margin-top:var(--s3)}
+/* सिर्फ़ गांव-जवार: आख़िरी अकेली रिपोर्ट पूरी चौड़ाई की पट्टी बनती है */
+@media (min-width:901px){
+  .pariband .grid.g3>.card:last-child:nth-child(3n+1){grid-column:1/-1}
+  .pariband .grid.g3>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
+  .pariband .grid.g3>.card:last-child:nth-child(3n+1) .art{margin:0}
+  .pariband .grid.g3>.card:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
+  .pariband .grid.g3>.card:last-child:nth-child(3n+1)>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
+}
+.toon{padding-bottom:var(--s7)}

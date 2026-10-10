@@ -536,6 +536,10 @@ am();az();window.addEventListener("beforeprint",function(){r.dataset.np="day"});
 </body></html>`;
 }
 
+/* ख़ाली खाने की चेतावनी (DESIGN.md: ख़ाली जगह = एक और ख़बर) */
+{ const t = DAYS_HI[0].items, c = k => t.filter(a => a.sec === k).length;
+  if (c("vichar") && c("vichar") % 3) console.warn(`चेतावनी: नुक़्ता-ए-नज़र में ${c("vichar")} टिप्पणियां, ग्रिड में ख़ाली खाना रहेगा (6 चाहिए)`);
+  if (c("khabar") % 2) console.warn(`चेतावनी: कच्चा चिट्ठा में ${c("khabar")} ख़बरें, विषम संख्या से ख़ाली खाना रहेगा`); }
 /* ---------- write ---------- */
 fs.rmSync("dist", { recursive: true, force: true });
 const out = (p, s) => { const f = path.join("dist", p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
