@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T21:44+05:30",
+ "updated": "2026-10-10T22:45+05:30",
  "counters": [
   {
    "n": "45",
@@ -27,6 +27,40 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-10T22:45+05:30",
+   "kind": "video",
+   "yt": "582HX2TTvpg",
+   "text": "केजरीवाल और ममता बनर्जी की हिरासत पर कैपिटल टीवी का लाइव अपडेट",
+   "src": "कैपिटल टीवी",
+   "url": "https://www.youtube.com/watch?v=582HX2TTvpg",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T22:45+05:30",
+   "kind": "video",
+   "yt": "VrAx6Nlaifs",
+   "text": "सीएनएन-न्यूज़18 का लाइव: जंतर-मंतर प्रदर्शन से पहले सीजेपी के बड़े नेताओं की हिरासत",
+   "src": "सीएनएन-न्यूज़18",
+   "url": "https://www.youtube.com/watch?v=VrAx6Nlaifs",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T22:09+05:30",
+   "kind": "update",
+   "text": "अरविंद केजरीवाल ने सोशल मीडिया पर प्रधानमंत्री से पूछा कि अभिजीत दिपके, आशुतोष रांका और सौरव दास कहां हैं और पुलिस ने उन्हें कहां रखा है।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T21:51+05:30",
+   "kind": "update",
+   "text": "नयी दिल्ली ट्रेडर्स एसोसिएशन ने कहा कि कनॉट प्लेस के बाज़ार 11 अक्टूबर को फिर खुलेंगे; व्यापारियों से तनाव के माहौल में सावधान रहने को कहा गया।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
+  },
   {
    "t": "2026-10-10T21:44+05:30",
    "kind": "video",
@@ -71,12 +105,28 @@
    "url": "https://www.tribuneindia.com/news/india/un-raises-concerns-over-mass-detentions-during-cjp-protests-in-delhi"
   },
   {
+   "t": "2026-10-10T21:12+05:30",
+   "kind": "update",
+   "text": "आजतक के मुताबिक़ पुलिस ने दिल्ली पुलिस एक्ट के तहत क़रीब 3,000 लोगों को हिरासत में लिया था और शाम तक सबको छोड़ दिया गया। इस ख़बर में सीजेपी के तीन नेताओं का ज़िक्र नहीं है, और हिरासत के बाक़ी आंकड़े इससे मेल नहीं खाते।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
+  },
+  {
    "t": "2026-10-10T20:54+05:30",
    "kind": "update",
    "text": "जिनेवा से एएफ़पी के मुताबिक़ यूएन मानवाधिकार दफ़्तर के प्रवक्ता सामीन अल-ख़ीतान ने कहा कि शांतिपूर्ण जमावड़े पर कोई भी पाबंदी ज़रूरत और अनुपात की कसौटी पर खरी उतरनी चाहिए, पुलिस अधिकतम संयम बरते और सरकार बातचीत करे। दिल्ली पुलिस ने इस पर अभी कुछ नहीं कहा है।",
    "src": "The Daily Star / AFP, The Tribune / PTI",
    "url": "https://www.thedailystar.net/news/world/south-asia/news/un-urges-release-people-detained-india-protests-4295216",
    "verified": true
+  },
+  {
+   "t": "2026-10-10T20:50+05:30",
+   "kind": "update",
+   "text": "सीजेपी का दावा है कि अभिजीत दिपके, आशुतोष रांका और सौरव दास से दस घंटे से कोई संपर्क नहीं है और उनका ठिकाना नहीं बताया गया; पार्टी ने इसे इमरजेंसी कहा। पुलिस की ओर से अभी कोई जवाब नहीं।",
+   "src": "आजतक (सीजेपी के हवाले से)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": false
   },
   {
    "t": "2026-10-10T20:33+05:30",
@@ -443,6 +493,13 @@
    "src": "The Lallantop",
    "url": "https://www.youtube.com/watch?v=FV4xA1GqIao",
    "live": false
+  },
+  {
+   "t": "2026-10-10T16:12+05:30",
+   "kind": "news",
+   "h": "दूसरा पक्ष: भाजपा नेताओं ने आंदोलन को नाकाम बताया; रविशंकर प्रसाद बोले देश संसद से चलेगा, सड़क से नहीं; सुकांत मजूमदार ने सीजेपी की फ़ंडिंग पर सवाल उठाये",
+   "src": "द वीक",
+   "url": "https://www.theweek.in/news/india/2026/10/10/crushing-dissent-talking-down-how-bjp-is-attempting-to-flip-cjp-script-with-claims-of-normalcy-progress.html"
   },
   {
    "t": "2026-10-10T16:08+05:30",
