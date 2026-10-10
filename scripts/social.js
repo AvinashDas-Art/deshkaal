@@ -123,7 +123,9 @@ async function next() {
     } catch (e) { console.log("पेज टोकन मांगने में दिक़्क़त:", e.message); }
   }
   const mode = process.argv[2] || "next";
-  try { mode === "morning" ? await morning() : await next(); }
+  /* सुबह का पूरा अंक छूट गया हो तो पहले वही */
+  const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
+  try { if (mode === "morning" || missedMorning) await morning(); else await next(); }
   catch (e) { save(); console.error(e.message); process.exitCode = 1; }
   if (DRY) { console.log("\n--- सुबह, Facebook ---\n" + morningText(false) + "\n\n--- एक ख़बर, Instagram ---\n" + storyText(news[1], true)); }
 })();

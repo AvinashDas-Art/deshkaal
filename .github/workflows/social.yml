@@ -1,26 +1,24 @@
 name: Facebook और Instagram
-# नया अंक चढ़ते ही चलता है: 7:15 (IST) तक रुककर पूरा अंक (FB तस्वीरें + IG कैरोसेल),
-# फिर हर आधे घंटे अगली ख़बर, रात 10 बजे तक। GitHub एक काम को 6 घंटे से ज़्यादा नहीं चलने देता,
-# इसलिए साढ़े पांच घंटे बाद ये ख़ुद को दोबारा चला देता है (mode: loop)।
-# schedule सिर्फ़ बैक-अप है; क्या-क्या गया, data/social/<दिन>.json में दर्ज रहता है, कुछ दोबारा नहीं जाता।
+# हर काम एक-दो मिनट का: सुबह 7:15 (IST) पूरा अंक (FB तस्वीरें + IG कैरोसेल), फिर हर घंटे अगली ख़बर, रात 10 बजे तक।
+# पहले यह 6 घंटे तक जागकर इंतज़ार करता था, जिससे GitHub के मुफ़्त मिनट ख़त्म हो गये। अब कोई sleep नहीं।
+# क्या-क्या गया, data/social/<दिन>.json में दर्ज रहता है, कुछ दोबारा नहीं जाता।
 on:
   push:
     branches: [main]
-    paths: ["data/days/**", ".github/run-social"]
+    paths: [".github/run-social"]
   schedule:
     - cron: "45 1 * * *"
-    - cron: "*/30 2-16 * * *"
+    - cron: "15 2-16 * * *"
   workflow_dispatch:
     inputs:
-      mode: { description: "morning, next या loop", default: "next" }
+      mode: { description: "morning या next", default: "next" }
 permissions:
   contents: write
-  actions: write
 concurrency: { group: social, cancel-in-progress: false }
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 15
     env:
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -42,32 +40,10 @@ jobs:
             for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && return 0; sleep 5; done
           }
           MODE="${{ github.event.inputs.mode }}"
-          EV="${{ github.event_name }}"; SCHED="${{ github.event.schedule }}"
-          NEWDAY=no
-          BEFORE="${{ github.event.before }}"; AFTER="${{ github.sha }}"
-          git cat-file -e "$BEFORE" 2>/dev/null || BEFORE="$AFTER~1"
-          if [ "$EV" = "push" ] && git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- data/days | grep -q .; then NEWDAY=yes; fi
-          if [ "$EV" = "push" ] && [ "$NEWDAY" = no ] && ! git diff --name-only "$BEFORE" "$AFTER" | grep -q run-social; then echo "पुराने अंक में सुधार, कुछ नहीं भेजना"; exit 0; fi
+          SCHED="${{ github.event.schedule }}"
           [ "$SCHED" = "45 1 * * *" ] && MODE=morning
-          [ "$EV" = "schedule" ] && [ -z "$MODE" ] && MODE=next
-          [ "$NEWDAY" = yes ] && MODE=loop
           [ -z "$MODE" ] && MODE=next
-          echo "mode=$MODE"
-          if [ "$MODE" != loop ]; then
-            m=$(ist_min)
-            if [ "$EV" != "push" ] && { [ $m -lt 430 ] || [ $m -ge 1320 ]; }; then echo "सुबह 7:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
-            node scripts/social.js "$MODE"; record; exit 0
-          fi
-          # loop: 7:15 तक रुकना, सुबह का अंक, फिर हर 30 मिनट अगली ख़बर
-          start=$SECONDS
-          now=$(ist_min); if [ $now -lt 435 ]; then sleep $(( (435 - now) * 60 )); fi
-          git pull -q origin main; node scripts/social.js morning || true; record
-          while true; do
-            [ $(ist_min) -ge 1320 ] && { echo "रात 10 बज गये"; break; }
-            [ -f .social-done ] && break
-            if [ $(( SECONDS - start )) -gt 19500 ]; then
-              echo "साढ़े पांच घंटे पूरे, ख़ुद को दोबारा चला रहे हैं"; gh workflow run social.yml -f mode=loop --ref main; break
-            fi
-            sleep 1800
-            git pull -q origin main; node scripts/social.js next || true; record
-          done
+          m=$(ist_min)
+          if [ "${{ github.event_name }}" = "schedule" ] && { [ $m -lt 430 ] || [ $m -ge 1320 ]; }; then echo "सुबह 7:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
+          # सुबह वाला काम छूट गया हो तो पहला next ही पूरा अंक भेज दे (social.js खुद देखता है क्या जा चुका है)
+          node scripts/social.js "$MODE" || true; record
