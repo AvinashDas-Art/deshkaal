@@ -380,6 +380,68 @@
   ]
  },
  {
+  "id": "2026-10-10-36",
+  "h": "This is a crisis of trust, and the police cannot solve it",
+  "dek": "Sanjib Kr Baruah argues that the SIR fight has moved from the courts to the street, and the government is trying to settle with barricades a question that only transparency can answer.",
+  "by": "Sanjib Kr Baruah",
+  "pub": "The Week",
+  "date": "10 October 2026",
+  "lang": "English",
+  "body": [
+   "On the morning of 10 October, central Delhi looked like a cantonment. According to the writer, nearly 23,000 police and paramilitary personnel were deployed, and entry to and exit from Jantar Mantar was tightly controlled. The target is the Election Commission, the Special Intensive Revision (SIR) of voter lists, and above all Chief Election Commissioner Gyanesh Kumar.",
+   "Baruah lists three features of this movement. First, the debate has left petitions and Commission hearings behind and come to the street, and its centre has become one man. The order of demands is clear: first Gyanesh Kumar's resignation, then the rollback of SIR. He says the reason is that the Commission has no visible way to hear complaints, and reports have come out that many of its decisions were not taken by consensus.",
+   "Second, the crowd has no single leader but many: students, unemployed young people, Rahul and Priyanka Gandhi, YouTuber Dhruv Rathee and the CJP's Abhijeet Dipke. The writer sees this as a strength, because it cannot be dismissed as one party's sponsored show, and also a weakness, because the government has no single face to talk to.",
+   "The third and deepest point is the burden of proof. If a name is cut, who must prove it, the Commission or the voter? The government says SIR is removing dead, duplicate and illegal voters. Protesters ask why people who voted in 2024 are getting deletion notices in 2026. In the writer's words, this has turned an administrative exercise into an anxiety about citizenship.",
+   "So far the government's answer has been barricades, detentions and Section 163 of the BNSS. Baruah calls this the wrong diagnosis: this is a crisis of trust, not of law and order. He suggests inviting the Opposition, agreeing on a transparent and time-bound way of checking the lists, and placing it before a citizens' tribunal. The movement has come from Bengaluru to Delhi and may reach Mumbai and Patna, and he warns that how SIR is handled in October 2026 will shape how India votes in 2029."
+  ],
+  "nazar": [
+   "Baruah's most useful question is about the burden of proof. If, in a democracy, voters have to run from office to office to prove they exist, the weight falls first on the poor, migrant workers, Dalits, Adivasis and minorities, who have the fewest papers. Twenty-three thousand personnel cannot answer that question.",
+   "A citizens' tribunal may sound mild, but it would be the government's real test: if the lists are clean, why fear an open inquiry?"
+  ],
+  "sawal": "Should the voter prove they are a voter, or the Commission?",
+  "ref": [
+   [
+    "Section 163 of the BNSS",
+    "The section of the Bharatiya Nagarik Suraksha Sanhita that lets district authorities ban gatherings in an area. It replaces Section 144 of the old CrPC."
+   ],
+   [
+    "SIR",
+    "Special Intensive Revision: the Election Commission's fresh check of voter lists, in which voters were asked for documents and large numbers of names are alleged to have been cut."
+   ]
+  ]
+ },
+ {
+  "id": "2026-10-10-37",
+  "h": "Jantar Mantar 2.0: a former diplomat on democracy's slide",
+  "dek": "Former diplomat Malay Mishra puts the Commission's make-up, SIR and a silent court side by side to show how a democracy is weakened with its own tools.",
+  "by": "Malay Mishra",
+  "pub": "Deshbandhu",
+  "date": "10 October 2026",
+  "lang": "Hindi",
+  "body": [
+   "Abhijeet Dipke's Cockroach Janta Party announced a nationwide movement at Jantar Mantar from 10 October, which it calls Jantar Mantar 2.0. The main demand is the removal of Chief Election Commissioner Gyanesh Kumar. The CJP alleges that SIR took away the vote from 13.4 crore voters in 30 states and union territories, and that the process has no constitutional sanction. Its demands go further: dissolve the Commission in its present form, cancel elections held after SIR, and prosecute Gyanesh Kumar.",
+   "Malay Mishra's concern begins with how the Commission is built. According to him, the three-member committee that chooses commissioners was created by an amendment passed by voice vote without the Opposition taking part, and commissioners were given lifelong legal protection. Then it emerged that two commissioners recorded written dissent 14 times in ten months, yet later appeared at a press conference saying all decisions were unanimous.",
+   "The writer's second fear is about the use of Forms 6 and 7. He alleges that names were added, deleted and changed arbitrarily through the ECINET platform, perhaps targeting a particular community. He links this to the citizenship register, One Nation One Election and delimitation, an agenda that could divide the country into citizens and non-citizens.",
+   "He names unemployment, jobless growth, rising inequality and corporate capture of resources as the ground on which young people's anger has grown. His complaint against the Supreme Court is that it has not taken up so large a matter on its own.",
+   "Finally he cites Levitsky and Ziblatt's book How Democracies Die: elected leaders can hollow out democracy using democracy's own institutions. In his view, the crackdown on protests may be the government's last throw, and the world is watching India."
+  ],
+  "nazar": [
+   "When a former diplomat writes in this language, it shows the unease is no longer limited to students and the Opposition; people who have been inside the system are also questioning the Commission's credibility. The 13.4 crore figure and the tampering through ECINET are still allegations, and only an open inquiry can give this debate solid ground.",
+   "The sharpest point is the court's silence. If the institution expected to protect the Constitution stays quiet even after the noise on the street, people begin to treat the street itself as the court."
+  ],
+  "sawal": "If the court stays silent, who will plead for the Constitution?",
+  "ref": [
+   [
+    "How Democracies Die",
+    "A 2018 book by Harvard political scientists Steven Levitsky and Daniel Ziblatt, arguing that democracies today die less by coups and more slowly at the hands of elected governments."
+   ],
+   [
+    "Forms 6 and 7",
+    "Applications to add a name to the voter list (Form 6) and to object to a name and have it removed (Form 7)."
+   ]
+  ]
+ },
+ {
   "id": "2026-10-10-12",
   "h": "Brazil's election, in Washington's shadow",
   "dek": "With Flavio Bolsonaro ahead after the first round, journalist Maria Martha Bruno asks whether the 25 October verdict will be decided by Brazil's voters or by Trump's America.",
