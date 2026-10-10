@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T13:58+05:30",
+ "updated": "2026-10-10T13:55+05:30",
  "counters": [
   {
    "n": "45",
@@ -28,6 +28,32 @@
  ],
  "items": [
   {
+   "t": "2026-10-10T13:50+05:30",
+   "kind": "update",
+   "text": "द वायर के लाइव ब्लॉग की सुर्ख़ी के मुताबिक़ सीजेपी ने कहा है कि मुख्य चुनाव आयुक्त न हटे तो एक हफ़्ते में फिर प्रदर्शन होगा; दिल्ली में सैकड़ों लोग हिरासत में हैं।",
+   "src": "The Wire",
+   "url": "https://thewire.in/rights/jantar-mantar-2-0-live-updates",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T13:44+05:30",
+   "kind": "video",
+   "yt": "QKkeKN7Zhqw",
+   "text": "योगी सरकार के एक कैबिनेट मंत्री बोले: लोकतंत्र में आंदोलन का हक़ सबको है",
+   "src": "Zee News",
+   "url": "https://www.youtube.com/watch?v=QKkeKN7Zhqw",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T13:40+05:30",
+   "kind": "video",
+   "yt": "gAEQfxqqByk",
+   "text": "दूसरा पक्ष: चैनल का दावा कि जंतर-मंतर पर सीजेपी की योजना नाकाम रही",
+   "src": "Republic Bharat",
+   "url": "https://www.youtube.com/watch?v=gAEQfxqqByk",
+   "live": false
+  },
+  {
    "t": "2026-10-10T13:40+05:30",
    "kind": "reel",
    "net": "Instagram",
@@ -48,6 +74,74 @@
    "text": "हिरासत में ली गयीं नेहा बोरा का बैग, और उनकी साथी से सड़क पर बातचीत",
    "views": "22 लाख",
    "url": "https://www.instagram.com/reel/DeE22g6Txny/"
+  },
+  {
+   "t": "2026-10-10T13:38+05:30",
+   "kind": "video",
+   "yt": "UQh9wcFVF3U",
+   "text": "जंतर-मंतर 2.0 पर लगातार लाइव: पुलिस की घेराबंदी के बीच प्रदर्शनकारियों के रास्ते",
+   "src": "The Lallantop",
+   "url": "https://www.youtube.com/watch?v=UQh9wcFVF3U",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T13:37+05:30",
+   "kind": "video",
+   "yt": "rzzpMqfKVD4",
+   "text": "जंतर-मंतर के पास वाम दलों के कई नेताओं की हिरासत पर रिपोर्ट",
+   "src": "News Nation",
+   "url": "https://www.youtube.com/watch?v=rzzpMqfKVD4",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T13:35+05:30",
+   "kind": "update",
+   "text": "दिप्रिंट के लाइव ब्लॉग के मुताबिक़ आइसा अध्यक्ष नेहा बोरा ने लोगों से दिल्ली हाट पहुंचने की अपील की और ख़ुद वहां की ओर मार्च किया; सीजेपी ने कहा कि अजिंक्य शिंदे प्रदर्शन की अगुवाई करेंगे।",
+   "src": "ThePrint",
+   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T13:33+05:30",
+   "kind": "video",
+   "yt": "ukcxSXmg8vY",
+   "text": "हिरासत से पहले रिकॉर्ड संदेश में दिपके ने अजिंक्य शिंदे को आंदोलन की कमान सौंपी",
+   "src": "India Today",
+   "url": "https://www.youtube.com/watch?v=ukcxSXmg8vY",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T13:32+05:30",
+   "kind": "update",
+   "text": "ख़बर है कि आकाशवाणी भवन के पास पथराव हुआ और दो पुलिसकर्मी घायल हुए। रिपोर्ट में किसी अधिकारी का नाम नहीं है और प्रदर्शनकारियों का पक्ष अभी सामने नहीं आया।",
+   "src": "India.com, TV9 भारतवर्ष",
+   "url": "https://www.india.com/news/india/cjp-delhi-protest-2-policemen-injured-as-stone-pelting-reported-near-jantar-mantar-security-personnel-detain-50-protesters-8534685/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-10T13:32+05:30",
+   "kind": "video",
+   "yt": "0HUyfVXltYo",
+   "text": "आकाशवाणी भवन के पास पथराव की ख़बर के बीच लाइव कवरेज",
+   "src": "TV9 भारतवर्ष",
+   "url": "https://www.youtube.com/watch?v=0HUyfVXltYo",
+   "live": true
+  },
+  {
+   "t": "2026-10-10T13:30+05:30",
+   "kind": "video",
+   "yt": "7rttrSj5eE4",
+   "text": "जंतर-मंतर की ओर बढ़ते एसएफ़आई कार्यकर्ताओं को पुलिस ने पीछे धकेला",
+   "src": "NDTV",
+   "url": "https://www.youtube.com/watch?v=7rttrSj5eE4",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T13:26+05:30",
+   "kind": "news",
+   "h": "नेताओं की हिरासत के बाद अजिंक्य शिंदे संभालेंगे सीजेपी प्रदर्शन की कमान",
+   "src": "Onmanorama",
+   "url": "https://www.onmanorama.com/news/india/2026/10/10/cjp-protest-ajinkya-shinde-to-lead-delhi-live.html"
   },
   {
    "t": "2026-10-10T13:21+05:30",
@@ -306,6 +400,13 @@
    "verified": true
   },
   {
+   "t": "2026-10-10T11:30+05:30",
+   "kind": "news",
+   "h": "राहुल गांधी: ज्ञानेश कुमार जाएंगे, यह सरकार जाएगी; आप ने पाबंदियों को काला आपातकाल कहा",
+   "src": "Business Standard",
+   "url": "https://www.business-standard.com/amp/india-news/black-emergency-cjp-protest-rahul-gandhi-arvind-kejriwal-aap-congress-jantar-mantar-126101000261_1.html"
+  },
+  {
    "t": "2026-10-10T11:25+05:30",
    "kind": "video",
    "yt": "e4XDe-SWCCQ",
@@ -445,6 +546,13 @@
    "src": "Aaj Tak",
    "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
    "verified": false
+  },
+  {
+   "t": "2026-10-10T10:35+05:30",
+   "kind": "news",
+   "h": "दिल्ली हवाई अड्डे पर विमान से ही हिरासत में लिये गये दिपके, दास और रांका",
+   "src": "The News Minute",
+   "url": "https://www.thenewsminute.com/news/cjp-leader-abhijeet-dipke-saurav-das-ashutosh-ranka-detained-from-plane-at-delhi-airport"
   },
   {
    "t": "2026-10-10T10:30+05:30",
