@@ -299,13 +299,14 @@ function livePage() {
   const hm = t => (t || "").slice(11, 16), dd = t => { const d = (t || "").slice(0, 10); return d === latest.date ? "" : dayLabel(d).split(", ")[1] + " · "; };
   const when = t => `<time datetime="${esc(t)}">${dd(t)}${hm(t)}</time>`;
   const unv = x => x.verified === false ? `<span class="lv-unv">अपुष्ट</span>` : "";
-  const vids = all.filter(x => x.kind === "video" && x.yt), ups = all.filter(x => x.kind === "update"), wall = all.filter(x => x.kind === "post" || x.kind === "news");
+  const vids = all.filter(x => x.kind === "video" && x.yt), reels = all.filter(x => x.kind === "reel" && x.code), ups = all.filter(x => x.kind === "update"), wall = all.filter(x => x.kind === "post" || x.kind === "news");
   const vid = (x, i) => `<article class="lv-vid${i === 0 ? " big" : ""}" data-k="video"><button class="ytlite" type="button" data-yt="${esc(x.yt)}" aria-label="चलाएं: ${esc(x.text)}"><img src="https://i.ytimg.com/vi/${esc(x.yt)}/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span>${x.live ? `<span class="lv-badge">लाइव</span>` : ""}</button><p>${esc(x.text)}</p><small>${esc(x.src)} · ${when(x.t)} · <a href="${esc(x.url)}" target="_blank" rel="noopener">YouTube पर</a></small></article>`;
   const up = x => `<li data-k="update">${when(x.t)}<div><p>${esc(x.text)} ${unv(x)}</p><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.src)}</a></div></li>`;
   const card = x => x.kind === "post"
     ? `<article class="lv-post" data-k="post"><div class="lv-ph"><span class="lv-net">${esc(x.net || "X")}</span><b>${esc(x.by || "")}</b><span>${esc(x.handle || "")}</span></div><p>${esc(x.text)}</p><div class="lv-ft">${when(x.t)} · <a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.net || "X")} पर पूरी पोस्ट →</a></div></article>`
     : `<article class="lv-news" data-k="news"><span class="lv-src">${esc(x.src)}</span><h4><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.h || x.text)}</a></h4><div class="lv-ft">${when(x.t)}</div></article>`;
-  const F = [["all", "सब"], ["video", "देखिए"], ["update", "पल-पल"], ["post", "सोशल मीडिया"], ["news", "ख़बरें"]];
+  const reel = x => `<article class="lv-reel" data-k="reel"><button class="lv-rplay" type="button" data-ig="${esc(x.code)}" aria-label="रील चलाएं: ${esc(x.text)}"><span class="lv-rnet">Reels</span><span class="lv-rtext">${esc(x.text)}</span><span class="lv-rgo" aria-hidden="true"></span>${x.views ? `<span class="lv-rviews">${esc(x.views)} बार देखी गयी</span>` : ""}</button><p><b>${esc(x.by)}</b> ${esc(x.handle || "")}</p><a href="${esc(x.url)}" target="_blank" rel="noopener">Instagram पर →</a></article>`;
+  const F = [["all", "सब"], ["video", "देखिए"], ["reel", "रील्स"], ["update", "पल-पल"], ["post", "सोशल मीडिया"], ["news", "ख़बरें"]];
   const body = `<section class="live" id="live" data-updated="${esc(updated)}">
   <header class="lv-top"><div class="lv-title"><p class="lv-kick"><span class="lv-dot" aria-hidden="true"></span>लाइव · ${dayLabel(latest.date)}</p><h2>सड़क की संसद</h2><p class="lv-sub">वोट चोरी के ख़िलाफ़ आंदोलन, पल-पल। अख़बारों, चैनलों और सोशल मीडिया से छांटकर, जांचकर, एक दीवार पर।</p></div>
     <div class="lv-meta"><span>आख़िरी अपडेट</span><b>${hm(updated)}</b><button class="lv-new" id="lvnew" type="button" hidden>नये अपडेट आये हैं, देखिए ↻</button><a href="/morcha/">विश्लेषण पढ़िए →</a></div></header>
@@ -315,6 +316,7 @@ function livePage() {
     <div class="lv-vids" data-k="video">${vids.map(vid).join("")}</div>
     <aside class="lv-time" data-k="update"><h3>पल-पल</h3><ol>${ups.map(up).join("")}</ol></aside>
   </div>
+  ${reels.length ? `<section class="lv-reels" data-k="reel"><h3>रील्स <small>आंदोलन पर बन रही रीलें, सरहद के इस पार और उस पार से</small></h3><div class="lv-rrow">${reels.map(reel).join("")}</div></section>` : ""}
   <div class="lv-wall">${wall.map(card).join("")}</div>
   <p class="lv-note">यह दीवार देशकाल हर कुछ घंटे में ताज़ा करता है। हर चीज़ अपने मूल स्रोत से जुड़ी है; जो बात सिर्फ़ एक पक्ष या एक स्रोत से आयी है, उस पर "अपुष्ट" लिखा है। वीडियो और पोस्ट उनके बनाने वालों के हैं।</p>
 </section>`;

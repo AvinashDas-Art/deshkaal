@@ -168,7 +168,9 @@ f.src=b.dataset.ia?`https://archive.org/embed/${encodeURIComponent(b.dataset.ia)
 (function(){const L=document.getElementById("live");if(!L)return;
 const bs=L.querySelectorAll(".lv-filter button");
 bs.forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;bs.forEach(x=>x.setAttribute("aria-pressed",x===b));
-L.dataset.f=f;L.querySelectorAll("[data-k]").forEach(el=>{if(el.classList.contains("lv-vids")||el.classList.contains("lv-time"))return;el.hidden=f!=="all"&&el.dataset.k!==f});}));
+L.dataset.f=f;L.querySelectorAll("[data-k]").forEach(el=>{if(el.classList.contains("lv-vids")||el.classList.contains("lv-time")||el.classList.contains("lv-reels"))return;el.hidden=f!=="all"&&el.dataset.k!==f});}));
 const nb=document.getElementById("lvnew");
 setInterval(()=>{fetch("/live/feed.json?_="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(j=>{if(j.updated&&j.updated!==L.dataset.updated)nb.hidden=false}).catch(()=>{})},120000);
-nb&&nb.addEventListener("click",()=>location.reload());})();
+nb&&nb.addEventListener("click",()=>location.reload());
+L.addEventListener("click",e=>{const b=e.target.closest(".lv-rplay");if(!b)return;const f=document.createElement("iframe");
+f.src="https://www.instagram.com/reel/"+b.dataset.ig+"/embed/";f.allow="autoplay; encrypted-media; picture-in-picture";f.allowFullscreen=true;f.loading="lazy";f.className="lv-rframe";f.title="Instagram रील";b.replaceWith(f);});})();
