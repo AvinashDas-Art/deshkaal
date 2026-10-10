@@ -35,6 +35,7 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 - Headline (`h`): our own, sharp, under 12 words. Dek: one sentence.
 - Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). रोशनदान (not रौशनदान). शृंखला, शृंगार (not श्रृंखला, श्रृंगार: never श्रृ). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
 - Facts only from the article itself or well-established background knowledge. If unsure, leave it out.
+- **Language of the writer vs. language of the page:** never say a writer "wrote in" a language just because the page is in it. Many pieces on The Wire Urdu / द वायर हिंदी / Navjivan etc. are translations (अपूर्वानंद, for example, writes in Hindi and sometimes English, never Urdu). Say where it appeared ("द वायर उर्दू में छपा"), and call it a translation when it is one or when unsure. `lang` is the language of the linked page.
 
 ## Day file schema
 ```json
