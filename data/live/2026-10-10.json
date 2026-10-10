@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-10T22:45+05:30",
+ "updated": "2026-10-10T23:45+05:30",
  "counters": [
   {
    "n": "45",
-   "label": "मेट्रो स्टेशनों के गेट बंद",
-   "src": "डीएमआरसी (कुछ रिपोर्टों में 57)",
-   "url": "https://theprint.in/india/jantar-mantar-delhi-cjp-protest-live-updates/3066985/"
+   "label": "मेट्रो स्टेशन क़रीब 25 घंटे बंद रहे, रात 10:19 पर खुले",
+   "src": "डीएमआरसी (कुछ रिपोर्टों में 57 स्टेशन)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10"
   },
   {
    "n": "7,000+",
    "label": "दिल्ली में हिरासत",
-   "src": "शाम को अधिकारियों के हवाले से आउटलुक; बाक़ी आंकड़े अलग: पीटीआई (बिज़नेस स्टैंडर्ड) 3,000+, दिप्रिंट हिंदी 3,500+, एबीपी न्यूज़ 4,500; दोपहर में पुलिस सूत्रों (एएनआई) ने क़रीब 1,000 बताये थे",
+   "src": "शाम को अधिकारियों के हवाले से आउटलुक; बाक़ी आंकड़े अलग: पीटीआई (बिज़नेस स्टैंडर्ड) 3,000+, रॉयटर्स (गृह मंत्रालय अधिकारी) 2,000+, दिप्रिंट हिंदी 3,500+, एबीपी न्यूज़ 4,500; दोपहर में पुलिस सूत्रों (एएनआई) ने क़रीब 1,000 बताये थे",
    "url": "https://www.outlookindia.com/national/cjp-protest-live-updates-abhijeet-dipke-delhi-india-bloc-cec-row-latest-updates-october-10"
   },
   {
@@ -28,6 +28,23 @@
  ],
  "items": [
   {
+   "t": "2026-10-10T23:44+05:30",
+   "kind": "video",
+   "yt": "EfzEumYepQw",
+   "text": "रिपब्लिक का वीडियो: विमान के भीतर दिपके, सौरव दास और रांका की हिरासत, यात्रियों की तालियां",
+   "src": "रिपब्लिक वर्ल्ड",
+   "url": "https://www.youtube.com/watch?v=EfzEumYepQw",
+   "live": false
+  },
+  {
+   "t": "2026-10-10T23:21+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: केंद्रीय मंत्री रामदास आठवले ने सीजेपी के प्रदर्शन को बाबा साहब के संविधान के ख़िलाफ़ और अराजकता को न्योता बताया, पुलिस कार्रवाई को सही ठहराया और कहा कि मुख्य चुनाव आयुक्त का इस्तीफ़ा मांगने का प्रदर्शनकारियों को हक़ नहीं।",
+   "src": "आईएएनएस / पंजाब केसरी",
+   "url": "https://www.punjabkesari.com/india-news/cjp-ke-andolan-par-bole-ramdas-athawale-ye-pradarshan-baba-saheb-ke-samvidhan-ke-khilaf-hai",
+   "verified": true
+  },
+  {
    "t": "2026-10-10T22:45+05:30",
    "kind": "video",
    "yt": "582HX2TTvpg",
@@ -44,6 +61,22 @@
    "src": "सीएनएन-न्यूज़18",
    "url": "https://www.youtube.com/watch?v=VrAx6Nlaifs",
    "live": false
+  },
+  {
+   "t": "2026-10-10T22:30+05:30",
+   "kind": "update",
+   "text": "ख़बरों के मुताबिक़ अभिजीत दिपके को गुरुग्राम ले जाया गया, जबकि सौरव दास और आशुतोष रांका जाफ़रपुर कलां और बाहरी दिल्ली के हिरासत केंद्रों में हैं; पुलिस ने आधिकारिक पुष्टि नहीं की। सीजेपी की मांग है कि रविवार सुबह दादी के अंतिम संस्कार से पहले परिवार की दिपके से बात करायी जाए।",
+   "src": "दैनिक जागरण (अंग्रेज़ी)",
+   "url": "https://www.thedailyjagran.com/india/news/where-is-abhijeet-cjp-seeks-dipkes-whereabouts-after-police-offers-help-for-grandmothers-last-rites-10332274",
+   "verified": false
+  },
+  {
+   "t": "2026-10-10T22:19+05:30",
+   "kind": "update",
+   "text": "डीएमआरसी: सभी मेट्रो स्टेशनों के प्रवेश और निकास गेट फिर खोल दिये गये, इंटरचेंज भी चालू। 45 स्टेशन क़रीब 25 घंटे बंद रहे।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/news/story/cjp-delhi-protest-abhijeet-dipke-cockroach-janta-party-live-update-jantar-mantar-delhi-police-ntc-pvp-2666173-2026-10-10",
+   "verified": true
   },
   {
    "t": "2026-10-10T22:09+05:30",
@@ -143,6 +176,13 @@
    "url": "https://www.aajtak.in/madhya-pradesh/story/cjp-vote-chori-protest-gyanesh-kumar-resignation-demand-bhopal-ahmedabad-jhansi-lcln-strc-2666779-2026-10-10"
   },
   {
+   "t": "2026-10-10T20:20+05:30",
+   "kind": "news",
+   "h": "आम लोगों की नज़र में दिल्ली की कार्रवाई: कई ने इसे आवाज़ दबाना और अघोषित इमरजेंसी कहा, कुछ बोले प्रदर्शन संवैधानिक संस्थाओं को बंधक नहीं बना सकता",
+   "src": "स्क्रॉल",
+   "url": "https://scroll.in/article/1096308/citizens-being-silenced-what-ordinary-indians-think-of-the-crackdown-on-the-delhi-protests"
+  },
+  {
    "t": "2026-10-10T20:17+05:30",
    "kind": "update",
    "text": "सुप्रीम कोर्ट रविवार 11 अक्टूबर को विशेष बैठक करेगा। जस्टिस जॉयमाल्य बागची और जस्टिस वी. मोहना की बेंच टीएमसी सांसद मेनका गुरुस्वामी की याचिका सुनेगी, जिसमें चार पूर्व मुख्यमंत्रियों समेत विपक्षी नेताओं की एहतियाती हिरासत को चुनौती दी गयी है, साथ में मेट्रो बंदी पर अवमानना याचिका भी।",
@@ -235,6 +275,13 @@
    "src": "Outlook",
    "url": "https://www.outlookindia.com/national/cjp-protest-live-updates-abhijeet-dipke-delhi-india-bloc-cec-row-latest-updates-october-10",
    "verified": false
+  },
+  {
+   "t": "2026-10-10T19:00+05:30",
+   "kind": "news",
+   "h": "रॉयटर्स: गृह मंत्रालय के एक अधिकारी के मुताबिक़ दिल्ली में 2,000 से ज़्यादा हिरासत, मुंबई में क़रीब 400; रॉयटर्स के एक पत्रकार समेत पांच रिपोर्टर कुछ देर रोके गये",
+   "src": "रॉयटर्स / दिप्रिंट",
+   "url": "https://theprint.in/world/india-detains-thousands-locks-down-delhi-to-foil-election-chief-protest/3067894/"
   },
   {
    "t": "2026-10-10T18:55+05:30",
