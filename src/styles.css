@@ -1105,3 +1105,13 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
   .hs-grid.n1 .hs-card:not(.has-img) .hs-quote{padding:var(--s5) var(--s3) var(--s2)}
   .hs-grid.n1 .hs-card:not(.has-img) .hs-ct{padding:var(--s3)}
 }
+
+/* 12 घंटे की घड़ी: बड़ा वक़्त, नीचे छोटा पहर */
+.lv-time time,.lvt-list time{display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+.lv-time time b,.lvt-list time b{font-weight:600;font-size:22px;line-height:1}
+.lv-time time small,.lvt-list time small{font-family:var(--f-ui);font-size:12px;letter-spacing:.3px;color:var(--lv-dim);line-height:1.2}
+.lv-time time i,.lvt-list time i{font-style:normal;font-family:var(--f-ui);font-size:11px;color:var(--lv-dim)}
+.lv-ft time,.lv-vid time{display:inline}
+.lv-ft time b,.lv-vid time b{font-weight:500}
+.lv-ft time small,.lv-vid time small{margin-left:3px}
+.lv-ft time i,.lv-vid time i{font-style:normal}
