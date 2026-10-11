@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11T17:45+05:30",
+ "updated": "2026-10-11T18:46+05:30",
  "counters": [
   {
    "n": "100+",
@@ -34,11 +34,28 @@
  ],
  "items": [
   {
+   "t": "2026-10-11T17:59+05:30",
+   "kind": "update",
+   "text": "शाम तक की तस्वीर: कनॉट प्लेस के इनर सर्कल और राजीव चौक से जंतर-मंतर की ओर बढ़ते सैकड़ों प्रदर्शनकारी हिरासत में लिये गये। शनिवार के उलट रविवार को ट्रेन, मेट्रो और बसें आम दिनों की तरह चलीं, इंटरनेट पर रोक नहीं रही और बाज़ार खुले रहे, हालांकि ग्राहक कम दिखे। जंतर-मंतर की ओर जाने वाले 30 से ज़्यादा रास्तों पर ट्रैफ़िक मोड़ा गया।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/second-day-of-cjp-led-protest-several-protesters-detained-train-metro-services-back-to-normal-enn26101102798",
+   "verified": true
+  },
+  {
    "t": "2026-10-11T17:31+05:30",
    "kind": "news",
    "h": "मुंबई के शिवाजी पार्क पर सीजेपी के समर्थन में जुटे दर्जनों लोग हिरासत में, कार्यकर्ता अंजलि दमानिया को सादे कपड़ों वाले पुलिसकर्मी निजी गाड़ी में किसी अनजान जगह ले गये",
    "src": "द ट्रिब्यून (पीटीआई)",
    "url": "https://www.tribuneindia.com/news/india/protest-in-support-of-cjp-activist-anjali-damania-several-others-detained-at-mumbais-shivaji-park"
+  },
+  {
+   "t": "2026-10-11T17:30+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@neha_aisa",
+   "by": "नेहा बोरा (आइसा अध्यक्ष)",
+   "text": "हिरासत में ली गयीं नेहा बोरा ने पुलिस बस के भीतर का वीडियो साझा कर पूछा कि क्या हिरासत वाली बसें अब नये जेल हैं। उनके मुताबिक़ शीशे और जाली वाले छोटे खानों में सांस लेने की जगह तक नहीं है।",
+   "url": "https://x.com/neha_aisa/status/2109227022308532313"
   },
   {
    "t": "2026-10-11T17:27+05:30",
@@ -55,6 +72,14 @@
    "src": "ईटीवी भारत (सीपीजे के बयान के हवाले से)",
    "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
    "verified": true
+  },
+  {
+   "t": "2026-10-11T17:07+05:30",
+   "kind": "update",
+   "text": "नेहा बोरा का आरोप: हिरासत के दौरान पुरुष प्रदर्शनकारियों को परिवार, जाति और धर्म को लेकर गालियां दी गयीं और कुछ को लातें मारी गयीं; औरतों को छह-आठ के झुंड में छोटे खानों में ठूंसा गया। इन आरोपों पर पुलिस का जवाब अभी नहीं आया है।",
+   "src": "द साउथ फ़र्स्ट",
+   "url": "https://thesouthfirst.com/beyond-south/delhi-police-detain-protesters-for-second-day-despite-supreme-court-order-neha-bora-alleges-assault-verbal-abuse/",
+   "verified": false
   },
   {
    "t": "2026-10-11T16:59+05:30",
