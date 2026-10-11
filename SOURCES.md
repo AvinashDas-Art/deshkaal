@@ -2,9 +2,15 @@
 
 Only free-to-read pieces. Several of these sites mix free and paid articles (The Hindu, Frontline, The Caravan, Newslaundry, The Quint): use a piece only if the full text opens without login or payment. If a site starts showing a paywall on everything, skip it that day.
 
-What opens from the run's tools (checked 8 Oct 2026): The Wire article pages open on `m.thewire.in/article/...` (the main site and its listings are JavaScript). Scroll's opinion feed opens: https://feeds.scroll.in/feeds/categories/75/full/dailyhunt.rss. Al Jazeera opinion listing opens: https://www.aljazeera.com/opinion/. Blocked for the tools: indianexpress.com, thehindu.com (and Frontline), telegraphindia.com; for these use WebSearch to find the piece, and if the article page itself is blocked, skip it.
+What opens from the run's tools (checked 8 Oct 2026): The Wire article pages open on `m.thewire.in/article/...` (the main site and its listings are JavaScript). Scroll's opinion feed opens: https://feeds.scroll.in/feeds/categories/75/full/dailyhunt.rss. Al Jazeera opinion listing opens: https://www.aljazeera.com/opinion/. Blocked for the tools: indianexpress.com, thehindu.com (and Frontline), telegraphindia.com; for these use WebSearch to find the piece; if the article page itself is blocked, do not stop: follow the fallback below.
 
 How to use the list: every day spread the news pieces across the groups below, so that the issue carries independent Indian journalism, rural India, anti-caste and minority voices, environment, South Asia and the Global South together. **No more than 2 pieces from any one source in a day.** Hindi editions count as the same source as their English parent. When a homepage does not open with WebFetch, use WebSearch (`site:<domain>` plus this week's topics) and fetch the article page directly.
+
+**When a site is blocked (403, DNS error, time-out, robots refusal), do not stop** (same rule as the standing rules at the top of `AUTOMATION.md`). Gather the piece in this order:
+1. Approved RSS/Atom feeds: those listed here, the site's own `/feed` or `/rss`, Substack `/feed`. A full-text feed counts as having read the article.
+2. Another readable copy of the same piece: the mobile/AMP version (`m.`, `/amp`), a syndicated copy on another site, the same outlet's Hindi/English edition.
+3. WebSearch result text and snippets: to find the piece and confirm its title, author, date, URL and stated figures.
+Snippets alone are never enough for a full summary, `nazar` or `ank`: never write an analysis or a summary by guessing from a snippet. A piece reachable only through snippets may be used only for a short item (a `khabar` or live-wall line), or replaced by another piece. Note the blocked site and the route used in the report.
 
 ## भारतीय स्वतंत्र पत्रकारिता, संविधान और नागरिक अधिकार
 - The Wire: https://thewire.in/ (opinion: https://thewire.in/category/opinion/all; often needs WebSearch)
@@ -69,7 +75,7 @@ Fact-checks are useful when a rumour is driving hate against a community or misl
 - openDemocracy: https://www.opendemocracy.net/
 - Global Voices: https://globalvoices.org/
 - Al Jazeera (opinion and in-depth): https://www.aljazeera.com/opinion/
-- The Guardian (world and opinion): https://www.theguardian.com/ (the run's tools have sometimes been blocked here; try once, then skip)
+- The Guardian (world and opinion): https://www.theguardian.com/ (the run's tools have sometimes been blocked here; try once, then use the fallback below)
 - Rest of World: https://restofworld.org/
 - Mada Masr: https://www.madamasr.com/
 - Africa Is a Country: https://africasacountry.com/
