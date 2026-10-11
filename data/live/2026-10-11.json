@@ -1,11 +1,17 @@
 {
- "updated": "2026-10-11T11:50+05:30",
+ "updated": "2026-10-11T12:50+05:30",
  "counters": [
   {
    "n": "30,000+",
    "label": "दिल्ली में तैनात पुलिस और अर्धसैनिक जवान (रविवार)",
    "src": "पीटीआई; ईटीवी भारत में क़रीब 25,000",
    "url": "https://www.tribuneindia.com/liveblog/ajinkyashinde/cjp-protest-against-cec-live-to-hold-fresh-protest-at-jantar-mantar-on-sunday"
+  },
+  {
+   "n": "45",
+   "label": "शनिवार को जिन मेट्रो स्टेशनों पर आवाजाही रोकी गयी",
+   "src": "सॉलिसिटर जनरल, सुप्रीम कोर्ट में; याचिकाकर्ताओं ने 47 बताये",
+   "url": "https://www.barandbench.com/news/cjp-protest-crackdown-detentions-live-updates-from-supreme-courts-sunday-hearing"
   },
   {
    "n": "20+",
@@ -21,6 +27,38 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-11T12:31+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट का अंतरिम आदेश: दिल्ली में बैरिकेड हटें, जब तक बिल्कुल ज़रूरी न हों; लोगों को बेरोकटोक आने-जाने दिया जाए, इंटरनेट पूरी तरह बहाल रहे और वकीलों को काम से न रोका जाए। मेट्रो सामान्य समय-सारणी पर चले, पाबंदी सिर्फ़ क़ानूनी तौर पर सार्वजनिक व्यवस्था के नाम पर। डीएमआरसी को बंद स्टेशनों का नक़्शा देना होगा और केंद्र को सभी याचिकाओं पर जवाब।",
+   "src": "बिज़नेस टुडे, बार एंड बेंच",
+   "url": "https://www.businesstoday.in/india/story/sir-protest-special-hearing-sc-directs-delhi-barricades-removed-internet-restored-560857-2026-10-11",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T12:25+05:30",
+   "kind": "update",
+   "text": "अदालत ने पूछा कि सुप्रीम कोर्ट के ठीक बाहर बीएनएसएस की धारा 163 का निषेधाज्ञा आदेश कैसे लगा; सॉलिसिटर जनरल ने कहा कि उनके पास निर्देश नहीं हैं। एडवोकेट्स-ऑन-रिकॉर्ड एसोसिएशन के अध्यक्ष ने कहा कि वकीलों को पाबंदी की सूचना तक नहीं दी गयी। जस्टिस बागची ने टिप्पणी की कि सूचना न देना ही आदेश रद्द करने का आधार हो सकता है।",
+   "src": "बिज़नेस टुडे",
+   "url": "https://www.businesstoday.in/india/story/sir-protest-special-hearing-sc-directs-delhi-barricades-removed-internet-restored-560857-2026-10-11",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T12:08+05:30",
+   "kind": "update",
+   "text": "याचिकाकर्ताओं की ओर से वरिष्ठ वकील संजय हेगड़े का आरोप: शनिवार को मैदान गढ़ी के संजय कॉलोनी थाने गये वकीलों को घंटों रोका गया और उनसे मारपीट हुई। पुलिस की ओर से इस पर अभी जवाब नहीं आया।",
+   "src": "इंडिया.कॉम (बार एंड बेंच के हवाले से)",
+   "url": "https://www.india.com/news/india/jantar-mantar-protest-live-cjp-cockroach-janta-party-cjp-abhijeet-dipke-ashutosh-ranka-saurav-das-cjp-gyanesh-kumar-traffic-dhaula-kuan-flyover-jhandewalan-mandi-house-minto-road-8534865/",
+   "verified": false
+  },
+  {
+   "t": "2026-10-11T12:07+05:30",
+   "kind": "update",
+   "text": "सरकार का पक्ष: सॉलिसिटर जनरल तुषार मेहता ने कहा कि 10 अक्टूबर को मेट्रो के कुल फेरों में कोई कमी नहीं आयी, शनिवार की आम समय-सारणी के मुताबिक़ 271 ट्रेनें चलीं और 303 में से 45 स्टेशनों पर ही आवाजाही रोकी गयी। उनके मुताबिक़ ज़्यादातर हिरासत में लिये गये लोग दोपहर 2 बजे के आसपास उठाये गये और शाम 6 बजे तक छोड़ दिये गये।",
+   "src": "बार एंड बेंच",
+   "url": "https://www.barandbench.com/news/cjp-protest-crackdown-detentions-live-updates-from-supreme-courts-sunday-hearing",
+   "verified": true
+  },
   {
    "t": "2026-10-11T11:33+05:30",
    "kind": "update",
