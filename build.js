@@ -621,7 +621,7 @@ PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
 /* कार्टून की तस्वीर सिर्फ़ उसी दिन से साइट पर जाती है: रिज़र्व वाले data/cartoons/img में छिपे रहते हैं */
 PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"],
+  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"], ...(LIVE_ON ? [["/live/", latest, "hourly"], ...LIVE_DAYS.map(d => ["/live/" + d.date + "/", d.date, "daily"])] : []), ...(SPECIAL.active ? [["/morcha/", latest, "daily"]] : []),
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
     ...["en", "ur"].flatMap(l => daysFor(l).length ? [[`/${l}/`, latest, "daily"], ...daysFor(l).flatMap(d => d.items.map(a => [hrefL(a, l), a.day, "monthly"]))] : [])];
   out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }
