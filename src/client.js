@@ -154,14 +154,15 @@ document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.conta
 document.addEventListener("click",e=>{const b=e.target.closest(".ytlite");if(!b)return;const f=document.createElement("iframe");
 f.src=b.dataset.ia?`https://archive.org/embed/${encodeURIComponent(b.dataset.ia)}?autoplay=1`:`https://www.youtube.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&playsinline=1&rel=0`;f.referrerPolicy="strict-origin-when-cross-origin";f.setAttribute("frameborder","0");f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";f.allowFullscreen=true;f.title=b.getAttribute("aria-label")||"video";b.replaceWith(f)});
 
-/* पाठकों की गिनती: बिना कुकी, सिर्फ़ इस ब्राउज़र की याद (localStorage) से पहली बार और रोज़ की पहली बार तय होती है */
+/* पाठकों की गिनती: बिना कुकी, सिर्फ़ इस ब्राउज़र की याद (localStorage) से पहली बार और रोज़ की पहली बार तय होती है.
+   गिनती सबकी, पर पट्टी सिर्फ़ साइन इन पाठकों को: सर्वर बाक़ियों को आंकड़े लौटाता ही नहीं */
 (function(){const el=$("#ginti");if(!el||!window.fetch)return;
   const d=new Date(Date.now()+5.5*3600e3).toISOString().slice(0,10);
   const first=!store.get("dk-seen"),newday=store.get("dk-seen-day")!==d;
   store.set("dk-seen","1");store.set("dk-seen-day",d);
   const L={hi:["अब तक","पाठक","बार पढ़ा गया","आज","पाठक"],en:["So far","readers","pages read","today","readers"],ur:["اب تک","قاری","بار پڑھا گیا","آج","قاری"]}[LG]||["अब तक","पाठक","बार पढ़ा गया","आज","पाठक"];
   const n=x=>Number(x||0).toLocaleString(LG==="en"?"en-IN":LG==="ur"?"ur-IN":"hi-IN");
-  fetch("/api/ginti",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({first,newday})}).then(r=>r.ok?r.json():null).then(g=>{if(!g||!g.ok)return;
+  fetch("/api/ginti",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({first,newday})}).then(r=>r.ok?r.json():null).then(g=>{if(!g||!g.ok||g.people==null)return;
     el.innerHTML=`<span><b>${n(g.people)}</b> ${L[1]} ${L[0]}</span><i></i><span><b>${n(g.views)}</b> ${L[2]}</span><i></i><span>${L[3]} <b>${n(g.today)}</b> ${L[4]}</span>`;el.hidden=false}).catch(()=>{});
 })();
 /* लाइव दीवार: छंटाई, और नये अपडेट की सूचना */
