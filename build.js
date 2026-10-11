@@ -115,6 +115,7 @@ ${extraHead}
   <div class="strip">
     <span class="date">${dayLabel(today.date)} · ${T.daily}</span>
     <div class="controls">
+      ${LIVE_ON ? `<a class="livepill" href="/live/" title="${T.liveWall}"><i aria-hidden="true"></i><span>${T.liveShort}</span></a>` : ""}
       ${SHOW_PAPER ? `<a class="paper" href="/akhbar/" title="${T.paper}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12.5h7M7 16h4"/></svg><span>${T.paper}</span></a>` : ""}
       <details class="langs"><summary aria-label="${T.langLabel}">${LANGNAME[LG]}</summary><div class="lmenu">${LANGS.map(l => `<a href="${pageIn(l)}" lang="${l}"${l === LG ? ' aria-current="true"' : ""}>${LANGNAME[l]}</a>`).join("")}</div></details>
       <button class="ctl" id="smaller" aria-label="${T.smaller}">${LG === "hi" ? "अ" : LG === "ur" ? "ا" : "A"}−</button>
@@ -314,6 +315,7 @@ function livePage(latest, url) {
     <div class="lv-meta"><span>आख़िरी अपडेट</span><b>${hm(updated)}</b><button class="lv-new" id="lvnew" type="button" hidden>नये अपडेट आये हैं, देखिए ↻</button><a href="/morcha/">विश्लेषण पढ़िए →</a></div></header>
   ${latest.counters && latest.counters.length ? `<div class="lv-count">${latest.counters.map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener"><b>${esc(c.n)}</b><span>${esc(c.label)}</span><small>${esc(c.src)}</small></a>`).join("")}</div>` : ""}
   ${all.length ? `  <nav class="lv-filter" aria-label="छांटिए">${F.map(([k, l], i) => `<button type="button" data-f="${k}" aria-pressed="${i === 0}">${l}</button>`).join("")}</nav>
+  <a class="lv-r3" href="https://r3con.net/" target="_blank" rel="noopener"><span class="lv-r3-k">चलती तस्वीरें, सीधे लाइव</span><b>सड़क से आती लाइव स्ट्रीम एक साथ, एक स्क्रीन पर: r3con.net</b><small>YouTube, Instagram और X की सार्वजनिक लाइव स्ट्रीम दिखाने वाला खुला बोर्ड · देशकाल से अलग, बाहरी साइट ↗</small></a>
   <div class="lv-main">
     <div class="lv-vids" data-k="video">${vids.map(vid).join("")}</div>
     <aside class="lv-time" data-k="update"><h3>पल-पल</h3><ol>${ups.map(up).join("")}</ol></aside>
@@ -328,6 +330,17 @@ function livePage(latest, url) {
 </section>`;
   return layout({ title: url === "/live/" ? "लाइव: सड़क की संसद" : `सड़क की संसद: ${dayLabel(latest.date)} की दीवार`, desc: "वोट चोरी के ख़िलाफ़ आंदोलन पर पल-पल की ख़बर, वीडियो और सोशल मीडिया, एक जगह।", url, body });
 }
+/* पहले पन्ने पर लाइव दीवार की झलक */
+function liveTeaser() {
+  if (!LIVE_ON || LG !== "hi") return "";
+  const d = LIVE_DAYS.find(x => x.date === IST_TODAY) || LIVE_DAYS[0];
+  const its = (d.items || []).slice().sort((a, b) => (b.t || "").localeCompare(a.t || ""));
+  const ups = its.filter(x => x.kind === "update").slice(0, 4), nV = its.filter(x => x.kind === "video" || x.kind === "reel").length, nP = its.filter(x => x.kind === "post" || x.kind === "news").length;
+  const hm = t => (t || "").slice(11, 16);
+  return `<section class="lvt"><div class="lvt-head"><p class="lvt-k"><i aria-hidden="true"></i>लाइव दीवार${d.updated ? ` · अपडेट ${hm(d.updated)}` : ""}</p><h3>आंदोलन, पल-पल</h3><p class="lvt-s">${its.length ? `आज अब तक ${ups.length ? its.filter(x => x.kind === "update").length + " अपडेट, " : ""}${nV} वीडियो और रील्स, ${nP} ख़बरें और पोस्ट। हर घंटे ताज़ा।` : "आज की दीवार सुबह 9:37 से भरनी शुरू होगी, फिर हर घंटे ताज़ा।"}</p>
+    <div class="lvt-btns"><a class="lvt-go" href="/live/">लाइव दीवार खोलिए →</a><a class="lvt-r3" href="https://r3con.net/" target="_blank" rel="noopener">चलती तस्वीरें: r3con ↗</a></div></div>
+    ${ups.length ? `<ol class="lvt-list">${ups.map(x => `<li><time>${hm(x.t)}</time><span>${esc(x.text)}${x.verified === false ? ` <em>अपुष्ट</em>` : ""}</span></li>`).join("")}</ol>` : (d.counters || []).length ? `<div class="lvt-count">${d.counters.slice(0, 3).map(c => `<div><b>${esc(c.n)}</b><span>${esc(c.label)}</span></div>`).join("")}</div>` : ""}</section>`;
+}
 /* ---------- pages ---------- */
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
@@ -338,7 +351,7 @@ function homePage() {
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${SPECIAL.updated ? " · " + T.updatedAt(SPECIAL.updated.slice(11, 16)) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
-  ${M ? morchaBand(M) + "</section>" : ""}
+  ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
