@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-11T16:55+05:30",
+ "updated": "2026-10-11T17:45+05:30",
  "counters": [
   {
-   "n": "60-70",
-   "label": "रविवार दोपहर कनॉट प्लेस में हिरासत (एक जत्था)",
-   "src": "इंडियन एक्सप्रेस, आउटलुक के हवाले से; दिन का कुल आंकड़ा नहीं आया",
-   "url": "https://www.outlookindia.com/national/cjp-protest-saurav-das-phones-seized-hacked-cloned"
+   "n": "100+",
+   "label": "रविवार को दिल्ली में हिरासत (शाम तक)",
+   "src": "पीटीआई, पुलिस सूत्र (ईटीवी भारत के हवाले से); इंडियन एक्सप्रेस ने कनॉट प्लेस के एक जत्थे में 60-70 बताये; दिन का आधिकारिक आंकड़ा नहीं आया",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436"
   },
   {
    "n": "30,000+",
@@ -33,6 +33,69 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-11T17:31+05:30",
+   "kind": "news",
+   "h": "मुंबई के शिवाजी पार्क पर सीजेपी के समर्थन में जुटे दर्जनों लोग हिरासत में, कार्यकर्ता अंजलि दमानिया को सादे कपड़ों वाले पुलिसकर्मी निजी गाड़ी में किसी अनजान जगह ले गये",
+   "src": "द ट्रिब्यून (पीटीआई)",
+   "url": "https://www.tribuneindia.com/news/india/protest-in-support-of-cjp-activist-anjali-damania-several-others-detained-at-mumbais-shivaji-park"
+  },
+  {
+   "t": "2026-10-11T17:27+05:30",
+   "kind": "update",
+   "text": "आरके आश्रम मार्ग मेट्रो स्टेशन के पास वाम संगठनों ने प्रदर्शन किया तो पुलिस ने वहां मौजूद सभी लोगों को हिरासत में ले लिया। ख़बर है कि आरएएफ़, दिल्ली पुलिस और सीआरपीएफ़ के जवान धारा 163 का हवाला देकर कनॉट प्लेस से लोगों को हटा रहे हैं।",
+   "src": "ईटीवी भारत उर्दू",
+   "url": "https://www.etvbharat.com/ur/bharat/live-blog--live-blog-cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-urdu-news-urn26101101255",
+   "verified": false
+  },
+  {
+   "t": "2026-10-11T17:09+05:30",
+   "kind": "update",
+   "text": "पत्रकारों की अंतरराष्ट्रीय संस्था सीपीजे ने कहा कि रविवार को प्रदर्शन की रिपोर्टिंग कर रहे कम से कम छह पत्रकारों को दिल्ली पुलिस ने कुछ देर हिरासत में रखा, इनमें इंडियन एक्सप्रेस और हिंदुस्तान टाइम्स के पत्रकार भी हैं। सीपीजे ने पुलिस से कहा कि वह सुप्रीम कोर्ट में सरकार के उस भरोसे का पालन करे कि पत्रकारों को नहीं रोका जाएगा।",
+   "src": "ईटीवी भारत (सीपीजे के बयान के हवाले से)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T16:59+05:30",
+   "kind": "update",
+   "text": "मल्लिकार्जुन खड़गे: इमरजेंसी में भी रेल और उड़ानें नहीं रोकी गयी थीं। उनके मुताबिक़ सरकार ने प्रदर्शन रोकने के लिए गिरफ़्तारियां करवायीं, जो दिखाता है कि वह नौजवानों से डरती है। उन्होंने दोहराया कि विपक्ष सोमवार को मुख्य न्यायाधीश से मिलेगा।",
+   "src": "ईटीवी भारत उर्दू",
+   "url": "https://www.etvbharat.com/ur/bharat/live-blog--live-blog-cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-urdu-news-urn26101101255",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T16:47+05:30",
+   "kind": "update",
+   "text": "अभिजीत दिपके ने एक्स पर लिखा कि उन्होंने विरोध न करने का कोई मुचलका नहीं भरा और वे फिर सड़कों पर उतरेंगे। सौरव दास का कहना है कि मुचलका सिर्फ़ शांति भंग न करने का है, और शांतिपूर्ण विरोध संवैधानिक हक़ है, शांति भंग नहीं।",
+   "src": "ईटीवी भारत (दिपके और दास की एक्स पोस्ट के हवाले से)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T16:36+05:30",
+   "kind": "update",
+   "text": "सूत्रों के हवाले से ख़बर है कि दिल्ली पुलिस ने एक पुराने मामले में सीजेपी नेताओं को नये नोटिस भेजे हैं, जिसमें एक महिला की तस्वीरें कथित तौर पर बिगाड़कर ऑनलाइन फैलायी गयी थीं। दावा है कि नोटिस हाई कोर्ट के निर्देश के बाद भेजे गये।",
+   "src": "ईटीवी भारत (पीटीआई, सूत्र)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
+   "verified": false
+  },
+  {
+   "t": "2026-10-11T16:31+05:30",
+   "kind": "update",
+   "text": "पीटीआई: दूसरे दिन जंतर-मंतर की ओर बढ़ते 100 से ज़्यादा प्रदर्शनकारी हिरासत में लिये गये, इनमें एसएफ़आई, आइसा और केवाईएस के छात्र और सीजेपी समर्थक हैं। कई लोगों को घसीटकर पुलिस बसों में डालने की ख़बर है। सीजेपी ने एक्स पर लिखा कि वह न पीछे हटेगी, न डरेगी।",
+   "src": "ईटीवी भारत (पीटीआई, पुलिस सूत्र)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T16:27+05:30",
+   "kind": "update",
+   "text": "एनएसयूआई का आरोप: दिल्ली पुलिस ने उसके दफ़्तर के बाहर बैरिकेड लगाकर राष्ट्रीय अध्यक्ष विनोद जाखड़ और दूसरे सदस्यों को बाहर निकलने से रोका।",
+   "src": "ईटीवी भारत (एनएसयूआई के बयान के हवाले से)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436",
+   "verified": false
+  },
   {
    "t": "2026-10-11T16:16+05:30",
    "kind": "news",
