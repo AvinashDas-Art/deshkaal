@@ -17,5 +17,9 @@
    "page": "https://theleaflet.in/leaflet-reports/the-freedom-of-speech-and-fundamental-right-to-protest-against-cec-gyanesh-kumar-got-stifled-by-police-clamp-down-shut-down-of-internet",
    "note": "निर्वाचन सदन के बाहर दिल्ली पुलिस के बैरिकेड"
   }
+ },
+ {
+  "url": "https://karvaanindia.com/why-detaining-protesters-and-cracking-down-on-them-shows-a-government-has-lost-its-political-authority/",
+  "note": "मालिक की पसंद: कल के अंक में ज़रूर. Karvaan India: 'Why detaining protesters and cracking down on them shows a government has lost its political authority'. शीर्षक से यह विश्लेषण है, तो 'सड़क की संसद' (sec morcha) के विश्लेषणों में; लेख पढ़कर ख़बर निकले तो khabar में. 11 अक्टूबर रात को इस सेशन से साइट नहीं खुली (curl पर proxy ने रोका, WebFetch पर DNS नहीं मिला), इसलिए लेखक, तारीख़ और टेक्स्ट की जांच नहीं हो सकी. पढ़ने के रास्ते, इसी क्रम में: (1) Bash में curl -sL इसी पते को; (2) WebFetch; (3) https://karvaanindia.com/feed/ (पूरा टेक्स्ट हो तो काफ़ी); (4) WebSearch से इसी लेख की पढ़ने लायक़ कॉपी. लेखक, तारीख़ और भाषा पेज से ही लें; 72 घंटे की शर्त इस pick पर लागू नहीं. पूरा लेख पढ़े बिना सार न लिखें, स्निपेट से कभी नहीं; पेवॉल हो या कोई रास्ता न खुले तो छोड़ें और रिपोर्ट में सबसे ऊपर लिखें."
  }
 ]
