@@ -31,12 +31,15 @@ module.exports = function (H) {
   const url = w => `/hamsafar/${w.id}/`;
   const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
   const initial = s => [...s.trim()][0] || "द";
+  /* लेखक की तस्वीर हो तो वही, वरना नाम का पहला अक्षर लाल गोले में */
+  const av = (w, cls = "") => w.photo ? `<img class="hw-av${cls}" src="${esc(w.photo)}" alt="" loading="lazy">` : `<span class="hw-av${cls}" aria-hidden="true">${esc(initial(w.by))}</span>`;
   const mailto = (subject, body) => `mailto:${MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const SEND = mailto("रचना: [शीर्षक]", `नमस्ते,
 
 रचना का प्रकार (लेख / कविता / कहानी / रिपोर्ताज / कार्टून / तस्वीरें):
 शीर्षक:
 नाम, जैसा छपना चाहिए:
+अपनी एक तस्वीर (साथ में जोड़ें, JPG):
 शहर या गांव:
 अपने बारे में एक-दो पंक्ति:
 क्या यह रचना पहले कहीं छपी है? (नहीं / हां, कहां और कब):
@@ -60,7 +63,7 @@ module.exports = function (H) {
 
   const card = w => `<article class="hs-card k-${w.kind}${w.images && w.images[0] ? " has-img" : ""}"><a href="${url(w)}">
     ${w.images && w.images[0] ? `<span class="hs-thumb">${thumb(w)}</span>` : `<span class="hs-quote">${esc(w.pull || w.dek || "")}</span>`}
-    ${stamp(w)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by"><b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}</span></span></a></article>`;
+    ${stamp(w)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by">${w.photo ? av(w, " sm") : ""}<b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}</span></span></a></article>`;
 
   /* पहले पन्ने का बैंड: रचनाएं हों तो ताज़ा तीन, न हों तो न्योते का पोस्टकार्ड */
   function band() {
@@ -138,7 +141,7 @@ module.exports = function (H) {
         <li>रचना, ईमेल में ही, या .docx, .txt, .pdf फ़ाइल में</li>
         <li>आपका नाम, जैसा छपना चाहिए</li>
         <li>शहर या गांव</li>
-        <li>अपने बारे में एक-दो पंक्ति</li>
+        <li>अपने बारे में एक-दो पंक्ति, और अपनी एक साफ़ तस्वीर, जो रचना के साथ छपेगी</li>
         <li>कार्टून और तस्वीरें JPG या PNG में, पूरे आकार में</li>
       </ol></div>
       <p class="hl-tip">नीचे का बटन दबाते ही एक तैयार ईमेल खुलेगा, जिसमें बस ख़ाली जगहें भरनी हैं।</p>
@@ -164,7 +167,7 @@ module.exports = function (H) {
     <div class="hsi-rg">
       <div><h3>रचना आपकी</h3><p>कॉपीराइट आपके पास ही रहेगा। आप उसे कहीं और भी छपवा सकते हैं।</p></div>
       <div><h3>छापने की इजाज़त</h3><p>भेजकर आप देशकाल को उसे वेबसाइट, ई-पेपर, न्यूज़लेटर और सोशल मीडिया पर छापने, और अंग्रेज़ी-उर्दू में अनुवाद करने की इजाज़त देते हैं।</p></div>
-      <div><h3>आपका पता, आपका</h3><p>ईमेल, फ़ोन या पता कभी नहीं छपता। सिर्फ़ नाम, शहर और आपका परिचय।</p></div>
+      <div><h3>आपका पता, आपका</h3><p>ईमेल, फ़ोन या पता कभी नहीं छपता। सिर्फ़ नाम, शहर, आपका परिचय और आपकी तस्वीर।</p></div>
       <div><h3>हटवाना हो तो</h3><p>छपी रचना हटवानी हो, तो एक ईमेल काफ़ी है।</p></div>
     </div>
   </section>
@@ -203,17 +206,18 @@ module.exports = function (H) {
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
     }
     const others = ALL.filter(x => x.id !== w.id).slice(0, 3);
+    const pic = w.photo && !(imgs[0] && w.kind !== "kavita");
     const page = `<article class="hw k-${w.kind}">
       <a class="back" href="/hamsafar/">← हमसफ़र</a>
-      <header class="hw-head">
-        ${stamp(w, true)}
+      <header class="hw-head${pic ? " has-pic" : ""}">
+        ${pic ? `<figure class="hw-pic"><img src="${esc(w.photo)}" alt="${esc(w.by)}"><figcaption>${esc(w.by)}</figcaption>${stamp(w)}</figure>` : stamp(w, true)}
         <p class="hs-k">हमसफ़र ${deva(w.no)} · ${KIND[w.kind]}${w.cat ? " · " + esc(w.cat) : ""}</p>
         <h1>${esc(w.h)}</h1>${w.dek ? `<p class="hw-dek">${esc(w.dek)}</p>` : ""}
-        <p class="hw-by"><span class="hw-av" aria-hidden="true">${esc(initial(w.by))}</span><span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}</small></span></p>
+        <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}</small></span></p>
       </header>
       ${main}
       ${w.note ? `<aside class="hw-ed"><small>संपादक की बात</small><p>${esc(w.note)}</p></aside>` : ""}
-      <aside class="hw-author"><span class="hw-av big" aria-hidden="true">${esc(initial(w.by))}</span><div><small>रचनाकार</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}</div></aside>
+      <aside class="hw-author">${av(w, " big")}<div><small>रचनाकार</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}</div></aside>
       ${share(url(w), w.h)}
       <p class="fine">यह रचना ${esc(w.by)} ने देशकाल को भेजी है। इसके सारे अधिकार उन्हीं के हैं।${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
       <a class="hw-invite" href="/bhejiye/"><span class="hs-k">आप भी हमसफ़र बनिए</span><b>अपनी रचना देशकाल को भेजिए →</b></a>

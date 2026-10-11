@@ -1070,3 +1070,26 @@ html{scroll-behavior:smooth}
 .totop span{font-family:var(--f-ui);font-size:11.5px;font-weight:500;line-height:1;margin-top:-1px}
 @media (max-width:699px){.totop{width:50px;height:50px;right:14px;bottom:calc(78px + env(safe-area-inset-bottom,0px))}.totop svg{width:19px;height:19px}}
 @media print{.totop{display:none!important}}
+
+/* हमसफ़र: लेखक की तस्वीर */
+img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--lal)}
+.hw-av.sm{width:34px;height:34px;font-size:17px;align-self:center}
+.hs-by .hw-av.sm{margin-right:2px}
+.hw-head.has-pic{padding-right:250px;min-height:300px}
+.hw-pic{position:absolute;right:0;top:0;width:220px;margin:0;padding:10px 10px 0;background:#fff;box-shadow:0 14px 28px -14px rgba(0,0,0,.45);transform:rotate(2.5deg)}
+.hw-pic img{display:block;width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(.15) contrast(1.03)}
+.hw-pic figcaption{font-family:var(--f-hand);font-size:19px;color:#1F2126;text-align:center;padding:8px 0 10px}
+.hw-pic .hs-stamp{position:absolute;left:-34px;bottom:-26px;right:auto;top:auto;width:80px;transform:rotate(-8deg)}
+.hw-pic .hs-st-in{padding:6px 4px}.hw-pic .hs-st-in i{width:20px;height:20px}.hw-pic .hs-st-in b{font-size:14px}.hw-pic .hs-st-in small{font-size:9.5px}
+.hs-grid.n1 .hs-card:not(.has-img) > a{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end}
+.hs-grid.n1 .hs-card:not(.has-img) .hs-quote{font-size:clamp(26px,2.6vw,34px);padding:var(--s6) var(--s5) var(--s5)}
+.hs-grid.n1 .hs-card:not(.has-img) .hs-ct{padding:var(--s5)}
+@media (max-width:760px){
+  .hw-head.has-pic{padding-right:0;min-height:0}
+  .hw-pic{position:relative;float:right;width:132px;margin:0 0 var(--s2) var(--s3);padding:6px 6px 0}
+  .hw-pic figcaption{font-size:14px;padding:4px 0 6px}
+  .hw-pic .hs-stamp{width:60px;left:-24px;bottom:-16px}
+  .hs-grid.n1 .hs-card:not(.has-img) > a{display:flex}
+  .hs-grid.n1 .hs-card:not(.has-img) .hs-quote{padding:var(--s5) var(--s3) var(--s2)}
+  .hs-grid.n1 .hs-card:not(.has-img) .hs-ct{padding:var(--s3)}
+}
