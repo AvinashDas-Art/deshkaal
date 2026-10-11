@@ -11,7 +11,7 @@ on:
     - cron: "15 2-16 * * *"
   workflow_dispatch:
     inputs:
-      mode: { description: "morning या next", default: "next" }
+      mode: { description: "morning, next या check (सिर्फ़ टोकन की जांच, कोई पोस्ट नहीं)", default: "next" }
 permissions:
   contents: write
 concurrency: { group: social, cancel-in-progress: false }

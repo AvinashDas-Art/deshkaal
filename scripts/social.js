@@ -3,6 +3,7 @@
 //
 //   node scripts/social.js morning   सुबह का पूरा अंक: FB पर तस्वीरों वाली पोस्ट, Instagram पर कैरोसेल
 //   node scripts/social.js next      दिन भर, हर बार अगली एक ख़बर: FB पर हर ख़बर, Instagram पर चुनी हुई
+//   node scripts/social.js check     कुछ पोस्ट नहीं करता: सिर्फ़ जांचता है कि FB पेज और Instagram के टोकन चल रहे हैं
 //   DRY_RUN=1 ...                    कुछ भेजे बिना बताता है कि क्या जाता
 //
 // ज़रूरी secrets: FB_PAGE_ID, FB_PAGE_TOKEN (पेज का लंबा चलने वाला टोकन), IG_USER_ID (Instagram बिज़नेस खाते की id)
@@ -16,8 +17,9 @@ const M = ["जनवरी","फ़रवरी","मार्च","अप्�
 const istDay = () => new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
 const day = env.DAY || istDay();
 const file = path.join("data/days", day + ".json");
-if (!fs.existsSync(file)) { console.log("आज का अंक नहीं मिला:", day); process.exit(0); }
-const items = JSON.parse(fs.readFileSync(file, "utf8"));
+const CHECK = process.argv[2] === "check";
+if (!CHECK && !fs.existsSync(file)) { console.log("आज का अंक नहीं मिला:", day); process.exit(0); }
+const items = CHECK ? [] : JSON.parse(fs.readFileSync(file, "utf8"));
 const news = items.filter(a => a.cat !== "साहित्य"), lit = items.filter(a => a.cat === "साहित्य");
 const d = new Date(day + "T00:00:00Z"), label = `${d.getUTCDate()} ${M[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 const url = a => `${SITE}/lekh/${a.id}/`;
@@ -123,6 +125,14 @@ async function next() {
     } catch (e) { console.log("पेज टोकन मांगने में दिक़्क़त:", e.message); }
   }
   const mode = process.argv[2] || "next";
+  /* check: सिर्फ़ पढ़ने वाली दो कॉल, कोई पोस्ट नहीं */
+  if (mode === "check") {
+    try {
+      if (fbOn()) { const p = await api(`/${env.FB_PAGE_ID}`, { fields: "name" }, "GET"); console.log("Facebook पेज ठीक:", p.name); }
+      if (igOn()) { const u = await api(`/${env.IG_USER_ID}`, { fields: "username" }, "GET"); console.log("Instagram ठीक: @" + u.username); }
+    } catch (e) { console.error(e.message); process.exitCode = 1; }
+    return;
+  }
   /* सुबह का पूरा अंक छूट गया हो तो पहले वही */
   const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
   try { if (mode === "morning" || missedMorning) await morning(); else await next(); }
