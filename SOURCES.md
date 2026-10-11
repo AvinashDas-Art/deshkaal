@@ -16,7 +16,8 @@ Snippets alone are never enough for a full summary, `nazar` or `ank`: never writ
 - The Wire: https://thewire.in/ (opinion: https://thewire.in/category/opinion/all; often needs WebSearch)
 - The Wire Hindi: https://thewirehindi.com/
 - Scroll.in: https://scroll.in/
-- The Caravan: https://caravanmagazine.in/ (much is paywalled; only free pieces)
+- The Caravan: https://caravanmagazine.in/ (owner-approved for `amukh`, `vichar` and `morcha` analysis; much is paywalled, so only pieces whose full text opens without login or payment)
+- कारवां हिंदी (The Caravan Hindi): https://hindi.caravanmagazine.in/ (same as The Caravan, and the same source for the 2-a-day limit; free pieces only)
 - Newslaundry: https://www.newslaundry.com/ (subscriber-only pieces are marked; skip those)
 - Newslaundry Hindi: https://hindi.newslaundry.com/
 - Article 14: https://article-14.com/
