@@ -29,7 +29,7 @@ module.exports = function (H) {
   const { layout, esc, dayLabel, SITE, LATEST } = H;
   const ALL = load().filter(w => w.date <= LATEST);
   const url = w => `/hamsafar/${w.id}/`;
-  const deva = n => String(n).replace(/\d/g, d => "०१२३४५६७८९"[d]);
+  const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
   const initial = s => [...s.trim()][0] || "द";
   const mailto = (subject, body) => `mailto:${MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const SEND = mailto("रचना: [शीर्षक]", `नमस्ते,
@@ -69,7 +69,7 @@ module.exports = function (H) {
       <div class="hs-pc-l"><p class="hs-k">हमसफ़र · न्योता</p><h3>यह पगडंडी आपके क़दमों से भी बनेगी</h3>
       <p>लेख, कविता, कहानी, रिपोर्ताज, कार्टून या तस्वीरें: इस वक़्त पर आपकी नज़र देशकाल पर छप सकती है, आपके नाम के साथ, पूरे सलीक़े से।</p>
       <a class="hs-btn" href="/bhejiye/">रचना भेजिए</a></div>
-      <div class="hs-pc-r" aria-hidden="true"><span class="hs-pc-lines"><i>सेवा में,</i><i>संपादक, देशकाल</i><i>${MAIL}</i></span>${stamp({ kind: "lekh", no: 1 }, true).replace("लेख", "आपकी रचना").replace("हमसफ़र १", "डाक मुफ़्त")}<span class="hs-postmark"><svg viewBox="0 0 100 100"><defs><path id="hspm" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="27"/><text><textPath href="#hspm">देशकाल · पाठकों की डाक · देशकाल ·</textPath></text></svg></span></div>
+      <div class="hs-pc-r" aria-hidden="true"><span class="hs-pc-lines"><i>सेवा में,</i><i>संपादक, देशकाल</i><i>${MAIL}</i></span>${stamp({ kind: "lekh", no: 1 }, true).replace("लेख", "आपकी रचना").replace("हमसफ़र 1", "डाक मुफ़्त")}<span class="hs-postmark"><svg viewBox="0 0 100 100"><defs><path id="hspm" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="27"/><text><textPath href="#hspm">देशकाल · पाठकों की डाक · देशकाल ·</textPath></text></svg></span></div>
     </div></section>`;
     return `<section class="hs-band"><div class="sechead sec-hamsafar"><h3>हमसफ़र</h3><p>पाठकों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं</p></div>
       <div class="hs-grid n${recent.length}">${recent.map(card).join("")}</div>
