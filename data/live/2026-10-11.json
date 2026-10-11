@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11T10:49+05:30",
+ "updated": "2026-10-11T11:50+05:30",
  "counters": [
   {
    "n": "30,000+",
@@ -8,10 +8,10 @@
    "url": "https://www.tribuneindia.com/liveblog/ajinkyashinde/cjp-protest-against-cec-live-to-hold-fresh-protest-at-jantar-mantar-on-sunday"
   },
   {
-   "n": "3",
-   "label": "सीजेपी नेता एहतियाती हिरासत में",
-   "src": "दिल्ली पुलिस (एएनआई)",
-   "url": "https://x.com/ANI/status/2109113821713539419"
+   "n": "20+",
+   "label": "शनिवार की कोशिशों पर दिल्ली में एफ़आईआर",
+   "src": "दिल्ली पुलिस (एएनआई, आजतक)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-protest-delhi-cockroach-janta-party-abhijeet-dipke-jantar-mantar-delhi-police-ntc-acwi-2666973-2026-10-11"
   },
   {
    "n": "7,000+",
@@ -22,12 +22,106 @@
  ],
  "items": [
   {
+   "t": "2026-10-11T11:33+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस के मुताबिक़ अभिजीत दिपके, आशुतोष रांका और सौरव दास की रिहाई के लिये 50,000 रुपये का ज़मानती मुचलका भरा गया। वकील सौतिक बनर्जी ने भी रिहाई की पुष्टि की। सीजेपी अब दोपहर 2 बजे प्रेस कॉन्फ़्रेंस करेगी।",
+   "src": "एएनआई",
+   "url": "https://www.aninews.in/news/national/general-news/cjp-to-hold-press-conference-today-after-leaders-released-from-detention-in-delhi20261011105325/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T11:30+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट (जस्टिस जॉयमाल्य बागची और जस्टिस वी. मोहना) ने कहा कि पिछले आदेश के मुताबिक़ जिन अफ़सरों पर अवमानना का आरोप है, वे मंगलवार तक पालन रिपोर्ट और जवाब दाख़िल करें। सभी हस्तक्षेप अर्ज़ियां सूचीबद्ध होंगी और एक साझा आदेश आएगा। बंदी प्रत्यक्षीकरण याचिका बाद में सुनी जाएगी, जिसमें मेनका गुरुस्वामी ने क़रीब 7,000 हिरासतों और 45 हिरासत केंद्रों का हवाला देकर अंतरिम राहत मांगी।",
+   "src": "लाइवलॉ",
+   "url": "https://livelaw.in/top-stories/supreme-court-sunday-hearing-against-detentions-curbs-during-delhi-protests-live-updates-554104",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T11:26+05:30",
+   "kind": "update",
+   "text": "अदालत में दोनों पक्ष: वरिष्ठ वकील शोएब आलम ने दिल्ली के बाहर से आये लोगों की हिरासत का मुद्दा उठाया और 6,000 से 7,000 हिरासतों का अनुमान दिया। पुलिस अफ़सरों की ओर से पेश वकील ने कहा कि पुलिसवालों पर भी हमले हुए। सॉलिसिटर जनरल ने कहा कि उन्हें याचिकाएं नहीं मिलीं, याचिकाकर्ताओं का कहना है कि उनके दफ़्तर को भेजी गयी थीं।",
+   "src": "लाइवलॉ",
+   "url": "https://livelaw.in/top-stories/supreme-court-sunday-hearing-against-detentions-curbs-during-delhi-protests-live-updates-554104",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T11:13+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "एएनआई",
+   "text": "रिहाई के बाद सीजेपी प्रवक्ता आशुतोष रांका: हम दोपहर 2 बजे प्रेस कॉन्फ़्रेंस करेंगे।",
+   "url": "https://x.com/ANI/status/2109146098296381494"
+  },
+  {
+   "t": "2026-10-11T11:11+05:30",
+   "kind": "news",
+   "h": "मुंबई में भी आज सीजेपी: शिवाजी पार्क पर शाम 4 बजे जुटने की अपील, पुलिस ने तैनाती बढ़ायी",
+   "src": "फ़्री प्रेस जर्नल",
+   "url": "https://www.freepressjournal.in/mumbai/govt-has-made-a-big-mistake-cjps-ajinkya-shinde-calls-for-fresh-protest-at-mumbais-shivaji-park-at-4-pm-today-mumbai-news"
+  },
+  {
+   "t": "2026-10-11T11:07+05:30",
+   "kind": "update",
+   "text": "कनॉट प्लेस के इनर सर्किल में दिल्ली पुलिस और सीआरपीएफ़ ने मिलकर फ़्लैग मार्च किया। आउटर सर्किल पर भी सुरक्षा बढ़ायी गयी।",
+   "src": "आजतक, इंडिया डॉट कॉम",
+   "url": "https://www.aajtak.in/india/news/story/cjp-protest-delhi-cockroach-janta-party-abhijeet-dipke-jantar-mantar-delhi-police-ntc-acwi-2666973-2026-10-11",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T11:02+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट में कपिल सिब्बल ने ट्रेनों से लोगों को उतारकर पकड़ने, इंटरनेट बंदी और अदालती आदेश के बावजूद 45 मेट्रो स्टेशन बंद रखने का आरोप लगाया और अंतरिम राहत मांगी। एक वकील ने दावा किया कि उन्हें पकड़कर चलती बस में धकेल दिया गया। अदालत ने कहा कि सॉलिसिटर जनरल को भी सुना जाएगा।",
+   "src": "लाइवलॉ",
+   "url": "https://livelaw.in/top-stories/supreme-court-sunday-hearing-against-detentions-curbs-during-delhi-protests-live-updates-554104",
+   "verified": false
+  },
+  {
+   "t": "2026-10-11T10:52+05:30",
+   "kind": "update",
+   "text": "सीजेपी के अजिंक्य शिंदे ने एक्स पर लिखा कि सरकार ने नेताओं को पकड़कर बड़ी ग़लती की है और मुंबई के शिवाजी पार्क (टी जंक्शन) पर शाम 4 बजे प्रदर्शन का एलान किया। मुंबई पुलिस ने शनिवार के अगस्त क्रांति मैदान प्रदर्शन पर गामदेवी थाने में एफ़आईआर दर्ज की है, पुलिस के मुताबिक़ वहां 400 से ज़्यादा लोग हिरासत में लिये गये थे।",
+   "src": "फ़्री प्रेस जर्नल, आजतक",
+   "url": "https://www.freepressjournal.in/mumbai/govt-has-made-a-big-mistake-cjps-ajinkya-shinde-calls-for-fresh-protest-at-mumbais-shivaji-park-at-4-pm-today-mumbai-news",
+   "verified": true
+  },
+  {
    "t": "2026-10-11T10:45+05:30",
    "kind": "update",
-   "text": "आजतक के लाइव ब्लॉग की ताज़ा सुर्ख़ी के मुताबिक़ दिल्ली पुलिस ने सीजेपी प्रदर्शन से जुड़े मामलों में 20 से ज़्यादा एफ़आईआर दर्ज की हैं और अवमानना याचिका पर सुप्रीम कोर्ट में सुनवाई शुरू हो गयी है। ब्योरा अभी आना बाक़ी।",
-   "src": "आजतक",
+   "text": "दिल्ली पुलिस ने शनिवार की कोशिशों पर 20 से ज़्यादा एफ़आईआर दर्ज कीं। आरोपों में क़ानून-व्यवस्था बिगाड़ना, सरकारी काम में बाधा और पुलिसवालों पर हमला शामिल हैं। अवमानना याचिका पर सुप्रीम कोर्ट में सुनवाई शुरू हो गयी है।",
+   "src": "आजतक, एएनआई",
    "url": "https://www.aajtak.in/india/news/story/cjp-protest-delhi-cockroach-janta-party-abhijeet-dipke-jantar-mantar-delhi-police-ntc-acwi-2666973-2026-10-11",
-   "verified": false
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T10:41+05:30",
+   "kind": "reel",
+   "net": "Instagram",
+   "code": "DeUtXNVzeBT",
+   "handle": "@mo.of.everything",
+   "by": "mo.of.everything",
+   "text": "शनिवार का वायरल वीडियो: गांधी के लिबास में एक प्रदर्शनकारी पुलिस से बचकर दौड़ता हुआ।",
+   "url": "https://www.instagram.com/reel/DeUtXNVzeBT/"
+  },
+  {
+   "t": "2026-10-11T10:41+05:30",
+   "kind": "reel",
+   "net": "Instagram",
+   "code": "DeUhRYvTenr",
+   "handle": "@thelallantop",
+   "by": "द लल्लनटॉप",
+   "text": "पुलिस ने रोका तो एक नौजवान ने डॉक्टर का पर्चा दिखाकर कहा कि वह इलाज के लिये जा रहा है।",
+   "url": "https://www.instagram.com/reel/DeUhRYvTenr/"
+  },
+  {
+   "t": "2026-10-11T10:41+05:30",
+   "kind": "reel",
+   "net": "Instagram",
+   "code": "DeTbisLPx6N",
+   "handle": "@thelallantop",
+   "by": "द लल्लनटॉप",
+   "text": "कनॉट प्लेस की अफ़रा-तफ़री: पुलिस से बचने के लिये प्रदर्शनकारियों का झुंड एक सार्वजनिक शौचालय में घुसा।",
+   "url": "https://www.instagram.com/reel/DeTbisLPx6N/"
   },
   {
    "t": "2026-10-11T10:18+05:30",
@@ -50,6 +144,15 @@
    "h": "दूसरा पक्ष: पांचजन्य ने शनिवार की कोशिश को नाकाम बताया, लिखा कि पुलिस-प्रशासन आज भी पूरी तरह तैयार",
    "src": "पांचजन्य",
    "url": "https://panchjanya.com/2026/10/11/495021/bharat/delhi/after-a-previous-failed-attempt-cjp-will-stage-a-protest-in-delhi-again-today-police-administration-is-also-fully-prepared/"
+  },
+  {
+   "t": "2026-10-11T09:32+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@ANI",
+   "by": "एएनआई",
+   "text": "अभिजीत दिपके के पिता ने कहा कि दिल्ली पुलिस झूठ बोल रही है; मां का आरोप कि बेटे को दादी के निधन की ख़बर तक नहीं दी गयी।",
+   "url": "https://x.com/ANI/status/2109127244199375075"
   },
   {
    "t": "2026-10-11T09:12+05:30",
