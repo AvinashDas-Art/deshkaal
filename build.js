@@ -118,7 +118,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="brush" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.03 0.11" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
-<div class="wrap">
+<div class="wrap" id="top">
   <div class="strip">
     <span class="date">${dayLabel(today.date)} · ${T.daily}</span>
     <div class="controls">
@@ -141,7 +141,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
   </header>
   <main>${body}</main>
   <footer>
-    <span class="mast small" aria-label="${B}"><span class="w">${MAST[LG]}</span></span>
+    <a class="mast small totop-mast" href="#top" aria-label="${LG === "en" ? "Back to top" : LG === "ur" ? "اوپر جائیں" : "सबसे ऊपर जाएं"}"><span class="w">${MAST[LG]}</span></a>
     <span>${T.foot}</span>
     <span><a href="/bhejiye/" style="color:var(--geru)">${LG === "ur" ? "تحریر بھیجیے" : LG === "en" ? "Send your work" : "रचना भेजिए"}</a> · <a href="/hamsafar/" style="color:var(--geru)">${LG === "ur" ? "ہم سفر" : LG === "en" ? "Hamsafar" : "हमसफ़र"}</a> · <a href="/niti/" style="color:var(--geru)">${T.policy}</a> · <a href="/nijta/" style="color:var(--geru)">${T.privacy}</a> · <a href="${PRE}/purane/" style="color:var(--geru)">${T.archive}</a> · ${LANGS.filter(l => l !== LG).map(l => `<a href="${pageIn(l)}" lang="${l}" style="color:var(--geru)">${LANGNAME[l]}</a>`).join(" · ")}</span>
   </footer>
@@ -172,6 +172,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
     <ol class="sres" id="sres"></ol>
   </div>
 </div>
+<a class="totop" href="#top" id="totop" aria-label="${LG === "en" ? "Back to top" : LG === "ur" ? "اوپر جائیں" : "सबसे ऊपर जाएं"}" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11.5 12 5.5l6 6"/></svg><span>${LG === "en" ? "Top" : LG === "ur" ? "اوپر" : "ऊपर"}</span></a>
 <script src="/art.js?v=${AV}"></script>
 <script src="/client.js?v=${AV}"></script>
 </body>

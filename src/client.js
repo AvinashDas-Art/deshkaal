@@ -186,3 +186,9 @@ d.addEventListener("cancel",ev=>{ev.preventDefault();close()});
 d.addEventListener("click",ev=>{if(ev.target===d)close()});}
 d.querySelector("iframe").src="https://r3con.net/";
 document.documentElement.classList.add("r3lock");d.showModal();});
+
+/* सबसे ऊपर: डेढ़ स्क्रीन नीचे आने पर बटन दिखे; बटन और फ़ुटर का देशकाल ऊपर ले जाएं */
+(()=>{const b=document.getElementById("totop");if(!b)return;b.hidden=false;let on=false,tk=false;
+  const chk=()=>{tk=false;const v=scrollY>innerHeight*1.5;if(v!==on){on=v;b.classList.toggle("on",v);b.tabIndex=v?0:-1}};
+  addEventListener("scroll",()=>{if(!tk){tk=true;requestAnimationFrame(chk)}},{passive:true});chk();
+  $$('a[href="#top"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});history.replaceState(null,"",location.pathname+location.search);const m=document.querySelector(".masthead .mast");if(m){m.setAttribute("tabindex","-1");setTimeout(()=>m.focus({preventScroll:true}),400)}}));})();

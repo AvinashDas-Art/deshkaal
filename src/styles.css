@@ -1054,3 +1054,19 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 @media (max-width:520px){.hsi-kg,.hsi-rg,.hsi-tl{grid-template-columns:minmax(0,1fr)}}
 html[lang="ur"] .hs-band,html[lang="en"] .hs-band{display:none}
 .hw-fig img{max-height:84vh;width:auto;max-width:100%;margin-inline:auto}
+
+/* सबसे ऊपर: तैरता बटन और फ़ुटर का मस्टहेड */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.totop-mast{text-decoration:none;color:var(--ink);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.totop-mast:hover{transform:translateY(-3px)}
+.totop{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:14;
+  display:grid;place-items:center;align-content:center;gap:0;width:58px;height:58px;border-radius:50%;background:var(--lal);color:#fff;text-decoration:none;
+  box-shadow:0 0 0 4px var(--paper),0 10px 22px -8px rgba(0,0,0,.45);opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .25s,transform .3s cubic-bezier(.2,.8,.2,1),background .2s}
+.totop[hidden]{display:grid}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:var(--ink);color:var(--paper)}
+.totop svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-top:-2px}
+.totop span{font-family:var(--f-ui);font-size:11.5px;font-weight:500;line-height:1;margin-top:-1px}
+@media (max-width:699px){.totop{width:50px;height:50px;right:14px;bottom:calc(78px + env(safe-area-inset-bottom,0px))}.totop svg{width:19px;height:19px}}
+@media print{.totop{display:none!important}}
