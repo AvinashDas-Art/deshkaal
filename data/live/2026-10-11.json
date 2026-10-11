@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11T09:44+05:30",
+ "updated": "2026-10-11T10:49+05:30",
  "counters": [
   {
    "n": "30,000+",
@@ -21,6 +21,22 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-11T10:45+05:30",
+   "kind": "update",
+   "text": "आजतक के लाइव ब्लॉग की ताज़ा सुर्ख़ी के मुताबिक़ दिल्ली पुलिस ने सीजेपी प्रदर्शन से जुड़े मामलों में 20 से ज़्यादा एफ़आईआर दर्ज की हैं और अवमानना याचिका पर सुप्रीम कोर्ट में सुनवाई शुरू हो गयी है। ब्योरा अभी आना बाक़ी।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/news/story/cjp-protest-delhi-cockroach-janta-party-abhijeet-dipke-jantar-mantar-delhi-police-ntc-acwi-2666973-2026-10-11",
+   "verified": false
+  },
+  {
+   "t": "2026-10-11T10:18+05:30",
+   "kind": "update",
+   "text": "एग्ज़ीक्यूटिव मजिस्ट्रेट की अदालत ने अभिजीत दिपके, सौरव दास और आशुतोष रांका को रिहा करने का आदेश दिया। सीजेपी की क़ानूनी प्रमुख रत्ना सिंह के मुताबिक़ शर्त यह है कि तीनों एक साल तक शांति बनाये रखेंगे। तीनों को शनिवार को दिल्ली पहुंचते ही विमान के अंदर से हिरासत में लिया गया था।",
+   "src": "स्क्रॉल, बार एंड बेंच",
+   "url": "https://scroll.in/latest/1096316/delhi-court-orders-release-of-cjp-leaders-abhijeet-dipke-saurav-das-ashutosh-ranka",
+   "verified": true
+  },
   {
    "t": "2026-10-11T09:42+05:30",
    "kind": "news",
@@ -58,6 +74,13 @@
    "src": "आजतक, द ट्रिब्यून",
    "url": "https://www.tribuneindia.com/liveblog/ajinkyashinde/cjp-protest-against-cec-live-to-hold-fresh-protest-at-jantar-mantar-on-sunday",
    "verified": true
+  },
+  {
+   "t": "2026-10-11T08:59+05:30",
+   "kind": "news",
+   "h": "छुट्टी के दिन सुप्रीम कोर्ट की विशेष बैठक: मेट्रो बंदी और ट्रेनें रद्द करने पर गृह सचिव, पुलिस कमिश्नर और डीएमआरसी प्रमुख के ख़िलाफ़ अवमानना याचिका, जस्टिस जॉयमाल्य बागची और जस्टिस वी. मोहना की बेंच सुनेगी",
+   "src": "नया इंडिया, लाइवलॉ हिंदी",
+   "url": "https://nayaindia.com/news/hearing-in-the-metro-case-in-the-supreme-court-today/522978.html"
   },
   {
    "t": "2026-10-11T08:58+05:30",
