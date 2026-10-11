@@ -18,6 +18,7 @@ Snippets alone are never enough for a full summary, `nazar` or `ank`: never writ
 - Scroll.in: https://scroll.in/
 - The Caravan: https://caravanmagazine.in/ (owner-approved for `amukh`, `vichar` and `morcha` analysis; much is paywalled, so only pieces whose full text opens without login or payment)
 - कारवां हिंदी (The Caravan Hindi): https://hindi.caravanmagazine.in/ (same as The Caravan, and the same source for the 2-a-day limit; free pieces only)
+  - **How to check both Caravan sites (tested 11 Oct 2026):** there is **no RSS feed** (`/feed`, `/rss` and `/sitemap.xml` all return 404); find new pieces from the links on the homepage. Open pages with **`curl -sL` in Bash, not WebFetch** (WebFetch cannot resolve these domains from the run). In every article page, check the `"isAccessibleForFree"` value in its JSON-LD: take the piece **only if it is `"True"`** (fully free and open). **Never take a `"False"` piece** (paywalled), even if its full text happens to be present in the page source. On 11 Oct 2026 all 28 pieces checked (14 on each site) were `"False"`, so expect most days to have none.
 - Newslaundry: https://www.newslaundry.com/ (subscriber-only pieces are marked; skip those)
 - Newslaundry Hindi: https://hindi.newslaundry.com/
 - Article 14: https://article-14.com/
