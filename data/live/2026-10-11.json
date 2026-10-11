@@ -1,11 +1,17 @@
 {
- "updated": "2026-10-11T21:58+05:30",
+ "updated": "2026-10-11T22:47+05:30",
  "counters": [
   {
    "n": "100+",
    "label": "रविवार को दिल्ली में हिरासत (शाम तक)",
    "src": "पीटीआई, पुलिस सूत्र (ईटीवी भारत के हवाले से); इंडियन एक्सप्रेस ने कनॉट प्लेस के एक जत्थे में 60-70 बताये; दिन का आधिकारिक आंकड़ा नहीं आया",
    "url": "https://www.etvbharat.com/en/bharat/live-blog--cjp-protest-delhi-live-updates-abhijeet-dipke-dhruv-rathee-jantar-mantar-enn26101100436"
+  },
+  {
+   "n": "300",
+   "label": "रविवार को मुंबई के शिवाजी पार्क पर हिरासत (बाद में रिहा)",
+   "src": "मुंबई पुलिस के डीसीपी महेंद्र पंडित (फ़्री प्रेस जर्नल)",
+   "url": "https://www.freepressjournal.in/mumbai/mumbai-cjp-protest-around-300-detained-at-shivaji-park-shiv-sena-ubt-leader-aaditya-thackeray-amit-thackeray-oppose-police-action"
   },
   {
    "n": "30,000+",
@@ -34,12 +40,27 @@
  ],
  "items": [
   {
+   "t": "2026-10-11T21:53+05:30",
+   "kind": "update",
+   "text": "मुंबई में शिवसेना (यूबीटी) के आदित्य ठाकरे ने हिरासत में लिये गये कार्यकर्ताओं को ले जा रही पुलिस वैन रोकी और चेतावनी दी कि शिवसैनिकों से बदसलूकी हुई तो महाराष्ट्र बंद बुलाया जाएगा। बाद में आदित्य और मनसे के अमित ठाकरे ने शिवाजी पार्क थाने के बाहर से एलान किया कि शिवाजी पार्क, वर्ली और आसपास के थानों में रखे प्रदर्शनकारी छोड़ दिये गये हैं। पुलिस का अलग बयान इस रिपोर्ट में नहीं है।",
+   "src": "फ़्री प्रेस जर्नल",
+   "url": "https://www.freepressjournal.in/mumbai/mumbai-cjp-protest-shiv-sena-ubt-leader-aaditya-thackeray-warns-of-maharashtra-bandh-over-detentions-amit-thackeray-confronts-police",
+   "verified": true
+  },
+  {
    "t": "2026-10-11T21:12+05:30",
    "kind": "update",
    "text": "एसएफ़आई का आरोप, द वायर की रिपोर्ट में: कनॉट प्लेस की तिरंगा रैली से 22 महिला कार्यकर्ताओं को सूरज ढलने के बाद हिरासत में लिया गया, पुरुष पुलिसकर्मियों ने धक्का-मुक्की की और बिना महिला पुलिस वाली बस में ले जाया गया। संगठन इसे बीएनएसएस की धाराओं 43(5) और 46(1) का उल्लंघन बता रहा है। रिपोर्ट में दिल्ली पुलिस का पक्ष नहीं है, रिहाई की जानकारी भी अभी नहीं।",
    "src": "द वायर (एसएफ़आई के हवाले से)",
    "url": "https://m.thewire.in/article/government/women-activists-manhandled-detained-after-sunset-carried-away-in-bus-without-women-cops-say-sfi",
    "verified": false
+  },
+  {
+   "t": "2026-10-11T20:58+05:30",
+   "kind": "news",
+   "h": "मुंबई: शिवाजी पार्क पर क़रीब 300 प्रदर्शनकारी हिरासत में, पुलिस बोली सब रिहा, एफ़आईआर की कार्रवाई जारी; अमित ठाकरे ने कहा, ऐसी कार्रवाई इमरजेंसी में भी नहीं देखी",
+   "src": "फ़्री प्रेस जर्नल",
+   "url": "https://www.freepressjournal.in/mumbai/mumbai-cjp-protest-around-300-detained-at-shivaji-park-shiv-sena-ubt-leader-aaditya-thackeray-amit-thackeray-oppose-police-action"
   },
   {
    "t": "2026-10-11T20:20+05:30",
@@ -110,6 +131,14 @@
    "text": "शाम तक की तस्वीर: कनॉट प्लेस के इनर सर्कल और राजीव चौक से जंतर-मंतर की ओर बढ़ते सैकड़ों प्रदर्शनकारी हिरासत में लिये गये। शनिवार के उलट रविवार को ट्रेन, मेट्रो और बसें आम दिनों की तरह चलीं, इंटरनेट पर रोक नहीं रही और बाज़ार खुले रहे, हालांकि ग्राहक कम दिखे। जंतर-मंतर की ओर जाने वाले 30 से ज़्यादा रास्तों पर ट्रैफ़िक मोड़ा गया।",
    "src": "ईटीवी भारत",
    "url": "https://www.etvbharat.com/en/bharat/second-day-of-cjp-led-protest-several-protesters-detained-train-metro-services-back-to-normal-enn26101102798",
+   "verified": true
+  },
+  {
+   "t": "2026-10-11T17:32+05:30",
+   "kind": "update",
+   "text": "आम आदमी पार्टी की प्रेस कॉन्फ़्रेंस: संजय सिंह ने हरियाणा और महाराष्ट्र के चुनावों में गड़बड़ी का आरोप दोहराया और सीजेपी नेताओं की हिरासत पर सवाल उठाये; गोपाल राय बोले, ज्ञानेश कुमार के इस्तीफ़े तक आंदोलन शांति से चलेगा; सौरभ भारद्वाज ने महिला प्रदर्शनकारियों के कपड़ों पर की गयी टिप्पणियों की निंदा की।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/hi/bharat/cjp-delhi-protest-public-oust-duo-of-pm-modi-and-cec-gyanesh-kumar-from-power-aap-attack-on-bjp-dln26101103887",
    "verified": true
   },
   {
