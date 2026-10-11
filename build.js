@@ -198,6 +198,8 @@ const lead = (L, kick) => `<section class="lead"><a href="${href(L)}" tabindex="
     <div class="row"><span>${T.orig}: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>${T.read(readMin(L))} · ${T.listen(listenMin(L))}</span>${saveBtn(L)}</div>
     <div class="sawal"><small>${T.question}</small><p>${esc(L.sawal)}</p></div></div></section>`;
 /* poster-style hero: split headline, diagonal art panel, big figures, drop-cap opening */
+/* पहले पन्ने की सुर्ख़ी का नाप: जितनी लंबी, उतनी छोटी, ताकि कोई शब्द न कटे */
+const heroSize = h => { const n = [...new Intl.Segmenter("hi", { granularity: "grapheme" }).segment(String(h || ""))].length; return n <= 24 ? "h-s" : n <= 34 ? "h-m" : n <= 46 ? "h-l" : "h-xl"; };
 function splitHead(h) {
   let i = h.indexOf(":"); if (i < 0) i = h.indexOf(","); if (i < 0) i = h.indexOf("،");
   /* Teko में कोलन बहुत छोटा दिखता है; लाल-काले रंग का बंटवारा ही विराम का काम करता है, इसलिए कोलन हटा देते हैं */
@@ -518,7 +520,7 @@ function akhbarPage(day, issueNo, allDays) {
       <div class="np-date"><b>${wd}</b><span>${dt}</span><span>वर्ष 1 · अंक ${issueNo}</span></div>
     </header>
     <div class="np-tagbar"><span>ज़रूरी ख़बरों तक जाती एक पगडंडी</span><span>दुनिया भर की संपादकीय टिप्पणियां, सहज हिंदुस्तानी में</span><span>मूल्य: बस थोड़ा-सा ध्यान</span></div>
-    <article class="np-poster">
+    <article class="np-poster ${heroSize(L.h)}">
       <figure>${img(L)}<figcaption>${cap(L)}</figcaption></figure>
       <div class="np-poster-t"><p class="np-flag"><b>${M ? "सड़क की संसद · विशेष" : "आमुख"}</b> ${esc(L.by)}</p><h2><a href="${href(L)}"><span class="acc">${esc(h1)}</span> <span class="rest">${esc(h2)}</span></a></h2></div>
     </article>

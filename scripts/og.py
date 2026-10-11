@@ -91,10 +91,11 @@ def make(a, ph=None):
     # Teko का कोलन बहुत छोटा दिखता है: लाल हिस्से के बाद का कोलन हटा दें, रंग ही विराम है
     h0 = a["h"]; a = dict(a, h=h0.replace(":", "", 1))
     f, lines, size = None, None, None
-    for s_ in [96, 88, 80, 72, 64, 58]:
-        f, lines, size = fit_headline(d, a["h"], 600, 4, [s_])
-        if len(lines) * int(s_ * 1.02) <= 360 and not lines[-1].endswith("…"): break
-    y = 172; lh = int(size * 1.02)
+    # सुर्ख़ी तिरछी लकीर से पहले ही रहे (लकीर ऊपर x=746, नीचे x=626 पर): चौड़ाई 560, यानी दायां किनारा 620 पर
+    for s_ in [92, 84, 76, 70, 64, 58, 52]:
+        f, lines, size = fit_headline(d, a["h"], 560, 4, [s_])
+        if len(lines) * int(s_ * 1.08) <= 352 and not lines[-1].endswith("…"): break
+    y = 170; lh = int(size * 1.08)
     cut = h0.find(":")
     if cut < 0: cut = h0.find(",")
     red_words = h0[:cut + 1].split() if 0 < cut < len(h0) - 4 else []
@@ -106,8 +107,19 @@ def make(a, ph=None):
             d.text((x, y), w, font=f, fill=fill); x += d.textlength(w + " ", font=f); n += 1
         y += lh
     # source line
-    src = font("NotoSansDevanagari.ttf", 24, 500)
-    d.text((62, H - 70), f"मूल: {a['by']} · {a['pub']}", font=src, fill=(85, 89, 99))
+    # स्रोत की पंक्ति भी लकीर तक न पहुंचे (वहां लकीर x≈640 पर): पहले फ़ॉन्ट छोटा, फिर भी लंबी हो तो आख़िर में …
+    line, room = f"मूल: {a['by']} · {a['pub']}", 560
+    for sz in [24, 22, 20, 18]:
+        src = font("NotoSansDevanagari.ttf", sz, 500)
+        if d.textlength(line, font=src) <= room: break
+    if d.textlength(line, font=src) > room:  # कई लेखक हों तो पहला नाम और "और अन्य", प्रकाशन का नाम पूरा रहे
+        import re as _re
+        line = f"मूल: {_re.split(r',| और ', a['by'])[0].strip()} और अन्य · {a['pub']}"
+        for sz in [24, 22, 20, 18]:
+            src = font("NotoSansDevanagari.ttf", sz, 500)
+            if d.textlength(line, font=src) <= room: break
+    while d.textlength(line, font=src) > room and len(line) > 8: line = line[:-2].rstrip(" ·,") + "…"
+    d.text((62, H - 70), line, font=src, fill=(85, 89, 99))
     d.text((62, H - 38), "deshkaal.xyz", font=font("NotoSansDevanagari.ttf", 22, 700), fill=LAL)
     return img
 

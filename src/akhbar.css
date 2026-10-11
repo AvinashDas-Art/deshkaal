@@ -50,8 +50,10 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-sky{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--rule);padding-bottom:12px}
 .np-sky a{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:center;padding-inline:14px;border-inline-start:1px solid var(--hair)}
 .np-sky a:first-child{border:0;padding-inline-start:0}
+/* तस्वीर न हो तो शीर्षक पूरी चौड़ाई ले, 74px के ख़ाने में न दबे */
+.np-sky a:not(:has(img)){grid-template-columns:1fr}
 .np-sky img{width:74px;height:74px}
-.np-sky span{font-family:var(--f-head);font-weight:500;font-size:23px;line-height:1.1}
+.np-sky span{font-family:var(--f-head);font-weight:500;font-size:23px;line-height:1.18}
 .np-sky small{display:block;font-family:var(--f-ui);font-weight:700;font-size:12.5px;color:var(--red);margin-bottom:2px}
 
 /* मास्टहेड */
@@ -66,17 +68,25 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
 .np-tagbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:13.5px;font-weight:600;padding:5px 12px;margin-bottom:14px}
 
 /* पोस्टर: पूरी चौड़ाई की तस्वीर पर सुर्ख़ी */
-.np-poster{position:relative;margin:0 0 16px;background:#111;overflow:hidden}
-.np-poster figure{margin:0;height:min(58vw,600px)}
-.np-poster figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.82) 100%)}
-.np-poster figcaption{position:absolute;z-index:2;right:12px;top:10px}
-.np-poster figcaption .np-cap{color:rgba(255,255,255,.75);margin:0;font-size:11.5px}
-.np-poster-t{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 34px 26px}
-.np-poster h2{margin:0;font-family:var(--f-poster);font-weight:600;font-size:clamp(60px,9.6vw,136px);line-height:1.14;color:#fff;max-width:16ch;text-shadow:0 2px 18px rgba(0,0,0,.45)}
-.np-poster h2 .acc{text-shadow:none}
+/* तस्वीर और सुर्ख़ी एक ही ग्रिड-ख़ाने में: सुर्ख़ी लंबी हो तो पोस्टर ख़ुद लंबा हो जाता है, कुछ कटता नहीं */
+.np-poster{position:relative;display:grid;margin:0 0 18px;background:#111;overflow:hidden}
+.np-poster>figure,.np-poster>.np-poster-t{grid-area:1/1}
+.np-poster figure{position:relative;margin:0;min-height:min(58vw,600px)}
+.np-poster figure img{position:absolute;inset:0}
+.np-poster figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 72%),linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.3) 34%,rgba(0,0,0,.84) 60%,rgba(0,0,0,.95) 100%)}
+.np-poster figcaption{position:absolute;z-index:2;right:14px;top:12px;max-width:60%;text-align:right}
+.np-poster figcaption .np-cap{color:rgba(255,255,255,.82);margin:0;font-size:11.5px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.9)}
+.np-poster-t{position:relative;z-index:2;align-self:end;padding:64px 40px 34px}
+/* सुर्ख़ी का नाप उसकी लंबाई से (build.js: h-s, h-m, h-l, h-xl) */
+.np-poster h2{--hs:clamp(56px,9.4vw,124px);margin:0;font-family:var(--f-poster);font-weight:600;font-size:var(--hs);line-height:1.16;color:#fff;max-width:17ch;text-wrap:balance;text-shadow:0 2px 20px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.5)}
+.np-poster.h-m h2{--hs:clamp(50px,8.2vw,106px)}
+.np-poster.h-l h2{--hs:clamp(44px,7vw,90px);max-width:19ch}
+.np-poster.h-xl h2{--hs:clamp(38px,5.8vw,74px);max-width:22ch}
 .np-poster h2 a:hover{color:#fff}
-.np-poster h2 .acc{display:table;background:var(--red);color:#fff;padding:.12em .16em 0;line-height:1.02;margin-bottom:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.np-flag{display:inline-flex;align-items:center;gap:10px;margin:0 0 30px;font-family:var(--f-ui);font-size:15px;font-weight:700;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+/* लाल पट्टी: ऊपर मात्राओं और रेफ़ के लिए जगह, नीचे की काली सुर्ख़ी से साफ़ फ़ासला */
+.np-poster h2 .acc{display:table;background:var(--red);color:#fff;text-shadow:none;padding:.2em .24em .06em;line-height:1.2;margin-bottom:.3em;box-shadow:0 6px 24px rgba(0,0,0,.35);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.np-poster h2 .rest{display:block;line-height:1.16}
+.np-flag{display:inline-flex;align-items:center;gap:10px;margin:0 0 22px;font-family:var(--f-ui);font-size:15px;font-weight:700;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
 .np-flag b{background:#fff;color:var(--ink);padding:1px 10px;font-weight:800}
 
 .np-leadgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:30px;padding-bottom:18px;border-bottom:4px double var(--rule)}
@@ -199,8 +209,9 @@ body.np{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-bod
   .np-mast{grid-template-columns:1fr;justify-items:center}
   .np-date{justify-items:center;text-align:center;padding-bottom:6px}
   .np-tagbar span:nth-child(2){display:none}
-  .np-poster figure{height:440px}
-  .np-poster-t{padding:0 16px 18px}
+  .np-poster figure{min-height:440px}
+  .np-poster-t{padding:48px 16px 20px}
+  .np-poster h2{max-width:none}
   .np-leadgrid,.np-edit,.np-news,.np-film-in,.np-pgrid article{grid-template-columns:1fr}
   .np-rail,.np-stack{border:0;padding:0}
   .cols2,.cols3{column-count:1}
