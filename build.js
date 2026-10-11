@@ -67,7 +67,7 @@ let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 /* ---------- layout ---------- */
 function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null }) {
   const B = BRAND[LG];
-  const full = title ? `${title} · ${B}` : `${B} · ${T.tagline}`;
+  const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
   /* दूसरी भाषाओं में यही पन्ना: alt = {hi:url,en:url,ur:url}; न हो तो उस भाषा का पहला पन्ना */
   const pageIn = l => (alt && alt[l]) || (l === "hi" ? "/" : `/${l}/`);
   const hreflang = alt ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
@@ -108,6 +108,13 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}&display=swap">
 <link rel="stylesheet" href="/styles.css?v=${AV}">
 ${extraHead}
+${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JSON.stringify([
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "देशकाल", "alternateName": ["Deshkaal", "deshkaal.xyz", "دیش کال", "Desh Kaal"], "url": SITE + "/", "inLanguage": ["hi", "en", "ur"],
+    "potentialAction": { "@type": "SearchAction", "target": SITE + "/?khoj={search_term_string}", "query-input": "required name=search_term_string" } },
+  { "@context": "https://schema.org", "@type": "NewsMediaOrganization", "name": "देशकाल", "alternateName": "Deshkaal", "url": SITE + "/", "logo": SITE + "/icons/icon-512.png",
+    "description": "ज़रूरी ख़बरों तक जाती एक पगडंडी: दुनिया भर की ज़रूरी संपादकीय टिप्पणियां, सहज हिंदुस्तानी में, रोज़ सुबह।", "email": "sampark@deshkaal.xyz",
+    "sameAs": ["https://t.me/deshkaal", "https://whatsapp.com/channel/0029Vb8hHGPBadmUpTWYYI1W", "https://www.facebook.com/1042770568927482", "https://deshkaalxyz.substack.com"] }
+]).replace(/</g, "\\u003c")}</script>` : ""}
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="brush" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.03 0.11" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
