@@ -366,7 +366,7 @@ function homePage() {
   ${vid ? videoBand(vid) : ""}
   ${lits.length ? `<section class="litband">${head("sahitya")}<div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
   ${toonFor(today.date) ? toonBand(toonFor(today.date)) : ""}
-  ${LG === "hi" ? HS.band() : ""}
+  ${HS.band(LG)}
   ${connect()}`;
   return layout({ title: "", desc: T.homeDesc(dayLabel(today.date), today.items.length), url: PRE + "/", body, tab: "home", catOn: "सब", alt: { hi: "/", en: "/en/", ur: "/ur/" } });
 }
@@ -614,6 +614,7 @@ for (const l of LANGS) {
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
+  if (l !== "hi") { out(`${P}hamsafar/index.html`, HS.galleryPage(l)); HS.ALL.filter(HS.has(l)).forEach(w => out(`${P}hamsafar/${w.id}/index.html`, HS.workPage(w, l))); }
   if (l === "hi" && LIVE_ON) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
     out("live/index.html", livePage(T0, "/live/")); out("live/feed.json", JSON.stringify({ updated: T0.updated || "", day: T0.date }));
@@ -632,7 +633,7 @@ PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
 /* कार्टून की तस्वीर सिर्फ़ उसी दिन से साइट पर जाती है: रिज़र्व वाले data/cartoons/img में छिपे रहते हैं */
 PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"], ["/bhejiye/", "2026-10-11", "monthly"], ["/hamsafar/", HS.ALL[0] ? HS.ALL[0].date : "2026-10-11", "weekly"], ...HS.ALL.map(w => ["/hamsafar/" + w.id + "/", w.date, "monthly"]), ...(LIVE_ON ? [["/live/", latest, "hourly"], ...LIVE_DAYS.map(d => ["/live/" + d.date + "/", d.date, "daily"])] : []), ...(SPECIAL.active ? [["/morcha/", latest, "daily"]] : []),
+  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"], ["/bhejiye/", "2026-10-11", "monthly"], ["/hamsafar/", HS.ALL[0] ? HS.ALL[0].date : "2026-10-11", "weekly"], ...HS.ALL.flatMap(w => ["hi", "en", "ur"].filter(l => HS.has(l)(w)).map(l => [HS.url(w, l), w.date, "monthly"])), ["/en/hamsafar/", "2026-10-11", "weekly"], ["/ur/hamsafar/", "2026-10-11", "weekly"], ...(LIVE_ON ? [["/live/", latest, "hourly"], ...LIVE_DAYS.map(d => ["/live/" + d.date + "/", d.date, "daily"])] : []), ...(SPECIAL.active ? [["/morcha/", latest, "daily"]] : []),
     ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
     ...["en", "ur"].flatMap(l => daysFor(l).length ? [[`/${l}/`, latest, "daily"], ...daysFor(l).flatMap(d => d.items.map(a => [hrefL(a, l), a.day, "monthly"]))] : [])];
   out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }

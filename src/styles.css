@@ -1052,7 +1052,19 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
   .hw-cover,.hw-essay .hw-fig{width:calc(100vw - 32px);margin-inline:calc(50% - 50vw + 16px)}
 }
 @media (max-width:520px){.hsi-kg,.hsi-rg,.hsi-tl{grid-template-columns:minmax(0,1fr)}}
-html[lang="ur"] .hs-band,html[lang="en"] .hs-band{display:none}
+.hw-langs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:var(--s2) 0 0;font-family:var(--f-ui);font-size:14.5px;color:var(--ink-2)}
+.hw-langs a{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border:1.5px solid var(--geru);border-radius:999px;color:var(--geru);text-decoration:none}
+.hw-langs a:hover{background:var(--geru);color:var(--paper)}
+.hw-langs a[lang="ur"]{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;font-size:15px}
+html[dir="rtl"] .hw-head.has-pic{padding-right:0;padding-left:250px}
+html[dir="rtl"] .hw-pic{right:auto;left:0;transform:rotate(-2.5deg)}
+html[dir="rtl"] .hw-pic .hs-stamp{left:auto;right:-34px}
+html[dir="rtl"] .hw-head .hs-stamp{right:auto;left:0}
+html[dir="rtl"] .hw-pic .hs-stamp{left:auto;right:-34px}
+html[dir="rtl"] .hw-fig figcaption{padding-left:0;padding-right:var(--s2);border-left:0;border-right:3px solid var(--lal)}
+html[lang="ur"] .hw-body{line-height:2.2}
+html[lang="ur"] .hw-pull{line-height:1.9}
+@media (max-width:760px){html[dir="rtl"] .hw-head.has-pic{padding-left:0}html[dir="rtl"] .hw-pic{float:left;margin:0 var(--s3) var(--s2) 0}html[dir="rtl"] .hw-pic .hs-stamp{right:-24px}}
 .hw-fig img{max-height:84vh;width:auto;max-width:100%;margin-inline:auto}
 
 /* सबसे ऊपर: तैरता बटन और फ़ुटर का मस्टहेड */

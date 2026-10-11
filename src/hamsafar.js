@@ -28,7 +28,29 @@ function load() {
 module.exports = function (H) {
   const { layout, esc, dayLabel, SITE, LATEST } = H;
   const ALL = load().filter(w => w.date <= LATEST);
-  const url = w => `/hamsafar/${w.id}/`;
+  /* तीन भाषाएं: हिंदी मूल, अंग्रेज़ी और उर्दू अनुवाद (w.en, w.ur) */
+  const P = lg => lg === "hi" ? "" : "/" + lg;
+  const url = (w, lg = "hi") => `${P(lg)}/hamsafar/${w.id}/`;
+  const has = lg => w => lg === "hi" || !!w[lg];
+  const loc = (w, lg) => lg === "hi" || !w[lg] ? w : { ...w, ...w[lg], images: (w.images || []).map((im, i) => ({ ...im, ...((w[lg].images || [])[i] || {}) })) };
+  const TX = {
+    hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
+      fine: by => `यह रचना ${by} ने देशकाल को भेजी है। इसके सारे अधिकार उन्हीं के हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
+      bandSub: "पाठकों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "पाठकों की ओर से",
+      galI: "ये रचनाएं देशकाल के पाठकों ने भेजी हैं: लेख, कविताएं, कहानियां, कार्टून और तस्वीरें। हर रचना पढ़कर, जांचकर, उनके नाम के साथ छापी गयी है।", first: "पहली रचना आपकी हो सकती है।",
+      galT: "हमसफ़र: पाठकों की रचनाएं", galD: "देशकाल के पाठकों के भेजे लेख, कविताएं, कहानियां, कार्टून और तस्वीरें।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
+    en: { sec: "Hamsafar", kind: { lekh: "Essay", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
+      fine: by => `${by} sent this piece to Deshkaal. All rights remain with the writer.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
+      bandSub: "Readers' own writing, cartoons and photographs, sent to Deshkaal", all: "All pieces →", send: "Send your work", galK: "From our readers",
+      galI: "Hamsafar means fellow traveller. These are pieces our readers have sent to Deshkaal: essays, poems, stories, cartoons and photographs, each one read, checked and published under the writer's name, and translated from the original with care.", first: "The first piece could be yours.",
+      galT: "Hamsafar: readers' own work", galD: "Essays, memoirs, poems, stories, cartoons and photographs sent to Deshkaal by its readers.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
+    ur: { sec: "ہم سفر", kind: { lekh: "مضمون", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
+      fine: by => `یہ تحریر ${by} نے دیش کال کو بھیجی ہے۔ اس کے تمام حقوق انہی کے ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
+      bandSub: "قارئین کی تحریریں، کارٹون اور تصویریں، جو دیش کال کو بھیجی گئیں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "قارئین کی طرف سے",
+      galI: "یہ تحریریں دیش کال کے قارئین نے بھیجی ہیں: مضمون، نظمیں، کہانیاں، کارٹون اور تصویریں۔ ہر تحریر پڑھ کر، جانچ کر، لکھنے والے کے نام کے ساتھ چھاپی گئی ہے، اور اصل سے احتیاط کے ساتھ ترجمہ کی گئی ہے۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
+      galT: "ہم سفر: قارئین کی تحریریں", galD: "دیش کال کے قارئین کی بھیجی ہوئی تحریریں، نظمیں، کہانیاں، کارٹون اور تصویریں۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
+  };
+  const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
   const initial = s => [...s.trim()][0] || "द";
   /* लेखक की तस्वीर हो तो वही, वरना नाम का पहला अक्षर लाल गोले में */
@@ -48,35 +70,36 @@ module.exports = function (H) {
 
 रचना (यहां लिखें, या फ़ाइल जोड़ें):
 `);
-  const share = (u, title) => { const U = encodeURIComponent(SITE + u), t = encodeURIComponent(title);
-    return `<div class="share" data-url="${SITE}${u}" data-title="${esc(title)}"><span class="share-l">आगे भेजिए</span>
-    <button class="sh sh-native" type="button" hidden>शेयर करें</button>
+  const share = (u, title, lg = "hi") => { const X = TX[lg]; const U = encodeURIComponent(SITE + u), t = encodeURIComponent(title);
+    return `<div class="share" data-url="${SITE}${u}" data-title="${esc(title)}"><span class="share-l">${X.share}</span>
+    <button class="sh sh-native" type="button" hidden>${X.native}</button>
     <a class="sh" href="https://wa.me/?text=${t}%0A${U}" target="_blank" rel="noopener">WhatsApp</a>
     <a class="sh" href="https://t.me/share/url?url=${U}&text=${t}" target="_blank" rel="noopener">Telegram</a>
     <a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${U}" target="_blank" rel="noopener">X</a>
     <a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${U}" target="_blank" rel="noopener">Facebook</a>
-    <button class="sh sh-copy" type="button">लिंक कॉपी</button></div>`; };
+    <button class="sh sh-copy" type="button">${X.copy}</button></div>`; };
 
   /* डाक टिकट: हर रचना का अपना */
-  const stamp = (w, big) => `<span class="hs-stamp${big ? " big" : ""}" aria-hidden="true"><span class="hs-st-in"><i></i><b>${KIND[w.kind]}</b><small>हमसफ़र ${deva(w.no)}</small></span></span>`;
+  const stamp = (w, big, lg = "hi") => `<span class="hs-stamp${big ? " big" : ""}" aria-hidden="true"><span class="hs-st-in"><i></i><b>${TX[lg].kind[w.kind] || KIND[w.kind]}</b><small>${TX[lg].sec} ${deva(w.no)}</small></span></span>`;
   const thumb = w => w.images && w.images[0] ? `<img src="${esc(w.images[0].src)}" alt="" loading="lazy"${w.images[0].w ? ` width="${w.images[0].w}" height="${w.images[0].h}"` : ""}>` : "";
 
-  const card = w => `<article class="hs-card k-${w.kind}${w.images && w.images[0] ? " has-img" : ""}"><a href="${url(w)}">
+  const card = (w0, lg = "hi") => { const w = loc(w0, lg); return `<article class="hs-card k-${w.kind}${w.images && w.images[0] ? " has-img" : ""}"><a href="${url(w, lg)}">
     ${w.images && w.images[0] ? `<span class="hs-thumb">${thumb(w)}</span>` : `<span class="hs-quote">${esc(w.pull || w.dek || "")}</span>`}
-    ${stamp(w)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by">${w.photo ? av(w, " sm") : ""}<b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}</span></span></a></article>`;
+    ${stamp(w, false, lg)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by">${w.photo ? av(w, " sm") : ""}<b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}</span></span></a></article>`; };
 
   /* पहले पन्ने का बैंड: रचनाएं हों तो ताज़ा तीन, न हों तो न्योते का पोस्टकार्ड */
-  function band() {
-    const recent = ALL.slice(0, 3);
+  function band(lg = "hi") {
+    const X = TX[lg], recent = ALL.filter(has(lg)).slice(0, 3);
+    if (!recent.length && lg !== "hi") return "";
     if (!recent.length) return `<section class="hs-band hs-empty"><div class="hs-pc">
       <div class="hs-pc-l"><p class="hs-k">हमसफ़र · न्योता</p><h3>यह पगडंडी आपके क़दमों से भी बनेगी</h3>
       <p>लेख, कविता, कहानी, रिपोर्ताज, कार्टून या तस्वीरें: इस वक़्त पर आपकी नज़र देशकाल पर छप सकती है, आपके नाम के साथ, पूरे सलीक़े से।</p>
       <a class="hs-btn" href="/bhejiye/">रचना भेजिए</a></div>
       <div class="hs-pc-r" aria-hidden="true"><span class="hs-pc-lines"><i>सेवा में,</i><i>संपादक, देशकाल</i><i>${MAIL}</i></span>${stamp({ kind: "lekh", no: 1 }, true).replace("लेख", "आपकी रचना").replace("हमसफ़र 1", "डाक मुफ़्त")}<span class="hs-postmark"><svg viewBox="0 0 100 100"><defs><path id="hspm" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="27"/><text><textPath href="#hspm">देशकाल · पाठकों की डाक · देशकाल ·</textPath></text></svg></span></div>
     </div></section>`;
-    return `<section class="hs-band"><div class="sechead sec-hamsafar"><h3>हमसफ़र</h3><p>पाठकों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं</p></div>
-      <div class="hs-grid n${recent.length}">${recent.map(card).join("")}</div>
-      <p class="hs-more"><a href="/hamsafar/">सारी रचनाएं →</a><a class="hs-btn sm" href="/bhejiye/">अपनी रचना भेजिए</a></p></section>`;
+    return `<section class="hs-band"><div class="sechead sec-hamsafar"><h3>${X.sec}</h3><p>${X.bandSub}</p></div>
+      <div class="hs-grid n${recent.length}">${recent.map(w => card(w, lg)).join("")}</div>
+      <p class="hs-more"><a href="${P(lg)}/hamsafar/">${X.all}</a><a class="hs-btn sm" href="/bhejiye/">${X.send}</a></p></section>`;
   }
 
   /* न्योते का पन्ना */
@@ -172,7 +195,7 @@ module.exports = function (H) {
     </div>
   </section>
 
-  ${recent.length ? `<section class="hsi-recent"><h2 class="hsi-h">हमसफ़र में हाल में</h2><div class="hs-grid n${recent.length}">${recent.map(card).join("")}</div><p class="hs-more"><a href="/hamsafar/">सारी रचनाएं →</a></p></section>` : ""}
+  ${recent.length ? `<section class="hsi-recent"><h2 class="hsi-h">हमसफ़र में हाल में</h2><div class="hs-grid n${recent.length}">${recent.map(w => card(w)).join("")}</div><p class="hs-more"><a href="/hamsafar/">सारी रचनाएं →</a></p></section>` : ""}
 
   <section class="hsi-end"><p>आपकी रचना का इंतज़ार है।</p><a class="hs-btn big" href="${SEND}">रचना भेजिए</a><p class="hsi-mail">${MAIL}</p></section>
 </div>`;
@@ -180,16 +203,18 @@ module.exports = function (H) {
   }
 
   /* सारी रचनाएं */
-  function galleryPage() {
-    const body = `<section class="hs-gal"><p class="hs-k">पाठकों की ओर से</p><h1>हमसफ़र</h1>
-      <p class="hs-gal-i">ये रचनाएं देशकाल के पाठकों ने भेजी हैं: लेख, कविताएं, कहानियां, कार्टून और तस्वीरें। हर रचना पढ़कर, जांचकर, उनके नाम के साथ छापी गयी है।</p>
-      ${ALL.length ? `<div class="hs-grid all">${ALL.map(card).join("")}</div>` : `<p class="hs-first">पहली रचना आपकी हो सकती है।</p>`}
-      <p class="hs-more"><a class="hs-btn" href="/bhejiye/">अपनी रचना भेजिए</a></p></section>`;
-    return layout({ title: "हमसफ़र: पाठकों की रचनाएं", desc: "देशकाल के पाठकों के भेजे लेख, कविताएं, कहानियां, कार्टून और तस्वीरें।", url: "/hamsafar/", body });
+  function galleryPage(lg = "hi") {
+    const X = TX[lg], list = ALL.filter(has(lg));
+    const body = `<section class="hs-gal"><p class="hs-k">${X.galK}</p><h1>${X.sec}</h1>
+      <p class="hs-gal-i">${X.galI}</p>
+      ${list.length ? `<div class="hs-grid all">${list.map(w => card(w, lg)).join("")}</div>` : `<p class="hs-first">${X.first}</p>`}
+      <p class="hs-more"><a class="hs-btn" href="/bhejiye/">${X.send}</a></p></section>`;
+    return layout({ title: X.galT, desc: X.galD, url: `${P(lg)}/hamsafar/`, body, alt: { hi: "/hamsafar/", en: "/en/hamsafar/", ur: "/ur/hamsafar/" } });
   }
 
   /* एक रचना का पन्ना */
-  function workPage(w) {
+  function workPage(w0, lg = "hi") {
+    const w = loc(w0, lg), X = TX[lg], langs = ["hi", "en", "ur"].filter(l => l === "hi" || w0[l]);
     const imgs = w.images || [], body = w.body || [];
     const fig = (im, cls = "") => `<figure class="hw-fig ${cls}"><img src="${esc(im.src)}" alt="${esc(im.alt || im.cap || w.h)}"${im.w ? ` width="${im.w}" height="${im.h}"` : ""} loading="lazy">${im.cap ? `<figcaption>${esc(im.cap)}</figcaption>` : ""}</figure>`;
     let main = "";
@@ -205,27 +230,29 @@ module.exports = function (H) {
       const paras = body.map((p, i) => `<p>${esc(p)}</p>${w.pull && i === at - 1 && body.length > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && i === Math.min(body.length - 2, at + 1) ? fig(imgs[1]) : ""}`).join("");
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
     }
-    const others = ALL.filter(x => x.id !== w.id).slice(0, 3);
+    const others = ALL.filter(has(lg)).filter(x => x.id !== w.id).slice(0, 3);
     const pic = w.photo && !(imgs[0] && w.kind !== "kavita");
     const page = `<article class="hw k-${w.kind}">
-      <a class="back" href="/hamsafar/">← हमसफ़र</a>
+      <a class="back" href="${P(lg)}/hamsafar/">${X.back}</a>
       <header class="hw-head${pic ? " has-pic" : ""}">
-        ${pic ? `<figure class="hw-pic"><img src="${esc(w.photo)}" alt="${esc(w.by)}"><figcaption>${esc(w.by)}</figcaption>${stamp(w)}</figure>` : stamp(w, true)}
-        <p class="hs-k">हमसफ़र ${deva(w.no)} · ${KIND[w.kind]}${w.cat ? " · " + esc(w.cat) : ""}</p>
+        ${pic ? `<figure class="hw-pic"><img src="${esc(w.photo)}" alt="${esc(w.by)}"><figcaption>${esc(w.by)}</figcaption>${stamp(w, false, lg)}</figure>` : stamp(w, true, lg)}
+        <p class="hs-k">${X.sec} ${deva(w.no)} · ${X.kind[w.kind]}${w.cat && lg === "hi" ? " · " + esc(w.cat) : ""}${lg !== "hi" ? " · " + X.orig : ""}</p>
         <h1>${esc(w.h)}</h1>${w.dek ? `<p class="hw-dek">${esc(w.dek)}</p>` : ""}
         <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}</small></span></p>
+        ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
       </header>
       ${main}
-      ${w.note ? `<aside class="hw-ed"><small>संपादक की बात</small><p>${esc(w.note)}</p></aside>` : ""}
-      <aside class="hw-author">${av(w, " big")}<div><small>रचनाकार</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}</div></aside>
-      ${share(url(w), w.h)}
-      <p class="fine">यह रचना ${esc(w.by)} ने देशकाल को भेजी है। इसके सारे अधिकार उन्हीं के हैं।${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
-      <a class="hw-invite" href="/bhejiye/"><span class="hs-k">आप भी हमसफ़र बनिए</span><b>अपनी रचना देशकाल को भेजिए →</b></a>
-      ${others.length ? `<div class="hw-others"><h5>हमसफ़र में और</h5><div class="hs-grid n${others.length}">${others.map(card).join("")}</div></div>` : ""}
+      ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${esc(w.note)}</p></aside>` : ""}
+      <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}</div></aside>
+      ${share(url(w0, lg), w.h, lg)}
+      <p class="fine">${esc(X.fine(w.by))}${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
+      <a class="hw-invite" href="/bhejiye/"><span class="hs-k">${X.invK}</span><b>${X.invB}</b></a>
+      ${others.length ? `<div class="hw-others"><h5>${X.more}</h5><div class="hs-grid n${others.length}">${others.map(o => card(o, lg)).join("")}</div></div>` : ""}
     </article>`;
-    const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: w.lang || "hi", author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
-    return layout({ title: `${w.h}: ${w.by}`, desc: w.dek || `${w.by} की ${KIND[w.kind]}, हमसफ़र में`, url: url(w), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
+    const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: lg, ...(lg !== "hi" ? { translationOfWork: { "@type": "CreativeWork", url: SITE + url(w0) , inLanguage: "hi" } } : {}), author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
+    const alt = Object.fromEntries(langs.map(l => [l, url(w0, l)]));
+    return layout({ alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
   }
 
-  return { ALL, band, invitePage, galleryPage, workPage, url };
+  return { ALL, has, band, invitePage, galleryPage, workPage, url };
 };
