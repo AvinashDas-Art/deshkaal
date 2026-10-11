@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11T14:43+05:30",
+ "updated": "2026-10-11T15:08+05:30",
  "counters": [
   {
    "n": "30,000+",
@@ -27,6 +27,21 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-11T15:08+05:30",
+   "kind": "news",
+   "h": "गांधी बनकर दौड़ता प्रदर्शनकारी, पुलिस से छूटकर भागते लोग: सीजेपी प्रदर्शन के वायरल वीडियो एक जगह",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/trending/story/cjp-protest-delhi-police-viral-videos-tstf-dskc-2667200-2026-10-11"
+  },
+  {
+   "t": "2026-10-11T15:08+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: इंडिया टीवी के लाइव ब्लॉग के मुताबिक़ भाजपा ने शनिवार के प्रदर्शन को 'फ़्लॉप शो' और भीड़तंत्र की हार बताया, और आरोप लगाया कि राहुल गांधी समेत विपक्षी नेता विदेशी ताक़तों के इशारे पर अराजकता फैला रहे हैं। ये भाजपा के आरोप हैं।",
+   "src": "इंडिया टीवी",
+   "url": "https://www.indiatvnews.com/news/india/cjp-jantar-mantar-protest-live-updates-cec-gyanesh-kumar-sir-abhijeet-dipke-delhi-police-traffic-advisory-live-blog-1056659",
+   "verified": false
+  },
   {
    "t": "2026-10-11T14:26+05:30",
    "kind": "update",
