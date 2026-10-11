@@ -46,4 +46,7 @@ jobs:
           m=$(ist_min)
           if [ "${{ github.event_name }}" = "schedule" ] && { [ $m -lt 430 ] || [ $m -ge 1320 ]; }; then echo "सुबह 7:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
           # सुबह वाला काम छूट गया हो तो पहला next ही पूरा अंक भेज दे (social.js खुद देखता है क्या जा चुका है)
-          node scripts/social.js "$MODE" || true; record
+          # पोस्ट फ़ेल हो (टोकन, API) तो रन लाल हो, पर जो जा चुका उसका हिसाब पहले दर्ज हो जाए
+          rc=0; node scripts/social.js "$MODE" || rc=$?
+          record
+          if [ $rc -ne 0 ]; then echo "::error::सोशल पोस्ट फ़ेल (टोकन या API की ग़लती, ऊपर देखें)"; exit $rc; fi
