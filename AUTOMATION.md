@@ -23,7 +23,8 @@ Every day, finish by 07:00 IST. Sunday runs additionally write the weekly specia
 6. Run `python3 scripts/og.py` (makes the social-media preview image for each new piece in `public/og/`; needs Pillow, install with `pip install --break-system-packages pillow` if missing), then `node build.js`. Both must finish without errors. Cards for pieces with a `photo` will show the halftone here (Unsplash is not reachable from the run); the GitHub workflow `og-photos.yml` redraws them with the real photo within a couple of minutes of the push. Do not try to fix this in the run.
 7. Check: every `url` opens and is free to read; spelling rules hold (`grep -nE "ँ|—|–|गए|गई|हुयी|जायेग|सम्पूर्ण|अंय|श्रृ"` over the new day file must return nothing).
 8. Commit `data/days/YYYY-MM-DD.json`, `data/i18n/en/YYYY-MM-DD.json`, `data/i18n/ur/YYYY-MM-DD.json` and the new `public/og/*.png` files with message `देशकाल: YYYY-MM-DD` and push to `main`. Cloudflare Pages deploys automatically.
-9. Report: number of pieces, sources used, sources that failed.
+8a. **Social posts (owner's rule: the runs make sure posting happens, GitHub's own timer is only a backup):** right after the push, trigger the GitHub workflow `social.yml` on `main` with input `mode: morning` (GitHub MCP tool `actions_run_trigger`, method `run_workflow`). About two minutes later `git pull` and check that `data/social/<today>.json` has `fb.morning` and `ig.morning`. If not, read the run's log (`get_job_logs`), fix what is ours to fix and trigger once more; otherwise say so in the report.
+9. Report: number of pieces, sources used, sources that failed, and whether the morning social post went out.
 
 ## Writing rules
 - Plain, natural Hindustani (Hindi with natural Urdu words). No bookish Sanskritised Hindi. No melodrama, no sermonising.
@@ -136,6 +137,7 @@ Separate scheduled runs check through the day (from about 10-11 am IST). Each ru
 3. If there is something new and worth it, add it as `sec: "morcha"` with the next free id (`YYYY-MM-DD-NN`). If it is clearly stronger than one of the current six, place it among the six; the lead changes only if a far stronger long essay appears. If nothing new is worth adding, change nothing and do not commit.
 4. Translate only the new items and append them to `data/i18n/en/` and `data/i18n/ur/` for the day (TRANSLATION.md).
 5. Update `"updated"` in `data/special.json`, run `python3 scripts/og.py` and `node build.js`, run the spelling grep, commit `सड़क की संसद: अपडेट HH:MM`, push.
+6. **Social posts, every run, even when nothing new was found:** if the IST time is between 07:10 and 22:00, trigger the GitHub workflow `social.yml` on `main` with input `mode: next` (GitHub MCP `actions_run_trigger`, method `run_workflow`). It posts the next story of the day to Facebook (and Instagram on its own rhythm); `scripts/social.js` records everything in `data/social/<day>.json`, so nothing is posted twice, and if the morning roundup was missed it sends that first. GitHub's own scheduled timer for this workflow often skips hours, so these triggers keep posting regular. If the workflow fails twice in a row, read the log and note it in the report.
 
 ## Layout: no holes
 The owner's rule: an empty slot in a grid is filled with **one more piece**, never by stretching a card. So `vichar` is always 6, `khabar` always 6 or 8, the special section always lead + 6 (extra pieces go to "आज और भी"). Only गांव-जवार (PARI) may end on a single wide card. See DESIGN.md.
