@@ -174,3 +174,15 @@ setInterval(()=>{fetch("/live/feed.json?_="+Date.now(),{cache:"no-store"}).then(
 nb&&nb.addEventListener("click",()=>location.reload());
 L.addEventListener("click",e=>{const b=e.target.closest(".lv-rplay");if(!b)return;const f=document.createElement("iframe");
 f.src="https://www.instagram.com/reel/"+b.dataset.ig+"/embed/";f.allow="autoplay; encrypted-media; picture-in-picture";f.allowFullscreen=true;f.loading="lazy";f.className="lv-rframe";f.title="Instagram रील";b.replaceWith(f);});})();
+/* r3con: बाहरी लाइव बोर्ड, पन्ने के ऊपर खिड़की में; बंद करने पर पूरी तरह रुक जाता है */
+document.addEventListener("click",e=>{const a=e.target.closest(".r3open");if(!a||e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();
+let d=document.getElementById("r3dlg");
+if(!d){d=document.createElement("dialog");d.id="r3dlg";d.className="r3dlg";d.setAttribute("aria-label","r3con लाइव बोर्ड");
+d.innerHTML='<div class="r3bar"><span class="r3t"><i></i>चलती तस्वीरें, लाइव · r3con.net <small>बाहरी साइट, देशकाल से अलग</small></span><a class="r3new" href="https://r3con.net/" target="_blank" rel="noopener">नयी टैब में ↗</a><button class="r3x" type="button" aria-label="बंद करें">✕</button></div><div class="r3body"><iframe title="r3con लाइव बोर्ड" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe><p class="r3fb">न दिखे तो <a href="https://r3con.net/" target="_blank" rel="noopener">नयी टैब में खोलिए ↗</a></p></div>';
+document.body.appendChild(d);
+const close=()=>{d.querySelector("iframe").src="about:blank";d.close();document.documentElement.classList.remove("r3lock")};
+d.querySelector(".r3x").addEventListener("click",close);
+d.addEventListener("cancel",ev=>{ev.preventDefault();close()});
+d.addEventListener("click",ev=>{if(ev.target===d)close()});}
+d.querySelector("iframe").src="https://r3con.net/";
+document.documentElement.classList.add("r3lock");d.showModal();});

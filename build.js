@@ -315,7 +315,7 @@ function livePage(latest, url) {
     <div class="lv-meta"><span>आख़िरी अपडेट</span><b>${hm(updated)}</b><button class="lv-new" id="lvnew" type="button" hidden>नये अपडेट आये हैं, देखिए ↻</button><a href="/morcha/">विश्लेषण पढ़िए →</a></div></header>
   ${latest.counters && latest.counters.length ? `<div class="lv-count">${latest.counters.map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener"><b>${esc(c.n)}</b><span>${esc(c.label)}</span><small>${esc(c.src)}</small></a>`).join("")}</div>` : ""}
   ${all.length ? `  <nav class="lv-filter" aria-label="छांटिए">${F.map(([k, l], i) => `<button type="button" data-f="${k}" aria-pressed="${i === 0}">${l}</button>`).join("")}</nav>
-  <a class="lv-r3" href="https://r3con.net/" target="_blank" rel="noopener"><span class="lv-r3-k">चलती तस्वीरें, सीधे लाइव</span><b>सड़क से आती लाइव स्ट्रीम एक साथ, एक स्क्रीन पर: r3con.net</b><small>YouTube, Instagram और X की सार्वजनिक लाइव स्ट्रीम दिखाने वाला खुला बोर्ड · देशकाल से अलग, बाहरी साइट ↗</small></a>
+  <a class="lv-r3 r3open" href="https://r3con.net/" target="_blank" rel="noopener"><span class="lv-r3-k">चलती तस्वीरें, सीधे लाइव</span><b>सड़क से आती लाइव स्ट्रीम एक साथ, एक स्क्रीन पर: r3con.net</b><small>YouTube, Instagram और X की सार्वजनिक लाइव स्ट्रीम दिखाने वाला खुला बोर्ड · देशकाल से अलग, बाहरी साइट · यहीं खुलेगा</small></a>
   <div class="lv-main">
     <div class="lv-vids" data-k="video">${vids.map(vid).join("")}</div>
     <aside class="lv-time" data-k="update"><h3>पल-पल</h3><ol>${ups.map(up).join("")}</ol></aside>
@@ -338,7 +338,7 @@ function liveTeaser() {
   const ups = its.filter(x => x.kind === "update").slice(0, 4), nV = its.filter(x => x.kind === "video" || x.kind === "reel").length, nP = its.filter(x => x.kind === "post" || x.kind === "news").length;
   const hm = t => (t || "").slice(11, 16);
   return `<section class="lvt"><div class="lvt-head"><p class="lvt-k"><i aria-hidden="true"></i>लाइव दीवार${d.updated ? ` · अपडेट ${hm(d.updated)}` : ""}</p><h3>आंदोलन, पल-पल</h3><p class="lvt-s">${its.length ? `आज अब तक ${ups.length ? its.filter(x => x.kind === "update").length + " अपडेट, " : ""}${nV} वीडियो और रील्स, ${nP} ख़बरें और पोस्ट। हर घंटे ताज़ा।` : "आज की दीवार सुबह 9:37 से भरनी शुरू होगी, फिर हर घंटे ताज़ा।"}</p>
-    <div class="lvt-btns"><a class="lvt-go" href="/live/">लाइव दीवार खोलिए →</a><a class="lvt-r3" href="https://r3con.net/" target="_blank" rel="noopener">चलती तस्वीरें: r3con ↗</a></div></div>
+    <div class="lvt-btns"><a class="lvt-go" href="/live/">लाइव दीवार खोलिए →</a><a class="lvt-r3 r3open" href="https://r3con.net/" target="_blank" rel="noopener">▶ चलती तस्वीरें: r3con</a></div></div>
     ${ups.length ? `<ol class="lvt-list">${ups.map(x => `<li><time>${hm(x.t)}</time><span>${esc(x.text)}${x.verified === false ? ` <em>अपुष्ट</em>` : ""}</span></li>`).join("")}</ol>` : (d.counters || []).length ? `<div class="lvt-count">${d.counters.slice(0, 3).map(c => `<div><b>${esc(c.n)}</b><span>${esc(c.label)}</span></div>`).join("")}</div>` : ""}</section>`;
 }
 /* ---------- pages ---------- */

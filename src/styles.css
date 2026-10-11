@@ -823,3 +823,20 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .lv-r3 small{font-family:var(--f-ui);font-size:13px;color:var(--lv-dim)}
 .lv-main:has(.lv-vids:empty){grid-template-columns:minmax(0,1fr)}
 .lv-main:has(.lv-vids:empty) .lv-time{position:static;max-height:none}
+/* r3con की खिड़की */
+.r3lock{overflow:hidden}
+.r3dlg{width:min(1280px,96vw);height:min(860px,92vh);max-width:none;max-height:none;padding:0;border:1px solid #2a4a63;border-radius:10px;background:#000;color:#ECEAE3;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.r3dlg::backdrop{background:rgba(8,9,11,.78);backdrop-filter:blur(3px)}
+.r3dlg[open]{display:flex;flex-direction:column}
+.r3bar{display:flex;align-items:center;gap:var(--s2);padding:10px 14px;background:#0d1117;border-bottom:1px solid #1f2a35;font-family:var(--f-ui);font-size:14px}
+.r3t{flex:1;display:flex;align-items:center;gap:8px;font-weight:700;color:#41b3ff;min-width:0}
+.r3t i{width:9px;height:9px;border-radius:50%;background:var(--lal);animation:mrpulse 1.6s infinite;flex:none}
+.r3t small{font-weight:400;color:#9EA0A3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r3new{color:#ECEAE3;border:1px solid #2C2F35;padding:4px 10px;border-radius:4px;white-space:nowrap}
+.r3x{font:inherit;font-size:18px;line-height:1;width:34px;height:34px;border-radius:50%;border:1px solid #2C2F35;background:#1B1D21;color:#fff;cursor:pointer}
+.r3x:hover{background:var(--lal);border-color:var(--lal)}
+.r3body{position:relative;flex:1}
+.r3body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;background:transparent}
+.r3fb{position:absolute;inset:auto 0 50% 0;text-align:center;font-family:var(--f-ui);font-size:14px;color:#9EA0A3;z-index:0}
+.r3fb a{color:#41b3ff;text-decoration:underline}
+@media (max-width:640px){.r3dlg{width:100vw;height:100dvh;border-radius:0;border:0}.r3t small{display:none}}
