@@ -27,7 +27,7 @@ Snippets are enough for discovery, for a `khabar` or live-wall line, and for che
    - `amukh` (1): the lead. A long, serious editorial essay or column by a major writer/thinker (see `WRITERS.md`) on the most relevant subject of the moment, published in the last 72 hours. Never a news report. If no such essay is free to read, take the strongest long editorial essay from any source in `SOURCES.md`, never a plain news story.
    - `vichar` (exactly 6, never fewer: the grid is three columns and a missing piece leaves a hole; if one fails, find another): editorial and opinion pieces from around the world on contemporary social and political events. Commentary and analysis only, no everyday news reports. Mix India, South Asia and the world.
    - `khabar` (6 or 8, **never an odd number**: the list is two columns and an odd count leaves a hole): the important news reports of **yesterday only** (published the previous calendar day, IST; at most the day before that if nothing else). Reports, ground stories, fact-checks: the Form 6 / students' march / attack-on-journalist kind of story.
-   - `pari` (every new PARI story): every PARI (ruralindiaonline.org) story published in the **last 3 months** that is not already on the site, newest first, at most 4 a day (keep the rest for the next days). **Never anything older than 3 months.** If there is none, the section is skipped that day.
+   - `pari` (गांव-जवार, ग्रामीण पत्रकारिता): rural ground reports and analysis from any credible source in SOURCES.md, not only PARI or खबर लहरिया. Select by rural subject and reporting, set explicit `sec: "pari"`, preserve actual publisher in `pub`. Never literature, unrelated general opinion or video. Do not force three cards or fill gaps with off-topic pieces. For PARI: every PARI (ruralindiaonline.org) story published in the **last 3 months** that is not already on the site, newest first, at most 4 a day (keep the rest for the next days). **Never anything older than 3 months.** If there is none, the section is skipped that day.
    - `video` (exactly 1, every day, never repeated): see "रोशनदान" below.
    - `sahitya` (exactly 6): literature, as before.
    PARI pieces do not count towards `vichar` or `khabar`. Never select paywalled pieces. At most 2 pieces from one source in a day (PARI excepted).
@@ -82,7 +82,7 @@ Snippets are enough for discovery, for a `khabar` or live-wall line, and for che
 `motif` picks the collage drawing; choose the one closest to the subject. `seed` is any number, different for each piece.
 
 ## The issue: sections
-The front page shows, in order: आमुख (lead), नुक़्ता-ए-नज़र (6 editorials), कल का कच्चा चिट्ठा (yesterday's news), गांव-जवार (PARI), रोशनदान (today's video), सुख़न-सराय (literature). The page code reads `sec`; never rely on order alone.
+The front page shows, in order: आमुख (lead), नुक़्ता-ए-नज़र (6 editorials), कल का कच्चा चिट्ठा (yesterday's news), गांव-जवार (ग्रामीण पत्रकारिता), रोशनदान (today's video), सुख़न-सराय (literature). The page code reads `sec`; never rely on order alone.
 
 ## रोशनदान (video)
 - **Every day, one new video** (never one already on the site): a highly regarded documentary, report-film or lecture from the **last 30 days** (if nothing fits, up to 90 days), closely tied to the editorial policy (rights, caste, communal harmony, Adivasi and rural life, labour, environment, South Asia, Global South). Prefer established makers: Al Jazeera Witness / 101 East / Fault Lines, PARI films, Karwan e Mohabbat, Newslaundry and The Wire documentaries, university or public lectures by the writers in `WRITERS.md`.
@@ -154,7 +154,7 @@ Separate scheduled runs check through the day (from about 10-11 am IST). Each ru
 6. **Social posts, every run, even when nothing new was found:** if the IST time is between 07:10 and 22:00, trigger the GitHub workflow `social.yml` on `main` with input `mode: next` (GitHub MCP `actions_run_trigger`, method `run_workflow`). It posts the next story of the day to Facebook (and Instagram on its own rhythm); `scripts/social.js` records everything in `data/social/<day>.json`, so nothing is posted twice, and if the morning roundup was missed it sends that first. GitHub's own scheduled timer for this workflow often skips hours, so these triggers keep posting regular. If the workflow fails twice in a row, read the log and note it in the report.
 
 ## Layout: no holes
-The owner's rule: an empty slot in a grid is filled with **one more piece**, never by stretching a card. So `vichar` is always 6, `khabar` always 6 or 8, the special section always lead + 6 (extra pieces go to "आज और भी"). Only गांव-जवार (PARI) may end on a single wide card. See DESIGN.md.
+The owner's rule: an empty slot in a grid is filled with **one more piece**, never by stretching a card. So `vichar` is always 6, `khabar` always 6 or 8, the special section always lead + 6 (extra pieces go to "आज और भी"). Only गांव-जवार (ग्रामीण पत्रकारिता) may end on a single wide card. See DESIGN.md.
 
 ## लाइव दीवार (/live/), while the special section is on
 `data/live/YYYY-MM-DD.json` (IST day) feeds https://deshkaal.xyz/live/. Shape:

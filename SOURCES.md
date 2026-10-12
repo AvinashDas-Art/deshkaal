@@ -106,3 +106,14 @@ Besides the list, keep a sharp watch on the world every day: before choosing, sc
 - जानकीपुल: https://jankipul.com (often times out; try https://jankipul.com/feed once, then WebSearch)
 Prefer essays, criticism, memoir and reviews. Poems and stories: describe and link, never reproduce. Skip deeply personal trauma writing unless the author frames it publicly.
 
+
+## गांव-जवार: ग्रामीण पत्रकारिता
+यह खंड किसी एक प्रकाशन का नहीं है। खेत, जंगल, बस्ती, जल-जंगल-ज़मीन, ग्रामीण श्रम, सार्वजनिक सेवाओं और ग्रामीण जीवन पर ठोस रिपोर्ट या विश्लेषण चुनें। `sec: "pari"` और प्रकाशक का असली नाम रखें। साहित्य या असंबद्ध विचार यहां नहीं आएंगे। PARI का तीन महीने वाला नियम बना रहेगा; दूसरे स्रोतों के लिए सामान्य ताज़गी और प्रति स्रोत दो लेख की सीमा है।
+- खबर लहरिया: https://khabarlahariya.org/
+- Gaon Connection, Down To Earth, Mongabay India/Hindi, BehanBox, Dialogue Earth, The Third Pole, NewsClick, Article 14 और The Mooknayak: विषय और रिपोर्टिंग के आधार पर।
+- ChalChitra Abhiyaan: लिखित विवरण या प्रतिलेख पढ़ें; वीडियो video खंड में।
+
+## मालिक की विस्तारित स्रोत सूची (12 अक्टूबर 2026)
+ऊपर की सूची के अलावा: express.pk, wenews.pk, karvaanindia.com, satyahindi.com, thefederal.com, hindi.theprint.in, theprint.in, aajtak.in, amarujala.com, aninews.in, barandbench.com, bbc.com, bhaskar.com, deccanherald.com, dw.com, hindustantimes.com, inquilab.com, jansatta.com, livelaw.in, navjivanindia.com, ndtv.com, onmanorama.com, outlookindia.com, qaumiawaz.com, siasat.com, thenewsminute.com, timesnowhindi.com, tribuneindia.com।
+सूची में होना हर लेख की मंज़ूरी नहीं है। समाचार और लाइव सूचना को विश्लेषण से अलग रखें। पूरा तर्क पढ़े बिना सार न लिखें। तारीख़, लेखक, खुले पाठ और नीति की जांच करें। आरोप स्रोत के नाम से लिखें।
+Instagram सार्वजनिक पोस्ट और सत्यापित रील की खोज के लिए है। commons.wikimedia.org, upload.wikimedia.org, unsplash.com और images.unsplash.com तस्वीर और लाइसेंस के स्रोत हैं; i.ytimg.com वीडियो थंबनेल है। इन्हें ख़बर का स्वतंत्र प्रमाण न गिनें। feeds.scroll.in RSS है, अलग प्रकाशन नहीं। karvaanindia.com को The Caravan का डोमेन न मानें; प्रकाशक की पहचान जांचें।

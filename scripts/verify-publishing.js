@@ -16,7 +16,9 @@ assert.equal(normalizeSection({pub:'हिन्दवी',h:'चित्रक
 assert.equal(normalizeSection({pub:'PARI',sec:'hidden'}), 'hidden');
 assert.equal(normalizeSection({pub:'खबर लहरिया',sec:'sahitya'}), 'sahitya');
 assert.equal(normalizeSection({pub:'खबर लहरिया',sec:'khabar',cat:'समाज'}), 'pari');
-assert.equal(normalizeSection({pub:'Other',sec:'pari'}), 'vichar');
+assert.equal(normalizeSection({pub:'Gaon Connection',sec:'pari',cat:'समाज'}), 'pari');
+assert.equal(normalizeSection({pub:'हिन्दवी',sec:'pari',cat:'संस्कृति'}), 'vichar');
+assert.equal(normalizeSection({pub:'Mongabay',sec:'vichar',cat:'पर्यावरण'}), 'vichar');
 const latest = files.at(-1).slice(0,10);
 const items = JSON.parse(fs.readFileSync('data/days/'+latest+'.json')).map((a,i)=>({...a,sec:normalizeSection(a,i)}));
 const expected = items.filter(isRuralReport).map(a=>a.id);
