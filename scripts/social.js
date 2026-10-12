@@ -1,17 +1,8 @@
 // देशकाल: Facebook पेज और Instagram पर अपने आप पोस्ट (Meta Graph API).
-// GitHub Actions से चलता है (.github/workflows/social.yml). secret न हों तो चुपचाप कुछ नहीं करता.
-//
-//   node scripts/social.js morning      सुबह का पूरा अंक: FB पर तस्वीरों वाली पोस्ट, Instagram पर कैरोसेल
-//   node scripts/social.js next       दिन भर, हर बार अगली एक ख़बर: FB पर हर ख़बर, Instagram पर चुनी हुई
-//   node scripts/social.js check      कुछ पोस्ट नहीं करता: सिर्फ़ जांचता है कि FB पेज और Instagram के टोकन चल रहे हैं
-//   DRY_RUN=1 ...                     कुछ भेजे बिना बताता है कि क्या जाता
-//
-// ज़रूरी secrets: FB_PAGE_ID, FB_PAGE_TOKEN (पेज का लंबा चलने वाला टोकन), IG_USER_ID (Instagram बिज़नेस खाते की id)
-// क्या-क्या जा चुका है, ये data/social/<दिन>.json में दर्ज होता है, ताकि कुछ दोबारा न जाए.
 const fs = require("fs"), path = require("path");
 const SITE = "https://deshkaal.xyz", G = "https://graph.facebook.com/v21.0";
 const env = process.env, DRY = !!env.DRY_RUN;
-const IG_SINGLES = +(env.IG_SINGLES || 6);       // Instagram पर दिन में कितनी अलग ख़बरें (कैरोसेल के अलावा)
+const IG_SINGLES = +(env.IG_SINGLES || 6);
 
 const M = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
 const istDay = () => new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
@@ -44,7 +35,6 @@ async function api(p, params = {}, method = "POST") {
 const fbOn = () => env.FB_PAGE_ID && env.FB_PAGE_TOKEN;
 const igOn = () => env.IG_USER_ID && (env.IG_TOKEN || env.FB_PAGE_TOKEN);
 
-/* कैप्शन */
 function morningText(forIG) {
   const L = news[0];
   const line = (a, i) => forIG ? `${i}. ${a.h}` : `${i}. ${a.h}\n${short(a)}`;
@@ -61,7 +51,6 @@ function storyText(a, forIG) {
     `मूल: ${a.by} · ${a.pub}`, forIG ? `पूरा सार: deshkaal.xyz (लिंक बायो में)` : "", "", tags(a)].filter((x, i, arr) => !(x === "" && arr[i - 1] === "")).join("\n");
 }
 
-/* Instagram: कंटेनर बनता है, Meta तस्वीर उठाता है, फिर छपता है */
 async function igReady(id) {
   if (DRY) return;
   for (let i = 0; i < 20; i++) {
@@ -79,4 +68,80 @@ async function morning() {
   if (fbOn() && !state.fb.morning) {
     try {
       const ids = [];
-      for (const s of slides.slice(0, 9)) ids.push((await api(`/${env.FB_PAGE_ID}/photos`, { url: img(
+      for (const s of slides.slice(0, 9)) ids.push((await api(`/${env.FB_PAGE_ID}/photos`, { url: img(s), published: "false" })).id);
+      const r = await api(`/${env.FB_PAGE_ID}/feed`, { message: morningText(false), attached_media: JSON.stringify(ids.map(id => ({ media_fbid: id }))) });
+      state.fb.morning = r.id; save(); console.log("Facebook: सुबह का अंक", r.id);
+    } catch (err) {
+      console.error("Facebook सुबह का अंक फ़ेल:", err.message);
+    }
+  }
+  if (igOn() && !state.ig.morning) {
+    try {
+      const kids = [];
+      for (const s of slides) kids.push((await api(`/${env.IG_USER_ID}/media`, { image_url: img(s), is_carousel_item: "true" })).id);
+      for (const k of kids) await igReady(k);
+      const c = await api(`/${env.IG_USER_ID}/media`, { media_type: "CAROUSEL", children: kids.join(","), caption: morningText(true) });
+      const r = await igPublish(c.id); state.ig.morning = r.id; save(); console.log("Instagram: कैरोसेल", r.id);
+    } catch (err) {
+      console.error("Instagram कैरोसेल फ़ेल (ब्लॉक या सीमा):", err.message);
+      state.ig.morning = "skipped-" + Date.now();
+      save();
+    }
+  }
+}
+
+async function next() {
+  state.fb.items ||= {}; state.ig.items ||= {};
+  if (fbOn()) {
+    try {
+      const a = items.find(x => !state.fb.items[x.id]);
+      if (a) { const r = await api(`/${env.FB_PAGE_ID}/feed`, { message: storyText(a, false), link: url(a) }); state.fb.items[a.id] = r.id; save(); console.log("Facebook:", a.id, r.id); }
+    } catch (err) {
+      console.error("Facebook पोस्ट फ़ेल:", err.message);
+    }
+  }
+  if (igOn()) {
+    try {
+      const done = Object.keys(state.ig.items).length;
+      state.ig.tick = (state.ig.tick || 0) + 1; save();
+      const pick = [...news.slice(0, IG_SINGLES - 1), ...lit.slice(0, 1)].find(x => !state.ig.items[x.id]);
+      if (pick && done < IG_SINGLES && state.ig.tick % 3 === 1) {
+        const c = await api(`/${env.IG_USER_ID}/media`, { image_url: img(pick.id), caption: storyText(pick, true) });
+        const r = await igPublish(c.id); state.ig.items[pick.id] = r.id; save(); console.log("Instagram:", pick.id, r.id);
+      }
+    } catch (err) {
+      console.error("Instagram सिंगल पोस्ट फ़ेल:", err.message);
+    }
+  }
+  const fbLeft = fbOn() && items.some(x => !state.fb.items[x.id]);
+  const igLeft = igOn() && Object.keys(state.ig.items).length < IG_SINGLES && [...news.slice(0, IG_SINGLES - 1), ...lit.slice(0, 1)].some(x => !state.ig.items[x.id]);
+  if (!fbLeft && !igLeft) { console.log("आज का सब जा चुका"); fs.writeFileSync(".social-done", "1"); }
+}
+
+(async () => {
+  if (!fbOn() && !igOn() && !DRY) return console.log("Facebook/Instagram: secret नहीं, छोड़ा");
+  if (fbOn() && !DRY) {
+    try {
+      const j = await (await fetch(`${G}/${env.FB_PAGE_ID}?fields=access_token&access_token=${encodeURIComponent(env.FB_PAGE_TOKEN)}`)).json();
+      if (j.access_token) { env.FB_PAGE_TOKEN = j.access_token; console.log("पेज टोकन मिला"); }
+      else if (j.error) console.log("पेज टोकन नहीं मिला:", j.error.message);
+    } catch (e) { console.log("पेज टोकन मांगने में दिक़्क़त:", e.message); }
+  }
+  const mode = process.argv[2] || "next";
+  if (mode === "check") {
+    try {
+      if (fbOn()) { const p = await api(`/${env.FB_PAGE_ID}`, { fields: "name" }, "GET"); console.log("Facebook पेज ठीक:", p.name); }
+      if (igOn()) { const u = await api(`/${env.IG_USER_ID}`, { fields: "username" }, "GET"); console.log("Instagram ठीक: @" + u.username); }
+    } catch (e) { console.error(e.message); process.exitCode = 1; }
+    return;
+  }
+  const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
+  try {
+    if (mode === "morning" || missedMorning) await morning();
+    else await next();
+  } catch (e) {
+    save(); console.error(e.message);
+    if (mode !== "morning" && state.fb.morning) { try { await next(); } catch (e2) { save(); console.error(e2.message); } }
+  }
+  if (DRY) { console.log("\n--- सुबह, Facebook ---\n" + morningText(false) + "\n\n--- एक ख़बर, Instagram ---\n" + storyText(news[1], true)); }
+})();
