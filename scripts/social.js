@@ -136,6 +136,10 @@ async function next() {
   /* सुबह का पूरा अंक छूट गया हो तो पहले वही */
   const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
   try { if (mode === "morning" || missedMorning) await morning(); else await next(); }
-  catch (e) { save(); console.error(e.message); process.exitCode = 1; }
+  catch (e) {
+    save(); console.error(e.message); process.exitCode = 1;
+    // सुबह का Instagram कैरोसेल अटक जाये तो भी Facebook की ख़बरें दिन भर चलती रहें
+    if (mode !== "morning" && state.fb.morning) { try { await next(); } catch (e2) { save(); console.error(e2.message); } }
+  }
   if (DRY) { console.log("\n--- सुबह, Facebook ---\n" + morningText(false) + "\n\n--- एक ख़बर, Instagram ---\n" + storyText(news[1], true)); }
 })();
