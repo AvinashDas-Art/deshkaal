@@ -249,7 +249,7 @@ function hero(L, kick = T.bigDebate) {
 }
 
 const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
-const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
+const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون बड़ा देखें"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
 const toonFor = date => PUB_TOONS.find(c => c.date === date);
@@ -262,7 +262,7 @@ function cartoonPage(c) {
   const others = PUB_TOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
   const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
     <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
-    <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
+    <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure>
     <div class="share" data-url="${SITE}/cartoon/${c.date}/" data-title="तिरछी नज़र"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
     ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">देशकाल की चुटकी</span><h3>रेखाओं<br>के बीच</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(c.artist)} के कार्टून पर</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
     <p class="fine">कार्टून के सारे अधिकार ${esc(c.artist)} के हैं। देशकाल पर उनकी अनुमति से।</p>
@@ -306,7 +306,7 @@ function morchaPage() {
 const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
 const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
-const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["रात", "صبح", "دوپہر", "شام", "रात"] };
+const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["रात", "صبح", "दोपहर", "शाम", "रात"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
 const clock = (t, lg = LG) => { const c = clockParts(t, lg); return !c ? "" : lg === "en" ? `${c.hm} ${c.p}` : `${c.p} ${c.hm}`; };
@@ -363,7 +363,9 @@ function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
-  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = today.items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया"), lits = by("sahitya");
+  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
+  /* गांव-जवार: चाहे sec: pari हो, या pub PARI/खबर लहरिया हो, या आईडी 25 हो */
+  const pari = today.items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया" || String(a.id || "").endsWith("-25"));
   const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
@@ -483,7 +485,8 @@ function feed() {
 function akhbarPage(day, issueNo, allDays) {
   const items = day.items, by = k => items.filter(a => a.sec === k);
   const M = morchaSet([day], day.date), amukh = by("amukh")[0];
-  const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया"), lits = by("sahitya"), vid = by("video")[0];
+  const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya"), vid = by("video")[0];
+  const pari = items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया" || String(a.id || "").endsWith("-25"));
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
