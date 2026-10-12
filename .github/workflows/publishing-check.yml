@@ -1,0 +1,32 @@
+name: Verify daily publishing
+on:
+  push:
+    branches: [main]
+    paths: ['data/**', 'build.js', 'src/**', 'scripts/verify-publishing.js', '.github/workflows/publishing-check.yml']
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publishing-check
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build and verify committed edition
+        run: node build.js && node scripts/verify-publishing.js
+      - name: Wait for production and verify live edition
+        shell: bash
+        run: |
+          for attempt in {1..10}; do
+            if node scripts/verify-publishing.js --live; then exit 0; fi
+            if [ "$attempt" -lt 10 ]; then sleep 60; fi
+          done
+          exit 1

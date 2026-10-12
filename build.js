@@ -41,15 +41,11 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
 const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
+require("./src/validate-days.js").validateDays(DAYS_HI);
 /* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य. */
-const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"];
-const RURAL_PUBS = ["PARI", "खबर लहरिया", "Down To Earth"];
-DAYS_HI.forEach(d => d.items.forEach((a, i) => { 
-  if (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) {
-    a.sec = "pari";
-  } else if (!SECS.includes(a.sec)) {
-    a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : i === 0 ? "amukh" : "vichar"; 
-  }
+const { normalizeSection, isRuralReport } = require("./src/sections.js");
+DAYS_HI.forEach(d => d.items.forEach((a, i) => {
+  a.sec = normalizeSection(a, i);
 }));
 /* विशेष खंड "सड़क की संसद" (sec: morcha): data/special.json से चालू/बंद */
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
@@ -60,7 +56,7 @@ function daysFor(l) {
     const f = path.join("data/i18n", l, d.date + ".json");
     if (!fs.existsSync(f)) return null;
     const tr = Object.fromEntries(JSON.parse(fs.readFileSync(f, "utf8")).map(x => [x.id, x]));
-    const items = d.items.filter(a => tr[a.id]).map(a => { const t = tr[a.id], m = { ...a, ...t };
+    const items = d.items.filter(a => tr[a.id]).map(a => { const t = tr[a.id], m = { ...a, ...t, sec: a.sec, pub: a.pub };
       if (a.photo) m.photo = { ...a.photo, note: t.photo_note || "" };
       if (a.chart && t.chart) m.chart = { ...a.chart, ...t.chart };
       return m; });
@@ -367,7 +363,7 @@ function homePage() {
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
   
   /* गांव-जवार: सिर्फ़ PARI और खबर लहरिया */
-  const pari = today.items.filter(a => (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) && a.cat !== "साहित्य");
+  const pari = today.items.filter(a => isRuralReport(a));
   
   const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
@@ -489,7 +485,7 @@ function akhbarPage(day, issueNo, allDays) {
   const items = day.items, by = k => items.filter(a => a.sec === k);
   const M = morchaSet([day], day.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya"), vid = by("video")[0];
-  const pari = items.filter(a => (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) && a.cat !== "साहित्य");
+  const pari = items.filter(a => isRuralReport(a));
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
