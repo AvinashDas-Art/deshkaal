@@ -41,18 +41,19 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
 const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
-/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य.
-   पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
+/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य. */
 const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"];
 const RURAL_PUBS = ["PARI", "खबर लहरिया", "Down To Earth"];
 DAYS_HI.forEach(d => d.items.forEach((a, i) => { 
-  if (!SECS.includes(a.sec)) {
-    a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : (RURAL_PUBS.includes(a.pub) || a.pub === "PARI" || a.pub === "खबर लहरिया") ? "pari" : i === 0 ? "amukh" : "vichar"; 
+  if (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) {
+    a.sec = "pari";
+  } else if (!SECS.includes(a.sec)) {
+    a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : i === 0 ? "amukh" : "vichar"; 
   }
 }));
-/* विशेष खंड "सड़क की संसद" (sec: morcha): आंदोलन चलने तक आमुख (lead: true) और छह विश्लेषण, नुक़्ता-ए-नज़र के ऊपर. data/special.json से चालू/बंद */
+/* विशेष खंड "सड़क की संसद" (sec: morcha): data/special.json से चालू/बंद */
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
-/* अनुवाद: data/i18n/<lang>/<दिन>.json, id से मिलाकर हिंदी के ऊपर रखे जाते हैं; जिनका अनुवाद नहीं, वो उस भाषा में नहीं दिखते */
+
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
   return DAYS_HI.map(d => {
@@ -262,7 +263,7 @@ function cartoonPage(c) {
   const others = PUB_TOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
   const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
     <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
-    <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure>
+    <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
     <div class="share" data-url="${SITE}/cartoon/${c.date}/" data-title="तिरछी नज़र"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
     ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">देशकाल की चुटकी</span><h3>रेखाओं<br>के बीच</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(c.artist)} के कार्टून पर</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
     <p class="fine">कार्टून के सारे अधिकार ${esc(c.artist)} के हैं। देशकाल पर उनकी अनुमति से।</p>
@@ -364,8 +365,10 @@ function homePage() {
   const M = morchaSet(days, today.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
-  /* गांव-जवार: चाहे sec: pari हो, या pub PARI/खबर लहरिया हो, या आईडी 25 हो */
-  const pari = all.filter(a => a.id === "2026-10-12-25" || a.pub === "PARI" || a.sec === "pari" || a.pub === "खबर लहरिया").slice(0, 3);
+  
+  /* गांव-जवार: सिर्फ़ PARI और खबर लहरिया */
+  const pari = today.items.filter(a => (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) && a.cat !== "साहित्य");
+  
   const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
@@ -486,7 +489,7 @@ function akhbarPage(day, issueNo, allDays) {
   const items = day.items, by = k => items.filter(a => a.sec === k);
   const M = morchaSet([day], day.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya"), vid = by("video")[0];
-  const pari = items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया" || String(a.id || "").endsWith("-25"));
+  const pari = items.filter(a => (a.pub === "PARI" || a.pub === "खबर लहरिया" || (a.h && a.h.includes("चित्रकूट"))) && a.cat !== "साहित्य");
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
