@@ -43,7 +43,7 @@ const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
 /* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य.
    पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
-const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
+const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"];
 const RURAL_PUBS = ["PARI", "खबर लहरिया", "Down To Earth"];
 DAYS_HI.forEach(d => d.items.forEach((a, i) => { 
   if (!SECS.includes(a.sec)) {
@@ -306,7 +306,7 @@ function morchaPage() {
 const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
 const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
-const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "रात"] };
+const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["रात", "صبح", "دوپہر", "شام", "रात"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
 const clock = (t, lg = LG) => { const c = clockParts(t, lg); return !c ? "" : lg === "en" ? `${c.hm} ${c.p}` : `${c.p} ${c.hm}`; };
@@ -363,7 +363,7 @@ function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
-  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya");
+  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = today.items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया"), lits = by("sahitya");
   const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
@@ -483,7 +483,7 @@ function feed() {
 function akhbarPage(day, issueNo, allDays) {
   const items = day.items, by = k => items.filter(a => a.sec === k);
   const M = morchaSet([day], day.date), amukh = by("amukh")[0];
-  const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
+  const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया"), lits = by("sahitya"), vid = by("video")[0];
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
