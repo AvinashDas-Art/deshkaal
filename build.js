@@ -69,8 +69,11 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
   /* दूसरी भाषाओं में यही पन्ना: alt = {hi:url,en:url,ur:url}; न हो तो उस भाषा का पहला पन्ना */
+  /* जिन पन्नों का अनुवाद नहीं (कार्टून, लाइव, नीति, जुड़िए, रचना भेजिए): भाषा बदलने पर वही पन्ना खुलता है, ढांचा उसी भाषा में, भीतर की इबारत हिंदी। ऐसे रूप खोज में नहीं आते (noindex) */
+  let sameOnly = false;
+  if (!alt) { const base = url; alt = { hi: base, en: "/en" + base, ur: "/ur" + base }; url = PRE + base; sameOnly = true; if (LG !== "hi") extraHead += '<meta name="robots" content="noindex,follow">'; }
   const pageIn = l => (alt && alt[l]) || (l === "hi" ? "/" : `/${l}/`);
-  const hreflang = alt ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
+  const hreflang = alt && !sameOnly ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
   const fonts = LG === "ur"
     ? "family=Yatra+One&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&family=Teko:wght@500;600"
     : "family=Yatra+One&family=Kalam:wght@400;700&family=Laila:wght@300;500;600&family=Noto+Serif+Devanagari:wght@400;600&family=Noto+Sans+Devanagari:wght@400;500" + (LG === "en" ? "&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fraunces:opsz,wght@9..144,500;9..144,600" : "");
@@ -635,6 +638,18 @@ for (const l of LANGS) {
   }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());
     out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); }
+}
+/* बिना अनुवाद वाले पन्ने अंग्रेज़ी और उर्दू के ढांचे में भी बनते हैं, ताकि ऊपर से भाषा बदलने पर होमपेज नहीं, वही पन्ना खुले */
+for (const l of ["en", "ur"]) {
+  setLang(l); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
+  const P = l + "/";
+  out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage());
+  PUB_TOONS.forEach(c => out(`${P}cartoon/${c.date}/index.html`, cartoonPage(c)));
+  if (LIVE_ON) {
+    const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
+    out(P + "live/index.html", livePage(T0, "/live/"));
+    LIVE_DAYS.forEach(d => out(`${P}live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
+  }
 }
 setLang("hi"); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
 out("feed.xml", feed());
