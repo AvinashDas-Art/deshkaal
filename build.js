@@ -32,7 +32,7 @@ const listenMin = a => Math.max(1, Math.round(words(a) / 130));
 const href = a => `${PRE}/lekh/${a.id}/`;
 const hrefL = (a, l) => `${l === "hi" ? "" : "/" + l}/lekh/${a.id}/`;
 /* पेंटिंग वग़ैरह GitHub पर public/media/<id>.jpg में उतर आती हैं; हों तो वही, वरना मूल पता */
-const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : a.photo.src;
+const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : (a.photo ? a.photo.src : "");
 const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(imgSrc(a))}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
 const credit = a => a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
 const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${esc(a.h)}" aria-pressed="false">${T.save}</button>`;
@@ -41,10 +41,15 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
 const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
-/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari PARI, video रोशनदान, sahitya साहित्य.
+/* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य.
    पुराने दिनों में sec नहीं था: वहां अंदाज़े से तय होता है. */
 const SECS = ["morcha", "amukh", "vichar", "khabar", "pari", "video", "sahitya", "hidden"]; /* hidden: पन्ना रहता है, पहले पन्ने पर नहीं दिखता */
-DAYS_HI.forEach(d => d.items.forEach((a, i) => { if (!SECS.includes(a.sec)) a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar"; }));
+const RURAL_PUBS = ["PARI", "खबर लहरिया", "Down To Earth"];
+DAYS_HI.forEach(d => d.items.forEach((a, i) => { 
+  if (!SECS.includes(a.sec)) {
+    a.sec = a.cat === "साहित्य" ? "sahitya" : (a.yt || a.ia) ? "video" : (RURAL_PUBS.includes(a.pub) || a.pub === "PARI" || a.pub === "खबर लहरिया") ? "pari" : i === 0 ? "amukh" : "vichar"; 
+  }
+}));
 /* विशेष खंड "सड़क की संसद" (sec: morcha): आंदोलन चलने तक आमुख (lead: true) और छह विश्लेषण, नुक़्ता-ए-नज़र के ऊपर. data/special.json से चालू/बंद */
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
 /* अनुवाद: data/i18n/<lang>/<दिन>.json, id से मिलाकर हिंदी के ऊपर रखे जाते हैं; जिनका अनुवाद नहीं, वो उस भाषा में नहीं दिखते */
@@ -68,8 +73,6 @@ let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
-  /* दूसरी भाषाओं में यही पन्ना: alt = {hi:url,en:url,ur:url}; न हो तो उस भाषा का पहला पन्ना */
-  /* जिन पन्नों का अनुवाद नहीं (कार्टून, लाइव, नीति, जुड़िए, रचना भेजिए): भाषा बदलने पर वही पन्ना खुलता है, ढांचा उसी भाषा में, भीतर की इबारत हिंदी। ऐसे रूप खोज में नहीं आते (noindex) */
   let sameOnly = false;
   if (!alt) { const base = url; alt = { hi: base, en: "/en" + base, ur: "/ur" + base }; url = PRE + base; sameOnly = true; if (LG !== "hi") extraHead += '<meta name="robots" content="noindex,follow">'; }
   const pageIn = l => (alt && alt[l]) || (l === "hi" ? "/" : `/${l}/`);
@@ -183,14 +186,12 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
 }
 
 const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js", "src/akhbar.css"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
-/* "आज का अख़बार" का बटन: मालिक की मंज़ूरी के बाद true */
 const SHOW_PAPER = true;
 const SR = {
   hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
   ur: { ph: "کوئی خبر، مصنف، جگہ یا مسئلہ تلاش کیجیے", t: "تلاش", close: "بند کریں", hint: "جیسے: مزدور، بہار، غزہ، کسان" }
 };
-/* खोज का सूचकांक: हर भाषा का अलग, खोज खोलने पर ही लोड होता है */
 const searchIndex = () => JSON.stringify(all.map(a => ({ u: href(a), h: a.h, d: a.dek || "", c: cn(a.cat), k: a.cat, p: a.pub || "", b: a.by || "", t: a.date || "", x: (a.body || []).join(" ").slice(0, 280) + " " + (a.ref || []).map(r => r[0]).join(" ") })));
 
 /* ---------- pieces ---------- */
@@ -200,12 +201,10 @@ const lead = (L, kick) => `<section class="lead"><a href="${href(L)}" tabindex="
   <div><p class="kicker">${kick} · ${cn(L.cat)}</p><a href="${href(L)}"><h2>${esc(L.h)}</h2></a><p class="dek">${esc(L.dek)}</p>
     <div class="row"><span>${T.orig}: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>${T.read(readMin(L))} · ${T.listen(listenMin(L))}</span>${saveBtn(L)}</div>
     <div class="sawal"><small>${T.question}</small><p>${esc(L.sawal)}</p></div></div></section>`;
-/* poster-style hero: split headline, diagonal art panel, big figures, drop-cap opening */
-/* पहले पन्ने की सुर्ख़ी का नाप: जितनी लंबी, उतनी छोटी, ताकि कोई शब्द न कटे */
+
 const heroSize = h => { const n = [...new Intl.Segmenter("hi", { granularity: "grapheme" }).segment(String(h || ""))].length; return n <= 24 ? "h-s" : n <= 34 ? "h-m" : n <= 46 ? "h-l" : "h-xl"; };
 function splitHead(h) {
   let i = h.indexOf(":"); if (i < 0) i = h.indexOf(","); if (i < 0) i = h.indexOf("،");
-  /* Teko में कोलन बहुत छोटा दिखता है; लाल-काले रंग का बंटवारा ही विराम का काम करता है, इसलिए कोलन हटा देते हैं */
   if (i > 0 && i < h.length - 4) return [h.slice(0, h[i] === ":" ? i : i + 1).trim(), h.slice(i + 1).trim()];
   const w = h.split(" "); return [w.slice(0, 2).join(" "), w.slice(2).join(" ")];
 }
@@ -226,14 +225,13 @@ function chartSVG(c) {
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)}"><line x1="${pad - 10}" y1="${base}" x2="${W - pad + 10}" y2="${base}" class="axis"/>${bars}</svg>`;
 }
 function hero(L, kick = T.bigDebate) {
-  const type = LG === "ur" && L.hero === "shabd" ? "poster" : (L.hero || "poster"); /* उर्दू में शब्द-चित्र नहीं: नस्तालीक़ अक्षर कैनवस में काटे नहीं जा सकते */
+  const type = LG === "ur" && L.hero === "shabd" ? "poster" : (L.hero || "poster");
   if (type === "shabd" && L.shabd) return `<section class="hero hero-shabd">
     <a class="shabd-art" href="${href(L)}" tabindex="-1">${art(L, "", L.shabd)}</a>
     <div class="shabd-grid"><div>${heroText(L, kick)}${ankBlock(L)}</div><div>${heroFoot(L)}</div></div></section>`;
   if (type === "ank" && L.chart) return `<section class="hero hero-ank">
     <div class="ank-text">${heroText(L, kick)}${heroFoot(L)}</div>
     <figure class="ank-chart"><figcaption><b>${esc(L.chart.title)}</b><span>${esc(L.chart.unit)}</span></figcaption>${chartSVG(L.chart)}<p class="ank-note">${esc(L.chart.note || "")}</p></figure></section>`;
-  /* हफ़्ते के सात दिन, सात लेआउट (रविवार ख़ास); HERO_DAY से जांच के लिए बदला जा सकता है */
   const wd = process.env.HERO_DAY !== undefined ? +process.env.HERO_DAY : new Date((L.day || today.date) + "T00:00:00Z").getUTCDay();
   const A = (cls) => `<a class="${cls}" href="${href(L)}" tabindex="-1">${art(L)}</a>`;
   const cr = L.photo ? `<span class="hero-credit">${credit(L)}</span>` : "";
@@ -249,10 +247,9 @@ function hero(L, kick = T.bigDebate) {
   <a class="hero-art" href="${href(L)}" tabindex="-1">${art(L)}</a><span class="hero-slash" aria-hidden="true"></span>${L.photo ? `<span class="hero-credit">${credit(L)}</span>` : ""}
   <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
 }
-/* ---------- तिरछी नज़र: राजेंद्र धोड़पकर के कार्टून (data/cartoons/<दिन>.json, public/cartoon/<दिन>.jpg) ---------- */
+
 const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
-/* हर दिन का अपना कार्टून, कोई कार्टून दो दिन नहीं दोहराया जाता. आगे की तारीख़ वाले कार्टून तब तक छिपे रहते हैं जब तक वो दिन न आ जाए */
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
 const toonFor = date => PUB_TOONS.find(c => c.date === date);
@@ -260,6 +257,7 @@ const toonBand = c => `<section class="toon">
   <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p>${c.chutki && LG === "hi" ? `<p class="toon-tease">${esc(c.chutki[0].split("।")[0])}।</p><a class="toon-read" href="/cartoon/${c.date}/">पूरी चुटकी पढ़ें →</a>` : ""}</div>
   <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
   <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`;
+
 function cartoonPage(c) {
   const others = PUB_TOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
   const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
@@ -271,6 +269,7 @@ function cartoonPage(c) {
     ${others.length ? `<h3 class="toon-more">और कार्टून</h3><div class="toon-grid">${others.map(o => `<a href="/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
   return layout({ title: `तिरछी नज़र: ${c.artist} का कार्टून, ${dayLabel(c.date)}`, desc: c.alt, url: `/cartoon/${c.date}/`, body, image: c.img, published: c.date });
 }
+
 const connect = () => `<section class="band">
   <div><h4>${T.sunT}</h4><p>${T.sunP}</p><div class="act"><span class="chip">${T.sunChip}</span></div></div>
   <div><h4>${T.mailT}</h4><p>${T.mailP}</p><div class="act"><form class="sub" id="subf"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="${T.email}"><button class="btn">${T.join}</button></form></div><p class="note" id="subnote"></p></div>
@@ -281,7 +280,6 @@ const connect = () => `<section class="band">
   <ol><li>${T.app1}</li><li>${T.app2}</li></ol>
   <button class="btn" id="install" hidden style="margin-top:10px">${T.appBtn}</button></div></section>`;
 
-/* सड़क की संसद: आज के (न हों तो हाल के) morcha लेख; पहला lead, बाक़ी छह आवाज़ें, उससे आगे "और" */
 function morchaSet(ds, upto) {
   if (!SPECIAL.active) return null;
   const d = ds.find(x => x.date <= upto && x.date >= (SPECIAL.since || "") && x.items.some(a => a.sec === "morcha"));
@@ -304,18 +302,15 @@ function morchaPage() {
     ${groups.map(g => `<div class="aday"><h4>${dayLabel(g)}</h4>${list.filter(a => a.day === g).map(a => `<div class="arow"><span class="k">${a.lead ? T.sec.amukh[0] : esc(a.pub)}</span><a href="${href(a)}"><h4>${esc(a.h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</span></a></div>`).join("")}</div>`).join("")}</section>`;
   return layout({ title: T.sec.morcha[0], desc: T.sec.morcha[1], url: PRE + "/morcha/", body, alt: { hi: "/morcha/", en: "/en/morcha/", ur: "/ur/morcha/" } });
 }
-/* ---------- लाइव दीवार: data/live/<दिन>.json (counters, items), आंदोलन चलने तक ---------- */
+
 const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
 const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
-/* हर दिन की दीवार अलग: /live/ पर सिर्फ़ आज (IST) की, पुराने दिन /live/<दिन>/ पर */
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
-/* 12 घंटे की घड़ी, पहर के नाम के साथ: "दोपहर 2:43" (बहुत लोग 14:43 में उलझते हैं) */
-const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "رات"] };
+const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "रात"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
 const clock = (t, lg = LG) => { const c = clockParts(t, lg); return !c ? "" : lg === "en" ? `${c.hm} ${c.p}` : `${c.p} ${c.hm}`; };
 const clockTag = (t, extra = "") => { const c = clockParts(t); return c ? `<time datetime="${esc(t)}">${extra}<b>${c.hm}</b><small>${c.p}</small></time>` : ""; };
-/* आंदोलन का आख़िरी अपडेट: विश्लेषण या लाइव दीवार, जो भी बाद का हो (दोनों जगह एक ही वक़्त दिखे) */
 const LIVE_TODAY = () => LIVE_DAYS.find(d => d.date === IST_TODAY);
 const lastUpdate = () => [SPECIAL.updated || "", (LIVE_TODAY() || {}).updated || ""].filter(Boolean).sort().pop() || "";
 function livePage(latest, url) {
@@ -352,24 +347,24 @@ function livePage(latest, url) {
 </section>`;
   return layout({ title: url === "/live/" ? "लाइव: सड़क की संसद" : `सड़क की संसद: ${dayLabel(latest.date)} की दीवार`, desc: "वोट चोरी के ख़िलाफ़ आंदोलन पर पल-पल की ख़बर, वीडियो और सोशल मीडिया, एक जगह।", url, body });
 }
-/* पहले पन्ने पर लाइव दीवार की झलक */
+
 function liveTeaser() {
   if (!LIVE_ON || LG !== "hi") return "";
   const d = LIVE_DAYS.find(x => x.date === IST_TODAY) || LIVE_DAYS[0];
   const its = (d.items || []).slice().sort((a, b) => (b.t || "").localeCompare(a.t || ""));
   const ups = its.filter(x => x.kind === "update").slice(0, 4), nV = its.filter(x => x.kind === "video" || x.kind === "reel").length, nP = its.filter(x => x.kind === "post" || x.kind === "news").length;
-  const hm = t => (t || "").slice(11, 16);
   return `<section class="lvt"><div class="lvt-head"><p class="lvt-k"><i aria-hidden="true"></i>लाइव दीवार${lastUpdate() ? ` · अपडेट ${clock(lastUpdate())}` : ""}</p><h3>आंदोलन, पल-पल</h3><p class="lvt-s">${its.length ? `आज अब तक ${ups.length ? its.filter(x => x.kind === "update").length + " अपडेट, " : ""}${nV} वीडियो और रील्स, ${nP} ख़बरें और पोस्ट। हर घंटे ताज़ा।` : "आज की दीवार सुबह 9:37 से भरनी शुरू होगी, फिर हर घंटे ताज़ा।"}</p>
     <div class="lvt-btns"><a class="lvt-go" href="/live/">लाइव दीवार खोलिए →</a><a class="lvt-r3 r3open" href="https://r3con.net/" target="_blank" rel="noopener">▶ चलती तस्वीरें: r3con</a></div></div>
     ${ups.length ? `<ol class="lvt-list">${ups.map(x => `<li>${clockTag(x.t)}<span>${esc(x.text)}${x.verified === false ? ` <em>अपुष्ट</em>` : ""}</span></li>`).join("")}</ol>` : (d.counters || []).length ? `<div class="lvt-count">${d.counters.slice(0, 3).map(c => `<div><b>${esc(c.n)}</b><span>${esc(c.label)}</span></div>`).join("")}</div>` : ""}</section>`;
 }
+
 /* ---------- pages ---------- */
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya");
-  const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
+  const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
@@ -386,7 +381,7 @@ function homePage() {
   ${connect()}`;
   return layout({ title: "", desc: T.homeDesc(dayLabel(today.date), today.items.length), url: PRE + "/", body, tab: "home", catOn: "सब", alt: { hi: "/", en: "/en/", ur: "/ur/" } });
 }
-/* वीडियो YouTube (yt) पर हो या Internet Archive (ia) पर */
+
 const isVid = a => !!(a.yt || a.ia);
 const ytThumb = a => a.poster || (a.ia ? `https://archive.org/services/img/${a.ia}` : `https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`);
 const vidOpen = a => a.ia ? `https://archive.org/details/${a.ia}` : `https://www.youtube.com/watch?v=${a.yt}`;
@@ -484,16 +479,14 @@ function feed() {
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>देशकाल</title><link>${SITE}/</link><description>${esc(TAGLINE)}</description><language>hi</language>${items}</channel></rss>`;
 }
 
-
-/* ---------- आज का अख़बार: उसी दिन के अंक से अख़बार के लेआउट वाले पन्ने (सिर्फ़ हिंदी) ---------- */
+/* ---------- आज का अख़बार ---------- */
 function akhbarPage(day, issueNo, allDays) {
-  /* प्रेरणा: द टेलीग्राफ़ (कोलकाता) का पोस्टर जैसा पहला पन्ना, लिबरेशन की पूरी चौड़ाई वाली तस्वीर, गार्डियन की साफ़ ग्रिड */
   const items = day.items, by = k => items.filter(a => a.sec === k);
   const M = morchaSet([day], day.date), amukh = by("amukh")[0];
   const L = M ? M.lead : amukh || items.find(a => a.sec !== "sahitya"), vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), pari = by("pari"), lits = by("sahitya"), vid = by("video")[0];
   const date = dayLabel(day.date), url = `/akhbar/${day.date}/`, wd = date.split(",")[0], dt = date.split(", ")[1] || date;
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
-  const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join(""); /* अख़बार में पूरा सार, कोई कटौती नहीं */
+  const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
   const more = a => `${a.nazar && a.nazar.length && a.sec !== "sahitya" ? `<div class="np-nz"><b>देशकाल की नज़र</b>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<a class="np-more" href="${esc(a.url || href(a))}">मूल लेख: ${esc(a.pub || "")} →</a>`;
   const img = a => a && a.photo ? `<img class="${a.photo.kind === "painting" ? "paint" : "photo"}" src="${esc(imgSrc(a))}" alt="" loading="lazy">` : "";
   const cap = a => a && a.photo ? `<span class="np-cap">${a.photo.note ? esc(a.photo.note) + " · " : ""}${esc(a.photo.credit)}</span>` : "";
@@ -506,7 +499,6 @@ function akhbarPage(day, issueNo, allDays) {
   const pgM = M && M.six.length ? 2 : 0, pgEd = pgM ? 3 : 2, pgNews = pgEd + 1;
   const promos = [toon && [pgEd, "तिरछी नज़र", { toon: 1, h: toon.artist + " का कार्टून", img: toon.img, href: "#p" + pgEd }], vichar[0] && [pgEd, "नुक़्ता-ए-नज़र", vichar[0]], (pari[0] || khabar[0]) && [pgNews, pari[0] ? "गांव-जवार" : "कल का कच्चा चिट्ठा", pari[0] || khabar[0]], vid && [pgNews, "रोशनदान", vid], lits[0] && [pgNews + 1, "सुख़न-सराय", lits[0]]].filter(Boolean).slice(0, 3);
   const pages = [];
-  /* विज्ञापन: ख़ाली जगहें, हर जगह अलग अंदाज़ */
   const mail = "mailto:sampark@deshkaal.xyz?subject=" + encodeURIComponent("देशकाल में विज्ञापन") + "&body=" + encodeURIComponent("नमस्ते, मैं देशकाल के अख़बार में विज्ञापन देना चाहता/चाहती हूं। मेरा नाम, संस्था और फ़ोन:");
   const ADS = {
     coupon: () => `<a class="np-ad coupon" href="${mail}"><span class="cut" aria-hidden="true">✂</span><small>विज्ञापन के लिए</small><b>यह कोना<br>ख़ाली नहीं,<br>आपका है</b><span class="price">₹1,000 से</span><em>sampark@deshkaal.xyz</em></a>`,
@@ -517,7 +509,6 @@ function akhbarPage(day, issueNo, allDays) {
       <em>sampark@deshkaal.xyz · विज्ञापन देशकाल की संपादकीय नीति के दायरे में ही छपते हैं</em></a>`
   };
   const pad = (n, cols) => (cols - (n % cols)) % cols;
-  /* पहला पन्ना */
   pages.push(`<section class="sheet front" id="p1">
     <nav class="np-sky">${promos.map(([n, t, a]) => `<a href="${a.toon ? a.href : href(a)}">${a.toon ? `<img class="paint" src="${a.img}" alt="">` : isVid(a) ? `<img class="photo" src="${esc(ytThumb(a))}" alt="">` : img(a)}<span><small>पन्ना ${n} · ${t}</small>${esc(a.h)}</span></a>`).join("")}</nav>
     <header class="np-mast">
@@ -545,35 +536,33 @@ function akhbarPage(day, issueNo, allDays) {
     ${khabar.length ? `<section class="np-digest"><h3><span>कल का कच्चा चिट्ठा</span><small>बीते दिन की वो ख़बरें, जो दबनी नहीं चाहिए · पूरी ख़बरें पन्ना ${pgNews} पर</small></h3>
       <ol>${khabar.map((a, i) => `<li><b>${i + 1}</b><div><p class="np-kick">${cn(a.cat)}</p><h4><a href="${href(a)}">${esc(a.h)}</a></h4><p>${esc(a.dek)}</p></div></li>`).join("")}${pad(khabar.length, 4) ? `<li class="adcell" style="grid-column:span ${pad(khabar.length, 4)}">${pad(khabar.length, 4) > 1 ? ADS.poster() : ADS.coupon()}</li>` : ""}</ol></section>` : ""}
     ${folio(1, "पहला पन्ना")}</section>`);
-  /* सड़क की संसद: पूरा पाठ, अख़बार की तरह कॉलम में बहता हुआ */
+
   if (pgM) pages.push(`<section class="sheet morcha-sheet" id="p2">${run(2, "सड़क की संसद")}
     <p class="np-mintro">चुनाव आयोग की वोट चोरी के ख़िलाफ़ आंदोलन पर देश-दुनिया में छपे सबसे तीखे विश्लेषण, देशकाल के शब्दों में, पूरे के पूरे।</p>
-    <div class="np-flow np-mflow">${[...M.six, ...M.more].map((a, i) => `<article class="np-fs"><p class="np-kick"><b class="np-mn">${i + 1}</b>${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3><p class="np-dek sm">${esc(a.dek)}</p>${P(a.body)}${more(a)}</article>`).join("")}</div>
+    <div class="np-flow np-mflow">${[...M.six, ...M.more].map((a, i) => `<article class="np-fs"><p class="np-kick"><b class="np-mn">${i + 1}</b>${esc(a.by)} · ${esc(a.pub)} ·${esc(a.date)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3><p class="np-dek sm">${esc(a.dek)}</p>${P(a.body)}${more(a)}</article>`).join("")}</div>
     ${folio(2, "सड़क की संसद")}</section>`);
-  /* संपादकीय पन्ना */
+
   const [F, ...ops] = vichar;
   pages.push(`<section class="sheet" id="p${pgEd}">${run(pgEd, "नुक़्ता-ए-नज़र")}
     ${toon ? `<section class="np-toon"><div class="np-toon-l"><h3>तिरछी<br>नज़र</h3><p>${esc(toon.artist)}</p></div><a class="np-toon-f" href="/cartoon/${toon.date}/"><img class="paint" src="${toon.img}" alt="${esc(toon.alt)}"></a></section>` : ""}
     <div class="np-edit">
       <aside class="np-rai"><h3>देशकाल की राय</h3><h4>${esc(L.h)}</h4>${P(L.nazar)}<p class="np-ask">${esc(L.sawal)}</p></aside>
       <div class="np-ops">
-        ${F ? `<article class="np-feature"><div class="np-fhead">${tile(F)}<div><p class="np-kick">${cn(F.cat)} · ${esc(F.pub)}</p><h3><a href="${href(F)}">${esc(F.h)}</a></h3><p class="np-author">${esc(F.by)}</p></div></div>
-          ${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body)}${more(F)}</div></article>` : ""}
-        <div class="np-opgrid np-flow">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} · ${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body)}${more(a)}</article>`).join("")}${pad(Math.max(0, ops.length - 3), 3) ? `<div class="adcell" style="grid-column:span ${pad(Math.max(0, ops.length - 3), 3)}">${ADS.stamp()}</div>` : ""}</div>
+        ${F ? `<article class="np-feature"><div class="np-fhead">${tile(F)}<div><p class="np-kick">${cn(F.cat)} ·${esc(F.pub)}</p><h3><a href="${href(F)}">${esc(F.h)}</a></h3><p class="np-author">${esc(F.by)}</p></div></div>${F.photo ? `<figure>${img(F)}${cap(F)}</figure>` : ""}<div class="cols2">${P(F.body)}${more(F)}</div></article>` : ""}
+        <div class="np-opgrid np-flow">${ops.map((a, i) => `${i === 3 ? `<blockquote class="np-pull">${esc(a.dek)}</blockquote>` : ""}<article class="np-op"><div class="np-fhead">${tile(a)}<div><p class="np-kick">${cn(a.cat)} ·${esc(a.pub)}</p><p class="np-author">${esc(a.by)}</p></div></div><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${P(a.body)}${more(a)}</article>`).join("")}${pad(Math.max(0, ops.length - 3), 3) ? `<div class="adcell" style="grid-column:span ${pad(Math.max(0, ops.length - 3), 3)}">${ADS.stamp()}</div>` : ""}</div>
       </div>
     </div>
     ${folio(pgEd, "संपादकीय")}</section>`);
-  /* देश-दुनिया */
+
   if (khabar.length || pari.length || vid) {
     const [T1, ...rest] = khabar;
     pages.push(`<section class="sheet" id="p${pgNews}">${run(pgNews, "देश-दुनिया")}
-    ${T1 ? `<article class="np-top np-topwide"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols3">${P(T1.body)}${more(T1)}</div></article>
-    ${rest.length ? `<div class="np-flow np-nflow">${rest.map((a, i) => `${i === 2 ? `<div class="adcell">${ADS.coupon()}</div>` : ""}<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body)}${more(a)}</article>`).join("")}<div class="adcell">${ADS.poster()}</div></div>` : ""}` : ""}
-    ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>PARI की ज़मीनी रिपोर्टें</small></h3><div class="np-pgrid np-flow">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
+    ${T1 ? `<article class="np-top np-topwide"><p class="np-kick">${cn(T1.cat)}</p><h3><a href="${href(T1)}">${esc(T1.h)}</a></h3><p class="np-dek sm">${esc(T1.dek)}</p>${T1.photo && T1.photo.src !== (L.photo || {}).src ? `<figure>${img(T1)}${cap(T1)}</figure>` : ""}${by1(T1)}<div class="cols3">${P(T1.body)}${more(T1)}</div></article>${rest.length ? `<div class="np-flow np-nflow">${rest.map((a, i) => `${i === 2 ? `<div class="adcell">${ADS.coupon()}</div>` : ""}<article class="np-story"><p class="np-kick">${cn(a.cat)}</p><h3><a href="${href(a)}">${esc(a.h)}</a></h3>${by1(a)}${P(a.body)}${more(a)}</article>`).join("")}<div class="adcell">${ADS.poster()}</div></div>` : ""}` : ""}
+    ${pari.length ? `<section class="np-pari"><h3 class="np-band"><span>गांव-जवार</span><small>देहात की ख़बरें</small></h3><div class="np-pgrid np-flow">${pari.map(a => `<article><figure>${img(a)}</figure><div><h4><a href="${href(a)}">${esc(a.h)}</a></h4>${by1(a)}${P(a.body)}${more(a)}</div></article>`).join("")}</div></section>` : ""}
     ${vid ? `<section class="np-film"><div class="np-film-in"><a class="np-vthumb" href="${href(vid)}"><img src="${esc(ytThumb(vid))}" alt=""><span class="play"></span></a><div><p class="np-flag light"><b>रोशनदान</b> आज की फ़िल्म</p><h3><a href="${href(vid)}">${esc(vid.h)}</a></h3>${by1(vid)}${P(vid.body)}<a class="np-more" href="${href(vid)}">फ़िल्म देखिए →</a></div></div></section>` : ""}
     ${folio(pgNews, "देश-दुनिया")}</section>`);
   }
-  /* सुख़न-सराय */
+
   if (lits.length) {
     const [H, ...ls] = lits, n = pages.length + 1;
     pages.push(`<section class="sheet lit" id="p${n}">${run(n, "सुख़न-सराय")}
@@ -599,7 +588,6 @@ function akhbarPage(day, issueNo, allDays) {
 <main class="np-wrap">${pages.join("\n")}</main>
 <nav class="np-past" aria-label="पिछले अख़बार"><h3>पिछले अख़बार</h3>${past}</nav>
 <script>
-/* आंखों का आराम: वेबसाइट वाली पसंद (रंग और अक्षर का आकार) यहां भी, वही याद रखी जाती है */
 (function(){var r=document.documentElement,S={g:function(k){try{return localStorage.getItem(k)}catch(e){return null}},s:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 var M=[["auto","अपने आप"],["day","दिन"],["sepia","सीपिया"],["night","रात"]],Z=[.8,.88,.94,1,1.08,1.16,1.25,1.35];
 var m=S.g("dk-mode")||"auto",z=+(S.g("dk-zoom")||3);if(!(z>=0&&z<Z.length))z=3;
@@ -613,10 +601,10 @@ am();az();window.addEventListener("beforeprint",function(){r.dataset.np="day"});
 </body></html>`;
 }
 
-/* ख़ाली खाने की चेतावनी (DESIGN.md: ख़ाली जगह = एक और ख़बर) */
 { const t = DAYS_HI[0].items, c = k => t.filter(a => a.sec === k).length;
   if (c("vichar") && c("vichar") % 3) console.warn(`चेतावनी: नुक़्ता-ए-नज़र में ${c("vichar")} टिप्पणियां, ग्रिड में ख़ाली खाना रहेगा (6 चाहिए)`);
   if (c("khabar") % 2) console.warn(`चेतावनी: कच्चा चिट्ठा में ${c("khabar")} ख़बरें, विषम संख्या से ख़ाली खाना रहेगा`); }
+
 /* ---------- write ---------- */
 fs.rmSync("dist", { recursive: true, force: true });
 const out = (p, s) => { const f = path.join("dist", p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
@@ -639,7 +627,7 @@ for (const l of LANGS) {
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());
     out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); }
 }
-/* बिना अनुवाद वाले पन्ने अंग्रेज़ी और उर्दू के ढांचे में भी बनते हैं, ताकि ऊपर से भाषा बदलने पर होमपेज नहीं, वही पन्ना खुले */
+
 for (const l of ["en", "ur"]) {
   setLang(l); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
   const P = l + "/";
@@ -658,7 +646,6 @@ out("feed.xml", feed());
   out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
 PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
-/* कार्टून की तस्वीर सिर्फ़ उसी दिन से साइट पर जाती है: रिज़र्व वाले data/cartoons/img में छिपे रहते हैं */
 PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
 { const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
   const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"], ["/bhejiye/", "2026-10-11", "monthly"], ["/hamsafar/", HS.ALL[0] ? HS.ALL[0].date : "2026-10-11", "weekly"], ...HS.ALL.flatMap(w => ["hi", "en", "ur"].filter(l => HS.has(l)(w)).map(l => [HS.url(w, l), w.date, "monthly"])), ["/en/hamsafar/", "2026-10-11", "weekly"], ["/ur/hamsafar/", "2026-10-11", "weekly"], ...(LIVE_ON ? [["/live/", latest, "hourly"], ...LIVE_DAYS.map(d => ["/live/" + d.date + "/", d.date, "daily"])] : []), ...(SPECIAL.active ? [["/morcha/", latest, "daily"]] : []),
