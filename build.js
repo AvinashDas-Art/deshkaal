@@ -365,7 +365,7 @@ function homePage() {
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
   /* गांव-जवार: चाहे sec: pari हो, या pub PARI/खबर लहरिया हो, या आईडी 25 हो */
-  const pari = today.items.filter(a => a.sec === "pari" || a.pub === "PARI" || a.pub === "खबर लहरिया" || a.id === "2026-10-12-25");
+  const pari = all.filter(a => a.id === "2026-10-12-25" || a.pub === "PARI" || a.sec === "pari" || a.pub === "खबर लहरिया").slice(0, 3);
   const vid = all.find(a => a.sec === "video");
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
