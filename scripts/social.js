@@ -1,10 +1,10 @@
 // देशकाल: Facebook पेज और Instagram पर अपने आप पोस्ट (Meta Graph API).
 // GitHub Actions से चलता है (.github/workflows/social.yml). secret न हों तो चुपचाप कुछ नहीं करता.
 //
-//   node scripts/social.js morning   सुबह का पूरा अंक: FB पर तस्वीरों वाली पोस्ट, Instagram पर कैरोसेल
-//   node scripts/social.js next      दिन भर, हर बार अगली एक ख़बर: FB पर हर ख़बर, Instagram पर चुनी हुई
-//   node scripts/social.js check     कुछ पोस्ट नहीं करता: सिर्फ़ जांचता है कि FB पेज और Instagram के टोकन चल रहे हैं
-//   DRY_RUN=1 ...                    कुछ भेजे बिना बताता है कि क्या जाता
+//   node scripts/social.js morning      सुबह का पूरा अंक: FB पर तस्वीरों वाली पोस्ट, Instagram पर कैरोसेल
+//   node scripts/social.js next       दिन भर, हर बार अगली एक ख़बर: FB पर हर ख़बर, Instagram पर चुनी हुई
+//   node scripts/social.js check      कुछ पोस्ट नहीं करता: सिर्फ़ जांचता है कि FB पेज और Instagram के टोकन चल रहे हैं
+//   DRY_RUN=1 ...                     कुछ भेजे बिना बताता है कि क्या जाता
 //
 // ज़रूरी secrets: FB_PAGE_ID, FB_PAGE_TOKEN (पेज का लंबा चलने वाला टोकन), IG_USER_ID (Instagram बिज़नेस खाते की id)
 // क्या-क्या जा चुका है, ये data/social/<दिन>.json में दर्ज होता है, ताकि कुछ दोबारा न जाए.
@@ -77,69 +77,6 @@ async function igPublish(creation) { await igReady(creation); return api(`/${env
 async function morning() {
   const slides = [`${day}-cover`, ...news.slice(0, 8).map(a => a.id), `${day}-end`];
   if (fbOn() && !state.fb.morning) {
-    const ids = [];
-    for (const s of slides.slice(0, 9)) ids.push((await api(`/${env.FB_PAGE_ID}/photos`, { url: img(s), published: "false" })).id);
-    const r = await api(`/${env.FB_PAGE_ID}/feed`, { message: morningText(false), attached_media: JSON.stringify(ids.map(id => ({ media_fbid: id }))) });
-    state.fb.morning = r.id; save(); console.log("Facebook: सुबह का अंक", r.id);
-  }
-  if (igOn() && !state.ig.morning) {
-    const kids = [];
-    for (const s of slides) kids.push((await api(`/${env.IG_USER_ID}/media`, { image_url: img(s), is_carousel_item: "true" })).id);
-    for (const k of kids) await igReady(k);
-    const c = await api(`/${env.IG_USER_ID}/media`, { media_type: "CAROUSEL", children: kids.join(","), caption: morningText(true) });
-    const r = await igPublish(c.id); state.ig.morning = r.id; save(); console.log("Instagram: कैरोसेल", r.id);
-  }
-}
-
-async function next() {
-  // Facebook: हर ख़बर, क्रम से, हर बार एक. पहली (बड़ी बहस) सुबह के अंक में आ चुकी, फिर भी अलग लिंक-पोस्ट के तौर पर जाती है.
-  state.fb.items ||= {}; state.ig.items ||= {};
-  if (fbOn()) {
-    const a = items.find(x => !state.fb.items[x.id]);
-    if (a) { const r = await api(`/${env.FB_PAGE_ID}/feed`, { message: storyText(a, false), link: url(a) }); state.fb.items[a.id] = r.id; save(); console.log("Facebook:", a.id, r.id); }
-  }
-  // Instagram: दिन में IG_SINGLES ख़बरें, हर तीसरी बारी में एक, ताकि फ़ीड भरी न लगे.
-  if (igOn()) {
-    const done = Object.keys(state.ig.items).length;
-    state.ig.tick = (state.ig.tick || 0) + 1; save();
-    const pick = [...news.slice(0, IG_SINGLES - 1), ...lit.slice(0, 1)].find(x => !state.ig.items[x.id]);
-    if (pick && done < IG_SINGLES && state.ig.tick % 3 === 1) {
-      const c = await api(`/${env.IG_USER_ID}/media`, { image_url: img(pick.id), caption: storyText(pick, true) });
-      const r = await igPublish(c.id); state.ig.items[pick.id] = r.id; save(); console.log("Instagram:", pick.id, r.id);
-    }
-  }
-  // सब जा चुका हो तो बाहर के लूप को बताने के लिए निशान
-  const fbLeft = fbOn() && items.some(x => !state.fb.items[x.id]);
-  const igLeft = igOn() && Object.keys(state.ig.items).length < IG_SINGLES && [...news.slice(0, IG_SINGLES - 1), ...lit.slice(0, 1)].some(x => !state.ig.items[x.id]);
-  if (!fbLeft && !igLeft) { console.log("आज का सब जा चुका"); fs.writeFileSync(".social-done", "1"); }
-}
-
-(async () => {
-  if (!fbOn() && !igOn() && !DRY) return console.log("Facebook/Instagram: secret नहीं, छोड़ा");
-  // FB_PAGE_TOKEN में यूज़र टोकन भी चलेगा: उससे पेज का अपना टोकन यहीं मांग लिया जाता है.
-  if (fbOn() && !DRY) {
     try {
-      const j = await (await fetch(`${G}/${env.FB_PAGE_ID}?fields=access_token&access_token=${encodeURIComponent(env.FB_PAGE_TOKEN)}`)).json();
-      if (j.access_token) { env.FB_PAGE_TOKEN = j.access_token; console.log("पेज टोकन मिला"); }
-      else if (j.error) console.log("पेज टोकन नहीं मिला:", j.error.message);
-    } catch (e) { console.log("पेज टोकन मांगने में दिक़्क़त:", e.message); }
-  }
-  const mode = process.argv[2] || "next";
-  /* check: सिर्फ़ पढ़ने वाली दो कॉल, कोई पोस्ट नहीं */
-  if (mode === "check") {
-    try {
-      if (fbOn()) { const p = await api(`/${env.FB_PAGE_ID}`, { fields: "name" }, "GET"); console.log("Facebook पेज ठीक:", p.name); }
-      if (igOn()) { const u = await api(`/${env.IG_USER_ID}`, { fields: "username" }, "GET"); console.log("Instagram ठीक: @" + u.username); }
-    } catch (e) { console.error(e.message); process.exitCode = 1; }
-    return;
-  }
-  /* सुबह का पूरा अंक छूट गया हो तो पहले वही */
-  const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
-  try { if (mode === "morning" || missedMorning) await morning(); else await next(); }
-  catch (e) {
-    save(); console.error(e.message); process.exitCode = 1;
-    // सुबह का Instagram कैरोसेल अटक जाये तो भी Facebook की ख़बरें दिन भर चलती रहें
-    if (mode !== "morning" && state.fb.morning) { try { await next(); } catch (e2) { save(); console.error(e2.message); } }
-  }
-  if (DRY) { console.log("\n--- सुबह, Facebook ---\n" + morningText(false) + "\n\n--- एक ख़बर, Instagram ---\n" + storyText(news[1], true)); }
-})();
+      const ids = [];
+      for (const s of slides.slice(0, 9)) ids.push((await api(`/${env.FB_PAGE_ID}/photos`, { url: img(
