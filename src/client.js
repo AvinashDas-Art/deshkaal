@@ -193,3 +193,5 @@ document.documentElement.classList.add("r3lock");d.showModal();});
   const chk=()=>{tk=false;const v=scrollY>innerHeight*1.5;if(v!==on){on=v;b.classList.toggle("on",v);b.tabIndex=v?0:-1}};
   addEventListener("scroll",()=>{if(!tk){tk=true;requestAnimationFrame(chk)}},{passive:true});chk();
   $$('a[href="#top"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});history.replaceState(null,"",location.pathname+location.search);const m=document.querySelector(".masthead .mast");if(m){m.setAttribute("tabindex","-1");setTimeout(()=>m.focus({preventScroll:true}),400)}}));})();
+/* पुरानी तारीख़ की सूचना कैश से दिखे तो छिपा दें */
+(()=>{const n=document.querySelector(".notice");if(!n)return;const d=new Date(Date.now()+5.5*3600e3).toISOString().slice(0,10);if(n.dataset.date!==d)n.remove()})();

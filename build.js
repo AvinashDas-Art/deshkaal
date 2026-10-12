@@ -369,7 +369,9 @@ function homePage() {
   const vid = all.find(a => a.sec === "video");               /* सबसे नया वीडियो, चाहे किसी भी दिन का हो */
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
-  const body = `<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
+  const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
+  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}

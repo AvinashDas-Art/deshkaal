@@ -1115,3 +1115,8 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .lv-ft time b,.lv-vid time b{font-weight:500}
 .lv-ft time small,.lv-vid time small{margin-left:3px}
 .lv-ft time i,.lv-vid time i{font-style:normal}
+
+/* एक दिन की सूचना (जैसे देरी की माफ़ी) */
+.notice{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:var(--s2) 0 0;padding:14px 18px;border:1.5px solid var(--haldi);border-left:6px solid var(--haldi);background:var(--haldi-soft)}
+.notice .nt-k{font-family:var(--f-ui);font-size:13px;font-weight:600;letter-spacing:.6px;color:var(--haldi)}
+.notice p{margin:0;flex:1;min-width:240px;font-family:var(--f-ui);font-size:16px;line-height:1.65;color:var(--ink)}
