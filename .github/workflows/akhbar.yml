@@ -43,8 +43,18 @@ jobs:
           ls -la "$F"
       - name: साइट में वापस भेजना
         run: |
-          git add public/akhbar || true
-          if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
-          git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "आज का अख़बार: PDF"
-          git reset -q --hard HEAD && git clean -fdq public data
-          for i in 1 2 3 4; do git pull --rebase -X theirs -q origin main && git push -q origin HEAD:main && exit 0; sleep 10; done; exit 1
+          # चेकआउट उथला (shallow) है और बीच में दूसरे पुश आ जाते हैं, इसलिए rebase नहीं:
+          # PDF अलग रखें, ताज़ा origin/main पर लौटें, PDF फिर रखें, पुश करें।
+          mkdir -p /tmp/pdfout && cp public/akhbar/*.pdf /tmp/pdfout/ 2>/dev/null || true
+          ls /tmp/pdfout | grep -q . || { echo "कोई PDF नहीं बनी"; exit 1; }
+          for i in 1 2 3 4 5 6; do
+            git fetch -q --depth=1 origin main
+            git reset -q --hard FETCH_HEAD
+            mkdir -p public/akhbar && cp /tmp/pdfout/*.pdf public/akhbar/
+            git add public/akhbar
+            if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
+            git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -q -m "आज का अख़बार: PDF [skip ci]"
+            if git push -q origin HEAD:main; then echo "PDF भेज दी गयी"; exit 0; fi
+            sleep $((i*8))
+          done
+          exit 1
