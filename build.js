@@ -51,8 +51,8 @@ DAYS_HI.forEach(d => d.items.forEach((a, i) => {
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
 
 const CREDIT_TR = {
-  en: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "Photo received via public sharing; original photo credit yet to be confirmed", "AI आर्ट: के शरद हक्सर": "AI art: K Sharad Haksar", "राजा रवि वर्मा / Wikimedia Commons": "Raja Ravi Varma / Wikimedia Commons" },
-  ur: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "پبلک شیئرنگ سے ملی تصویر؛ اصل فوٹو کریڈٹ کی تصدیق باقی", "AI आर्ट: के शरद हक्सर": "اے آئی آرٹ: کے شرد ہکسر", "राजा रवि वर्मा / Wikimedia Commons": "راجہ روی ورما / Wikimedia Commons" }
+  en: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "Photo received via public sharing; original photo credit yet to be confirmed", "AI आर्ट: के शरद हक्सर": "AI art: K Sharad Haksar", "PTI · The Leaflet के लेख से": "PTI · from The Leaflet article", "The New York Times के इंटरव्यू से": "From a New York Times interview", "रागमाला चित्रकार, LACMA / Wikimedia Commons": "Ragamala painter, LACMA / Wikimedia Commons", "राजा रवि वर्मा / Wikimedia Commons": "Raja Ravi Varma / Wikimedia Commons" },
+  ur: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "پبلک شیئرنگ سے ملی تصویر؛ اصل فوٹو کریڈٹ کی تصدیق باقی", "AI आर्ट: के शरद हक्सर": "اے آئی آرٹ: کے شرد ہکسر", "PTI · The Leaflet के लेख से": "پی ٹی آئی · دی لیفلیٹ کے مضمون سے", "The New York Times के इंटरव्यू से": "نیویارک ٹائمز کے انٹرویو سے", "रागमाला चित्रकार, LACMA / Wikimedia Commons": "راگ مالا مصور، LACMA / Wikimedia Commons", "राजा रवि वर्मा / Wikimedia Commons": "راجہ روی ورما / Wikimedia Commons" }
 };
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
@@ -329,7 +329,7 @@ function liveL(day) {
   const t = JSON.parse(fs.readFileSync(f, "utf8"));
   return { ...day, pin: day.pin && t.pin ? { ...day.pin, ...t.pin } : day.pin,
     counters: (day.counters || []).map((c, i) => ({ ...c, ...((t.counters || [])[i] || {}) })),
-    items: (day.items || []).map((x, i) => ({ ...x, ...((t.items || [])[i] || {}) })) };
+    items: (day.items || []).map((x, i) => { const m = { ...x, ...((t.items || [])[i] || {}) }; if (m.views) m.views = String(m.views).replace(/लाख/g, LG === "ur" ? "لاکھ" : "lakh").replace(/हज़ार/g, LG === "ur" ? "ہزار" : "thousand").replace(/करोड़/g, LG === "ur" ? "کروڑ" : "crore"); return m; }) };
 }
 function livePage(latest, url) {
   const V = LV[LG]; latest = liveL(latest);
