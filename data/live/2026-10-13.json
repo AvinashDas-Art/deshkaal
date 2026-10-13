@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T09:38+05:30",
+ "updated": "2026-10-13T10:35+05:30",
  "pin": {
   "k": "आज की सबसे बड़ी बात",
   "h": "सुप्रीम कोर्ट में आज राहुल गांधी और अन्य विपक्षी नेताओं की याचिका की सुनवाई",
@@ -29,12 +29,59 @@
  ],
  "items": [
   {
+   "t": "2026-10-13T10:30+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट में आज: 10 अक्टूबर की मेट्रो-रेल पाबंदियों पर अवमानना याचिका और ग़ैरक़ानूनी हिरासतों वाली बंदी प्रत्यक्षीकरण याचिका पर सुनवाई तय है। गृह सचिव, दिल्ली पुलिस आयुक्त और डीएमआरसी अध्यक्ष को आज तक जवाब देना था। इंडिया टीवी के मुताबिक़ एसआईआर के ख़िलाफ़ विपक्ष की याचिका भी आज मुख्य न्यायाधीश सूर्यकांत की बेंच के सामने आ सकती है।",
+   "src": "बार एंड बेंच, इंडिया टीवी",
+   "url": "https://www.barandbench.com/news/litigation/breaking-prima-facie-contempt-case-made-out-over-delhi-metro-restrictions-during-protests-says-supreme-court",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T10:05+05:30",
+   "kind": "news",
+   "h": "जंतर-मंतर के पास सीजेपी के सौरव दास और आशुतोष रांका हिरासत में",
+   "src": "बिज़नेस स्टैंडर्ड",
+   "url": "https://www.business-standard.com/amp/india-news/cjp-leaders-saurav-das-ashutosh-ranka-detained-near-jantar-mantar-126101300201_1.html"
+  },
+  {
+   "t": "2026-10-13T09:55+05:30",
+   "kind": "update",
+   "text": "पुलिस सूत्रों के हवाले से: सीजेपी के सौरव दास और आशुतोष रांका को मंगलवार सुबह जंतर-मंतर पहुंचने की कोशिश में दिल्ली पुलिस ने हिरासत में लिया; राजधानी में भारी पुलिस बल तैनात है। संस्थापक अभिजीत दिपके ने एक्स पर दावा किया कि अजिंक्य शिंदे और दूसरे सदस्य भी पकड़े गये, और लिखा कि प्रतिरोध को डिनोटिफ़ाई नहीं किया जा सकता।",
+   "src": "ईटीवी भारत, बिज़नेस स्टैंडर्ड",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T09:41+05:30",
+   "kind": "update",
+   "text": "राहुल गांधी आज शाम 4 बजे अपने घर पर इंडिया ब्लॉक के नेताओं, छात्र प्रतिनिधियों और सिविल सोसाइटी के लोगों से मिलेंगे। एनडीटीवी के हवाले से: कांग्रेस ने अपने सांसदों और नेताओं से अगले आदेश तक दिल्ली में रहने को कहा है। दिल्ली ट्रैफ़िक पुलिस ने नयी और मध्य दिल्ली के बड़े चौराहों पर रुकावट और डायवर्ज़न की चेतावनी दी है।",
+   "src": "बिज़नेस स्टैंडर्ड",
+   "url": "https://www.business-standard.com/amp/india-news/anti-cec-protest-rahul-to-host-india-bloc-leaders-cjp-plans-fresh-stir-126101300167_1.html#rahul-meeting",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T09:40+05:30",
+   "kind": "update",
+   "text": "बिज़नेस स्टैंडर्ड के मुताबिक़ सीजेपी ने अगले 10 दिनों में राजस्थान में बड़े प्रदर्शन का एलान किया है, दिल्ली में छात्र कार्यकर्ताओं की कथित हिरासत, नज़रबंदी और मारपीट के विरोध में। तारीख़ और जगह अभी नहीं बतायी गयी। सीजेपी ने जंतर-मंतर को प्रदर्शन-स्थलों की सूची से हटाने के फ़ैसले को चुनौती देकर वहीं की तारीख़ मांगी है।",
+   "src": "बिज़नेस स्टैंडर्ड",
+   "url": "https://www.business-standard.com/amp/india-news/anti-cec-protest-rahul-to-host-india-bloc-leaders-cjp-plans-fresh-stir-126101300167_1.html#cjp-rajasthan",
+   "verified": false
+  },
+  {
    "t": "2026-10-13T09:38+05:30",
    "kind": "update",
    "text": "स्क्रॉल: रविवार दोपहर मध्य दिल्ली से उठाये गये प्रदर्शनकारियों ने बताया कि गाड़ी में उन्हें मारा गया, फ़ोन छीन लिये गये और क़रीब 40 किलोमीटर दूर नजफ़गढ़ के पांडवालन खुर्द के एक सामुदायिक केंद्र में ले जाकर रात 11:30 बजे छोड़ा गया। आरोप प्रदर्शनकारियों के हैं; दिल्ली पुलिस का जवाब रिपोर्ट में नहीं है।",
    "src": "स्क्रॉल",
    "url": "https://scroll.in/article/1096348/private-parts-kicked-phones-taken-away-detained-delhi-protestors-allege-assault-in-police-vans",
    "verified": true
+  },
+  {
+   "t": "2026-10-13T09:36+05:30",
+   "kind": "news",
+   "h": "'Private parts kicked, phones taken away': हिरासत में लिये गये प्रदर्शनकारियों के बयान",
+   "text": "'Private parts kicked, phones taken away': हिरासत में लिये गये प्रदर्शनकारियों के बयान",
+   "src": "स्क्रॉल",
+   "url": "https://scroll.in/article/1096348/private-parts-kicked-phones-taken-away-detained-delhi-protestors-allege-assault-in-police-vans"
   },
   {
    "t": "2026-10-13T09:31+05:30",
@@ -45,6 +92,14 @@
    "verified": true
   },
   {
+   "t": "2026-10-13T09:29+05:30",
+   "kind": "news",
+   "h": "'Not My Domain': CJI Kant On Delhi Protest Situation and Curbs",
+   "text": "'Not My Domain': CJI Kant On Delhi Protest Situation and Curbs",
+   "src": "डेक्कन क्रॉनिकल",
+   "url": "https://www.deccanchronicle.com/nation/current-affairs/not-my-domain-cji-kant-on-delhi-protest-situation-and-curbs-1995265"
+  },
+  {
    "t": "2026-10-13T09:24+05:30",
    "kind": "update",
    "text": "भाजपा का पक्ष: केंद्रीय मंत्री शिवराज सिंह चौहान ने विपक्ष के मार्च को 'नौटंकी' कहा और कांग्रेस पर संस्थाओं को कमज़ोर करने का आरोप लगाया। अनुराग ठाकुर ने 'वोट चोरी' के आरोपों को बेबुनियाद बताया। दोनों बयान आरोप हैं।",
@@ -53,12 +108,28 @@
    "verified": true
   },
   {
+   "t": "2026-10-13T09:22+05:30",
+   "kind": "news",
+   "h": "BJP Accuses Cong of Creating Chaos, Attacking Institutions",
+   "text": "BJP Accuses Cong of Creating Chaos, Attacking Institutions",
+   "src": "डेक्कन क्रॉनिकल",
+   "url": "https://www.deccanchronicle.com/nation/current-affairs/bjp-accuses-cong-of-creating-chaos-attacking-institutions-1995292"
+  },
+  {
    "t": "2026-10-13T09:15+05:30",
    "kind": "update",
    "text": "सुप्रीम कोर्ट की रजिस्ट्री ने राहुल गांधी और अन्य की याचिका में 10 से ज़्यादा ख़ामियां बतायीं, जिनमें खड़गे के पहचान-पत्र की साफ़ प्रति और 200 रुपये से ज़्यादा की कम अदालती फ़ीस शामिल है। सूत्रों के हवाले से।",
    "src": "डेक्कन क्रॉनिकल",
    "url": "https://www.deccanchronicle.com/nation/current-affairs/sc-points-out-10-defects-in-rahul-gandhis-plea-in-sir-case-1995336",
    "verified": true
+  },
+  {
+   "t": "2026-10-13T09:12+05:30",
+   "kind": "news",
+   "h": "SC Points Out 10 Defects in Rahul Gandhi's Plea in SIR Case",
+   "text": "SC Points Out 10 Defects in Rahul Gandhi's Plea in SIR Case",
+   "src": "डेक्कन क्रॉनिकल",
+   "url": "https://www.deccanchronicle.com/nation/current-affairs/sc-points-out-10-defects-in-rahul-gandhis-plea-in-sir-case-1995336"
   },
   {
    "t": "2026-10-13T09:05+05:30",
@@ -77,52 +148,20 @@
    "verified": true
   },
   {
-   "t": "2026-10-13T08:40+05:30",
-   "kind": "update",
-   "text": "द न्यूज़ मिनट और स्क्रॉल की रिपोर्ट के हवाले से न्यूज़लॉन्ड्री: 20 से ज़्यादा पत्रकारों के मुताबिक़ 11 अक्टूबर के सुप्रीम कोर्ट निर्देश के बाद भी उन्हें हिरासत में लिया गया और उपकरण छीने या तोड़े गये। पुलिस का पक्ष रिपोर्ट में नहीं है।",
-   "src": "न्यूज़लॉन्ड्री",
-   "url": "https://www.newslaundry.com/2026/10/12/over-20-journalists-recount-the-delhi-polices-use-of-brute-force-against-them",
-   "verified": true
-  },
-  {
-   "t": "2026-10-13T09:36+05:30",
-   "kind": "news",
-   "h": "'Private parts kicked, phones taken away': हिरासत में लिये गये प्रदर्शनकारियों के बयान",
-   "text": "'Private parts kicked, phones taken away': हिरासत में लिये गये प्रदर्शनकारियों के बयान",
-   "src": "स्क्रॉल",
-   "url": "https://scroll.in/article/1096348/private-parts-kicked-phones-taken-away-detained-delhi-protestors-allege-assault-in-police-vans"
-  },
-  {
-   "t": "2026-10-13T09:29+05:30",
-   "kind": "news",
-   "h": "'Not My Domain': CJI Kant On Delhi Protest Situation and Curbs",
-   "text": "'Not My Domain': CJI Kant On Delhi Protest Situation and Curbs",
-   "src": "डेक्कन क्रॉनिकल",
-   "url": "https://www.deccanchronicle.com/nation/current-affairs/not-my-domain-cji-kant-on-delhi-protest-situation-and-curbs-1995265"
-  },
-  {
-   "t": "2026-10-13T09:22+05:30",
-   "kind": "news",
-   "h": "BJP Accuses Cong of Creating Chaos, Attacking Institutions",
-   "text": "BJP Accuses Cong of Creating Chaos, Attacking Institutions",
-   "src": "डेक्कन क्रॉनिकल",
-   "url": "https://www.deccanchronicle.com/nation/current-affairs/bjp-accuses-cong-of-creating-chaos-attacking-institutions-1995292"
-  },
-  {
-   "t": "2026-10-13T09:12+05:30",
-   "kind": "news",
-   "h": "SC Points Out 10 Defects in Rahul Gandhi's Plea in SIR Case",
-   "text": "SC Points Out 10 Defects in Rahul Gandhi's Plea in SIR Case",
-   "src": "डेक्कन क्रॉनिकल",
-   "url": "https://www.deccanchronicle.com/nation/current-affairs/sc-points-out-10-defects-in-rahul-gandhis-plea-in-sir-case-1995336"
-  },
-  {
    "t": "2026-10-13T08:52+05:30",
    "kind": "news",
    "h": "CEC protests: In Maharashtra and Goa, demonstrators detained, barred from assembling",
    "text": "CEC protests: In Maharashtra and Goa, demonstrators detained, barred from assembling",
    "src": "स्क्रॉल",
    "url": "https://scroll.in/latest/1096322/cec-protests-in-maharashtra-and-goa-demonstrators-detained-barred-from-assembling"
+  },
+  {
+   "t": "2026-10-13T08:40+05:30",
+   "kind": "update",
+   "text": "द न्यूज़ मिनट और स्क्रॉल की रिपोर्ट के हवाले से न्यूज़लॉन्ड्री: 20 से ज़्यादा पत्रकारों के मुताबिक़ 11 अक्टूबर के सुप्रीम कोर्ट निर्देश के बाद भी उन्हें हिरासत में लिया गया और उपकरण छीने या तोड़े गये। पुलिस का पक्ष रिपोर्ट में नहीं है।",
+   "src": "न्यूज़लॉन्ड्री",
+   "url": "https://www.newslaundry.com/2026/10/12/over-20-journalists-recount-the-delhi-polices-use-of-brute-force-against-them",
+   "verified": true
   }
  ]
 }
