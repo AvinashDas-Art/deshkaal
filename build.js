@@ -76,7 +76,7 @@ let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 
 /* ---------- layout ---------- */
 
-function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null }) {
+function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null, noindex = false }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
   // Callers pass an already localized URL. Never prefix the language twice.
