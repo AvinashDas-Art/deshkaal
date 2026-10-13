@@ -534,9 +534,17 @@ module.exports = function (H) {
         : `<div class="hw-poem">${body.map(s => `<p>${esc(s)}</p>`).join("")}</div>`;
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}${intro}${verse}`;
     } else {
+      /* पाठ में "[[img:N]]" वाली अकेली पंक्ति = N-वीं तस्वीर ठीक वहीं; पाठ में [शब्द](https://...) = कड़ी */
+      const inl = body.some(p => /^\[\[img:\d+\]\]$/.test(p)), used = new Set(body.map(p => (p.match(/^\[\[img:(\d+)\]\]$/) || [])[1]).filter(Boolean).map(Number));
+      const link = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
+      if (inl) {
+        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); return m ? (imgs[+m[1]] ? fig(imgs[+m[1]]) : "") : `<p>${link(esc(p))}</p>`; }).join("");
+        main = `${imgs[0] && !used.has(0) ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
+      } else {
       const at = Math.max(1, Math.round(body.length * 0.4));
-      const paras = body.map((p, i) => `<p>${esc(p)}</p>${w.pull && i === at - 1 && body.length > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && i === Math.min(body.length - 2, at + 1) ? fig(imgs[1]) : ""}`).join("");
+      const paras = body.map((p, i) => `<p>${link(esc(p))}</p>${w.pull && i === at - 1 && body.length > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && i === Math.min(body.length - 2, at + 1) ? fig(imgs[1]) : ""}`).join("");
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
+      }
     }
     const others = ALL.filter(has(lg)).filter(x => x.id !== w.id).slice(0, 3);
     const pic = w.photo && !(imgs[0] && w.kind !== "kavita");
