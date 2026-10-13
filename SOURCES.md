@@ -93,6 +93,7 @@ Many fine independent writers publish on Substack (for example Dilip Khan / द�
 - `pub` = the newsletter's name (e.g. "Dilip Khan · Substack"), `by` = the writer. Same rules as any source: last 72 hours, fits `EDITORIAL.md`, no party propaganda, no rumour.
 - Known newsletters (check these first, every day; add good new ones here):
   - Dilip Khan / दिलीप ख़ान: https://dilipkhan.substack.com (feed: https://dilipkhan.substack.com/feed; profile: https://substack.com/@dilipkhan)
+  - VVP Sharma (owner's standing pick, added 13 Oct 2026): https://vvpsharma.substack.com (feed: https://vvpsharma.substack.com/feed). The owner wants his pieces in Deshkaal regularly: check the feed every day and publish each new free post of his (within the 72-hour rule, and the usual `EDITORIAL.md` fit) as `vichar`, or `amukh` for a major long essay. `by` = VVP Sharma, `pub` = "VVP Sharma · Substack". If a post is not in Hindi, write the summary in Hindi as for any other source. Do not skip him for lack of space: he takes one `vichar` slot on any day he has a new free post.
 
 ## और भी (जब ऊपर से कम पड़े)
 - समकालीन जनमत: https://samkaleenjanmat.in (slow; retry once)
