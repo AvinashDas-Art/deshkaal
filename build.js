@@ -75,7 +75,8 @@ const HAS = Object.fromEntries(LANGS.map(l => [l, new Set(daysFor(l).flatMap(d =
 let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 
 /* ---------- layout ---------- */
-function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null, noindex = false }) {
+
+function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
   // Callers pass an already localized URL. Never prefix the language twice.
@@ -107,7 +108,7 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
 <meta name="twitter:title" content="${esc(title || B)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}${image}">${published ? `
-<meta property="article:published_time" content="${published}T07:00:00+05:30">` : ""}
+<meta property="article:published_time" content="${published}T06:00:00+05:30">` : ""}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F1F2EE">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -237,6 +238,12 @@ function chartSVG(c) {
     return `<rect x="${x}" y="${base - h}" width="${w}" height="${h}" class="${last ? "bar-hi" : "bar"}"/><text x="${x + w / 2}" y="${base - h - 14}" class="bar-v">${v}</text><text x="${x + w / 2}" y="${base + 34}" class="bar-l">${esc(lab)}</text>`; }).join("");
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)}"><line x1="${pad - 10}" y1="${base}" x2="${W - pad + 10}" y2="${base}" class="axis"/>${bars}</svg>`;
 }
+const dayNo = d => Math.floor(Date.parse(d + "T00:00:00Z") / 864e5);
+const heroPick = d => { const t = new Date(d + "T00:00:00Z"); if (t.getUTCDay() === 0) return 0; const n = dayNo(d); return [1, 2, 3, 4, 5, 6][(n + Math.floor(n / 7)) % 6]; };
+/* ख़बरों की प्रस्तुति: तारीख़ से तय, लगातार दो दिन अलग (वर्ग gv0-3 ग्रिड के लिए, kv0-3 ख़बर-सूची के लिए) */
+const presPick = (d, n) => { const k = dayNo(d); const gv = (k + Math.floor(k / 4)) % 4, kv = (k + Math.floor(k / 5)) % 4;
+  const ok = (v, c) => v === 1 && !(c >= 6 && c % 3 === 0) ? 2 : v;
+  return { vichar: ok(gv, n.vichar), pari: ok((gv + 2) % 4, n.pari), khabar: kv }; };
 function hero(L, kick = T.bigDebate) {
   const type = LG === "ur" && L.hero === "shabd" ? "poster" : (L.hero || "poster");
   if (type === "shabd" && L.shabd) return `<section class="hero hero-shabd">
@@ -245,7 +252,8 @@ function hero(L, kick = T.bigDebate) {
   if (type === "ank" && L.chart) return `<section class="hero hero-ank">
     <div class="ank-text">${heroText(L, kick)}${heroFoot(L)}</div>
     <figure class="ank-chart"><figcaption><b>${esc(L.chart.title)}</b><span>${esc(L.chart.unit)}</span></figcaption>${chartSVG(L.chart)}<p class="ank-note">${esc(L.chart.note || "")}</p></figure></section>`;
-  const wd = process.env.HERO_DAY !== undefined ? +process.env.HERO_DAY : new Date((L.day || today.date) + "T00:00:00Z").getUTCDay();
+  /* हर दिन नया आमुख: रविवार को रविवारी रूप, बाक़ी दिन छह रूपों में तारीख़ के हिसाब से घूमता है; लगातार दो दिन एक-सा नहीं */
+  const wd = process.env.HERO_DAY !== undefined ? +process.env.HERO_DAY : heroPick(L.day || today.date);
   const A = (cls) => `<a class="${cls}" href="${href(L)}" tabindex="-1">${art(L)}</a>`;
   const cr = L.photo ? `<span class="hero-credit">${credit(L)}</span>` : "";
   if (wd === 0) return `<section class="hero hero-ravi"><div class="hrv-cover">${A("hrv-art")}<span class="hrv-shade" aria-hidden="true"></span><span class="hrv-stamp" aria-hidden="true">${T.sunday}</span><div class="hrv-title">${heroText(L, kick)}</div></div>${cr}
@@ -403,6 +411,7 @@ function homePage() {
   const pari = today.items.filter(a => isRuralReport(a));
   
   const vid = all.find(a => a.sec === "video");
+  const PV = presPick(today.date, { vichar: vichar.length, pari: pari.length });
   const head = k => `<div class="sechead sec-${k}"><h3>${T.sec[k][0]}</h3><p>${T.sec[k][1]}</p></div>`;
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
@@ -410,9 +419,9 @@ function homePage() {
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
-  ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
-  ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
-  ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
+  ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}
+  ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist kv${PV.khabar}">${khabar.map(kRow).join("")}</div></section>` : ""}
+  ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3 gv${PV.pari}">${pari.map(card).join("")}</div></section>` : ""}
   ${vid ? videoBand(vid) : ""}
   ${lits.length ? `<section class="litband">${head("sahitya")}<div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
   ${toonFor(today.date) ? toonBand(toonFor(today.date)) : ""}
@@ -482,9 +491,9 @@ function archivePage() {
   return layout({ title: T.archive, desc: T.archDesc, url: PRE + "/purane/", body, tab: "purane", alt: { hi: "/purane/", en: "/en/purane/", ur: "/ur/purane/" } });
 }
 const JN = {
-  hi: { k: "न्योता", h: "हर सुबह, ज़रूरी ख़बरों तक एक पगडंडी", lede: "देशकाल दुनिया भर के अख़बारों, पत्रिकाओं और स्वतंत्र मंचों से रोज़ की सबसे ज़रूरी टिप्पणियां चुनता है और उनका सार आसान हिंदी में लिखता है। अवाम की नज़र से: अल्पसंख्यक, दलित, आदिवासी, औरतें, मेहनतकश। हर सार के आख़िर में मूल लेख का लिंक। कोई विज्ञापन नहीं, कोई शुल्क नहीं।", aria: "ईमेल", btn: "हर सुबह ईमेल पर पाएं", small: "जब चाहें, हर ईमेल के नीचे एक क्लिक से हट सकते हैं।", nijta: "निजता नीति", today: "आज के अंक से", full: "पूरा अंक पढ़ें", title: "देशकाल से जुड़िए", desc: "हर सुबह 7 बजे ज़रूरी टिप्पणियों का सार, आसान हिंदी में, सीधे आपके ईमेल पर।" },
+  hi: { k: "न्योता", h: "हर सुबह, ज़रूरी ख़बरों तक एक पगडंडी", lede: "देशकाल दुनिया भर के अख़बारों, पत्रिकाओं और स्वतंत्र मंचों से रोज़ की सबसे ज़रूरी टिप्पणियां चुनता है और उनका सार आसान हिंदी में लिखता है। अवाम की नज़र से: अल्पसंख्यक, दलित, आदिवासी, औरतें, मेहनतकश। हर सार के आख़िर में मूल लेख का लिंक। कोई विज्ञापन नहीं, कोई शुल्क नहीं।", aria: "ईमेल", btn: "हर सुबह ईमेल पर पाएं", small: "जब चाहें, हर ईमेल के नीचे एक क्लिक से हट सकते हैं।", nijta: "निजता नीति", today: "आज के अंक से", full: "पूरा अंक पढ़ें", title: "देशकाल से जुड़िए", desc: "हर सुबह 6 बजे ज़रूरी टिप्पणियों का सार, आसान हिंदी में, सीधे आपके ईमेल पर।" },
   en: { k: "Invitation", h: "Every morning, a footpath to the news that matters", lede: "Every day Deshkaal picks the most important commentary from newspapers, magazines and independent platforms around the world and writes a summary in plain language. Through the eyes of the people: minorities, Dalits, Adivasis, women, working people. A link to the original at the end of every summary. No advertisements, no fee.", aria: "Email", btn: "Get it by email every morning", small: "You can unsubscribe any time with one click at the bottom of every email.", nijta: "Privacy policy", today: "From today's issue", full: "Read the full issue", title: "Join Deshkaal", desc: "A summary of the important commentary every morning at 7, in plain language, straight to your email." },
-  ur: { k: "دعوت", h: "ہر صبح، اہم خبروں تک ایک پگڈنڈی", lede: "دیشکال دنیا بھر کے اخباروں، رسالوں اور آزاد پلیٹ فارموں سے روز کے سب سے اہم تبصرے چنتا ہے اور ان کا خلاصہ آسان زبان میں لکھتا ہے۔ عوام کی نظر سے: اقلیتیں، دلت، آدی واسی، عورتیں، محنت کش۔ ہر خلاصے کے آخر میں اصل مضمون کا لنک۔ کوئی اشتہار نہیں، کوئی فیس نہیں۔", aria: "ای میل", btn: "ہر صبح ای میل پر پائیں", small: "جب چاہیں، ہر ای میل کے نیچے ایک کلک سے ہٹ سکتے ہیں۔", nijta: "پرائیویسی پالیسی", today: "آج کے شمارے سے", full: "پورا شمارہ پڑھیں", title: "دیشکال سے جڑیے", desc: "ہر صبح 7 بجے اہم تبصروں کا خلاصہ، آسان زبان میں، سیدھے آپ کے ای میل پر۔" }
+  ur: { k: "دعوت", h: "ہر صبح، اہم خبروں تک ایک پگڈنڈی", lede: "دیشکال دنیا بھر کے اخباروں، رسالوں اور آزاد پلیٹ فارموں سے روز کے سب سے اہم تبصرے چنتا ہے اور ان کا خلاصہ آسان زبان میں لکھتا ہے۔ عوام کی نظر سے: اقلیتیں، دلت، آدی واسی، عورتیں، محنت کش۔ ہر خلاصے کے آخر میں اصل مضمون کا لنک۔ کوئی اشتہار نہیں، کوئی فیس نہیں۔", aria: "ای میل", btn: "ہر صبح ای میل پر پائیں", small: "جب چاہیں، ہر ای میل کے نیچے ایک کلک سے ہٹ سکتے ہیں۔", nijta: "پرائیویسی پالیسی", today: "آج کے شمارے سے", full: "پورا شمارہ پڑھیں", title: "دیشکال سے جڑیے", desc: "ہر صبح 6 بجے اہم تبصروں کا خلاصہ، آسان زبان میں، سیدھے آپ کے ای میل پر۔" }
 };
 function joinPage() {
   const J = JN[LG], news = today.items.filter(a => a.cat !== "साहित्य").slice(0, 3);

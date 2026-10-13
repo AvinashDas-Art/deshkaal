@@ -3,7 +3,7 @@
 This file is the instruction set for the daily scheduled run that publishes Deshkaal. The run reads it at the start, every day.
 
 ## Schedule
-Every day, finish by 07:00 IST. Sunday runs additionally write the weekly special (see below).
+Every day, finish by 06:00 IST. Sunday runs additionally write the weekly special (see below).
 
 ## स्थायी नियम: खोज और फ़ालबैक (owner's standing rules, apply to every run)
 **1. YouTube, reels and live streams: no vidIQ.** Never depend on vidIQ tools. Find videos, reels and live streams only through:

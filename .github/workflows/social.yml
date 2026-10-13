@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths: [".github/run-social"]
   schedule:
-    - cron: "45 1 * * *"
+    - cron: "50 0 * * *"
     - cron: "15 2-16 * * *"
   workflow_dispatch:
     inputs:
@@ -41,10 +41,10 @@ jobs:
           }
           MODE="${{ github.event.inputs.mode }}"
           SCHED="${{ github.event.schedule }}"
-          [ "$SCHED" = "45 1 * * *" ] && MODE=morning
+          [ "$SCHED" = "50 0 * * *" ] && MODE=morning
           [ -z "$MODE" ] && MODE=next
           m=$(ist_min)
-          if [ "${{ github.event_name }}" = "schedule" ] && { [ $m -lt 430 ] || [ $m -ge 1320 ]; }; then echo "सुबह 7:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
+          if [ "${{ github.event_name }}" = "schedule" ] && { [ $m -lt 370 ] || [ $m -ge 1320 ]; }; then echo "सुबह 6:10 से रात 10 बजे के बाहर, कुछ नहीं भेजना"; exit 0; fi
           # सुबह वाला काम छूट गया हो तो पहला next ही पूरा अंक भेज दे (social.js खुद देखता है क्या जा चुका है)
           # पोस्ट फ़ेल हो (टोकन, API) तो रन लाल हो, पर जो जा चुका उसका हिसाब पहले दर्ज हो जाए
           rc=0; node scripts/social.js "$MODE" || rc=$?

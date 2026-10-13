@@ -669,11 +669,11 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .hero .row{margin-top:var(--s3)}
 /* सिर्फ़ गांव-जवार: आख़िरी अकेली रिपोर्ट पूरी चौड़ाई की पट्टी बनती है */
 @media (min-width:901px){
-  .pariband .grid.g3>.card:last-child:nth-child(3n+1){grid-column:1/-1}
-  .pariband .grid.g3>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
-  .pariband .grid.g3>.card:last-child:nth-child(3n+1) .art{margin:0}
-  .pariband .grid.g3>.card:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
-  .pariband .grid.g3>.card:last-child:nth-child(3n+1)>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
+  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1){grid-column:1/-1}
+  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
+  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1) .art{margin:0}
+  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
+  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1)>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
 }
 .toon{padding-bottom:var(--s7)}
 
@@ -1161,3 +1161,34 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .lv-pin h3 a{color:inherit;text-decoration:none}
 .lv-pin p{margin:0 0 6px;font-size:17px;line-height:1.7;color:var(--ink-2)}
 .lv-pin small{color:var(--ink-3,#6b625a)}
+
+/* ============ रोज़ नयी प्रस्तुति: ख़बरों के खंड (रंग और मस्टहेड अछूते) ============ */
+@media (min-width:901px){
+  /* gv1: पहली टिप्पणी बड़ी, 2x2 */
+  .grid.g3.gv1>.card:first-child{grid-column:1/3;grid-row:1/3}
+  .grid.g3.gv1>.card:first-child .art{aspect-ratio:1/1}
+  .grid.g3.gv1>.card:first-child h3{font-size:36px;line-height:1.28}
+  .grid.g3.gv1>.card:first-child .dek{font-size:19px}
+  /* gv2: आड़े कार्ड, दो कतारें */
+  .grid.g3.gv2{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) 40px}
+  .grid.g3.gv2>.card>a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 22px;align-items:start}
+  .grid.g3.gv2>.card .art{margin:0;aspect-ratio:4/3}
+  .grid.g3.gv2>.card:last-child:nth-child(odd){grid-column:1/-1}
+  /* gv3: क्रमांक वाले कार्ड */
+  .grid.g3.gv3{counter-reset:gv}
+  .grid.g3.gv3>.card{counter-increment:gv;position:relative}
+  .grid.g3.gv3>.card .ct::before{content:counter(gv,decimal-leading-zero);display:block;font-family:var(--f-poster);font-size:44px;line-height:1;color:var(--lal);margin-bottom:6px}
+  /* kv1: एक कतार, क्रमांक किनारे */
+  .clist.kv1{grid-template-columns:minmax(0,1fr);counter-reset:kv}
+  .clist.kv1 article{counter-increment:kv;display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 18px}
+  .clist.kv1 article::before{content:counter(kv);grid-row:1/3;font-family:var(--f-poster);font-size:46px;line-height:1;color:var(--lal)}
+  .clist.kv1 article>*{grid-column:2}
+  /* kv2: तीन कतारें, कसी हुई */
+  .clist.kv2{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 30px}
+  .khabar .clist.kv2 h4{font-size:20px}
+  .khabar .clist.kv2 .dek{font-size:15.5px}
+  /* kv3: पहली ख़बर पूरी चौड़ाई, बड़ी */
+  .clist.kv3>article:first-child{grid-column:1/-1;border-top:3px solid var(--ink)}
+  .khabar .clist.kv3>article:first-child h4{font-size:34px;line-height:1.3;max-width:26ch}
+  .khabar .clist.kv3>article:first-child .dek{font-size:19px;max-width:60ch}
+}
