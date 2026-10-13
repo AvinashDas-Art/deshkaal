@@ -174,9 +174,9 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
 </div>
 <div class="sov" id="sov" hidden>
   <div class="sbox" role="dialog" aria-modal="true" aria-label="${SR[LG].t}">
-    <div class="sin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
+    <div class="sin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="sq" type="search" aria-label="${SR[LG].ph}" aria-controls="sres" placeholder="${SR[LG].ph}" autocomplete="off" enterkeyhint="search"><button type="button" class="sx" id="sclose" aria-label="${SR[LG].close}">✕</button></div>
     <div class="shint" id="shint">${SR[LG].hint}</div>
-    <ol class="sres" id="sres"></ol>
+    <ol class="sres" id="sres" aria-live="polite" aria-busy="false"></ol>
   </div>
 </div>
 <a class="totop" href="#top" id="totop" aria-label="${LG === "en" ? "Back to top" : LG === "ur" ? "اوپر جائیں" : "सबसे ऊपर जाएं"}" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11.5 12 5.5l6 6"/></svg><span>${LG === "en" ? "Top" : LG === "ur" ? "اوپر" : "ऊपर"}</span></a>
@@ -193,7 +193,14 @@ const SR = {
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
   ur: { ph: "کوئی خبر، مصنف، جگہ یا مسئلہ تلاش کیجیے", t: "تلاش", close: "بند کریں", hint: "جیسے: مزدور، بہار، غزہ، کسان" }
 };
-const searchIndex = () => JSON.stringify(all.map(a => ({ u: href(a), h: a.h, d: a.dek || "", c: cn(a.cat), k: a.cat, p: a.pub || "", b: a.by || "", t: a.date || "", x: (a.body || []).join(" ").slice(0, 280) + " " + (a.ref || []).map(r => r[0]).join(" ") })));
+const searchText = a => [...(a.body || []), ...(a.nazar || []), a.sawal || "", ...(a.ref || []).flat(), a.place || "", a.note || ""].join(" ");
+const searchIndex = () => JSON.stringify([
+  ...all.map(a => ({ u: href(a), h: a.h, d: a.dek || "", c: cn(a.cat), k: a.cat, p: a.pub || "", b: a.by || "", t: a.date || "", day: a.day || "", x: searchText(a) })),
+  ...HS.ALL.filter(HS.has(LG)).map(w => {
+    const a = LG === "hi" ? w : { ...w, ...w[LG] };
+    return { u: HS.url(w, LG), h: a.h, d: a.dek || a.pull || "", c: { hi: "हमसफ़र", en: "Hamsafar", ur: "ہم سفر" }[LG], k: "साहित्य", p: BRAND[LG], b: a.by || "", t: w.date, day: w.date, x: searchText(a) };
+  })
+]);
 
 /* ---------- pieces ---------- */
 const card = a => `<article class="card"><a href="${href(a)}">${art(a)}<div class="ct"><p class="kicker">${cn(a.cat)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p></div></a><p class="src">${esc(a.pub)} · ${T.read(readMin(a))} · ${saveBtn(a)}</p></article>`;
@@ -700,3 +707,4 @@ out("client.js", fs.readFileSync("src/client.js", "utf8"));
 })("public", "dist");
 out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length + "-" + require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8)));
 console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप्पणियां, ${CATS.length} श्रेणियां · English ${HAS.en.size}, اردو ${HAS.ur.size}`);
+

@@ -8,6 +8,8 @@ const TX={hi:{modes:["अपने आप","दिन","सीपिया","र
  en:{modes:["auto","day","sepia","night"],col:"Colour: ",listen:"▶ Listen",stop:"■ Stop",nolisten:"Listening is not available in this browser",saved:"✓ Saved",save:"+ Save",hi:"Hello, ",signin:"Sign in",copied:"Copied",copy:"Copy link",count:n=>`${n} pieces`,none:"Nothing found. Try another word.",last:n=>`${n}, you were last reading:`,mine:"My Deshkaal",mineP:"Join to save pieces and arrange your own front page.",join:"Join",whose:n=>`${n}'s Deshkaal`,fav:"Favourite sections",savedH:"Saved pieces",noSaved:'Nothing saved yet. Press "+ Save" on any piece.',out:"Sign out",speech:"en-IN"},
  ur:{modes:["خود بخود","دن","سیپیا","رات"],col:"رنگ: ",listen:"▶ سنیں",stop:"■ روکیں",nolisten:"اس براؤزر میں سننا دستیاب نہیں",saved:"✓ محفوظ",save:"+ محفوظ کریں",hi:"آداب، ",signin:"سائن اِن",copied:"کاپی ہو گیا",copy:"لنک کاپی",count:n=>`${n} تبصرے`,none:"اس تلاش سے کچھ نہیں ملا۔ کوئی اور لفظ آزمائیے۔",last:n=>`${n}، آپ پچھلی بار یہ پڑھ رہے تھے:`,mine:"میرا دیش کال",mineP:"مضامین محفوظ کرنے اور اپنا پہلا صفحہ سجانے کے لیے جڑیے۔",join:"جڑیں",whose:n=>`${n} کا دیش کال`,fav:"پسند کے زمرے",savedH:"محفوظ مضامین",noSaved:'ابھی کچھ محفوظ نہیں۔ کسی بھی مضمون پر "+ محفوظ کریں" دبائیے۔',out:"سائن آؤٹ",speech:"ur-PK"}}[LG]||{};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* Keep vowel marks; ignore nukta, joiners and equivalent Arabic forms in both searches. */
+const searchNorm=s=>String(s??"").toLowerCase().normalize("NFD").replace(/\u093C/g,"").replace(/\u0901/g,"\u0902").replace(/[\u200C\u200D]/g,"").replace(/[\u0610-\u061A\u064B-\u065F\u0670\u0640]/g,"").replace(/ي/g,"ی").replace(/ك/g,"ک").replace(/[^\p{L}\p{N}\p{M}\s]/gu," ").replace(/\s+/g," ").trim();
 
 /* रंग और अक्षर */
 const MODES=[["auto",TX.modes[0]],["day",TX.modes[1]],["sepia",TX.modes[2]],["night",TX.modes[3]]];
@@ -88,8 +90,9 @@ function renderMine(){const el=$("#mine");if(!el)return;
 /* आर्काइव में खोज */
 const aq=$("#aq");
 if(aq){let acat="सब";
-  const run=()=>{const q=aq.value.trim();let n=0;
-    $$(".arow").forEach(r=>{const ok=(acat==="सब"||r.dataset.cat===acat)&&(!q||r.textContent.includes(q));r.hidden=!ok;if(ok)n++});
+  const rows=$$(".arow").map(r=>({r,text:searchNorm(r.textContent)}));
+  const run=()=>{const ws=searchNorm(aq.value).split(" ").filter(Boolean);let n=0;
+    rows.forEach(({r,text})=>{const ok=(acat==="सब"||r.dataset.cat===acat)&&ws.every(w=>text.includes(w));r.hidden=!ok;if(ok)n++});
     $$(".aday").forEach(d=>{d.hidden=!d.querySelector(".arow:not([hidden])")});
     $("#acount").textContent=n?TX.count(n):TX.none};
   aq.oninput=run;$$("[data-ac]").forEach(b=>b.onclick=()=>{acat=b.dataset.ac;$$("[data-ac]").forEach(x=>x.setAttribute("aria-pressed",x===b));run()});run()}
@@ -115,39 +118,72 @@ document.fonts&&document.fonts.ready.then(()=>typeof drawAll==="function"&&drawA
 /* भाषा मेन्यू: बाहर क्लिक पर बंद */
 document.addEventListener("click",e=>{const d=$(".langs");if(d&&d.open&&!d.contains(e.target))d.open=false});
 
-/* खोज: ऊपर की पट्टी दबाने या "/" दबाने पर खुलती है; सूचकांक पहली बार खुलने पर लोड */
+/* खोज: पूरा लेख, लेखक और पाठकों की रचनाएं */
 (function(){
-  const ov=$("#sov"),q=$("#sq"),res=$("#sres"),hint=$("#shint"),op=$("#sopen");if(!ov||!q)return;
+  const ov=$("#sov"),q=$("#sq"),res=$("#sres"),hint=$("#shint"),op=$("#sopen");if(!ov||!q||!res||!hint)return;
   const CC={"देश":"#B23A2E","दुनिया":"#2E3F8F","समाज":"#A2650E","अर्थ":"#2D6A4F","पर्यावरण":"#5B7A1E","स्त्री":"#9A2F67","संस्कृति":"#5A3E91","साहित्य":"#6E4423"};
-  const NONE={hi:"इससे मिलती कोई टिप्पणी नहीं मिली। कोई और शब्द आज़माइए।",en:"Nothing matches. Try another word.",ur:"اس سے ملتا کچھ نہیں ملا۔ کوئی اور لفظ آزمائیے۔"}[LG];
-  const CNT={hi:n=>`${n} टिप्पणियां मिलीं`,en:n=>`${n} ${n===1?"piece":"pieces"} found`,ur:n=>`${n} تبصرے ملے`}[LG];
-  let idx=null,loading=null,last=null;
-  /* हिंदी में नुक़्ता, चंद्रबिंदु और मात्राओं के छोटे फ़र्क़ से खोज न चूके */
-  const norm=s=>String(s).toLowerCase().normalize("NFC").replace(/\u093C/g,"").replace(/\u0901/g,"\u0902").replace(/[\u0610-\u061A\u064B-\u065F\u0670]/g,"").replace(/[ي]/g,"ی").replace(/[ك]/g,"ک").replace(/[^\p{L}\p{N}\p{M}\s]/gu," ");
-  const load=()=>loading||(loading=fetch(PRE+"/khoj.json").then(r=>r.json()).then(d=>{idx=d.map(a=>({a,h:norm(a.h),d:norm(a.d+" "+a.c+" "+a.k),m:norm(a.p+" "+a.b),x:norm(a.x)}))}).catch(()=>{loading=null}));
-  const mark=(s,ws)=>{let t=esc(s);ws.forEach(w=>{if(w.length<2)return;const re=new RegExp("("+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");t=t.replace(re,"<mark>$1</mark>")});return t};
-  function run(){
-    const raw=q.value.trim();if(raw===last)return;last=raw;
-    if(!raw){res.innerHTML="";hint.hidden=false;return}
-    if(!idx){load().then(run);last=null;return}
-    const ws=norm(raw).split(/\s+/).filter(Boolean);
-    const hits=[];
+  const ST={
+    hi:{none:"इससे मिलती कोई टिप्पणी नहीं मिली। कोई और शब्द आज़माइए।",busy:"खोज की जा रही है…",error:"खोज अभी लोड नहीं हो सकी। अपना इंटरनेट कनेक्शन जांचिए और फिर कोशिश कीजिए।",retry:"फिर कोशिश करें",more:"और नतीजे देखें",count:n=>`${n} रचनाएं मिलीं`},
+    en:{none:"Nothing matches. Try another word.",busy:"Searching…",error:"Search could not load. Check your connection and try again.",retry:"Try again",more:"Show more results",count:n=>`${n} ${n===1?"piece":"pieces"} found`},
+    ur:{none:"اس سے ملتا کچھ نہیں ملا۔ کوئی اور لفظ آزمائیے۔",busy:"تلاش ہو رہی ہے…",error:"تلاش لوڈ نہیں ہو سکی۔ انٹرنیٹ کنکشن جانچ کر پھر کوشش کیجیے۔",retry:"پھر کوشش کریں",more:"مزید نتائج",count:n=>`${n} تحریریں ملیں`}
+  }[LG];
+  let idx=null,loading=null,last=null,runId=0,hits=[],limit=40,tmr,returnFocus=null;
+  const load=()=>{
+    if(idx)return Promise.resolve();if(loading)return loading;
+    const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
+    loading=fetch(PRE+"/khoj.json",{signal:controller.signal,cache:"no-cache"})
+      .then(r=>{if(!r.ok)throw Error("Search HTTP "+r.status);return r.json()})
+      .then(d=>{if(!Array.isArray(d))throw Error("Invalid search index");idx=d.map(a=>({a,h:searchNorm(a.h),d:searchNorm([a.d,a.c,a.k].join(" ")),m:searchNorm([a.p,a.b,a.t,a.day].join(" ")),x:searchNorm(a.x)}))})
+      .finally(()=>{clearTimeout(timeout);loading=null});
+    return loading;
+  };
+  /* Match plain text first, then escape every fragment; queries cannot alter markup. */
+  const mark=(s,raw)=>{
+    const ws=[...new Set(raw.split(/\s+/).filter(w=>w.length>=2))];
+    if(!ws.length)return esc(s||"");
+    const re=new RegExp("("+ws.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).sort((a,b)=>b.length-a.length).join("|")+")","gi");
+    return String(s||"").split(re).map((part,i)=>i%2?`<mark>${esc(part)}</mark>`:esc(part)).join("");
+  };
+  const urlFor=raw=>{const u=new URL(location.href);u.searchParams.set("khoj",raw);history.replaceState(null,"",u)};
+  const render=raw=>{
+    res.innerHTML=hits.length?`<li class="scount">${ST.count(hits.length)}</li>`+hits.slice(0,limit).map(([,a])=>`<li><a href="${esc(a.u)}" style="--kc:${CC[a.k]||"#2E3F8F"}"><span class="r-k">${esc(a.c)}</span><span class="r-h">${mark(a.h,raw)}</span><span class="r-d">${mark(a.d,raw)}</span><span class="r-m">${esc(a.b)} · ${esc(a.p)} · ${esc(a.t)}</span></a></li>`).join("")+(hits.length>limit?`<li class="scount"><button type="button" class="chip" data-search-more>${ST.more}</button></li>`:""):`<li class="snone">${ST.none}</li>`;
+  };
+  async function run(){
+    const raw=q.value.trim(),id=++runId;
+    if(!ov.hidden)urlFor(raw);
+    const ws=searchNorm(raw).split(" ").filter(Boolean);
+    if(!ws.length){last=null;hits=[];res.innerHTML="";res.setAttribute("aria-busy","false");hint.hidden=false;return}
+    if(raw===last&&idx)return;
+    hint.hidden=true;res.setAttribute("aria-busy","true");res.innerHTML=`<li class="snone">${ST.busy}</li>`;
+    try{await load()}catch(e){
+      if(id!==runId||ov.hidden)return;
+      last=null;res.setAttribute("aria-busy","false");res.innerHTML=`<li class="snone">${ST.error} <button type="button" class="chip" data-search-retry>${ST.retry}</button></li>`;return;
+    }
+    if(id!==runId||ov.hidden||q.value.trim()!==raw)return;
+    hits=[];
     for(const r of idx){let sc=0,ok=true;
       for(const w of ws){const s=(r.h.includes(w)?8:0)+(r.d.includes(w)?4:0)+(r.m.includes(w)?5:0)+(r.x.includes(w)?1:0);if(!s){ok=false;break}sc+=s}
-      if(ok)hits.push([sc,r.a])}
-    hits.sort((x,y)=>y[0]-x[0]);
-    hint.hidden=true;
-    const vis=raw.split(/\s+/);
-    res.innerHTML=hits.length?`<li class="scount">${CNT(hits.length)}</li>`+hits.slice(0,40).map(([,a])=>`<li><a href="${a.u}" style="--kc:${CC[a.k]||"#2E3F8F"}"><span class="r-k">${esc(a.c)}</span><span class="r-h">${mark(a.h,vis)}</span><span class="r-d">${mark(a.d,vis)}</span><span class="r-m">${esc(a.b)} · ${esc(a.p)} · ${esc(a.t)}</span></a></li>`).join(""):`<li class="snone">${NONE}</li>`;
+      if(ok)hits.push([sc,r.a]);
+    }
+    hits.sort((a,b)=>b[0]-a[0]||String(b[1].day||"").localeCompare(String(a[1].day||"")));
+    last=raw;limit=40;res.setAttribute("aria-busy","false");render(raw);
   }
-  let tmr;q.addEventListener("input",()=>{clearTimeout(tmr);tmr=setTimeout(run,120)});
-  const open=()=>{ov.hidden=false;document.body.classList.add("noscroll");load();setTimeout(()=>q.focus(),30);const u=new URL(location);u.searchParams.set("khoj",q.value||"");history.replaceState(null,"",u)};
-  const close=()=>{ov.hidden=true;document.body.classList.remove("noscroll");const u=new URL(location);u.searchParams.delete("khoj");history.replaceState(null,"",u)};
-  op&&op.addEventListener("click",open);$("#sclose").addEventListener("click",close);
+  q.addEventListener("input",()=>{clearTimeout(tmr);++runId;last=null;hits=[];res.innerHTML="";tmr=setTimeout(run,120)});
+  res.addEventListener("click",e=>{
+    if(e.target.closest("[data-search-retry]"))run();
+    if(e.target.closest("[data-search-more]")){limit+=40;render(q.value.trim());res.querySelectorAll("a")[limit-40]?.focus()}
+  });
+  const open=()=>{returnFocus=document.activeElement;ov.hidden=false;document.body.classList.add("noscroll");op?.setAttribute("aria-expanded","true");q.focus();last=null;run()};
+  const close=()=>{clearTimeout(tmr);++runId;ov.hidden=true;document.body.classList.remove("noscroll");op?.setAttribute("aria-expanded","false");const u=new URL(location.href);u.searchParams.delete("khoj");history.replaceState(null,"",u);returnFocus?.focus()};
+  op&&op.addEventListener("click",open);$("#sclose")?.addEventListener("click",close);
   ov.addEventListener("click",e=>{if(e.target===ov)close()});
-  q.addEventListener("keydown",e=>{if(e.key==="Enter"){const f=res.querySelector("a");if(f)location.href=f.getAttribute("href")}});
-  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!ov.hidden)close();else if(e.key==="/"&&ov.hidden&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();open()}});
-  const p=new URLSearchParams(location.search).get("khoj");if(p!==null){q.value=p;open();run()}
+  q.addEventListener("keydown",async e=>{if(e.key==="Enter"&&!e.isComposing){e.preventDefault();clearTimeout(tmr);const raw=q.value.trim();await run();if(!ov.hidden&&q.value.trim()===raw){const f=res.querySelector("a");if(f)location.href=f.getAttribute("href")}}});
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"&&!ov.hidden){e.preventDefault();close()}
+    else if(e.key==="/"&&ov.hidden&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!document.activeElement.isContentEditable){e.preventDefault();open()}
+    else if(e.key==="Tab"&&!ov.hidden){const fs=[...ov.querySelectorAll('input,button,a[href]')].filter(el=>!el.disabled),first=fs[0],last=fs[fs.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus()}}
+  });
+  const p=new URLSearchParams(location.search).get("khoj");if(p!==null){q.value=p;open()}
 })();
 
 /* रोशनदान: वीडियो इसी पन्ने पर, दबाने पर ही YouTube लोड होता है */
@@ -195,3 +231,4 @@ document.documentElement.classList.add("r3lock");d.showModal();});
   $$('a[href="#top"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});history.replaceState(null,"",location.pathname+location.search);const m=document.querySelector(".masthead .mast");if(m){m.setAttribute("tabindex","-1");setTimeout(()=>m.focus({preventScroll:true}),400)}}));})();
 /* पुरानी तारीख़ की सूचना कैश से दिखे तो छिपा दें */
 (()=>{const n=document.querySelector(".notice");if(!n)return;const d=new Date(Date.now()+5.5*3600e3).toISOString().slice(0,10);if(n.dataset.date!==d)n.remove()})();
+
