@@ -373,7 +373,7 @@ function liveTeaser() {
   const d = LIVE_DAYS.find(x => x.date === IST_TODAY) || LIVE_DAYS[0];
   const its = (d.items || []).slice().sort((a, b) => (b.t || "").localeCompare(a.t || ""));
   const ups = its.filter(x => x.kind === "update").slice(0, 4), nV = its.filter(x => x.kind === "video" || x.kind === "reel").length, nP = its.filter(x => x.kind === "post" || x.kind === "news").length;
-  return `<section class="lvt"><div class="lvt-head"><p class="lvt-k"><i aria-hidden="true"></i>लाइव दीवार${lastUpdate() ? ` · अपडेट ${clock(lastUpdate())}` : ""}</p><h3>आंदोलन, पल-पल</h3><p class="lvt-s">${its.length ? `आज अब तक ${ups.length ? its.filter(x => x.kind === "update").length + " अपडेट, " : ""}${nV} वीडियो और रील्स, ${nP} ख़बरें और पोस्ट। हर घंटे ताज़ा।` : "आज की दीवार सुबह 9:37 से भरनी शुरू होगी, फिर हर घंटे ताज़ा।"}</p>
+  return `<section class="lvt"><div class="lvt-head"><p class="lvt-k"><i aria-hidden="true"></i>लाइव दीवार${lastUpdate() ? ` · अपडेट ${clock(lastUpdate())}` : ""}</p><h3>आंदोलन, पल-पल</h3>
     <div class="lvt-btns"><a class="lvt-go" href="/live/">लाइव दीवार खोलिए →</a><a class="lvt-r3 r3open" href="https://r3con.net/" target="_blank" rel="noopener">▶ चलती तस्वीरें: r3con</a></div></div>
     ${ups.length ? `<ol class="lvt-list">${ups.map(x => `<li>${clockTag(x.t)}<span>${esc(x.text)}${x.verified === false ? ` <em>अपुष्ट</em>` : ""}</span></li>`).join("")}</ol>` : (d.counters || []).length ? `<div class="lvt-count">${d.counters.slice(0, 3).map(c => `<div><b>${esc(c.n)}</b><span>${esc(c.label)}</span></div>`).join("")}</div>` : ""}</section>`;
 }
