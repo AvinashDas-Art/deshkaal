@@ -358,7 +358,7 @@ function liveTeaser() {
 /* ---------- pages ---------- */
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
-  const M = morchaSet(days, today.date), amukh = by("amukh")[0];
+  const M = morchaSet(days, today.date), vis = by("amukh").filter(a => a.visesh), amukh = by("amukh").filter(a => !a.visesh)[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
   
@@ -372,6 +372,7 @@ function homePage() {
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
+  ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक आलेख, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist">${khabar.map(kRow).join("")}</div></section>` : ""}
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3">${pari.map(card).join("")}</div></section>` : ""}
@@ -419,7 +420,7 @@ function articlePage(a) {
       <span class="tools"><button class="ctl" id="listen">${T.listenBtn(listenMin(a))}</button>${saveBtn(a)}</span></div>
     ${shareBlock(a)}
     <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">${T.collage}${a.photo ? " · " + credit(a) : ""}</figcaption></figure>
-    <div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+    ${a.intro && a.intro.length ? `<div class="body intro">${a.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>${T.nazar}</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
     <aside class="sawal"><small>${T.think}</small><p>${esc(a.sawal)}</p></aside>
     ${isVid(a) ? `<h5 class="ythead">${T.watch}</h5>${ytEmbed(a)}` : ""}

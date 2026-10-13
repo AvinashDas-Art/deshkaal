@@ -1135,3 +1135,13 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
   border-bottom: 2px solid var(--geru, #c2410c);
   letter-spacing: 0.02em;
 }
+
+.visesh-band{margin:34px 0 8px}
+.visesh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:center;border-top:3px solid var(--ink);border-bottom:1px solid var(--rule,#cfc6bd);padding:22px 0}
+.visesh .art{aspect-ratio:4/5;max-height:520px;width:100%;object-fit:cover}
+.visesh h3{font-family:var(--f-head);font-weight:500;font-size:clamp(30px,4.2vw,46px);line-height:1.2;margin:6px 0 0;text-wrap:balance}
+.visesh .dek{font-size:18px;color:var(--ink-2);line-height:1.7;margin:12px 0 0}
+.visesh .vmore{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent,#c0392b)}
+.sec-visesh h3::before{border-radius:50%}
+.body.intro{border-left:3px solid var(--accent,#c0392b);padding-left:16px;margin-bottom:26px;font-style:normal;color:var(--ink-2)}
+@media(max-width:700px){.visesh{grid-template-columns:1fr}}
