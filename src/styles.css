@@ -1023,7 +1023,13 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .hw-invite b{font-family:var(--f-head);font-weight:600;font-size:23px}
 .hw-invite:hover{background:var(--lal);color:#fff}.hw-invite:hover .hs-k{color:#fff}
 .hw-others h5{font-family:var(--f-paint);font-weight:400;font-size:30px;margin:var(--s6) 0 var(--s4)}
-.hw-others .hs-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.hw-others .hs-grid,.hw-others .hs-grid.n1,.hw-others .hs-grid.n2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--s5) var(--s4);align-items:stretch}
+.hw-others .hs-grid.n1{max-width:380px}
+.hw-others .hs-grid .hs-card > a,.hw-others .hs-grid.n1 .hs-card > a,.hw-others .hs-grid.n1 .hs-card:not(.has-img) > a,.hw-others .hs-grid.n1 .hs-card.has-img > a{display:flex;flex-direction:column;align-items:stretch}
+.hw-others .hs-grid .hs-quote,.hw-others .hs-grid.n1 .hs-card:not(.has-img) .hs-quote{min-height:0;font-size:21px;padding:var(--s5) var(--s4) var(--s2)}
+.hw-others .hs-grid .hs-ct,.hw-others .hs-grid.n1 .hs-card:not(.has-img) .hs-ct{padding:var(--s2) var(--s4) var(--s4);margin-top:auto}
+.hw-others .hs-grid .hs-ct h4,.hw-others .hs-grid.n1 .hs-ct h4{font-size:24px;line-height:1.25}
+.hw-others .hs-grid.n1 .hs-thumb{min-height:0;aspect-ratio:4/3}
 
 @media (max-width:980px){
   .hsi-kg,.hsi-rg{grid-template-columns:repeat(2,minmax(0,1fr))}
