@@ -34,6 +34,10 @@ Snippets alone are never enough for a full summary, `nazar` or `ank`: never writ
 - NewsClick: https://www.newsclick.in/
 - NewsClick Hindi: https://hindi.newsclick.in/
 - Gaon Connection: https://www.gaonconnection.com/
+- Himal Southasian (दक्षिण एशिया): ग्रामीण समाज, खेती, पहाड़, सीमांत गांव और बस्तियों पर रिपोर्ट और विश्लेषण; पूरा पाठ खुला हो तभी। https://www.himalmag.com/
+- Prachatai English (थाईलैंड): ज़मीन, जंगल, किसान, मछुआरे और गांव-समुदाय के अधिकारों पर रिपोर्ट। https://prachataienglish.com/ (RSS: https://prachataienglish.com/rss.xml)। केवल देहात और श्रम से जुड़े लेख; राजधानी की राजनीति नहीं।
+- Mongabay India, The Third Pole, Gaon Connection, Rural Voice, Village Square, Citizen Matters (ग्रामीण-शहरी सीमा), Scroll की ग्रामीण रिपोर्टें, The Hindu का Rural Affairs और Himal जैसी दक्षिण एशिया की पत्रिकाएं: विषय के आधार पर। नेपाल, बांग्लादेश, श्रीलंका, पाकिस्तान और अन्य देशों की ग्रामीण पत्रकारिता भी शामिल हो सकती है; `pub` में असली प्रकाशक और `cat` में समाज/पर्यावरण/अर्थ जैसी सही श्रेणी रखें।
+- PARI का पन्ना (ruralindiaonline.org) जावास्क्रिप्ट से बनता है और अक्सर पढ़ने में नहीं आता; लेख का सीधा लिंक या खोज से निकला पन्ना ही इस्तेमाल करें।
 - ChalChitra Abhiyaan: https://chalchitraabhiyaan.com/ (video reports; summarise only if there is a written description or transcript)
 - BehanBox: https://behanbox.com/ (gender and work)
 

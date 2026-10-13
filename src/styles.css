@@ -1137,14 +1137,17 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 }
 
 .visesh-band{margin:34px 0 8px}
-.visesh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:center;border-top:3px solid var(--ink);border-bottom:1px solid var(--rule,#cfc6bd);padding:22px 0}
-.visesh .art{aspect-ratio:4/5;max-height:520px;width:100%;object-fit:cover}
-.visesh h3{font-family:var(--f-head);font-weight:500;font-size:clamp(30px,4.2vw,46px);line-height:1.2;margin:6px 0 0;text-wrap:balance}
-.visesh .dek{font-size:18px;color:var(--ink-2);line-height:1.7;margin:12px 0 0}
-.visesh .vmore{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent,#c0392b)}
+.visesh{border-top:3px solid var(--ink);border-bottom:1px solid var(--rule,#cfc6bd);padding:26px 0}
+.visesh>a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:34px;align-items:center;text-decoration:none;color:inherit}
+.visesh .art{width:100%;height:auto;aspect-ratio:1/1;display:block}
+.visesh .in{min-width:0}
+.visesh .kicker{margin:0 0 10px}
+.visesh h3{font-family:var(--f-head);font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.18;margin:0;text-wrap:balance}
+.visesh .dek{font-size:19px;color:var(--ink-2);line-height:1.75;margin:16px 0 0}
+.visesh .vmore{display:inline-block;margin-top:18px;font-weight:700;color:var(--accent,#c0392b);border-bottom:2px solid currentColor;padding-bottom:2px}
 .sec-visesh h3::before{border-radius:50%}
-.body.intro{border-left:3px solid var(--accent,#c0392b);padding-left:16px;margin-bottom:26px;font-style:normal;color:var(--ink-2)}
-@media(max-width:700px){.visesh{grid-template-columns:1fr}}
+.body.intro{border-left:3px solid var(--accent,#c0392b);padding-left:16px;margin-bottom:26px;color:var(--ink-2)}
+@media(max-width:760px){.visesh>a{grid-template-columns:1fr;gap:18px}}
 
 .lv-pin{margin:18px 0 6px;padding:20px 22px;background:var(--paper-2);border-left:6px solid var(--accent,#c0392b)}
 .lv-pin-k{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--accent,#c0392b)}
