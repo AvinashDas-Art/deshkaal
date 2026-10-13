@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T10:35+05:30",
+ "updated": "2026-10-13T16:26+05:30",
  "pin": {
   "k": "आज की सबसे बड़ी बात",
   "h": "सुप्रीम कोर्ट में आज राहुल गांधी और अन्य विपक्षी नेताओं की याचिका की सुनवाई",
@@ -25,9 +25,217 @@
    "label": "राहुल गांधी की याचिका में रजिस्ट्री की गिनायी ख़ामियां",
    "src": "डेक्कन क्रॉनिकल",
    "url": "https://www.deccanchronicle.com/nation/current-affairs/sc-points-out-10-defects-in-rahul-gandhis-plea-in-sir-case-1995336"
+  },
+  {
+   "n": "4",
+   "label": "सोशल मीडिया हैंडलों पर दर्ज एफ़आईआर",
+   "src": "दिल्ली पुलिस (सियासत डेली, ईटीवी भारत)",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032#fir"
+  },
+  {
+   "n": "20 लाख",
+   "label": "33 लाख चिह्नित वोटर प्रविष्टियों में से निपटायी गयीं",
+   "src": "दिल्ली के मुख्य निर्वाचन अधिकारी (ईटीवी भारत)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#ceo"
   }
  ],
  "items": [
+  {
+   "t": "2026-10-13T15:45+05:30",
+   "kind": "update",
+   "text": "राजीव चौक मेट्रो के गेट 7 पर एन.एस.यू.आई. का अचानक प्रदर्शन, ज्ञानेश कुमार के इस्तीफ़े की मांग। पुलिस ने कई कार्यकर्ताओं को हिरासत में लिया। संगठन का कहना है कि इस्तीफ़े तक अभियान चलेगा।",
+   "src": "सियासत डेली",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T15:43+05:30",
+   "kind": "update",
+   "text": "सीपीआई(एम) ने जंतर-मंतर को प्रदर्शन-स्थल की सूची से हटाने के फ़ैसले का विरोध करने का एलान किया और इसे असहमति दबाने की कोशिश बताया।",
+   "src": "सियासत डेली",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032#cpim",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T15:08+05:30",
+   "kind": "update",
+   "text": "सीजेपी संस्थापक अभिजीत दिपके का दावा: आशुतोष, अजिंक्य और सौरव को अलग-अलग जगह रखा गया है, 11 स्वयंसेवक कहीं और ले जाये गये, और पार्टी के वकीलों को थाने में घुसने नहीं दिया गया।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#dipke",
+   "verified": false
+  },
+  {
+   "t": "2026-10-13T15:04+05:30",
+   "kind": "news",
+   "h": "कोलकाता पुलिस आयुक्त: ममता गुट की रैली की कोई आधिकारिक सूचना नहीं मिली, सिर्फ़ पोस्टर देखकर कार्रवाई नहीं",
+   "src": "दिप्रिंट हिंदी",
+   "url": "https://hindi.theprint.in/india/no-official-information-received-about-mamata-banerjee-factions-proposed-rally-kolkata-police-commissioner/1043190/"
+  },
+  {
+   "t": "2026-10-13T14:56+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@thekiranbedi",
+   "by": "किरण बेदी",
+   "text": "दूसरा पक्ष: पूर्व आईपीएस अफ़सर ने जंतर-मंतर को प्रदर्शन-स्थल की सूची से हटाने का समर्थन किया, कहा कि तंग गलियों और संवेदनशील इमारतों के पास होने से यह जगह प्रदर्शन के लायक़ नहीं।",
+   "url": "https://x.com/thekiranbedi/status/2109883041045004753"
+  },
+  {
+   "t": "2026-10-13T14:50+05:30",
+   "kind": "update",
+   "text": "ईटीवी भारत के मुताबिक़ कोलकाता में तृणमूल कार्यकर्ता सड़क पर उतरे और मुख्य चुनाव आयुक्त ज्ञानेश कुमार के इस्तीफ़े की मांग की।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#kolkata",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T14:43+05:30",
+   "kind": "update",
+   "text": "छात्र संगठन दिशा ने कनॉट प्लेस से मार्च निकाला: हिरासत में लिये गये सीजेपी नेताओं की रिहाई और जंतर-मंतर को फिर से प्रदर्शन-स्थल बनाने की मांग।",
+   "src": "ईटीवी भारत, सियासत डेली",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#disha",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T14:30+05:30",
+   "kind": "video",
+   "yt": "C0ftl5KhpzY",
+   "text": "राहुल गांधी के घर विपक्ष की बैठक: इंडिया ब्लॉक मुख्य चुनाव आयुक्त के इस्तीफ़े पर एक साथ दबाव बढ़ाने की तैयारी में।",
+   "src": "मनीकंट्रोल",
+   "url": "https://www.youtube.com/shorts/C0ftl5KhpzY",
+   "live": false
+  },
+  {
+   "t": "2026-10-13T14:24+05:30",
+   "kind": "update",
+   "text": "पटना: आइसा और भाकपा(माले) के छात्र-युवा संगठनों ने गांधी मैदान से राजभवन की ओर मार्च किया। कुछ कार्यकर्ताओं ने बैरिकेड तोड़े, पुलिस ने जेपी गोलंबर पर रोका और कई को हिरासत में लिया।",
+   "src": "आज तक, सियासत डेली",
+   "url": "https://www.aajtak.in/india/news/story/india-bloc-protest-live-updates-sir-delhi-cjp-jantar-mantar-election-commissioner-gyanesh-kumar-rahul-gandhi-abhijeet-dipke-ntc-amkr-2668970-2026-10-13#patna",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T14:20+05:30",
+   "kind": "update",
+   "text": "पुलिस का पक्ष: शाहदरा के डीसीपी ने कहा कि सीबीडी ग्राउंड पर प्रदर्शन के लिए पहले से अनुमति और तय नियमों का पालन ज़रूरी है, इलाक़ा भीड़भाड़ वाला है।",
+   "src": "एएनआई (सियासत डेली के ज़रिये)",
+   "url": "https://x.com/ANI/status/2109855702290460798",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T14:19+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@RahulGandhi",
+   "by": "राहुल गांधी",
+   "text": "इंडिया गठबंधन के नेताओं, विपक्षी सांसदों, छात्र संगठनों और सिविल सोसायटी को घर पर चाय के लिए बुलाया; कहा कि लोकतंत्र बचाने की लड़ाई जारी रहेगी और सारे प्रदर्शन एक हैं।",
+   "url": "https://x.com/RahulGandhi/status/2109917718174458015"
+  },
+  {
+   "t": "2026-10-13T13:59+05:30",
+   "kind": "update",
+   "text": "बेंगलुरु में वकीलों ने हाईकोर्ट के गोल्डन गेट पर प्रदर्शन किया: जंतर-मंतर पर वकीलों और छात्रों की कथित ग़ैरक़ानूनी गिरफ़्तारी का विरोध, मुख्य चुनाव आयुक्त को निलंबित करने की मांग।",
+   "src": "लाइव लॉ",
+   "url": "https://www.livelaw.in/top-stories/livelaw-breaking-news-alerts-13-october-2026-554389#bengaluru",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T13:58+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस के मुताबिक़ प्रदर्शनों को लेकर अफ़वाह और 'भारत-विरोधी नैरेटिव' फैलाने के आरोप में सोशल मीडिया हैंडलों पर चार एफ़आईआर दर्ज, पुलिस का कहना है कि कुछ हैंडल पाकिस्तान से चल रहे हैं।",
+   "src": "सियासत डेली, ईटीवी भारत",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032#fir",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T13:38+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट ने महिला पत्रकारों के कथित उत्पीड़न पर दिल्ली पुलिस के किसी वरिष्ठ अफ़सर को बुधवार, 14 अक्टूबर को हाज़िर होकर जवाब देने को कहा। याचिका इंदिरा जयसिंह ने उठायी थी।",
+   "src": "सियासत डेली, लाइव लॉ",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032#sc-journalists",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T13:33+05:30",
+   "kind": "news",
+   "h": "एक पत्रकार का आरोप, राहुल गांधी ने मार्च के दौरान हाथ खींचा; कांग्रेस ने आरोप को भाजपा का प्रोपेगैंडा बताया",
+   "src": "आउटलुक",
+   "url": "https://www.outlookindia.com/national/pregnant-journalist-alleges-rahul-gandhi-pushed-her-during-sir-protest-congress-denies-claim"
+  },
+  {
+   "t": "2026-10-13T13:22+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट बार एसोसिएशन और एससीएओआरए के सदस्य मीडिया पार्क में जुटे, पुलिस के कथित दुर्व्यवहार के शिकार वकीलों के साथ एकजुटता में एक मिनट का मौन रखा।",
+   "src": "लाइव लॉ",
+   "url": "https://www.livelaw.in/top-stories/livelaw-breaking-news-alerts-13-october-2026-554389#scba",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T12:59+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट में आज की सुनवाई टली: जस्टिस मोहना की तबीयत ठीक न होने से प्रदर्शन, हिरासत और मेट्रो-रेल पाबंदियों से जुड़ी सारी याचिकाएं अब गुरुवार, 15 अक्टूबर को सुनी जाएंगी।",
+   "src": "लाइव लॉ, आज तक",
+   "url": "https://www.livelaw.in/top-stories/livelaw-breaking-news-alerts-13-october-2026-554389#adjourned",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T12:36+05:30",
+   "kind": "update",
+   "text": "सीजेपी की लीगल प्रमुख रत्ना सिंह का आरोप: जाफ़रपुर कलां थाने के एसएचओ ने वकीलों को आशुतोष रांका, सौरव दास और अजिंक्य शिंदे से मिलने नहीं दिया, उनके फ़ोन ज़ब्त हैं। पुलिस का जवाब अभी नहीं आया।",
+   "src": "सियासत डेली",
+   "url": "https://siasat.com/cjp-jantar-mantar-delhi-cec-resignation-protest-3557032#legal",
+   "verified": false
+  },
+  {
+   "t": "2026-10-13T11:53+05:30",
+   "kind": "update",
+   "text": "बॉम्बे हाईकोर्ट मुंबई में 10-11 अक्टूबर के प्रदर्शनों के दौरान कथित ग़ैरक़ानूनी हिरासत पर जनहित याचिका सुनने को राज़ी। याचिका का कहना है कि राह चलते लोगों को भी उठाया गया।",
+   "src": "लाइव लॉ",
+   "url": "https://www.livelaw.in/top-stories/livelaw-breaking-news-alerts-13-october-2026-554389#bombay",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T11:30+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@Cockroachisback",
+   "by": "कॉकरोच जनता पार्टी",
+   "text": "हिरासत के बाद आशुतोष रांका का वीडियो: ज्ञानेश कुमार के इस्तीफ़े तक पीछे नहीं हटेंगे, आज 10 लोग थे, कल 10,000 होंगे।",
+   "url": "https://x.com/Cockroachisback/status/2109886984403779671"
+  },
+  {
+   "t": "2026-10-13T11:13+05:30",
+   "kind": "update",
+   "text": "दिल्ली हाईकोर्ट प्रदर्शनों के लिए एसओपी बनाने की मांग वाली याचिका पर जल्द सुनवाई को राज़ी। याचिकाकर्ता का दावा है कि पाबंदियों से व्यापारियों को क़रीब 2,000 करोड़ रुपये का नुक़सान हुआ।",
+   "src": "टाइम्स नाउ नवभारत",
+   "url": "https://www.timesnowhindi.com/india/aaj-ki-taza-khabar-13-october-2026-hindi-mukhya-samachar-mamata-banerjee-kolkata-march-rahul-gandhi-residence-today-other-india-world-news-update-liveblog-156326191",
+   "verified": false
+  },
+  {
+   "t": "2026-10-13T11:02+05:30",
+   "kind": "update",
+   "text": "दिल्ली के मुख्य निर्वाचन अधिकारी के मुताबिक़ एसआईआर 2026 में वोटर लिस्ट की क़रीब 33 लाख चिह्नित प्रविष्टियों में से लगभग 20 लाख का निपटारा हो चुका है।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#ceo",
+   "verified": false
+  },
+  {
+   "t": "2026-10-13T10:50+05:30",
+   "kind": "video",
+   "yt": "85knkf9Qofo",
+   "text": "सीजेपी नेता और 10 स्वयंसेवक पुलिस को चकमा देकर जंतर-मंतर में दाख़िल हुए, तिरंगा लहराया और हिरासत में लिये गये।",
+   "src": "द इंडियन एक्सप्रेस",
+   "url": "https://www.youtube.com/watch?v=85knkf9Qofo",
+   "live": false
+  },
+  {
+   "t": "2026-10-13T10:45+05:30",
+   "kind": "video",
+   "yt": "l4kVuup51GI",
+   "text": "आशुतोष रांका और सौरव दास बंद गेट फांदकर जंतर-मंतर पहुंचे, थोड़ी देर में हिरासत में।",
+   "src": "द लल्लनटॉप",
+   "url": "https://www.youtube.com/watch?v=l4kVuup51GI",
+   "live": false
+  },
   {
    "t": "2026-10-13T10:30+05:30",
    "kind": "update",
