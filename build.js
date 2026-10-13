@@ -50,14 +50,18 @@ DAYS_HI.forEach(d => d.items.forEach((a, i) => {
 /* विशेष खंड "सड़क की संसद" (sec: morcha): data/special.json से चालू/बंद */
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
 
+const CREDIT_TR = {
+  en: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "Photo received via public sharing; original photo credit yet to be confirmed", "AI आर्ट: के शरद हक्सर": "AI art: K Sharad Haksar" },
+  ur: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "پبلک شیئرنگ سے ملی تصویر؛ اصل فوٹو کریڈٹ کی تصدیق باقی", "AI आर्ट: के शरद हक्सर": "اے آئی آرٹ: کے شرد ہکسر" }
+};
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
   return DAYS_HI.map(d => {
     const f = path.join("data/i18n", l, d.date + ".json");
     if (!fs.existsSync(f)) return null;
     const tr = Object.fromEntries(JSON.parse(fs.readFileSync(f, "utf8")).map(x => [x.id, x]));
-    const items = d.items.filter(a => tr[a.id]).map(a => { const t = tr[a.id], m = { ...a, ...t, sec: a.sec, pub: a.pub };
-      if (a.photo) m.photo = { ...a.photo, note: t.photo_note || "" };
+    const items = d.items.filter(a => tr[a.id]).map(a => { const t = tr[a.id], m = { ...a, ...t, sec: a.sec, pub: t.pub || a.pub };
+      if (a.photo) m.photo = { ...a.photo, note: t.photo_note || "", credit: t.photo_credit || (CREDIT_TR[l] || {})[a.photo.credit] || a.photo.credit };
       if (a.chart && t.chart) m.chart = { ...a.chart, ...t.chart };
       return m; });
     return items.length ? { date: d.date, items } : null;
