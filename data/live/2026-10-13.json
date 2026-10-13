@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T16:26+05:30",
+ "updated": "2026-10-13T22:25+05:30",
  "pin": {
   "k": "आज की सबसे बड़ी बात",
   "h": "सुप्रीम कोर्ट में आज राहुल गांधी और अन्य विपक्षी नेताओं की याचिका की सुनवाई",
@@ -8,6 +8,12 @@
   "url": "https://www.deccanchronicle.com/nation/current-affairs/sc-points-out-10-defects-in-rahul-gandhis-plea-in-sir-case-1995336"
  },
  "counters": [
+  {
+   "n": "~500",
+   "label": "दिल्ली पुलिस के कहने पर हटायी गयीं सोशल मीडिया पोस्ट",
+   "src": "दिल्ली पुलिस (ईटीवी भारत, द वीक)",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#posts"
+  },
   {
    "n": "17",
    "label": "रविवार को एक गाड़ी में रखे गये प्रदर्शनकारी, 15 महिलाएं (उनके बयान के मुताबिक़)",
@@ -40,6 +46,125 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-13T21:28+05:30",
+   "kind": "update",
+   "text": "कांग्रेस के जयराम रमेश ने अमित शाह के 2029 वाले दावे पर पलटवार किया: उनका आरोप है कि भाजपा अगला चुनाव भी 'हथियाने' की तैयारी में है, और मतदाता सरकार से हिसाब लेंगे।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#jairam",
+   "verified": false
+  },
+  {
+   "t": "2026-10-13T21:23+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस ने जंतर-मंतर में बिना इजाज़त दाख़िल होने के आरोप में सौरव दास, आशुतोष रांका और अन्य पर एफ़आईआर दर्ज की। पीटीआई सूत्रों के मुताबिक़ क़रीब 11 सदस्य हिरासत में लेकर जाफ़रपुर कलां थाने ले जाये गये।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#fir-cjp",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T21:00+05:30",
+   "kind": "news",
+   "h": "नेहा बोरा: आम लोग 'चुराया हुआ जनादेश' मानने को तैयार नहीं, ज्ञानेश कुमार इस्तीफ़ा दें",
+   "src": "एएनआई",
+   "url": "https://www.aninews.in/news/national/general-news/common-people-not-ready-to-settle-for-stolen-mandate-neha-bora20261013214600/"
+  },
+  {
+   "t": "2026-10-13T20:44+05:30",
+   "kind": "update",
+   "text": "कर्नाटक के नेता डी.के. शिवकुमार ने कहा कि सोमवार के मार्च में राहुल गांधी ने उन्हें धक्का नहीं दिया, वायरल वीडियो पर भाजपा ग़लत बात फैला रही है।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#shivakumar",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T20:30+05:30",
+   "kind": "update",
+   "text": "प्रेस क्लब ऑफ़ इंडिया और पत्रकारों ने 10 अक्टूबर के सीजेपी प्रदर्शन की कवरेज कर रहे पत्रकारों पर हमलों की निंदा की और जवाबदेही की मांग की।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#pci",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T20:21+05:30",
+   "kind": "update",
+   "text": "पुलिस का पक्ष: दिल्ली पुलिस ने अफ़वाह या अशांति फैलाने के आरोप वाली क़रीब 500 सोशल मीडिया पोस्ट हटवायीं; अतिरिक्त पुलिस आयुक्त संजय भाटिया के मुताबिक़ फ़र्ज़ी और बनावटी सामग्री पर निगरानी जारी रहेगी।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#posts",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T19:46+05:30",
+   "kind": "update",
+   "text": "भाजपा का पक्ष: गृह मंत्री अमित शाह ने कहा कि राहुल गांधी झूठ के सहारे जनता का भरोसा नहीं जीत सकते और 2029 में भी एनडीए जीतेगा।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#shah",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T19:28+05:30",
+   "kind": "update",
+   "text": "दिल्ली हाईकोर्ट ने व्यापारियों, रेहड़ी वालों और वकीलों की, प्रदर्शनों को नियमित करने वाली याचिकाओं पर केंद्र से शुक्रवार की सुनवाई से पहले रुख़ बताने को कहा। याचिकाकर्ताओं का दावा है कि मध्य दिल्ली में क़रीब 2,000 करोड़ रुपये का नुक़सान हुआ। सुप्रीम कोर्ट में इससे जुड़ी याचिकाएं 15 अक्टूबर तक टलीं।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#delhi-hc",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T19:00+05:30",
+   "kind": "update",
+   "text": "आइसा अध्यक्ष नेहा बोरा ने राहुल गांधी के घर बैठक के बाद कहा कि यह लड़ाई 'हम लोग बनाम भाजपा' है, और अगर वोट के हक़ के लिए प्रदर्शन का हक़ भी छीना गया तो सरकार को जवाब देना होगा।",
+   "src": "ईटीवी भारत, एएनआई",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#neha-bora",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T18:19+05:30",
+   "kind": "update",
+   "text": "इंडिया ब्लॉक की बैठक के बाद राहुल गांधी: हमारा साझा विरोध लोकतंत्र की बहाली के लिए है; संस्थाएं जो भी करें, राजनीतिक और जन-प्रतिरोध जारी रहेगा। उन्होंने सुप्रीम कोर्ट के प्रति सम्मान भी जताया।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#rahul",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T17:49+05:30",
+   "kind": "update",
+   "text": "वकील प्रशांत भूषण ने कहा कि किसान, मज़दूर और सिविल सोसायटी संगठन भी मुख्य चुनाव आयुक्त के इस्तीफ़े की मांग में इंडिया ब्लॉक के साथ जुड़ेंगे; उनका आरोप है कि सरकार ने राजधानी को क़िले में बदल दिया है।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#bhushan",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T17:00+05:30",
+   "kind": "update",
+   "text": "सीपीआई(एम) सांसद जॉन ब्रिटास, कांग्रेस के शशि थरूर और वीसीके के तोल. तिरुमावलवन: ज्ञानेश कुमार के इस्तीफ़े तक आंदोलन चलता रहेगा, यह वोट के संवैधानिक हक़ को बचाने की लड़ाई है।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#leaders",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T16:47+05:30",
+   "kind": "update",
+   "text": "सीजेपी संस्थापक अभिजीत दिपके ने प्रदर्शनकारियों से एकजुट रहने की अपील की और सरकार पर 'बांटो और राज करो' की चाल का आरोप लगाया; साज़िश की बातों को ख़ारिज किया।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#dipke-unity",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T16:06+05:30",
+   "kind": "update",
+   "text": "बॉम्बे हाईकोर्ट ने प्रदर्शनकारियों को हिरासत से पूरी छूट देने से इनकार किया, पर कहा कि ग़ैरक़ानूनी हिरासत का कोई ठोस मामला सामने आया तो दख़ल देगा। याचिका पर सुनवाई 19 अक्टूबर तक टली।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#bombay-hc",
+   "verified": true
+  },
+  {
+   "t": "2026-10-13T15:54+05:30",
+   "kind": "update",
+   "text": "पुलिस का पक्ष: दिल्ली पुलिस ने इलाक़े में धारा 163 लागू होने का एलान किया, प्रदर्शनकारियों से हटने को कहा और कई को हिरासत में लिया।",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#sec163",
+   "verified": true
+  },
   {
    "t": "2026-10-13T15:45+05:30",
    "kind": "update",
@@ -95,6 +220,14 @@
    "src": "ईटीवी भारत, सियासत डेली",
    "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-protest-live-updates-cjp-jantar-mantar-rahul-gandhi-supreme-court-eci-sir-gyanesh-kumar-october-13-2026-enn26101301182#disha",
    "verified": true
+  },
+  {
+   "t": "2026-10-13T14:40+05:30",
+   "kind": "update",
+   "text": "द वीक के मुताबिक़ दिल्ली पुलिस ने विपक्षी सांसदों के सुप्रीम कोर्ट मार्च पर निषेधाज्ञा (बी.एन.एस.एस. धारा 163) तोड़ने के आरोप में दो अलग एफ़आईआर दर्ज कीं। पुलिस का यह भी दावा है कि कुछ पाकिस्तानी हैंडल ख़ुद को भारतीय बताकर मौतों की झूठी ख़बरें फैला रहे थे।",
+   "src": "द वीक",
+   "url": "https://www.theweek.in/news/india/2026/10/13/delhi-police-fake-news-firs-cjp-protests-pakistani-handles.html",
+   "verified": false
   },
   {
    "t": "2026-10-13T14:30+05:30",
