@@ -51,8 +51,8 @@ DAYS_HI.forEach(d => d.items.forEach((a, i) => {
 const SPECIAL = fs.existsSync("data/special.json") ? JSON.parse(fs.readFileSync("data/special.json", "utf8")) : { active: false };
 
 const CREDIT_TR = {
-  en: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "Photo received via public sharing; original photo credit yet to be confirmed", "AI आर्ट: के शरद हक्सर": "AI art: K Sharad Haksar" },
-  ur: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "پبلک شیئرنگ سے ملی تصویر؛ اصل فوٹو کریڈٹ کی تصدیق باقی", "AI आर्ट: के शरद हक्सर": "اے آئی آرٹ: کے شرد ہکسر" }
+  en: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "Photo received via public sharing; original photo credit yet to be confirmed", "AI आर्ट: के शरद हक्सर": "AI art: K Sharad Haksar", "राजा रवि वर्मा / Wikimedia Commons": "Raja Ravi Varma / Wikimedia Commons" },
+  ur: { "पब्लिक शेयरिंग से प्राप्त तस्वीर; मूल फ़ोटो क्रेडिट की पुष्टि बाक़ी": "پبلک شیئرنگ سے ملی تصویر؛ اصل فوٹو کریڈٹ کی تصدیق باقی", "AI आर्ट: के शरद हक्सर": "اے آئی آرٹ: کے شرد ہکسر", "राजा रवि वर्मा / Wikimedia Commons": "راجہ روی ورما / Wikimedia Commons" }
 };
 function daysFor(l) {
   if (l === "hi") return DAYS_HI;
@@ -250,25 +250,28 @@ function hero(L, kick = T.bigDebate) {
 }
 
 const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
-const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون बड़ा देखें"] };
+const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
+const ARTIST_UR = { "Rajendra Dhodapkar": "راجندر دھوڑپکر" };
+const toonL = c => { if (LG === "hi") return c; const f = path.join("data/i18n", LG, "cartoon-" + c.date + ".json"); const t = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; const ar = LG === "ur" ? (ARTIST_UR[c.artist_en] || c.artist_en || c.artist) : (c.artist_en || c.artist); return { ...c, ...t, artist: ar, chutki: t.chutki || null }; };
+const TC = { hi: { read: "पूरी चुटकी पढ़ें →", fine: a => `कार्टून के सारे अधिकार ${a} के हैं। देशकाल पर उनकी अनुमति से।`, k: "देशकाल की चुटकी", between: "रेखाओं<br>के बीच", on: a => `${a} के कार्टून पर`, more: "और कार्टून", of: a => `${a} का कार्टून` }, en: { read: "Read the full note →", fine: a => `All rights in the cartoon belong to ${a}. On Deshkaal with his permission.`, k: "Deshkaal's note", between: "Between<br>the lines", on: a => `On ${a}'s cartoon`, more: "More cartoons", of: a => `${a}'s cartoon` }, ur: { read: "پوری چٹکی پڑھیں ←", fine: a => `کارٹون کے سارے حقوق ${a} کے پاس ہیں۔ دیشکال پر ان کی اجازت سے۔`, k: "دیشکال کی چٹکی", between: "لکیروں<br>کے بیچ", on: a => `${a} کے کارٹون پر`, more: "اور کارٹون", of: a => `${a} کا کارٹون` } };
 const toonFor = date => PUB_TOONS.find(c => c.date === date);
-const toonBand = c => `<section class="toon">
-  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(LG === "hi" ? c.artist : c.artist_en || c.artist)}</b>${TOON[LG][1]}</p>${c.chutki && LG === "hi" ? `<p class="toon-tease">${esc(c.chutki[0].split("।")[0])}।</p><a class="toon-read" href="/cartoon/${c.date}/">पूरी चुटकी पढ़ें →</a>` : ""}</div>
-  <figure class="toon-board"><a class="toon-frame" href="/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
-  <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`;
+const toonBand = c0 => { const c = toonL(c0), K = TC[LG]; return `<section class="toon">
+  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(c.artist)}</b>${TOON[LG][1]}</p>${c.chutki ? `<p class="toon-tease">${esc(c.chutki[0].split(LG === "ur" ? "۔" : LG === "en" ? ". " : "।")[0])}${LG === "ur" ? "۔" : LG === "en" ? "." : "।"}</p><a class="toon-read" href="${PRE}/cartoon/${c.date}/">${K.read}</a>` : ""}</div>
+  <figure class="toon-board"><a class="toon-frame" href="${PRE}/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
+  <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`; };
 
-function cartoonPage(c) {
-  const others = PUB_TOONS.filter(x => x !== c).slice(0, 8), u = encodeURIComponent(`${SITE}/cartoon/${c.date}/`), t = encodeURIComponent(`तिरछी नज़र: ${c.artist} का कार्टून`);
-  const body = `<section class="toon-page"><a class="back" href="/">${T.back}</a>
-    <p class="kicker" style="margin-top:22px">तिरछी नज़र · ${dayLabel(c.date)}</p><h1>${esc(c.artist)} का कार्टून</h1>
+function cartoonPage(c0) {
+  const c = toonL(c0), K = TC[LG], others = PUB_TOONS.filter(x => x !== c0).slice(0, 8).map(toonL), u = encodeURIComponent(`${SITE}${PRE}/cartoon/${c.date}/`), t = encodeURIComponent(`${TOON[LG][0]}: ${K.of(c.artist)}`);
+  const body = `<section class="toon-page"><a class="back" href="${PRE}/">${T.back}</a>
+    <p class="kicker" style="margin-top:22px">${TOON[LG][0]} · ${dayLabel(c.date)}</p><h1>${esc(K.of(c.artist))}</h1>
     <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
-    <div class="share" data-url="${SITE}/cartoon/${c.date}/" data-title="तिरछी नज़र"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
-    ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">देशकाल की चुटकी</span><h3>रेखाओं<br>के बीच</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(c.artist)} के कार्टून पर</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
-    <p class="fine">कार्टून के सारे अधिकार ${esc(c.artist)} के हैं। देशकाल पर उनकी अनुमति से।</p>
-    ${others.length ? `<h3 class="toon-more">और कार्टून</h3><div class="toon-grid">${others.map(o => `<a href="/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
-  return layout({ title: `तिरछी नज़र: ${c.artist} का कार्टून, ${dayLabel(c.date)}`, desc: c.alt, url: `/cartoon/${c.date}/`, body, image: c.img, published: c.date });
+    <div class="share" data-url="${SITE}${PRE}/cartoon/${c.date}/" data-title="${TOON[LG][0]}"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
+    ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">${K.k}</span><h3>${K.between}</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(K.on(c.artist))}</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
+    <p class="fine">${esc(K.fine(c.artist))}</p>
+    ${others.length ? `<h3 class="toon-more">${K.more}</h3><div class="toon-grid">${others.map(o => `<a href="${PRE}/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
+  return layout({ title: `${TOON[LG][0]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url: `${PRE}/cartoon/${c.date}/`, body, image: c.img, published: c.date });
 }
 
 const connect = () => `<section class="band">
@@ -307,7 +310,7 @@ function morchaPage() {
 const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
 const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
-const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["रात", "صبح", "दोपहर", "शाम", "रात"] };
+const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "رات"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
 const clock = (t, lg = LG) => { const c = clockParts(t, lg); return !c ? "" : lg === "en" ? `${c.hm} ${c.p}` : `${c.p} ${c.hm}`; };
@@ -464,38 +467,49 @@ function archivePage() {
   </section>`;
   return layout({ title: T.archive, desc: T.archDesc, url: PRE + "/purane/", body, tab: "purane", alt: { hi: "/purane/", en: "/en/purane/", ur: "/ur/purane/" } });
 }
+const JN = {
+  hi: { k: "न्योता", h: "हर सुबह, ज़रूरी ख़बरों तक एक पगडंडी", lede: "देशकाल दुनिया भर के अख़बारों, पत्रिकाओं और स्वतंत्र मंचों से रोज़ की सबसे ज़रूरी टिप्पणियां चुनता है और उनका सार आसान हिंदी में लिखता है। अवाम की नज़र से: अल्पसंख्यक, दलित, आदिवासी, औरतें, मेहनतकश। हर सार के आख़िर में मूल लेख का लिंक। कोई विज्ञापन नहीं, कोई शुल्क नहीं।", aria: "ईमेल", btn: "हर सुबह ईमेल पर पाएं", small: "जब चाहें, हर ईमेल के नीचे एक क्लिक से हट सकते हैं।", nijta: "निजता नीति", today: "आज के अंक से", full: "पूरा अंक पढ़ें", title: "देशकाल से जुड़िए", desc: "हर सुबह 7 बजे ज़रूरी टिप्पणियों का सार, आसान हिंदी में, सीधे आपके ईमेल पर।" },
+  en: { k: "Invitation", h: "Every morning, a footpath to the news that matters", lede: "Every day Deshkaal picks the most important commentary from newspapers, magazines and independent platforms around the world and writes a summary in plain language. Through the eyes of the people: minorities, Dalits, Adivasis, women, working people. A link to the original at the end of every summary. No advertisements, no fee.", aria: "Email", btn: "Get it by email every morning", small: "You can unsubscribe any time with one click at the bottom of every email.", nijta: "Privacy policy", today: "From today's issue", full: "Read the full issue", title: "Join Deshkaal", desc: "A summary of the important commentary every morning at 7, in plain language, straight to your email." },
+  ur: { k: "دعوت", h: "ہر صبح، اہم خبروں تک ایک پگڈنڈی", lede: "دیشکال دنیا بھر کے اخباروں، رسالوں اور آزاد پلیٹ فارموں سے روز کے سب سے اہم تبصرے چنتا ہے اور ان کا خلاصہ آسان زبان میں لکھتا ہے۔ عوام کی نظر سے: اقلیتیں، دلت، آدی واسی، عورتیں، محنت کش۔ ہر خلاصے کے آخر میں اصل مضمون کا لنک۔ کوئی اشتہار نہیں، کوئی فیس نہیں۔", aria: "ای میل", btn: "ہر صبح ای میل پر پائیں", small: "جب چاہیں، ہر ای میل کے نیچے ایک کلک سے ہٹ سکتے ہیں۔", nijta: "پرائیویسی پالیسی", today: "آج کے شمارے سے", full: "پورا شمارہ پڑھیں", title: "دیشکال سے جڑیے", desc: "ہر صبح 7 بجے اہم تبصروں کا خلاصہ، آسان زبان میں، سیدھے آپ کے ای میل پر۔" }
+};
 function joinPage() {
-  const news = today.items.filter(a => a.cat !== "साहित्य").slice(0, 3);
+  const J = JN[LG], news = today.items.filter(a => a.cat !== "साहित्य").slice(0, 3);
   const body = `<section class="page2 join">
-  <p class="kicker">न्योता</p>
-  <h2>हर सुबह, ज़रूरी ख़बरों तक एक पगडंडी</h2>
-  <p class="lede">देशकाल दुनिया भर के अख़बारों, पत्रिकाओं और स्वतंत्र मंचों से रोज़ की सबसे ज़रूरी टिप्पणियां चुनता है और उनका सार आसान हिंदी में लिखता है। अवाम की नज़र से: अल्पसंख्यक, दलित, आदिवासी, औरतें, मेहनतकश। हर सार के आख़िर में मूल लेख का लिंक। कोई विज्ञापन नहीं, कोई शुल्क नहीं।</p>
-  <form class="sub big" id="subf" data-source="nyota"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="ईमेल"><button class="btn">हर सुबह ईमेल पर पाएं</button></form>
+  <p class="kicker">${J.k}</p>
+  <h2>${J.h}</h2>
+  <p class="lede">${J.lede}</p>
+  <form class="sub big" id="subf" data-source="nyota"><input id="email" type="email" required placeholder="aapka@email.com" aria-label="${J.aria}"><button class="btn">${J.btn}</button></form>
   <p class="note" id="subnote"></p>
-  <p class="small">जब चाहें, हर ईमेल के नीचे एक क्लिक से हट सकते हैं। <a href="/nijta/">निजता नीति</a></p>
+  <p class="small">${J.small} <a href="${PRE}/nijta/">${J.nijta}</a></p>
   <div class="act chans">${chanBtn("whatsapp","WhatsApp")}${chanBtn("telegram","Telegram")}</div>
-  <h4>आज के अंक से</h4>
+  <h4>${J.today}</h4>
   <ul class="joinlist">${news.map(a => `<li><a href="${href(a)}"><b>${esc(a.h)}</b><span>${esc(a.dek)}</span></a></li>`).join("")}</ul>
-  <p><a class="btn ghost" href="/">पूरा अंक पढ़ें</a></p>
+  <p><a class="btn ghost" href="${PRE}/">${J.full}</a></p>
 </section>`;
-  return layout({ title: "देशकाल से जुड़िए", desc: "हर सुबह 7 बजे ज़रूरी टिप्पणियों का सार, आसान हिंदी में, सीधे आपके ईमेल पर।", url: "/judiye/", body });
+  return layout({ title: J.title, desc: J.desc, url: PRE + "/judiye/", body });
 }
 function minePage() {
   return layout({ title: T.mine, desc: T.mineDesc, url: PRE + "/mera/", body: `<section class="page2" id="mine" data-cats='${JSON.stringify(CATS)}' data-catn='${JSON.stringify(CATS.map(cn))}'></section>`, tab: "mera", alt: { hi: "/mera/", en: "/en/mera/", ur: "/ur/mera/" } });
 }
 function mdPage(file, title, desc, url, h2) {
-  const md = fs.readFileSync(file, "utf8");
+  const lf = LG === "hi" ? file : file.replace(".md", "." + LG + ".md");
+  const md = fs.readFileSync(fs.existsSync(lf) ? lf : file, "utf8");
   const html = md.split(/\n\n+/).map(b => {
     if (b.startsWith("# ")) return "";
     if (b.startsWith("## ")) return `<h4>${esc(b.slice(3))}</h4>`;
     if (/^- /m.test(b)) return `<ul>${b.split("\n").filter(l => l.startsWith("- ")).map(l => `<li>${esc(l.slice(2))}</li>`).join("")}</ul>`;
     return `<p>${esc(b)}</p>`;
   }).join("");
-  return layout({ title, desc, url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>` });
+  return layout({ title, desc, url: PRE + url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>` });
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
-const policyPage = () => mdPage("EDITORIAL.md", "संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "/niti/", "हमारी संपादकीय नीति");
-const privacyPage = () => mdPage("PRIVACY.md", "निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "/nijta/", "निजता नीति");
+const PG = {
+  hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
+  en: { pol: ["Editorial policy", "What commentary Deshkaal chooses, and why.", "Our editorial policy"], pri: ["Privacy policy", "What information Deshkaal keeps, where, and how to have it removed.", "Privacy policy"] },
+  ur: { pol: ["ادارتی پالیسی", "دیشکال کن تبصروں کو چنتا ہے اور کیوں۔", "ہماری ادارتی پالیسی"], pri: ["پرائیویسی پالیسی", "دیشکال آپ کی کون سی معلومات رکھتا ہے، کہاں، اور کیسے ہٹوائیں۔", "پرائیویسی پالیسی"] }
+};
+const policyPage = () => mdPage("EDITORIAL.md", ...PG[LG].pol.slice(0, 2), "/niti/", PG[LG].pol[2]);
+const privacyPage = () => mdPage("PRIVACY.md", ...PG[LG].pri.slice(0, 2), "/nijta/", PG[LG].pri[2]);
 function feed() {
   const items = all.slice(0, 40).map(a => `<item><title>${esc(a.h)}</title><link>${SITE}${href(a)}</link><guid>${SITE}${href(a)}</guid><pubDate>${new Date(a.day + "T01:30:00Z").toUTCString()}</pubDate><category>${esc(a.cat)}</category><description>${esc(a.dek)}</description></item>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>देशकाल</title><link>${SITE}/</link><description>${esc(TAGLINE)}</description><language>hi</language>${items}</channel></rss>`;
@@ -654,7 +668,7 @@ for (const l of LANGS) {
 for (const l of ["en", "ur"]) {
   setLang(l); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
   const P = l + "/";
-  out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage());
+  out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage(LG));
   PUB_TOONS.forEach(c => out(`${P}cartoon/${c.date}/index.html`, cartoonPage(c)));
   if (LIVE_ON) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
