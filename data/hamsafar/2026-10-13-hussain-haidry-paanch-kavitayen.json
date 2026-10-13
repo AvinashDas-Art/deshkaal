@@ -1,276 +1,276 @@
 {
-  "id": "2026-10-13-hussain-haidry-paanch-kavitayen",
-  "kind": "kavita",
-  "date": "2026-10-13",
-  "h": "कुर्सी का गणित और लोगों की उम्र: हुसैन हैदरी की पांच कविताएं",
-  "dek": "लाठियों और गोलियों की गिनती से अदालत में ठहरे एक मुक़दमे तक: सत्ता, प्रतिरोध और गुज़रती ज़िंदगी पर पांच कविताएं।",
-  "by": "हुसैन हैदरी",
-  "place": "मुंबई",
-  "lang": "hi",
-  "cat": "कविता",
-  "photo": "/media/hamsafar/hussain-haidry.png",
-  "bio": "हुसैन हैदरी कवि, लेखक और फ़िल्मी गीतकार हैं। इंदौर में जन्मे हैदरी ने चार्टर्ड अकाउंटेंट के तौर पर काम किया और कोलकाता की नौकरी छोड़कर 2015 में मुंबई आ गये। उनकी कविता ‘हिंदुस्तानी मुसलमान’ ने उन्हें व्यापक पहचान दिलायी। ‘गुड़गांव’, ‘क़रीब क़रीब सिंगल’ और ‘मुक्काबाज़’ जैसी फ़िल्मों के लिए उन्होंने गीत लिखे हैं। उनकी ज़बान में रोज़मर्रा की बातचीत और राजनीतिक बेचैनी साथ चलती हैं।",
-  "bio_url": "https://thepunchmagazine.com/the-byword/interviews/hussain-haidry-on-song",
-  "bio_source": "परिचय का स्रोत: द पंच का हुसैन हैदरी से साक्षात्कार (31 अक्टूबर 2018)",
-  "intro": [
-    "हुकूमत अपनी ताक़त गिन सकती है: कितनी लाठियां, कितनी गोलियां, कितनी बसें और कितने बंद रास्ते। हुसैन हैदरी की कविता उसी हिसाब में एक छूटी हुई चीज़ जोड़ देती है - लोग। वे लोग, जो चोट खाते हैं, हिरासत में जाते हैं और फिर भी लौटकर सवाल पूछते हैं। ‘गिनती का खेल’ में डर पैदा करने वाला गणित आख़िर अपने ही सामने एक सवाल बनकर खड़ा हो जाता है।",
-    "इन पांच कविताओं का संसार सड़क से रसोई तक और रसोई से अदालत तक फैला है। एक पीढ़ी बैरिकेड के सामने जवान हो रही है। कुकर की सीटी रोज़मर्रा की आवाज़ से ख़तरे की आवाज़ में बदल जाती है। मुसोलीनी वाली कविता सत्ता के सुरक्षा-प्रबंध और इतिहास की अनिश्चितता को आमने-सामने रखती है। हैदरी छोटी पंक्तियों और परिचित चीज़ों से ऐसी बेचैनी रचते हैं, जो कविता पढ़ लेने के बाद भी साथ रहती है।",
-    "आख़िरी कविता में पांच साल कोई चुनावी अवधि भर नहीं हैं। वे पिता की आंखों, मां के चेहरे और बिस्तर पकड़ चुकी दादी में जमा समय हैं। बाहर बहुत कुछ होता रहता है; अदालत में एक मुक़दमा नहीं होता। यहां आते-आते कुर्सी और भीड़ की बड़ी तस्वीर एक घर के भीतर उतर आती है। इन कविताओं को साथ पढ़ते हुए विरोध की आवाज़ भी सुनायी देती है और उस आवाज़ के पीछे खड़ी ज़िंदगी भी।"
-  ],
-  "poems": [
-    {
-      "h": "गिनती का खेल",
-      "stanzas": [
-        "कुछ समय तक\nदस हज़ार लाठियाँ\nफोड़ सकती हैं दस हज़ार सर\nदस लाख गोलियाँ\nछलनी कर सकती हैं दस लाख सीने",
-        "कुछ समय तक\nआपको सुरक्षित रखेगा\nलाठियों और बंदूकों का\nये तानाशाही गणित",
-        "मगर कुछ समय बाद\nटूट जाएँगी लाठियाँ\nख़त्म हो जाएँगी गोलियाँ\nबढ़ती ही चली जाएगी तादाद\nसरों और सीनों की\nजो सीधे चल कर आयेंगे\nआपकी कुर्सी की तरफ़",
-        "आपके सर और सीने की तरफ़",
-        "उस समय\nआप क्या करेंगे, साहब?"
-      ]
-    },
-    {
-      "h": "ये नया हिंदुस्तान है",
-      "stanzas": [
-        "बैरिकेड को लाँघ के\nसर पे लाठी खा के\nआँसू गैस में चश्मा चढ़ा के\nवॉटर कैनन पर नाच दिखा के\nहिरासत में तस्वीरें खिचा के\nपुलिस वालों को मुँह चिढ़ा के",
-        "हो रही है ये पीढ़ी जवान",
-        "बन रहा है नया हिंदुस्तान",
-        "जो कुर्सी में घुसेगा भी\nऔर तानाशाही को हटाएगा भी"
-      ]
-    },
-    {
-      "h": "कुकर",
-      "stanzas": [
-        "कुकर की सीटी\nजब बजती है तीन-चार बार\nतो गल जाती है दाल",
-        "कुकर की सीटी\nजब बजाई जाए लगातार\nसोलह-सत्रह बार\nतो हो जाता है ख़तरा",
-        "दाल के राख हो जाने का\nकुकर के फट जाने का"
-      ]
-    },
-    {
-      "h": "मुसोलीनी की मौत",
-      "stanzas": [
-        "जनता ने जब बीच चौराहे पर\nलटकाया था मुसोलीनी को\nदो दिन पहले नहीं हुआ था कोई ऐलान\nनहीं मुक़र्रर हुई थी कोई तारीख़",
-        "अगर होता मुसोलीनी को इल्हाम\nतो वो बंद कर सकता था ट्रेनें\nरोक सकता था बसें\nतैनात कर सकता था फ़ौजें\nपूरा का पूरा शहर क्या\nपूरे मुल्क को कर सकता था नज़रबंद",
-        "हो सकता है ये सब करके\nउस दिन बच जाता मुसोलीनी",
-        "मगर वो नहीं टाल पाता\nजनता का वो सैलाब\nजो बिना किसी ऐलान\nबिना किसी मुक़र्रर तारीख़\nउमड़ ही आना था एक दिन\nउसे बीच चौराहे पर लटकाने के लिए"
-      ]
-    },
-    {
-      "h": "पाँच साल",
-      "stanzas": [
-        "पाँच सालों में\nउग आता है\nबाप की आँखों में मोतियाबिंद\nजम जाती हैं\nमाँ के चेहरे पर झुर्रियाँ\nचल बसता है दादा\nबिस्तर पकड़ लेती है दादी\nरिश्तेदार बदल लेते हैं घर",
-        "पाँच सालों में\nगुज़र जाते हैं सैकड़ों हंगामे\nअख़बार सीखा देते हैं\nलोगों को नुकीली ज़बान\nलाशों के नज़ारे\nबढ़ा देते हैं ख़ून की प्यास\nघरों के मलबों पर\nनाचने लगते हैं तमाशबीन",
-        "ज़हरीली चरस खींच कर\nसमाज हो जाता है सुन्न\nअंदर और बाहर से\nदेश हो जाता है ठूँठ",
-        "पाँच सालों में\nहो जाता है बहुत\nकहने को सब कुछ ही हो जाता है\nहंगामों की अफ़रा-तफ़री में\nबस... नहीं होता\nअदालत में एक ख़ास मुक़दमा\nया किसी हाक़िम की हिम्मत\nकि वो दे सके ज़मानत",
-        "पाँच सालों में\nसिर्फ़ ये ही नहीं हो पाता\nहमेशा बस होते-होते रह जाता है"
-      ]
-    }
-  ],
-  "body": [
-    "गिनती का खेल",
-    "कुछ समय तक\nदस हज़ार लाठियाँ\nफोड़ सकती हैं दस हज़ार सर\nदस लाख गोलियाँ\nछलनी कर सकती हैं दस लाख सीने",
+ "id": "2026-10-13-hussain-haidry-paanch-kavitayen",
+ "kind": "kavita",
+ "date": "2026-10-13",
+ "h": "कुर्सी का गणित और लोगों की उम्र: हुसैन हैदरी की पांच कविताएं",
+ "dek": "लाठियों और गोलियों की गिनती से अदालत में ठहरे एक मुक़दमे तक: सत्ता, प्रतिरोध और गुज़रती ज़िंदगी पर पांच कविताएं।",
+ "by": "हुसैन हैदरी",
+ "place": "मुंबई",
+ "lang": "hi",
+ "cat": "कविता",
+ "photo": "/media/hamsafar/hussain-haidry.png",
+ "bio": "हुसैन हैदरी कवि, लेखक और फ़िल्मी गीतकार हैं। इंदौर में जन्मे हैदरी ने चार्टर्ड अकाउंटेंट के तौर पर काम किया और कोलकाता की नौकरी छोड़कर 2015 में मुंबई आ गये। उनकी कविता ‘हिंदुस्तानी मुसलमान’ ने उन्हें व्यापक पहचान दिलायी। ‘गुड़गांव’, ‘क़रीब क़रीब सिंगल’ और ‘मुक्काबाज़’ जैसी फ़िल्मों के लिए उन्होंने गीत लिखे हैं। उनकी ज़बान में रोज़मर्रा की बातचीत और राजनीतिक बेचैनी साथ चलती हैं।",
+ "bio_url": "https://thepunchmagazine.com/the-byword/interviews/hussain-haidry-on-song",
+ "bio_source": "परिचय का स्रोत: द पंच का हुसैन हैदरी से साक्षात्कार (31 अक्टूबर 2018)",
+ "intro": [
+  "हुकूमत अपनी ताक़त गिन सकती है: कितनी लाठियां, कितनी गोलियां, कितनी बसें और कितने बंद रास्ते। हुसैन हैदरी की कविता उसी हिसाब में एक छूटी हुई चीज़ जोड़ देती है - लोग। वे लोग, जो चोट खाते हैं, हिरासत में जाते हैं और फिर भी लौटकर सवाल पूछते हैं। ‘गिनती का खेल’ में डर पैदा करने वाला गणित आख़िर अपने ही सामने एक सवाल बनकर खड़ा हो जाता है।",
+  "इन पांच कविताओं का संसार सड़क से रसोई तक और रसोई से अदालत तक फैला है। एक पीढ़ी बैरिकेड के सामने जवान हो रही है। कुकर की सीटी रोज़मर्रा की आवाज़ से ख़तरे की आवाज़ में बदल जाती है। मुसोलीनी वाली कविता सत्ता के सुरक्षा-प्रबंध और इतिहास की अनिश्चितता को आमने-सामने रखती है। हैदरी छोटी पंक्तियों और परिचित चीज़ों से ऐसी बेचैनी रचते हैं, जो कविता पढ़ लेने के बाद भी साथ रहती है।",
+  "आख़िरी कविता में पांच साल कोई चुनावी अवधि भर नहीं हैं। वे पिता की आंखों, मां के चेहरे और बिस्तर पकड़ चुकी दादी में जमा समय हैं। बाहर बहुत कुछ होता रहता है; अदालत में एक मुक़दमा नहीं होता। यहां आते-आते कुर्सी और भीड़ की बड़ी तस्वीर एक घर के भीतर उतर आती है। इन कविताओं को साथ पढ़ते हुए विरोध की आवाज़ भी सुनायी देती है और उस आवाज़ के पीछे खड़ी ज़िंदगी भी।"
+ ],
+ "poems": [
+  {
+   "h": "गिनती का खेल",
+   "stanzas": [
+    "कुछ समय तक\nदस हज़ार लाठियां\nफोड़ सकती हैं दस हज़ार सर\nदस लाख गोलियां\nछलनी कर सकती हैं दस लाख सीने",
     "कुछ समय तक\nआपको सुरक्षित रखेगा\nलाठियों और बंदूकों का\nये तानाशाही गणित",
-    "मगर कुछ समय बाद\nटूट जाएँगी लाठियाँ\nख़त्म हो जाएँगी गोलियाँ\nबढ़ती ही चली जाएगी तादाद\nसरों और सीनों की\nजो सीधे चल कर आयेंगे\nआपकी कुर्सी की तरफ़",
+    "मगर कुछ समय बाद\nटूट जाएंगी लाठियां\nख़त्म हो जाएंगी गोलियां\nबढ़ती ही चली जाएगी तादाद\nसरों और सीनों की\nजो सीधे चल कर आयेंगे\nआपकी कुर्सी की तरफ़",
     "आपके सर और सीने की तरफ़",
-    "उस समय\nआप क्या करेंगे, साहब?",
-    "ये नया हिंदुस्तान है",
-    "बैरिकेड को लाँघ के\nसर पे लाठी खा के\nआँसू गैस में चश्मा चढ़ा के\nवॉटर कैनन पर नाच दिखा के\nहिरासत में तस्वीरें खिचा के\nपुलिस वालों को मुँह चिढ़ा के",
+    "उस समय\nआप क्या करेंगे, साहब?"
+   ]
+  },
+  {
+   "h": "ये नया हिंदुस्तान है",
+   "stanzas": [
+    "बैरिकेड को लांघ के\nसर पे लाठी खा के\nआंसू गैस में चश्मा चढ़ा के\nवॉटर कैनन पर नाच दिखा के\nहिरासत में तस्वीरें खिचा के\nपुलिस वालों को मुंह चिढ़ा के",
     "हो रही है ये पीढ़ी जवान",
     "बन रहा है नया हिंदुस्तान",
-    "जो कुर्सी में घुसेगा भी\nऔर तानाशाही को हटाएगा भी",
-    "कुकर",
+    "जो कुर्सी में घुसेगा भी\nऔर तानाशाही को हटाएगा भी"
+   ]
+  },
+  {
+   "h": "कुकर",
+   "stanzas": [
     "कुकर की सीटी\nजब बजती है तीन-चार बार\nतो गल जाती है दाल",
     "कुकर की सीटी\nजब बजाई जाए लगातार\nसोलह-सत्रह बार\nतो हो जाता है ख़तरा",
-    "दाल के राख हो जाने का\nकुकर के फट जाने का",
-    "मुसोलीनी की मौत",
+    "दाल के राख हो जाने का\nकुकर के फट जाने का"
+   ]
+  },
+  {
+   "h": "मुसोलीनी की मौत",
+   "stanzas": [
     "जनता ने जब बीच चौराहे पर\nलटकाया था मुसोलीनी को\nदो दिन पहले नहीं हुआ था कोई ऐलान\nनहीं मुक़र्रर हुई थी कोई तारीख़",
     "अगर होता मुसोलीनी को इल्हाम\nतो वो बंद कर सकता था ट्रेनें\nरोक सकता था बसें\nतैनात कर सकता था फ़ौजें\nपूरा का पूरा शहर क्या\nपूरे मुल्क को कर सकता था नज़रबंद",
     "हो सकता है ये सब करके\nउस दिन बच जाता मुसोलीनी",
-    "मगर वो नहीं टाल पाता\nजनता का वो सैलाब\nजो बिना किसी ऐलान\nबिना किसी मुक़र्रर तारीख़\nउमड़ ही आना था एक दिन\nउसे बीच चौराहे पर लटकाने के लिए",
-    "पाँच साल",
-    "पाँच सालों में\nउग आता है\nबाप की आँखों में मोतियाबिंद\nजम जाती हैं\nमाँ के चेहरे पर झुर्रियाँ\nचल बसता है दादा\nबिस्तर पकड़ लेती है दादी\nरिश्तेदार बदल लेते हैं घर",
-    "पाँच सालों में\nगुज़र जाते हैं सैकड़ों हंगामे\nअख़बार सीखा देते हैं\nलोगों को नुकीली ज़बान\nलाशों के नज़ारे\nबढ़ा देते हैं ख़ून की प्यास\nघरों के मलबों पर\nनाचने लगते हैं तमाशबीन",
-    "ज़हरीली चरस खींच कर\nसमाज हो जाता है सुन्न\nअंदर और बाहर से\nदेश हो जाता है ठूँठ",
-    "पाँच सालों में\nहो जाता है बहुत\nकहने को सब कुछ ही हो जाता है\nहंगामों की अफ़रा-तफ़री में\nबस... नहीं होता\nअदालत में एक ख़ास मुक़दमा\nया किसी हाक़िम की हिम्मत\nकि वो दे सके ज़मानत",
-    "पाँच सालों में\nसिर्फ़ ये ही नहीं हो पाता\nहमेशा बस होते-होते रह जाता है"
-  ],
-  "en": {
-    "h": "The Arithmetic of Power and the Years of People's Lives: Five Poems by Hussain Haidry",
-    "dek": "From counting batons and bullets to a trial stalled in court: five poems on power, resistance and life passing by.",
-    "by": "Hussain Haidry",
-    "place": "Mumbai",
-    "bio": "Hussain Haidry is a poet, writer and film lyricist. Born in Indore, he worked as a chartered accountant before leaving his job in Kolkata and moving to Mumbai in 2015. His poem ‘Hindustani Musalmaan’ brought him wide recognition. He has written lyrics for films including Gurgaon, Qarib Qarib Singlle and Mukkabaaz. Everyday speech and political unease meet in his writing.",
-    "bio_source": "Biography source: The Punch interview with Hussain Haidry (31 October 2018)",
-    "tr": "Translated from Hindi by the Deshkaal desk.",
-    "intro": [
-      "A government can count its strength: how many batons, how many bullets, how many buses and how many blocked roads. Hussain Haidry’s poem adds something left out of that calculation: people. People who are hurt, taken into custody, and still return to ask questions. In “The Counting Game”, the arithmetic that produces fear ends up facing a question of its own.",
-      "These five poems move from the street to the kitchen, and from the kitchen to the courtroom. A generation comes of age before the barricades. A pressure cooker’s whistle changes from an everyday sound into a warning. The poem about Mussolini places the security arrangements of power face to face with the uncertainty of history. Through short lines and familiar objects, Haidry creates an unease that stays with us after the reading is over.",
-      "In the final poem, five years are more than an electoral term. They are time accumulating in a father’s eyes, on a mother’s face, and in a grandmother who has taken to bed. Outside, so much keeps happening; in court, one trial does not. By this point, the large picture of the chair and the crowd has entered a home. Read together, these poems let us hear both the voice of protest and the lives that stand behind it."
-    ],
-    "poems": [
-      {
-        "h": "The Counting Game",
-        "stanzas": [
-          "For a while\nten thousand batons\ncan crack ten thousand heads\none million bullets\ncan riddle one million chests",
-          "For a while\nyou will be kept safe\nby this tyrannical arithmetic\nof batons and guns",
-          "But after a while\nthe batons will break\nthe bullets will run out\nthe number will keep on growing\nof heads and chests\nthat will walk straight\ntowards your chair",
-          "Towards your head and chest",
-          "At that moment\nwhat will you do, sir?"
-        ]
-      },
-      {
-        "h": "This Is a New Hindustan",
-        "stanzas": [
-          "Climbing over barricades\ntaking batons to the head\nputting on glasses in tear gas\ndancing on the water cannon\ngetting photographed in custody\nmaking faces at the police",
-          "This generation is coming of age",
-          "A new Hindustan is taking shape",
-          "It will take its place in the chair\nand drive out tyranny too"
-        ]
-      },
-      {
-        "h": "The Pressure Cooker",
-        "stanzas": [
-          "When the cooker whistles\nthree or four times\nthe lentils soften",
-          "When the cooker is made to whistle\nwithout a break\nsixteen or seventeen times\nthere is a danger",
-          "Of the lentils turning to ash\nof the cooker bursting"
-        ]
-      },
-      {
-        "h": "The Death of Mussolini",
-        "stanzas": [
-          "When the people strung up Mussolini\nin the middle of the square\nthere had been no announcement two days earlier\nno date had been fixed",
-          "Had Mussolini had a premonition\nhe could have shut down trains\nstopped buses\ndeployed troops\nnot just an entire city\nbut the whole country could have been confined",
-          "Perhaps, by doing all this\nMussolini would have survived that day",
-          "But he could not have put off\nthat flood of people\nwhich, without an announcement\nwithout a date being fixed\nwas bound to surge one day\nto string him up in the middle of the square"
-        ]
-      },
-      {
-        "h": "Five Years",
-        "stanzas": [
-          "In five years\ncataracts grow\nin a father's eyes\nwrinkles settle\non a mother's face\na grandfather passes away\na grandmother takes to bed\nrelatives move house",
-          "In five years\nhundreds of upheavals pass\nnewspapers teach\npeople a sharp-edged tongue\nthe sight of corpses\ndeepens the thirst for blood\non the rubble of homes\nthe onlookers begin to dance",
-          "Drawing on poisoned hashish\nsociety grows numb\ninside and out\nthe country becomes a stump",
-          "In five years\nso much happens\nyou might say everything happens\nin the chaos of upheavals\nonly... what never happens\nis a certain trial in court\nor the courage of someone in authority\nto grant bail",
-          "In five years\nthis alone cannot happen\nit is always left on the verge of happening"
-        ]
-      }
-    ],
-    "body": [
-      "The Counting Game",
-      "For a while\nten thousand batons\ncan crack ten thousand heads\none million bullets\ncan riddle one million chests",
-      "For a while\nyou will be kept safe\nby this tyrannical arithmetic\nof batons and guns",
-      "But after a while\nthe batons will break\nthe bullets will run out\nthe number will keep on growing\nof heads and chests\nthat will walk straight\ntowards your chair",
-      "Towards your head and chest",
-      "At that moment\nwhat will you do, sir?",
-      "This Is a New Hindustan",
-      "Climbing over barricades\ntaking batons to the head\nputting on glasses in tear gas\ndancing on the water cannon\ngetting photographed in custody\nmaking faces at the police",
-      "This generation is coming of age",
-      "A new Hindustan is taking shape",
-      "It will take its place in the chair\nand drive out tyranny too",
-      "The Pressure Cooker",
-      "When the cooker whistles\nthree or four times\nthe lentils soften",
-      "When the cooker is made to whistle\nwithout a break\nsixteen or seventeen times\nthere is a danger",
-      "Of the lentils turning to ash\nof the cooker bursting",
-      "The Death of Mussolini",
-      "When the people strung up Mussolini\nin the middle of the square\nthere had been no announcement two days earlier\nno date had been fixed",
-      "Had Mussolini had a premonition\nhe could have shut down trains\nstopped buses\ndeployed troops\nnot just an entire city\nbut the whole country could have been confined",
-      "Perhaps, by doing all this\nMussolini would have survived that day",
-      "But he could not have put off\nthat flood of people\nwhich, without an announcement\nwithout a date being fixed\nwas bound to surge one day\nto string him up in the middle of the square",
-      "Five Years",
-      "In five years\ncataracts grow\nin a father's eyes\nwrinkles settle\non a mother's face\na grandfather passes away\na grandmother takes to bed\nrelatives move house",
-      "In five years\nhundreds of upheavals pass\nnewspapers teach\npeople a sharp-edged tongue\nthe sight of corpses\ndeepens the thirst for blood\non the rubble of homes\nthe onlookers begin to dance",
-      "Drawing on poisoned hashish\nsociety grows numb\ninside and out\nthe country becomes a stump",
-      "In five years\nso much happens\nyou might say everything happens\nin the chaos of upheavals\nonly... what never happens\nis a certain trial in court\nor the courage of someone in authority\nto grant bail",
-      "In five years\nthis alone cannot happen\nit is always left on the verge of happening"
-    ]
+    "मगर वो नहीं टाल पाता\nजनता का वो सैलाब\nजो बिना किसी ऐलान\nबिना किसी मुक़र्रर तारीख़\nउमड़ ही आना था एक दिन\nउसे बीच चौराहे पर लटकाने के लिए"
+   ]
   },
-  "ur": {
-    "h": "کرسی کا حساب اور لوگوں کی عمر: حسین حیدری کی پانچ نظمیں",
-    "dek": "لاٹھیوں اور گولیوں کی گنتی سے عدالت میں رکے ایک مقدمے تک: اقتدار، مزاحمت اور گزرتی زندگی پر پانچ نظمیں۔",
-    "by": "حسین حیدری",
-    "place": "ممبئی",
-    "bio": "حسین حیدری شاعر، لکھاری اور فلمی نغمہ نگار ہیں۔ اندور میں پیدا ہوئے حیدری نے چارٹرڈ اکاؤنٹنٹ کے طور پر کام کیا اور کولکاتا کی نوکری چھوڑ کر 2015 میں ممبئی آ گئے۔ ان کی نظم ”ہندوستانی مسلمان“ نے انہیں وسیع پہچان دلائی۔ ”گڑگاؤں“، ”قریب قریب سنگل“ اور ”مکاباز“ جیسی فلموں کے لیے انہوں نے نغمے لکھے ہیں۔ ان کی زبان میں روزمرہ کی بات چیت اور سیاسی بے چینی ساتھ چلتی ہیں۔",
-    "bio_source": "تعارف کا ماخذ: دی پنچ کا حسین حیدری سے انٹرویو (31 اکتوبر 2018)",
-    "tr": "ہندی سے ترجمہ: دیشکال ڈیسک۔",
-    "intro": [
-      "حکومت اپنی طاقت گن سکتی ہے: کتنی لاٹھیاں، کتنی گولیاں، کتنی بسیں اور کتنے بند راستے۔ حسین حیدری کی نظم اسی حساب میں ایک رہ جانے والی چیز جوڑ دیتی ہے: لوگ۔ وہ لوگ جو چوٹ کھاتے ہیں، حراست میں جاتے ہیں اور پھر بھی لوٹ کر سوال پوچھتے ہیں۔ ”گنتی کا کھیل“ میں ڈر پیدا کرنے والا حساب آخر اپنے ہی سامنے ایک سوال بن کر کھڑا ہو جاتا ہے۔",
-      "ان پانچ نظموں کی دنیا سڑک سے باورچی خانے تک اور باورچی خانے سے عدالت تک پھیلی ہے۔ ایک نسل بیریکیڈ کے سامنے جوان ہو رہی ہے۔ ککر کی سیٹی روزمرہ کی آواز سے خطرے کی آواز میں بدل جاتی ہے۔ مسولینی والی نظم اقتدار کے حفاظتی انتظامات اور تاریخ کی غیر یقینی کیفیت کو آمنے سامنے رکھتی ہے۔ حیدری چھوٹی سطروں اور جانی پہچانی چیزوں سے ایسی بے چینی پیدا کرتے ہیں جو نظم پڑھ لینے کے بعد بھی ساتھ رہتی ہے۔",
-      "آخری نظم میں پانچ سال محض ایک انتخابی مدت نہیں ہیں۔ وہ باپ کی آنکھوں، ماں کے چہرے اور بستر پکڑ چکی دادی میں جمع وقت ہیں۔ باہر بہت کچھ ہوتا رہتا ہے؛ عدالت میں ایک مقدمہ نہیں چلتا۔ یہاں آتے آتے کرسی اور ہجوم کی بڑی تصویر ایک گھر کے اندر اتر آتی ہے۔ ان نظموں کو ساتھ پڑھتے ہوئے مزاحمت کی آواز بھی سنائی دیتی ہے اور اس آواز کے پیچھے کھڑی زندگی بھی۔"
-    ],
-    "poems": [
-      {
-        "h": "گنتی کا کھیل",
-        "stanzas": [
-          "کچھ وقت تک\nدس ہزار لاٹھیاں\nپھوڑ سکتی ہیں دس ہزار سر\nدس لاکھ گولیاں\nچھلنی کر سکتی ہیں دس لاکھ سینے",
-          "کچھ وقت تک\nآپ کو محفوظ رکھے گا\nلاٹھیوں اور بندوقوں کا\nیہ تاناشاہی حساب",
-          "مگر کچھ وقت بعد\nٹوٹ جائیں گی لاٹھیاں\nختم ہو جائیں گی گولیاں\nبڑھتی ہی چلی جائے گی تعداد\nسروں اور سینوں کی\nجو سیدھے چل کر آئیں گے\nآپ کی کرسی کی طرف",
-          "آپ کے سر اور سینے کی طرف",
-          "اس وقت\nآپ کیا کریں گے، صاحب؟"
-        ]
-      },
-      {
-        "h": "یہ نیا ہندوستان ہے",
-        "stanzas": [
-          "بیریکیڈ کو پھلانگ کے\nسر پہ لاٹھی کھا کے\nآنسو گیس میں چشمہ چڑھا کے\nواٹر کینن پر ناچ دکھا کے\nحراست میں تصویریں کھنچوا کے\nپولیس والوں کو منہ چڑا کے",
-          "ہو رہی ہے یہ نسل جوان",
-          "بن رہا ہے نیا ہندوستان",
-          "جو کرسی میں گھسے گا بھی\nاور تاناشاہی کو ہٹائے گا بھی"
-        ]
-      },
-      {
-        "h": "ککر",
-        "stanzas": [
-          "ککر کی سیٹی\nجب بجتی ہے تین چار بار\nتو گل جاتی ہے دال",
-          "ککر کی سیٹی\nجب بجائی جائے لگاتار\nسولہ سترہ بار\nتو ہو جاتا ہے خطرہ",
-          "دال کے راکھ ہو جانے کا\nککر کے پھٹ جانے کا"
-        ]
-      },
-      {
-        "h": "مسولینی کی موت",
-        "stanzas": [
-          "عوام نے جب بیچ چوراہے پر\nلٹکایا تھا مسولینی کو\nدو دن پہلے نہیں ہوا تھا کوئی اعلان\nنہیں مقرر ہوئی تھی کوئی تاریخ",
-          "اگر ہوتا مسولینی کو الہام\nتو وہ بند کر سکتا تھا ٹرینیں\nروک سکتا تھا بسیں\nتعینات کر سکتا تھا فوجیں\nپورا کا پورا شہر کیا\nپورے ملک کو کر سکتا تھا نظربند",
-          "ہو سکتا ہے یہ سب کر کے\nاس دن بچ جاتا مسولینی",
-          "مگر وہ نہیں ٹال پاتا\nعوام کا وہ سیلاب\nجو بغیر کسی اعلان\nبغیر کسی مقرر تاریخ\nامڈ ہی آنا تھا ایک دن\nاسے بیچ چوراہے پر لٹکانے کے لیے"
-        ]
-      },
-      {
-        "h": "پانچ سال",
-        "stanzas": [
-          "پانچ سالوں میں\nاگ آتا ہے\nباپ کی آنکھوں میں موتیا بند\nجم جاتی ہیں\nماں کے چہرے پر جھریاں\nچل بستا ہے دادا\nبستر پکڑ لیتی ہے دادی\nرشتہ دار بدل لیتے ہیں گھر",
-          "پانچ سالوں میں\nگزر جاتے ہیں سیکڑوں ہنگامے\nاخبار سکھا دیتے ہیں\nلوگوں کو نوکیلی زبان\nلاشوں کے نظارے\nبڑھا دیتے ہیں خون کی پیاس\nگھروں کے ملبوں پر\nناچنے لگتے ہیں تماش بین",
-          "زہریلی چرس کھینچ کر\nسماج ہو جاتا ہے سن\nاندر اور باہر سے\nملک ہو جاتا ہے ٹنڈ منڈ",
-          "پانچ سالوں میں\nہو جاتا ہے بہت\nکہنے کو سب کچھ ہی ہو جاتا ہے\nہنگاموں کی افرا تفری میں\nبس... نہیں چلتا\nعدالت میں ایک خاص مقدمہ\nیا کسی حاکم کی ہمت\nکہ وہ دے سکے ضمانت",
-          "پانچ سالوں میں\nصرف یہی نہیں ہو پاتا\nہمیشہ بس ہوتے ہوتے رہ جاتا ہے"
-        ]
-      }
-    ],
-    "body": [
-      "گنتی کا کھیل",
-      "کچھ وقت تک\nدس ہزار لاٹھیاں\nپھوڑ سکتی ہیں دس ہزار سر\nدس لاکھ گولیاں\nچھلنی کر سکتی ہیں دس لاکھ سینے",
-      "کچھ وقت تک\nآپ کو محفوظ رکھے گا\nلاٹھیوں اور بندوقوں کا\nیہ تاناشاہی حساب",
-      "مگر کچھ وقت بعد\nٹوٹ جائیں گی لاٹھیاں\nختم ہو جائیں گی گولیاں\nبڑھتی ہی چلی جائے گی تعداد\nسروں اور سینوں کی\nجو سیدھے چل کر آئیں گے\nآپ کی کرسی کی طرف",
-      "آپ کے سر اور سینے کی طرف",
-      "اس وقت\nآپ کیا کریں گے، صاحب؟",
-      "یہ نیا ہندوستان ہے",
-      "بیریکیڈ کو پھلانگ کے\nسر پہ لاٹھی کھا کے\nآنسو گیس میں چشمہ چڑھا کے\nواٹر کینن پر ناچ دکھا کے\nحراست میں تصویریں کھنچوا کے\nپولیس والوں کو منہ چڑا کے",
-      "ہو رہی ہے یہ نسل جوان",
-      "بن رہا ہے نیا ہندوستان",
-      "جو کرسی میں گھسے گا بھی\nاور تاناشاہی کو ہٹائے گا بھی",
-      "ککر",
-      "ککر کی سیٹی\nجب بجتی ہے تین چار بار\nتو گل جاتی ہے دال",
-      "ککر کی سیٹی\nجب بجائی جائے لگاتار\nسولہ سترہ بار\nتو ہو جاتا ہے خطرہ",
-      "دال کے راکھ ہو جانے کا\nککر کے پھٹ جانے کا",
-      "مسولینی کی موت",
-      "عوام نے جب بیچ چوراہے پر\nلٹکایا تھا مسولینی کو\nدو دن پہلے نہیں ہوا تھا کوئی اعلان\nنہیں مقرر ہوئی تھی کوئی تاریخ",
-      "اگر ہوتا مسولینی کو الہام\nتو وہ بند کر سکتا تھا ٹرینیں\nروک سکتا تھا بسیں\nتعینات کر سکتا تھا فوجیں\nپورا کا پورا شہر کیا\nپورے ملک کو کر سکتا تھا نظربند",
-      "ہو سکتا ہے یہ سب کر کے\nاس دن بچ جاتا مسولینی",
-      "مگر وہ نہیں ٹال پاتا\nعوام کا وہ سیلاب\nجو بغیر کسی اعلان\nبغیر کسی مقرر تاریخ\nامڈ ہی آنا تھا ایک دن\nاسے بیچ چوراہے پر لٹکانے کے لیے",
-      "پانچ سال",
-      "پانچ سالوں میں\nاگ آتا ہے\nباپ کی آنکھوں میں موتیا بند\nجم جاتی ہیں\nماں کے چہرے پر جھریاں\nچل بستا ہے دادا\nبستر پکڑ لیتی ہے دادی\nرشتہ دار بدل لیتے ہیں گھر",
-      "پانچ سالوں میں\nگزر جاتے ہیں سیکڑوں ہنگامے\nاخبار سکھا دیتے ہیں\nلوگوں کو نوکیلی زبان\nلاشوں کے نظارے\nبڑھا دیتے ہیں خون کی پیاس\nگھروں کے ملبوں پر\nناچنے لگتے ہیں تماش بین",
-      "زہریلی چرس کھینچ کر\nسماج ہو جاتا ہے سن\nاندر اور باہر سے\nملک ہو جاتا ہے ٹنڈ منڈ",
-      "پانچ سالوں میں\nہو جاتا ہے بہت\nکہنے کو سب کچھ ہی ہو جاتا ہے\nہنگاموں کی افرا تفری میں\nبس... نہیں چلتا\nعدالت میں ایک خاص مقدمہ\nیا کسی حاکم کی ہمت\nکہ وہ دے سکے ضمانت",
-      "پانچ سالوں میں\nصرف یہی نہیں ہو پاتا\nہمیشہ بس ہوتے ہوتے رہ جاتا ہے"
-    ]
+  {
+   "h": "पांच साल",
+   "stanzas": [
+    "पांच सालों में\nउग आता है\nबाप की आंखों में मोतियाबिंद\nजम जाती हैं\nमां के चेहरे पर झुर्रियां\nचल बसता है दादा\nबिस्तर पकड़ लेती है दादी\nरिश्तेदार बदल लेते हैं घर",
+    "पांच सालों में\nगुज़र जाते हैं सैकड़ों हंगामे\nअख़बार सीखा देते हैं\nलोगों को नुकीली ज़बान\nलाशों के नज़ारे\nबढ़ा देते हैं ख़ून की प्यास\nघरों के मलबों पर\nनाचने लगते हैं तमाशबीन",
+    "ज़हरीली चरस खींच कर\nसमाज हो जाता है सुन्न\nअंदर और बाहर से\nदेश हो जाता है ठूंठ",
+    "पांच सालों में\nहो जाता है बहुत\nकहने को सब कुछ ही हो जाता है\nहंगामों की अफ़रा-तफ़री में\nबस... नहीं होता\nअदालत में एक ख़ास मुक़दमा\nया किसी हाक़िम की हिम्मत\nकि वो दे सके ज़मानत",
+    "पांच सालों में\nसिर्फ़ ये ही नहीं हो पाता\nहमेशा बस होते-होते रह जाता है"
+   ]
   }
+ ],
+ "body": [
+  "गिनती का खेल",
+  "कुछ समय तक\nदस हज़ार लाठियां\nफोड़ सकती हैं दस हज़ार सर\nदस लाख गोलियां\nछलनी कर सकती हैं दस लाख सीने",
+  "कुछ समय तक\nआपको सुरक्षित रखेगा\nलाठियों और बंदूकों का\nये तानाशाही गणित",
+  "मगर कुछ समय बाद\nटूट जाएंगी लाठियां\nख़त्म हो जाएंगी गोलियां\nबढ़ती ही चली जाएगी तादाद\nसरों और सीनों की\nजो सीधे चल कर आयेंगे\nआपकी कुर्सी की तरफ़",
+  "आपके सर और सीने की तरफ़",
+  "उस समय\nआप क्या करेंगे, साहब?",
+  "ये नया हिंदुस्तान है",
+  "बैरिकेड को लांघ के\nसर पे लाठी खा के\nआंसू गैस में चश्मा चढ़ा के\nवॉटर कैनन पर नाच दिखा के\nहिरासत में तस्वीरें खिचा के\nपुलिस वालों को मुंह चिढ़ा के",
+  "हो रही है ये पीढ़ी जवान",
+  "बन रहा है नया हिंदुस्तान",
+  "जो कुर्सी में घुसेगा भी\nऔर तानाशाही को हटाएगा भी",
+  "कुकर",
+  "कुकर की सीटी\nजब बजती है तीन-चार बार\nतो गल जाती है दाल",
+  "कुकर की सीटी\nजब बजाई जाए लगातार\nसोलह-सत्रह बार\nतो हो जाता है ख़तरा",
+  "दाल के राख हो जाने का\nकुकर के फट जाने का",
+  "मुसोलीनी की मौत",
+  "जनता ने जब बीच चौराहे पर\nलटकाया था मुसोलीनी को\nदो दिन पहले नहीं हुआ था कोई ऐलान\nनहीं मुक़र्रर हुई थी कोई तारीख़",
+  "अगर होता मुसोलीनी को इल्हाम\nतो वो बंद कर सकता था ट्रेनें\nरोक सकता था बसें\nतैनात कर सकता था फ़ौजें\nपूरा का पूरा शहर क्या\nपूरे मुल्क को कर सकता था नज़रबंद",
+  "हो सकता है ये सब करके\nउस दिन बच जाता मुसोलीनी",
+  "मगर वो नहीं टाल पाता\nजनता का वो सैलाब\nजो बिना किसी ऐलान\nबिना किसी मुक़र्रर तारीख़\nउमड़ ही आना था एक दिन\nउसे बीच चौराहे पर लटकाने के लिए",
+  "पांच साल",
+  "पांच सालों में\nउग आता है\nबाप की आंखों में मोतियाबिंद\nजम जाती हैं\nमां के चेहरे पर झुर्रियां\nचल बसता है दादा\nबिस्तर पकड़ लेती है दादी\nरिश्तेदार बदल लेते हैं घर",
+  "पांच सालों में\nगुज़र जाते हैं सैकड़ों हंगामे\nअख़बार सीखा देते हैं\nलोगों को नुकीली ज़बान\nलाशों के नज़ारे\nबढ़ा देते हैं ख़ून की प्यास\nघरों के मलबों पर\nनाचने लगते हैं तमाशबीन",
+  "ज़हरीली चरस खींच कर\nसमाज हो जाता है सुन्न\nअंदर और बाहर से\nदेश हो जाता है ठूंठ",
+  "पांच सालों में\nहो जाता है बहुत\nकहने को सब कुछ ही हो जाता है\nहंगामों की अफ़रा-तफ़री में\nबस... नहीं होता\nअदालत में एक ख़ास मुक़दमा\nया किसी हाक़िम की हिम्मत\nकि वो दे सके ज़मानत",
+  "पांच सालों में\nसिर्फ़ ये ही नहीं हो पाता\nहमेशा बस होते-होते रह जाता है"
+ ],
+ "en": {
+  "h": "The Arithmetic of Power and the Years of People's Lives: Five Poems by Hussain Haidry",
+  "dek": "From counting batons and bullets to a trial stalled in court: five poems on power, resistance and life passing by.",
+  "by": "Hussain Haidry",
+  "place": "Mumbai",
+  "bio": "Hussain Haidry is a poet, writer and film lyricist. Born in Indore, he worked as a chartered accountant before leaving his job in Kolkata and moving to Mumbai in 2015. His poem ‘Hindustani Musalmaan’ brought him wide recognition. He has written lyrics for films including Gurgaon, Qarib Qarib Singlle and Mukkabaaz. Everyday speech and political unease meet in his writing.",
+  "bio_source": "Biography source: The Punch interview with Hussain Haidry (31 October 2018)",
+  "tr": "Translated from Hindi by the Deshkaal desk.",
+  "intro": [
+   "A government can count its strength: how many batons, how many bullets, how many buses and how many blocked roads. Hussain Haidry’s poem adds something left out of that calculation: people. People who are hurt, taken into custody, and still return to ask questions. In “The Counting Game”, the arithmetic that produces fear ends up facing a question of its own.",
+   "These five poems move from the street to the kitchen, and from the kitchen to the courtroom. A generation comes of age before the barricades. A pressure cooker’s whistle changes from an everyday sound into a warning. The poem about Mussolini places the security arrangements of power face to face with the uncertainty of history. Through short lines and familiar objects, Haidry creates an unease that stays with us after the reading is over.",
+   "In the final poem, five years are more than an electoral term. They are time accumulating in a father’s eyes, on a mother’s face, and in a grandmother who has taken to bed. Outside, so much keeps happening; in court, one trial does not. By this point, the large picture of the chair and the crowd has entered a home. Read together, these poems let us hear both the voice of protest and the lives that stand behind it."
+  ],
+  "poems": [
+   {
+    "h": "The Counting Game",
+    "stanzas": [
+     "For a while\nten thousand batons\ncan crack ten thousand heads\none million bullets\ncan riddle one million chests",
+     "For a while\nyou will be kept safe\nby this tyrannical arithmetic\nof batons and guns",
+     "But after a while\nthe batons will break\nthe bullets will run out\nthe number will keep on growing\nof heads and chests\nthat will walk straight\ntowards your chair",
+     "Towards your head and chest",
+     "At that moment\nwhat will you do, sir?"
+    ]
+   },
+   {
+    "h": "This Is a New Hindustan",
+    "stanzas": [
+     "Climbing over barricades\ntaking batons to the head\nputting on glasses in tear gas\ndancing on the water cannon\ngetting photographed in custody\nmaking faces at the police",
+     "This generation is coming of age",
+     "A new Hindustan is taking shape",
+     "It will take its place in the chair\nand drive out tyranny too"
+    ]
+   },
+   {
+    "h": "The Pressure Cooker",
+    "stanzas": [
+     "When the cooker whistles\nthree or four times\nthe lentils soften",
+     "When the cooker is made to whistle\nwithout a break\nsixteen or seventeen times\nthere is a danger",
+     "Of the lentils turning to ash\nof the cooker bursting"
+    ]
+   },
+   {
+    "h": "The Death of Mussolini",
+    "stanzas": [
+     "When the people strung up Mussolini\nin the middle of the square\nthere had been no announcement two days earlier\nno date had been fixed",
+     "Had Mussolini had a premonition\nhe could have shut down trains\nstopped buses\ndeployed troops\nnot just an entire city\nbut the whole country could have been confined",
+     "Perhaps, by doing all this\nMussolini would have survived that day",
+     "But he could not have put off\nthat flood of people\nwhich, without an announcement\nwithout a date being fixed\nwas bound to surge one day\nto string him up in the middle of the square"
+    ]
+   },
+   {
+    "h": "Five Years",
+    "stanzas": [
+     "In five years\ncataracts grow\nin a father's eyes\nwrinkles settle\non a mother's face\na grandfather passes away\na grandmother takes to bed\nrelatives move house",
+     "In five years\nhundreds of upheavals pass\nnewspapers teach\npeople a sharp-edged tongue\nthe sight of corpses\ndeepens the thirst for blood\non the rubble of homes\nthe onlookers begin to dance",
+     "Drawing on poisoned hashish\nsociety grows numb\ninside and out\nthe country becomes a stump",
+     "In five years\nso much happens\nyou might say everything happens\nin the chaos of upheavals\nonly... what never happens\nis a certain trial in court\nor the courage of someone in authority\nto grant bail",
+     "In five years\nthis alone cannot happen\nit is always left on the verge of happening"
+    ]
+   }
+  ],
+  "body": [
+   "The Counting Game",
+   "For a while\nten thousand batons\ncan crack ten thousand heads\none million bullets\ncan riddle one million chests",
+   "For a while\nyou will be kept safe\nby this tyrannical arithmetic\nof batons and guns",
+   "But after a while\nthe batons will break\nthe bullets will run out\nthe number will keep on growing\nof heads and chests\nthat will walk straight\ntowards your chair",
+   "Towards your head and chest",
+   "At that moment\nwhat will you do, sir?",
+   "This Is a New Hindustan",
+   "Climbing over barricades\ntaking batons to the head\nputting on glasses in tear gas\ndancing on the water cannon\ngetting photographed in custody\nmaking faces at the police",
+   "This generation is coming of age",
+   "A new Hindustan is taking shape",
+   "It will take its place in the chair\nand drive out tyranny too",
+   "The Pressure Cooker",
+   "When the cooker whistles\nthree or four times\nthe lentils soften",
+   "When the cooker is made to whistle\nwithout a break\nsixteen or seventeen times\nthere is a danger",
+   "Of the lentils turning to ash\nof the cooker bursting",
+   "The Death of Mussolini",
+   "When the people strung up Mussolini\nin the middle of the square\nthere had been no announcement two days earlier\nno date had been fixed",
+   "Had Mussolini had a premonition\nhe could have shut down trains\nstopped buses\ndeployed troops\nnot just an entire city\nbut the whole country could have been confined",
+   "Perhaps, by doing all this\nMussolini would have survived that day",
+   "But he could not have put off\nthat flood of people\nwhich, without an announcement\nwithout a date being fixed\nwas bound to surge one day\nto string him up in the middle of the square",
+   "Five Years",
+   "In five years\ncataracts grow\nin a father's eyes\nwrinkles settle\non a mother's face\na grandfather passes away\na grandmother takes to bed\nrelatives move house",
+   "In five years\nhundreds of upheavals pass\nnewspapers teach\npeople a sharp-edged tongue\nthe sight of corpses\ndeepens the thirst for blood\non the rubble of homes\nthe onlookers begin to dance",
+   "Drawing on poisoned hashish\nsociety grows numb\ninside and out\nthe country becomes a stump",
+   "In five years\nso much happens\nyou might say everything happens\nin the chaos of upheavals\nonly... what never happens\nis a certain trial in court\nor the courage of someone in authority\nto grant bail",
+   "In five years\nthis alone cannot happen\nit is always left on the verge of happening"
+  ]
+ },
+ "ur": {
+  "h": "کرسی کا حساب اور لوگوں کی عمر: حسین حیدری کی پانچ نظمیں",
+  "dek": "لاٹھیوں اور گولیوں کی گنتی سے عدالت میں رکے ایک مقدمے تک: اقتدار، مزاحمت اور گزرتی زندگی پر پانچ نظمیں۔",
+  "by": "حسین حیدری",
+  "place": "ممبئی",
+  "bio": "حسین حیدری شاعر، لکھاری اور فلمی نغمہ نگار ہیں۔ اندور میں پیدا ہوئے حیدری نے چارٹرڈ اکاؤنٹنٹ کے طور پر کام کیا اور کولکاتا کی نوکری چھوڑ کر 2015 میں ممبئی آ گئے۔ ان کی نظم ”ہندوستانی مسلمان“ نے انہیں وسیع پہچان دلائی۔ ”گڑگاؤں“، ”قریب قریب سنگل“ اور ”مکاباز“ جیسی فلموں کے لیے انہوں نے نغمے لکھے ہیں۔ ان کی زبان میں روزمرہ کی بات چیت اور سیاسی بے چینی ساتھ چلتی ہیں۔",
+  "bio_source": "تعارف کا ماخذ: دی پنچ کا حسین حیدری سے انٹرویو (31 اکتوبر 2018)",
+  "tr": "ہندی سے ترجمہ: دیشکال ڈیسک۔",
+  "intro": [
+   "حکومت اپنی طاقت گن سکتی ہے: کتنی لاٹھیاں، کتنی گولیاں، کتنی بسیں اور کتنے بند راستے۔ حسین حیدری کی نظم اسی حساب میں ایک رہ جانے والی چیز جوڑ دیتی ہے: لوگ۔ وہ لوگ جو چوٹ کھاتے ہیں، حراست میں جاتے ہیں اور پھر بھی لوٹ کر سوال پوچھتے ہیں۔ ”گنتی کا کھیل“ میں ڈر پیدا کرنے والا حساب آخر اپنے ہی سامنے ایک سوال بن کر کھڑا ہو جاتا ہے۔",
+   "ان پانچ نظموں کی دنیا سڑک سے باورچی خانے تک اور باورچی خانے سے عدالت تک پھیلی ہے۔ ایک نسل بیریکیڈ کے سامنے جوان ہو رہی ہے۔ ککر کی سیٹی روزمرہ کی آواز سے خطرے کی آواز میں بدل جاتی ہے۔ مسولینی والی نظم اقتدار کے حفاظتی انتظامات اور تاریخ کی غیر یقینی کیفیت کو آمنے سامنے رکھتی ہے۔ حیدری چھوٹی سطروں اور جانی پہچانی چیزوں سے ایسی بے چینی پیدا کرتے ہیں جو نظم پڑھ لینے کے بعد بھی ساتھ رہتی ہے۔",
+   "آخری نظم میں پانچ سال محض ایک انتخابی مدت نہیں ہیں۔ وہ باپ کی آنکھوں، ماں کے چہرے اور بستر پکڑ چکی دادی میں جمع وقت ہیں۔ باہر بہت کچھ ہوتا رہتا ہے؛ عدالت میں ایک مقدمہ نہیں چلتا۔ یہاں آتے آتے کرسی اور ہجوم کی بڑی تصویر ایک گھر کے اندر اتر آتی ہے۔ ان نظموں کو ساتھ پڑھتے ہوئے مزاحمت کی آواز بھی سنائی دیتی ہے اور اس آواز کے پیچھے کھڑی زندگی بھی۔"
+  ],
+  "poems": [
+   {
+    "h": "گنتی کا کھیل",
+    "stanzas": [
+     "کچھ وقت تک\nدس ہزار لاٹھیاں\nپھوڑ سکتی ہیں دس ہزار سر\nدس لاکھ گولیاں\nچھلنی کر سکتی ہیں دس لاکھ سینے",
+     "کچھ وقت تک\nآپ کو محفوظ رکھے گا\nلاٹھیوں اور بندوقوں کا\nیہ تاناشاہی حساب",
+     "مگر کچھ وقت بعد\nٹوٹ جائیں گی لاٹھیاں\nختم ہو جائیں گی گولیاں\nبڑھتی ہی چلی جائے گی تعداد\nسروں اور سینوں کی\nجو سیدھے چل کر آئیں گے\nآپ کی کرسی کی طرف",
+     "آپ کے سر اور سینے کی طرف",
+     "اس وقت\nآپ کیا کریں گے، صاحب؟"
+    ]
+   },
+   {
+    "h": "یہ نیا ہندوستان ہے",
+    "stanzas": [
+     "بیریکیڈ کو پھلانگ کے\nسر پہ لاٹھی کھا کے\nآنسو گیس میں چشمہ چڑھا کے\nواٹر کینن پر ناچ دکھا کے\nحراست میں تصویریں کھنچوا کے\nپولیس والوں کو منہ چڑا کے",
+     "ہو رہی ہے یہ نسل جوان",
+     "بن رہا ہے نیا ہندوستان",
+     "جو کرسی میں گھسے گا بھی\nاور تاناشاہی کو ہٹائے گا بھی"
+    ]
+   },
+   {
+    "h": "ککر",
+    "stanzas": [
+     "ککر کی سیٹی\nجب بجتی ہے تین چار بار\nتو گل جاتی ہے دال",
+     "ککر کی سیٹی\nجب بجائی جائے لگاتار\nسولہ سترہ بار\nتو ہو جاتا ہے خطرہ",
+     "دال کے راکھ ہو جانے کا\nککر کے پھٹ جانے کا"
+    ]
+   },
+   {
+    "h": "مسولینی کی موت",
+    "stanzas": [
+     "عوام نے جب بیچ چوراہے پر\nلٹکایا تھا مسولینی کو\nدو دن پہلے نہیں ہوا تھا کوئی اعلان\nنہیں مقرر ہوئی تھی کوئی تاریخ",
+     "اگر ہوتا مسولینی کو الہام\nتو وہ بند کر سکتا تھا ٹرینیں\nروک سکتا تھا بسیں\nتعینات کر سکتا تھا فوجیں\nپورا کا پورا شہر کیا\nپورے ملک کو کر سکتا تھا نظربند",
+     "ہو سکتا ہے یہ سب کر کے\nاس دن بچ جاتا مسولینی",
+     "مگر وہ نہیں ٹال پاتا\nعوام کا وہ سیلاب\nجو بغیر کسی اعلان\nبغیر کسی مقرر تاریخ\nامڈ ہی آنا تھا ایک دن\nاسے بیچ چوراہے پر لٹکانے کے لیے"
+    ]
+   },
+   {
+    "h": "پانچ سال",
+    "stanzas": [
+     "پانچ سالوں میں\nاگ آتا ہے\nباپ کی آنکھوں میں موتیا بند\nجم جاتی ہیں\nماں کے چہرے پر جھریاں\nچل بستا ہے دادا\nبستر پکڑ لیتی ہے دادی\nرشتہ دار بدل لیتے ہیں گھر",
+     "پانچ سالوں میں\nگزر جاتے ہیں سیکڑوں ہنگامے\nاخبار سکھا دیتے ہیں\nلوگوں کو نوکیلی زبان\nلاشوں کے نظارے\nبڑھا دیتے ہیں خون کی پیاس\nگھروں کے ملبوں پر\nناچنے لگتے ہیں تماش بین",
+     "زہریلی چرس کھینچ کر\nسماج ہو جاتا ہے سن\nاندر اور باہر سے\nملک ہو جاتا ہے ٹنڈ منڈ",
+     "پانچ سالوں میں\nہو جاتا ہے بہت\nکہنے کو سب کچھ ہی ہو جاتا ہے\nہنگاموں کی افرا تفری میں\nبس... نہیں چلتا\nعدالت میں ایک خاص مقدمہ\nیا کسی حاکم کی ہمت\nکہ وہ دے سکے ضمانت",
+     "پانچ سالوں میں\nصرف یہی نہیں ہو پاتا\nہمیشہ بس ہوتے ہوتے رہ جاتا ہے"
+    ]
+   }
+  ],
+  "body": [
+   "گنتی کا کھیل",
+   "کچھ وقت تک\nدس ہزار لاٹھیاں\nپھوڑ سکتی ہیں دس ہزار سر\nدس لاکھ گولیاں\nچھلنی کر سکتی ہیں دس لاکھ سینے",
+   "کچھ وقت تک\nآپ کو محفوظ رکھے گا\nلاٹھیوں اور بندوقوں کا\nیہ تاناشاہی حساب",
+   "مگر کچھ وقت بعد\nٹوٹ جائیں گی لاٹھیاں\nختم ہو جائیں گی گولیاں\nبڑھتی ہی چلی جائے گی تعداد\nسروں اور سینوں کی\nجو سیدھے چل کر آئیں گے\nآپ کی کرسی کی طرف",
+   "آپ کے سر اور سینے کی طرف",
+   "اس وقت\nآپ کیا کریں گے، صاحب؟",
+   "یہ نیا ہندوستان ہے",
+   "بیریکیڈ کو پھلانگ کے\nسر پہ لاٹھی کھا کے\nآنسو گیس میں چشمہ چڑھا کے\nواٹر کینن پر ناچ دکھا کے\nحراست میں تصویریں کھنچوا کے\nپولیس والوں کو منہ چڑا کے",
+   "ہو رہی ہے یہ نسل جوان",
+   "بن رہا ہے نیا ہندوستان",
+   "جو کرسی میں گھسے گا بھی\nاور تاناشاہی کو ہٹائے گا بھی",
+   "ککر",
+   "ککر کی سیٹی\nجب بجتی ہے تین چار بار\nتو گل جاتی ہے دال",
+   "ککر کی سیٹی\nجب بجائی جائے لگاتار\nسولہ سترہ بار\nتو ہو جاتا ہے خطرہ",
+   "دال کے راکھ ہو جانے کا\nککر کے پھٹ جانے کا",
+   "مسولینی کی موت",
+   "عوام نے جب بیچ چوراہے پر\nلٹکایا تھا مسولینی کو\nدو دن پہلے نہیں ہوا تھا کوئی اعلان\nنہیں مقرر ہوئی تھی کوئی تاریخ",
+   "اگر ہوتا مسولینی کو الہام\nتو وہ بند کر سکتا تھا ٹرینیں\nروک سکتا تھا بسیں\nتعینات کر سکتا تھا فوجیں\nپورا کا پورا شہر کیا\nپورے ملک کو کر سکتا تھا نظربند",
+   "ہو سکتا ہے یہ سب کر کے\nاس دن بچ جاتا مسولینی",
+   "مگر وہ نہیں ٹال پاتا\nعوام کا وہ سیلاب\nجو بغیر کسی اعلان\nبغیر کسی مقرر تاریخ\nامڈ ہی آنا تھا ایک دن\nاسے بیچ چوراہے پر لٹکانے کے لیے",
+   "پانچ سال",
+   "پانچ سالوں میں\nاگ آتا ہے\nباپ کی آنکھوں میں موتیا بند\nجم جاتی ہیں\nماں کے چہرے پر جھریاں\nچل بستا ہے دادا\nبستر پکڑ لیتی ہے دادی\nرشتہ دار بدل لیتے ہیں گھر",
+   "پانچ سالوں میں\nگزر جاتے ہیں سیکڑوں ہنگامے\nاخبار سکھا دیتے ہیں\nلوگوں کو نوکیلی زبان\nلاشوں کے نظارے\nبڑھا دیتے ہیں خون کی پیاس\nگھروں کے ملبوں پر\nناچنے لگتے ہیں تماش بین",
+   "زہریلی چرس کھینچ کر\nسماج ہو جاتا ہے سن\nاندر اور باہر سے\nملک ہو جاتا ہے ٹنڈ منڈ",
+   "پانچ سالوں میں\nہو جاتا ہے بہت\nکہنے کو سب کچھ ہی ہو جاتا ہے\nہنگاموں کی افرا تفری میں\nبس... نہیں چلتا\nعدالت میں ایک خاص مقدمہ\nیا کسی حاکم کی ہمت\nکہ وہ دے سکے ضمانت",
+   "پانچ سالوں میں\nصرف یہی نہیں ہو پاتا\nہمیشہ بس ہوتے ہوتے رہ جاتا ہے"
+  ]
+ }
 }
