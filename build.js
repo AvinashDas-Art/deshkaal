@@ -363,7 +363,7 @@ function homePage() {
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
   const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya");
   
-  /* गांव-जवार: PARI, खबर लहरिया और अन्य ग्रामीण पत्रकारिता (sec "pari") */
+  /* गांव-जवार: PARI, ख़बर लहरिया और अन्य ग्रामीण पत्रकारिता (sec "pari") */
   const pari = today.items.filter(a => isRuralReport(a));
   
   const vid = all.find(a => a.sec === "video");
