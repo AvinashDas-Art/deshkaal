@@ -426,8 +426,8 @@ function articlePage(a) {
     <aside class="sawal"><small>${T.think}</small><p>${esc(a.sawal)}</p></aside>
     ${isVid(a) ? `<h5 class="ythead">${T.watch}</h5>${ytEmbed(a)}` : ""}
     <aside class="box ref"><h5>${T.ref}</h5><dl>${a.ref.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl></aside>
-    ${isVid(a) ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
-    <p class="fine">${esc(T.fine(a.pub))}</p>
+    ${isVid(a) || a.visesh ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
+    ${a.visesh ? "" : `<p class="fine">${esc(T.fine(a.pub))}</p>`}
     ${shareBlock(a)}
     <div class="more"><h6>${T.next}</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>
   </article>
