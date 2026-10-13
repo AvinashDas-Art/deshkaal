@@ -31,6 +31,10 @@ const readMin = a => Math.max(1, Math.round(words(a) / 200));
 const listenMin = a => Math.max(1, Math.round(words(a) / 130));
 const href = a => `${PRE}/lekh/${a.id}/`;
 const hrefL = (a, l) => `${l === "hi" ? "" : "/" + l}/lekh/${a.id}/`;
+const languageURLs = (url, langs = LANGS) => {
+  const base = url.replace(/^\/(en|ur)(?=\/)/, "");
+  return Object.fromEntries(langs.map(l => [l, (l === "hi" ? "" : "/" + l) + base]));
+};
 /* पेंटिंग वग़ैरह GitHub पर public/media/<id>.jpg में उतर आती हैं; हों तो वही, वरना मूल पता */
 const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : (a.photo ? a.photo.src : "");
 const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(imgSrc(a))}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
@@ -71,13 +75,14 @@ const HAS = Object.fromEntries(LANGS.map(l => [l, new Set(daysFor(l).flatMap(d =
 let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 
 /* ---------- layout ---------- */
-function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null }) {
+function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null, noindex = false }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
-  let sameOnly = false;
-  if (!alt) { const base = url; alt = { hi: base, en: "/en" + base, ur: "/ur" + base }; url = PRE + base; sameOnly = true; if (LG !== "hi") extraHead += '<meta name="robots" content="noindex,follow">'; }
+  // Callers pass an already localized URL. Never prefix the language twice.
+  if (!alt) alt = { [LG]: url };
+  if (noindex) extraHead += '<meta name="robots" content="noindex,follow">';
   const pageIn = l => (alt && alt[l]) || (l === "hi" ? "/" : `/${l}/`);
-  const hreflang = alt && !sameOnly ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
+  const hreflang = !noindex && Object.keys(alt).length > 1 ? LANGS.filter(l => alt[l]).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}${alt[l]}">`).join("") : "";
   const fonts = LG === "ur"
     ? "family=Yatra+One&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&family=Teko:wght@500;600"
     : "family=Yatra+One&family=Kalam:wght@400;700&family=Laila:wght@300;500;600&family=Noto+Serif+Devanagari:wght@400;600&family=Noto+Sans+Devanagari:wght@400;500" + (LG === "en" ? "&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fraunces:opsz,wght@9..144,500;9..144,600" : "");
@@ -278,7 +283,8 @@ function cartoonPage(c0) {
     ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">${K.k}</span><h3>${K.between}</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(K.on(c.artist))}</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
     <p class="fine">${esc(K.fine(c.artist))}</p>
     ${others.length ? `<h3 class="toon-more">${K.more}</h3><div class="toon-grid">${others.map(o => `<a href="${PRE}/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
-  return layout({ title: `${TOON[LG][0]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url: `${PRE}/cartoon/${c.date}/`, body, image: c.img, published: c.date });
+  const available = LANGS.filter(l => l === "hi" || fs.existsSync(path.join("data/i18n", l, "cartoon-" + c.date + ".json")));
+  return layout({ title: `${TOON[LG][0]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url: `${PRE}/cartoon/${c.date}/`, body, image: c.img, published: c.date, alt: languageURLs(`/cartoon/${c.date}/`, available), noindex: !available.includes(LG) });
 }
 
 const connect = () => `<section class="band">
@@ -372,7 +378,8 @@ function livePage(latest, url) {
   <nav class="lv-days"><span>${V.prev}</span>${LIVE_DAYS.filter(d => d.date !== latest.date).map(d => `<a href="${PRE}/live/${d.date}/">${dayLabel(d.date)}</a>`).join("") || `<em>${V.none}</em>`}${url !== "/live/" ? `<a href="${PRE}/live/">${V.today}</a>` : ""}</nav>
   <p class="lv-note">${V.note}</p>
 </section>`;
-  return layout({ title: url === "/live/" ? V.tAll : V.tDay(dayLabel(latest.date)), desc: V.desc, url: PRE + url, body });
+  const available = LANGS.filter(l => l === "hi" || !(latest.items || []).length || fs.existsSync(path.join("data/i18n", l, "live-" + latest.date + ".json")));
+  return layout({ title: url === "/live/" ? V.tAll : V.tDay(dayLabel(latest.date)), desc: V.desc, url: PRE + url, body, alt: languageURLs(url, available), noindex: !available.includes(LG) });
 }
 
 function liveTeaser() {
@@ -493,10 +500,10 @@ function joinPage() {
   <ul class="joinlist">${news.map(a => `<li><a href="${href(a)}"><b>${esc(a.h)}</b><span>${esc(a.dek)}</span></a></li>`).join("")}</ul>
   <p><a class="btn ghost" href="${PRE}/">${J.full}</a></p>
 </section>`;
-  return layout({ title: J.title, desc: J.desc, url: PRE + "/judiye/", body });
+  return layout({ title: J.title, desc: J.desc, url: PRE + "/judiye/", body, alt: languageURLs("/judiye/") });
 }
 function minePage() {
-  return layout({ title: T.mine, desc: T.mineDesc, url: PRE + "/mera/", body: `<section class="page2" id="mine" data-cats='${JSON.stringify(CATS)}' data-catn='${JSON.stringify(CATS.map(cn))}'></section>`, tab: "mera", alt: { hi: "/mera/", en: "/en/mera/", ur: "/ur/mera/" } });
+  return layout({ title: T.mine, desc: T.mineDesc, url: PRE + "/mera/", body: `<section class="page2" id="mine" data-cats='${JSON.stringify(CATS)}' data-catn='${JSON.stringify(CATS.map(cn))}'></section>`, tab: "mera", alt: languageURLs("/mera/"), noindex: true });
 }
 function mdPage(file, title, desc, url, h2) {
   const lf = LG === "hi" ? file : file.replace(".md", "." + LG + ".md");
@@ -507,7 +514,8 @@ function mdPage(file, title, desc, url, h2) {
     if (/^- /m.test(b)) return `<ul>${b.split("\n").filter(l => l.startsWith("- ")).map(l => `<li>${esc(l.slice(2))}</li>`).join("")}</ul>`;
     return `<p>${esc(b)}</p>`;
   }).join("");
-  return layout({ title, desc, url: PRE + url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>` });
+  const available = LANGS.filter(l => l === "hi" || fs.existsSync(file.replace(".md", "." + l + ".md")));
+  return layout({ title, desc, url: PRE + url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>`, alt: languageURLs(url, available), noindex: !available.includes(LG) });
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
 const PG = {
@@ -691,11 +699,7 @@ out("feed.xml", feed());
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
 PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
 PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
-{ const latest = all.reduce((m, a) => a.day > m ? a.day : m, "2026-10-05");
-  const rows = [["/", latest, "daily"], ["/akhbar/" + latest + "/", latest, "daily"], ["/purane/", latest, "daily"], ["/niti/", "2026-10-05", "monthly"], ["/nijta/", "2026-10-06", "yearly"], ["/judiye/", latest, "weekly"], ["/bhejiye/", "2026-10-11", "monthly"], ["/hamsafar/", HS.ALL[0] ? HS.ALL[0].date : "2026-10-11", "weekly"], ...HS.ALL.flatMap(w => ["hi", "en", "ur"].filter(l => HS.has(l)(w)).map(l => [HS.url(w, l), w.date, "monthly"])), ["/en/hamsafar/", "2026-10-11", "weekly"], ["/ur/hamsafar/", "2026-10-11", "weekly"], ...(LIVE_ON ? [["/live/", latest, "hourly"], ...LIVE_DAYS.map(d => ["/live/" + d.date + "/", d.date, "daily"])] : []), ...(SPECIAL.active ? [["/morcha/", latest, "daily"]] : []),
-    ...CATS.map(c => [`/shreni/${SLUG[c]}/`, latest, "daily"]), ...all.map(a => [href(a), a.day, "monthly"]),
-    ...["en", "ur"].flatMap(l => daysFor(l).length ? [[`/${l}/`, latest, "daily"], ...daysFor(l).flatMap(d => d.items.map(a => [hrefL(a, l), a.day, "monthly"]))] : [])];
-  out("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.map(([u, d, f]) => `<url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>${f}</changefreq></url>`).join("\n")}\n</urlset>\n`); }
+out("sitemap.xml", require("./src/seo.js").sitemap("dist", SITE));
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
 out("art.js", fs.readFileSync("src/art.js", "utf8"));
 out("client.js", fs.readFileSync("src/client.js", "utf8"));
@@ -707,4 +711,3 @@ out("client.js", fs.readFileSync("src/client.js", "utf8"));
 })("public", "dist");
 out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length + "-" + require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8)));
 console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप्पणियां, ${CATS.length} श्रेणियां · English ${HAS.en.size}, اردو ${HAS.ur.size}`);
-

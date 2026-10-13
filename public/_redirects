@@ -1,0 +1,3 @@
+# Repair the accidentally repeated language prefixes in old canonical URLs.
+/en/en/* /en/:splat 301
+/ur/ur/* /ur/:splat 301
