@@ -1,6 +1,6 @@
 {
  "id": "2026-10-13-srinivas-manilal",
- "kind": "sansmaran",
+ "kind": "diary",
  "date": "2026-10-13",
  "h": "ये मनिलाल हैं!",
  "dek": "तीस साल से सड़क पर दिखता एक रिक्शेवाला, और एक दिन की बातचीत, जिसमें उसका नाम ही नहीं, उसका पूरा परिवार, उसका कटिहार और उसकी ज़मीन निकल आयी।",
@@ -17,8 +17,8 @@
    "src": "/media/hamsafar/srinivas-manilal.jpg",
    "w": 1400,
    "h": 799,
-   "alt": "श्रीनिवास और रिक्शाचालक मनिलाल सड़क किनारे, एक सेल्फ़ी में",
-   "cap": "श्रीनिवास (बायें) और मनिलाल। सेल्फ़ी श्रीनिवास ने ख़ुद ली।"
+   "alt": "बायें श्रीनिवास और दायें रिक्शाचालक मनिलाल, सड़क किनारे एक सेल्फ़ी में",
+   "cap": "बायें श्रीनिवास, दायें मनिलाल। सेल्फ़ी श्रीनिवास ने ख़ुद ली।"
   }
  ],
  "body": [
@@ -46,8 +46,8 @@
   "tr": "Translated from Hindi by the Deshkaal desk.",
   "images": [
    {
-    "alt": "Srinivas and the rickshaw-puller Manilal at the roadside, in a selfie",
-    "cap": "Srinivas (left) and Manilal. Srinivas took the selfie himself."
+    "alt": "Srinivas (left) and the rickshaw-puller Manilal (right) at the roadside, in a selfie",
+    "cap": "Srinivas on the left, Manilal on the right. Srinivas took the selfie himself."
    }
   ],
   "body": [
@@ -76,8 +76,8 @@
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
   "images": [
    {
-    "alt": "سری نواس اور رکشہ چلانے والے منی لال سڑک کنارے، ایک سیلفی میں",
-    "cap": "سری نواس (بائیں) اور منی لال۔ سیلفی سری نواس نے خود لی۔"
+    "alt": "بائیں سری نواس اور دائیں رکشہ چلانے والے منی لال سڑک کنارے، ایک سیلفی میں",
+    "cap": "بائیں سری نواس، دائیں منی لال۔ سیلفی سری نواس نے خود لی۔"
    }
   ],
   "body": [
