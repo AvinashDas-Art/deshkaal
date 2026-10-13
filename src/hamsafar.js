@@ -528,7 +528,11 @@ module.exports = function (H) {
     } else if (w.kind === "photo") {
       main = `${body.length ? `<div class="hw-body hw-intro">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<div class="hw-essay">${imgs.map((im, i) => fig(im, i === 0 ? "first" : "")).join("")}</div>`;
     } else if (w.kind === "kavita") {
-      main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-poem">${body.map(s => `<p>${esc(s)}</p>`).join("")}</div>`;
+      const intro = (w.intro || []).length ? `<div class="hw-body hw-intro">${w.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : "";
+      const verse = w.poems && w.poems.length
+        ? w.poems.map((p, i) => `<section class="hw-poem" aria-labelledby="poem-${i + 1}"><h2 id="poem-${i + 1}">${i + 1}. ${esc(p.h)}</h2>${p.stanzas.map(s => `<p>${esc(s)}</p>`).join("")}</section>`).join("")
+        : `<div class="hw-poem">${body.map(s => `<p>${esc(s)}</p>`).join("")}</div>`;
+      main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}${intro}${verse}`;
     } else {
       const at = Math.max(1, Math.round(body.length * 0.4));
       const paras = body.map((p, i) => `<p>${esc(p)}</p>${w.pull && i === at - 1 && body.length > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && i === Math.min(body.length - 2, at + 1) ? fig(imgs[1]) : ""}`).join("");
@@ -547,7 +551,7 @@ module.exports = function (H) {
       </header>
       ${main}
       ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${esc(w.note)}</p></aside>` : ""}
-      <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}</div></aside>
+      <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}${w.bio_url ? `<p><a href="${esc(w.bio_url)}" target="_blank" rel="noopener">${esc(w.bio_source || "परिचय का स्रोत")}</a></p>` : ""}</div></aside>
       ${share(url(w0, lg), w.h, lg)}
       <p class="fine">${esc(X.fine(w.by))}${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
       <a class="hw-invite" href="/bhejiye/"><span class="hs-k">${X.invK}</span><b>${X.invB}</b></a>
