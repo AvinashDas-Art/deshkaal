@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T16:37+05:30",
+ "updated": "2026-10-14T22:30+05:30",
  "counters": [
   {
    "n": "5 दिन",
@@ -27,6 +27,36 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-14T21:09+05:30",
+   "kind": "news",
+   "h": "द वायर की ज़मीनी रिपोर्ट: 40 हज़ार से ज़्यादा जवानों की तैनाती के बीच सड़कों पर ग़ुस्सा, नाम कटने वाले वोटरों की आपबीती",
+   "src": "द वायर",
+   "url": "https://m.thewire.in/article/rights/amid-slogans-of-anger-modis-politics-of-promises-is-melting-on-delhis-roads"
+  },
+  {
+   "t": "2026-10-14T18:58+05:30",
+   "kind": "news",
+   "h": "पटना हाई कोर्ट के गेट पर वकीलों का प्रदर्शन: ज्ञानेश कुमार के इस्तीफ़े और दिल्ली में हिरासत में लिये गये वकीलों के लिए आवाज़",
+   "src": "ईटीवी भारत",
+   "url": "https://www.etvbharat.com/hi/state/patna-high-court-lawyers-protest-demanding-resignation-of-gyanesh-kumar-brs26101406469"
+  },
+  {
+   "t": "2026-10-14T18:52+05:30",
+   "kind": "post",
+   "net": "X",
+   "handle": "@abhijeet_dipke",
+   "by": "अभिजीत दिपके",
+   "text": "'लहरा दो तिरंगा': सीजेपी संस्थापक ने 16 अक्टूबर शाम 5 बजे कनॉट प्लेस के सेंट्रल पार्क में तिरंगा फहराने की अपील की। कहा, सौरव दास और आशुतोष रांका को तिरंगा फहराने पर जेल भेजा गया, अब दिखाना है कि यह जुर्म नहीं; जो दिल्ली न आ सकें वे अपने शहरों में तिरंगा मार्च निकालें।",
+   "url": "https://x.com/abhijeet_dipke/status/2110344053267275872"
+  },
+  {
+   "t": "2026-10-14T17:05+05:30",
+   "kind": "news",
+   "h": "युवा कांग्रेस का 'जंतर-मंतर वापस लाओ' मार्च पटेल चौक से निकला, संसद मार्ग थाने के पास पुलिस ने रोका, कई कार्यकर्ता हिरासत में",
+   "src": "दि प्रिंट हिंदी",
+   "url": "https://hindi.theprint.in/india/youth-congresss-bring-back-jantar-mantar-march-stopped-by-police/1043820/"
+  },
   {
    "t": "2026-10-14T15:35+05:30",
    "kind": "news",
@@ -150,6 +180,14 @@
    "text": "मंगलवार सुबह जंतर-मंतर में दाख़िल होने के बाद पकड़े गये सौरव दास, आशुतोष रांका और अजिंक्य शिंदे पर सीजेपी के मुताबिक़ अतिक्रमण, बॉन्ड उल्लंघन और सरकारी काम में बाधा की धाराएं लगीं। दिल्ली पुलिस ने इसे 'एहतियाती गिरफ़्तारी' कहा।",
    "src": "ईटीवी भारत",
    "url": "https://www.etvbharat.com/en/bharat/live-blog--delhi-anti-cec-protest-live-october-14-cjp-saurav-das-ashutosh-ranka-arrest-jantar-mantar-congress-opposition-supreme-court-sir-gyanesh-kumar-resignation-enn26101400816#arrest",
+   "verified": true
+  },
+  {
+   "t": "2026-10-14T05:53+05:30",
+   "kind": "update",
+   "text": "दिल्ली हाई कोर्ट ने जंतर-मंतर पर प्रदर्शन की इजाज़त न मिलने के ख़िलाफ़ युवा कांग्रेस अध्यक्ष उदय भानु चिब की याचिका पर नोटिस जारी किया, अगली सुनवाई 17 नवंबर को। सरकार की ओर से दलील दी गयी कि डिनोटिफ़िकेशन के बाद याचिका बेमानी हो गयी है।",
+   "src": "द ट्रिब्यून",
+   "url": "https://www.tribuneindia.com/news/delhi/delhi-high-court-issues-notice-on-iyc-plea-against-denial-of-nod-for-protest",
    "verified": true
   }
  ]
