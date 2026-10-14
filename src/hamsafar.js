@@ -561,7 +561,7 @@ module.exports = function (H) {
       ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${esc(w.note)}</p></aside>` : ""}
       <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}${w.bio_url ? `<p><a href="${esc(w.bio_url)}" target="_blank" rel="noopener">${esc(w.bio_source || "परिचय का स्रोत")}</a></p>` : ""}</div></aside>
       ${share(url(w0, lg), w.h, lg)}
-      <p class="fine">${esc(X.fine(w.by))}${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
+      <p class="fine">${esc(w.fine || X.fine(w.by))}${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
       <a class="hw-invite" href="/bhejiye/"><span class="hs-k">${X.invK}</span><b>${X.invB}</b></a>
       ${others.length ? `<div class="hw-others"><h5>${X.more}</h5><div class="hs-grid n${others.length}">${others.map(o => card(o, lg)).join("")}</div></div>` : ""}
     </article>`;
