@@ -149,7 +149,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
     <${title ? "p" : "h1"} class="mh"><a href="${PRE}/" class="mast" aria-label="${B}"><span class="w">${MAST[LG]}</span></a></${title ? "p" : "h1"}>
     <p class="tag">${T.tagline}</p>
     <nav class="cats" aria-label="${T.cats}">
-      <a href="${PRE}/" class="${catOn === "सब" ? "on" : ""}">${T.all}</a>${CATS.map(c => `<a href="${PRE}/shreni/${SLUG[c]}/" class="${catOn === c ? "on" : ""}">${cn(c)}</a>`).join("")}<a href="${PRE}/purane/" class="arch ${tab === "purane" ? "on" : ""}">${T.archive}</a>
+      <a href="${PRE}/" class="${catOn === "सब" ? "on" : ""}">${T.all}</a>${CATS.map(c => `<a href="${PRE}/shreni/${SLUG[c]}/" class="${catOn === c ? "on" : ""}">${cn(c)}</a>`).join("")}<a href="${PRE}/hamsafar/" class="arch ${tab === "hamsafar" ? "on" : ""}">${LG === "ur" ? "ہم سفر" : LG === "en" ? "Hamsafar" : "हमसफ़र"}</a><a href="${PRE}/purane/" class="arch ${tab === "purane" ? "on" : ""}">${T.archive}</a>
     </nav>
   </header>
   <main>${body}</main>

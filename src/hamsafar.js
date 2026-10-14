@@ -513,7 +513,7 @@ module.exports = function (H) {
       <p class="hs-gal-i">${X.galI}</p>
       ${list.length ? `<div class="hs-grid all">${list.map(w => card(w, lg)).join("")}</div>` : `<p class="hs-first">${X.first}</p>`}
       <p class="hs-more"><a class="hs-btn" href="/bhejiye/">${X.send}</a></p></section>`;
-    return layout({ title: X.galT, desc: X.galD, url: `${P(lg)}/hamsafar/`, body, alt: { hi: "/hamsafar/", en: "/en/hamsafar/", ur: "/ur/hamsafar/" } });
+    return layout({ tab: "hamsafar", title: X.galT, desc: X.galD, url: `${P(lg)}/hamsafar/`, body, alt: { hi: "/hamsafar/", en: "/en/hamsafar/", ur: "/ur/hamsafar/" } });
   }
 
   /* एक रचना का पन्ना */
@@ -567,7 +567,7 @@ module.exports = function (H) {
     </article>`;
     const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: lg, ...(lg !== "hi" ? { translationOfWork: { "@type": "CreativeWork", url: SITE + url(w0) , inLanguage: "hi" } } : {}), author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
     const alt = Object.fromEntries(langs.map(l => [l, url(w0, l)]));
-    return layout({ alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
+    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
   }
 
   return { ALL, has, band, invitePage, galleryPage, workPage, url };
