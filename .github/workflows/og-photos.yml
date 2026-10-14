@@ -29,5 +29,6 @@ jobs:
         run: |
           git add public/og public/ig public/media data/og-photo || true
           if git diff --cached --quiet; then echo "कुछ नया नहीं"; exit 0; fi
-          git -c user.name="deshkaal-bot" -c user.email="patra@deshkaal.xyz" commit -m "प्रिव्यू कार्ड में तस्वीर"
+          git config user.name "deshkaal-bot"; git config user.email "patra@deshkaal.xyz"
+          git commit -m "प्रिव्यू कार्ड में तस्वीर"
           git pull --rebase -q origin main && git push -q origin HEAD:main
