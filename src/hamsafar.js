@@ -538,7 +538,8 @@ module.exports = function (H) {
       const inl = body.some(p => /^\[\[img:\d+\]\]$/.test(p)), used = new Set(body.map(p => (p.match(/^\[\[img:(\d+)\]\]$/) || [])[1]).filter(Boolean).map(Number));
       const link = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
       if (inl) {
-        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); return m ? (imgs[+m[1]] ? fig(imgs[+m[1]]) : "") : `<p>${link(esc(p))}</p>`; }).join("");
+        const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p)).length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
+        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
         main = `${imgs[0] && !used.has(0) ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
       } else {
       const at = Math.max(1, Math.round(body.length * 0.4));
