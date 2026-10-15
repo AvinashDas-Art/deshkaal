@@ -1,6 +1,12 @@
 {
- "updated": "2026-10-15T10:40+05:30",
+ "updated": "2026-10-15T16:35+05:30",
  "counters": [
+  {
+   "n": "46",
+   "label": "दिल्ली के प्रदर्शनों से जुड़ी याचिकाएं, जिन पर सुप्रीम कोर्ट ने नोटिस जारी किये",
+   "src": "सुप्रीम कोर्ट की सुनवाई (द प्रिंट, द फ़ेडरल)",
+   "url": "https://theprint.in/judiciary/delhi-anti-cec-protests-police-eci-oppn-get-sc-notices-nobody-can-browbeat-judiciary-says-cji/3072607/"
+  },
   {
    "n": "273",
    "label": "दिल्ली में तैनात सीएपीएफ़ कंपनियां, पुलिस ने 20 अक्टूबर तक रखने को कहा",
@@ -33,6 +39,82 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-15T15:51+05:30",
+   "kind": "news",
+   "h": "सुप्रीम कोर्ट: 46 याचिकाओं पर नोटिस, जंतर-मंतर और धारा 163 पर केंद्र और दिल्ली पुलिस से जवाब तलब",
+   "src": "द प्रिंट",
+   "url": "https://theprint.in/judiciary/delhi-anti-cec-protests-police-eci-oppn-get-sc-notices-nobody-can-browbeat-judiciary-says-cji/3072607/"
+  },
+  {
+   "t": "2026-10-15T15:33+05:30",
+   "kind": "update",
+   "text": "पुलिस का कहना है कि कनॉट प्लेस में प्रदर्शन की कोई तय जगह नहीं है और जंतर-मंतर भी अब सूची से बाहर है; प्रदर्शनकारी अनुमति लेकर रामलीला मैदान, बुराड़ी ग्राउंड या सीबीडी ग्राउंड जा सकते हैं। सीजेपी ने उसी वक़्त दूसरे शहरों में भी तिरंगा मार्च की अपील की है।",
+   "src": "भाषा (द प्रिंट हिंदी)",
+   "url": "https://hindi.theprint.in/india/security-tightened-in-delhi-ahead-of-cjps-lahra-do-tiranga-protest-on-october-16/1044291/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T15:10+05:30",
+   "kind": "update",
+   "text": "दिल्ली हाईकोर्ट ने सीजेपी के शुक्रवार के कनॉट प्लेस प्रदर्शन पर अलग से रोक का आदेश नहीं दिया; पुलिस का यह भरोसा दर्ज किया कि क़ानून के मुताबिक़ 'हर मुमकिन क़दम' उठाया जाएगा। अदालत ने कहा कि आदेश सीजेपी के पदाधिकारियों और बाक़ी सब पर लागू होगा।",
+   "src": "बार एंड बेंच",
+   "url": "https://www.barandbench.com/news/will-take-all-possible-measures-to-control-cjp-protest-on-october-16-delhi-police-to-delhi-high-court",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T14:57+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट में सॉलिसिटर जनरल ने 10 अक्टूबर की पाबंदियों पर गृह सचिव की बिना शर्त माफ़ी का हवाला दिया; पीठ ने कहा कि वह माफ़ी की मीडिया ख़बरों का संज्ञान नहीं ले रही। अदालत ने महिला पत्रकारों से कथित बदसलूकी की जांच के लिए महिलाओं वाली समिति का समर्थन किया और एक महिला पत्रकार पर सख़्त कार्रवाई से रोक लगायी।",
+   "src": "द फ़ेडरल",
+   "url": "https://thefederal.com/category/news/sc-hearing-on-anti-sir-protests-rap-to-rahul-notices-to-centre-delhi-police-on-jantar-mantar-259642",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T14:09+05:30",
+   "kind": "news",
+   "h": "ज्ञानेश कुमार और दोनों चुनाव आयुक्तों को नोटिस; एक याचिकाकर्ता से अपने आचरण की सफ़ाई मांगेगा सुप्रीम कोर्ट",
+   "src": "द वायर",
+   "url": "https://m.thewire.in/article/law/sc-issues-notice-opposition-leaders-pleas-against-sir"
+  },
+  {
+   "t": "2026-10-15T14:04+05:30",
+   "kind": "news",
+   "h": "शुक्रवार के 'तिरंगा लहराओ' प्रदर्शन को आम आदमी पार्टी का साथ, दिपके बोले: तिरंगा लहराना जुर्म नहीं",
+   "src": "द वीक",
+   "url": "https://www.theweek.in/news/india/2026/10/15/cockroach-janta-party-tiranga-lehrao-protest-delhi.html"
+  },
+  {
+   "t": "2026-10-15T13:05+05:30",
+   "kind": "update",
+   "text": "3 अक्टूबर के प्रदर्शन से जुड़ी एक एफ़आईआर में गिरफ़्तारी से बचाव मांग रहीं दो पत्रकारों की याचिकाएं हाईकोर्ट ने आज जल्दी नहीं सुनीं; अब शुक्रवार को सुनवाई होगी। एफ़आईआर एक एसीपी की शिकायत पर दर्ज हुई, जिन पर तीन महिला पत्रकारों ने बदसलूकी का आरोप लगाया है।",
+   "src": "लॉ ट्रेंड",
+   "url": "https://lawtrend.in/delhi-high-court-to-hear-plea-against-cjp-protest-at-connaught-place-defers-journalists-arrest-protection-pleas/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T12:53+05:30",
+   "kind": "update",
+   "text": "पुलिस ने शुक्रवार को कनॉट प्लेस के सेंट्रल पार्क में सीजेपी की तिरंगा यात्रा की अनुमति नहीं दी; नयी दिल्ली ज़िले में धारा 163 लागू है। पालिका बाज़ार के एक दुकानदार ने रोज़ी-रोटी का हवाला देकर प्रदर्शन रोकने की जनहित याचिका दायर की है।",
+   "src": "जनतंत्र टीवी, दैनिक जागरण (अंग्रेज़ी)",
+   "url": "https://www.jantantratv.com/cjp-tiranga-yatra-delhi-police/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T10:49+05:30",
+   "kind": "news",
+   "h": "मुंबई प्रदर्शन में शामिल अभिनेता इमरान ख़ान को 28 अक्टूबर तक देश छोड़ने का नोटिस, वे अमेरिकी नागरिक हैं",
+   "src": "बिज़नेस टुडे",
+   "url": "https://www.businesstoday.in/india/story/anti-cec-protests-mumbai-police-asks-actor-imran-khan-to-leave-india-by-october-28-say-sources-561716-2026-10-15"
+  },
+  {
+   "t": "2026-10-15T10:34+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: आरएसएस से जुड़े पांचजन्य के एक विश्लेषण में दावा है कि सीजेपी का तिरंगा प्रदर्शन 'रिजीम चेंज' की विदेशी कड़ियों वाली मुहिम का हिस्सा है। लेख इसके लिए संस्थाओं के अनुदान और ओस्लो के एक मंच का हवाला देता है, प्रदर्शन से सीधा संबंध नहीं दिखाता।",
+   "src": "पांचजन्य",
+   "url": "https://panchjanya.com/2026/10/15/495576/analysis/cjp-foreign-funding-oslo-network-regime-change/",
+   "verified": false
+  },
   {
    "t": "2026-10-15T09:12+05:30",
    "kind": "update",
