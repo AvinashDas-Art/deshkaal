@@ -6,6 +6,7 @@
  "dek": "विक्टोरिया टर्मिनस के ठीक सामने एक पुरानी इमारत, जहां कभी गेएटी थिएटर था और आज उसके नीचे वड़ा पाव की क़तार लगती है।",
  "by": "विजय कुमार",
  "place": "मुंबई",
+ "photo": "/media/hamsafar/lekhak-vijay-kumar.jpg",
  "bio": "विजय कुमार कवि, आलोचक, निबंधकार और अनुवादक हैं, मुंबई में जन्मे और वहीं पढ़े। 'अदृश्य हो जाएंगी सूखी पत्तियां', 'चाहे जिस शक्ल से' और 'रात-पाली' उनके कविता-संग्रह हैं; 'कविता की संगत' और 'अंधेरे समय में विचार' उनकी चर्चित किताबें। कविता के लिए शमशेर सम्मान और आलोचना के लिए देवीशंकर अवस्थी सम्मान पा चुके हैं। इन दिनों स्वतंत्र लेखन।",
  "cat": "संस्कृति",
  "lang": "hi",
@@ -17,7 +18,22 @@
   "हम समय को खो देते हैं और उसका कोई मलाल भी नहीं रहता। क्योंकि उस भावुकता का भला क्या कोई व्यावहारिक लाभ है? आज इसी इमारत के नीचे 'आराम रेस्टोरेंट' के बाहर वड़ा पाव खाने वालों की क़तार लगी हुई है। वे एक वड़ा पाव खाएंगे और कामकाजी दुनिया में अपनी मंज़िल की ओर बढ़ जाएंगे।",
   "पीछे रह जाती हैं एक विस्मृत इमारत की नामालूम-सी सिसकियां और एक खंडहर हो चुका अतीत। वे जैसे कह रही हों कि ओ राहगीर! तुम भी एक दिन स्मृति ही बनकर रह जाओगे (या शायद वह भी नहीं)। अपने से बाहर आओ। देख लो पल भर के लिए एक बार मुड़कर हमें।"
  ],
- "images": [],
+ "images": [
+  {
+   "src": "/media/hamsafar/2026-10-14-vijay-kumar-capital-cinema-1.jpg",
+   "w": 2000,
+   "h": 900,
+   "cap": "कैपिटल सिनेमा की इमारत आज: हरे जाल और बांस-बल्लियों में लिपटी, नीचे 'आराम' का बोर्ड। फ़ोटो सौजन्य: विजय कुमार",
+   "alt": "हरे जाल और मचान से ढकी एक पुरानी पत्थर की इमारत, नीचे 'आराम' लिखा बोर्ड"
+  },
+  {
+   "src": "/media/hamsafar/2026-10-14-vijay-kumar-capital-cinema-2.jpg",
+   "w": 2000,
+   "h": 900,
+   "cap": "इमारत के नीचे की दुकानें और 'कैपिटल रेस्टोरेंट ऐंड बार' का बोर्ड। फ़ोटो सौजन्य: विजय कुमार",
+   "alt": "पुरानी इमारत के निचले हिस्से में दुकानें, ऊपर 'कैपिटल रेस्टोरेंट आणि बार' का लाल बोर्ड, बगल में हरा जाल"
+  }
+ ],
  "fine": "विजय कुमार की यह लिखाई देशकाल डेस्क ने उनकी इजाज़त से चुनी है। इसके सारे अधिकार उन्हीं के हैं।",
  "en": {
   "h": "Capital Cinema, Mumbai",
@@ -33,7 +49,16 @@
    "We lose time and feel no regret about it either. For what practical gain is there in such sentiment? Today, below this very building, outside 'Aaram Restaurant', a queue of people stands waiting to eat vada pav. They will eat a vada pav and move on towards their destination in the working world.",
    "What remains behind are the faint, unnoticed sobs of a forgotten building, and a past that has turned to ruin. As if they were saying: O passer-by! You too will one day remain only as a memory (or perhaps not even that). Come out of yourself. Turn around once, for a moment, and look at us."
   ],
-  "images": [],
+  "images": [
+   {
+    "cap": "The Capital Cinema building today: wrapped in green netting and bamboo scaffolding, the 'Aaram' sign below. Photo courtesy: Vijay Kumar",
+    "alt": "An old stone building covered in green netting and scaffolding, with a sign reading 'Aaram' below"
+   },
+   {
+    "cap": "The shops beneath the building and the sign of 'Capitol Restaurant & Bar'. Photo courtesy: Vijay Kumar",
+    "alt": "Shops on the ground floor of an old building, a red 'Capitol Restaurant & Bar' sign above, green netting beside it"
+   }
+  ],
   "fine": "The Deshkaal desk chose this writing by Vijay Kumar with his permission. All rights remain with the writer.",
   "tr": "Translated from Hindi by the Deshkaal desk."
  },
@@ -51,7 +76,16 @@
    "ہم وقت کو کھو دیتے ہیں اور اس کا کوئی ملال بھی نہیں رہتا۔ کیونکہ اس جذباتیت کا بھلا کیا کوئی عملی فائدہ ہے؟ آج اسی عمارت کے نیچے 'آرام ریسٹورنٹ' کے باہر وڑا پاؤ کھانے والوں کی قطار لگی ہوئی ہے۔ وہ ایک وڑا پاؤ کھائیں گے اور کام کاج کی دنیا میں اپنی منزل کی طرف بڑھ جائیں گے۔",
    "پیچھے رہ جاتی ہیں ایک بھولی بسری عمارت کی انجانی سی سسکیاں اور ایک کھنڈر ہو چکا ماضی۔ وہ جیسے کہہ رہی ہوں کہ اے راہ گیر! تم بھی ایک دن یاد ہی بن کر رہ جاؤ گے (یا شاید وہ بھی نہیں)۔ اپنے آپ سے باہر آؤ۔ دیکھ لو پل بھر کے لیے ایک بار مڑ کر ہمیں۔"
   ],
-  "images": [],
+  "images": [
+   {
+    "cap": "کیپیٹل سنیما کی عمارت آج: ہرے جال اور بانس بلیوں میں لپٹی، نیچے 'آرام' کا بورڈ۔ تصویر بشکریہ: وجے کمار",
+    "alt": "ہرے جال اور پاڑ سے ڈھکی ایک پرانی پتھر کی عمارت، نیچے 'آرام' لکھا بورڈ"
+   },
+   {
+    "cap": "عمارت کے نیچے کی دکانیں اور 'کیپیٹل ریسٹورنٹ اینڈ بار' کا بورڈ۔ تصویر بشکریہ: وجے کمار",
+    "alt": "پرانی عمارت کے نچلے حصے میں دکانیں، اوپر 'کیپیٹل ریسٹورنٹ اینڈ بار' کا سرخ بورڈ، بغل میں ہرا جال"
+   }
+  ],
   "fine": "وجے کمار کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے ہیں۔",
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک"
  }
