@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T16:35+05:30",
+ "updated": "2026-10-15T22:26+05:30",
  "counters": [
   {
    "n": "46",
@@ -39,6 +39,36 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-15T21:41+05:30",
+   "kind": "news",
+   "h": "एनडीएमसी ने कनॉट प्लेस का सेंट्रल पार्क 16 और 17 अक्टूबर को आम लोगों के लिए बंद किया, पुलिस ने धारा 163 तोड़ने पर कार्रवाई की चेतावनी दी",
+   "src": "द वायर",
+   "url": "https://m.thewire.in/article/rights/amid-cjps-tiranga-call-ndmc-says-central-park-closed-for-two-days-delhi-police-warns-action-on-protesters"
+  },
+  {
+   "t": "2026-10-15T20:48+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस ने लोगों से शुक्रवार के 'लहरा दो तिरंगा' जमावड़े से दूर रहने को कहा; पुलिस के मुताबिक़ कुछ चुने हुए लोगों को किसी मुनासिब जगह तिरंगा लहराने और राष्ट्रगान गाने दिया जा सकता है। उधर मुंबई पुलिस ने आज़ाद मैदान में तिरंगा रैली की इजाज़त दी है।",
+   "src": "द प्रिंट (पीटीआई), द वायर",
+   "url": "https://theprint.in/india/cjp-tiranga-march-delhi-police-allows-flag-waving-by-select-group-urges-public-to-stay-away/3073108/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-15T20:46+05:30",
+   "kind": "update",
+   "text": "सीजेपी संस्थापक अभिजीत दिपके ने लोगों से शुक्रवार शाम 5 बजे सेंट्रल पार्क पहुंचने की अपील की। उनका दावा है कि वोटर सूची से क़रीब 13 करोड़ नाम, यानी लगभग 14 फ़ीसदी, कटे हैं, जबकि 2024 के लोकसभा चुनाव में जीत का फ़ासला क़रीब 2 फ़ीसदी था।",
+   "src": "द प्रिंट (पीटीआई)",
+   "url": "https://theprint.in/india/cjp-to-hold-tiranga-march-at-connaught-place-amid-security-curbs/3073103/",
+   "verified": false
+  },
+  {
+   "t": "2026-10-15T17:38+05:30",
+   "kind": "news",
+   "h": "प्रेस क्लब में दिपके और नेहा बोरा की प्रेस कॉन्फ़्रेंस से पहले हंगामा, अज्ञात लोगों ने नारेबाज़ी की; प्रशांत भूषण ने 'सत्ता परिवर्तन' की मांग को लोकतांत्रिक हक़ बताया",
+   "src": "द वीक",
+   "url": "https://www.theweek.in/news/india/2026/10/15/ahead-of-cjp-s-tiranga-march-on-friday-chaos-ensues-at-abhijeet-dipke-neha-bora-presser.html"
+  },
   {
    "t": "2026-10-15T15:51+05:30",
    "kind": "news",
