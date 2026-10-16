@@ -76,6 +76,14 @@ let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
 
 /* ---------- layout ---------- */
 
+const RZP_BUTTON_ID = "pl_TodhL5zlUXHmtl";
+const RZP_BUTTON_SCRIPT = `<form class="razorpay-payment-button"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="${RZP_BUTTON_ID}" async> </script></form>`;
+const supportRibbon = () => `<div class="support-ribbon" role="complementary" aria-label="${LG === "en" ? "Reader support" : LG === "ur" ? "قارئین کا تعاون" : "पाठक-सहयोग"}">
+  <span class="support-ribbon-copy"><b>${LG === "en" ? "A little support" : LG === "ur" ? "تھوڑا سا ساتھ" : "थोड़ा-सा साथ"}</b><small>${LG === "en" ? "Keep the footpath open" : LG === "ur" ? "یہ پگڈنڈی چلتی رہے" : "यह पगडंडी चलती रहे"}</small></span>${RZP_BUTTON_SCRIPT}
+</div>`;
+const supportEnd = () => `<section class="article-support" aria-label="${LG === "en" ? "Reader support" : LG === "ur" ? "قارئین کا تعاون" : "पाठक-सहयोग"}">
+  <div><b>${LG === "en" ? "If this work matters to you..." : LG === "ur" ? "اگر یہ کام آپ کے لیے اہم ہے..." : "अगर यह काम आपके लिए मायने रखता है..."}</b><p>${LG === "en" ? "Support Deshkaal with an amount of your choice. One-time and voluntary. Reading remains free." : LG === "ur" ? "اپنی پسند کی رقم سے دیش کال کا ساتھ دیجیے۔ یہ ایک بار کا رضاکارانہ تعاون ہے۔ پڑھنا مفت رہے گا۔" : "अपनी पसंद की राशि से देशकाल का साथ दीजिए। यह एकमुश्त, स्वैच्छिक सहयोग है। पढ़ना मुफ़्त रहेगा।"}</p></div>${RZP_BUTTON_SCRIPT}
+</section>`;
 function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null, noindex = false }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
@@ -144,6 +152,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
       <button class="ctl" id="theme">${T.theme}</button>
       <button class="ctl" id="who">${T.signin}</button>
       <button class="sic" id="sopen" type="button" aria-haspopup="dialog" aria-label="${SR[LG].t}" title="${SR[LG].t}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.2" stroke="currentColor" stroke-width="2.2"/><path d="M7.4 8.4a3.2 3.2 0 0 1 2.6-1.6" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M14.7 14.7 20.5 20.5" stroke="#CF3A2E" stroke-width="3.4"/></svg></button>
+      ${supportRibbon()}
     </div>
   </div>
   <header class="masthead">
@@ -481,6 +490,7 @@ function articlePage(a) {
     ${isVid(a) || a.visesh ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
     ${a.visesh ? "" : `<p class="fine">${esc(T.fine(a.pub))}</p>`}
     ${shareBlock(a)}
+    ${supportEnd()}
     <div class="more"><h6>${T.next}</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>
   </article>
   <script type="application/json" id="article-data">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>

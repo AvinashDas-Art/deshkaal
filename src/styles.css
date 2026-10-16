@@ -1196,3 +1196,16 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .hw-inl .hw-fig{margin-block:var(--s6)}
 .hw-inl .hw-fig img{max-height:80vh}
 .hw-body a{color:var(--neel);text-decoration:underline;text-underline-offset:3px}
+
+/* पाठक-सहयोग: खोज के ठीक बाद की जीवंत पट्टी और हर लेख का विनम्र निमंत्रण */
+.support-ribbon{display:inline-flex;align-items:center;gap:10px;margin-inline-start:4px;padding:4px 8px 4px 12px;border:1px solid var(--geru);border-radius:999px;background:linear-gradient(100deg,var(--haldi-soft),var(--paper));color:var(--geru);vertical-align:middle}
+.support-ribbon-copy{display:inline-flex;align-items:baseline;gap:6px;font-family:var(--f-ui);white-space:nowrap}
+.support-ribbon-copy b{font-size:14px}
+.support-ribbon-copy small{font-size:11px;color:var(--ink-2)}
+.support-ribbon .razorpay-payment-button{display:inline-flex;margin:0}
+.support-ribbon .razorpay-payment-button iframe{max-width:118px!important}
+.article-support{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:42px 0 28px;padding:20px 22px;border:1px solid var(--geru);border-radius:14px;background:linear-gradient(115deg,var(--haldi-soft),transparent 68%);font-family:var(--f-ui)}
+.article-support b{font-family:var(--f-head);font-size:20px;color:var(--geru)}
+.article-support p{margin:4px 0 0;color:var(--ink-2);font-size:14px;line-height:1.5}
+.article-support .razorpay-payment-button{flex:0 0 auto}
+@media(max-width:680px){.support-ribbon-copy small{display:none}.support-ribbon{padding-left:8px}.article-support{display:block}.article-support .razorpay-payment-button{margin-top:14px}}
