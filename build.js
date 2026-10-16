@@ -91,6 +91,7 @@ function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", 
 <html lang="${LG}"${LG === "ur" ? ' dir="rtl"' : ""}>
 <head>
 <meta charset="utf-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318826122398822" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(desc)}">
