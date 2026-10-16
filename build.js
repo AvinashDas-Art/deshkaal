@@ -741,3 +741,5 @@ console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप
 // direct support popup trigger
 
 // hide embedded payment chrome
+
+// Hamsafar share cards use article or author images
