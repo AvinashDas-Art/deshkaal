@@ -1205,6 +1205,7 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .support-ribbon .razorpay-payment-button{display:inline-flex;margin:0}
 .support-ribbon .razorpay-payment-button iframe{max-width:118px!important}
 .support-ribbon .PaymentButton > svg,.article-support .PaymentButton > svg{display:none!important}
+.support-ribbon .PaymentButton--rzpTheme::before,.article-support .PaymentButton--rzpTheme::before{display:none!important}
 .support-ribbon .PaymentButton-securedBy,.article-support .PaymentButton-securedBy{display:none!important}
 .support-ribbon .PaymentButton,.article-support .PaymentButton{padding-inline:14px!important}
 .article-support{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:42px 0 28px;padding:20px 22px;border:1px solid var(--geru);border-radius:14px;background:linear-gradient(115deg,var(--haldi-soft),transparent 68%);font-family:var(--f-ui)}
