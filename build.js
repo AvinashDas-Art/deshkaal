@@ -154,6 +154,12 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
     </nav>
   </header>
   <main>${body}</main>
+  <aside class="reader-support" aria-label="${LG === 'en' ? 'Reader support' : LG === 'ur' ? 'قارئین کا تعاون' : 'पाठक-सहयोग'}" style="margin:2rem 0;padding:1.5rem;border:1px solid currentColor;border-radius:12px;text-align:center">
+    <h2 style="margin:0 0 .6rem">${LG === 'en' ? 'Be a friend of Deshkaal' : LG === 'ur' ? 'دیش کال کے ساتھی بنیے' : 'देशकाल का साथी बनिए'}</h2>
+    <p>${LG === 'en' ? 'If Deshkaal matters to you, support it with an amount of your choice. Reading remains free.' : LG === 'ur' ? 'اگر دیش کال کا کام آپ کے لیے اہم ہے تو اپنی پسند کی رقم سے ساتھ دیجیے۔ پڑھنا مفت رہے گا۔' : 'देशकाल का काम आपके लिए मायने रखता है, तो अपनी पसंद की राशि से साथ दीजिए। पढ़ना मुफ़्त रहेगा।'}</p>
+    <a class="btn" href="https://rzp.io/rzp/WiATBQ7" target="_blank" rel="noopener noreferrer">${LG === 'en' ? 'Support Deshkaal' : LG === 'ur' ? 'تعاون کیجیے' : 'सहयोग कीजिए'}</a>
+    <p style="font-size:.85em;margin:.8rem 0 0">${LG === 'en' ? 'Voluntary, one-time support through Razorpay. No automatic renewal.' : LG === 'ur' ? 'Razorpay کے ذریعے رضاکارانہ، ایک بار کا تعاون۔ خودکار تجدید نہیں ہوگی۔' : 'Razorpay पर स्वैच्छिक, एकमुश्त सहयोग। अपने आप दोबारा पैसे नहीं कटेंगे।'}</p>
+  </aside>
   <footer>
     <a class="mast small totop-mast" href="#top" aria-label="${LG === "en" ? "Back to top" : LG === "ur" ? "اوپر جائیں" : "सबसे ऊपर जाएं"}"><span class="w">${MAST[LG]}</span></a>
     <span>${T.foot}</span>
