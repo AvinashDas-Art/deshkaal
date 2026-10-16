@@ -1203,7 +1203,7 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .support-ribbon-link b{font-family:var(--f-ui);font-size:14px}
 .support-ribbon-link small{font-family:var(--f-ui);font-size:11px;color:var(--ink-2)}
 .support-ribbon-link:hover{background:var(--haldi-soft)}
-.support-ribbon .razorpay-payment-button{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.support-ribbon .razorpay-payment-button{display:none!important}
 .support-ribbon .PaymentButton,.article-support .PaymentButton{padding-inline:14px!important}
 .support-ribbon .PaymentButton > svg,.article-support .PaymentButton > svg{display:none!important}
 .support-ribbon .PaymentButton--rzpTheme::before,.article-support .PaymentButton--rzpTheme::before{display:none!important}
