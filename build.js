@@ -739,3 +739,5 @@ console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप
 // final clickable support strip
 
 // direct support popup trigger
+
+// hide embedded payment chrome
