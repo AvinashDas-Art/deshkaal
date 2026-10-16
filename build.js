@@ -81,9 +81,6 @@ const RZP_BUTTON_SCRIPT = `<form class="razorpay-payment-button"><script src="ht
 const supportRibbon = () => `<div class="support-ribbon" role="complementary" aria-label="${LG === "en" ? "Reader support" : LG === "ur" ? "قارئین کا تعاون" : "पाठक-सहयोग"}">
   <span class="support-ribbon-copy"><b>${LG === "en" ? "A little support" : LG === "ur" ? "تھوڑا سا ساتھ" : "थोड़ा-सा साथ"}</b><small>${LG === "en" ? "Keep the footpath open" : LG === "ur" ? "یہ پگڈنڈی چلتی رہے" : "यह पगडंडी चलती रहे"}</small></span>${RZP_BUTTON_SCRIPT}
 </div>`;
-const supportEnd = () => `<section class="article-support" aria-label="${LG === "en" ? "Reader support" : LG === "ur" ? "قارئین کا تعاون" : "पाठक-सहयोग"}">
-  <div><b>${LG === "en" ? "If this work matters to you..." : LG === "ur" ? "اگر یہ کام آپ کے لیے اہم ہے..." : "अगर यह काम आपके लिए मायने रखता है..."}</b><p>${LG === "en" ? "Support Deshkaal with an amount of your choice. One-time and voluntary. Reading remains free." : LG === "ur" ? "اپنی پسند کی رقم سے دیش کال کا ساتھ دیجیے۔ یہ ایک بار کا رضاکارانہ تعاون ہے۔ پڑھنا مفت رہے گا۔" : "अपनी पसंद की राशि से देशकाल का साथ दीजिए। यह एकमुश्त, स्वैच्छिक सहयोग है। पढ़ना मुफ़्त रहेगा।"}</p></div>${RZP_BUTTON_SCRIPT}
-</section>`;
 function layout({ title, desc, url, body, tab = "", catOn = "", extraHead = "", image = "/og.png", published = "", alt = null, noindex = false }) {
   const B = BRAND[LG];
   const full = title ? `${title} · ${B}` : `${B}${LG === "en" ? "" : " (Deshkaal)"} · ${T.tagline}`;
@@ -163,12 +160,6 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
     </nav>
   </header>
   <main>${body}</main>
-  <aside class="reader-support" aria-label="${LG === 'en' ? 'Reader support' : LG === 'ur' ? 'قارئین کا تعاون' : 'पाठक-सहयोग'}" style="margin:2rem 0;padding:1.5rem;border:1px solid currentColor;border-radius:12px;text-align:center">
-    <h2 style="margin:0 0 .6rem">${LG === 'en' ? 'Be a friend of Deshkaal' : LG === 'ur' ? 'دیش کال کے ساتھی بنیے' : 'देशकाल का साथी बनिए'}</h2>
-    <p>${LG === 'en' ? 'If Deshkaal matters to you, support it with an amount of your choice. Reading remains free.' : LG === 'ur' ? 'اگر دیش کال کا کام آپ کے لیے اہم ہے تو اپنی پسند کی رقم سے ساتھ دیجیے۔ پڑھنا مفت رہے گا۔' : 'देशकाल का काम आपके लिए मायने रखता है, तो अपनी पसंद की राशि से साथ दीजिए। पढ़ना मुफ़्त रहेगा।'}</p>
-    <a class="btn" href="https://rzp.io/rzp/WiATBQ7" target="_blank" rel="noopener noreferrer">${LG === 'en' ? 'Support Deshkaal' : LG === 'ur' ? 'تعاون کیجیے' : 'सहयोग कीजिए'}</a>
-    <p style="font-size:.85em;margin:.8rem 0 0">${LG === 'en' ? 'Voluntary, one-time support through Razorpay. No automatic renewal.' : LG === 'ur' ? 'Razorpay کے ذریعے رضاکارانہ، ایک بار کا تعاون۔ خودکار تجدید نہیں ہوگی۔' : 'Razorpay पर स्वैच्छिक, एकमुश्त सहयोग। अपने आप दोबारा पैसे नहीं कटेंगे।'}</p>
-  </aside>
   <footer>
     <a class="mast small totop-mast" href="#top" aria-label="${LG === "en" ? "Back to top" : LG === "ur" ? "اوپر جائیں" : "सबसे ऊपर जाएं"}"><span class="w">${MAST[LG]}</span></a>
     <span>${T.foot}</span>
@@ -490,7 +481,6 @@ function articlePage(a) {
     ${isVid(a) || a.visesh ? "" : `<a class="cta" href="${esc(a.url)}" target="_blank" rel="noopener"><strong>${T.cta}</strong><span>${esc(T.ctaSub(a.pub, a.lang))}</span></a>`}
     ${a.visesh ? "" : `<p class="fine">${esc(T.fine(a.pub))}</p>`}
     ${shareBlock(a)}
-    ${supportEnd()}
     <div class="more"><h6>${T.next}</h6>${others.map(o => `<a href="${href(o)}">${esc(o.h)}</a>`).join("")}</div>
   </article>
   <script type="application/json" id="article-data">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>
