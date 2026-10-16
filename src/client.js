@@ -70,6 +70,7 @@ async function syncDown(){try{const r=await fetch("/api/me",{credentials:"same-o
   favs=d.favs.length?d.favs:favs;store.set("dk-fav",JSON.stringify(favs));
   setWho();paintSaves();renderMine();renderLast();if(merged.length!==d.saved.length)syncUp()}catch(e){}}
 function paintSaves(){$$("[data-save]").forEach(b=>{const on=saved.some(x=>x.id===b.dataset.save);b.setAttribute("aria-pressed",on);b.textContent=on?TX.saved:TX.save})}
+document.addEventListener("click",e=>{const b=e.target.closest(".support-ribbon-link");if(!b)return;e.preventDefault();const f=b.closest(".support-ribbon")?.querySelector(".razorpay-payment-button .PaymentButton");if(f)f.click();});
 document.addEventListener("click",e=>{const b=e.target.closest("[data-save]");if(!b)return;e.preventDefault();
   if(!user){openSheet();return}
   const id=b.dataset.save;saved=saved.some(x=>x.id===id)?saved.filter(x=>x.id!==id):[{id,h:b.dataset.h},...saved];
