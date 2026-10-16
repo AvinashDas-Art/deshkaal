@@ -727,3 +727,5 @@ out("client.js", fs.readFileSync("src/client.js", "utf8"));
 })("public", "dist");
 out("sw.js", fs.readFileSync("public/sw.js", "utf8").replace("__VERSION__", today.date + "-" + all.length + "-" + require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8)));
 console.log(`बन गयी: ${days.length} दिन, ${all.length} टिप्पणियां, ${CATS.length} श्रेणियां · English ${HAS.en.size}, اردو ${HAS.ur.size}`);
+
+// support ribbon polish
