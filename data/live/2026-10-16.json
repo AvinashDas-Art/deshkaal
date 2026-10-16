@@ -1,10 +1,16 @@
 {
- "updated": "2026-10-16T16:30+05:30",
+ "updated": "2026-10-16T22:25+05:30",
  "counters": [
+  {
+   "n": "~150",
+   "label": "16 अक्टूबर को तिरंगा मार्च के दिन हिरासत में, दिपके और नेहा बोरा समेत",
+   "src": "दिल्ली पुलिस सूत्र (आजतक, द ट्रिब्यून, एएनआई)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#150"
+  },
   {
    "n": "6,000+",
    "label": "दिल्ली पुलिस के जवान तैनात, 5,000 और रिज़र्व में",
-   "src": "दैनिक जागरण अंग्रेज़ी का लाइव ब्लॉग; इसी अख़बार की एक और रिपोर्ट 30,000 से ज़्यादा पुलिसकर्मी बताती है, आंकड़ों में फ़र्क़ है",
+   "src": "दैनिक जागरण अंग्रेज़ी का लाइव ब्लॉग; इसी अख़बार की एक और रिपोर्ट 30,000 से ज़्यादा पुलिसकर्मी बताती है, आंकड़ों में फ़र्क़ है; द वायर के मुताबिक़ जंतर-मंतर और कनॉट प्लेस के आसपास क़रीब 32,000 सुरक्षाकर्मी",
    "url": "https://www.thedailyjagran.com/india/news/cjp-tiranga-march-live-updates-connaught-place-abhijeet-dipke-protest-in-delhi-police-central-park-saurav-das-gyanesh-kumar-cp-cec-sir-lb-30000354#police"
   },
   {
@@ -45,6 +51,108 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-16T22:14+05:30",
+   "kind": "news",
+   "h": "द वायर: हिरासतों के बावजूद फ़्लैश प्रदर्शनों में लहराता रहा तिरंगा, शाम तक कुछ हज़ार लोग जुटे, अंधेरा होने पर महिलाओं समेत प्रदर्शनकारियों को ज़बरन बसों में डाला गया",
+   "src": "द वायर",
+   "url": "https://m.thewire.in/article/rights/flash-protests-keep-the-flag-flying-dipke-boras-detentions-police-action-fail-to-deter-delhi-from-protests"
+  },
+  {
+   "t": "2026-10-16T22:10+05:30",
+   "kind": "update",
+   "text": "द वायर के मुताबिक़ कनॉट प्लेस में मार्च के पास जुटे हिंदुत्ववादी प्रदर्शनकारियों ने आंदोलनकारियों और पत्रकारों से हूटिंग की और पुलिस ने उन्हें ख़ास नहीं रोका। माकपा सांसद जॉन ब्रिटास भी मार्च में शामिल हुए और कहा कि लोग फिर लौटेंगे।",
+   "src": "द वायर",
+   "url": "https://m.thewire.in/article/rights/flash-protests-keep-the-flag-flying-dipke-boras-detentions-police-action-fail-to-deter-delhi-from-protests#brittas",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T20:41+05:30",
+   "kind": "news",
+   "h": "ममता बनर्जी ने दिपके की हिरासत को 'अघोषित आपातकाल' कहा, केजरीवाल ने पूछा: क्या तिरंगा उठाना जुर्म है?",
+   "src": "एएनआई",
+   "url": "https://aninews.in/news/national/politics/lehra-do-tiranga-rally-undeclared-emergency-say-mamata-banerjee-arvind-kejriwal-criticise-dipke8217s-detention20261016204150/"
+  },
+  {
+   "t": "2026-10-16T20:29+05:30",
+   "kind": "update",
+   "text": "आइसा का दावा है कि नेहा बोरा को मंगोलपुरी में एंटी-नारकोटिक्स टास्क फ़ोर्स के दफ़्तर में अकेले रखा गया है, रात 8 बजे से पहले से उनसे संपर्क नहीं और वकीलों को मिलने नहीं दिया जा रहा। पुलिस की ओर से इस पर बयान नहीं आया।",
+   "src": "आजतक (लाइव ब्लॉग)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#neha-mangolpuri",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T19:24+05:30",
+   "kind": "update",
+   "text": "पुलिस सूत्रों के मुताबिक़ अब तक क़रीब 150 प्रदर्शनकारी हिरासत में, जिनमें अभिजीत दिपके और नेहा बोरा भी। एक अधिकारी ने कहा कि क़ानून-व्यवस्था बिगाड़ने की कोशिश करने वालों को हिरासत में लिया जा रहा है। विरोध में एसएफ़आई, डीवाईएफ़आई, एआईएसएफ़ और एआईवाईएफ़ ने भी तिरंगा मार्च निकाला।",
+   "src": "आजतक, द ट्रिब्यून",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#150",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T18:28+05:30",
+   "kind": "update",
+   "text": "पुलिस ने कनॉट प्लेस से प्रदर्शनकारियों को हटाना शुरू किया, एक डीसीपी ने लोगों से चले जाने को कहा। इलाक़े में तनाव, कुछ जगह धक्का-मुक्की की ख़बरें।",
+   "src": "आजतक, द ट्रिब्यून",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#cp-clear",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T17:50+05:30",
+   "kind": "update",
+   "text": "सपा अध्यक्ष अखिलेश यादव ने एक्स पर लिखा कि आज 'एकरंगा' बनाम 'तिरंगा' का दिन है।",
+   "src": "आजतक (अखिलेश यादव की एक्स पोस्ट)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#akhilesh",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T17:39+05:30",
+   "kind": "update",
+   "text": "आइसा की राष्ट्रीय अध्यक्ष नेहा बोरा मंडी हाउस से हिरासत में। मंडी हाउस से कनॉट प्लेस की ओर निकली तिरंगा यात्रा के कई लोग भी पकड़े गये। साथियों का कहना है कि हिरासत के बाद उनके पास फ़ोन नहीं था।",
+   "src": "आजतक, ईटीवी भारत",
+   "url": "https://www.etvbharat.com/hi/bharat/lehra-do-tiranga-march-abhijeet-dipke-neha-bora-and-other-dissenters-detained-by-delhi-police-dln26101606867",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T17:26+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: पालिका बाज़ार के दुकानदारों का एक समूह सीजेपी के प्रदर्शन के विरोध में और पुलिस व मुख्य चुनाव आयुक्त ज्ञानेश कुमार के समर्थन में कनॉट प्लेस में जुटा।",
+   "src": "आजतक (लाइव ब्लॉग)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#palika",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T17:21+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस के पीआरओ राजीव रंजन ने कहा कि कार्यक्रम के लिए किसी ने पुलिस से संपर्क नहीं किया। उन्होंने झंडा संहिता का हवाला दिया और कहा कि अफ़सरों की तस्वीरें और निजी जानकारी सोशल मीडिया पर डालना ग़ैरक़ानूनी है।",
+   "src": "आजतक (लाइव ब्लॉग)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#pro",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T16:51+05:30",
+   "kind": "update",
+   "text": "दिल्ली पुलिस ने अभिजीत दिपके को झंडेवालान में उनके ठहरने की जगह से हिरासत में लिया। पुलिस ने कहा कि वे नयी दिल्ली नहीं जा सकते; दिपके ने पूछा कि उन्होंने कौन-सा क़ानून तोड़ा। समर्थकों ने नारे लगाये।",
+   "src": "आजतक, द ट्रिब्यून",
+   "url": "https://www.tribuneindia.com/abhijeetdipke/cjp-lehra-do-tiranga-march-live-abhijeet-dipke-detained-by-delhi-police",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T16:45+05:30",
+   "kind": "update",
+   "text": "तिरंगा लिये प्रदर्शनकारी कनॉट प्लेस में एनडीएमसी पॉइंट पर पहुंचे और ऊपर चढ़कर झंडा लहराया। दिल्ली पुलिस ने एक्स पर लिखा कि हमारा तिरंगा सर्वोच्च सम्मान का हक़दार है।",
+   "src": "आजतक (दिल्ली पुलिस की एक्स पोस्ट)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#ndmc",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T16:15+05:30",
+   "kind": "update",
+   "text": "दिपके को दो नोटिस: नयी दिल्ली पुलिस ने धारा 163 लागू होने के कारण सेंट्रल पार्क से दूर रहने को कहा, दक्षिण-पश्चिम दिल्ली पुलिस ने हवाई अड्डे वाली हिरासत के बाद लगी एक साल की शांति-शर्त याद दिलायी। डीसीपी सचिन शर्मा ने त्योहारों का हवाला देकर क़ानून मानने की अपील की।",
+   "src": "आजतक (लाइव ब्लॉग)",
+   "url": "https://aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#notice",
+   "verified": true
+  },
   {
    "t": "2026-10-16T14:33+05:30",
    "kind": "news",
