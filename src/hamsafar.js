@@ -106,7 +106,7 @@ module.exports = function (H) {
   const ICONS = [`<path d="M14 8h28l10 10v38H14z"/><path d="M42 8v10h10"/><path d="M22 28h22M22 36h22M22 44h14"/>`, `<path d="M46 10c-14 4-26 18-30 40l6-2c2-8 6-14 12-18"/><path d="M16 50l-4 6"/><path d="M28 30c6 0 12-2 18-8"/>`, `<rect x="10" y="12" width="44" height="32" rx="3"/><path d="M20 52l6-8h8"/><circle cx="25" cy="27" r="4"/><path d="M33 34c4-6 10-6 14 0"/>`, `<rect x="8" y="18" width="48" height="32" rx="4"/><path d="M22 18l4-6h12l4 6"/><circle cx="32" cy="34" r="9"/>`];
   const IV = {
  "hi": {
-  "k1": "हमसफ़र · पाठकों के लिए न्योता",
+  "k1": "हमसफ़र · लेखकों-पत्रकारों के लिए न्योता",
   "h1": "यह पगडंडी आपके क़दमों से भी बनेगी",
   "lede": "आपने कुछ लिखा है, कोई कार्टून बनाया है, या किसी लम्हे को तस्वीर में थाम लिया है, जो इस वक़्त को समझने में मदद करता है? उसे देशकाल को भेजिए। अच्छी रचना हम पूरे सम्मान और सलीक़े से छापते हैं, आपके नाम के साथ।",
   "send": "रचना भेजिए",
@@ -568,7 +568,7 @@ module.exports = function (H) {
     </article>`;
     const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: lg, ...(lg !== "hi" ? { translationOfWork: { "@type": "CreativeWork", url: SITE + url(w0) , inLanguage: "hi" } } : {}), author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
     const alt = Object.fromEntries(langs.map(l => [l, url(w0, l)]));
-    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
+    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : (w.photo || "/og-bhejiye.png"), published: w.date });
   }
 
   return { ALL, has, band, invitePage, galleryPage, workPage, url };
