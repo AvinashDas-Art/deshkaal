@@ -1,6 +1,12 @@
 {
- "updated": "2026-10-16T10:35+05:30",
+ "updated": "2026-10-16T16:30+05:30",
  "counters": [
+  {
+   "n": "6,000+",
+   "label": "दिल्ली पुलिस के जवान तैनात, 5,000 और रिज़र्व में",
+   "src": "दैनिक जागरण अंग्रेज़ी का लाइव ब्लॉग; इसी अख़बार की एक और रिपोर्ट 30,000 से ज़्यादा पुलिसकर्मी बताती है, आंकड़ों में फ़र्क़ है",
+   "url": "https://www.thedailyjagran.com/india/news/cjp-tiranga-march-live-updates-connaught-place-abhijeet-dipke-protest-in-delhi-police-central-park-saurav-das-gyanesh-kumar-cp-cec-sir-lb-30000354#police"
+  },
   {
    "n": "46",
    "label": "दिल्ली के प्रदर्शनों से जुड़ी याचिकाएं, जिन पर सुप्रीम कोर्ट ने नोटिस जारी किये",
@@ -39,6 +45,70 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-16T14:33+05:30",
+   "kind": "news",
+   "h": "तिरंगा मार्च से पहले दिल्ली पुलिस अभिजीत दिपके के घर पहुंची, बाहर निकलने से रोका और कनॉट प्लेस में प्रदर्शन न करने का नोटिस दिया; दिपके ने पूछा, क्या तिरंगा लहराना जुर्म है?",
+   "src": "द ट्रिब्यून",
+   "url": "https://www.tribuneindia.com/news/delhi/abhijeet-dipke-placed-under-house-arrest-ahead-of-lehra-do-tiranga-march/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T13:23+05:30",
+   "kind": "update",
+   "text": "दिल्ली में आम आदमी पार्टी के कार्यकर्ता 200 फ़ुट लंबा तिरंगा लेकर निकले। दिल्ली आप अध्यक्ष सौरभ भारद्वाज ने तिरंगा रोकने के लिए बढ़ायी गयी सुरक्षा को 'बेवक़ूफ़ी' कहा।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#aap-tiranga",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T13:20+05:30",
+   "kind": "update",
+   "text": "कांग्रेस के राज्यसभा सांसद पवन खेड़ा ने कहा कि 'वोट चोर, गद्दी छोड़' अभियान जारी रहेगा और विपक्ष का मक़सद इस सरकार को हराकर व्यवस्था बदलना है। उन्होंने रक्षा मंत्री राजनाथ सिंह की आपत्ति पर सवाल उठाया।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#khera",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T13:03+05:30",
+   "kind": "news",
+   "h": "मुंबई के आज़ाद मैदान में सीजेपी का 'लहरा दो तिरंगा' प्रदर्शन शांति से शुरू, सौरव दास और आशुतोष रांका की गिरफ़्तारी के ख़िलाफ़ युवा तिरंगा लेकर जुटे; पुलिस ने एक दिन की इजाज़त दी",
+   "src": "एएनआई, फ़्री प्रेस जर्नल",
+   "url": "https://aninews.in/news/national/general-news/maharashtra-cockroach-janta-party-holds-peaceful-8220lehra-do-tiranga8221-protest-at-azad-maidan20261016130325/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T12:07+05:30",
+   "kind": "update",
+   "text": "सुप्रीम कोर्ट ने सेंट्रल पार्क में शाम 5 बजे के तिरंगा मार्च को रोकने के लिए कोई तुरंत निर्देश देने से इनकार किया। पीठ ने कहा कि उम्मीद है समझदारी से काम लिया जाएगा।",
+   "src": "दैनिक जागरण अंग्रेज़ी (पीटीआई)",
+   "url": "https://www.thedailyjagran.com/india/news/cjp-tiranga-march-live-updates-connaught-place-abhijeet-dipke-protest-in-delhi-police-central-park-saurav-das-gyanesh-kumar-cp-cec-sir-lb-30000354#sc",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T12:06+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: लखनऊ में रक्षा मंत्री राजनाथ सिंह ने कहा कि देश के युवाओं को 'अराजकता की राजनीति' में मोहरा बनाया जा रहा है। उनके मुताबिक़ यह आंदोलन चुनाव सुधार या ज्ञानेश कुमार के बारे में नहीं, बल्कि अराजकता फैलाकर सत्ता हथियाने की साज़िश है।",
+   "src": "दैनिक जागरण अंग्रेज़ी (एएनआई)",
+   "url": "https://www.thedailyjagran.com/india/news/cjp-tiranga-march-live-updates-connaught-place-abhijeet-dipke-protest-in-delhi-police-central-park-saurav-das-gyanesh-kumar-cp-cec-sir-lb-30000354#rajnath",
+   "verified": true
+  },
+  {
+   "t": "2026-10-16T12:05+05:30",
+   "kind": "update",
+   "text": "चेन्नई में छात्र संगठनों और नागरिक समाज के लोगों ने मुख्य चुनाव आयुक्त ज्ञानेश कुमार और मतदाता सूची के विशेष गहन पुनरीक्षण (एसआईआर) के ख़िलाफ़ प्रदर्शन किया।",
+   "src": "दैनिक जागरण अंग्रेज़ी (पीटीआई वीडियो)",
+   "url": "https://www.thedailyjagran.com/india/news/cjp-tiranga-march-live-updates-connaught-place-abhijeet-dipke-protest-in-delhi-police-central-park-saurav-das-gyanesh-kumar-cp-cec-sir-lb-30000354#chennai",
+   "verified": false
+  },
+  {
+   "t": "2026-10-16T10:46+05:30",
+   "kind": "update",
+   "text": "दूसरा पक्ष: न्यू दिल्ली ट्रेडर्स एसोसिएशन ने 14 अक्टूबर को गृह मंत्री अमित शाह को चिट्ठी लिखकर 16 अक्टूबर की रैली के लिए कनॉट प्लेस के हर प्रवेश पर पुलिस तैनात करने और कारोबार में बाधा डालने वालों पर सख़्त कार्रवाई की मांग की।",
+   "src": "आजतक",
+   "url": "https://www.aajtak.in/india/delhi/story/cjp-tiranga-yatra-live-updates-delhi-connaught-place-gyanesh-kumar-cockroach-janta-party-abhijeet-dipke-supreme-court-sir-police-neha-bora-rahul-gandhi-ntc-amkr-2671934-2026-10-16#ndta-patra",
+   "verified": false
+  },
   {
    "t": "2026-10-16T10:05+05:30",
    "kind": "update",
