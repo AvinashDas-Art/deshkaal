@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-17T10:35+05:30",
+ "updated": "2026-10-17T17:11+05:30",
  "counters": [
   {
    "n": "~150",
@@ -51,6 +51,30 @@
   }
  ],
  "items": [
+  {
+   "t": "2026-10-17T17:11+05:30",
+   "kind": "update",
+   "text": "कॉकरोच जनता पार्टी के प्रमुख अभिजीत दिपके शांति-बॉन्ड पर दस्तख़त करने के बाद शर्तों के साथ ज़मानत पर रिहा कर दिये गये।",
+   "src": "द इंडियन एक्सप्रेस",
+   "url": "https://indianexpress.com/article/cities/delhi/cjp-founder-abhijeet-dipke-conditional-bail-sign-peace-bond-10925903/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-17T15:00+05:30",
+   "kind": "update",
+   "text": "रायसीना रोड पर वामपंथी संगठनों का प्रदर्शन जारी रहा। आरडब्ल्यूपीआई और केवाईएस के प्रदर्शनकारियों को रोकने के लिए भारी पुलिस और अर्धसैनिक बल तैनात किये गये।",
+   "src": "आजतक (लाइव ब्लॉग)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-protest-abhijeet-dipke-sem-court-tiranga-yatra-neha-bohra-aisa-ntc-acwi-2672777-2026-10-17#raisina",
+   "verified": true
+  },
+  {
+   "t": "2026-10-17T12:25+05:30",
+   "kind": "update",
+   "text": "एआईएमएसएस, क्रांतिकारी युवा संगठन और दूसरे वामपंथी संगठनों ने पुलिस कार्रवाई के विरोध में दिल्ली पुलिस मुख्यालय तक मार्च निकाला।",
+   "src": "आजतक (एएनआई के हवाले से)",
+   "url": "https://www.aajtak.in/india/news/story/cjp-protest-abhijeet-dipke-sem-court-tiranga-yatra-neha-bohra-aisa-ntc-acwi-2672777-2026-10-17#police-march",
+   "verified": true
+  },
   {
    "t": "2026-10-17T10:13+05:30",
    "kind": "update",
