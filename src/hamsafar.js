@@ -36,19 +36,19 @@ module.exports = function (H) {
   const TX = {
     hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
       fine: by => `यह रचना ${by} ने देशकाल को भेजी है। इसके सारे अधिकार उन्हीं के हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
-      bandSub: "पाठकों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "पाठकों की ओर से",
-      galI: "ये रचनाएं देशकाल के पाठकों ने भेजी हैं: लेख, कविताएं, कहानियां, कार्टून और तस्वीरें। हर रचना पढ़कर, जांचकर, उनके नाम के साथ छापी गयी है।", first: "पहली रचना आपकी हो सकती है।",
-      galT: "हमसफ़र: पाठकों की रचनाएं", galD: "देशकाल के पाठकों के भेजे लेख, कविताएं, कहानियां, कार्टून और तस्वीरें।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
+      bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की ओर से",
+      galI: "ये रचनाएं देशकाल डेस्क को लेखकों-पत्रकारों ने भेजी हैं। कुछ रचनाएं देशकाल डेस्क ने अपनी तरफ़ से चुनी हैं।", first: "पहली रचना आपकी हो सकती है।",
+      galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "देशकाल डेस्क को लेखकों-पत्रकारों की भेजी रचनाएं, कार्टून और तस्वीरें।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
     en: { sec: "Hamsafar", kind: { lekh: "Essay", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
       fine: by => `${by} sent this piece to Deshkaal. All rights remain with the writer.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
-      bandSub: "Readers' own writing, cartoons and photographs, sent to Deshkaal", all: "All pieces →", send: "Send your work", galK: "From our readers",
-      galI: "Hamsafar means fellow traveller. These are pieces our readers have sent to Deshkaal: essays, poems, stories, cartoons and photographs, each one read, checked and published under the writer's name, and translated from the original with care.", first: "The first piece could be yours.",
-      galT: "Hamsafar: readers' own work", galD: "Essays, memoirs, poems, stories, cartoons and photographs sent to Deshkaal by its readers.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
+      bandSub: "Writers' and journalists' work, cartoons and photographs sent to Deshkaal", all: "All pieces →", send: "Send your work", galK: "From writers and journalists",
+      galI: "Hamsafar means fellow traveller. These pieces have been sent to the Deshkaal desk by writers and journalists. Some pieces have been selected by the Deshkaal desk itself.", first: "The first piece could be yours.",
+      galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs sent to the Deshkaal desk by writers and journalists.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
     ur: { sec: "ہم سفر", kind: { lekh: "مضمون", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
       fine: by => `یہ تحریر ${by} نے دیش کال کو بھیجی ہے۔ اس کے تمام حقوق انہی کے ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
-      bandSub: "قارئین کی تحریریں، کارٹون اور تصویریں، جو دیش کال کو بھیجی گئیں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "قارئین کی طرف سے",
-      galI: "یہ تحریریں دیش کال کے قارئین نے بھیجی ہیں: مضمون، نظمیں، کہانیاں، کارٹون اور تصویریں۔ ہر تحریر پڑھ کر، جانچ کر، لکھنے والے کے نام کے ساتھ چھاپی گئی ہے، اور اصل سے احتیاط کے ساتھ ترجمہ کی گئی ہے۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
-      galT: "ہم سفر: قارئین کی تحریریں", galD: "دیش کال کے قارئین کی بھیجی ہوئی تحریریں، نظمیں، کہانیاں، کارٹون اور تصویریں۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
+      bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں، جو دیش کال کو بھیجی گئیں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی طرف سے",
+      galI: "یہ تحریریں دیش کال ڈیسک کو لکھنے والوں اور صحافیوں نے بھیجی ہیں۔ کچھ تحریریں دیش کال ڈیسک نے اپنی طرف سے منتخب کی ہیں۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
+      galT: "ہم سفر: لکھنے والوں اور صحافیوں کی تحریریں", galD: "دیش کال ڈیسک کو لکھنے والوں اور صحافیوں کی بھیجی ہوئی تحریریں، کارٹون اور تصویریں۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
   };
   const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
@@ -95,7 +95,7 @@ module.exports = function (H) {
       <div class="hs-pc-l"><p class="hs-k">हमसफ़र · न्योता</p><h3>यह पगडंडी आपके क़दमों से भी बनेगी</h3>
       <p>लेख, कविता, कहानी, रिपोर्ताज, कार्टून या तस्वीरें: इस वक़्त पर आपकी नज़र देशकाल पर छप सकती है, आपके नाम के साथ, पूरे सलीक़े से।</p>
       <a class="hs-btn" href="/bhejiye/">रचना भेजिए</a></div>
-      <div class="hs-pc-r" aria-hidden="true"><span class="hs-pc-lines"><i>सेवा में,</i><i>संपादक, देशकाल</i><i>${MAIL}</i></span>${stamp({ kind: "lekh", no: 1 }, true).replace("लेख", "आपकी रचना").replace("हमसफ़र 1", "डाक मुफ़्त")}<span class="hs-postmark"><svg viewBox="0 0 100 100"><defs><path id="hspm" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="27"/><text><textPath href="#hspm">देशकाल · पाठकों की डाक · देशकाल ·</textPath></text></svg></span></div>
+      <div class="hs-pc-r" aria-hidden="true"><span class="hs-pc-lines"><i>सेवा में,</i><i>संपादक, देशकाल</i><i>${MAIL}</i></span>${stamp({ kind: "lekh", no: 1 }, true).replace("लेख", "आपकी रचना").replace("हमसफ़र 1", "डाक मुफ़्त")}<span class="hs-postmark"><svg viewBox="0 0 100 100"><defs><path id="hspm" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="27"/><text><textPath href="#hspm">देशकाल · लेखकों-पत्रकारों की डाक · देशकाल ·</textPath></text></svg></span></div>
     </div></section>`;
     return `<section class="hs-band"><div class="sechead sec-hamsafar"><h3>${X.sec}</h3><p>${X.bandSub}</p></div>
       <div class="hs-grid n${recent.length}">${recent.map(w => card(w, lg)).join("")}</div>
@@ -113,7 +113,7 @@ module.exports = function (H) {
   "niti0": "पहले संपादकीय नीति पढ़ें",
   "stampB": "आपकी रचना",
   "stampS": "डाक मुफ़्त",
-  "postmark": "देशकाल · पाठकों की डाक · देशकाल ·",
+  "postmark": "देशकाल · लेखकों-पत्रकारों की डाक · देशकाल ·",
   "to1": "सेवा में,",
   "to2": "संपादक, देशकाल",
   "from": "भेजने वाला: आप",
@@ -213,14 +213,14 @@ module.exports = function (H) {
   "mail": "नमस्ते,\n\nरचना का प्रकार (लेख / कविता / कहानी / रिपोर्ताज / कार्टून / तस्वीरें):\nशीर्षक:\nनाम, जैसा छपना चाहिए:\nअपनी एक तस्वीर (साथ में जोड़ें, JPG):\nशहर या गांव:\nअपने बारे में एक-दो पंक्ति:\nक्या यह रचना पहले कहीं छपी है? (नहीं / हां, कहां और कब):\n\nमैंने देशकाल की संपादकीय नीति पढ़ ली है। यह रचना मेरी अपनी है। तस्वीरों में पहचाने जा सकने वाले लोगों की सहमति ली गयी है।\n\nरचना (यहां लिखें, या फ़ाइल जोड़ें):\n"
  },
  "en": {
-  "k1": "Hamsafar · an invitation to readers",
+  "k1": "Hamsafar · an invitation to writers and journalists",
   "h1": "This footpath will be made by your steps too",
   "lede": "Have you written something, drawn a cartoon, or caught in a photograph a moment that helps make sense of these times? Send it to Deshkaal. We publish good work with full respect and care, under your name.",
   "send": "Send your work",
   "niti0": "Read the editorial policy first",
   "stampB": "Your work",
   "stampS": "Postage free",
-  "postmark": "Deshkaal · readers' post · Deshkaal ·",
+  "postmark": "Deshkaal · writers' and journalists' post · Deshkaal ·",
   "to1": "To,",
   "to2": "The Editor, Deshkaal",
   "from": "From: you",
@@ -320,14 +320,14 @@ module.exports = function (H) {
   "mail": "Hello,\n\nType of work (essay / poem / story / reportage / cartoon / photographs):\nTitle:\nName, as it should appear:\nA photograph of yourself (attach, JPG):\nTown or village:\nOne or two lines about yourself:\nHas this work been published before? (No / Yes, where and when):\n\nI have read Deshkaal's editorial policy. This work is my own. Consent has been taken from identifiable people in the photographs.\n\nThe work (write here, or attach a file):\n"
  },
  "ur": {
-  "k1": "ہم سفر · قارئین کے لیے دعوت",
+  "k1": "ہم سفر · لکھنے والوں اور صحافیوں کے لیے دعوت",
   "h1": "یہ پگڈنڈی آپ کے قدموں سے بھی بنے گی",
   "lede": "آپ نے کچھ لکھا ہے، کوئی کارٹون بنایا ہے، یا کسی لمحے کو تصویر میں تھام لیا ہے، جو اس وقت کو سمجھنے میں مدد کرتا ہے؟ اسے دیشکال کو بھیجیے۔ اچھی تخلیق ہم پورے احترام اور سلیقے سے چھاپتے ہیں، آپ کے نام کے ساتھ۔",
   "send": "تحریر بھیجیے",
   "niti0": "پہلے ادارتی پالیسی پڑھیں",
   "stampB": "آپ کی تحریر",
   "stampS": "ڈاک مفت",
-  "postmark": "دیشکال · قارئین کی ڈاک · دیشکال ·",
+  "postmark": "دیشکال · لکھنے والوں اور صحافیوں کی ڈاک · دیشکال ·",
   "to1": "خدمت میں،",
   "to2": "مدیر، دیشکال",
   "from": "بھیجنے والا: آپ",
@@ -568,7 +568,7 @@ module.exports = function (H) {
     </article>`;
     const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: lg, ...(lg !== "hi" ? { translationOfWork: { "@type": "CreativeWork", url: SITE + url(w0) , inLanguage: "hi" } } : {}), author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
     const alt = Object.fromEntries(langs.map(l => [l, url(w0, l)]));
-    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : (w.photo || "/og-bhejiye.png"), published: w.date });
+    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png", published: w.date });
   }
 
   return { ALL, has, band, invitePage, galleryPage, workPage, url };
