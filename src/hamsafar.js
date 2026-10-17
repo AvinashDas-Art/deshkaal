@@ -32,6 +32,8 @@ module.exports = function (H) {
   const P = lg => lg === "hi" ? "" : "/" + lg;
   const url = (w, lg = "hi") => `${P(lg)}/hamsafar/${w.id}/`;
   const has = lg => w => lg === "hi" || !!w[lg];
+  /* "*" = हिस्सों के बीच का विराम, "2."/"3." = निबंध के हिस्से */
+  const para = p => /^\*$/.test(p) ? `<p class="hw-sep" aria-hidden="true">*</p>` : /^\d+\.$/.test(p) ? `<p class="hw-part">${esc(p)}</p>` : `<p>${esc(p)}</p>`;
   const loc = (w, lg) => lg === "hi" || !w[lg] ? w : { ...w, ...w[lg], images: (w.images || []).map((im, i) => ({ ...im, ...((w[lg].images || [])[i] || {}) })) };
   const TX = {
     hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
@@ -524,9 +526,9 @@ module.exports = function (H) {
     let main = "";
     if (w.kind === "cartoon") {
       main = `<figure class="toon-board big hw-toon"><a class="toon-frame" href="${esc(imgs[0].src)}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${esc(imgs[0].src)}" alt="${esc(imgs[0].alt || w.h)}"${imgs[0].w ? ` width="${imgs[0].w}" height="${imgs[0].h}"` : ""}></a><figcaption><span class="toon-sig">${esc(w.by)}</span><span>${esc(imgs[0].cap || "")}</span></figcaption></figure>
-        ${body.length ? `<div class="hw-body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}`;
+        ${body.length ? `<div class="hw-body">${body.map(para).join("")}</div>` : ""}`;
     } else if (w.kind === "photo") {
-      main = `${body.length ? `<div class="hw-body hw-intro">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<div class="hw-essay">${imgs.map((im, i) => fig(im, i === 0 ? "first" : "")).join("")}</div>`;
+      main = `${body.length ? `<div class="hw-body hw-intro">${body.map(para).join("")}</div>` : ""}<div class="hw-essay">${imgs.map((im, i) => fig(im, i === 0 ? "first" : "")).join("")}</div>`;
     } else if (w.kind === "kavita") {
       const intro = (w.intro || []).length ? `<div class="hw-body hw-intro">${w.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : "";
       const verse = w.poems && w.poems.length
@@ -536,14 +538,20 @@ module.exports = function (H) {
     } else {
       /* पाठ में "[[img:N]]" वाली अकेली पंक्ति = N-वीं तस्वीर ठीक वहीं; पाठ में [शब्द](https://...) = कड़ी */
       const inl = body.some(p => /^\[\[img:\d+\]\]$/.test(p)), used = new Set(body.map(p => (p.match(/^\[\[img:(\d+)\]\]$/) || [])[1]).filter(Boolean).map(Number));
+      const isMark = p => p === "*" || /^\d+\.$/.test(p);
+      const mark = p => p === "*" ? `<p class="hw-sep" aria-hidden="true">*</p>` : `<p class="hw-part">${esc(p)}</p>`;
       const link = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
       if (inl) {
         const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p)).length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
-        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
+        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
         main = `${imgs[0] && !used.has(0) ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
       } else {
-      const at = Math.max(1, Math.round(body.length * 0.4));
-      const paras = body.map((p, i) => `<p>${link(esc(p))}</p>${w.pull && i === at - 1 && body.length > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && i === Math.min(body.length - 2, at + 1) ? fig(imgs[1]) : ""}`).join("");
+      const nT = body.filter(p => !isMark(p)).length;
+      const tx = body.map((p, i) => ({ p, i })).filter(x => !isMark(x.p));
+      let ti = Math.max(0, Math.round(tx.length * 0.4) - 1);
+      if (isMark(body[(tx[ti] || { i: -1 }).i + 1] || "")) ti = Math.max(0, ti - 1);
+      const at = ti + 1; let k = 0;
+      const paras = body.map(p => { if (isMark(p)) return mark(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
       }
     }
