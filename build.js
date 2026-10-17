@@ -440,6 +440,12 @@ function campaignBand() {
   if (d.variant === "questions") {
     return `<section class="camp camp-q"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><ol class="cp-qs">${(t.qs || []).map(q => `<li>${esc(q)}</li>`).join("")}</ol>${cta}</div></section>`;
   }
+  if (d.variant === "facts") {
+    return `<section class="camp camp-facts"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><dl class="cp-facts">${(t.facts || []).map(f => `<div><dt>${esc(f.n)}</dt><dd>${esc(f.l)}</dd></div>`).join("")}</dl>${cta}</div></section>`;
+  }
+  if (d.variant === "epigraph") {
+    return `<section class="camp camp-epi"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><blockquote class="cp-eq">${esc(t.quote)}</blockquote><p class="cp-ea">${esc(t.by)}</p>${cta}</div></section>`;
+  }
   if (d.variant === "strip") {
     return `<section class="camp camp-strip"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><p class="cp-n">${esc(t.note || "")}</p>${cta}</div></section>`;
   }
