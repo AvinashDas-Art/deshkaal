@@ -479,6 +479,26 @@ body.noscroll{overflow:hidden}
 .toon-tease{font-family:var(--f-hand);font-size:19px!important;line-height:1.55;color:var(--ink)!important;margin:16px 0 8px!important}
 .toon-read{font-family:var(--f-ui);font-weight:700;font-size:15px;color:var(--lal)}
 
+/* होमपेज पर दोनों कार्टूनिस्टों का साझा, छोटा पिन-बोर्ड */
+.toon-duo{margin-top:34px;padding:30px 0 38px;border-top:3px solid var(--ink)}
+.toon-duo-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
+.toon-duo-head h3{font-family:var(--f-paint);font-weight:400;font-size:clamp(38px,5vw,62px);line-height:1.05;margin:0;transform:rotate(-2deg);display:inline-block;border-bottom:5px solid var(--lal)}
+.toon-duo-head p:last-child{max-width:270px;margin:0 0 3px;font-family:var(--f-ui);font-size:16px;line-height:1.55;color:var(--ink-2)}
+.toon-duo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.toon-card{min-width:0;padding:18px 18px 15px;background:color-mix(in srgb,var(--lal) 5%,var(--paper));border:1px solid var(--rule)}
+.toon-card:nth-child(2){background:color-mix(in srgb,var(--neel) 5%,var(--paper))}
+.toon-card-top{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:16px}
+.toon-card-top h4{font-family:var(--f-paint);font-weight:400;font-size:30px;line-height:1.1;margin:0}
+.toon-card-top p{font-family:var(--f-ui);font-size:15px;color:var(--ink-2);margin:5px 0 0}
+.toon-card-top>a,.toon-card-foot a{font-family:var(--f-ui);font-size:14px;font-weight:700;color:var(--lal);white-space:nowrap}
+.toon-card-img{position:relative;display:block;background:#fff;padding:10px;border:1px solid var(--ink);transform:rotate(-.7deg);transition:transform .25s,box-shadow .25s}
+.toon-card:nth-child(2) .toon-card-img{transform:rotate(.7deg)}
+.toon-card-img:hover{transform:rotate(0) translateY(-3px);box-shadow:7px 8px 0 var(--ink)}
+.toon-card-img img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain}
+.toon-card-foot{display:flex;justify-content:space-between;gap:12px;margin-top:15px;font-family:var(--f-ui);font-size:14px;color:var(--ink-2)}
+.artist-intro{font-family:var(--f-ui);font-size:18px;color:var(--ink-2);margin:-18px 0 28px}
+@media (max-width:720px){.toon-duo-head{display:block}.toon-duo-head p:last-child{margin-top:16px}.toon-duo-grid{grid-template-columns:1fr}.toon-card-img img{max-height:none}}
+
 /* मास्टहेड: अंग्रेज़ी और उर्दू में भी वही ब्रश और लाल सूरज */
 html[lang="en"] .mast{font-size:clamp(58px,10.5vw,124px);letter-spacing:.015em}
 html[lang="en"] .mast .w{-webkit-text-stroke:.03em var(--ink)}

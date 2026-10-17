@@ -279,31 +279,43 @@ function hero(L, kick = T.bigDebate) {
   <div class="hero-text">${heroText(L, kick)}${ankBlock(L)}${heroFoot(L)}</div></section>`;
 }
 
-const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse() : []).map(f => JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")));
+const CARTOONS = (fs.existsSync("data/cartoons") ? fs.readdirSync("data/cartoons").filter(f => f.endsWith(".json")).filter(f => /^\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?\.json$/.test(f)).sort().reverse() : []).map(f => ({ ...JSON.parse(fs.readFileSync(path.join("data/cartoons", f), "utf8")), key: f.replace(/\.json$/, "") }));
+const CARTOONISTS = {
+  "rajendra-dhodapkar": { hi: "तिरछी नज़र", en: "Sideways Glance", ur: "ترچھی نظر", artist: "राजेंद्र धोड़पकर", artist_en: "Rajendra Dhodapkar", artist_ur: "راجندر دھوڑپکر" },
+  "satish-acharya": { hi: "सतीश की स्याही", en: "Satish's Ink", ur: "ستیش کی سیاہی", artist: "सतीश आचार्य", artist_en: "Satish Acharya", artist_ur: "ستیش آچاریہ" }
+};
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
-const ARTIST_UR = { "Rajendra Dhodapkar": "راجندر دھوڑپکر" };
-const toonL = c => { if (LG === "hi") return c; const f = path.join("data/i18n", LG, "cartoon-" + c.date + ".json"); const t = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; const ar = LG === "ur" ? (ARTIST_UR[c.artist_en] || c.artist_en || c.artist) : (c.artist_en || c.artist); return { ...c, ...t, artist: ar, chutki: t.chutki || null }; };
+const artistSlug = c => c.artist_slug || (c.artist_en === "Satish Acharya" ? "satish-acharya" : "rajendra-dhodapkar");
+const artistCfg = c => CARTOONISTS[artistSlug(c)] || CARTOONISTS["rajendra-dhodapkar"];
+const cartoonURL = c => artistSlug(c) === "rajendra-dhodapkar" ? `${PRE}/cartoon/${c.date}/` : `${PRE}/cartoon/${artistSlug(c)}/${c.date}/`;
+const artistURL = slug => `${PRE}/cartoon/${slug}/`;
+const toonL = c => { const cfg = artistCfg(c); if (LG === "hi") return { ...c, artist: c.artist || cfg.artist }; const f = path.join("data/i18n", LG, "cartoon-" + c.key + ".json"); const t = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; const ar = LG === "ur" ? (cfg.artist_ur || c.artist_en || c.artist) : (c.artist_en || c.artist); return { ...c, ...t, artist: ar, chutki: t.chutki || c.chutki || null }; };
 const TC = { hi: { read: "पूरी चुटकी पढ़ें →", fine: a => `कार्टून के सारे अधिकार ${a} के हैं। देशकाल पर उनकी अनुमति से।`, k: "देशकाल की चुटकी", between: "रेखाओं<br>के बीच", on: a => `${a} के कार्टून पर`, more: "और कार्टून", of: a => `${a} का कार्टून` }, en: { read: "Read the full note →", fine: a => `All rights in the cartoon belong to ${a}. On Deshkaal with his permission.`, k: "Deshkaal's note", between: "Between<br>the lines", on: a => `On ${a}'s cartoon`, more: "More cartoons", of: a => `${a}'s cartoon` }, ur: { read: "پوری چٹکی پڑھیں ←", fine: a => `کارٹون کے سارے حقوق ${a} کے پاس ہیں۔ دیشکال پر ان کی اجازت سے۔`, k: "دیشکال کی چٹکی", between: "لکیروں<br>کے بیچ", on: a => `${a} کے کارٹون پر`, more: "اور کارٹون", of: a => `${a} کا کارٹون` } };
-const toonFor = date => PUB_TOONS.find(c => c.date === date);
-const toonBand = c0 => { const c = toonL(c0), K = TC[LG]; return `<section class="toon">
-  <div class="toon-head"><h3>${TOON[LG][0]}</h3><p><b>${esc(c.artist)}</b>${TOON[LG][1]}</p>${c.chutki ? `<p class="toon-tease">${esc(c.chutki[0].split(LG === "ur" ? "۔" : LG === "en" ? ". " : "।")[0])}${LG === "ur" ? "۔" : LG === "en" ? "." : "।"}</p><a class="toon-read" href="${PRE}/cartoon/${c.date}/">${K.read}</a>` : ""}</div>
-  <figure class="toon-board"><a class="toon-frame" href="${PRE}/cartoon/${c.date}/" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
+const toonFor = date => PUB_TOONS.find(c => c.date === date && artistSlug(c) === "rajendra-dhodapkar");
+const latestArtist = slug => PUB_TOONS.filter(c => artistSlug(c) === slug).sort((a, b) => b.date.localeCompare(a.date))[0];
+const toonBand = c0 => { const c = toonL(c0), K = TC[LG], cfg = artistCfg(c); return `<section class="toon">
+  <div class="toon-head"><h3>${esc(cfg[LG])}</h3><p><b>${esc(c.artist)}</b>${TOON[LG][1]}</p>${c.chutki ? `<p class="toon-tease">${esc(c.chutki[0].split(LG === "ur" ? "۔" : LG === "en" ? ". " : "।")[0])}${LG === "ur" ? "۔" : LG === "en" ? "." : "।"}</p><a class="toon-read" href="${cartoonURL(c)}">${K.read}</a>` : ""}</div>
+  <figure class="toon-board"><a class="toon-frame" href="${cartoonURL(c)}" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
   <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`; };
 
+const toonDuoBand = () => { const cards = Object.keys(CARTOONISTS).map(slug => latestArtist(slug)).filter(Boolean); if (!cards.length) return ""; return `<section class="toon-duo"><div class="toon-duo-head"><div><p class="kicker">${LG === "en" ? "CARTOONS" : LG === "ur" ? "کارٹون" : "कार्टून"}</p><h3>${LG === "en" ? "Two lines, two views" : LG === "ur" ? "دو لکیریں، دو نظریے" : "रेखाओं की दो आवाज़ें"}</h3></div><p>${LG === "en" ? "Two cartoonists, two ways of looking at the day." : LG === "ur" ? "دو کارٹونسٹ، دن کو دیکھنے کے دو انداز۔" : "दो कार्टूनिस्ट, दिन को देखने के दो अलग अंदाज़।"}</p></div><div class="toon-duo-grid">${cards.map(c0 => { const c = toonL(c0), cfg = artistCfg(c); return `<article class="toon-card"><div class="toon-card-top"><div><h4>${esc(cfg[LG])}</h4><p>${esc(c.artist)}</p></div><a href="${artistURL(artistSlug(c))}">${LG === "en" ? "All cartoons →" : LG === "ur" ? "سب کارٹون ←" : "पूरा पन्ना →"}</a></div><a class="toon-card-img" href="${cartoonURL(c)}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a><div class="toon-card-foot"><span>${dayLabel(c.date)}</span><a href="${cartoonURL(c)}">${LG === "en" ? "Open cartoon" : LG === "ur" ? "کارٹون دیکھیں" : "कार्टून देखिए"} ↗</a></div></article>`; }).join("")}</div></section>`; };
+
 function cartoonPage(c0) {
-  const c = toonL(c0), K = TC[LG], others = PUB_TOONS.filter(x => x !== c0).slice(0, 8).map(toonL), u = encodeURIComponent(`${SITE}${PRE}/cartoon/${c.date}/`), t = encodeURIComponent(`${TOON[LG][0]}: ${K.of(c.artist)}`);
+  const c = toonL(c0), K = TC[LG], cfg = artistCfg(c), others = PUB_TOONS.filter(x => x !== c0 && artistSlug(x) === artistSlug(c0)).slice(0, 8).map(toonL), url = cartoonURL(c), u = encodeURIComponent(`${SITE}${url}`), t = encodeURIComponent(`${cfg[LG]}: ${K.of(c.artist)}`);
   const body = `<section class="toon-page"><a class="back" href="${PRE}/">${T.back}</a>
-    <p class="kicker" style="margin-top:22px">${TOON[LG][0]} · ${dayLabel(c.date)}</p><h1>${esc(K.of(c.artist))}</h1>
+    <p class="kicker" style="margin-top:22px">${esc(cfg[LG])} · ${dayLabel(c.date)}</p><h1>${esc(K.of(c.artist))}</h1>
     <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
-    <div class="share" data-url="${SITE}${PRE}/cartoon/${c.date}/" data-title="${TOON[LG][0]}"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
+    <div class="share" data-url="${SITE}${url}" data-title="${cfg[LG]}"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
     ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">${K.k}</span><h3>${K.between}</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(K.on(c.artist))}</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
     <p class="fine">${esc(K.fine(c.artist))}</p>
-    ${others.length ? `<h3 class="toon-more">${K.more}</h3><div class="toon-grid">${others.map(o => `<a href="${PRE}/cartoon/${o.date}/"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
-  const available = LANGS.filter(l => l === "hi" || fs.existsSync(path.join("data/i18n", l, "cartoon-" + c.date + ".json")));
-  return layout({ title: `${TOON[LG][0]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url: `${PRE}/cartoon/${c.date}/`, body, image: c.img, published: c.date, alt: languageURLs(`/cartoon/${c.date}/`, available), noindex: !available.includes(LG) });
+    ${others.length ? `<h3 class="toon-more">${K.more}</h3><div class="toon-grid">${others.map(o => `<a href="${cartoonURL(o)}"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
+  const available = LANGS.filter(l => l === "hi" || fs.existsSync(path.join("data/i18n", l, "cartoon-" + c.key + ".json")));
+  return layout({ title: `${cfg[LG]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url, body, image: c.img, published: c.date, alt: languageURLs(url.replace(PRE, ""), available), noindex: !available.includes(LG) });
 }
+
+function artistPage(slug) { const cfg = CARTOONISTS[slug], list = PUB_TOONS.filter(c => artistSlug(c) === slug).sort((a, b) => b.date.localeCompare(a.date)), cards = list.map(c0 => { const c = toonL(c0); return `<a href="${cartoonURL(c)}"><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"><span>${dayLabel(c.date)}</span></a>`; }).join(""); return layout({ title: cfg[LG], desc: `${cfg[LG]} · ${cfg.artist || cfg.artist_en}`, url: artistURL(slug), body: `<section class="toon-page artist-page"><a class="back" href="${PRE}/">${T.back}</a><p class="kicker" style="margin-top:22px">${LG === "en" ? "CARTOONIST" : LG === "ur" ? "کارٹونسٹ" : "कार्टूनिस्ट"}</p><h1>${esc(cfg[LG])}</h1><p class="artist-intro">${esc(cfg.artist || cfg.artist_en)}</p><div class="toon-grid">${cards}</div></section>`, alt: { hi: `/cartoon/${slug}/`, en: `/en/cartoon/${slug}/`, ur: `/ur/cartoon/${slug}/` } }); }
 
 const connect = () => `<section class="band">
   <div><h4>${T.sunT}</h4><p>${T.sunP}</p><div class="act"><span class="chip">${T.sunChip}</span></div></div>
@@ -434,7 +446,7 @@ function homePage() {
   ${pari.length ? `<section class="pariband">${head("pari")}<div class="grid g3 gv${PV.pari}">${pari.map(card).join("")}</div></section>` : ""}
   ${vid ? videoBand(vid) : ""}
   ${lits.length ? `<section class="litband">${head("sahitya")}<div class="litgrid">${lits.map(lit).join("")}</div></section>` : ""}
-  ${toonFor(today.date) ? toonBand(toonFor(today.date)) : ""}
+  ${toonDuoBand()}
   ${HS.band(LG)}
   ${connect()}`;
   return layout({ title: "", desc: T.homeDesc(dayLabel(today.date), today.items.length), url: PRE + "/", body, tab: "home", catOn: "सब", alt: { hi: "/", en: "/en/", ur: "/ur/" } });
@@ -697,14 +709,14 @@ for (const l of LANGS) {
     LIVE_DAYS.forEach(d => out(`live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
   }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());
-    out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); }
+    out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); Object.keys(CARTOONISTS).forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug))); }
 }
 
 for (const l of ["en", "ur"]) {
   setLang(l); days = DAYS_HI; all = days.flatMap(d => d.items); today = days[0];
   const P = l + "/";
   out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage(LG));
-  PUB_TOONS.forEach(c => out(`${P}cartoon/${c.date}/index.html`, cartoonPage(c)));
+  PUB_TOONS.forEach(c => out(`${cartoonURL(c).slice(1)}/index.html`, cartoonPage(c)));
   if (LIVE_ON) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
     out(P + "live/index.html", livePage(T0, "/live/"));
@@ -717,8 +729,9 @@ out("feed.xml", feed());
   asc.forEach((d, i) => out(`akhbar/${d.date}/index.html`, akhbarPage(d, i + 1, desc)));
   out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
-PUB_TOONS.forEach(c => out(`cartoon/${c.date}/index.html`, cartoonPage(c)));
-PUB_TOONS.forEach(c => { fs.mkdirSync("dist/cartoon", { recursive: true }); fs.copyFileSync(path.join("data/cartoons/img", c.date + ".jpg"), path.join("dist/cartoon", c.date + ".jpg")); });
+PUB_TOONS.forEach(c => out(cartoonURL(c).slice(1) + "index.html", cartoonPage(c)));
+Object.keys(CARTOONISTS).forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug)));
+PUB_TOONS.forEach(c => { const src = path.join("data/cartoons/img", c.file || (c.date + ".jpg")), dst = path.join("dist", c.img.replace(/^\//, "")); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(src, dst); });
 out("sitemap.xml", require("./src/seo.js").sitemap("dist", SITE));
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
 out("art.js", fs.readFileSync("src/art.js", "utf8"));
