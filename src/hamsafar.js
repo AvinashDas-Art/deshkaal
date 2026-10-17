@@ -35,20 +35,20 @@ module.exports = function (H) {
   const loc = (w, lg) => lg === "hi" || !w[lg] ? w : { ...w, ...w[lg], images: (w.images || []).map((im, i) => ({ ...im, ...((w[lg].images || [])[i] || {}) })) };
   const TX = {
     hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
-      fine: by => `यह रचना ${by} ने देशकाल को भेजी है। इसके सारे अधिकार उन्हीं के हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
-      bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, जो देशकाल को भेजी गयीं", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की ओर से",
-      galI: "ये रचनाएं देशकाल डेस्क को लेखकों-पत्रकारों ने भेजी हैं। कुछ रचनाएं देशकाल डेस्क ने अपनी तरफ़ से चुनी हैं।", first: "पहली रचना आपकी हो सकती है।",
-      galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "देशकाल डेस्क को लेखकों-पत्रकारों की भेजी रचनाएं, कार्टून और तस्वीरें।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
+      fine: by => `इस रचना के सारे अधिकार ${by} के पास हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
+      bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की रचनाएं",
+      galI: "हमसफ़र में लेखकों-पत्रकारों की रचनाएं, उनकी अनुमति के साथ।", first: "पहली रचना आपकी हो सकती है।",
+      galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, उनकी अनुमति के साथ।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
     en: { sec: "Hamsafar", kind: { lekh: "Essay", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
-      fine: by => `${by} sent this piece to Deshkaal. All rights remain with the writer.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
-      bandSub: "Writers' and journalists' work, cartoons and photographs sent to Deshkaal", all: "All pieces →", send: "Send your work", galK: "From writers and journalists",
-      galI: "Hamsafar means fellow traveller. These pieces have been sent to the Deshkaal desk by writers and journalists. Some pieces have been selected by the Deshkaal desk itself.", first: "The first piece could be yours.",
-      galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs sent to the Deshkaal desk by writers and journalists.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
+      fine: by => `All rights to this work remain with ${by}.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
+      bandSub: "Writers' and journalists' work, cartoons and photographs", all: "All pieces →", send: "Send your work", galK: "Writers and journalists",
+      galI: "Hamsafar means fellow traveller. Work by writers and journalists, published with their permission.", first: "The first piece could be yours.",
+      galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs, published with their creators' permission.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
     ur: { sec: "ہم سفر", kind: { lekh: "مضمون", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
-      fine: by => `یہ تحریر ${by} نے دیش کال کو بھیجی ہے۔ اس کے تمام حقوق انہی کے ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
-      bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں، جو دیش کال کو بھیجی گئیں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی طرف سے",
-      galI: "یہ تحریریں دیش کال ڈیسک کو لکھنے والوں اور صحافیوں نے بھیجی ہیں۔ کچھ تحریریں دیش کال ڈیسک نے اپنی طرف سے منتخب کی ہیں۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
-      galT: "ہم سفر: لکھنے والوں اور صحافیوں کی تحریریں", galD: "دیش کال ڈیسک کو لکھنے والوں اور صحافیوں کی بھیجی ہوئی تحریریں، کارٹون اور تصویریں۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
+      fine: by => `اس تحریر کے تمام حقوق ${by} کے پاس ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
+      bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی تحریریں",
+      galI: "ہم سفر میں لکھنے والوں اور صحافیوں کی تحریریں، ان کی اجازت کے ساتھ۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
+      galT: "ہم سفر: لکھنے والوں اور صحافیوں کی تحریریں", galD: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں، ان کی اجازت کے ساتھ۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
   };
   const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
@@ -559,6 +559,7 @@ module.exports = function (H) {
         ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
       </header>
       ${main}
+      ${w.source_url ? `<p class="orig"><a href="${esc(w.source_url)}" target="_blank" rel="noopener">${lg === "en" ? "Read the original" : lg === "ur" ? "اصل مضمون پڑھیے" : "मूल लेख पढ़िए"}: ${esc(w.source_name || "")} →</a></p>` : ""}
       ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${esc(w.note)}</p></aside>` : ""}
       <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}${w.bio_url ? `<p><a href="${esc(w.bio_url)}" target="_blank" rel="noopener">${esc(w.bio_source || "परिचय का स्रोत")}</a></p>` : ""}</div></aside>
       ${share(url(w0, lg), w.h, lg)}

@@ -10,12 +10,16 @@
   "bio": "अरुंधती रॉय भारतीय लेखिका, निबंधकार और सामाजिक कार्यकर्ता हैं। उनका उपन्यास 'द गॉड ऑफ़ स्मॉल थिंग्स' 1997 में बुकर पुरस्कार से सम्मानित हुआ। वह मानवाधिकार और पर्यावरण से जुड़े सवालों पर लगातार लिखती रही हैं और 2024 में उन्हें PEN Pinter Prize मिला।",
   "cat": "विचार",
   "lang": "hi",
+  "source_url": "https://www.equator.org/articles/arundhati-roy-artificial-intelligence",
+  "source_name": "EQUATOR",
   "pull": "कृत्रिम बुद्धिमत्ता पूंजीवाद की आख़िरी मंज़िल है।",
   "note": "मूल लेख 'Apocalypse Now and Then' www.equator.org पर प्रकाशित हुआ है। यह उसका संपादित हिंदुस्तानी रूपांतर है, ताकि हिंदी-उर्दू के पाठकों के लिए लेख को आसानी से पढ़ा जा सके।",
   "fine": "मूल लेख के अधिकार अरुंधती रॉय और प्रकाशक के पास हैं। देशकाल पर यह लेख अनुमति और स्रोत के उल्लेख के साथ प्रकाशित है।",
   "images": [
     {
-      "src": "/media/hamsafar/arundhati-cyclops.png",
+      "src": "/media/hamsafar/arundhati-cyclops-v2.jpg",
+      "w": 1400,
+      "h": 1539,
       "alt": "एक आंख वाले साइक्लोप्स का चित्र",
       "cap": "Odilon Redon: The deformed polyp floated on the shores, a sort of smiling and hideous Cyclops (1883) / National Gallery of Art"
     }
