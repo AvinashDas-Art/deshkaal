@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-17T17:11+05:30",
+ "updated": "2026-10-17T23:59+05:30",
  "counters": [
   {
    "n": "~150",
@@ -52,11 +52,36 @@
  ],
  "items": [
   {
+   "t": "2026-10-17T22:10+05:30",
+   "kind": "news",
+   "h": "केजरीवाल ने दिपके की ज़मानत का स्वागत किया",
+   "src": "एएनआई (लोकमत)",
+   "url": "https://www.lokmattimes.com/national/abhijeet-dipke-released-after-being-granted-conditional-bail-kejriwal-welcomes-move/"
+  },
+  {
+   "t": "2026-10-17T20:33+05:30",
+   "kind": "update",
+   "text": "रिहाई के बाद दिपके ने एक्स पर सौरव दास और आशुतोष रांका की तस्वीर लगाकर लिखा कि अब वे अपने इन दो भाइयों की रिहाई का इंतज़ार कर रहे हैं। दोनों अब भी न्यायिक हिरासत में हैं।",
+   "src": "सरकारनामा (मराठी)",
+   "url": "https://sarkarnama.esakal.com/desh/abhijeet-dipke-bail-granted-new-tweet-sourav-das-ashutosh-ranka-cjp-will-be-big-announcement-dk88",
+   "verified": true
+  },
+  {
    "t": "2026-10-17T17:11+05:30",
    "kind": "update",
    "text": "कॉकरोच जनता पार्टी के प्रमुख अभिजीत दिपके शांति-बॉन्ड पर दस्तख़त करने के बाद शर्तों के साथ ज़मानत पर रिहा कर दिये गये।",
    "src": "द इंडियन एक्सप्रेस",
    "url": "https://indianexpress.com/article/cities/delhi/cjp-founder-abhijeet-dipke-conditional-bail-sign-peace-bond-10925903/",
+   "verified": true
+  },
+  {
+   "t": "2026-10-17T16:00+05:30",
+   "kind": "video",
+   "yt": "Pnpf2qeF1xw",
+   "text": "रवीश कुमार: 'रिजीम चेंज' की बोगस थ्योरी कहां से आई, एसआईआर के मुद्दे को पीछे हटाने का नया बहाना?",
+   "src": "रवीश कुमार ऑफ़िशियल",
+   "url": "https://www.youtube.com/watch?v=Pnpf2qeF1xw",
+   "live": false,
    "verified": true
   },
   {
