@@ -1,0 +1,88 @@
+{
+  "active": true,
+  "id": "roy-apocalypse",
+  "href": "/hamsafar/2026-10-16-arundhati-roy-apocalypse-now/",
+  "img": "/media/hamsafar/arundhati-cyclops-v2.jpg",
+  "from": "2026-10-18",
+  "to": "2026-10-20",
+  "days": [
+    {
+      "date": "2026-10-17",
+      "variant": "poster",
+      "hi": {
+        "kicker": "अरुंधती रॉय · पूरा निबंध",
+        "h": "क़यामत अभी नहीं आयी है, मगर उसकी आहट है",
+        "quote": "पर एआई उपनिवेशवाद का वह रूप है जिसकी कल्पना हममें से बहुत कम लोग कर सकते हैं। यह पूंजीवाद की आख़िरी मंज़िल है।",
+        "cta": "पूरा निबंध पढ़िए, हिंदी, उर्दू और अंग्रेज़ी में"
+      },
+      "en": {
+        "kicker": "Arundhati Roy · the full essay",
+        "h": "Apocalypse Now and Then",
+        "quote": "But AI is colonisation of a kind few of us can even imagine. It's capitalism's final destination.",
+        "cta": "Read the full essay, in English, Hindi and Urdu"
+      },
+      "ur": {
+        "kicker": "اروندھتی رائے · مکمل مضمون",
+        "h": "قیامت ابھی نہیں آئی، مگر اس کی آہٹ ہے",
+        "quote": "مگر اے آئی نوآبادیات کی وہ صورت ہے جس کا تصور ہم میں سے بہت کم لوگ کر سکتے ہیں۔ یہ سرمایہ داری کی آخری منزل ہے۔",
+        "cta": "مکمل مضمون پڑھیں، اردو، ہندی اور انگریزی میں"
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "variant": "questions",
+      "hi": {
+        "kicker": "आज फिर पढ़िए",
+        "h": "तीन सवाल जो यह निबंध आपसे पूछता है",
+        "qs": [
+          "जब एआई ने डैश पर क़ब्ज़ा कर लिया है, तो आने वाली पीढ़ियों की भाषा किसकी होगी?",
+          "जो लोग मशीन बना रहे हैं, वे ही उससे क्यों डरते हैं?",
+          "अगर दौलत बराबर बांटी जाए, तो हर इंसान को बुनियादी आय आज ही क्यों नहीं मिल सकती?"
+        ],
+        "cta": "निबंध पढ़िए →"
+      },
+      "en": {
+        "kicker": "Read it again today",
+        "h": "Three questions the essay asks you",
+        "qs": [
+          "If AI owns the dash, whose language will the next generation inherit?",
+          "Why are the people building the machine afraid of it?",
+          "If wealth were shared out, why could everyone not have a basic income today?"
+        ],
+        "cta": "Read the essay →"
+      },
+      "ur": {
+        "kicker": "آج پھر پڑھیے",
+        "h": "تین سوال جو یہ مضمون آپ سے پوچھتا ہے",
+        "qs": [
+          "جب اے آئی نے ڈیش پر قبضہ کر لیا، تو آنے والی نسلوں کی زبان کس کی ہو گی؟",
+          "جو لوگ مشین بنا رہے ہیں، وہی اس سے کیوں ڈرتے ہیں؟",
+          "اگر دولت برابر تقسیم کی جائے، تو ہر انسان کو بنیادی آمدنی آج ہی کیوں نہیں مل سکتی؟"
+        ],
+        "cta": "مضمون پڑھیں ←"
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "variant": "strip",
+      "hi": {
+        "kicker": "आख़िरी दिन",
+        "h": "अरुंधती रॉय का पूरा निबंध, तीन भाषाओं में",
+        "note": "क़रीब 25 मिनट का पाठ · हिंदी, उर्दू और मूल अंग्रेज़ी",
+        "cta": "अभी पढ़िए →"
+      },
+      "en": {
+        "kicker": "Last day",
+        "h": "Arundhati Roy's full essay, in three languages",
+        "note": "About 25 minutes · Hindi, Urdu and the original English",
+        "cta": "Read it now →"
+      },
+      "ur": {
+        "kicker": "آخری دن",
+        "h": "اروندھتی رائے کا مکمل مضمون، تین زبانوں میں",
+        "note": "تقریباً 25 منٹ کا مطالعہ · اردو، ہندی اور اصل انگریزی",
+        "cta": "ابھی پڑھیں ←"
+      }
+    }
+  ]
+}

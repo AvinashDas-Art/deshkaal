@@ -1233,3 +1233,27 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .article-support p{margin:4px 0 0;color:var(--ink-2);font-size:14px;line-height:1.5}
 .article-support .razorpay-payment-button{flex:0 0 auto}
 @media(max-width:680px){.support-ribbon-link{padding:6px 9px}.support-ribbon-link small{font-size:10px}.article-support{display:block}.article-support .razorpay-payment-button{margin-top:14px}}
+
+/* ---------- होमपेज कैंपेन: एक रचना, तीन दिन, तीन अंदाज़ (data/campaign.json) ---------- */
+.camp{margin:var(--s6,48px) 0 var(--s5,40px)}
+.camp .cp-in{position:relative}
+.camp .cp-k{margin:0 0 8px;font-family:var(--f-ui);font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--geru)}
+.camp .cp-h{margin:0;font-family:var(--f-paint);font-weight:400;line-height:1.18;font-size:clamp(28px,4.2vw,46px)}
+.camp .cp-cta{display:inline-block;margin-top:18px;font-family:var(--f-ui);font-size:16px;font-weight:700;border-bottom:2px solid currentColor;padding-bottom:2px}
+.camp .cp-cta:hover{color:var(--geru);border-color:var(--geru)}
+.camp-poster{border-top:8px solid var(--lal);border-bottom:1px solid var(--rule);background:color-mix(in srgb,var(--lal) 7%,var(--paper));padding:clamp(18px,3vw,34px) clamp(16px,2.4vw,26px)}
+.camp-poster .cp-in{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(18px,3vw,38px);align-items:center}
+.camp-poster .cp-img{width:100%;height:auto;display:block;filter:saturate(.9);border:1px solid var(--rule)}
+.camp-poster .cp-q{margin:16px 0 0;padding-inline-start:16px;border-inline-start:4px solid var(--lal);font-family:var(--f-body);font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--ink-2)}
+.camp-q{border:1px solid var(--rule);border-top:8px solid var(--neel);background:var(--neel-soft);padding:clamp(20px,3vw,34px)}
+.camp-q .cp-k{color:var(--neel)}
+.camp-q .cp-qs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);margin:22px 0 0;padding:0;list-style:none;counter-reset:q}
+.camp-q .cp-qs li{counter-increment:q;font-family:var(--f-body);font-size:clamp(16px,1.5vw,18.5px);line-height:1.55}
+.camp-q .cp-qs li::before{content:"0" counter(q);display:block;font-family:var(--f-poster);font-size:clamp(30px,4vw,44px);line-height:1;color:var(--neel);margin-bottom:8px}
+.camp-strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--haldi-soft);padding:clamp(14px,2.2vw,22px) clamp(16px,2.4vw,26px)}
+.camp-strip .cp-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px clamp(16px,2.4vw,30px)}
+.camp-strip .cp-k{flex:0 0 100%;margin:0;color:var(--haldi)}
+.camp-strip .cp-h{font-size:clamp(22px,2.6vw,30px);flex:1 1 340px}
+.camp-strip .cp-n{margin:0;color:var(--ink-2);font-size:15px;flex:0 1 auto}
+.camp-strip .cp-cta{margin-top:0}
+@media (max-width:820px){.camp-poster .cp-in{grid-template-columns:1fr}.camp-poster .cp-img{max-width:260px}.camp-q .cp-qs{grid-template-columns:1fr}}

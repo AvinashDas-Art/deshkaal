@@ -423,6 +423,29 @@ function liveTeaser() {
 }
 
 /* ---------- pages ---------- */
+/* ---------- होमपेज कैंपेन (data/campaign.json): कुछ दिन एक रचना को अलग-अलग अंदाज़ में उभारता है ---------- */
+function campaignBand() {
+  const f = "data/campaign.json";
+  if (!fs.existsSync(f)) return "";
+  let C;
+  try { C = JSON.parse(fs.readFileSync(f, "utf8")); } catch { return ""; }
+  if (!C || C.active === false || !C.days || !C.days.length) return "";
+  if (IST_TODAY < C.from || IST_TODAY > C.to) return "";
+  const d = C.days.find(x => x.date === IST_TODAY) || C.days[C.days.length - 1];
+  const t = d[LG] || d.hi;
+  if (!t) return "";
+  const u = LG === "hi" ? C.href : "/" + LG + C.href;
+  const img = C.img ? `<img class="cp-img" src="${esc(C.img)}" alt="${esc(t.h)}" loading="lazy" width="1400" height="1539">` : "";
+  const cta = `<a class="cp-cta" href="${u}">${esc(t.cta)} <span aria-hidden="true">→</span></a>`;
+  if (d.variant === "questions") {
+    return `<section class="camp camp-q"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><ol class="cp-qs">${(t.qs || []).map(q => `<li>${esc(q)}</li>`).join("")}</ol>${cta}</div></section>`;
+  }
+  if (d.variant === "strip") {
+    return `<section class="camp camp-strip"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><p class="cp-n">${esc(t.note || "")}</p>${cta}</div></section>`;
+  }
+  return `<section class="camp camp-poster"><div class="cp-in">${img}<div class="cp-tx"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><blockquote class="cp-q">${esc(t.quote)}</blockquote>${cta}</div></div></section>`;
+}
+
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), vis = by("amukh").filter(a => a.visesh), amukh = by("amukh").filter(a => !a.visesh)[0];
@@ -438,7 +461,7 @@ function homePage() {
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
-  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}
