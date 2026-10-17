@@ -66,19 +66,19 @@
       "date": "2026-10-20",
       "variant": "strip",
       "hi": {
-        "kicker": "आख़िरी दिन",
+        "kicker": "तीसरा दिन",
         "h": "अरुंधती रॉय का पूरा निबंध, तीन भाषाओं में",
         "note": "क़रीब 25 मिनट का पाठ · हिंदी, उर्दू और मूल अंग्रेज़ी",
         "cta": "अभी पढ़िए →"
       },
       "en": {
-        "kicker": "Last day",
+        "kicker": "Day three",
         "h": "Arundhati Roy's full essay, in three languages",
         "note": "About 25 minutes · Hindi, Urdu and the original English",
         "cta": "Read it now →"
       },
       "ur": {
-        "kicker": "آخری دن",
+        "kicker": "تیسرا دن",
         "h": "اروندھتی رائے کا مکمل مضمون، تین زبانوں میں",
         "note": "تقریباً 25 منٹ کا مطالعہ · اردو، ہندی اور اصل انگریزی",
         "cta": "ابھی پڑھیں ←"
