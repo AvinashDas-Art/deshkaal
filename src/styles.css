@@ -1274,3 +1274,17 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .camp .cp-eq{margin:0 auto;max-width:44ch;font-family:var(--f-head);font-size:clamp(23px,3.2vw,36px);line-height:1.45;color:var(--ink)}
 .camp .cp-ea{margin:14px 0 0;font-family:var(--f-ui);font-size:15px;color:var(--ink-2)}
 @media (max-width:820px){.camp .cp-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* रविवार विशेष */
+.weekly-band{margin:var(--s6) 0;border-top:6px solid var(--lal);background:color-mix(in srgb,var(--lal) 6%,var(--paper));padding:clamp(18px,3vw,30px)}
+.weekly-band .wk-k,.wk-page .wk-k{margin:0 0 6px;font-family:var(--f-ui);font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--lal);font-weight:700}
+.weekly-band .wk-h{margin:0;font-family:var(--f-paint);font-weight:400;font-size:clamp(24px,3vw,34px)}
+.weekly-band .wk-i,.wk-page .wk-i{max-width:70ch;color:var(--ink-2);margin:10px 0 18px}
+.wk-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 22px}
+.wk-list a{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"n h" "n b";gap:0 10px;align-items:baseline}
+.wk-n{grid-area:n;font-family:var(--f-poster);font-size:26px;color:var(--lal);line-height:1}
+.wk-ht{grid-area:h;font-family:var(--f-head);font-size:17px;line-height:1.35}
+.wk-by{grid-area:b;font-family:var(--f-ui);font-size:13px;color:var(--ink-2)}
+.weekly-band .wk-more{display:inline-block;margin-top:18px;font-family:var(--f-ui);font-weight:700;border-bottom:2px solid currentColor}
+.wk-page{padding:var(--s5) 0}
+.wk-page h1{margin:0 0 8px;font-family:var(--f-paint);font-weight:400;font-size:clamp(30px,4vw,44px)}

@@ -142,6 +142,18 @@ def main():
             ph = photo(a) if a.get("photo") else None
             make(a, ph).save(out, optimize=True); n += 1
             if ph is not None: open(mark, "w").write(a["photo"]["src"])
+    # हमसफ़र की हर रचना की अपनी प्रिव्यू तस्वीर (वही न्योता-कार्ड हर बार न दिखे)
+    for f in sorted(glob.glob(os.path.join(ROOT, "data", "hamsafar", "*.json"))):
+        w = json.load(open(f, encoding="utf-8"))
+        out = os.path.join(OUT, "hs-" + w["id"] + ".png")
+        if os.path.exists(out) and not redo: continue
+        item = {"id": w["id"], "h": w["h"], "by": w["by"], "cat": w.get("cat", "साहित्य"), "pub": "हमसफ़र", "photo": None}
+        ph = None
+        src = ((w.get("images") or [{}])[0].get("src")) or w.get("photo")
+        if src and src.startswith("/"):
+            local = os.path.join(ROOT, "public", src.lstrip("/"))
+            if os.path.exists(local): ph = Image.open(local).convert("RGB")
+        make(item, ph).save(out, optimize=True); n += 1
     print(f"प्रिव्यू तस्वीरें बनीं: {n}" + (f", तस्वीर न मिलने से छूटीं: {miss}" if miss else ""))
 
 if __name__ == "__main__":

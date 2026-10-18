@@ -423,6 +423,23 @@ function liveTeaser() {
 }
 
 /* ---------- pages ---------- */
+/* ---------- रविवार विशेष: data/weekly/<YYYY-MM-DD>.json ---------- */
+const WEEKLY = (() => {
+  const dir = "data/weekly";
+  if (!fs.existsSync(dir)) return null;
+  const files = fs.readdirSync(dir).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).map(f => f.slice(0, 10)).filter(d => d <= IST_TODAY).sort();
+  if (!files.length) return null;
+  const date = files[files.length - 1];
+  try { return { date, ...JSON.parse(fs.readFileSync(path.join(dir, date + ".json"), "utf8")) }; } catch { return null; }
+})();
+const weeklyIntro = () => (WEEKLY && ((WEEKLY[LG] || {}).intro || WEEKLY.intro)) || "";
+const weeklyItems = () => (WEEKLY && (WEEKLY.ids || []).map(id => all.find(a => a.id === id)).filter(Boolean)) || [];
+const WK = {
+  hi: { t: "रविवार विशेष", s: "हफ़्ते की पांच सबसे ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ", all: "यह पूरा विशेष पढ़िए →", cta: "रविवार विशेष" },
+  en: { t: "Sunday special", s: "The five most important pieces of the week, with deeper context", all: "Read the whole special →", cta: "Sunday special" },
+  ur: { t: "اتوار کا خاص", s: "ہفتے کی پانچ سب سے اہم تحریریں، گہرے سیاق کے ساتھ", all: "یہ پورا خاص نمبر پڑھیں ←", cta: "اتوار کا خاص" },
+};
+
 /* ---------- होमपेज कैंपेन (data/campaign.json): कुछ दिन एक रचना को अलग-अलग अंदाज़ में उभारता है ---------- */
 function campaignBand() {
   const f = "data/campaign.json";
@@ -452,6 +469,19 @@ function campaignBand() {
   return `<section class="camp camp-poster"><div class="cp-in">${img}<div class="cp-tx"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><blockquote class="cp-q">${esc(t.quote)}</blockquote>${cta}</div></div></section>`;
 }
 
+function weeklyBand() {
+  if (!WEEKLY) return "";
+  const items = weeklyItems(); if (!items.length) return "";
+  const W = WK[LG] || WK.hi;
+  return `<section class="weekly-band" data-date="${WEEKLY.date}"><div class="wk-in"><p class="wk-k">${esc(W.t)}</p><h2 class="wk-h">${esc(dayLabel(WEEKLY.date))}</h2><p class="wk-i">${esc(weeklyIntro())}</p><ol class="wk-list">${items.map((a, i) => `<li><a href="${href(a)}"><span class="wk-n">${i + 1}</span><span class="wk-ht">${esc(a.h)}</span><span class="wk-by">${esc(a.by)}</span></a></li>`).join("")}</ol><a class="wk-more" href="${PRE}/weekly/">${esc(W.all)}</a></div></section>`;
+}
+function weeklyPage() {
+  if (!WEEKLY) return null;
+  const items = weeklyItems(); const W = WK[LG] || WK.hi;
+  const body = `<section class="wk-page"><p class="wk-k">${esc(W.t)}</p><h1>${esc(dayLabel(WEEKLY.date))}</h1><p class="wk-i">${esc(weeklyIntro())}</p><div class="grid g2">${items.map(card).join("")}</div></section>`;
+  return layout({ title: W.t, desc: weeklyIntro(), url: PRE + "/weekly/", body, tab: "home", catOn: "सब", alt: { hi: "/weekly/", en: "/en/weekly/", ur: "/ur/weekly/" } });
+}
+
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), vis = by("amukh").filter(a => a.visesh), amukh = by("amukh").filter(a => !a.visesh)[0];
@@ -469,6 +499,7 @@ function homePage() {
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
+  ${weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist kv${PV.khabar}">${khabar.map(kRow).join("")}</div></section>` : ""}
@@ -728,6 +759,7 @@ for (const l of LANGS) {
   CATS.forEach(c => out(`${P}shreni/${SLUG[c]}/index.html`, catPage(c)));
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
+  if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
