@@ -8,80 +8,56 @@
   "days": [
     {
       "date": "2026-10-18",
-      "variant": "poster",
       "hi": {
-        "kicker": "अरुंधती रॉय · पूरा निबंध",
-        "h": "क़यामत अभी नहीं आयी है, मगर उसकी आहट है",
-        "quote": "पर एआई उपनिवेशवाद का वह रूप है जिसकी कल्पना हममें से बहुत कम लोग कर सकते हैं। यह पूंजीवाद की आख़िरी मंज़िल है।",
-        "cta": "पूरा निबंध पढ़िए, हिंदी, उर्दू और अंग्रेज़ी में"
+        "kicker": "विशेष पाठ",
+        "dek": "कृत्रिम बुद्धिमत्ता की बहस में पूंजी, भाषा और इंसान की जगह: अरुंधती रॉय के लेख का देशकाल में प्रकाशित रूप।",
+        "cta": "लेख पढ़िए"
       },
       "en": {
-        "kicker": "Arundhati Roy · the full essay",
-        "h": "Apocalypse Now and Then",
-        "quote": "But AI is colonisation of a kind few of us can even imagine. It's capitalism's final destination.",
-        "cta": "Read the full essay, in English, Hindi and Urdu"
+        "kicker": "Special reading",
+        "dek": "Capital, language and the human place in the debate on AI: the version of Arundhati Roy’s essay published on Deshkaal.",
+        "cta": "Read the essay"
       },
       "ur": {
-        "kicker": "اروندھتی رائے · مکمل مضمون",
-        "h": "قیامت ابھی نہیں آئی، مگر اس کی آہٹ ہے",
-        "quote": "مگر اے آئی نوآبادیات کی وہ صورت ہے جس کا تصور ہم میں سے بہت کم لوگ کر سکتے ہیں۔ یہ سرمایہ داری کی آخری منزل ہے۔",
-        "cta": "مکمل مضمون پڑھیں، اردو، ہندی اور انگریزی میں"
+        "kicker": "خصوصی مطالعہ",
+        "dek": "مصنوعی ذہانت کی بحث میں سرمایہ، زبان اور انسان کی جگہ: اروندھتی رائے کے مضمون کا دیش کال میں شائع روپ۔",
+        "cta": "مضمون پڑھیے"
       }
     },
     {
       "date": "2026-10-19",
-      "variant": "questions",
       "hi": {
-        "kicker": "आज फिर पढ़िए",
-        "h": "तीन सवाल जो यह निबंध आपसे पूछता है",
-        "qs": [
-          "जब एआई ने डैश पर क़ब्ज़ा कर लिया है, तो आने वाली पीढ़ियों की भाषा किसकी होगी?",
-          "जो लोग मशीन बना रहे हैं, वे ही उससे क्यों डरते हैं?",
-          "अगर दौलत बराबर बांटी जाए, तो हर इंसान को बुनियादी आय आज ही क्यों नहीं मिल सकती?"
-        ],
-        "cta": "निबंध पढ़िए →"
+        "kicker": "फिर पढ़िए",
+        "dek": "लिखने की आज़ादी और मशीनों पर मालिकाना: अरुंधती रॉय के लेख के साथ ठहरकर सोचने का एक मौक़ा।",
+        "cta": "लेख पढ़िए"
       },
       "en": {
-        "kicker": "Read it again today",
-        "h": "Three questions the essay asks you",
-        "qs": [
-          "If AI owns the dash, whose language will the next generation inherit?",
-          "Why are the people building the machine afraid of it?",
-          "If wealth were shared out, why could everyone not have a basic income today?"
-        ],
-        "cta": "Read the essay →"
+        "kicker": "Read again",
+        "dek": "The freedom to write and the ownership of machines: pause and think with Arundhati Roy’s essay.",
+        "cta": "Read the essay"
       },
       "ur": {
-        "kicker": "آج پھر پڑھیے",
-        "h": "تین سوال جو یہ مضمون آپ سے پوچھتا ہے",
-        "qs": [
-          "جب اے آئی نے ڈیش پر قبضہ کر لیا، تو آنے والی نسلوں کی زبان کس کی ہو گی؟",
-          "جو لوگ مشین بنا رہے ہیں، وہی اس سے کیوں ڈرتے ہیں؟",
-          "اگر دولت برابر تقسیم کی جائے، تو ہر انسان کو بنیادی آمدنی آج ہی کیوں نہیں مل سکتی؟"
-        ],
-        "cta": "مضمون پڑھیں ←"
+        "kicker": "پھر پڑھیے",
+        "dek": "لکھنے کی آزادی اور مشینوں کی ملکیت: اروندھتی رائے کے مضمون کے ساتھ ٹھہر کر سوچنے کا ایک موقع۔",
+        "cta": "مضمون پڑھیے"
       }
     },
     {
       "date": "2026-10-20",
-      "variant": "strip",
       "hi": {
-        "kicker": "आख़िरी दिन",
-        "h": "अरुंधती रॉय का पूरा निबंध, तीन भाषाओं में",
-        "note": "क़रीब 25 मिनट का पाठ · हिंदी, उर्दू और मूल अंग्रेज़ी",
-        "cta": "अभी पढ़िए →"
+        "kicker": "आज का विशेष पाठ",
+        "dek": "मशीनों के भविष्य से पहले इंसान के भविष्य का सवाल। अरुंधती रॉय के लेख का प्रकाशित रूप और मूल EQUATOR लेख का लिंक।",
+        "cta": "लेख पढ़िए"
       },
       "en": {
-        "kicker": "Last day",
-        "h": "Arundhati Roy's full essay, in three languages",
-        "note": "About 25 minutes · Hindi, Urdu and the original English",
-        "cta": "Read it now →"
+        "kicker": "Today’s special reading",
+        "dek": "The human future comes before the future of machines. Read the published version of Arundhati Roy’s essay and find the original EQUATOR link.",
+        "cta": "Read the essay"
       },
       "ur": {
-        "kicker": "آخری دن",
-        "h": "اروندھتی رائے کا مکمل مضمون، تین زبانوں میں",
-        "note": "تقریباً 25 منٹ کا مطالعہ · اردو، ہندی اور اصل انگریزی",
-        "cta": "ابھی پڑھیں ←"
+        "kicker": "آج کا خصوصی مطالعہ",
+        "dek": "مشینوں کے مستقبل سے پہلے انسان کے مستقبل کا سوال۔ اروندھتی رائے کے مضمون کا شائع روپ اور اصل EQUATOR مضمون کا لنک۔",
+        "cta": "مضمون پڑھیے"
       }
     }
   ]

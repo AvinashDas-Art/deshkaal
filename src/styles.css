@@ -1261,3 +1261,26 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 /* मूल निबंध के हिस्से और विराम (हमसफ़र) */
 .hw-body .hw-sep{margin:var(--s5) 0;text-align:center;font-family:var(--f-poster);font-size:40px;line-height:1;color:var(--lal);letter-spacing:.08em}
 .hw-body .hw-part{margin:var(--s6) 0 var(--s3);font-family:var(--f-poster);font-size:clamp(40px,5vw,58px);line-height:1;color:var(--geru)}
+
+/* कैंपेन: आंकड़े और अंतिम उद्धरण */
+.camp-facts{border:1px solid var(--rule);border-top:8px solid var(--haldi);background:color-mix(in srgb,var(--haldi) 9%,var(--paper));padding:clamp(20px,3vw,34px)}
+.camp-facts .cp-k{color:var(--haldi)}
+.camp .cp-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,26px);margin:22px 0 0;padding:0}
+.camp .cp-facts div{border-top:2px solid color-mix(in srgb,var(--haldi) 45%,transparent);padding-top:10px}
+.camp .cp-facts dt{font-family:var(--f-poster);font-size:clamp(28px,3.8vw,44px);line-height:1;color:var(--haldi)}
+.camp .cp-facts dd{margin:6px 0 0;font-family:var(--f-ui);font-size:15px;color:var(--ink-2)}
+.camp-epi{border-top:8px solid var(--neel);border-bottom:1px solid var(--rule);background:var(--neel-soft);padding:clamp(26px,4vw,46px) clamp(18px,3vw,34px);text-align:center}
+.camp-epi .cp-k{color:var(--neel);margin:0 0 14px}
+.camp .cp-eq{margin:0 auto;max-width:44ch;font-family:var(--f-head);font-size:clamp(23px,3.2vw,36px);line-height:1.45;color:var(--ink)}
+.camp .cp-ea{margin:14px 0 0;font-family:var(--f-ui);font-size:15px;color:var(--ink-2)}
+@media (max-width:820px){.camp .cp-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Compact dated literary feature, after the news lead. */
+.camp-feature{margin:var(--s7) 0;border-block:2px solid var(--sec-line);background:var(--haldi-soft);padding:var(--s3)}
+.camp-feature .cp-in{display:grid;grid-template-columns:minmax(96px,160px) minmax(0,1fr);gap:var(--s4);align-items:center}
+.camp-feature .cp-img{display:block;width:100%;height:176px;object-fit:contain}
+.camp-feature .cp-h{font-size:clamp(24px,3vw,36px)}
+.camp-feature .cp-author{font-family:var(--f-ui);font-weight:700;margin:var(--s1) 0}
+.camp-feature .cp-n{margin:var(--s1) 0 0;font-family:var(--f-body);line-height:1.6;color:var(--ink-2)}
+.camp-feature .cp-cta{margin-top:var(--s2)}
+@media(max-width:540px){.camp-feature .cp-in{grid-template-columns:80px minmax(0,1fr);gap:var(--s2);align-items:start}.camp-feature .cp-img{height:128px}.camp-feature .cp-h{font-size:24px}.camp-feature .cp-k{font-size:11px;letter-spacing:.5px}}
