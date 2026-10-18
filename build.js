@@ -351,8 +351,11 @@ function morchaPage() {
 }
 
 const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse().map(f => ({ date: f.slice(0, 10), ...JSON.parse(fs.readFileSync(path.join("data/live", f), "utf8")) })) : [];
-const LIVE_ON = SPECIAL.active && LIVE_DAYS.length > 0;
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
+/* दीवार सिर्फ़ तब दिखे जब आज के लिए कुछ दर्ज हो; पुरानी दीवारें आर्काइव में रहती हैं */
+const LIVE_TODAY_DAY = LIVE_DAYS.find(d => d.date === IST_TODAY);
+const LIVE_ON = SPECIAL.active && !!LIVE_TODAY_DAY && (LIVE_TODAY_DAY.items || []).length > 0;
+const LIVE_ARCHIVE = SPECIAL.active && LIVE_DAYS.length > 0;
 const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "رات"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
@@ -497,7 +500,7 @@ function homePage() {
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
-  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : ""}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
@@ -564,12 +567,27 @@ function articlePage(a) {
   const alt = Object.fromEntries(LANGS.filter(l => HAS[l].has(a.id)).map(l => [l, hrefL(a, l)]));
   return layout({ title: a.h, desc: a.dek, url: href(a), body, catOn: a.cat, published: a.day, alt, image: fs.existsSync(path.join("public", "og", a.id + ".png")) ? `/og/${a.id}.png` : "/og.png" });
 }
+const LA = {
+  hi: { k: "आंदोलन का संग्रह", t: "दिल्ली में SIR के ख़िलाफ़ चले मूवमेंट का लाइव आर्काइव", s: "घंटे-दर-घंटे दर्ज हुई दीवारें: ख़बरें, वीडियो, पोस्ट और रीलें, जैसे उस दिन आयीं। तारीख़ पर क्लिक करके उस दिन की दीवार खोलिए।", open: "दीवार खोलिए →", empty: "अभी कोई दीवार नहीं।", liveNow: "आज की दीवार →" },
+  en: { k: "Movement archive", t: "Live archive: the movement against the SIR in Delhi", s: "The walls as they were written, hour by hour: news, video, posts and reels. Open a date to read that day's wall.", open: "Open the wall →", empty: "No walls yet.", liveNow: "Today's wall →" },
+  ur: { k: "تحریک کا آرکائیو", t: "دہلی میں ایس آئی آر کے خلاف تحریک کا لائیو آرکائیو", s: "گھنٹہ بہ گھنٹہ لکھی گئی دیواریں: خبریں، ویڈیو، پوسٹیں اور ریلیں۔ تاریخ پر کلک کر کے اس دن کی دیوار کھولیے۔", open: "دیوار کھولیے ←", empty: "ابھی کوئی دیوار نہیں۔", liveNow: "آج کی دیوار ←" },
+};
+function liveArchivePage() {
+  const A = LA[LG] || LA.hi;
+  const days_ = LIVE_DAYS;
+  const body = `<section class="page2 lv-arch"><p class="lv-ak">${A.k}</p><h2>${A.t}</h2><p style="color:var(--ink-2);max-width:70ch">${A.s}</p>
+    ${LIVE_ON ? `<p><a class="lv-open" href="/live/">${A.liveNow}</a></p>` : ""}
+    <div class="lv-days">${days_.length ? days_.map(d => `<a class="lv-day" href="/live/${d.date}/"><b>${dayLabel(d.date)}</b><span>${(d.items || []).length} ${LG === "en" ? "updates" : LG === "ur" ? "اپ ڈیٹ" : "अपडेट"}</span><i>${A.open}</i></a>`).join("") : `<p>${A.empty}</p>`}</div></section>`;
+  return layout({ title: A.t, desc: A.s, url: PRE + "/live/", body, tab: "purane", catOn: "सब", alt: { hi: "/live/", en: "/en/live/", ur: "/ur/live/" } });
+}
+
 function archivePage() {
   const body = `<section class="page2"><h2>${T.archive}</h2><p style="color:var(--ink-2);margin:0">${T.archIntro}</p>
     <div class="sub" style="margin-top:20px"><input class="search" id="aq" type="search" placeholder="${T.archSearch}" aria-label="${T.archSearch}"></div>
     <div class="chips">${["सब", ...CATS].map(c => `<button class="chip" data-ac="${c}" aria-pressed="${c === "सब"}">${c === "सब" ? T.all : cn(c)}</button>`).join("")}</div>
     <p class="src" id="acount"></p>
     ${days.map(d => `<div class="aday"><h4>${dayLabel(d.date)} · ${T.count(d.items.length)}</h4>${d.items.map(a => `<div class="arow" data-cat="${a.cat}"><span class="k">${cn(a.cat)}</span><a href="${href(a)}"><h4>${esc(a.h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</span></a></div>`).join("")}</div>`).join("")}
+    ${LIVE_ARCHIVE ? `<div class="lv-note"><p class="lv-ak">${(LA[LG] || LA.hi).k}</p><a href="${PRE}/live/">${esc((LA[LG] || LA.hi).t)} →</a></div>` : ""}
   </section>`;
   return layout({ title: T.archive, desc: T.archDesc, url: PRE + "/purane/", body, tab: "purane", alt: { hi: "/purane/", en: "/en/purane/", ur: "/ur/purane/" } });
 }
@@ -764,9 +782,10 @@ for (const l of LANGS) {
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
   if (l !== "hi") { out(`${P}hamsafar/index.html`, HS.galleryPage(l)); HS.ALL.filter(HS.has(l)).forEach(w => out(`${P}hamsafar/${w.id}/index.html`, HS.workPage(w, l))); }
-  if (l === "hi" && LIVE_ON) {
-    const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
-    out("live/index.html", livePage(T0, "/live/")); out("live/feed.json", JSON.stringify({ updated: T0.updated || "", day: T0.date }));
+  if (l === "hi" && LIVE_ARCHIVE) {
+    const T0 = LIVE_TODAY_DAY;
+    out("live/index.html", LIVE_ON ? livePage(T0, "/live/") : liveArchivePage());
+    out("live/feed.json", JSON.stringify({ updated: (T0 || {}).updated || "", day: (T0 || {}).date || "" }));
     LIVE_DAYS.forEach(d => out(`live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
   }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());

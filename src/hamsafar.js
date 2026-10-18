@@ -84,11 +84,12 @@ module.exports = function (H) {
 
   /* डाक टिकट: हर रचना का अपना */
   const stamp = (w, big, lg = "hi") => `<span class="hs-stamp${big ? " big" : ""}" aria-hidden="true"><span class="hs-st-in"><i></i><b>${TX[lg].kind[w.kind] || KIND[w.kind]}</b><small>${TX[lg].sec} ${deva(w.no)}</small></span></span>`;
+  const mins = w => Math.max(1, Math.round((w.body || []).join(" ").split(/\s+/).length / 180));
   const thumb = w => w.images && w.images[0] ? `<img src="${esc(w.images[0].src)}" alt="" loading="lazy"${w.images[0].w ? ` width="${w.images[0].w}" height="${w.images[0].h}"` : ""}>` : "";
 
   const card = (w0, lg = "hi") => { const w = loc(w0, lg); return `<article class="hs-card k-${w.kind}${w.images && w.images[0] ? " has-img" : ""}"><a href="${url(w, lg)}">
     ${w.images && w.images[0] ? `<span class="hs-thumb">${thumb(w)}</span>` : `<span class="hs-quote">${esc(w.pull || w.dek || "")}</span>`}
-    ${stamp(w, false, lg)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by">${w.photo ? av(w, " sm") : ""}<b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}</span></span></a></article>`; };
+    ${stamp(w, false, lg)}<span class="hs-ct"><h4>${esc(w.h)}</h4><span class="hs-by">${w.photo ? av(w, " sm") : ""}<b>${esc(w.by)}</b>${w.place ? `<small>${esc(w.place)}</small>` : ""}<small class="hs-min">${lg === "en" ? mins(w) + " min" : lg === "ur" ? mins(w) + " منٹ" : mins(w) + " मिनट"}</small></span></span></a></article>`; };
 
   /* पहले पन्ने का बैंड: रचनाएं हों तो ताज़ा तीन, न हों तो न्योते का पोस्टकार्ड */
   function band(lg = "hi") {
@@ -564,7 +565,8 @@ module.exports = function (H) {
         ${pic ? `<figure class="hw-pic"><img src="${esc(w.photo)}" alt="${esc(w.by)}"><figcaption>${esc(w.by)}</figcaption>${stamp(w, false, lg)}</figure>` : stamp(w, true, lg)}
         <p class="hs-k">${X.sec} ${deva(w.no)} · ${X.kind[w.kind]}${w.cat && lg === "hi" ? " · " + esc(w.cat) : ""}${lg !== "hi" ? " · " + X.orig : ""}</p>
         <h1>${esc(w.h)}</h1>${w.dek ? `<p class="hw-dek">${esc(w.dek)}</p>` : ""}
-        <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}</small></span></p>
+        <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}${lg === "en" ? " · " + mins(w) + " min read" : lg === "ur" ? " · " + mins(w) + " منٹ" : " · पढ़ें " + mins(w) + " मिनट"}</small></span></p>
+        ${w.bio ? `<p class="hw-bio"><span>${X.author}</span>${esc(w.bio)}</p>` : ""}
         ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
       </header>
       ${main}
