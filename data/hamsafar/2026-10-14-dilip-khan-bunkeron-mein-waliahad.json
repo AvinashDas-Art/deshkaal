@@ -6,7 +6,7 @@
  "dek": "जो सऊदी पिछले दस बरस से ख़ुद को निवेशकों, सैलानियों और फ़ुटबॉल विश्व कप जैसे आयोजनों के लिए खाड़ी का सबसे चमकदार ठिकाना बना रहा था, आज वह अपनी राजधानी बचाने के लिए दुनिया भर से मदद मांगता फिर रहा है।",
  "by": "दिलीप ख़ान",
  "photo": "/media/hamsafar/lekhak-dilip-khan.jpg",
- "bio": "दिलीप ख़ान अपने सबस्टैक पर दुनिया की राजनीति, ख़ास कर पश्चिम एशिया पर हिंदी में लिखते हैं।",
+ "bio": "दिलीप ख़ान पांडिचेरी में रहते हैं और अपने सबस्टैक पर दुनिया की राजनीति पर हिंदी में लिखते हैं, ख़ास कर अमेरिका, यूरोप और पश्चिम एशिया के ताने-बाने पर।",
  "cat": "दुनिया",
  "lang": "hi",
  "pull": "अंसारअल्लाह अगर सौ में से बस एक बार भेद दे, तो सऊदी पस्त पड़ जाएगा।",
@@ -46,7 +46,7 @@
   "h": "The crown prince hiding in bunkers",
   "dek": "The Saudi Arabia that spent the last ten years making itself the Gulf's brightest destination for investors, tourists and events like the football World Cup is today going around the world begging for help to save its own capital.",
   "by": "Dilip Khan",
-  "bio": "Dilip Khan writes in Hindi on his Substack about world politics, especially West Asia.",
+  "bio": "Dilip Khan lives in Puducherry and writes in Hindi on world politics — America, Europe and West Asia — on his Substack.",
   "pull": "If Ansarallah breaks through just once in a hundred times, Saudi Arabia will be brought to its knees.",
   "prev": "First published on the writer's Substack.",
   "tr": "Translated from Hindi by the Deshkaal desk.",
@@ -95,13 +95,14 @@
     "cap": "Israel and Saudi Arabia have joined hands against Yemen. Map: Encyclopaedia Britannica; from the writer's Substack, courtesy of the writer",
     "alt": "Map of West Asia with Israel, Iran and Yemen highlighted"
    }
-  ]
+  ],
+  "place": "Puducherry"
  },
  "ur": {
   "h": "بنکروں میں چھپتے ولی عہد",
   "dek": "جو سعودی پچھلے دس برس سے خود کو سرمایہ کاروں، سیاحوں اور فٹ بال ورلڈ کپ جیسی تقریبات کے لیے خلیج کا سب سے چمکدار ٹھکانہ بنا رہا تھا، آج وہ اپنی راجدھانی بچانے کے لیے دنیا بھر سے مدد مانگتا پھر رہا ہے۔",
   "by": "دلیپ خان",
-  "bio": "دلیپ خان اپنے سب اسٹیک پر دنیا کی سیاست، خاص کر مغربی ایشیا پر ہندی میں لکھتے ہیں۔",
+  "bio": "دلیپ خان پانڈیچیری میں رہتے ہیں اور اپنے سب اسٹیک پر دنیا کی سیاست — امریکہ، یورپ اور مغربی ایشیا — پر ہندی میں لکھتے ہیں۔",
   "pull": "انصار اللہ اگر سو میں سے بس ایک بار بھی بھید دے، تو سعودی پست پڑ جائے گا۔",
   "prev": "پہلی بار مصنف کے سب اسٹیک پر شائع ہوا۔",
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
@@ -150,7 +151,8 @@
     "cap": "اسرائیل اور سعودی عرب نے یمن کے خلاف ہاتھ ملا لیے ہیں۔ نقشہ: انسائیکلوپیڈیا بریٹانیکا؛ مصنف کے سب اسٹیک سے، ان کے شکریے کے ساتھ",
     "alt": "مغربی ایشیا کا نقشہ جس میں اسرائیل، ایران اور یمن رنگے ہوئے ہیں"
    }
-  ]
+  ],
+  "place": "پانڈیچیری"
  },
  "fine": "दिलीप ख़ान की यह लिखाई देशकाल डेस्क ने उनकी इजाज़त से चुनी है। इसके सारे अधिकार उन्हीं के हैं।",
  "images": [
@@ -175,5 +177,6 @@
    "cap": "इज़रायल और सऊदी ने यमन के ख़िलाफ़ हाथ मिला लिए हैं। नक़्शा: एनसाइक्लोपीडिया ब्रिटानिका; लेखक के सबस्टैक से, उनके सौजन्य से",
    "alt": "पश्चिम एशिया का नक़्शा, जिसमें इज़रायल, ईरान और यमन रंगे हुए हैं"
   }
- ]
+ ],
+ "place": "पांडिचेरी"
 }

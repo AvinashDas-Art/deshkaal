@@ -6,7 +6,7 @@
  "dek": "जिस आबादी को हर रोज़ बताया जाए कि देश के भीतर दुश्मन घूम रहे हैं, कभी JNU में, कभी सिंघु बॉर्डर पर, कभी शाहीन बाग़ में, वह अपने नेता से सवाल पूछने के बजाय उसके पीछे और कसकर खड़ी हो जाती है।",
  "by": "दिलीप ख़ान",
  "photo": "/media/hamsafar/lekhak-dilip-khan.jpg",
- "bio": "दिलीप ख़ान अपने सबस्टैक पर दुनिया की राजनीति, ख़ास कर पश्चिम एशिया पर हिंदी में लिखते हैं।",
+ "bio": "दिलीप ख़ान पांडिचेरी में रहते हैं और अपने सबस्टैक पर दुनिया की राजनीति पर हिंदी में लिखते हैं, ख़ास कर अमेरिका, यूरोप और पश्चिम एशिया के ताने-बाने पर।",
  "cat": "देश",
  "lang": "hi",
  "pull": "ठप्पा जवाबदेही से बच निकलने का सबसे सस्ता रास्ता है।",
@@ -47,7 +47,7 @@
   "h": "The lifespan of a label: presstitute, anarchist, sickular, tukde-tukde gang...",
   "dek": "A population that is told every day that enemies are roaming inside the country, sometimes in JNU, sometimes at the Singhu border, sometimes in Shaheen Bagh, does not question its leader; it stands behind him all the more tightly.",
   "by": "Dilip Khan",
-  "bio": "Dilip Khan writes in Hindi on his Substack about world politics, especially West Asia.",
+  "bio": "Dilip Khan lives in Puducherry and writes in Hindi on world politics — America, Europe and West Asia — on his Substack.",
   "pull": "A label is the cheapest way to escape accountability.",
   "prev": "First published on the writer's Substack.",
   "tr": "Translated from Hindi by the Deshkaal desk.",
@@ -82,13 +82,14 @@
    "Notice how, after the July protest, the government is working hard to remove the ‘cockroach’ label. On 15 August, from the Red Fort, the prime minister himself tossed out a new catchphrase, ‘dimaagi Naxal’ (a Naxal of the mind). But here too the word did not land in the right place. ‘Dimaagi Naxal’ is an interesting turn in this whole sequence, because it does not fit power's old strategy of recognising dissent in pieces. For the first time the BJP coined a label that is not tied to any profession, any community or any organisation. Its target is the way of thinking itself. In ‘dimaagi Naxal’, thought itself has been made a security issue. It is, in a way, an admission that dissent has now spread so wide that it is no longer possible to manage it by dividing it into pieces.",
    "There are many examples of how history remembers such labels. In all of them one thing shows up again and again. In America in the fifties, Senator Joseph McCarthy created an atmosphere of fear in Hollywood, the universities, and government offices with labels like ‘communist’. Hundreds of people lost their jobs, and many writers and filmmakers were blacklisted. If you have not seen it, do watch ‘Trumbo’, the film on the life of Dalton Trumbo, which holds a living account of the troubles filmmakers went through because of McCarthyism. At the end of 1954 the US Senate passed a motion censuring McCarthy. And what happened? Today ‘McCarthyism’ has itself become a word used like an abuse, meaning the crushing of opponents with baseless accusations.",
    "It is not that these labels have no effect. The ‘tukde-tukde gang’ may have become a joke by now, but the sedition cases of that period are still dragging on in the courts. ‘Urban Naxal’ has grown old, but many of those arrested in its name are still waiting for bail years later, and Stan Swamy will never come back among us. On 10 October, when a man from the mob that beat protesters in Connaught Place was asked who had raised the ‘Bharat ke tukde’ (pieces of India) slogan, his answer was, ‘Some guy in a blue muffler.’ The label that the Home Ministry had refused to look for in its files six years earlier was still alive in that mob's mind, and that mob had lathis (sticks) in its hands."
-  ]
+  ],
+  "place": "Puducherry"
  },
  "ur": {
   "h": "ٹھپے کی عمر: پریسٹیٹیوٹ، اراجک، سکولر، ٹکڑے ٹکڑے گینگ...",
   "dek": "جس آبادی کو ہر روز بتایا جائے کہ ملک کے اندر دشمن گھوم رہے ہیں، کبھی JNU میں، کبھی سنگھو بارڈر پر، کبھی شاہین باغ میں، وہ اپنے لیڈر سے سوال پوچھنے کے بجائے اس کے پیچھے اور کس کر کھڑی ہو جاتی ہے۔",
   "by": "دلیپ خان",
-  "bio": "دلیپ خان اپنے سب اسٹیک پر دنیا کی سیاست، خاص کر مغربی ایشیا پر ہندی میں لکھتے ہیں۔",
+  "bio": "دلیپ خان پانڈیچیری میں رہتے ہیں اور اپنے سب اسٹیک پر دنیا کی سیاست — امریکہ، یورپ اور مغربی ایشیا — پر ہندی میں لکھتے ہیں۔",
   "pull": "ٹھپہ جواب دہی سے بچ نکلنے کا سب سے سستا راستہ ہے۔",
   "prev": "پہلی بار مصنف کے سب اسٹیک پر شائع ہوا۔",
   "body": [
@@ -123,6 +124,8 @@
   ],
   "images": [],
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
-  "fine": "دلیپ خان کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے ہیں۔"
- }
+  "fine": "دلیپ خان کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے ہیں۔",
+  "place": "پانڈیچیری"
+ },
+ "place": "पांडिचेरी"
 }
