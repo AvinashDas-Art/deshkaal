@@ -34,7 +34,7 @@ module.exports = function (H) {
   const url = (w, lg = "hi") => `${P(lg)}/hamsafar/${w.id}/`;
   const has = lg => w => lg === "hi" || !!w[lg];
   /* "*" = हिस्सों के बीच का विराम, "2."/"3." = निबंध के हिस्से */
-  const para = p => /^\*$/.test(p) ? `<p class="hw-sep" aria-hidden="true">*</p>` : /^\d+\.$/.test(p) ? `<p class="hw-part">${esc(p)}</p>` : `<p>${esc(p)}</p>`;
+  const para = p => /^\*$/.test(p) ? `<p class="hw-sep" aria-hidden="true">*</p>` : /^\d+\.$/.test(p) ? `<p class="hw-part">${esc(p)}</p>` : /^## /.test(p) ? `<h2 class="hw-sub">${esc(p.slice(3))}</h2>` : `<p>${esc(p)}</p>`;
   const loc = (w, lg) => lg === "hi" || !w[lg] ? w : { ...w, ...w[lg], images: (w.images || []).map((im, i) => ({ ...im, ...((w[lg].images || [])[i] || {}) })) };
   const TX = {
     hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
@@ -547,24 +547,26 @@ module.exports = function (H) {
       /* पाठ में "[[img:N]]" वाली अकेली पंक्ति = N-वीं तस्वीर ठीक वहीं; पाठ में [शब्द](https://...) = कड़ी */
       const inl = body.some(p => /^\[\[img:\d+\]\]$/.test(p)), used = new Set(body.map(p => (p.match(/^\[\[img:(\d+)\]\]$/) || [])[1]).filter(Boolean).map(Number));
       const isMark = p => p === "*" || /^\d+\.$/.test(p);
+      const isSub = p => /^## /.test(p);
       const mark = p => p === "*" ? `<p class="hw-sep" aria-hidden="true">*</p>` : `<p class="hw-part">${esc(p)}</p>`;
+      const sub = p => `<h2 class="hw-sub">${esc(p.slice(3))}</h2>`;
       const link = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
       if (inl) {
-        const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p)).length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
-        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
+        const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p) && !isSub(p)).length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
+        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
         main = `${imgs[0] && !used.has(0) ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
       } else {
-      const nT = body.filter(p => !isMark(p)).length;
-      const tx = body.map((p, i) => ({ p, i })).filter(x => !isMark(x.p));
+      const nT = body.filter(p => !isMark(p) && !isSub(p)).length;
+      const tx = body.map((p, i) => ({ p, i })).filter(x => !isMark(x.p) && !isSub(x.p));
       let ti = Math.max(0, Math.round(tx.length * 0.4) - 1);
       if (isMark(body[(tx[ti] || { i: -1 }).i + 1] || "")) ti = Math.max(0, ti - 1);
       const at = ti + 1; let k = 0;
-      const paras = body.map(p => { if (isMark(p)) return mark(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
+      const paras = body.map(p => { if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
       main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
       }
     }
     const others = ALL.filter(has(lg)).filter(x => x.id !== w.id).slice(0, 3);
-    const pic = w.photo && !(imgs[0] && w.kind !== "kavita");
+    const pic = !!(w.photo && (w.pic || !(imgs[0] && w.kind !== "kavita")));
     const page = `<article class="hw k-${w.kind}">
       <a class="back" href="${P(lg)}/hamsafar/">${X.back}</a>
       <header class="hw-head${pic ? " has-pic" : ""}">

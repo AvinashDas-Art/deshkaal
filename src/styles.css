@@ -1126,7 +1126,7 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
   .hw-head.has-pic{padding-right:0;min-height:0}
   .hw-pic{position:relative;float:right;width:132px;margin:0 0 var(--s2) var(--s3);padding:6px 6px 0}
   .hw-pic figcaption{font-size:14px;padding:4px 0 6px}
-  .hw-pic .hs-stamp{width:60px;left:-24px;bottom:-16px}
+  .hw-pic .hs-stamp{width:60px;left:auto;right:-8px;top:-10px;bottom:auto}
   .hs-grid.n1 .hs-card:not(.has-img) > a{display:flex}
   .hs-grid.n1 .hs-card:not(.has-img) .hs-quote{padding:var(--s5) var(--s3) var(--s2)}
   .hs-grid.n1 .hs-card:not(.has-img) .hs-ct{padding:var(--s3)}
@@ -1213,8 +1213,9 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
   .khabar .clist.kv3>article:first-child .dek{font-size:19px;max-width:60ch}
 }
 /* पाठ के बीच की तस्वीरें (हमसफ़र) */
-.hw-inl .hw-fig{margin-block:var(--s6)}
-.hw-inl .hw-fig img{max-height:80vh}
+.hw-inl .hw-fig{margin-block:var(--s6);width:min(1000px,calc(100vw - 40px));max-width:none;margin-inline:calc(50% - min(500px,50vw - 20px))}
+.hw-inl .hw-fig img{max-height:min(80vh,660px)}
+.hw-inl .hw-fig figcaption{max-width:740px;margin-inline:auto}
 .hw-body a{color:var(--neel);text-decoration:underline;text-underline-offset:3px}
 
 /* पाठक-सहयोग: खोज के ठीक बाद की एक ही क्लिकेबल पंक्ति */
@@ -1261,6 +1262,12 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 /* मूल निबंध के हिस्से और विराम (हमसफ़र) */
 .hw-body .hw-sep{margin:var(--s5) 0;text-align:center;font-family:var(--f-poster);font-size:40px;line-height:1;color:var(--lal);letter-spacing:.08em}
 .hw-body .hw-part{margin:var(--s6) 0 var(--s3);font-family:var(--f-poster);font-size:clamp(40px,5vw,58px);line-height:1;color:var(--geru)}
+/* लेख के बीच के उपशीर्षक ("## " वाली अकेली पंक्ति) */
+.hw-body .hw-sub{margin:var(--s6) 0 var(--s4);padding-top:var(--s4);border-top:1px solid var(--rule);font-family:var(--f-head);font-weight:700;font-size:clamp(23px,2.7vw,30px);line-height:1.3;color:var(--geru);letter-spacing:.01em}
+.hw-body .hw-sub:first-child{margin-top:var(--s3)}
+.hw-body .hw-pull + .hw-sub{border-top:0;padding-top:0;margin-top:var(--s4)}
+@media (max-width:760px){.hw-body .hw-sub{margin-top:var(--s5);font-size:22px}}
+html[lang="ur"] .hw-body .hw-sub{line-height:1.7}
 
 /* कैंपेन: आंकड़े और अंतिम उद्धरण */
 .camp-facts{border:1px solid var(--rule);border-top:8px solid var(--haldi);background:color-mix(in srgb,var(--haldi) 9%,var(--paper));padding:clamp(20px,3vw,34px)}
