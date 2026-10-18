@@ -29,5 +29,53 @@
       "h": 1050,
       "credit": "फ़ोटो: jburke601 / Wikimedia Commons, CC BY 2.0"
     }
-  ]
+  ],
+  "en": {
+    "h": "My City, This Year",
+    "dek": "Haldwani's heat, its mugginess and its hurry to become a city — and the small efforts that sprout inside all of it.",
+    "by": "Vijaya Sati",
+    "place": "Haldwani, Nainital",
+    "bio": "Taught Hindi for many years at Hindu College, University of Delhi; now retired. Has also taught Hindi in Hungary and South Korea.",
+    "pull": "Somewhere, from some forgotten corner, a new shoot still breaks through.",
+    "prev": "This instalment of the 'Pahad Ki Chhanh Se' ('From the Shade of the Hills') series first appeared on the author's Facebook page.",
+    "tr": "Translated from Hindi by the Deshkaal desk.",
+    "body": [
+      "Haldwani is a decent enough city. In summer the loo never used to blow here. The rains would arrive by June itself. They poured down in earnest; they did not leave the earth thirsting.",
+      "The city is being made and made over now. Roads will grow wide. Walls will show flashes of art. Sun and mugginess will leave one wretched. In this atmosphere life will go on exactly as it is. If circumstances are bent on making our very breath meaningless, then somewhere, from some forgotten corner, a new shoot still breaks through.",
+      "Over the city falls, again and again, a soft drizzle of literature, music and dance. Libraries and bookshops too are stretching and waking. Groups of those who write and read meet and sit together. They try to grasp the heart of literature. They try to seek out beauty in creation.",
+      "We once thought it essential to the very definition of a city that in it one should find everything from a needle to a refrigerator, or something even bigger. In Haldwani there are many times when very much is not to be found, and yet, more or less, very much is found as well.",
+      "So may my city this year touch the heights of becoming beautiful, juicy and interesting, and not go sliding down the slope. And may we too feel proud that we are dwellers in this same excellent land!"
+    ],
+    "images": [
+      {
+        "cap": "Evening in Haldwani: a temple spire and the hills beyond the rooftops.",
+        "alt": "Evening in Haldwani: a temple spire and the hills beyond the rooftops.",
+        "credit": "Photo: jburke601 / Wikimedia Commons, CC BY 2.0"
+      }
+    ]
+  },
+  "ur": {
+    "h": "میرا شہر اس برس",
+    "dek": "ہلدوانی کی گرمی، اُمَس اور شہر بننے کی جلد بازی، اور اسی کے اندر پنپتی چھوٹی چھوٹی کوششیں۔",
+    "by": "وجیا ستی",
+    "place": "ہلدوانی، نینی تال",
+    "bio": "دہلی یونیورسٹی کے ہندو کالج میں طویل عرصے تک ہندی کی تدریس، اب ریٹائرڈ۔ ہنگری اور جنوبی کوریا میں بھی ہندی پڑھائی۔",
+    "pull": "کہیں کسی اونے کونے سے کونپل بھی پھوٹتی ہے۔",
+    "prev": "'پہاڑ کی چھاؤں سے' سلسلے کی یہ کڑی پہلے مصنفہ کے فیس بک صفحے پر چھپی تھی۔",
+    "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
+    "body": [
+      "ہلدوانی ٹھیک ٹھاک شہر ہے۔ گرمیوں میں پہلے یہاں لو نہیں چلتی تھی۔ جون ہی میں برکھا آ جاتی تھی۔ خوب برستی، دھرتی کو ترستی نہ تھی۔",
+      "شہر اب بن سنور رہا ہے۔ سڑکیں چوڑی ہوں گی۔ دیواروں پر فن کی جھلک نظر آئے گی۔ دھوپ اور اُمَس بے حال کرے گی۔ اس ماحول میں جیسا ہے ویسا ہی زندگی چلتی رہے گی۔ جان و دل کو بے کار کر ڈالنے پر تُلی ہوئی صورتحال ہے، تو کہیں کسی اونے کونے سے کونپل بھی پھوٹتی ہے۔",
+      "شہر میں ادب، موسیقی، رقص کی رم جھم پھوار سی پڑتی رہتی ہے۔ لائبریری اور کتابوں کی دکانیں بھی انگڑائی لے رہی ہیں۔ لکھنے پڑھنے والے گروہ مل بیٹھتے ہیں۔ ادب کے نچوڑ کو سمجھنے کی کوشش کرتے ہیں۔ کائنات میں حسن کی تلاش کرنے کی کوشش کرتے ہیں۔",
+      "ہم کبھی شہر کی تعریف میں سوئی سے لے کر فرج یا اس سے بھی بڑی کوئی چیز کا مل جانا لازمی مانتے تھے۔ ہلدوانی میں کئی بار بہت کچھ نہیں ملتا، لیکن تقریباً بہت کچھ مل بھی جاتا ہے۔",
+      "تو میرا شہر اس برس خوب صورت، سرس، دلچسپ بننے کی بلندیاں چھو لے، ڈھلوان پر نہ لڑھکے۔ ہمیں بھی فخر ہو کہ ہم بھی رہنے والے ہیں اسی عمدہ دیار کے!"
+    ],
+    "images": [
+      {
+        "cap": "ہلدوانی کی شام: چھتوں کے پار مندر کا گنبد اور پہاڑ۔",
+        "alt": "ہلدوانی کی شام: چھتوں کے پار مندر کا گنبد اور پہاڑ۔",
+        "credit": "تصویر: jburke601 / ویکیمیڈیا کامنز، CC BY 2.0"
+      }
+    ]
+  }
 }
