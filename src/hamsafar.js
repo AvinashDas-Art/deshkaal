@@ -520,6 +520,12 @@ module.exports = function (H) {
     return layout({ tab: "hamsafar", title: X.galT, desc: X.galD, url: `${P(lg)}/hamsafar/`, body, alt: { hi: "/hamsafar/", en: "/en/hamsafar/", ur: "/ur/hamsafar/" } });
   }
 
+  /* नोट में [शीर्षक](/hamsafar/...) जैसी कड़ी: उसी भाषा के पन्ने पर ले जाए */
+  const mdLink = (t, lg = "hi") => esc(t).replace(/\[([^\]]+)\]\((\/[^)\s]+)\)/g, (m, a, u) => {
+    const href = u.startsWith("/hamsafar/") && lg !== "hi" ? "/" + lg + u : u;
+    return `<a href="${href}">${a}</a>`;
+  });
+
   /* एक रचना का पन्ना */
   function workPage(w0, lg = "hi") {
     const w = loc(w0, lg), X = TX[lg], langs = ["hi", "en", "ur"].filter(l => l === "hi" || w0[l]);
@@ -566,12 +572,11 @@ module.exports = function (H) {
         <p class="hs-k">${X.sec} ${deva(w.no)} · ${X.kind[w.kind]}${w.cat && lg === "hi" ? " · " + esc(w.cat) : ""}${lg !== "hi" ? " · " + X.orig : ""}</p>
         <h1>${esc(w.h)}</h1>${w.dek ? `<p class="hw-dek">${esc(w.dek)}</p>` : ""}
         <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}${lg === "en" ? " · " + mins(w) + " min read" : lg === "ur" ? " · " + mins(w) + " منٹ" : " · पढ़ें " + mins(w) + " मिनट"}</small></span></p>
-        ${w.bio ? `<p class="hw-bio"><span>${X.author}</span>${esc(w.bio)}</p>` : ""}
         ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
       </header>
       ${main}
       ${w.source_url ? `<p class="orig"><a href="${esc(w.source_url)}" target="_blank" rel="noopener">${lg === "en" ? "Read the original" : lg === "ur" ? "اصل مضمون پڑھیے" : "मूल लेख पढ़िए"}: ${esc(w.source_name || "")} →</a></p>` : ""}
-      ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${esc(w.note)}</p></aside>` : ""}
+      ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${mdLink(w.note, lg)}</p></aside>` : ""}
       <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}${w.bio_url ? `<p><a href="${esc(w.bio_url)}" target="_blank" rel="noopener">${esc(w.bio_source || "परिचय का स्रोत")}</a></p>` : ""}</div></aside>
       ${share(url(w0, lg), w.h, lg)}
       <p class="fine">${esc(w.fine || X.fine(w.by))}${w.tr ? " " + esc(w.tr) : ""}${w.prev ? " " + esc(w.prev) : ""}</p>
