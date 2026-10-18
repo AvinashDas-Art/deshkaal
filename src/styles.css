@@ -1319,3 +1319,9 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .hw-ed p{white-space:pre-line}
 .hw-ed p a{color:var(--neel);font-weight:700;border-bottom:2px solid var(--neel)}
 .hw-ed p a:hover{color:var(--geru);border-color:var(--geru)}
+
+/* टॉप स्ट्रिप: तारीख़ बाईं ओर, बाक़ी सब दाईं ओर */
+.strip{justify-content:space-between;align-items:center}
+.strip .date{flex:0 0 auto}
+.strip .controls{flex:0 1 auto;margin-inline-start:auto;justify-content:flex-end}
+@media (max-width:860px){.strip .controls{flex:1 1 100%;justify-content:flex-start}}
