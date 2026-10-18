@@ -1305,3 +1305,12 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 .hw-bio span{display:block;font-family:var(--f-ui);font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--geru);font-weight:700;margin-bottom:3px}
 .hs-card .hs-min{margin-inline-start:auto;font-size:11.5px;color:var(--ink-2);white-space:nowrap}
 @media (max-width:640px){.hw-bio{font-size:15px;padding:10px 12px}}
+
+/* तस्वीर और कैप्शन: कैप्शन हमेशा तस्वीर के नीचे, बीच में (तस्वीर खड़ी हो या आड़ी) */
+.hw-fig{width:fit-content;max-width:min(1100px,calc(100vw - 40px));margin-left:auto;margin-right:auto}
+.hw-fig img{display:block;width:auto;max-width:100%;height:auto;max-height:min(78vh,640px);margin:0 auto;object-fit:contain;background:var(--paper-2)}
+.hw-fig figcaption{max-width:none;margin:12px auto 0;padding:0;border:0;text-align:center;font-family:var(--f-hand);font-size:16.5px;line-height:1.5;color:var(--ink-2)}
+.hw-cover,.hw-essay .hw-fig{width:fit-content;max-width:min(1100px,calc(100vw - 40px));margin-left:auto;margin-right:auto}
+.hw-cover img{width:auto;max-width:100%;max-height:min(78vh,640px);height:auto;object-fit:contain}
+@media (max-width:760px){.hw-fig,.hw-cover,.hw-essay .hw-fig{width:calc(100vw - 32px);margin-left:auto;margin-right:auto}.hw-fig img{max-height:70vh}}
+html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
