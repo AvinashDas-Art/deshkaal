@@ -1348,3 +1348,23 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 @media (max-width:560px){
   .strip .controls{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;justify-items:center;gap:6px 8px;width:100%}
 }
+
+/* पाठक-सहयोग: नीला बटन दाईं ओर, थोड़ा छोटा, और उसके भीतर लिखा एकदम बीच में */
+.article-support{align-items:center;gap:clamp(16px,3vw,34px)}
+.article-support > div{flex:1 1 auto;min-width:0}
+.article-support .razorpay-payment-button{flex:0 0 auto;display:flex;align-items:center;justify-content:flex-end;margin:0}
+.article-support .razorpay-payment-button > span{display:flex!important;width:auto!important}
+.article-support .PaymentButton{
+  width:clamp(158px,17vw,196px)!important;min-height:52px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:0 14px!important;border-radius:12px!important;text-align:center!important;
+  box-shadow:0 8px 18px -10px rgba(20,30,80,.65)!important;transition:transform .18s ease,box-shadow .18s ease!important;
+}
+.article-support .PaymentButton:hover{transform:translateY(-2px)!important;box-shadow:0 12px 22px -10px rgba(20,30,80,.7)!important}
+.article-support .PaymentButton-contents{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;text-align:center!important}
+.article-support .PaymentButton-text{width:100%!important;text-align:center!important;font-weight:700!important;font-size:15px!important;line-height:1.25!important;letter-spacing:.2px}
+@media(max-width:680px){
+  .article-support{gap:14px}
+  .article-support .razorpay-payment-button{justify-content:flex-start;margin-top:14px}
+  .article-support .PaymentButton{width:100%!important}
+}
