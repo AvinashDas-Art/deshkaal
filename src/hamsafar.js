@@ -521,7 +521,7 @@ module.exports = function (H) {
   }
 
   /* नोट में [शीर्षक](/hamsafar/...) जैसी कड़ी: उसी भाषा के पन्ने पर ले जाए */
-  const mdLink = (t, lg = "hi") => esc(t).replace(/\[([^\]]+)\]\((\/[^)\s]+)\)/g, (m, a, u) => {
+  const mdLink = (t, lg = "hi") => esc(t).replace(/\[\[kamal-email\]\]/g, '<a href="mailto:kranti.koria%40gmail.com">kranti.koria@gmail.com</a>').replace(/\[([^\]]+)\]\((\/[^)\s]+)\)/g, (m, a, u) => {
     const href = u.startsWith("/hamsafar/") && lg !== "hi" ? "/" + lg + u : u;
     return `<a href="${href}">${a}</a>`;
   });
@@ -530,7 +530,7 @@ module.exports = function (H) {
   function workPage(w0, lg = "hi") {
     const w = loc(w0, lg), X = TX[lg], langs = ["hi", "en", "ur"].filter(l => l === "hi" || w0[l]);
     const imgs = w.images || [], body = w.body || [];
-    const fig = (im, cls = "") => `<figure class="hw-fig ${cls}"><img src="${esc(im.src)}" alt="${esc(im.alt || im.cap || w.h)}"${im.w ? ` width="${im.w}" height="${im.h}"` : ""} loading="lazy">${im.cap ? `<figcaption>${esc(im.cap)}</figcaption>` : ""}</figure>`;
+    const fig = (im, cls = "") => `<figure class="hw-fig ${cls}"><img src="${esc(im.src)}" alt="${esc(im.alt || im.cap || w.h)}"${im.w ? ` width="${im.w}" height="${im.h}"` : ""} loading="lazy">${im.cap ? `<figcaption>${mdLink(im.cap, lg)}</figcaption>` : ""}</figure>`;
     let main = "";
     if (w.kind === "cartoon") {
       main = `<figure class="toon-board big hw-toon"><a class="toon-frame" href="${esc(imgs[0].src)}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${esc(imgs[0].src)}" alt="${esc(imgs[0].alt || w.h)}"${imgs[0].w ? ` width="${imgs[0].w}" height="${imgs[0].h}"` : ""}></a><figcaption><span class="toon-sig">${esc(w.by)}</span><span>${esc(imgs[0].cap || "")}</span></figcaption></figure>
