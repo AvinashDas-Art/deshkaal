@@ -502,7 +502,7 @@ function homePage() {
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
-  ${weeklyBand()}
+  ${VH.band(LG) || weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}
   ${khabar.length ? `<section class="khabar">${head("khabar")}<div class="clist kv${PV.khabar}">${khabar.map(kRow).join("")}</div></section>` : ""}
@@ -628,6 +628,7 @@ function mdPage(file, title, desc, url, h2) {
   return layout({ title, desc, url: PRE + url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>`, alt: languageURLs(url, available), noindex: !available.includes(LG) });
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
+const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
   en: { pol: ["Editorial policy", "What commentary Deshkaal chooses, and why.", "Our editorial policy"], pri: ["Privacy policy", "What information Deshkaal keeps, where, and how to have it removed.", "Privacy policy"] },
@@ -778,6 +779,7 @@ for (const l of LANGS) {
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
+  VH.ALL.forEach(w => out(`${P}vishesh/${w.id}/index.html`, VH.page(w, l)));
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
