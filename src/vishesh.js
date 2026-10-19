@@ -51,7 +51,7 @@ module.exports = function (H) {
       <div class="vh-heading">
         <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
         <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
-        <p class="vh-by"><strong>${esc(w.by)}</strong>${w.place ? `<span>·</span>${esc(w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
+        <p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
       </div>
       ${img ? `<figure class="vh-art">${img}${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : ""}
     </div>
@@ -74,7 +74,7 @@ module.exports = function (H) {
     <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
     <h1 class="vh-title">${esc(t.h)}</h1>
     <p class="vh-dek">${esc(t.dek || "")}</p>
-    <p class="vh-by"><strong>${esc(w.by)}</strong>${w.place ? `<span>·</span>${esc(w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
+    <p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
   </header>
   ${img}
   <div class="vh-txt">
