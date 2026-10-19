@@ -78,7 +78,7 @@ module.exports = function (H) {
     const pageSrcDate = t.srcDate || w.srcDate || "";
     const pageSrcUrl = t.srcUrl || w.srcUrl || "";
     const sourceFor = t.sourceFor || (pageSrc === "The Hindu" ? X.forSrc : pageSrc ? pageSrc : "");
-    const rightsText = (w.rights && (w.rights[lg] || w.rights.hi)) || X.rights;
+    const rightsText = w.rights ? (w.rights[lg] ?? w.rights.hi ?? "") : X.rights;
     const translationNote = t.translationNote || (pageSrc === "The Hindu" ? X.tr : "");
 
     const alt = { hi: url(w, "hi"), en: url(w, "en"), ur: url(w, "ur") };
