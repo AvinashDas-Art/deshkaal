@@ -1448,3 +1448,31 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .support-ribbon-link b{grid-column:1;grid-row:1}
 .support-ribbon-link small{grid-column:1;grid-row:2}
 .support-ribbon-link::after{grid-column:2;grid-row:1 / span 2}
+
+/* अरुंधती रॉय का सवाल कार्ड: पुराना तीन-स्तंभ रूप, छोटा लेखक-पोर्ट्रेट */
+.camp-q{padding:clamp(18px,2.4vw,28px)}
+.camp-q .cp-in{grid-template-columns:minmax(0,1fr) 104px;grid-template-rows:auto auto auto auto;gap:0 24px;align-items:center}
+.camp-q .cp-copy{display:contents}
+.camp-q .cp-k{grid-column:1;grid-row:1;margin-bottom:5px}
+.camp-q .cp-h{grid-column:1;grid-row:2;font-size:clamp(28px,3.5vw,42px);line-height:1.15}
+.camp-q .cp-portrait{grid-column:2;grid-row:1 / span 2;width:104px;max-width:none;justify-self:end;transform:none}
+.camp-q .cp-img{width:104px;height:112px;max-height:none;object-fit:cover;object-position:center 16%;padding:3px;border:1px solid var(--rule);background:var(--paper);box-shadow:0 5px 14px -10px var(--ink)}
+.camp-q .cp-portrait figcaption{margin-top:4px;font-size:10px;line-height:1.25;text-align:center}
+.camp-q .cp-qs{grid-column:1 / -1;grid-row:3;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin:20px 0 0}
+.camp-q .cp-qs li{padding:0 0 4px;border:0}
+.camp-q .cp-qs li::before{position:static;display:block;margin-bottom:7px;font-size:clamp(30px,3.4vw,40px)}
+.camp-q .cp-cta{grid-column:1;grid-row:4;margin-top:16px}
+@media(max-width:820px){
+ .camp-q .cp-in{grid-template-columns:minmax(0,1fr) 72px;gap:0 14px}
+ .camp-q .cp-portrait{width:72px}
+ .camp-q .cp-img{width:72px;height:82px;padding:2px}
+ .camp-q .cp-qs{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+ .camp-q{padding:17px 15px}
+ .camp-q .cp-in{grid-template-columns:minmax(0,1fr) 58px;gap:0 10px}
+ .camp-q .cp-portrait{width:58px}
+ .camp-q .cp-img{width:58px;height:68px}
+ .camp-q .cp-portrait figcaption{font-size:9px}
+ .camp-q .cp-h{font-size:clamp(25px,7vw,32px)}
+}

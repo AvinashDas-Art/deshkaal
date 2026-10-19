@@ -455,7 +455,7 @@ function campaignBand() {
   const t = d[LG] || d.hi;
   if (!t) return "";
   const u = LG === "hi" ? C.href : "/" + LG + C.href;
-  const img = C.img ? `<img class="cp-img" src="${esc(C.img)}" alt="${esc(t.h)}" loading="lazy" width="1400" height="1539">` : "";
+  const img = C.img ? `<img class="cp-img" src="${esc(C.img)}" alt="${(LG === "en" ? "Arundhati Roy" : LG === "ur" ? "اروندھتی رائے" : "अरुंधती रॉय")}" loading="lazy" width="1400" height="1539">` : "";
   const cta = `<a class="cp-cta" href="${u}">${esc(t.cta)} <span aria-hidden="true">→</span></a>`;
   if (d.variant === "questions") {
     return `<section class="camp camp-q"><div class="cp-in"><div class="cp-copy"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><ol class="cp-qs">${(t.qs || []).map(q => `<li>${esc(q)}</li>`).join("")}</ol>${cta}</div><figure class="cp-portrait">${img}<figcaption>${LG === "en" ? "Arundhati Roy" : LG === "ur" ? "اروندھتی رائے" : "अरुंधती रॉय"}</figcaption></figure></div></section>`;
