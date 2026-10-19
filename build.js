@@ -354,7 +354,7 @@ const LIVE_DAYS = fs.existsSync("data/live") ? fs.readdirSync("data/live").filte
 const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
 /* दीवार सिर्फ़ तब दिखे जब आज के लिए कुछ दर्ज हो; पुरानी दीवारें आर्काइव में रहती हैं */
 const LIVE_TODAY_DAY = LIVE_DAYS.find(d => d.date === IST_TODAY);
-const LIVE_ON = SPECIAL.active && !!LIVE_TODAY_DAY && (LIVE_TODAY_DAY.items || []).length > 0;
+const LIVE_ON = false; // पुरानी दीवारें आर्काइव में रहेंगी; साइट पर लाइव कवरेज बंद है।
 const LIVE_ARCHIVE = SPECIAL.active && LIVE_DAYS.length > 0;
 const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "رات"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
@@ -426,7 +426,7 @@ function liveTeaser() {
 }
 
 /* ---------- pages ---------- */
-/* ---------- रविवार विशेष: data/weekly/<YYYY-MM-DD>.json ---------- */
+/* ---------- साप्ताहिक चयन: data/weekly/<YYYY-MM-DD>.json ---------- */
 const WEEKLY = (() => {
   const dir = "data/weekly";
   if (!fs.existsSync(dir)) return null;
@@ -438,9 +438,9 @@ const WEEKLY = (() => {
 const weeklyIntro = () => (WEEKLY && ((WEEKLY[LG] || {}).intro || WEEKLY.intro)) || "";
 const weeklyItems = () => (WEEKLY && (WEEKLY.ids || []).map(id => all.find(a => a.id === id)).filter(Boolean)) || [];
 const WK = {
-  hi: { t: "रविवार विशेष", s: "हफ़्ते की पांच सबसे ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ", all: "यह पूरा विशेष पढ़िए →", cta: "रविवार विशेष" },
-  en: { t: "Sunday special", s: "The five most important pieces of the week, with deeper context", all: "Read the whole special →", cta: "Sunday special" },
-  ur: { t: "اتوار کا خاص", s: "ہفتے کی پانچ سب سے اہم تحریریں، گہرے سیاق کے ساتھ", all: "یہ پورا خاص نمبر پڑھیں ←", cta: "اتوار کا خاص" },
+  hi: { t: "पिछले हफ़्ते की पांच ज़रूरी बातें", s: "पिछले हफ़्ते की पांच ज़रूरी टिप्पणियां, गहरे संदर्भ के साथ", all: "पूरा साप्ताहिक संकलन पढ़िए →", cta: "साप्ताहिक संकलन" },
+  en: { t: "Five essential reads from last week", s: "Five essential pieces from last week, with deeper context", all: "Read the full weekly collection →", cta: "Weekly collection" },
+  ur: { t: "گزشتہ ہفتے کی پانچ اہم باتیں", s: "گزشتہ ہفتے کی پانچ اہم تحریریں، گہرے سیاق کے ساتھ", all: "پورا ہفتہ وار مجموعہ پڑھیں ←", cta: "ہفتہ وار مجموعہ" },
 };
 
 /* ---------- होमपेज कैंपेन (data/campaign.json): कुछ दिन एक रचना को अलग-अलग अंदाज़ में उभारता है ---------- */
@@ -458,7 +458,7 @@ function campaignBand() {
   const img = C.img ? `<img class="cp-img" src="${esc(C.img)}" alt="${esc(t.h)}" loading="lazy" width="1400" height="1539">` : "";
   const cta = `<a class="cp-cta" href="${u}">${esc(t.cta)} <span aria-hidden="true">→</span></a>`;
   if (d.variant === "questions") {
-    return `<section class="camp camp-q"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><ol class="cp-qs">${(t.qs || []).map(q => `<li>${esc(q)}</li>`).join("")}</ol>${cta}</div></section>`;
+    return `<section class="camp camp-q"><div class="cp-in"><div class="cp-copy"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><ol class="cp-qs">${(t.qs || []).map(q => `<li>${esc(q)}</li>`).join("")}</ol>${cta}</div><figure class="cp-portrait">${img}<figcaption>${LG === "en" ? "Arundhati Roy" : LG === "ur" ? "اروندھتی رائے" : "अरुंधती रॉय"}</figcaption></figure></div></section>`;
   }
   if (d.variant === "facts") {
     return `<section class="camp camp-facts"><div class="cp-in"><p class="cp-k">${esc(t.kicker)}</p><h2 class="cp-h">${esc(t.h)}</h2><dl class="cp-facts">${(t.facts || []).map(f => `<div><dt>${esc(f.n)}</dt><dd>${esc(f.l)}</dd></div>`).join("")}</dl>${cta}</div></section>`;
@@ -500,7 +500,7 @@ function homePage() {
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
-  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b><span class="mr-live"><i></i>${T.live}${lastUpdate() ? " · " + T.updatedAt(clock(lastUpdate())) : ""}</span>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
@@ -577,7 +577,7 @@ function liveArchivePage() {
   const days_ = LIVE_DAYS;
   const body = `<section class="page2 lv-arch"><p class="lv-ak">${A.k}</p><h2>${A.t}</h2><p style="color:var(--ink-2);max-width:70ch">${A.s}</p>
     ${LIVE_ON ? `<p><a class="lv-open" href="/live/">${A.liveNow}</a></p>` : ""}
-    <div class="lv-days">${days_.length ? days_.map(d => `<a class="lv-day" href="/live/${d.date}/"><b>${dayLabel(d.date)}</b><span>${(d.items || []).length} ${LG === "en" ? "updates" : LG === "ur" ? "اپ ڈیٹ" : "अपडेट"}</span><i>${A.open}</i></a>`).join("") : `<p>${A.empty}</p>`}</div></section>`;
+    <div class="lv-days">${days_.length ? days_.map(d => `<a class="lv-day" href="${PRE}/live/${d.date}/"><b>${dayLabel(d.date)}</b><span>${(d.items || []).length} ${LG === "en" ? "updates" : LG === "ur" ? "اپ ڈیٹ" : "अपडेट"}</span><i>${A.open}</i></a>`).join("") : `<p>${A.empty}</p>`}</div></section>`;
   return layout({ title: A.t, desc: A.s, url: PRE + "/live/", body, tab: "purane", catOn: "सब", alt: { hi: "/live/", en: "/en/live/", ur: "/ur/live/" } });
 }
 
@@ -785,7 +785,6 @@ for (const l of LANGS) {
   if (l === "hi" && LIVE_ARCHIVE) {
     const T0 = LIVE_TODAY_DAY;
     out("live/index.html", LIVE_ON ? livePage(T0, "/live/") : liveArchivePage());
-    out("live/feed.json", JSON.stringify({ updated: (T0 || {}).updated || "", day: (T0 || {}).date || "" }));
     LIVE_DAYS.forEach(d => out(`live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
   }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());
@@ -797,9 +796,9 @@ for (const l of ["en", "ur"]) {
   const P = l + "/";
   out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage(LG));
   PUB_TOONS.forEach(c => out(`${cartoonURL(c).slice(1)}/index.html`, cartoonPage(c)));
-  if (LIVE_ON) {
+  if (LIVE_ARCHIVE) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
-    out(P + "live/index.html", livePage(T0, "/live/"));
+    out(P + "live/index.html", liveArchivePage());
     LIVE_DAYS.forEach(d => out(`${P}live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
   }
 }

@@ -1414,3 +1414,37 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
   .article-support .PaymentButton{width:100%!important}
   .article-support .PaymentButton-contents::before{top:-22px;right:-6px;width:42px;height:42px;font-size:8.5px}
 }
+
+/* सहयोग का स्थायी रूप: ऊपर छोटा प्रकाशन-चिह्न, लेख के अंत में बड़ा पाठक-सहयोग कार्ड */
+.support-ribbon{display:inline-flex;align-items:center;margin-inline-start:6px;padding:3px;border:1px solid color-mix(in srgb,var(--neel) 34%,var(--rule));border-radius:7px;background:var(--paper);color:var(--ink);box-shadow:0 3px 12px -10px var(--ink);overflow:hidden}
+.support-ribbon-link{display:grid;grid-template-columns:auto auto;align-items:center;gap:0 7px;padding:5px 10px;border:0;border-radius:4px;background:var(--neel);color:#fff;text-align:start;cursor:pointer;transition:transform .18s ease,background .18s ease}
+.support-ribbon-link:hover{background:var(--geru);transform:translateY(-1px)}
+.support-ribbon-link b{grid-row:1 / span 2;font:700 13px/1.2 var(--f-ui);white-space:nowrap}
+.support-ribbon-link span[aria-hidden="true"]{display:none}
+.support-ribbon-link small{font:10px/1.2 var(--f-ui);color:color-mix(in srgb,#fff 78%,transparent);white-space:nowrap}
+.support-ribbon-link::after{content:"↗";grid-column:2;grid-row:1 / span 2;font-size:15px}
+.support-ribbon .razorpay-payment-button{display:none!important}
+.article-support{position:relative;isolation:isolate;overflow:hidden;gap:clamp(20px,4vw,54px);margin:50px 0 32px;padding:clamp(24px,4vw,42px);border:1px solid color-mix(in srgb,var(--neel) 36%,var(--rule));border-radius:4px;background:linear-gradient(118deg,var(--neel-soft),var(--paper) 68%);box-shadow:8px 8px 0 color-mix(in srgb,var(--neel) 16%,transparent)}
+.article-support::before{content:"";position:absolute;z-index:-1;inset:0 auto 0 0;width:9px;background:var(--geru)}
+.article-support::after{content:"";position:absolute;z-index:-1;inset:auto -36px -72px auto;width:230px;height:230px;border:1px solid color-mix(in srgb,var(--neel) 17%,transparent);border-radius:50%;box-shadow:0 0 0 18px color-mix(in srgb,var(--neel) 8%,transparent),0 0 0 38px color-mix(in srgb,var(--neel) 5%,transparent);pointer-events:none}
+.article-support b{font-size:clamp(20px,2.5vw,28px);letter-spacing:-.02em}
+.article-support p{max-width:58ch;font-size:15px}
+.article-support .PaymentButton{background:var(--geru)!important;color:#fff!important;border:0!important;border-radius:3px!important;box-shadow:0 7px 0 color-mix(in srgb,var(--geru) 70%,#000)!important}
+.article-support .PaymentButton:hover{transform:translateY(-2px)!important}
+.article-support .PaymentButton-text{color:#fff!important}
+.article-support .PaymentButton-contents::before{display:none!important}
+.camp-q{border:1px solid color-mix(in srgb,var(--neel) 28%,var(--rule));border-top:8px solid var(--neel);background:linear-gradient(125deg,var(--neel-soft),var(--paper) 78%);padding:clamp(20px,3vw,38px)}
+.camp-q .cp-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,28%);gap:clamp(20px,4vw,54px);align-items:center}
+.camp-q .cp-copy{min-width:0}
+.camp-q .cp-portrait{position:relative;margin:0;max-width:310px;justify-self:end;transform:rotate(1.2deg)}
+.camp-q .cp-img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center 20%;border:8px solid var(--paper);box-shadow:0 12px 30px -16px #151928}
+.camp-q .cp-portrait figcaption{margin-top:8px;text-align:end;font:600 12px/1.4 var(--f-ui);color:var(--ink-2)}
+.camp-q .cp-qs{grid-template-columns:1fr}
+.camp-q .cp-qs li{position:relative;padding:0 0 14px 42px;border-bottom:1px solid color-mix(in srgb,var(--neel) 20%,var(--rule))}
+.camp-q .cp-qs li::before{position:absolute;inset:0 auto auto 0;font-size:34px}
+@media(max-width:700px){.camp-q .cp-in{grid-template-columns:1fr}.camp-q .cp-portrait{grid-row:1;justify-self:start;width:min(58%,230px)}.camp-q .cp-img{max-height:290px}.camp-q .cp-portrait figcaption{text-align:start}.camp-q .cp-qs{grid-template-columns:1fr}}
+@media(max-width:560px){.support-ribbon{margin-inline-start:0}.support-ribbon-link{padding:5px 7px}.support-ribbon-link small{display:none}.support-ribbon-link::after{display:none}.article-support{padding:22px 18px;box-shadow:5px 5px 0 color-mix(in srgb,var(--neel) 16%,transparent)}.article-support .razorpay-payment-button{margin-top:18px}}
+.support-ribbon-link{grid-template-columns:auto 12px;grid-template-rows:auto auto}
+.support-ribbon-link b{grid-column:1;grid-row:1}
+.support-ribbon-link small{grid-column:1;grid-row:2}
+.support-ribbon-link::after{grid-column:2;grid-row:1 / span 2}
