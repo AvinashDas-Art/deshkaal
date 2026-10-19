@@ -1513,3 +1513,85 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 [dir="rtl"] .vh-q{border-left:0;border-right:4px solid var(--lal);padding-left:0;padding-right:16px}
 [dir="rtl"] .vh-cta span{transform:scaleX(-1)}
 @media (max-width:860px){.vh-wrap{grid-template-columns:1fr}.vh-h{font-size:clamp(28px,7vw,40px)}.vh-q{margin:12px 0}}
+
+
+/* विशेष प्रस्तुति: अख़बारी आवरण, साफ़ तस्वीर और एक स्पष्ट पाठ-क्रम */
+.vh-band{
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:clamp(30px,5vw,68px) 0 clamp(42px,6vw,82px);
+  padding:clamp(18px,3.8vw,54px);
+  border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);
+  border-top:7px solid var(--lal);border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent);
+  background:radial-gradient(ellipse at 88% 10%,rgba(210,48,43,.06),transparent 33%),linear-gradient(135deg,#f7f2e9 0%,var(--paper) 64%,#eee8dc 100%);
+  box-shadow:0 24px 58px rgba(27,25,22,.12)
+}
+.vh-band::after{
+  content:"";position:absolute;z-index:-1;right:-34px;top:-34px;width:180px;height:180px;
+  border:1px solid color-mix(in srgb,var(--lal) 32%,transparent);border-radius:50%;
+  box-shadow:0 0 0 18px color-mix(in srgb,var(--lal) 5%,transparent),0 0 0 38px color-mix(in srgb,var(--lal) 4%,transparent)
+}
+.vh-wrap{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);
+  gap:clamp(24px,4.4vw,68px);align-items:center;max-width:1480px;margin:0 auto;padding:0
+}
+.vh-art{
+  position:relative;isolation:isolate;overflow:hidden;aspect-ratio:4/3;min-height:0;
+  margin:0;background:#781f24;
+  box-shadow:0 20px 42px rgba(24,19,18,.22),8px 8px 0 rgba(210,48,43,.12)
+}
+.vh-art img{
+  position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center 43%;
+  box-shadow:none;transition:transform .6s cubic-bezier(.2,.7,.2,1)
+}
+.vh-band:hover .vh-art img{transform:scale(1.025)}
+.vh-art figcaption{
+  position:absolute;z-index:2;inset:auto 0 0;margin:0;padding:32px 18px 12px;
+  background:linear-gradient(transparent,rgba(18,15,15,.74));
+  color:rgba(255,255,255,.9);font-family:var(--f-ui);font-size:12px;line-height:1.5
+}
+.vh-art-missing{background:
+  radial-gradient(ellipse at 60% 38%,rgba(250,214,195,.3),transparent 27%),
+  radial-gradient(ellipse at 50% 106%,rgba(16,12,14,.86),transparent 38%),
+  linear-gradient(135deg,#a42f31,#531b23 70%,#21171b)}
+.vh-art-missing::before{
+  content:"";position:absolute;inset:9% 10% 8%;border:1px solid rgba(255,255,255,.22);
+  background:repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.025) 18px 19px);
+  box-shadow:inset 0 0 0 12px rgba(255,255,255,.025)
+}
+.vh-art-missing::after{
+  content:"देशकाल · विशेष";position:absolute;left:9%;top:10%;color:rgba(255,255,255,.86);
+  font:700 12px/1.4 var(--f-ui);letter-spacing:.16em;text-transform:uppercase
+}
+.vh-txt{position:relative;max-width:660px}
+.vh-k{gap:10px;margin:0 0 18px;color:var(--ink-2);font-size:12px;font-weight:700;letter-spacing:.12em}
+.vh-tag{padding:5px 11px 6px;letter-spacing:.1em}
+.vh-h{max-width:13ch;margin:0 0 17px;font-size:clamp(36px,4.25vw,66px);line-height:1.04;letter-spacing:-.025em;text-wrap:balance}
+.vh-dek{max-width:42ch;margin:0 0 16px;color:var(--ink-2);font-size:clamp(17px,1.45vw,20px);line-height:1.72}
+.vh-by{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 18px;
+  padding:11px 0;border-block:1px solid color-mix(in srgb,var(--ink) 20%,transparent);
+  font-size:13px;color:var(--ink-2)
+}
+.vh-by strong{color:var(--ink);font-weight:700}
+.vh-q{
+  position:relative;margin:20px 0 16px;padding:5px 0 5px 18px;
+  border:0;border-left:3px solid var(--lal);
+  font-family:var(--f-dek);font-size:clamp(18px,1.8vw,23px);font-weight:600;line-height:1.55
+}
+.vh-cta{margin-top:4px;padding:9px 0 5px;border-bottom:2px solid var(--lal);font-size:15px;letter-spacing:.01em}
+.vh-cta span{margin-inline-start:8px}
+@media(max-width:860px){
+  .vh-band{padding:clamp(15px,4vw,28px)}
+  .vh-wrap{grid-template-columns:minmax(0,1fr);gap:26px}
+  .vh-art{aspect-ratio:16/10}
+  .vh-txt{max-width:none}
+  .vh-h{max-width:16ch;font-size:clamp(34px,7vw,52px)}
+  .vh-dek{max-width:60ch}
+}
+@media(max-width:520px){
+  .vh-band{margin:30px 0 44px;padding:14px;border-top-width:5px}
+  .vh-art{aspect-ratio:4/3}
+  .vh-h{font-size:clamp(32px,9vw,42px)}
+  .vh-q{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){.vh-art img{transition:none}.vh-band:hover .vh-art img{transform:none}}
