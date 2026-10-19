@@ -40,7 +40,9 @@ module.exports = function (H) {
 
   /* होमपेज की बड़ी पट्टी */
   function band(lg = "hi") {
-    const w = ALL[0]; if (!w) return "";
+    /* पट्टी छह दिन तक; उसके बाद रविवार विशेष अपनी जगह लौट आता है */
+    const w = ALL.find(x => (Date.parse(LATEST) - Date.parse(x.date)) / 864e5 <= 6);
+    if (!w) return "";
     const X = T[lg] || T.hi, t = loc(w, lg);
     const img = w.photo ? `<img src="${esc(w.photo)}" alt="${esc(t.h)}" width="1200" height="840" loading="lazy">` : "";
     return `<section class="vh-band" data-id="${esc(w.id)}">
