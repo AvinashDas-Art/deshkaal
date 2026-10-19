@@ -14,7 +14,7 @@ function load() {
 }
 
 module.exports = function (H) {
-  const { layout, esc, dayLabel, SITE, LATEST } = H;
+  const { layout, esc, dayLabel, SITE, LATEST, supportEnd } = H;
   const ALL = load().filter(w => w.date <= LATEST && w.active !== false);
   const P = lg => (lg === "hi" ? "" : "/" + lg);
   const url = (w, lg = "hi") => `${P(lg)}/vishesh/${w.id}/`;
