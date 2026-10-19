@@ -3,7 +3,7 @@
    निजता: रिपॉज़िटरी पब्लिक है, इसलिए किसी रचना की फ़ाइल में ईमेल, फ़ोन या पता हो तो बिल्ड रुक जाता है। */
 const fs = require("fs"), path = require("path");
 const MAIL = "sampark@deshkaal.xyz";
-const KIND = { lekh: "लेख", reportaj: "रिपोर्ताज", kahani: "कहानी", kavita: "कविता", cartoon: "कार्टून", photo: "तस्वीरें", sansmaran: "संस्मरण", diary: "डायरी" };
+const KIND = { lekh: "लेख", tipanni: "टिप्पणी", reportaj: "रिपोर्ताज", kahani: "कहानी", kavita: "कविता", cartoon: "कार्टून", photo: "तस्वीरें", sansmaran: "संस्मरण", diary: "डायरी" };
 const BANNED_KEYS = ["email", "mail", "phone", "mobile", "contact", "address", "pata", "whatsapp"];
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/, PHONE_RE = /(?:\+?\d{1,3}[\s-]?)?(?<![\d-])[6-9]\d{4}[\s-]?\d{5}(?![\d-])/;
 
@@ -42,12 +42,12 @@ module.exports = function (H) {
       bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की रचनाएं",
       galI: "हमसफ़र में लेखकों-पत्रकारों की रचनाएं, उनकी अनुमति के साथ।", first: "पहली रचना आपकी हो सकती है।",
       galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, उनकी अनुमति के साथ।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
-    en: { sec: "Hamsafar", kind: { lekh: "Essay", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
+    en: { sec: "Hamsafar", kind: { lekh: "Essay", tipanni: "Comment", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
       fine: by => `All rights to this work remain with ${by}.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
       bandSub: "Writers' and journalists' work, cartoons and photographs", all: "All pieces →", send: "Send your work", galK: "Writers and journalists",
       galI: "Hamsafar means fellow traveller. Work by writers and journalists, published with their permission.", first: "The first piece could be yours.",
       galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs, published with their creators' permission.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
-    ur: { sec: "ہم سفر", kind: { lekh: "مضمون", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
+    ur: { sec: "ہم سفر", kind: { lekh: "مضمون", tipanni: "تبصرہ", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
       fine: by => `اس تحریر کے تمام حقوق ${by} کے پاس ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
       bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی تحریریں",
       galI: "ہم سفر میں لکھنے والوں اور صحافیوں کی تحریریں، ان کی اجازت کے ساتھ۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
