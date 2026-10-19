@@ -40,22 +40,25 @@ module.exports = function (H) {
 
   /* होमपेज की बड़ी पट्टी */
   function band(lg = "hi") {
-    /* पट्टी छह दिन तक; उसके बाद रविवार विशेष अपनी जगह लौट आता है */
     const w = ALL.find(x => (Date.parse(LATEST) - Date.parse(x.date)) / 864e5 <= 6);
     if (!w) return "";
     const X = T[lg] || T.hi, t = loc(w, lg);
-    const img = w.photo ? `<img src="${esc(w.photo)}" alt="${esc(w.photoAlt || t.h)}" width="1200" height="840" loading="lazy" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)">` : "";
+    const points = t.homePoints || w.homePoints || [];
+    const img = w.photo ? `<img src="${esc(w.photo)}" alt="${esc(w.photoAlt || t.h)}" width="320" height="400" loading="lazy" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)" />` : "";
     return `<section class="vh-band" data-id="${esc(w.id)}">
   <div class="vh-wrap">
-    <figure class="vh-art${w.photo ? "" : " vh-art-missing"}">${img}${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>
-    <div class="vh-txt">
-      <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
-      <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
-      <p class="vh-dek">${esc(t.dek || "")}</p>
-      <p class="vh-by">${esc(t.by || w.by)}${w.place ? ` · ${esc(w.place)}` : ""}</p>
-      ${t.pull ? `<blockquote class="vh-q">${esc(t.pull)}</blockquote>` : ""}
-      <a class="vh-cta" href="${url(w, lg)}">${X.read} <span aria-hidden="true">→</span></a>
+    <div class="vh-top">
+      <div class="vh-heading">
+        <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
+        <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
+        <p class="vh-by">${esc(t.by || w.by)}${w.place ? ` · ${esc(w.place)}` : ""}</p>
+      </div>
+      ${img ? `<figure class="vh-art">${img}${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : ""}
     </div>
+    ${points.length ? `<div class="vh-bottom">
+      <div class="vh-points">${points.slice(0, 3).map((p, i) => `<div class="vh-point"><span>${String(i + 1).padStart(2, "0")}</span><p>${esc(p)}</p></div>`).join("")}</div>
+      <a class="vh-cta" href="${url(w, lg)}">${X.read} <span aria-hidden="true">→</span></a>
+    </div>` : `<a class="vh-cta" href="${url(w, lg)}">${X.read} <span aria-hidden="true">→</span></a>`}
   </div>
 </section>`;
   }
