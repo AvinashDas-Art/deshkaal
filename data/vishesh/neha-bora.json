@@ -68,7 +68,12 @@
       "This profile reads the movement through one of its visible faces, while tracing the years of student politics, gender justice work and trust among comrades behind that visibility. Without that history, it is easy to mistake a movement for anger that appeared overnight.",
       "A prominent activist, however, cannot by themself stand in for the movement's full range of views. Debate over the Special Intensive Revision (SIR) of electoral rolls and the Election Commission's accountability should be tested against evidence and institutional process."
     ],
-    "sawal": "When people take to the streets despite the risk of detention, how should a democracy protect the space in which dissent can be heard?"
+    "sawal": "When people take to the streets despite the risk of detention, how should a democracy protect the space in which dissent can be heard?",
+    "homePoints": [
+      "After a 23-day hunger strike, Neha is back on the streets.",
+      "One of the best-known faces of the movement against SIR.",
+      "Demand: impeach the Chief Election Commissioner and halt SIR."
+    ]
   },
   "ur": {
     "h": "نیہا بورا: سڑک پر لوٹ آنے کی ضد",
@@ -101,12 +106,22 @@
       "یہ پروفائل تحریک کو اس کے ایک نمایاں چہرے کے ذریعے دیکھتی ہے، مگر اس شہرت کے پیچھے طلبہ سیاست، صنفی انصاف اور ساتھیوں کے اعتماد کے برسوں پر بھی روشنی ڈالتی ہے۔ اس تاریخ کے بغیر تحریک کو اچانک ابھرنے والا غصہ سمجھ لینا آسان ہے۔",
       "لیکن کوئی مقبول کارکن پوری تحریک کی رائے کا قائم مقام نہیں بن سکتا۔ ووٹر فہرستوں کی خصوصی نظرثانی (SIR) اور الیکشن کمیشن کی جواب دہی پر بحث کو ثبوت اور ادارہ جاتی عمل کی بنیاد پر پرکھنا چاہیے۔"
     ],
-    "sawal": "جب لوگ حراست کے خوف کے باوجود سڑک پر نکلیں، تو جمہوریت اختلافِ رائے سننے کی جگہ کیسے محفوظ رکھے؟"
+    "sawal": "جب لوگ حراست کے خوف کے باوجود سڑک پر نکلیں، تو جمہوریت اختلافِ رائے سننے کی جگہ کیسے محفوظ رکھے؟",
+    "homePoints": [
+      "23 دن کی بھوک ہڑتال کے بعد نیہا پھر سڑک پر ہیں۔",
+      "ووٹر فہرستوں کی SIR مخالف تحریک کا ایک نمایاں چہرہ۔",
+      "مطالبہ: چیف الیکشن کمشنر کا مواخذہ اور SIR پر روک۔"
+    ]
   },
   "photoAlt": "आंदोलनकारी नेहा बोरा का चित्र",
   "nazar": [
     "नेहा बोरा की यह प्रोफ़ाइल आंदोलन को एक चेहरे से पढ़ती है, मगर उसके पीछे वर्षों की छात्र राजनीति, जेंडर न्याय और साथियों का भरोसा भी दिखाती है। इस सिलसिले को समझे बिना किसी आंदोलन को अचानक उठा ग़ुस्सा मान लेना आसान होगा।",
     "साथ ही, किसी लोकप्रिय आंदोलनकारी का चेहरा अपने आप पूरे आंदोलन की सहमति नहीं बन जाता। मतदाता सूची के विशेष गहन पुनरीक्षण (SIR) और चुनाव आयोग की जवाबदेही पर बहस को आरोप, प्रमाण और संस्थागत प्रक्रिया के साथ देखना ज़रूरी है।"
   ],
-  "sawal": "जब लोग गिरफ़्तारी के डर के बावजूद सड़क पर उतरें, तो लोकतंत्र उनकी असहमति को सुनने की जगह कैसे बचाए?"
+  "sawal": "जब लोग गिरफ़्तारी के डर के बावजूद सड़क पर उतरें, तो लोकतंत्र उनकी असहमति को सुनने की जगह कैसे बचाए?",
+  "homePoints": [
+    "23 दिन की भूख हड़ताल के बाद नेहा फिर सड़क पर हैं।",
+    "मतदाता सूची के SIR-विरोधी आंदोलन का एक जाना-पहचाना चेहरा।",
+    "मांग: मुख्य चुनाव आयुक्त पर महाभियोग और SIR पर रोक।"
+  ]
 }
