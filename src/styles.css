@@ -1595,3 +1595,25 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
   .vh-q{font-size:18px}
 }
 @media(prefers-reduced-motion:reduce){.vh-art img{transition:none}.vh-band:hover .vh-art img{transform:none}}
+
+/* नेहा बोरा लेख: देशकाल की नज़र, स्रोत और पाठक-सहयोग */
+.vh-cover{position:relative;aspect-ratio:3/2;overflow:hidden;background:#781f24}
+.vh-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 43%}
+.vh-cover figcaption{position:absolute;inset:auto 0 0;margin:0;padding:30px 14px 10px;color:#fff;background:linear-gradient(transparent,rgba(18,15,15,.72));font-family:var(--f-ui);font-size:12px}
+.vh-editorial{margin:clamp(34px,5vw,60px) 0 24px;padding:clamp(22px,4vw,40px);background:linear-gradient(135deg,#efe8dc,#f8f4ec);border-top:5px solid var(--lal);border-bottom:1px solid var(--hair)}
+.vh-section-k{margin:0 0 8px!important;font-family:var(--f-ui);font-size:13px!important;font-weight:800;letter-spacing:.1em;color:var(--lal);text-transform:uppercase}
+.vh-editorial h2{margin:0 0 16px;font-family:var(--f-head);font-size:clamp(25px,3vw,36px);line-height:1.18}
+.vh-editorial p:not(.vh-section-k){max-width:68ch;margin:0 0 12px}
+.vh-editorial p:last-child{margin-bottom:0}
+.vh-sawal{margin:22px 0;padding:20px 24px;border-left:4px solid var(--lal);background:#171615;color:#fff}
+.vh-sawal span{display:block;margin:0 0 8px;font:700 12px/1.4 var(--f-ui);letter-spacing:.12em;color:#e76a5e}
+.vh-sawal p{margin:0!important;font:600 clamp(19px,2.2vw,26px)/1.5 var(--f-dek)}
+.vh-original{position:relative;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:center;margin:22px 0 10px;padding:20px 24px;background:var(--lal);color:#fff!important;text-decoration:none;border:1px solid #a52622}
+.vh-original:hover{background:#ae2925;color:#fff!important}
+.vh-original>span{grid-column:1/-1;font:700 12px/1.4 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.vh-original strong{font:700 clamp(18px,2vw,22px)/1.35 var(--f-ui)}
+.vh-original i{font:normal 24px/1 var(--f-ui)}
+.vh-rights{margin:0 0 24px!important;padding:10px 0;border-bottom:1px solid var(--hair);font:13px/1.6 var(--f-ui);color:var(--ink-2)}
+.vh-page .article-support{margin:0 0 26px}
+.vh-page .share{margin-top:26px}
+@media(max-width:600px){.vh-editorial{padding:20px 17px}.vh-sawal{padding:18px}.vh-original{padding:17px}}

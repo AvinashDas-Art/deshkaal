@@ -21,9 +21,9 @@ module.exports = function (H) {
   const loc = (w, lg) => (lg === "hi" || !w[lg] ? w : { ...w, ...w[lg] });
 
   const T = {
-    hi: { tag: "विशेष", by: "लिखा", tr: "हिंदी अनुवाद: देशकाल", orig: "मूल", read: "पूरा पढ़िए", share: "आगे भेजिए", copy: "लिंक कॉपी", also: "यह प्रस्तुति इन भाषाओं में भी:", back: "← मुखपृष्ठ", creditNote: "अनुमति के साथ" },
-    en: { tag: "Special", by: "By", tr: "English translation: Deshkaal desk", orig: "Original", read: "Read the whole piece", share: "Share", copy: "Copy link", also: "This piece is also in:", back: "← Home", creditNote: "With permission" },
-    ur: { tag: "خصوصی", by: "قلم", tr: "اردو ترجمہ: دیش کال ڈیسک", orig: "اصل", read: "پوری تحریر پڑھیں", share: "آگے بھیجیے", copy: "لنک کاپی", also: "یہ تحریر ان زبانوں میں بھی:", back: "→ سرورق", creditNote: "اجازت کے ساتھ" },
+    hi: { tag: "विशेष", by: "लिखा", tr: "हिंदी अनुवाद: देशकाल", orig: "मूल", read: "पूरा पढ़िए", share: "आगे भेजिए", copy: "लिंक कॉपी", also: "यह प्रस्तुति इन भाषाओं में भी:", back: "← मुखपृष्ठ", creditNote: "अनुमति के साथ", viewTitle: "देशकाल की नज़र", thinkTitle: "सोचने के लिए", originalLink: "मूल लेख पढ़ने के लिए यहां क्लिक करें", rights: "इस लेख के सारे अधिकार द हिंदू के पास हैं।" },
+    en: { tag: "Special", by: "By", tr: "English translation: Deshkaal desk", orig: "Original", read: "Read the whole piece", share: "Share", copy: "Copy link", also: "This piece is also in:", back: "← Home", creditNote: "With permission", viewTitle: "Deshkaal’s view", thinkTitle: "A question to consider", originalLink: "Click here to read the original article", rights: "All rights to this article belong to The Hindu." },
+    ur: { tag: "خصوصی", by: "قلم", tr: "اردو ترجمہ: دیش کال ڈیسک", orig: "اصل", read: "پوری تحریر پڑھیں", share: "آگے بھیجیے", copy: "لنک کاپی", also: "یہ تحریر ان زبانوں میں بھی:", back: "→ سرورق", creditNote: "اجازت کے ساتھ", viewTitle: "دیش کال کی نظر", thinkTitle: "سوچنے کے لیے", originalLink: "اصل مضمون پڑھنے کے لیے یہاں کلک کریں", rights: "اس مضمون کے تمام حقوق دی ہندو کے پاس ہیں۔" },
   };
   const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const D = { hi: "अनुवाद", en: "Translated", ur: "ترجمہ" };
@@ -64,7 +64,7 @@ module.exports = function (H) {
   function page(w, lg = "hi") {
     const X = T[lg] || T.hi, t = loc(w, lg);
     const alt = { hi: url(w, "hi"), en: url(w, "en"), ur: url(w, "ur") };
-    const img = w.photo ? `<figure class="vh-cover"><img src="${esc(w.photo)}" alt="${esc(t.h)}" width="1200" height="840">${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : "";
+    const img = w.photo ? `<figure class="vh-cover"><img src="${esc(w.photo)}" alt="${esc(w.photoAlt || t.h)}" width="1200" height="840" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)">${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : "";
     const credit = w.src ? `<p class="vh-credit">${X.orig}: <a href="${esc(w.srcUrl || "#")}" target="_blank" rel="noopener">${esc(w.src)}</a>${w.srcDate ? `, ${esc(w.srcDate)}` : ""} · ${lg === "hi" ? X.tr : X.tr}</p>` : "";
     const body = `<article class="vh-page" data-id="${esc(w.id)}">
   <header class="vh-hero">
@@ -77,7 +77,11 @@ module.exports = function (H) {
   <div class="vh-txt">
     ${t.pull ? `<blockquote class="vh-q vh-q-lead">${esc(t.pull)}</blockquote>` : ""}
     ${(t.body || []).map(para).join("")}
-    ${credit}
+    ${(t.nazar || w.nazar || []).length ? `<aside class="vh-editorial"><p class="vh-section-k">${X.viewTitle}</p><h2>${lg === "hi" ? "आंदोलन का चेहरा, उसके पीछे की मेहनत" : lg === "en" ? "The face of a movement, and the work behind it" : "تحریک کا چہرہ، اور اس کے پیچھے کی محنت"}</h2>${(t.nazar || w.nazar).map(p => `<p>${esc(p)}</p>`).join("")}</aside>` : ""}
+    ${(t.sawal || w.sawal) ? `<aside class="vh-sawal"><span>${X.thinkTitle}</span><p>${esc(t.sawal || w.sawal)}</p></aside>` : ""}
+    ${w.srcUrl ? `<a class="vh-original" href="${esc(w.srcUrl)}" target="_blank" rel="noopener"><span>${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</span><strong>${X.originalLink}</strong><i aria-hidden="true">↗</i></a>` : ""}
+    <p class="vh-rights">${X.rights}</p>
+    ${supportEnd ? supportEnd() : ""}
     ${share(w, lg)}
     ${Object.keys(alt).filter(l => l !== lg && l !== "hi" || (l === "hi" && lg !== "hi")).length ? `<p class="vh-also">${X.also} ${Object.keys(alt).filter(l => l !== lg).map(l => `<a href="${alt[l]}" lang="${l}">${LN[l]}</a>`).join(" · ")}</p>` : ""}
     <p class="vh-back"><a href="${P(lg)}/">${X.back}</a></p>
