@@ -21,9 +21,9 @@ module.exports = function (H) {
   const loc = (w, lg) => (lg === "hi" || !w[lg] ? w : { ...w, ...w[lg] });
 
   const T = {
-    hi: { tag: "विशेष", by: "लिखा", tr: "हिंदी अनुवाद: देशकाल", orig: "मूल", read: "पूरा पढ़िए", share: "आगे भेजिए", copy: "लिंक कॉपी", also: "यह प्रस्तुति इन भाषाओं में भी:", back: "← मुखपृष्ठ", creditNote: "अनुमति के साथ", viewTitle: "देशकाल की नज़र", thinkTitle: "सोचने के लिए", originalLink: "मूल लेख पढ़ने के लिए यहां क्लिक करें", rights: "इस लेख के सारे अधिकार द हिंदू के पास हैं।" },
-    en: { tag: "Special", by: "By", tr: "English translation: Deshkaal desk", orig: "Original", read: "Read the whole piece", share: "Share", copy: "Copy link", also: "This piece is also in:", back: "← Home", creditNote: "With permission", viewTitle: "Deshkaal’s view", thinkTitle: "A question to consider", originalLink: "Click here to read the original article", rights: "All rights to this article belong to The Hindu." },
-    ur: { tag: "خصوصی", by: "قلم", tr: "اردو ترجمہ: دیش کال ڈیسک", orig: "اصل", read: "پوری تحریر پڑھیں", share: "آگے بھیجیے", copy: "لنک کاپی", also: "یہ تحریر ان زبانوں میں بھی:", back: "→ سرورق", creditNote: "اجازت کے ساتھ", viewTitle: "دیش کال کی نظر", thinkTitle: "سوچنے کے لیے", originalLink: "اصل مضمون پڑھنے کے لیے یہاں کلک کریں", rights: "اس مضمون کے تمام حقوق دی ہندو کے پاس ہیں۔" },
+    hi: { tag: "विशेष", forSrc: "The Hindu के लिए", by: "लिखा", tr: "हिंदी अनुवाद: देशकाल", orig: "मूल", read: "पूरा पढ़िए", share: "आगे भेजिए", copy: "लिंक कॉपी", also: "यह प्रस्तुति इन भाषाओं में भी:", back: "← मुखपृष्ठ", creditNote: "अनुमति के साथ", viewTitle: "देशकाल की नज़र", thinkTitle: "सोचने के लिए", originalLink: "मूल लेख पढ़ने के लिए यहां क्लिक करें", rights: "इस लेख के सारे अधिकार द हिंदू के पास हैं।" },
+    en: { tag: "Special", forSrc: "for The Hindu", by: "By", tr: "English translation: Deshkaal desk", orig: "Original", read: "Read the whole piece", share: "Share", copy: "Copy link", also: "This piece is also in:", back: "← Home", creditNote: "With permission", viewTitle: "Deshkaal’s view", thinkTitle: "A question to consider", originalLink: "Click here to read the original article", rights: "All rights to this article belong to The Hindu." },
+    ur: { tag: "خصوصی", forSrc: "The Hindu کے لیے", by: "قلم", tr: "اردو ترجمہ: دیش کال ڈیسک", orig: "اصل", read: "پوری تحریر پڑھیں", share: "آگے بھیجیے", copy: "لنک کاپی", also: "یہ تحریر ان زبانوں میں بھی:", back: "→ سرورق", creditNote: "اجازت کے ساتھ", viewTitle: "دیش کال کی نظر", thinkTitle: "سوچنے کے لیے", originalLink: "اصل مضمون پڑھنے کے لیے یہاں کلک کریں", rights: "اس مضمون کے تمام حقوق دی ہندو کے پاس ہیں۔" },
   };
   const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const D = { hi: "अनुवाद", en: "Translated", ur: "ترجمہ" };
@@ -51,7 +51,7 @@ module.exports = function (H) {
       <div class="vh-heading">
         <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
         <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
-        <p class="vh-by">${esc(t.by || w.by)}${w.place ? ` · ${esc(w.place)}` : ""}</p>
+        <p class="vh-by"><strong>${esc(w.by)}</strong>${w.place ? `<span>·</span>${esc(w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
       </div>
       ${img ? `<figure class="vh-art">${img}${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : ""}
     </div>
@@ -74,7 +74,7 @@ module.exports = function (H) {
     <p class="vh-k"><span class="vh-tag">${X.tag}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
     <h1 class="vh-title">${esc(t.h)}</h1>
     <p class="vh-dek">${esc(t.dek || "")}</p>
-    <p class="vh-by">${esc(w.by)}${w.place ? ` · ${esc(w.place)}` : ""}</p>
+    <p class="vh-by"><strong>${esc(w.by)}</strong>${w.place ? `<span>·</span>${esc(w.place)}` : ""}${w.src ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
   </header>
   ${img}
   <div class="vh-txt">

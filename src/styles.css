@@ -1562,11 +1562,11 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
   content:"देशकाल · विशेष";position:absolute;left:9%;top:10%;color:rgba(255,255,255,.86);
   font:700 12px/1.4 var(--f-ui);letter-spacing:.16em;text-transform:uppercase
 }
-.vh-txt{position:relative;max-width:660px}
+.vh-txt{position:relative;max-width:none}
 .vh-k{gap:10px;margin:0 0 18px;color:var(--ink-2);font-size:12px;font-weight:700;letter-spacing:.12em}
 .vh-tag{padding:5px 11px 6px;letter-spacing:.1em}
 .vh-h{max-width:13ch;margin:0 0 17px;font-size:clamp(36px,4.25vw,66px);line-height:1.04;letter-spacing:-.025em;text-wrap:balance}
-.vh-dek{max-width:42ch;margin:0 0 16px;color:var(--ink-2);font-size:clamp(17px,1.45vw,20px);line-height:1.72}
+.vh-dek{max-width:none;margin:0 0 16px;color:var(--ink-2);font-size:clamp(17px,1.45vw,20px);line-height:1.72}
 .vh-by{
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 18px;
   padding:11px 0;border-block:1px solid color-mix(in srgb,var(--ink) 20%,transparent);
@@ -1586,7 +1586,7 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
   .vh-art{aspect-ratio:16/10}
   .vh-txt{max-width:none}
   .vh-h{max-width:16ch;font-size:clamp(34px,7vw,52px)}
-  .vh-dek{max-width:60ch}
+  .vh-dek{max-width:none}
 }
 @media(max-width:520px){
   .vh-band{margin:30px 0 44px;padding:14px;border-top-width:5px}
