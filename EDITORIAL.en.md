@@ -30,6 +30,14 @@ The voice of the people matters most to us. The interests of minorities, Dalits,
 
 Every page states clearly that it is a summary, who the original author and publication are, and where the original can be read. All rights in the original articles belong to their authors and publishers. Pictures are either Deshkaal's own collages, or openly licensed, with credit.
 
+## Proofreading
+
+Every text is read at least twice - once to protect the writer's voice, once for spelling, punctuation and plain errors. A machine checks the mechanics (spelling, punctuation, quotes, the three languages matching); the eye checks the rest.
+
+We do not rewrite a writer's sentences, and we add or remove no sentence, fact or quotation. Only what is plainly wrong is fixed: spelling, nuqta, anusvara, punctuation, broken spacing, the junk a forwarded text carries along. Where a word is unclear we do not guess - we ask the writer, and until then it stays their word.
+
+In Hamsafar this is stricter still: whatever is changed in a piece, the list of changes is sent to the writer or their representative.
+
 ## Correcting mistakes
 
 If any fact in a summary is wrong, we correct it and note the correction on the page.
