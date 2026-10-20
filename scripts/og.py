@@ -11,6 +11,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 F = os.path.join(ROOT, "scripts", "fonts")
 OUT = os.path.join(ROOT, "public", "og")
 LAYOUT = ImageFont.Layout.RAQM if features.check("raqm") else ImageFont.Layout.BASIC
+# libraqm न हो तो Pillow देवनागरी टूटी छापता है (चु का ु अलग, जि का ि पीछे).
+# उस हालत में HarfBuzz से शेप करके छापें; दोनों न हों तो पुराना रास्ता ही चलेगा.
+try:
+    import shapedtext as ST
+except Exception:
+    ST = None
+USE_SHAPE = bool(ST and ST.ok and not features.check("raqm"))
 W, H = 1200, 630
 PAPER, INK, LAL = (241, 242, 238), (31, 33, 38), (207, 58, 46)
 CAT = {"देश": (178, 58, 46), "दुनिया": (46, 63, 143), "समाज": (162, 101, 14), "अर्थ": (45, 106, 79),
@@ -25,11 +32,14 @@ def font(name, size, wght=None):
         except Exception: pass
     return f
 
+def text_width(draw, text, fnt):
+    return ST.width(text, fnt.path, fnt.size) if USE_SHAPE else draw.textlength(text, font=fnt)
+
 def wrap(draw, text, fnt, width):
     words, lines, cur = text.split(), [], ""
     for w in words:
         t = (cur + " " + w).strip()
-        if draw.textlength(t, font=fnt) <= width: cur = t
+        if text_width(draw, t, fnt) <= width: cur = t
         else:
             if cur: lines.append(cur)
             cur = w
@@ -70,6 +80,11 @@ def photo(a):
 def make(a, ph=None):
     col = CAT.get(a["cat"], CAT["दुनिया"])
     img = Image.new("RGB", (W, H), PAPER); d = ImageDraw.Draw(img)
+    def put(pos, text, fnt, fill):
+        if USE_SHAPE: ST.draw(img, pos, text, fnt.path, fnt.size, fill)
+        else: d.text(pos, text, font=fnt, fill=fill)
+    def adv(text, fnt):
+        return text_width(d, text, fnt)
     # right panel: photo (toned) or halftone in the category colour, cut diagonally
     panel = Image.new("RGB", (W, H), col)
     if ph:
@@ -83,10 +98,10 @@ def make(a, ph=None):
     d.polygon([(746, 0), (760, 0), (640, H), (626, H)], fill=LAL)
     # masthead: small sun + name
     d.ellipse([60, 44, 110, 94], fill=LAL)
-    d.text((66, 30), "देशकाल", font=font("YatraOne.ttf", 46), fill=INK)
+    put((66, 30), "देशकाल", font("YatraOne.ttf", 46), INK)
     # kicker
     kick = font("NotoSansDevanagari.ttf", 26, 700)
-    d.text((62, 128), a["cat"], font=kick, fill=col)
+    put((62, 128), a["cat"], kick, col)
     # headline: first part (before colon/comma) in red, rest in ink
     # Teko का कोलन बहुत छोटा दिखता है: लाल हिस्से के बाद का कोलन हटा दें, रंग ही विराम है
     h0 = a["h"]; a = dict(a, h=h0.replace(":", "", 1))
@@ -104,23 +119,23 @@ def make(a, ph=None):
         x = 60
         for w in ln.split():
             fill = LAL if n < len(red_words) else INK
-            d.text((x, y), w, font=f, fill=fill); x += d.textlength(w + " ", font=f); n += 1
+            put((x, y), w, f, fill); x += adv(w + " ", f); n += 1
         y += lh
     # source line
     # स्रोत की पंक्ति भी लकीर तक न पहुंचे (वहां लकीर x≈640 पर): पहले फ़ॉन्ट छोटा, फिर भी लंबी हो तो आख़िर में …
     line, room = f"मूल: {a['by']} · {a['pub']}", 560
     for sz in [24, 22, 20, 18]:
         src = font("NotoSansDevanagari.ttf", sz, 500)
-        if d.textlength(line, font=src) <= room: break
-    if d.textlength(line, font=src) > room:  # कई लेखक हों तो पहला नाम और "और अन्य", प्रकाशन का नाम पूरा रहे
+        if adv(line, src) <= room: break
+    if adv(line, src) > room:  # कई लेखक हों तो पहला नाम और "और अन्य", प्रकाशन का नाम पूरा रहे
         import re as _re
         line = f"मूल: {_re.split(r',| और ', a['by'])[0].strip()} और अन्य · {a['pub']}"
         for sz in [24, 22, 20, 18]:
             src = font("NotoSansDevanagari.ttf", sz, 500)
-            if d.textlength(line, font=src) <= room: break
-    while d.textlength(line, font=src) > room and len(line) > 8: line = line[:-2].rstrip(" ·,") + "…"
-    d.text((62, H - 70), line, font=src, fill=(85, 89, 99))
-    d.text((62, H - 38), "deshkaal.xyz", font=font("NotoSansDevanagari.ttf", 22, 700), fill=LAL)
+            if adv(line, src) <= room: break
+    while adv(line, src) > room and len(line) > 8: line = line[:-2].rstrip(" ·,") + "…"
+    put((62, H - 70), line, src, (85, 89, 99))
+    put((62, H - 38), "deshkaal.xyz", font("NotoSansDevanagari.ttf", 22, 700), LAL)
     return img
 
 def main():
