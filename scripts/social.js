@@ -135,6 +135,21 @@ async function next() {
     } catch (e) { console.error(e.message); process.exitCode = 1; }
     return;
   }
+  // पहले छपी पोस्ट का कैप्शन सुधारना: node scripts/social.js fixcaption <post-id>
+  // (सुर्ख़ियों में कोई शब्द बाद में बदला हो, तो उसी दिन की पोस्ट दोबारा लिखी जा सके.)
+  if (mode === "fixcaption") {
+    const id = process.argv[3];
+    if (!id) { console.error("पोस्ट की id चाहिए"); process.exitCode = 1; return; }
+    try {
+      const msg = morningText(false);
+      const r = await api(`/${id}`, { message: msg }, "POST");
+      console.log("कैप्शन बदला:", id, JSON.stringify(r));
+      const back = await api(`/${id}`, { fields: "message" }, "GET");
+      const got = back.message || "";
+      console.log("सुधरा शीर्षक कैप्शन में मिला:", got.includes("सत्ता का नहीं"), "· लंबाई:", got.length);
+    } catch (e) { console.error("कैप्शन नहीं बदला:", e.message); process.exitCode = 1; }
+    return;
+  }
   const missedMorning = (fbOn() && !(state.fb || {}).morning) || (igOn() && !(state.ig || {}).morning);
   try {
     if (mode === "morning" || missedMorning) await morning();

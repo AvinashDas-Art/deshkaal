@@ -1,0 +1,37 @@
+name: फ़ेसबुक पोस्ट का कैप्शन सुधारना (एक बार)
+# आज सुबह की एल्बम-पोस्ट सुर्ख़ियों में एक शब्द सुधरने के बाद दोबारा लिखने के लिए.
+# चलाना: .github/fix-caption में नया टाइमस्टैम्प डालकर पुश कीजिए.
+on:
+  push:
+    branches: [main]
+    paths: [".github/fix-caption"]
+  workflow_dispatch:
+    inputs:
+      post_id: { description: "फ़ेसबुक पोस्ट की id", required: true }
+      day: { description: "किस दिन का अंक (YYYY-MM-DD)", required: true }
+permissions:
+  contents: write
+concurrency: { group: fix-caption, cancel-in-progress: false }
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    env:
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      DAY: "2026-10-21"
+      POST_ID: "122120536335312876"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: कैप्शन बदलना और लौटकर जांचना
+        run: node scripts/social.js fixcaption "$POST_ID" 2>&1 | tee /tmp/fix.log
+      - name: नतीजा रिपो में लिखकर वापस भेजना
+        if: always()
+        run: |
+          { echo "पोस्ट: $POST_ID"; tail -6 /tmp/fix.log; } > .github/fix-caption-result.txt
+          git add .github/fix-caption-result.txt
+          if git diff --cached --quiet; then echo "कुछ नहीं बदला"; exit 0; fi
+          git config user.name "deshkaal-bot"; git config user.email "patra@deshkaal.xyz"
+          git commit -q -m "फ़ेसबुक कैप्शन सुधार का नतीजा"
+          git pull --rebase -q origin main && git push -q HEAD:main
