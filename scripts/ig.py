@@ -31,15 +31,32 @@ def ns(size, w=500):
     return og.font("NotoSansDevanagari.ttf", size, w)
 
 
+def put(d, pos, text, f, fill, anchor="la"):
+    """देवनागरी/उर्दू की शेपिंग: जहां Pillow में libraqm नहीं, वहां HarfBuzz (og.ST) से छापें."""
+    if og.USE_SHAPE:
+        x, y = pos
+        if "m" in anchor:
+            x -= og.text_width(d, text, f) / 2
+        elif "r" in anchor:
+            x -= og.text_width(d, text, f)
+        og.ST.draw(d._image, (x, y), text, f.path, f.size, fill)
+    else:
+        d.text(pos, text, font=f, fill=fill, anchor=anchor)
+
+
+def adv(d, text, f):
+    return og.text_width(d, text, f)
+
+
 def masthead(d, x, y, size, sun=True, col=INK):
     """छोटा मास्टहेड: लाल सूरज पर Yatra One में देशकाल."""
     f = og.font("YatraOne.ttf", size)
-    w = d.textlength("देशकाल", font=f)
+    w = adv(d, "देशकाल", f)
     if sun:
         r = size * 0.43
         cx, cy = x + w * 0.47, y + size * 0.78
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=LAL)
-    d.text((x, y), "देशकाल", font=f, fill=col)
+    put(d, (x, y), "देशकाल", f, col)
     return w
 
 
@@ -58,8 +75,8 @@ def headline(d, h, x, y, width, max_h, sizes=(118, 108, 98, 90, 82, 74, 66)):
     for ln in lines:
         cx = x
         for w in ln.split():
-            d.text((cx, y), w, font=f, fill=LAL if n < red_n else INK)
-            cx += d.textlength(w + " ", font=f); n += 1
+            put(d, (cx, y), w, f, LAL if n < red_n else INK)
+            cx += adv(d, w + " ", f); n += 1
         y += lh
     return y
 
@@ -101,14 +118,14 @@ def story_card(a, num=None):
     d.rounded_rectangle([40, 36, 352, 132], 16, fill=PAPER)
     masthead(d, 64, 34, 64)
     y = top
-    d.text((64, y), a["cat"], font=ns(34, 700), fill=col)
+    put(d, (64, y), a["cat"], ns(34, 700), col)
     y = headline(d, a["h"], 60, y + 56, W - 120, 440)
     yy = y + 34
     for ln in dek:
-        d.text((64, yy), ln, font=f, fill=INK2); yy += 50
+        put(d, (64, yy), ln, f, INK2); yy += 50
     d.line([(64, 1196), (W - 64, 1196)], fill=(207, 210, 200), width=2)
-    d.text((64, 1218), f"मूल: {a['by']} · {a['pub']}", font=ns(28, 500), fill=INK2)
-    d.text((64, 1262), "पूरा लेख: deshkaal.xyz", font=ns(28, 700), fill=LAL)
+    put(d, (64, 1218), f"मूल: {a['by']} · {a['pub']}", ns(28, 500), INK2)
+    put(d, (64, 1262), "पूरा लेख: deshkaal.xyz", ns(28, 700), LAL)
     return img
 
 
@@ -119,23 +136,23 @@ def cover_card(day, items):
     m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).polygon([(0, 0), (W, 0), (W, 120), (0, 190)], fill=255); img.paste(top, (0, 0), m)
     d.polygon([(0, 190), (W, 120), (W, 134), (0, 204)], fill=LAL)
     f = og.font("YatraOne.ttf", 190)
-    w = d.textlength("देशकाल", font=f)
+    w = adv(d, "देशकाल", f)
     masthead(d, (W - w) / 2, 250, 190)
     tag = og.font("NotoSansDevanagari.ttf", 36, 400)
-    d.text((W / 2, 520), "ज़रूरी ख़बरों तक जाती एक पगडंडी", font=tag, fill=INK2, anchor="ma")
-    d.text((W / 2, 590), daylabel(day) + " · आज की टिप्पणियां", font=ns(32, 700), fill=LAL, anchor="ma")
+    put(d, (W / 2, 520), "ज़रूरी ख़बरों तक जाती एक पगडंडी", tag, INK2, "ma")
+    put(d, (W / 2, 590), daylabel(day) + " · आज की टिप्पणियां", ns(32, 700), LAL, "ma")
     y = 680
     news = ([a for a in items if a.get("sec") == "morcha"] + [a for a in items if a.get("sec") == "amukh"] + [a for a in items if a.get("sec") == "vichar"] + [a for a in items if a.get("sec") in ("khabar", "pari")] or [a for a in items if a["cat"] != "साहित्य"])[:5]
     for i, a in enumerate(news, 1):
-        d.text((92, y - 4), str(i), font=og.font("YatraOne.ttf", 60), fill=LAL, anchor="ra")
+        put(d, (92, y - 4), str(i), og.font("YatraOne.ttf", 60), LAL, "ra")
         f = ns(38, 600); allw = og.wrap(d, a["h"].replace(":", ","), f, W - 220); lines = allw[:2]
         if len(allw) > 2: lines[1] = lines[1].rstrip("।,") + "…"
         yy = y
         for ln in lines:
-            d.text((130, yy), ln, font=f, fill=INK); yy += 52
+            put(d, (130, yy), ln, f, INK); yy += 52
         y = yy + 26
     d.line([(64, 1220), (W - 64, 1220)], fill=(207, 210, 200), width=2)
-    d.text((64, 1244), f"आज कुल {len(items)} टिप्पणियां · आगे की स्लाइड में पढ़िए", font=ns(29, 600), fill=INK2)
+    put(d, (64, 1244), f"आज कुल {len(items)} टिप्पणियां · आगे की स्लाइड में पढ़िए", ns(29, 600), INK2)
     return img
 
 
@@ -143,16 +160,16 @@ def end_card(day):
     img = Image.new("RGB", (W, H), og.CAT["दुनिया"]); d = ImageDraw.Draw(img)
     og.halftone(img, (0, 0, W, H), (64, 80, 160), step=20)
     d.rounded_rectangle([70, 150, W - 70, H - 150], 28, fill=PAPER)
-    f = og.font("YatraOne.ttf", 140); w = d.textlength("देशकाल", font=f)
+    f = og.font("YatraOne.ttf", 140); w = adv(d, "देशकाल", f)
     masthead(d, (W - w) / 2, 210, 140)
-    d.text((W / 2, 430), "हर सुबह 7 बजे, नयी टिप्पणियां", font=ns(40, 700), fill=INK, anchor="ma")
+    put(d, (W / 2, 430), "हर सुबह 7 बजे, नयी टिप्पणियां", ns(40, 700), INK, "ma")
     rows = [("वेबसाइट", "deshkaal.xyz"), ("WhatsApp", "चैनल: देशकाल"), ("Telegram", "t.me/deshkaal"), ("ईमेल", "deshkaal.xyz पर जुड़ें")]
     y = 560
     for k, v in rows:
-        d.text((150, y), k, font=ns(34, 700), fill=LAL)
-        d.text((430, y), v, font=ns(34, 500), fill=INK); y += 90
-    d.text((W / 2, 1000), "पूरे लेख का लिंक बायो में", font=ns(36, 700), fill=INK2, anchor="ma")
-    d.text((W / 2, 1060), "पढ़ें, सहेजें, आगे भेजें", font=ns(32, 400), fill=INK2, anchor="ma")
+        put(d, (150, y), k, ns(34, 700), LAL)
+        put(d, (430, y), v, ns(34, 500), INK); y += 90
+    put(d, (W / 2, 1000), "पूरे लेख का लिंक बायो में", ns(36, 700), INK2, "ma")
+    put(d, (W / 2, 1060), "पढ़ें, सहेजें, आगे भेजें", ns(32, 400), INK2, "ma")
     return img
 
 

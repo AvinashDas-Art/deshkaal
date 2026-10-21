@@ -170,6 +170,32 @@ def check_days(rep, f, d):
             rep.add("warn", f, i, "सार 3 अनुच्छेद से छोटा")
 
 
+def check_i18n(rep, f, items):
+    """en/ur अनुवाद की सूची: sec/url यहां नहीं होते, इसलिए अंक वाले नियम नहीं.
+    सिर्फ़ ख़ाली खाना, बेजोड़ कोष्ठक/उद्धरण, दोहरा स्पेस और वाक्य का आख़िर देखें."""
+    for it in items:
+        i = it.get("id", "?")
+        for k in ("h", "dek"):
+            if not (it.get(k) or "").strip():
+                rep.add("error", f, i, f"खाना ख़ाली: {k}")
+        body = it.get("body") or []
+        if not body:
+            rep.add("error", f, i, "खाना ख़ाली: body")
+        for n, p in enumerate(body, 1):
+            if not is_prose_para(p):
+                continue
+            if ZERO_WIDTH.search(p):
+                rep.add("error", f, f"body[{n}]", "छिपा हुआ शून्य-चौड़ाई अक्षर है")
+            if TAB.search(p):
+                rep.add("error", f, f"body[{n}]", "टैब है, स्पेस कीजिए")
+            if DOUBLE_SPACE.search(p):
+                rep.add("error", f, f"body[{n}]", "दो या ज़्यादा स्पेस लगातार")
+            if p.count("‘") != p.count("’") or p.count("“") != p.count("”"):
+                rep.add("error", f, f"body[{n}]", "उद्धरण-चिह्न बेमेल")
+            if p.count("(") != p.count(")"):
+                rep.add("error", f, f"body[{n}]", "कोष्ठक बेमेल")
+
+
 def scan(rep, path):
     try:
         d = json.load(open(path, encoding="utf-8"))
@@ -194,7 +220,10 @@ def scan(rep, path):
         if is_hs:
             check_hamsafar(rep, path, d)
     elif isinstance(d, list):
-        check_days(rep, path, d)
+        if "/i18n/" in path:
+            check_i18n(rep, path, d)
+        else:
+            check_days(rep, path, d)
 
 
 def main():
