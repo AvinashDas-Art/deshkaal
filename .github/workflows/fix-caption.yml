@@ -10,7 +10,8 @@ on:
       post_id: { description: "फ़ेसबुक पोस्ट की id", required: true }
       day: { description: "किस दिन का अंक (YYYY-MM-DD)", required: true }
 permissions:
-  contents: write
+  contents: read
+  issues: write
 concurrency: { group: fix-caption, cancel-in-progress: false }
 jobs:
   fix:
@@ -26,16 +27,8 @@ jobs:
         with: { node-version: "20" }
       - name: कैप्शन बदलना और लौटकर जांचना
         run: node scripts/social.js fixcaption "$POST_ID" 2>&1 | tee /tmp/fix.log
-      - name: नतीजा रिपो में लिखकर वापस भेजना
+      - name: नतीजा issue में डालना (लॉग बिना टोकन के भी पढ़ा जा सके)
         if: always()
-        run: |
-          { echo "फ़ेसबुक कैप्शन सुधार: $POST_ID"; echo; tail -6 /tmp/fix.log; } > .github/fix-caption-result.txt
-          git add .github/fix-caption-result.txt
-          if git diff --cached --quiet; then echo "कुछ नहीं बदला"; exit 0; fi
-          git config user.name "deshkaal-bot"; git config user.email "patra@deshkaal.xyz"
-          git commit -q -F .github/fix-caption-result.txt
-          for i in 1 2 3; do
-            git pull --rebase -q origin main || true
-            if git push -q HEAD:main; then echo "भेज दिया"; break; fi
-            sleep 5
-          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh issue create --title "फ़ेसबुक कैप्शन सुधार · $POST_ID" --body-file /tmp/fix.log
