@@ -37,7 +37,7 @@ jobs:
             for (let i = 0; i < 60; i++) {
               const u = base + (base.indexOf("?") >= 0 ? "&" : "?") + "limit=100" + (after ? "&after=" + encodeURIComponent(after) : "");
               const r = await get(u);
-              if (r.status !== 200) { out.push(base + " -> " + r.status + " " + JSON.stringify(r.body).slice(0, 160)); break; }
+              if (r.status !== 200) { out.push(base + " -> " + r.status + " (जवाब नहीं पढ़ा)"); break; }
               const d = (r.body && r.body.data) || [];
               all.push.apply(all, d);
               if (d.length < 100) break;
