@@ -687,13 +687,19 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .hero-red .ank{margin-top:var(--s4)}
 .hero-red .hero-h{margin-top:var(--s1)}
 .hero .row{margin-top:var(--s3)}
-/* सिर्फ़ गांव-जवार: आख़िरी अकेली रिपोर्ट पूरी चौड़ाई की पट्टी बनती है */
-@media (min-width:901px){
-  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1){grid-column:1/-1}
-  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
-  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1) .art{margin:0}
-  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
-  .pariband .grid.g3.gv0>.card:last-child:nth-child(3n+1)>.src{margin-inline-start:calc((100% - 60px) / 3 + 30px)}
+/* सिर्फ़ गांव-जवार और सुख़न-सराय: आख़िरी अकेली रिपोर्ट पूरी चौड़ाई की पट्टी बनती है (हर प्रस्तुति में) */
+@media (min-width:1024px){
+  .pariband .grid.g3:not(.gv2)>.card:last-child:nth-child(3n+1){grid-column:1/-1}
+  .pariband .grid.g3:not(.gv2)>.card:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 30px;align-items:center}
+  .pariband .grid.g3:not(.gv2)>.card:last-child:nth-child(3n+1) .art{margin:0}
+  .pariband .grid.g3:not(.gv2)>.card:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
+  .pariband .grid.g3:not(.gv2)>.card:last-child:nth-child(3n+1)>.src{margin-inline-start:calc((100% - 30px) / 3 + 30px)}
+  .litgrid>.lit:last-child:nth-child(3n+1){grid-column:1/-1;padding:0}
+  .litgrid>.lit:last-child:nth-child(3n+1)>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:stretch}
+  .litgrid>.lit:last-child:nth-child(3n+1) .art{height:100%;aspect-ratio:auto;min-height:240px}
+  .litgrid>.lit:last-child:nth-child(3n+1) .in{padding:24px 32px 0;align-self:center}
+  .litgrid>.lit:last-child:nth-child(3n+1) h3{font-size:30px;line-height:1.3}
+  .litgrid>.lit:last-child:nth-child(3n+1)>.src{padding:0 32px 20px;padding-inline-start:calc(100% / 3 + 32px)}
 }
 .toon{padding-bottom:var(--s7)}
 
@@ -1671,3 +1677,39 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .vh-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vh-video-link{font:14px var(--f-ui);margin:10px 0}
 .vh-video-link a{color:var(--geru);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* विशेष हमसफ़र: लेखक-पट्टी, किताबों की क़तार, लेख के बीच की किताब, लेखक परिचय */
+.vh-books{margin-top:clamp(16px,2.4vw,26px);padding-top:14px;border-top:1px solid var(--rule)}
+.vh-books-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin:0 0 12px;font:700 12.5px/1.4 var(--f-ui);letter-spacing:.08em;color:var(--lal)}
+.vh-books-h a{font-weight:700;letter-spacing:0;color:var(--neel);text-decoration:none}
+.vh-books-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.vh-book{display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:118px;padding:14px 16px;background:var(--bk,#2E3F8F);color:#fff!important;text-decoration:none;border-radius:3px}
+.vh-book b{font-family:var(--f-poster);font-weight:600;font-size:clamp(24px,2.2vw,30px);line-height:1.02}
+.vh-book small{font:500 12.5px/1.45 var(--f-ui);opacity:.9}
+.vh-book i{font:700 12.5px/1.2 var(--f-ui);font-style:normal;opacity:.95}
+.vh-book:hover{filter:brightness(1.1)}
+@media(max-width:860px){.vh-books-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.vh-books-grid{grid-template-columns:1fr}.vh-book{min-height:0}}
+.vh-auth{display:flex;align-items:center;gap:14px;margin:14px 0 0;padding:12px 14px;background:var(--paper-2);border:1px solid var(--rule)}
+.vh-auth img{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 22%;box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--lal)}
+.vh-auth strong{display:block;font-family:var(--f-paint);font-weight:400;font-size:22px;line-height:1.2}
+.vh-auth span{display:block;font:500 13.5px/1.5 var(--f-ui);color:var(--ink-2)}
+.vh-auth a{font:700 13.5px/1.5 var(--f-ui);color:var(--lal);text-decoration:none}
+.vh-note{margin:14px 0 0;padding:12px 16px;border-inline-start:3px solid var(--geru);background:var(--paper-2);font:500 14.5px/1.7 var(--f-ui);color:var(--ink-2)}
+.vh-note b{display:block;font-size:12px;letter-spacing:.1em;color:var(--geru);margin-bottom:2px}
+.vh-mid{display:grid;grid-template-columns:150px minmax(0,1fr);margin:var(--s5) 0;background:color-mix(in srgb,var(--bk,#2E3F8F) 12%,var(--paper));border-radius:3px;overflow:hidden}
+.vh-mid-t{display:flex;align-items:flex-end;padding:18px;background:var(--bk,#2E3F8F);color:#fff;font-family:var(--f-poster);font-size:38px;font-weight:600;line-height:.98}
+.vh-mid-b{padding:18px 22px;font-family:var(--f-ui)}
+.vh-mid-b small{display:block;font:700 12px/1.4 var(--f-ui);letter-spacing:.08em;color:var(--bk,#2E3F8F)}
+.vh-mid-b strong{display:block;margin-top:4px;font-family:var(--f-head);font-size:22px;line-height:1.3}
+.vh-mid-b p{margin:6px 0 0!important;font:400 15px/1.6 var(--f-ui);color:var(--ink-2)}
+.vh-mid-b a{display:inline-block;margin-top:10px;font:700 14.5px/1.3 var(--f-ui);color:var(--bk,#2E3F8F);text-decoration:none;border-bottom:2px solid currentColor}
+@media(max-width:560px){.vh-mid{grid-template-columns:1fr}.vh-mid-t{min-height:84px;font-size:32px}}
+.vh-about{margin:var(--s7) 0 var(--s4);padding-top:var(--s4);border-top:4px solid var(--ink)}
+.vh-about-r{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start;margin-top:10px}
+.vh-about-r img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:center 22%;display:block;box-shadow:8px 8px 0 rgba(210,48,43,.12)}
+.vh-about h2{margin:0 0 10px;font-family:var(--f-paint);font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1.1}
+.vh-about p{margin:0 0 10px}
+.vh-about .vh-books{margin-top:var(--s4)}
+.vh-about-site a{color:var(--neel);font:700 15px/1.4 var(--f-ui)}
+@media(max-width:640px){.vh-about-r{grid-template-columns:1fr}.vh-about-r img{max-width:220px}}
