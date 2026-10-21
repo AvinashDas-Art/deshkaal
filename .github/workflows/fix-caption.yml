@@ -20,7 +20,7 @@ jobs:
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
       DAY: "2026-10-21"
-      POST_ID: "122120536335312876"
+      POST_ID: "1042770568927482_122120536335312876"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
