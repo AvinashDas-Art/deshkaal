@@ -1,13 +1,15 @@
-name: फ़ेसबुक पोस्ट का कैप्शन सुधारना (एक बार)
-# आज सुबह की एल्बम-पोस्ट सुर्ख़ियों में एक शब्द सुधरने के बाद दोबारा लिखने के लिए.
-# चलाना: .github/fix-caption में नया टाइमस्टैम्प डालकर पुश कीजिए.
+name: फ़ेसबुक पोस्ट का कैप्शन सुधारना
+# कभी-कभी सुर्ख़ियों में कोई शब्द सुधरना रह जाता है और पोस्ट जा चुकी होती है.
+# तब उसी पोस्ट का कैप्शन आज के अंक से दोबारा लिखा जाता है; जांच भी होती है.
+# चलाना: .github/fix-caption में नया टाइमस्टैम्प डालकर पुश कीजिए, या
+# Actions से workflow_dispatch में post_id और day भरकर चलाइए.
 on:
   push:
     branches: [main]
     paths: [".github/fix-caption"]
   workflow_dispatch:
     inputs:
-      post_id: { description: "फ़ेसबुक पोस्ट की id", required: true }
+      post_id: { description: "फ़ेसबुक पोस्ट की पूरी id (पेज-id_पोस्ट-id)", required: true }
       day: { description: "किस दिन का अंक (YYYY-MM-DD)", required: true }
 permissions:
   contents: read
@@ -19,16 +21,22 @@ jobs:
     env:
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
-      DAY: "2026-10-21"
-      POST_ID: "1042770568927482_122120536335312876"
+      DAY: ${{ github.event.inputs.day || '2026-10-21' }}
+      POST_ID: ${{ github.event.inputs.post_id || '1042770568927482_122120536335312876' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
       - name: कैप्शन बदलना और लौटकर जांचना
         run: node scripts/social.js fixcaption "$POST_ID" 2>&1 | tee /tmp/fix.log
-      - name: नतीजा issue में डालना (लॉग बिना टोकन के भी पढ़ा जा सके)
+      # पुराने जांच-issue बंद, और नया सिर्फ़ तब जब सुधार लागू न हुआ हो
+      - name: issue साफ़ करना या खोलना
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh issue create --title "फ़ेसबुक कैप्शन सुधार · $POST_ID" --body-file /tmp/fix.log
+        run: |
+          gh issue list --state open --search 'in:title "फ़ेसबुक कैप्शन सुधार"' --json number --jq '.[].number' | xargs -r -n1 gh issue close --reason completed
+          if grep -q "कैप्शन में मिला: true" /tmp/fix.log; then echo "कैप्शन ठीक है"; else
+            gh issue create --title "फ़ेसबुक कैप्शन सुधार · $POST_ID" --body-file /tmp/fix.log
+            exit 1
+          fi
