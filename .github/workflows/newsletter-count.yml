@@ -32,35 +32,37 @@ jobs:
             let b = null; try { b = await r.json(); } catch (e) {}
             return { status: r.status, body: b };
           };
-          (async () => {
-            if (!KEY) { out.push("RESEND_API_KEY नहीं मिली"); return; }
-            const segs = await get("/segments");
-            out.push("segments: " + segs.status + " " + JSON.stringify(segs.body).slice(0, 300));
-            const allc = await get("/contacts?limit=1");
-            out.push("बिना segment वाले सभी संपर्क: " + allc.status + " " + JSON.stringify(allc.body).slice(0, 200));
-            const bc = await get("/broadcasts?limit=3");
-            out.push("broadcasts: " + bc.status + " " + JSON.stringify(bc.body).slice(0, 400));
-            const seg = await get("/segments/" + SEG);
-            out.push("segment: " + seg.status + " " + JSON.stringify(seg.body).slice(0, 160));
-            let all = [], after = null, pages = 0;
+          const listAll = async (base) => {
+            let all = [], after = null;
             for (let i = 0; i < 60; i++) {
-              const q = "/contacts?segment_id=" + SEG + "&limit=100" + (after ? "&after=" + encodeURIComponent(after) : "");
-              const r = await get(q);
-              if (r.status !== 200) { out.push("contacts: " + r.status + " " + JSON.stringify(r.body).slice(0, 160)); break; }
+              const u = base + (base.indexOf("?") >= 0 ? "&" : "?") + "limit=100" + (after ? "&after=" + encodeURIComponent(after) : "");
+              const r = await get(u);
+              if (r.status !== 200) { out.push(base + " -> " + r.status + " " + JSON.stringify(r.body).slice(0, 160)); break; }
               const d = (r.body && r.body.data) || [];
-              all.push.apply(all, d); pages++;
+              all.push.apply(all, d);
               if (d.length < 100) break;
               after = d[d.length - 1].id;
             }
+            return all;
+          };
+          (async () => {
+            if (!KEY) { out.push("RESEND_API_KEY नहीं मिली"); return; }
+            const all = await listAll("/contacts");
             const active = all.filter((c) => !c.unsubscribed);
             const dom = {};
             active.forEach((c) => { const d = String(c.email || "").split("@")[1] || "?"; dom[d] = (dom[d] || 0) + 1; });
             const top = Object.keys(dom).sort((a, b) => dom[b] - dom[a]).slice(0, 12).map((d) => d + " — " + dom[d]).join(" · ");
             const months = {};
             active.forEach((c) => { const k = String(c.created_at || "").slice(0, 7) || "?"; months[k] = (months[k] || 0) + 1; });
-            out.push("कुल संपर्क: " + all.length + " · सक्रिय: " + active.length + " · हटे/बंद: " + (all.length - active.length) + " · पन्ने: " + pages);
+            const segMembers = await listAll("/contacts?segment_id=" + SEG);
+            const withSeg = all.filter((c) => Array.isArray(c.segments) && c.segments.length);
+            out.push("कुल संपर्क: " + all.length + " · सक्रिय: " + active.length + " · हटे: " + (all.length - active.length));
+            out.push("इस segment (General) में: " + segMembers.length + " · किसी segment में दर्ज: " + withSeg.length);
             out.push("डोमेन: " + (top || "—"));
             out.push("महीने: " + Object.keys(months).sort().map((k) => k + " — " + months[k]).join(" · "));
+            const bc = await get("/broadcasts?limit=5");
+            const bs = (bc.body && bc.body.data) || [];
+            out.push("broadcasts: " + bs.length + (bs.length ? " · " + bs.map((b) => b.name + " [" + b.status + "]").join(" · ") : ""));
           })().catch((e) => out.push("ERR " + e.message)).finally(() => {
             fs.writeFileSync("/tmp/report.txt", out.join("\n") + "\n");
             console.log(out.join("\n"));
