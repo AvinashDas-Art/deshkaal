@@ -99,7 +99,7 @@ module.exports = function (H) {
     <p class="vh-k"><span class="vh-tag">${esc(tagOf(w, t, X))}</span> ${esc(pageSrc)}${pageSrcDate ? ` · ${esc(pageSrcDate)}` : ""}</p>
     <h1 class="vh-title">${esc(t.h)}</h1>
     <p class="vh-dek">${esc(t.dek || "")}</p>
-    <p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${sourceFor && w.src === "The Hindu" ? `<span>·</span>${esc(sourceFor)}` : ""}</p>
+    ${w.author ? "" : `<p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${sourceFor && w.src === "The Hindu" ? `<span>·</span>${esc(sourceFor)}` : ""}</p>`}
     ${authorStrip(w, lg, X)}
     ${t.note ? `<p class="vh-note"><b>${X.noteK}</b>${esc(t.note)}</p>` : ""}
   </header>
@@ -111,6 +111,7 @@ module.exports = function (H) {
     ${(t.nazar || w.nazar || []).length ? `<aside class="vh-editorial"><p class="vh-section-k">${X.viewTitle}</p><h2>${lg === "hi" ? "आंदोलन का चेहरा, उसके पीछे की मेहनत" : lg === "en" ? "The face of a movement, and the work behind it" : "تحریک کا چہرہ، اور اس کے پیچھے کی محنت"}</h2>${(t.nazar || w.nazar).map(p => `<p>${esc(p)}</p>`).join("")}</aside>` : ""}
     ${(t.sawal || w.sawal) ? `<aside class="vh-sawal"><span>${X.thinkTitle}</span><p>${esc(t.sawal || w.sawal)}</p></aside>` : ""}
     ${authorBox(w, lg, X)}
+    ${pageSrcUrl && w.firstPub ? `<p class="vh-first">${esc(w.firstPub[lg] || w.firstPub.hi)}</p>` : ""}
     ${pageSrcUrl ? `<a class="vh-original" href="${esc(pageSrcUrl)}" target="_blank" rel="noopener"><span>${esc(pageSrc)}${pageSrcDate ? ` · ${esc(pageSrcDate)}` : ""}</span><strong>${X.originalLink}</strong><i aria-hidden="true">↗</i></a>` : ""}
     ${rightsText ? `<p class="vh-rights">${esc(rightsText)}</p>` : ""}
 

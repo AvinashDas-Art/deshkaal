@@ -1713,3 +1713,5 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .vh-about .vh-books{margin-top:var(--s4)}
 .vh-about-site a{color:var(--neel);font:700 15px/1.4 var(--f-ui)}
 @media(max-width:640px){.vh-about-r{grid-template-columns:1fr}.vh-about-r img{max-width:220px}}
+
+.vh-first{margin:24px 0 8px!important;font:14px/1.6 var(--f-ui);color:var(--ink-2)}

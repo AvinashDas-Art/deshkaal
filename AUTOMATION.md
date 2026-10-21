@@ -136,6 +136,14 @@ Paintings (`"kind": "painting"`), public domain only, from **Wikimedia Commons**
 ## Sunday special (रविवार विशेष)
 On Sundays, also pick the five most important pieces of the week from the last 7 day files and list their ids in `data/weekly/YYYY-MM-DD.json` as `{"ids": [...], "intro": "दो-तीन वाक्य"}`.
 
+## देवदत्त पटनायक के लेख (owner's standing rules, 21 October 2026; apply to every article of his)
+1. His name appears once on the article page, in the author strip with his photo. No separate byline above it (the template skips `vh-by` whenever `author` is set).
+2. Publish the FULL article, translated into Hindi (and `en` = original text, `ur` = translation). Never a summary: he has permitted full republication. Fetch the full text from devdutt.com with the browser (`get_page_text`) when WebFetch refuses.
+3. End with the link to the original (`srcUrl`, e.g. Deccan Herald) and the `firstPub` line saying it first appeared there.
+4. Before the article, `note` = the editor's note, six to eight lines: what the piece says and why it is worth reading.
+5. The closing `rights` text, exactly: "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।" (en/ur equivalents as in `data/vishesh/devdutt-vishnu-shakahar.json`). Use `translationNote` "हिंदी अनुवाद: देशकाल".
+6. Author intro with his books and buy links stays in every article.
+
 ## Permissions
 The owner is asleep during the run and has given standing permission for all routine work on the site: choose, write, translate, build, commit and push, and fix anything that breaks. Never stop to ask; decide, and note the decision in the report.
 

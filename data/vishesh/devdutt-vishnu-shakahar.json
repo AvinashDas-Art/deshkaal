@@ -11,25 +11,34 @@
  "src": "Deccan Herald",
  "srcDate": "6 सितंबर 2026",
  "srcUrl": "https://www.deccanherald.com/opinion/how-vishnu-became-a-vegetarian-missionary-the-curious-history-of-hindu-vegetarianism-4136596",
- "mirror": {"label": "devdutt.com", "url": "https://devdutt.com/how-vishnu-became-a-vegetarian-missionary/"},
+ "mirror": {
+  "label": "devdutt.com",
+  "url": "https://devdutt.com/how-vishnu-became-a-vegetarian-missionary/"
+ },
  "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
  "bandPos": "center 24%",
  "photoAlt": "देवदत्त पटनायक, पीली पोलो टी-शर्ट में मुस्कुराते हुए",
- "translationNote": "देशकाल का तैयार किया सार",
+ "translationNote": "हिंदी अनुवाद: देशकाल",
  "rights": {
-  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। यह सार उनकी अनुमति से देशकाल में प्रकाशित है।",
-  "en": "All rights in the original article belong to Devdutt Pattanaik. This summary is published on Deshkaal with his permission.",
-  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ یہ خلاصہ ان کی اجازت سے دیش کال میں شائع کیا جا رہا ہے۔"
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
  },
- "note": "यह देशकाल का अपने शब्दों में तैयार किया सार है, जो देवदत्त पटनायक की अनुमति से छपा है। पूरा मूल पाठ पन्ने के नीचे के लिंक पर पढ़िए।",
- "pull": "खान-पान को जाति की पहरेदारी में लगाया गया, और विष्णु को उसका प्रचारक बना दिया गया।",
+ "note": "देवदत्त पटनायक का यह लेख हमारी थाली के उस इतिहास पर सवाल उठाता है, जिसे हम सदियों पुराना और पवित्र मान कर चलते हैं। वह वेदों, ब्राह्मण ग्रंथों, धर्मसूत्रों और मनुस्मृति के हवाले से दिखाते हैं कि शुरुआती दौर में मांस और पशुबलि अनुष्ठान का हिस्सा थे। फिर वह पूछते हैं कि शाकाहार को शुद्धता और करुणा का पर्याय किसने, कब और किसके पैसे से बनाया। जवाब में बौद्ध-जैन अहिंसा, व्यापारी संरक्षण, औपनिवेशिक सुधार और हिंदी प्रेस की भूमिका एक कड़ी में जुड़ती दिखती है। आख़िर में बात आज तक पहुंचती है, जब किसी का खान-पान उसकी जाति, हैसियत और नैतिकता का पैमाना बनाया जाता है। इसे पढ़ना इसलिए ज़रूरी है कि स्कूल की कैंटीन से लेकर फ़िल्मों तक यही बहस रोज़ हमारे आसपास चलती है।",
+ "pull": "खान-पान को जाति की सेवा में हथियार बना दिया गया है, और विष्णु को उसका प्रचारक बना लिया गया है।",
  "body": [
-  "लेख की शुरुआत एक सीधी बात से होती है: दुनिया के नब्बे फ़ीसदी से ज़्यादा लोग मांस खाते हैं, और भारत का शुद्ध शाकाहारी अल्पसंख्यक वही है, जिसने इतिहास में छुआछूत भी चलायी। देवदत्त पटनायक का दावा है कि ये दोनों बातें अलग-अलग नहीं हैं।",
-  "वह क़रीब पंद्रह सौ साल पुराने विष्णु पुराण की एक कथा से चलते हैं, जिसमें विष्णु मायामोह नाम के साधु का रूप धरकर असुरों को वैदिक पशुबलि छोड़ने के लिए राज़ी करते हैं। बलि छूटी तो असुर शिव की हिफ़ाज़त से कट गये और देवताओं से जंग हार गये। गीत गोविंद में यही काम विष्णु बुद्ध बनकर करते हैं। यानी पुराणों की अपनी याद में विष्णु शाकाहार के प्रचारक की तरह दर्ज हैं, जबकि पुराना वैदिक संसार इसके उलट खड़ा था।",
-  "पुराने ग्रंथों में मांस की जगह उनके मुताबिक़ साफ़ दिखती है। 'गोघ्न' शब्द मेहमान के सम्मान में बछड़े या बैल को काटने की रीति का इशारा देता है, जिसे आज के पुरोहित रूपक बताकर टाल देते हैं, पर पटनायक इस सफ़ाई को नहीं मानते। ब्राह्मण ग्रंथों में गुरु और राजा के सम्मान को पशुवध से जोड़ा गया है और अलग-अलग देवताओं के लिए अलग-अलग पशु तय हैं। धर्मसूत्रों में विधि से तय मांस से इनकार करना ही दोष गिना गया, और मनुस्मृति में बलि के पशुओं और भोजन की पूरी फ़ेहरिस्त है, जिसमें मछली, हिरन और सूअर तक शामिल हैं।",
-  "फिर पैसे का सवाल आता है। वैदिक कर्मकांड को पहले मांस खाने वाले योद्धा और पशुपालक ज़मींदार पालते थे। बाद में उसके संरक्षक वे व्यापारी बने, जो बौद्ध और जैन भिक्षुओं को भी पालते थे, और उन्होंने करुणा के नाम पर शाकाहार को अपनी पहचान बना लिया। महाभारत की कथा में क़साई अपने पेशे को जायज़ रोज़ी बताता है और किराने वाला मांसाहार को क्रूरता। लेख के मुताबिक़ अशोक ने किराने वाले का पक्ष लिया और मछुआरों व क़साइयों पर शिकंजा कसा, जबकि उसका साम्राज्य बड़े पैमाने की हिंसा पर खड़ा था। यानी सेनापति की हिंसा चल गयी, क़साई की नहीं।",
-  "जैन सोच में मांस खाना अपने ही रिश्तेदार को खाने जैसा था, क्योंकि कोई भी जानवर के रूप में जन्म ले सकता है। व्यापारियों के मिथकों ने समृद्धि को शाकाहारी थाली से जोड़ दिया। क़रीब एक हज़ार साल पहले तमिलनाडु और कर्नाटक में जैनों पर सितम हुए, तो धर्म बदलने वालों ने अपना खान-पान नहीं छोड़ा, और व्यापारी संरक्षण चाहने वाले ब्राह्मणों ने उसे अपना लिया। औपनिवेशिक दौर में आर्य समाज ने वेदों को तर्कसंगत और पवित्र बताया, और हिंदी छापेख़ानों ने, जिन्हें लेख के मुताबिक़ मारवाड़ी पैसे से चलाया गया, अनुवादों से मांस के हवाले हटा दिये।",
-  "पटनायक की नज़र में आज का नतीजा यह है कि जाति वैष्णव खान-पान के भेस में बैठी है। बच्चों को अंडे से दूर रखा जाता है, अहिंसा को पवित्रता का पर्याय बना दिया गया है, और राम-कृष्ण तक को व्यापारियों जैसा खाना खाने वाला बताया जाता है। आम धारणा है कि मांस मुसलमान और अंग्रेज़ लाये, जबकि बर्तन अलग रखने का डर उस पुराने डर की पैदाइश है, जो कभी सफ़ाईकर्मी की परछाईं से लगता था। लेख का निचोड़: खान-पान को जाति की पहरेदारी में लगाया गया, और विष्णु को उसका प्रचारक बना दिया गया।"
+  "दुनिया के नब्बे फ़ीसदी से ज़्यादा लोग मांस खाते हैं। भारत का कट्टर शाकाहारी अल्पसंख्यक ही वह अकेला समुदाय है, जिसने इतिहास में छुआछूत के ज़रिये इंसानों को इंसान नहीं रहने दिया। यह संयोग नहीं है। असल बात यही है।",
+  "यह उलटफेर एक ही देवता के भीतर दिखता है। पंद्रह सौ साल पहले विष्णु पुराण में विष्णु मायामोह नाम के साधु बनते हैं, यानी भरमाने वाले, और असुरों को वैदिक पशुबलि छोड़ने के लिए मना लेते हैं। ऐसा करते ही असुर शिव की सुरक्षा खो देते हैं और देवताओं से युद्ध हार जाते हैं। गीत गोविंद में विष्णु बुद्ध बनते हैं, ताकि उसी बलि से पशुओं को बचा सकें। देवता ने पूरी तरह पाला बदल लिया है।",
+  "अतिथि के लिए वैदिक शब्द गोघ्न है, यानी शाब्दिक अर्थ में गाय को मारने वाला: मेहमान का इतना सम्मान था कि उसके लिए बैल या गाय काटी जाती थी। आज किसी ब्राह्मण पुजारी से पूछिए कि क्या वेद मांस खाने की इजाज़त देते हैं, तो जवाब दो टूक मिलता है: कभी नहीं। निरुक्त की रचनात्मक व्युत्पत्ति अब गोघ्न का अर्थ यह लगाती है कि अतिथि के साथ वैसा बरताव करो जैसा गाय के साथ किया जाता है, यानी स्नेह और अहिंसा से, और वैदिक पशुबलि को महज़ रूपक बना देती है।",
+  "पाठ का रिकॉर्ड इस बचाव का साथ नहीं देता। शतपथ और ऐतरेय ब्राह्मण गुरुओं और राजाओं के सम्मान को गायों के वध से जोड़ते हैं। तैत्तिरीय ब्राह्मण बताता है कि कौन-सा पशु किस देवता को जाएगा, और विष्णु को बौने या ठिगने पशु मिलते हैं। यह यूं ही हो गया मांसाहार नहीं है। यह विधि-विधान के पते वाला वध है, जो ढाई हज़ार साल से भी पुराने ग्रंथों में दर्ज है।",
+  "उसके बाद आये धर्मसूत्र, जो कोई दो हज़ार साल पुराने हैं, वे भी मांस पर रोक नहीं लगाते। वसिष्ठ धर्मसूत्र विधि से तय मांस को ठुकराने वाले की कड़ी निंदा करता है। पाबंदियों के लिए बदनाम मनुस्मृति भी पन्ने के पन्ने यही बताने में लगाती है कि कौन-से पशु बलि के लिए ठीक हैं, मांस कब खाया जा सकता है और किसे चढ़ाया जाना चाहिए। मछली, हिरन और सूअर उसके अनुष्ठान और भोजन वाले अध्यायों में बार-बार आते हैं।",
+  "तो फिर शुद्धता को वनस्पति आहार से जोड़ने का समीकरण आया कहां से? पैसे का पीछा कीजिए। वैदिक यज्ञ का ख़र्च कभी मांस खाने वाले क्षत्रिय योद्धा और पशुपालक ज़मींदार उठाते थे। बाद में उसका ख़र्च व्यापारी उठाने लगे, जो बौद्ध और जैन भिक्षुओं के पूर्व संरक्षक थे और जिन्होंने सबसे पहले शाकाहारी भोजन को करुणा और अहिंसा से जोड़ा।",
+  "महाभारत यह टकराव सीधे मंच पर लाता है। एक कसाई साधु से कहता है कि उसकी हिंसा हिंसा नहीं, आजीविका है, व्यवस्था का हिस्सा है। एक किराने वाला ज़ोर देता है कि आजीविका कुछ भी हो, जानवर को खाना क्रूरता है। अशोक ने किराने वाले का पक्ष लिया और मछुआरों व कसाइयों पर उनके पुश्तैनी धंधे के लिए कार्रवाई की, जबकि उसका अपना साम्राज्य इंसानों के सामूहिक संहार पर खड़ा था। योद्धा की हिंसा मंज़ूर थी। कसाई की नहीं।",
+  "जैन साहित्य ने बात और आगे बढ़ायी और मांस खाने को नरभक्षण के बराबर रखा, क्योंकि रिश्तेदार पशु बनकर दोबारा जन्म ले सकते हैं, तो पशु को खाने में किसी रिश्तेदार को खा जाने का जोखिम था। व्यापारी समुदायों ने ऐसी उत्पत्ति-कथाएं गढ़ीं जिनमें देवता इस शर्त पर समृद्धि देते हैं कि भोजन शाकाहारी रहे - एक अंधविश्वास, जिसे बाद में तर्कसंगत आस्था का जामा पहना दिया गया। एक हज़ार साल पहले जब तमिलनाडु और कर्नाटक में जैनों को हिंसक ढंग से सताया गया, तो बहुतों ने हिंदू धर्म अपना लिया लेकिन अपना भोजन नहीं छोड़ा। व्यापारियों का संरक्षण पाने की होड़ में लगे ब्राह्मणों ने भी उसे अपना लिया।",
+  "औपनिवेशिक सुधारों ने कहानी पर मुहर लगा दी। आर्य समाज और उसके समकालीनों ने वेदों को तर्कसंगत और नैतिक रूप से शुद्ध ग्रंथ की तरह नये सिरे से पेश किया और उनसे वह सब पोंछ दिया जो बौद्ध-जैन अहिंसा के दावों या हिंदू कर्मकांड पर औपनिवेशिक ताने के बगल में बेमेल लगता था। मारवाड़ी व्यापारिक पैसे पर खड़े हिंदी प्रेस ने इस साफ़-सुथरे संस्करण को देसी भाषा में बड़े पैमाने पर छापा, और अनुवाद के चुनावों ने बाक़ी काम कर दिया: मांस को चुपचाप संपादित करके निकाल दिया गया।",
+  "आज जो बचा है, वह जाति है, जिसे वैष्णव आहार की पोशाक पहनायी गयी है। एक बेहतर और करुणामय दुनिया बनाने के नाम पर बच्चों को अंडे से दूर रखा जाता है। अहिंसा शुद्धता का पर्याय बन गयी है, और बहस एक तयशुदा पटकथा पर चलती है: घी पीने वाला अभिजात करुणामय है, मांस खाने वाला मज़दूर क्रूर। राम और कृष्ण को अब बनिया का भोजन परोसा जाता है, क्षत्रियों, शूद्रों या चांडालों का भोजन कभी नहीं। भगवद्गीता को हिंदू शाकाहार के स्रोत की तरह बेचा जाता है।",
+  "हमें बताया जाता है कि सनातनी भोजन जैन भोजन है, कि हिंदू धर्म मूल रूप से शाकाहारी था, और मांस मुसलमानों और अंग्रेज़ों के साथ आया। बॉलीवुड महाकाली और नृसिंह को कट्टर शाकाहारी दिखाता है और मांस के संपर्क को अपवित्रता मानता है; बर्तन मिल जाने का यह डर दरअसल मेहतर की छाया के पुराने डर जैसा है, जो अब पुराने व्यापारी समुदायों (वैश्य वर्ण) के स्कूलों की शाकाहारी कैंटीनों में सिखाया जाता है।",
+  "खान-पान को जाति की सेवा में हथियार बना दिया गया है, और विष्णु को उसका प्रचारक बना लिया गया है।"
  ],
  "sawal": "थाली का इतिहास अगर इतना उलझा है, तो उसके नाम पर किसी को अछूत ठहराने का हक़ किसे है?",
  "homePoints": [
@@ -71,30 +80,66 @@
   {
    "url": "https://www.amazon.in/dp/9389915880",
    "c": "#2E3F8F",
-   "hi": {"t": "आस्था", "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"},
-   "en": {"t": "Aastha", "s": "Forty insights into Hinduism, Hindi edition"},
-   "ur": {"t": "آستھا", "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"}
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
   },
   {
    "url": "https://www.amazon.in/dp/9391242677",
    "c": "#A63E26",
-   "hi": {"t": "पिलग्रिम नेशन", "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"},
-   "en": {"t": "Pilgrim Nation", "s": "The making of Bharatvarsh, Hindi edition"},
-   "ur": {"t": "پلگرم نیشن", "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"}
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
   },
   {
    "url": "https://www.amazon.in/dp/014345613X",
    "c": "#1F2126",
-   "hi": {"t": "ईडन", "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"},
-   "en": {"t": "Eden", "s": "Jewish, Christian and Islamic stories through an Indian lens"},
-   "ur": {"t": "عدن", "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"}
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
   },
   {
    "url": "https://www.amazon.in/dp/9389373840",
    "c": "#8A5E0F",
-   "hi": {"t": "गरुड़ पुराण", "s": "ग्यारह अध्यायों का सरल हिंदी सार"},
-   "en": {"t": "Garud Puran", "s": "The Garuda Purana in simple Hindi"},
-   "ur": {"t": "گرُڑ پران", "s": "گرُڑ پران کا آسان ہندی خلاصہ"}
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
   }
  ],
  "en": {
@@ -102,17 +147,23 @@
   "dek": "More than ninety percent of the world eats meat. India's strictly vegetarian minority is the same community that practised untouchability in history. Devdutt Pattanaik says that is no accident.",
   "by": "Devdutt Pattanaik",
   "tag": "Special Hamsafar",
-  "translationNote": "A summary prepared by Deshkaal",
+  "translationNote": "",
   "photoAlt": "Devdutt Pattanaik smiling in a yellow polo shirt",
-  "note": "This is Deshkaal's own summary, published with Devdutt Pattanaik's permission. Read the full original through the links at the foot of the page.",
-  "pull": "Food was put to work to guard caste, and Vishnu was cast as its preacher.",
+  "note": "Devdutt Pattanaik's essay questions the history of our plate, which we take to be ancient and sacred. Drawing on the Vedas, the Brahmanas, the dharmasutras and the Manusmriti, he shows that meat and animal sacrifice were part of early ritual. He then asks who made vegetarianism a synonym for purity and compassion, when, and with whose money. The answer links Buddhist-Jain ahimsa, merchant patronage, colonial reform and the Hindi press into one chain. In the end it reaches today, when what a person eats is made a measure of caste, standing and morality. It is worth reading because the same argument plays out around us every day, from school canteens to films.",
+  "pull": "Food has been weaponised in service of caste, and Vishnu has been drafted as its preacher.",
   "body": [
-   "The article opens with a plain fact: more than ninety percent of the world eats meat, and India's strictly vegetarian minority is the same community that practised untouchability in history. Devdutt Pattanaik argues that the two facts are not unrelated.",
-   "He starts from a tale in the Vishnu Purana, about fifteen hundred years old, in which Vishnu takes the form of a hermit named Mayamoha and persuades the asuras to give up Vedic animal sacrifice. Without the rites they lose Shiva's protection and are beaten by the devas. In the Gita Govinda, Vishnu does the same work as the Buddha. In the memory of the Puranas, then, Vishnu is a preacher of vegetarianism, while the older Vedic world stood on the other side.",
-   "The older texts, he says, leave little room for doubt. The word goghna hints at a calf or bull killed to honour a guest, which today's priests explain away as metaphor, an explanation Pattanaik does not accept. The Brahmanas tie the honouring of teachers and kings to the killing of cattle and assign different animals to different gods. The Dharmasutras count refusing the meat prescribed by ritual as a fault, and the Manusmriti lists sacrificial animals and permitted meals, fish, deer and boar included.",
-   "Then comes the question of money. Vedic ritual was first sustained by meat-eating warriors and cattle-owning landlords. Later its patrons were merchants who also supported Buddhist and Jain monks, and who made compassion the badge of a vegetarian diet. In the Mahabharata a butcher defends his trade as an honest livelihood while a grocer calls meat-eating cruel. According to the article, Ashoka took the grocer's side and went after fisherfolk and butchers, though his empire stood on mass violence. A commander's violence passed; a butcher's did not.",
-   "Jain thought saw eating meat as eating one's own kin, since any relative may be reborn as an animal. Merchant myths tied prosperity to a vegetarian table. About a thousand years ago, when Jains were persecuted in Tamil Nadu and Karnataka, those who converted kept their diet, and Brahmins seeking merchant patronage took it up. In the colonial period the Arya Samaj presented the Vedas as rational and pure, and Hindi presses, funded by Marwari money according to the article, trimmed the references to meat out of translations.",
-   "In Pattanaik's view the result today is caste sitting in the guise of a Vaishnava diet. Children are kept away from eggs, ahimsa is made a synonym for purity, and even Ram and Krishna are described as gods who ate like merchants. The popular belief is that meat came with Muslims and the British, while the fear of mixing utensils descends from the old fear of a sweeper's shadow. The article's conclusion: Food was put to work to guard caste, and Vishnu was cast as its preacher."
+   "Over 90% of the world eats meat. The strictly vegetarian minority of India happens to be the only community that has historically dehumanised humans through untouchability. That is not a coincidence. That is the point.",
+   "The reversal shows up inside a single deity. In the Vishnu Purana, 1,500 years ago, Vishnu becomes the hermit Mayamoha, the deluder, and persuades the Asuras to abandon Vedic animal sacrifice. Once they do, they lose Shiva’s protection and lose the war against the Devas. In the Gita Govinda, Vishnu becomes the Buddha to save animals from that same sacrifice. The god has switched sides completely.",
+   "The Vedic word for guest is goghna, literally cattle-killer: a guest was honoured enough that a bovine was slaughtered for him. Ask a modern Brahmin priest whether the Vedas permit consumption of meat and the answer comes back categorical: never. Creative Nirukta etymology now reads goghna as treating a guest the way one treats a cow, with affection and non-violence, and reduces Vedic animal sacrifice to metaphor.",
+   "The textual record does not support the rescue. The Shatapatha and Aitareya Brahmanas link the honouring of teachers and kings to cattle slaughter. The Taittiriya Brahmana names which animals go to which gods, Vishnu receiving the dwarf or stunted cattle. This is not incidental meat eating. It is butchery with a liturgical address, recorded in texts over 2,500 years old.",
+   "The dharmasutras that followed, some 2,000 years old, do not prohibit meat either. The Vasishtha Dharmasutra condemns refusing ritually prescribed meat in severe terms. Even the Manusmriti, notorious for its restrictions, spends pages on which animals may be sacrificed, when meat may be eaten, and to whom it should be offered. Fish, deer, and boar run throughout its chapters on ritual and diet.",
+   "So, where did the equation of purity with plant food come from? Follow the funding. Vedic yagna was once financed by meat-eating Kshatriya warriors and cattle-herding landlords. It was later financed by merchants, former patrons of Buddhist and Jain monks, who were the first to equate vegetarian food with compassion and non-violence.",
+   "The Mahabharata stages the fight directly. A butcher tells a monk that his violence is not violence but a livelihood, part of the order of things. A grocer insists that eating animals is cruel regardless of livelihood. Ashoka sided with the grocer, and moved against fisherfolk and butchers for practising their traditional trades, even as his own empire rested on the mass killing of humans. A warlord’s violence was acceptable. A butcher’s was not.",
+   "Jain literature pushed the argument further and equated meat eating with cannibalism, since relatives could be reborn as animals, so eating an animal risked eating a relative. Merchant communities built origin myths around gods who granted fortune on condition of a vegetarian diet - a superstition that was later dressed up as rational conviction. When Jains were violently persecuted in Tamil Nadu and Karnataka a thousand years ago, many converted to Hinduism but kept their diet. Brahmins competing for merchant patronage adopted it too.",
+   "Colonial reform sealed the story. The Arya Samaj and its contemporaries recast the Vedas as a rational, morally pure scripture, scrubbed of anything that sat badly next to Buddhist and Jain claims to ahimsa or colonial mockery of Hindu ritual. The Hindi press, built on Marwari mercantile money, mass-printed the cleaned-up version in the vernacular, and translation choices did the rest, quietly editing the meat out.",
+   "What survives today is caste, dressed as a Vaishnava diet. Children are denied eggs in the name of building a more compassionate world. Ahimsa has become a synonym for purity, and the discourse follows a fixed script: the ghee-drinking elite is compassionate, the meat-eating labourer is cruel. Ram and Krishna are now served the food of the Baniya, never the food of Kshatriyas, Shudras, or Chandalas. The Bhagavad Gita is marketed as the source of Hindu vegetarianism.",
+   "We are told Sanatani food is Jain food, that Hinduism was originally vegetarian, and that meat entered with Muslims and the British. Bollywood renders Mahakali and Narasimha as strict vegetarians and treats contact with meat as contamination; a fear of mixing utensils that is really the old fear of the sweeper’s shadow, taught now in the vegetarian canteens of schools owned by old merchant communities (vaishya varna).",
+   "Food has been weaponised in service of caste, and Vishnu has been drafted as its preacher."
   ],
   "sawal": "If the history of the plate is this tangled, who has the right to call anyone untouchable in its name?",
   "homePoints": [
@@ -126,17 +177,23 @@
   "dek": "دنیا کے نوّے فیصد سے زیادہ لوگ گوشت کھاتے ہیں۔ ہندوستان کی خالص سبزی خور اقلیت وہی ہے جس نے تاریخ میں چھوا چھوت بھی برتی۔ دیودت پٹنایک کہتے ہیں کہ یہ اتفاق نہیں۔",
   "by": "دیودت پٹنایک",
   "tag": "خصوصی ہم سفر",
-  "translationNote": "دیش کال کا تیار کیا ہوا خلاصہ",
+  "translationNote": "اردو ترجمہ: دیش کال",
   "photoAlt": "پیلی پولو شرٹ میں مسکراتے ہوئے دیودت پٹنایک",
-  "note": "یہ دیش کال کا اپنے الفاظ میں تیار کیا ہوا خلاصہ ہے، جو دیودت پٹنایک کی اجازت سے شائع ہو رہا ہے۔ پورا اصل متن صفحے کے نیچے کے لنک پر پڑھیے۔",
-  "pull": "کھانے پینے کو ذات کی پہرے داری میں لگایا گیا، اور وشنو کو اس کا مبلغ بنا دیا گیا۔",
+  "note": "دیودت پٹنایک کا یہ مضمون ہماری تھالی کی اس تاریخ پر سوال اٹھاتا ہے جسے ہم صدیوں پرانا اور مقدس مان کر چلتے ہیں۔ وہ ویدوں، براہمن گرنتھوں، دھرم سوتروں اور منوسمرتی کے حوالوں سے دکھاتے ہیں کہ ابتدائی دور میں گوشت اور جانور کی قربانی رسم کا حصہ تھے۔ پھر وہ پوچھتے ہیں کہ سبزی خوری کو پاکیزگی اور رحم دلی کا مترادف کس نے، کب اور کس کے پیسے سے بنایا۔ جواب میں بودھ اور جین اہنسا، تاجروں کی سرپرستی، نوآبادیاتی اصلاحات اور ہندی پریس کا کردار ایک کڑی میں جڑتا دکھائی دیتا ہے۔ آخر میں بات آج تک پہنچتی ہے، جب کسی کے کھانے پینے کو اس کی ذات، حیثیت اور اخلاق کا پیمانہ بنایا جاتا ہے۔ اسے پڑھنا اس لیے ضروری ہے کہ اسکول کی کینٹین سے لے کر فلموں تک یہی بحث روز ہمارے آس پاس چلتی ہے۔",
+  "pull": "کھانے پینے کو ذات کی خدمت میں ہتھیار بنا دیا گیا ہے، اور وشنو کو اس کا مبلغ بنا لیا گیا ہے۔",
   "body": [
-   "مضمون ایک سیدھی بات سے شروع ہوتا ہے: دنیا کے نوّے فیصد سے زیادہ لوگ گوشت کھاتے ہیں، اور ہندوستان کی خالص سبزی خور اقلیت وہی ہے جس نے تاریخ میں چھوا چھوت بھی برتی۔ دیودت پٹنایک کا دعویٰ ہے کہ یہ دونوں باتیں الگ الگ نہیں ہیں۔",
-   "وہ تقریباً پندرہ سو سال پرانے وشنو پران کی ایک کتھا سے چلتے ہیں، جس میں وشنو مایاموہ نام کے سادھو کا روپ دھار کر اسُروں کو ویدک جانور قربانی چھوڑنے پر آمادہ کرتے ہیں۔ قربانی چھوٹی تو اسُر شِو کی حفاظت سے محروم ہو گئے اور دیوتاؤں سے جنگ ہار گئے۔ گیت گووند میں یہی کام وشنو بُدھ بن کر کرتے ہیں۔ یعنی پرانوں کی اپنی یادداشت میں وشنو سبزی خوری کے مبلغ کی طرح درج ہیں، جبکہ قدیم ویدک دنیا اس کے برعکس تھی۔",
-   "ان کے مطابق پرانی کتابوں میں گوشت کی جگہ صاف دکھائی دیتی ہے۔ 'گوگھن' لفظ مہمان کے اعزاز میں بچھڑا یا بیل ذبح کرنے کی رسم کا اشارہ دیتا ہے، جسے آج کے پروہت استعارہ کہہ کر ٹال دیتے ہیں، مگر پٹنایک اس صفائی کو نہیں مانتے۔ براہمن گرنتھوں میں استاد اور راجا کے اعزاز کو مویشیوں کے ذبیحے سے جوڑا گیا ہے اور الگ الگ دیوتاؤں کے لیے الگ الگ جانور مقرر ہیں۔ دھرم سوتروں میں رسم سے طے شدہ گوشت سے انکار کو ہی عیب گنا گیا، اور منو سمرتی میں قربانی کے جانوروں اور کھانوں کی پوری فہرست ہے، جس میں مچھلی، ہرن اور سور تک شامل ہیں۔",
-   "پھر پیسے کا سوال آتا ہے۔ ویدک رسوم کو پہلے گوشت کھانے والے جنگجو اور مویشی پالنے والے زمیندار پالتے تھے۔ بعد میں اس کے سرپرست وہ تاجر بنے جو بدھ اور جین بھکشوؤں کو بھی پالتے تھے، اور انہوں نے رحم کے نام پر سبزی خوری کو اپنی پہچان بنا لیا۔ مہابھارت کی کتھا میں قصائی اپنے پیشے کو جائز روزی بتاتا ہے اور پنساری گوشت خوری کو ظلم۔ مضمون کے مطابق اشوک نے پنساری کا ساتھ دیا اور مچھیروں اور قصائیوں پر شکنجہ کسا، حالانکہ اس کی سلطنت بڑے پیمانے کے تشدد پر کھڑی تھی۔ یعنی سپہ سالار کا تشدد چل گیا، قصائی کا نہیں۔",
-   "جین فکر میں گوشت کھانا اپنے ہی رشتے دار کو کھانے جیسا تھا، کیونکہ کوئی بھی جانور کے روپ میں جنم لے سکتا ہے۔ تاجروں کی دیومالا نے خوشحالی کو سبزی خور دسترخوان سے جوڑ دیا۔ تقریباً ہزار سال پہلے تمل ناڈو اور کرناٹک میں جینیوں پر ظلم ہوا تو مذہب بدلنے والوں نے اپنا کھانا نہیں چھوڑا، اور تاجروں کی سرپرستی چاہنے والے براہمنوں نے اسے اپنا لیا۔ نوآبادیاتی دور میں آریہ سماج نے ویدوں کو عقلی اور پاک بتایا، اور ہندی چھاپہ خانوں نے، جنہیں مضمون کے مطابق مارواڑی پیسے سے چلایا گیا، ترجموں سے گوشت کے حوالے ہٹا دیے۔",
-   "پٹنایک کی نظر میں آج کا نتیجہ یہ ہے کہ ذات پات ویشنو کھانوں کے بھیس میں بیٹھی ہے۔ بچوں کو انڈے سے دور رکھا جاتا ہے، اہنسا کو پاکیزگی کا مترادف بنا دیا گیا ہے، اور رام اور کرشن تک کو تاجروں جیسا کھانا کھانے والا بتایا جاتا ہے۔ عام خیال ہے کہ گوشت مسلمان اور انگریز لائے، جبکہ برتن الگ رکھنے کا خوف اس پرانے خوف کی دین ہے جو کبھی صفائی کرنے والے کے سائے سے لگتا تھا۔ مضمون کا نچوڑ: کھانے پینے کو ذات کی پہرے داری میں لگایا گیا، اور وشنو کو اس کا مبلغ بنا دیا گیا۔"
+   "دنیا کے نوّے فیصد سے زیادہ لوگ گوشت کھاتے ہیں۔ ہندوستان کی کٹّر سبزی خور اقلیت ہی وہ واحد برادری ہے جس نے تاریخ میں چھوا چھوت کے ذریعے انسانوں کو انسان نہیں رہنے دیا۔ یہ اتفاق نہیں ہے۔ اصل بات یہی ہے۔",
+   "یہ الٹ پھیر ایک ہی دیوتا کے اندر دکھائی دیتا ہے۔ پندرہ سو سال پہلے وشنو پران میں وشنو مایاموہ نام کے سادھو بنتے ہیں، یعنی بھرمانے والے، اور اسُروں کو ویدک جانور کی قربانی چھوڑنے پر آمادہ کر لیتے ہیں۔ ایسا کرتے ہی اسُر شیو کی حفاظت کھو دیتے ہیں اور دیوتاؤں سے جنگ ہار جاتے ہیں۔ گیت گووند میں وشنو بدھ بنتے ہیں، تاکہ اسی قربانی سے جانوروں کو بچا سکیں۔ دیوتا نے پوری طرح پالا بدل لیا ہے۔",
+   "مہمان کے لیے ویدک لفظ گوگھن ہے، یعنی لفظی معنی میں گائے کو مارنے والا: مہمان کی اتنی عزت تھی کہ اس کے لیے بیل یا گائے ذبح کی جاتی تھی۔ آج کسی برہمن پجاری سے پوچھیے کہ کیا وید گوشت کھانے کی اجازت دیتے ہیں، تو جواب دو ٹوک ملتا ہے: کبھی نہیں۔ نِرُکت کی تخلیقی اشتقاق اب گوگھن کا مطلب یہ نکالتی ہے کہ مہمان کے ساتھ ویسا برتاؤ کرو جیسا گائے کے ساتھ کیا جاتا ہے، یعنی شفقت اور عدمِ تشدد سے، اور ویدک جانور کی قربانی کو محض استعارہ بنا دیتی ہے۔",
+   "متن کا ریکارڈ اس دفاع کا ساتھ نہیں دیتا۔ شتپتھ اور ایتریہ براہمن اساتذہ اور بادشاہوں کی تعظیم کو گایوں کے ذبیحے سے جوڑتے ہیں۔ تیتریہ براہمن بتاتا ہے کہ کون سا جانور کس دیوتا کو جائے گا، اور وشنو کو بونے یا ٹھگنے جانور ملتے ہیں۔ یہ یونہی ہو گیا گوشت خوری نہیں ہے۔ یہ رسم و رواج کے پتے والا ذبیحہ ہے، جو ڈھائی ہزار سال سے بھی پرانی کتابوں میں درج ہے۔",
+   "اس کے بعد آنے والے دھرم سوتر، جو کوئی دو ہزار سال پرانے ہیں، وہ بھی گوشت پر پابندی نہیں لگاتے۔ وسِشٹھ دھرم سوتر رسم کے مطابق مقرر گوشت کو ٹھکرانے والے کی سخت مذمت کرتا ہے۔ پابندیوں کے لیے بدنام منوسمرتی بھی صفحے کے صفحے یہی بتانے میں لگاتی ہے کہ کون سے جانور قربانی کے لیے ٹھیک ہیں، گوشت کب کھایا جا سکتا ہے اور کسے پیش کیا جانا چاہیے۔ مچھلی، ہرن اور سور اس کے رسم و خوراک والے ابواب میں بار بار آتے ہیں۔",
+   "تو پھر پاکیزگی کو نباتاتی غذا سے جوڑنے کا یہ مساوات آیا کہاں سے؟ پیسے کا پیچھا کیجیے۔ ویدک یگیہ کا خرچ کبھی گوشت کھانے والے کشتریہ جنگجو اور مویشی پالنے والے زمیندار اٹھاتے تھے۔ بعد میں اس کا خرچ تاجر اٹھانے لگے، جو بودھ اور جین بھکشوؤں کے سابق سرپرست تھے اور جنھوں نے سب سے پہلے سبزی خوراک کو رحم دلی اور عدمِ تشدد سے جوڑا۔",
+   "مہابھارت یہ ٹکراؤ سیدھے اسٹیج پر لاتی ہے۔ ایک قصائی سادھو سے کہتا ہے کہ اس کا تشدد تشدد نہیں، روزی ہے، نظام کا حصہ ہے۔ ایک پنساری زور دیتا ہے کہ روزی کچھ بھی ہو، جانور کو کھانا ظلم ہے۔ اشوک نے پنساری کا ساتھ دیا اور مچھیروں اور قصائیوں پر ان کے آبائی پیشے کے لیے کارروائی کی، جبکہ اس کی اپنی سلطنت انسانوں کے اجتماعی قتلِ عام پر کھڑی تھی۔ جنگجو کا تشدد قابلِ قبول تھا۔ قصائی کا نہیں۔",
+   "جین ادب نے بات اور آگے بڑھائی اور گوشت خوری کو آدم خوری کے برابر رکھا، کیونکہ رشتے دار جانور بن کر دوبارہ جنم لے سکتے ہیں، تو جانور کو کھانے میں کسی رشتے دار کو کھا جانے کا خطرہ تھا۔ تاجر برادریوں نے ایسی تخلیقی کہانیاں گھڑیں جن میں دیوتا اس شرط پر خوشحالی دیتے ہیں کہ خوراک سبزی رہے - ایک توہم، جسے بعد میں عقلی عقیدے کا لبادہ پہنا دیا گیا۔ ہزار سال پہلے جب تمل ناڈو اور کرناٹک میں جینیوں پر تشدد کے ساتھ ظلم ہوا، تو بہتوں نے ہندو مذہب اپنا لیا مگر اپنی خوراک نہیں چھوڑی۔ تاجروں کی سرپرستی پانے کی دوڑ میں لگے براہمنوں نے بھی اسے اپنا لیا۔",
+   "نوآبادیاتی اصلاحات نے کہانی پر مہر لگا دی۔ آریہ سماج اور اس کے ہم عصروں نے ویدوں کو عقلی اور اخلاقی طور پر پاک کتاب کی طرح نئے سرے سے پیش کیا اور ان سے وہ سب مٹا دیا جو بودھ اور جین اہنسا کے دعووں یا ہندو رسوم پر نوآبادیاتی طعنے کے پہلو میں بے جوڑ لگتا تھا۔ مارواڑی تجارتی پیسے پر کھڑے ہندی پریس نے اس صاف ستھرے ایڈیشن کو مقامی زبان میں بڑے پیمانے پر چھاپا، اور ترجمے کے انتخابات نے باقی کام کر دیا: گوشت کو چپکے سے ایڈٹ کر کے نکال دیا گیا۔",
+   "آج جو بچا ہے، وہ ذات ہے، جسے ویشنو خوراک کا لباس پہنایا گیا ہے۔ ایک بہتر اور رحم دل دنیا بنانے کے نام پر بچوں کو انڈے سے دور رکھا جاتا ہے۔ اہنسا پاکیزگی کا مترادف بن گئی ہے، اور بحث ایک طے شدہ اسکرپٹ پر چلتی ہے: گھی پینے والا اشرافیہ رحم دل ہے، گوشت کھانے والا مزدور ظالم۔ رام اور کرشن کو اب بنیے کا کھانا پیش کیا جاتا ہے، کشتریوں، شودروں یا چانڈالوں کا کھانا کبھی نہیں۔ بھگوت گیتا کو ہندو سبزی خوری کے سرچشمے کی طرح بیچا جاتا ہے۔",
+   "ہمیں بتایا جاتا ہے کہ سناتنی کھانا جین کھانا ہے، کہ ہندو مذہب اصل میں سبزی خور تھا، اور گوشت مسلمانوں اور انگریزوں کے ساتھ آیا۔ بالی ووڈ مہاکالی اور نرسنگھ کو کٹّر سبزی خور دکھاتا ہے اور گوشت کے لمس کو ناپاکی مانتا ہے؛ برتن مل جانے کا یہ ڈر دراصل بھنگی کے سائے کے پرانے ڈر جیسا ہے، جو اب پرانی تاجر برادریوں (ویشیہ ورن) کے اسکولوں کی سبزی خور کینٹینوں میں سکھایا جاتا ہے۔",
+   "کھانے پینے کو ذات کی خدمت میں ہتھیار بنا دیا گیا ہے، اور وشنو کو اس کا مبلغ بنا لیا گیا ہے۔"
   ],
   "sawal": "اگر تھالی کی تاریخ اتنی الجھی ہوئی ہے، تو اس کے نام پر کسی کو اچھوت ٹھہرانے کا حق کس کو ہے؟",
   "homePoints": [
@@ -144,5 +201,10 @@
    "سبزی خوری کو طاقت تاجروں کی سرپرستی، جین اثر اور نوآبادیاتی اصلاح کے راستے سے ملی۔",
    "پٹنایک کے مطابق آج ذات پات ویشنو کھانوں کے بھیس میں بیٹھی ہے۔"
   ]
+ },
+ "firstPub": {
+  "hi": "यह लेख सबसे पहले डेक्कन हेराल्ड में छपा था।",
+  "en": "This article first appeared in Deccan Herald.",
+  "ur": "یہ مضمون سب سے پہلے ڈیکن ہیرالڈ میں شائع ہوا تھا۔"
  }
 }
