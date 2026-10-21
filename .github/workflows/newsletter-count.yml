@@ -1,14 +1,15 @@
 name: न्यूज़लेटर के पाठकों की गिनती
 # न्यूज़लेटर Resend के segment पर जाता है; साइन-अप Cloudflare D1 की subscribers तालिका में भी दर्ज होता है.
-# चाबी सिर्फ़ GitHub Secrets में है, इसलिए गिनती यहीं से निकलती है. सिर्फ़ जोड़ (aggregate) दिखता है,
-# किसी का ईमेल पता नहीं. चलाना: .github/audience-check में टाइमस्टैम्प डालकर पुश, या workflow_dispatch.
+# चाबी सिर्फ़ GitHub Secrets में है, इसलिए गिनती यहीं से निकलती है.
+# सिर्फ़ जोड़ (गिनती, डोमेन, महीने) निकलता है — किसी का ईमेल पता नहीं.
+# चलाना: .github/audience-check में टाइमस्टैम्प डालकर पुश, या workflow_dispatch.
 on:
   push:
     branches: [main]
     paths: [".github/audience-check"]
   workflow_dispatch: {}
 permissions:
-  issues: write
+  contents: write
 concurrency: { group: audience, cancel-in-progress: false }
 jobs:
   count:
@@ -17,54 +18,56 @@ jobs:
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       RESEND_SEGMENT_ID: ${{ secrets.RESEND_SEGMENT_ID }}
     steps:
+      - uses: actions/checkout@v4
       - name: Resend से segment और संपर्क गिनना
         run: |
-          node - <<'JS'
+          cat > /tmp/count.js <<'JS'
           const fs = require("fs");
           const KEY = process.env.RESEND_API_KEY;
           const SEG = process.env.RESEND_SEGMENT_ID || "e42dda3d-4db2-43ff-8c3d-15458393f636";
-          const H = { authorization: `Bearer ${KEY}` };
+          const H = { authorization: "Bearer " + KEY };
           const out = [];
           const get = async (u) => {
             const r = await fetch("https://api.resend.com" + u, { headers: H });
-            let b = null; try { b = await r.json(); } catch {}
+            let b = null; try { b = await r.json(); } catch (e) {}
             return { status: r.status, body: b };
           };
           (async () => {
             if (!KEY) { out.push("RESEND_API_KEY नहीं मिली"); return; }
-            const seg = await get(`/segments/${SEG}`);
+            const seg = await get("/segments/" + SEG);
             out.push("segment: " + seg.status + " " + JSON.stringify(seg.body).slice(0, 160));
-            let all = [], after = null, seen = 0;
+            let all = [], after = null, pages = 0;
             for (let i = 0; i < 60; i++) {
-              const q = `/contacts?segment_id=${SEG}&limit=100` + (after ? `&after=${encodeURIComponent(after)}` : "");
+              const q = "/contacts?segment_id=" + SEG + "&limit=100" + (after ? "&after=" + encodeURIComponent(after) : "");
               const r = await get(q);
               if (r.status !== 200) { out.push("contacts: " + r.status + " " + JSON.stringify(r.body).slice(0, 160)); break; }
               const d = (r.body && r.body.data) || [];
-              all.push(...d); seen += d.length;
+              all.push.apply(all, d); pages++;
               if (d.length < 100) break;
               after = d[d.length - 1].id;
             }
-            const active = all.filter(c => !c.unsubscribed);
+            const active = all.filter((c) => !c.unsubscribed);
             const dom = {};
-            for (const c of active) { const d = String(c.email || "").split("@")[1] || "?"; dom[d] = (dom[d] || 0) + 1; }
-            const top = Object.entries(dom).sort((a, b) => b[1] - a[1]).slice(0, 12).map(([d, n]) => `${d} — ${n}`).join(" · ");
+            active.forEach((c) => { const d = String(c.email || "").split("@")[1] || "?"; dom[d] = (dom[d] || 0) + 1; });
+            const top = Object.keys(dom).sort((a, b) => dom[b] - dom[a]).slice(0, 12).map((d) => d + " — " + dom[d]).join(" · ");
             const months = {};
-            for (const c of active) { const k = String(c.created_at || "").slice(0, 7) || "?"; months[k] = (months[k] || 0) + 1; }
-            out.push(`कुल संपर्क: ${all.length} · सक्रिय: ${active.length} · हटे/बंद: ${all.length - active.length}`);
+            active.forEach((c) => { const k = String(c.created_at || "").slice(0, 7) || "?"; months[k] = (months[k] || 0) + 1; });
+            out.push("कुल संपर्क: " + all.length + " · सक्रिय: " + active.length + " · हटे/बंद: " + (all.length - active.length) + " · पन्ने: " + pages);
             out.push("डोमेन: " + (top || "—"));
-            out.push("महीने: " + Object.entries(months).sort().map(([k, n]) => `${k} — ${n}`).join(" · "));
-          })().catch(e => out.push("ERR " + e.message)).finally(() => {
-            const txt = out.join("\n");
-            console.log(txt);
-            fs.writeFileSync("/tmp/report.txt", txt + "\n");
+            out.push("महीने: " + Object.keys(months).sort().map((k) => k + " — " + months[k]).join(" · "));
+          })().catch((e) => out.push("ERR " + e.message)).finally(() => {
+            fs.writeFileSync("/tmp/report.txt", out.join("\n") + "\n");
+            console.log(out.join("\n"));
           });
           JS
-      - name: नतीजा issue में (जोड़ ही, कोई ईमेल नहीं), फिर बंद
+          node /tmp/count.js
+      - name: गिनती एक अलग शाखा में रखना (ताकि बिना चाबी भी पढ़ी जा सके)
         if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue list --state open --search 'in:title "न्यूज़लेटर की गिनती"' --json number --jq '.[].number' | xargs -r -n1 gh issue close --reason completed
-          n=$(gh issue create --title "न्यूज़लेटर की गिनती · $(date -u +%Y-%m-%d)" --body-file /tmp/report.txt | grep -oE '[0-9]+$' | tail -1)
-          echo "issue: $n"
-          [ -n "$n" ] && gh issue close "$n" --reason completed
+          cp /tmp/report.txt audience-report.txt
+          git config user.name "deshkaal-bot"; git config user.email "patra@deshkaal.xyz"
+          git checkout -q -B audience-report
+          git add -f audience-report.txt
+          if git diff --cached --quiet; then echo "कुछ नहीं बदला"; exit 0; fi
+          git commit -q -m "न्यूज़लेटर की गिनती"
+          git push -qf origin audience-report
