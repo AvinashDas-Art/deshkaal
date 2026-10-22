@@ -110,7 +110,7 @@ function fillPiece(g,a,w,h,C,R){const im=getPhoto(a.photo);
   if(!im){paintMotif(g,a,w,h,rng(a.seed),C.paper,C.main,C.accent,C.soft,C.ink,C.soft);return}
   const s=Math.max(w/im.naturalWidth,h/im.naturalHeight),iw=im.naturalWidth*s,ih=im.naturalHeight*s;
   g.save();
-  if(a.kind==="painting"){ /* पेंटिंग अपने रंगों में, बस श्रेणी के रंग की हल्की परत */
+  if(a.kind==="painting"||a.kind==="collage"){ /* पेंटिंग अपने रंगों में, बस श्रेणी के रंग की हल्की परत */
     g.filter="saturate(1.05) contrast(1.05)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";
     g.globalCompositeOperation="multiply";g.globalAlpha=.12;g.fillStyle=C.main;g.fillRect(0,0,w,h);g.restore();return}
   g.filter="grayscale(1) contrast(1.15) brightness(1.04)";g.drawImage(im,(w-iw)/2,(h-ih)*.42,iw,ih);g.filter="none";

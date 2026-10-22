@@ -38,7 +38,7 @@ const languageURLs = (url, langs = LANGS) => {
 /* पेंटिंग वग़ैरह GitHub पर public/media/<id>.jpg में उतर आती हैं; हों तो वही, वरना मूल पता */
 const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : (a.photo ? a.photo.src : "");
 const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(imgSrc(a))}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
-const credit = a => a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
+const credit = a => a.photo && a.photo.kind === "collage" ? `<span class="credit">${T.collage}</span>` : a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
 const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${esc(a.h)}" aria-pressed="false">${T.save}</button>`;
 
 /* ---------- data ---------- */
@@ -550,7 +550,7 @@ function articlePage(a) {
     <div class="meta"><span>${T.orig}: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">${T.listenBtn(listenMin(a))}</button>${saveBtn(a)}</span></div>
     ${shareBlock(a)}
-    <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">${T.collage}${a.photo ? " · " + credit(a) : ""}</figcaption></figure>
+    <figure class="figure" style="margin-inline:0">${art(a)}<figcaption class="cap">${T.collage}${a.photo && a.photo.kind !== "collage" ? " · " + credit(a) : ""}</figcaption></figure>
     ${a.intro && a.intro.length ? `<div class="body intro">${a.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<div class="body">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
     <aside class="box"><h5>${T.nazar}</h5>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</aside>
     <aside class="sawal"><small>${T.think}</small><p>${esc(a.sawal)}</p></aside>
@@ -651,7 +651,7 @@ function akhbarPage(day, issueNo, allDays) {
   const pdf = fs.existsSync(path.join("public", "akhbar", day.date + ".pdf")) ? `/akhbar/${day.date}.pdf` : "";
   const P = (arr) => (arr || []).map(p => `<p>${esc(p)}</p>`).join("");
   const more = a => `${a.nazar && a.nazar.length && a.sec !== "sahitya" ? `<div class="np-nz"><b>देशकाल की नज़र</b>${a.nazar.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}<a class="np-more" href="${esc(a.url || href(a))}">मूल लेख: ${esc(a.pub || "")} →</a>`;
-  const img = a => a && a.photo ? `<img class="${a.photo.kind === "painting" ? "paint" : "photo"}" src="${esc(imgSrc(a))}" alt="" loading="lazy">` : "";
+  const img = a => a && a.photo ? `<img class="${["painting", "collage"].includes(a.photo.kind) ? "paint" : "photo"}" src="${esc(imgSrc(a))}" alt="" loading="lazy">` : "";
   const cap = a => a && a.photo ? `<span class="np-cap">${a.photo.note ? esc(a.photo.note) + " · " : ""}${esc(a.photo.credit)}</span>` : "";
   const by1 = a => `<p class="np-by"><b>${esc(a.by)}</b> · ${esc(a.pub)}</p>`;
   const tile = a => `<span class="np-tile" aria-hidden="true">${esc([...(a.by || "?").trim()][0])}</span>`;

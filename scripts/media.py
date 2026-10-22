@@ -16,7 +16,7 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) deshkaal.xyz/1.0 (sampark@d
 def need(a):
     p = a.get("photo") or {}
     src = p.get("src", "")
-    return bool(src) and (p.get("kind") == "painting" or "images.unsplash.com" not in src)
+    return bool(src) and p.get("kind") != "collage" and (p.get("kind") == "painting" or "images.unsplash.com" not in src)
 
 
 def variants(src):

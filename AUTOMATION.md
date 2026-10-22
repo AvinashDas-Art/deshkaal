@@ -147,6 +147,15 @@ On Sundays, also pick the five most important pieces of the week from the last 7
 ## Permissions
 The owner is asleep during the run and has given standing permission for all routine work on the site: choose, write, translate, build, commit and push, and fix anything that breaks. Never stop to ask; decide, and note the decision in the report.
 
+## पोस्टर-कोलाज (illustrated collages): a few in every issue
+The owner liked the poster-style collages of Hindwi Bela and asked (23 Oct 2026) for a few like them in every issue. Ours are original paper-cut illustrations drawn by code, not photo-real montages.
+- **How many:** two or three a day: one for the lead (`amukh`) and one or two for other strong pieces (a vishesh, a hamsafar piece, a literature piece).
+- **Tool:** `scripts/collage.py data/collage/<id>.json` (spec format and an example in `data/collage/satish-acharya.json`; the docstring in the script lists the fields). It writes a 1200x840 JPEG. Commit the spec and the JPEG.
+- **For a day article:** write the JPEG to `public/media/<article id>.jpg` (the build uses that file automatically) and set `"photo": {"kind": "collage", "src": "/media/<article id>.jpg"}`. The page then shows the credit "कोलाज: देशकाल". Do not use it for more than two articles a day, and the lead still needs a photo or painting in the usual way if the collage is not used for it.
+- **For a vishesh page:** save as `public/media/vishesh/<id>.jpg` and use it as `photo`, with `photoCap` "कोलाज: देशकाल".
+- **Content rules:** headline fragments on the paper strips must be facts from the article (or a clearly rhetorical question the piece itself raises), short, in plain Hindi, numbers in words. Never draw a real person's face or likeness, a party flag, a logo, a mascot or someone else's cartoon. A stamp (ठप्पा) may quote an accusation only as a question.
+- **Motifs:** `pen-chain` (pen, chains, padlock) exists today. When a story needs another picture (film reel, scales, ballot box, loudspeaker, books), add a function to `MOTIFS` in `scripts/collage.py`, draw it from simple shapes, and reuse the strips, halftone, grain and stamp. Do not repeat the same motif on consecutive days.
+
 ## Be an editor, not a filler
 Think like an experimental, creative editor. Each issue should feel considered: a lead that sets the day's argument, commentary that disagrees with itself where useful, news that would otherwise be buried, rural reporting, one good film a week, and literature. When a pattern repeats for several days (one subject dominating, one source over-used), correct it.
 
