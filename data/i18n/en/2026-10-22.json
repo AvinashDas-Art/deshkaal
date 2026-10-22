@@ -879,5 +879,35 @@
    ]
   ],
   "photo_note": "A Sunday on La Grande Jatte"
+ },
+ {
+  "id": "2026-10-22-29",
+  "h": "Missing voters: a gap of 7 crore, and a claim of 'much ado, nothing'",
+  "dek": "Jean Drèze and Yogendra Yadav compare the final SIR lists of nine states with their populations, and find that 11.7 per cent of adults are off the list.",
+  "by": "Jean Drèze and Yogendra Yadav",
+  "pub": "The Indian Express",
+  "date": "20 October 2026",
+  "lang": "English",
+  "body": [
+   "In the Ideas Page of The Indian Express, Jean Drèze and Yogendra Yadav test the claim that the SIR did not strike off people on a large scale. They are answering an article by Urjit Bhalla which said that complaints of names being deleted were baseless and that this was 'much ado about (almost) nothing'.",
+   "Their method is simple. They compare the final SIR lists of nine large states with official population projections. In that comparison the total adult population of the nine states comes to 60.1 crore, while the voters on the final SIR lists of these states are 53.06 crore. That is 7.06 crore names short, about 11.7 per cent of the population. Uttar Pradesh alone shows a shortfall of 2.77 crore voters, where the proportion is 17.1 per cent.",
+   "The writers accept that these projections are not a final count, but in their view they are 'nearly right' and there is no solid ground on which to prove them wrong. Since the number on the list is actual, this gap by itself becomes the figure of 'missing voters'. For the whole country, the adult population is about 101.6 crore and the final list reaches about 87.8 crore, that is, between 10 and 14 crore people whose names are not on the list.",
+   "They also reject Bhalla's benchmark under which non-registration of up to 8.5 per cent is taken as 'normal'. They recall that in 2014 this gap was 5.2 per cent of the adult population. Their conclusion is that the exclusion of people on such a scale cannot be called 'voluntary non-registration'. This is disenfranchisement, and the Election Commission should explain it."
+  ],
+  "nazar": [
+   "The figures on both sides are weighed on the Election Commission's own scale. The question is not who is on the list, but where so many people went, measured against a population the government itself accepts.",
+   "Those who say 'much ado, nothing' must explain whether the people of this country suddenly forgot to register, when the gap was 5.2 per cent in 2014 and is 11.7 per cent now."
+  ],
+  "sawal": "If the one answer to crores of deleted names is that 'people did not register themselves', who will check that answer?",
+  "ref": [
+   [
+    "SIR (Special Intensive Revision)",
+    "The Election Commission's house-to-house verification of the voter list. It ran across the country in 2026 and became the centre of the row over deleted names."
+   ],
+   [
+    "Population projections",
+    "The official technical group's estimates of the adult population, which the Election Commission too has used as a benchmark for the size of the electorate."
+   ]
+  ]
  }
 ]
