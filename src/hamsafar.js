@@ -41,17 +41,17 @@ module.exports = function (H) {
       fine: by => `इस रचना के सारे अधिकार ${by} के पास हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
       bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की रचनाएं",
       galI: "हमसफ़र में लेखकों-पत्रकारों की रचनाएं, उनकी अनुमति के साथ।", first: "पहली रचना आपकी हो सकती है।",
-      galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, उनकी अनुमति के साथ।", also: "यह रचना इन भाषाओं में भी:", orig: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
+      galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, उनकी अनुमति के साथ।", also: "यह रचना इन भाषाओं में भी:", orig: "", origEn: "", origUr: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
     en: { sec: "Hamsafar", kind: { lekh: "Essay", tipanni: "Comment", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
       fine: by => `All rights to this work remain with ${by}.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
       bandSub: "Writers' and journalists' work, cartoons and photographs", all: "All pieces →", send: "Send your work", galK: "Writers and journalists",
       galI: "Hamsafar means fellow traveller. Work by writers and journalists, published with their permission.", first: "The first piece could be yours.",
-      galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs, published with their creators' permission.", also: "Read this piece in:", orig: "Original in Hindi", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
+      galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs, published with their creators' permission.", also: "Read this piece in:", orig: "Original in Hindi", origEn: "Original in English", origUr: "Original in Urdu", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
     ur: { sec: "ہم سفر", kind: { lekh: "مضمون", tipanni: "تبصرہ", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
       fine: by => `اس تحریر کے تمام حقوق ${by} کے پاس ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
       bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی تحریریں",
       galI: "ہم سفر میں لکھنے والوں اور صحافیوں کی تحریریں، ان کی اجازت کے ساتھ۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
-      galT: "ہم سفر: لکھنے والوں اور صحافیوں کی تحریریں", galD: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں، ان کی اجازت کے ساتھ۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
+      galT: "ہم سفر: لکھنے والوں اور صحافیوں کی تحریریں", galD: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں، ان کی اجازت کے ساتھ۔", also: "یہ تحریر ان زبانوں میں بھی:", orig: "اصل ہندی میں", origEn: "اصل انگریزی میں", origUr: "اصل اردو میں", desc: (w, k) => `${w.by} کی ${k}، ہم سفر میں` }
   };
   const LN = { hi: "हिंदी", en: "English", ur: "اردو" };
   const deva = n => String(n);   /* अंक हमेशा 1, 2, 3 (मालिक का नियम) */
@@ -571,7 +571,7 @@ module.exports = function (H) {
       <a class="back" href="${P(lg)}/hamsafar/">${X.back}</a>
       <header class="hw-head${pic ? " has-pic" : ""}">
         ${pic ? `<figure class="hw-pic"><img src="${esc(w.photo)}" alt="${esc(w.by)}"><figcaption>${esc(w.by)}</figcaption>${stamp(w, false, lg)}</figure>` : stamp(w, true, lg)}
-        <p class="hs-k">${X.sec} ${deva(w.no)} · ${X.kind[w.kind]}${w.cat && lg === "hi" ? " · " + esc(w.cat) : ""}${lg !== "hi" ? " · " + X.orig : ""}</p>
+        <p class="hs-k">${X.sec} ${deva(w.no)} · ${X.kind[w.kind]}${w.cat && lg === "hi" ? " · " + esc(w.cat) : ""}${lg !== "hi" ? " · " + (w.lang === "en" ? X.origEn : w.lang === "ur" ? X.origUr : X.orig) : ""}</p>
         <h1>${esc(w.h)}</h1>${w.dek ? `<p class="hw-dek">${esc(w.dek)}</p>` : ""}
         <p class="hw-by">${av(w)}<span><b>${esc(w.by)}</b><small>${w.place ? esc(w.place) + " · " : ""}${dayLabel(w.date)}${lg === "en" ? " · " + mins(w) + " min read" : lg === "ur" ? " · " + mins(w) + " منٹ" : " · पढ़ें " + mins(w) + " मिनट"}</small></span></p>
         ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
