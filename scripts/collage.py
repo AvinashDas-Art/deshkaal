@@ -6,7 +6,8 @@
    "bg": [176, 28, 24], "motif": "pen-chain",
    "strips": [{"t": "भारत में रोक", "x": 90, "y": 120, "r": -6, "style": "paper|ink|red", "px": 44}],
    "stamp": {"t": "राष्ट्रविरोधी?", "x": 760, "y": 640, "r": -9, "px": 78}}
-motif: pen-chain (क़लम पर ज़ंजीर और ताला). नये मोटिफ़ motifs{} में जोड़ें.
+motif: pen-chain (क़लम पर ज़ंजीर और ताला), coin-stairs (पीढ़ियों की सीढ़ी पर घटती सिक्कों की ढेरी). वैकल्पिक: "dark" और "halftone" (RGB) पृष्ठभूमि के रंग के हिसाब से.
+  नये मोटिफ़ MOTIFS{} में जोड़ें.
 सारी तस्वीरें ख़ुद कोड से खिंचती हैं: कोई असली व्यक्ति, लोगो या किसी का कार्टून इसमें नहीं आता.
 """
 import json, math, os, random, sys
@@ -244,7 +245,76 @@ def motif_pen_chain(canvas, rnd, size):
     shadow_paste(canvas, bl, (W * 0.22, H * 0.90), blur=4, off=(3, 5), alpha=120)
 
 
-MOTIFS = {"pen-chain": motif_pen_chain}
+# ---------- मोटिफ़: पीढ़ियों की सीढ़ी पर सिक्कों की ढेरी ----------
+
+def coin_layer(rx, ry, th, face=(226, 170, 44), edge=(150, 100, 18)):
+    """एक सिक्का (ऊपर से तिरछा): किनारा + चेहरा + भीतर का छल्ला. लौटाता है (layer, चेहरे का केंद्र-y)."""
+    pad = v(6)
+    w, h = v(2 * rx) + 2 * pad, v(2 * ry + th) + 2 * pad
+    lay = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    cx = w // 2
+    top = pad + v(ry)
+    bot = top + v(th)
+    d.ellipse((cx - v(rx), bot - v(ry), cx + v(rx), bot + v(ry)), fill=edge + (255,))
+    d.rectangle((cx - v(rx), top, cx + v(rx), bot), fill=edge + (255,))
+    d.ellipse((cx - v(rx), top - v(ry), cx + v(rx), top + v(ry)), fill=face + (255,), outline=(120, 78, 10, 255), width=v(2))
+    d.ellipse((cx - v(rx * 0.78), top - v(ry * 0.78), cx + v(rx * 0.78), top + v(ry * 0.78)), outline=(250, 214, 110, 255), width=v(3))
+    d.ellipse((cx - v(rx * 0.34), top - v(ry * 0.34), cx + v(rx * 0.34), top + v(ry * 0.34)), fill=(214, 156, 34, 255), outline=(250, 214, 110, 255), width=v(2))
+    # किनारे पर खड़ी धारियां
+    for k in range(-int(rx) + 6, int(rx) - 4, 9):
+        d.line((cx + v(k), top + v(ry * 0.92 * math.sqrt(max(0, 1 - (k / rx) ** 2))), cx + v(k), bot + v(ry * 0.92 * math.sqrt(max(0, 1 - (k / rx) ** 2)))), fill=(118, 78, 12, 150), width=v(1.4))
+    return lay
+
+
+def coin_stack(canvas, rnd, cx, base_y, n, rx=70, ry=22, th=15):
+    for i in range(n):
+        lay = coin_layer(rx, ry, th)
+        jx = rnd.uniform(-5, 5)
+        x = cx - lay.width / S / 2 + jx
+        y = base_y - (i + 1) * th - ry - 6
+        shadow_paste(canvas, lay, (x, y), blur=3, off=(2, 4), alpha=110)
+
+
+def flying_coin(canvas, rnd, x, y, rx=44, ry=14, deg=0, th=10):
+    lay = rotated(coin_layer(rx, ry, th), deg)
+    shadow_paste(canvas, lay, (x - lay.width / S / 2, y - lay.height / S / 2), blur=6, off=(5, 9), alpha=120)
+
+
+def paper_block(canvas, rnd, x, y, w, h, fill, edge_halftone=None):
+    lay = Image.new("RGBA", (v(w), v(h)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    d.polygon(torn_poly(v(w), v(h), rnd, step=v(18), amp=v(5)), fill=fill + (255,))
+    for _ in range(int(w * h / 700)):
+        px_, py_ = rnd.randrange(lay.width), rnd.randrange(lay.height)
+        c = rnd.randint(-16, 8)
+        d.point((px_, py_), fill=tuple(max(0, min(255, k + c)) for k in fill) + (255,))
+    shadow_paste(canvas, lay, (x, y), blur=9, off=(8, 12), alpha=140)
+
+
+def motif_coin_stairs(canvas, rnd, size):
+    W, H = size
+    # पीछे का बड़ा काग़ज़ी सूरज
+    cx, cy, R = W * 0.60, H * 0.40, H * 0.36
+    disc = Image.new("RGBA", (v(2 * R + 40), v(2 * R + 40)), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(disc)
+    pts = [(v(R + 20) + v(R * (1 + rnd.uniform(-0.012, 0.012))) * math.cos(k / 120 * 2 * math.pi), v(R + 20) + v(R * (1 + rnd.uniform(-0.012, 0.012))) * math.sin(k / 120 * 2 * math.pi)) for k in range(120)]
+    dd.polygon(pts, fill=(238, 226, 200, 255))
+    shadow_paste(canvas, disc, (cx - R - 20, cy - R - 20), blur=14, off=(10, 14), alpha=130)
+    halftone(canvas, (cx - R + 10, cy - R + 10, cx + R - 10, cy + R - 10), (222, 205, 172), rnd, pitch=15, rmax=5.5, fade="right")
+    # तीन पीढ़ियां: तीन सीढ़ियां, हर सीढ़ी पर ढेरी छोटी
+    steps = [(50, 360, 360, 480, (240, 232, 212)), (410, 520, 340, 320, (222, 208, 176)), (750, 650, 360, 190, (196, 178, 142))]
+    for x, y, w, h, col in steps:
+        paper_block(canvas, rnd, x, y, w, h, col)
+    coin_stack(canvas, rnd, 230, 360, 9)
+    coin_stack(canvas, rnd, 580, 520, 4)
+    coin_stack(canvas, rnd, 930, 650, 1)
+    # सीढ़ी से लुढ़कते सिक्के
+    for (x, y, deg) in [(430, 250, -24), (500, 330, 12), (700, 430, -18), (790, 520, 20), (1060, 600, 8)]:
+        flying_coin(canvas, rnd, x, y, deg=deg)
+
+
+MOTIFS = {"pen-chain": motif_pen_chain, "coin-stairs": motif_coin_stairs}
 
 
 def build(spec):
@@ -259,10 +329,10 @@ def build(spec):
     for i in range(40):
         t = i / 40
         gd.ellipse((v(-W * 0.2 * (1 - t) - 40 * t), v(-H * 0.3 * (1 - t)), v(W * 1.2 - 0), v(H * 1.3)), outline=int(60 * (1 - t)), width=v(40))
-    dark = Image.new("RGBA", canvas.size, (60, 6, 6, 255))
+    dark = Image.new("RGBA", canvas.size, tuple(spec.get("dark", [60, 6, 6])) + (255,))
     canvas = Image.composite(dark, canvas, grad.point(lambda p: int(p * 0.55)))
     d = ImageDraw.Draw(canvas)
-    halftone(canvas, (0, H * 0.45, W * 0.45, H), (132, 18, 16, 255), rnd, pitch=18, rmax=7, fade="right")
+    halftone(canvas, (0, H * 0.45, W * 0.45, H), tuple(spec.get("halftone", [132, 18, 16])) + (255,), rnd, pitch=18, rmax=7, fade="right")
     # पीछे वाली पट्टियां
     strips = spec.get("strips", [])
     back = [s for s in strips if not s.get("front")]
