@@ -6,7 +6,7 @@
    "bg": [176, 28, 24], "motif": "pen-chain",
    "strips": [{"t": "भारत में रोक", "x": 90, "y": 120, "r": -6, "style": "paper|ink|red", "px": 44}],
    "stamp": {"t": "राष्ट्रविरोधी?", "x": 760, "y": 640, "r": -9, "px": 78}}
-motif: pen-chain (क़लम पर ज़ंजीर और ताला), coin-stairs (पीढ़ियों की सीढ़ी पर घटती सिक्कों की ढेरी). वैकल्पिक: "dark" और "halftone" (RGB) पृष्ठभूमि के रंग के हिसाब से.
+motif: pen-chain (क़लम पर ज़ंजीर और ताला), coin-stairs (पीढ़ियों की सीढ़ी पर घटती सिक्कों की ढेरी), books (किताबों की ढेरी), city (शहर की इमारतें), window (रोशनी वाली खिड़की), moon (चांद, तारे और क़लम). वैकल्पिक: "dark" और "halftone" (RGB) पृष्ठभूमि के रंग के हिसाब से.
   नये मोटिफ़ MOTIFS{} में जोड़ें.
 सारी तस्वीरें ख़ुद कोड से खिंचती हैं: कोई असली व्यक्ति, लोगो या किसी का कार्टून इसमें नहीं आता.
 """
@@ -314,7 +314,112 @@ def motif_coin_stairs(canvas, rnd, size):
         flying_coin(canvas, rnd, x, y, deg=deg)
 
 
-MOTIFS = {"pen-chain": motif_pen_chain, "coin-stairs": motif_coin_stairs}
+# ---------- नये मोटिफ़: किताबें, शहर, खिड़की, चांद-क़लम (हमसफ़र के स्वचालित कोलाज के लिए) ----------
+
+def sun_disc(canvas, rnd, cx, cy, R, col=(238, 226, 200), ht=(222, 205, 172)):
+    disc = Image.new("RGBA", (v(2 * R + 40), v(2 * R + 40)), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(disc)
+    pts = [(v(R + 20) + v(R * (1 + rnd.uniform(-0.012, 0.012))) * math.cos(k / 120 * 2 * math.pi), v(R + 20) + v(R * (1 + rnd.uniform(-0.012, 0.012))) * math.sin(k / 120 * 2 * math.pi)) for k in range(120)]
+    dd.polygon(pts, fill=col + (255,))
+    shadow_paste(canvas, disc, (cx - R - 20, cy - R - 20), blur=14, off=(10, 14), alpha=130)
+    halftone(canvas, (cx - R + 10, cy - R + 10, cx + R - 10, cy + R - 10), ht, rnd, pitch=15, rmax=5.5, fade="right")
+
+
+def book_layer(w, h, col, rnd):
+    lay = Image.new("RGBA", (v(w), v(h)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    d.polygon(torn_poly(v(w), v(h), rnd, step=v(16), amp=v(3)), fill=col + (255,))
+    light = tuple(min(255, c + 46) for c in col)
+    dark = tuple(max(0, c - 40) for c in col)
+    d.rectangle((v(w * 0.04), 0, v(w * 0.055), v(h)), fill=dark + (255,))
+    d.rectangle((v(w * 0.945), 0, v(w * 0.96), v(h)), fill=dark + (255,))
+    d.rectangle((v(w * 0.30), v(h * 0.30), v(w * 0.70), v(h * 0.70)), fill=light + (255,))
+    d.rectangle((v(w * 0.34), v(h * 0.44), v(w * 0.66), v(h * 0.50)), fill=col + (255,))
+    return lay
+
+
+def motif_books(canvas, rnd, size):
+    W, H = size
+    sun_disc(canvas, rnd, W * 0.64, H * 0.38, H * 0.31)
+    books = [(520, 84, (176, 40, 36), -6, -1.5), (470, 76, (24, 26, 32), 10, 2), (500, 80, (232, 218, 186), -12, -2.5), (430, 72, (222, 160, 40), 8, 1.5), (380, 66, (40, 100, 90), -4, -1)]
+    y = H - 50
+    cx = W * 0.5
+    for w, h, col, dx, deg in books:
+        lay = rotated(book_layer(w, h, col, rnd), deg)
+        y -= h
+        shadow_paste(canvas, lay, (cx - lay.width / S / 2 + dx, y - (lay.height / S - h) / 2), blur=7, off=(6, 9), alpha=140)
+
+
+def motif_city(canvas, rnd, size):
+    W, H = size
+    sun_disc(canvas, rnd, W * 0.68, H * 0.34, H * 0.27)
+    cols = [(30, 30, 40), (56, 54, 70), (232, 220, 190), (206, 186, 150), (22, 22, 28)]
+    x, i = 10, 0
+    while x < W - 30:
+        bw, bh, col = rnd.randint(100, 175), rnd.randint(230, 470), cols[i % len(cols)]
+        i += 1
+        lay = Image.new("RGBA", (v(bw), v(bh)), (0, 0, 0, 0))
+        d = ImageDraw.Draw(lay)
+        d.polygon(torn_poly(v(bw), v(bh), rnd, step=v(18), amp=v(4)), fill=col + (255,))
+        dark = sum(col) < 300
+        for wy in range(24, bh - 20, 36):
+            for wx in range(16, bw - 20, 30):
+                c = (250, 214, 110) if rnd.random() < 0.35 else ((72, 70, 90) if dark else (176, 160, 128))
+                d.rectangle((v(wx), v(wy), v(wx + 14), v(wy + 20)), fill=c + (255,))
+        shadow_paste(canvas, lay, (x, H - bh), blur=8, off=(6, 8), alpha=130)
+        x += bw - rnd.randint(0, 14)
+
+
+def motif_window(canvas, rnd, size):
+    W, H = size
+    ww, wh = 360, 560
+    x0, y0 = W * 0.5 - ww / 2, 60
+    beam = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ImageDraw.Draw(beam).polygon([(v(x0 + 40), v(y0 + wh - 30)), (v(x0 + ww - 40), v(y0 + wh - 30)), (v(W * 0.95), v(H)), (v(W * 0.05), v(H))], fill=(255, 236, 170, 70))
+    canvas.alpha_composite(beam)
+    lay = Image.new("RGBA", (v(ww), v(wh)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    paper, m = (238, 226, 200, 255), 26
+    d.rectangle((0, v(ww / 2), v(ww), v(wh)), fill=paper)
+    d.ellipse((0, 0, v(ww), v(ww)), fill=paper)
+    inner = (14, 28, 44, 255)
+    d.rectangle((v(m), v(ww / 2), v(ww - m), v(wh - m)), fill=inner)
+    d.ellipse((v(m), v(m), v(ww - m), v(ww - m)), fill=inner)
+    d.ellipse((v(ww / 2 - 70), v(ww / 2 - 120), v(ww / 2 + 70), v(ww / 2 + 20)), fill=(250, 214, 110, 255))
+    d.rectangle((v(ww / 2 - 7), v(m), v(ww / 2 + 7), v(wh - m)), fill=paper)
+    d.rectangle((v(m), v(wh * 0.55), v(ww - m), v(wh * 0.55 + 14)), fill=paper)
+    shadow_paste(canvas, lay, (x0, y0), blur=10, off=(8, 12), alpha=140)
+    paper_block(canvas, rnd, x0 - 30, y0 + wh - 6, ww + 60, 44, (214, 196, 160))
+
+
+def motif_moon(canvas, rnd, size):
+    W, H = size
+    R, cx, cy = H * 0.30, W * 0.64, H * 0.38
+    lay = Image.new("RGBA", (v(2 * R + 40), v(2 * R + 40)), (0, 0, 0, 0))
+    ImageDraw.Draw(lay).ellipse((v(20), v(20), v(20 + 2 * R), v(20 + 2 * R)), fill=(238, 226, 200, 255))
+    cut = Image.new("L", lay.size, 255)
+    ImageDraw.Draw(cut).ellipse((v(20 + R * 0.55), v(20 - R * 0.10), v(20 + R * 0.55 + 2 * R * 0.92), v(20 - R * 0.10 + 2 * R * 0.92)), fill=0)
+    lay.putalpha(ImageChops.multiply(lay.split()[3], cut))
+    shadow_paste(canvas, lay, (cx - R - 20, cy - R - 20), blur=14, off=(10, 14), alpha=130)
+    d = ImageDraw.Draw(canvas)
+    for _ in range(14):
+        sx, sy, r = rnd.uniform(40, W - 40), rnd.uniform(30, H * 0.7), rnd.uniform(8, 20)
+        k = 0.28
+        d.polygon([(v(sx), v(sy - r)), (v(sx + r * k), v(sy - r * k)), (v(sx + r), v(sy)), (v(sx + r * k), v(sy + r * k)), (v(sx), v(sy + r)), (v(sx - r * k), v(sy + r * k)), (v(sx - r), v(sy)), (v(sx - r * k), v(sy - r * k))], fill=(250, 236, 190, 255))
+    pen = rotated(pen_layer(), 24)
+    px_, py_ = W * 0.56, H * 0.70
+    shadow_paste(canvas, pen, (px_ - pen.width / S / 2, py_ - pen.height / S / 2), blur=10, off=(10, 14), alpha=150)
+    tip = (px_ - 400 * math.cos(math.radians(24)), py_ + 400 * math.sin(math.radians(24)))
+    stroke = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(stroke)
+    path = bezier(tip, (tip[0] - 90, tip[1] + 60), (tip[0] - 150, tip[1] - 60), (tip[0] - 250, tip[1] + 50), 80)
+    for i, (x, y) in enumerate(path):
+        w = v(15 * (1 - 0.78 * i / len(path)))
+        sd.ellipse((v(x) - w, v(y) - w, v(x) + w, v(y) + w), fill=(14, 14, 18, 255))
+    canvas.alpha_composite(stroke)
+
+
+MOTIFS = {"pen-chain": motif_pen_chain, "coin-stairs": motif_coin_stairs, "books": motif_books, "city": motif_city, "window": motif_window, "moon": motif_moon}
 
 
 def build(spec):

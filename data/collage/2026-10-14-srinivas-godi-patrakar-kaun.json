@@ -1,0 +1,44 @@
+{
+  "out": "public/media/hamsafar/2026-10-14-srinivas-godi-patrakar-kaun-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 75,
+  "bg": [
+    16,
+    82,
+    72
+  ],
+  "dark": [
+    4,
+    21,
+    18
+  ],
+  "halftone": [
+    11,
+    59,
+    51
+  ],
+  "motif": "pen-chain",
+  "strips": [
+    {
+      "t": "‘गोदी’ पत्रकार कौन?",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "बाक़ी पत्रकारों के साथ तो ऐसा नहीं होता",
+      "x": 622,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}

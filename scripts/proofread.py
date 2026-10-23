@@ -149,6 +149,8 @@ def check_hamsafar(rep, f, d):
                 rep.add("error", f, f"images[{i}].{k}", "ख़ाली है")
         if not (im.get("w") and im.get("h")):
             rep.add("warn", f, f"images[{i}]", "w/h नहीं — लेआउट हिल सकता है")
+    if not (d.get("images") or []) and d.get("kind") not in ("cartoon", "photo"):
+        rep.add("error", f, "images", "रचना के साथ तस्वीर नहीं: python3 scripts/hs_autocollage.py <id> चलाकर कोलाज लगाइए (AUTOMATION.md)")
     if d.get("id") and not re.fullmatch(r"\d{4}-\d{2}-\d{2}-[a-z0-9-]+", d["id"]):
         rep.add("error", f, "id", "id का ढांचा ग़लत (YYYY-MM-DD-slug)")
     if d.get("id") and d.get("date") and not d["id"].startswith(d["date"]):

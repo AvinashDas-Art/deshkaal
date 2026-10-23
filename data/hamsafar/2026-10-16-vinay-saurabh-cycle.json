@@ -11,7 +11,15 @@
   "cat": "साहित्य",
   "pull": "पिता की साइकिल चलाते हुए कोई तस्वीर मेरे पास नहीं है।",
   "lang": "hi",
-  "images": [],
+  "images": [
+    {
+      "src": "/media/hamsafar/2026-10-16-vinay-saurabh-cycle-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "रोशनी बिखेरती मेहराबदार खिड़की: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
+    }
+  ],
   "body": [
     "जब मुझे किसी ने बरसों बाद बताया कि उसने मेरे पिता को साइकिल चलाते हुए देखा था तो मेरा चौंकना लाज़िमी था।",
     "यह भी बताया कि साइकिल समसुल मियां की थी। उसने अपनी याददाश्त से कहा कि पिता साइकिल से अपनी बहन यानी मेरी फुआ के घर गये थे। उस समय टोले में साइकिलें ही कितनी थीं - बस तीन! एक समसुल मियां के पास थी।",
@@ -45,6 +53,12 @@
       "I was stunned to hear this. The thought of an unseen bicycle and the memory of my father set off a commotion inside me. For many days I stayed sad about that bicycle.",
       "Believe me, among his hundreds of stories my father never once mentioned riding this bicycle. How strange it was that it came to me like some unsolved mystery in my father's life.",
       "My mother knew nothing about that bicycle either. What might my father have done with it after leaving college in Bhagalpur? Why did he not bring it back to the village? Was there some hardship, and did he give the bicycle to someone? My father taught tuitions and met the costs of his own studies. It is hard to believe that he would simply have given it away for nothing."
+    ],
+    "images": [
+      {
+        "alt": "An arched window spilling light, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
+      }
     ]
   },
   "ur": {
@@ -67,6 +81,12 @@
       "سُن کر میں دھک رہ گیا۔ ایک ان دیکھی سائیکل کا خیال اور والد کی یاد نے میرے اندر ہلچل مچا دی۔ میں اس سائیکل کے لیے کئی دنوں تک اداس رہا۔",
       "سچ مانیے، والد نے اپنے سینکڑوں قصوں کے بیچ اس سائیکل چلانے کا ذکر کبھی نہیں کیا تھا۔ یہ کتنی عجیب بات تھی کہ یہ مجھے والد کی زندگی میں کسی ان بوجھے راز کی طرح لگا۔",
       "اس سائیکل کے بارے میں ماں کو بھی کچھ معلوم نہیں تھا۔ والد نے بھاگلپور میں کالج چھوڑنے کے بعد اس سائیکل کا کیا کیا ہوگا؟ وہ اسے واپس گاؤں کیوں نہیں لائے؟ کیا کوئی تنگی رہی ہوگی اور والد نے وہ سائیکل کسی کو دے دی ہوگی؟ والد ٹیوشن پڑھاتے تھے اور اپنی پڑھائی کے اخراجات نکالتے تھے۔ اس بات پر بھی یقین کرنا مشکل ہے کہ انہوں نے مفت میں کسی کو دے دی ہوگی۔"
+    ],
+    "images": [
+      {
+        "alt": "روشنی بکھیرتی محرابی کھڑکی: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
+      }
     ]
   }
 }

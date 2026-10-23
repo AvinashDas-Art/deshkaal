@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-10-20-amrita-pandey-samay-rath-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 556,
+  "bg": [
+    40,
+    56,
+    68
+  ],
+  "dark": [
+    10,
+    14,
+    17
+  ],
+  "halftone": [
+    28,
+    40,
+    48
+  ],
+  "motif": "moon",
+  "strips": [
+    {
+      "t": "समय रथ",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "नहीं था मेरी उंगली में",
+      "x": 853,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "खेल ही खेल में अपनी उंगुली में",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "लोहा लेने का प्रयत्न किया",
+      "x": 796,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}

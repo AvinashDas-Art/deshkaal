@@ -13,7 +13,15 @@
  "pull": "झूठ की उम्र उतनी ही होती है जितनी देर दो सच्चे लोग आपस में बात नहीं करते।",
  "note": "यह टिप्पणी गुरुवार, 15 अक्टूबर की सुनवाई के बाद लिखी गयी थी; देशकाल ने समय के हवाले आज के हिसाब से बदले हैं। अदालत के ब्योरे लेखक के दिये हुए हैं।",
  "fine": "डॉ. पुरुषोत्तम मेघवाल की यह लिखाई देशकाल डेस्क ने उनकी इजाज़त से चुनी है। इसके सारे अधिकार उन्हीं के हैं।",
- "images": [],
+ "images": [
+  {
+   "src": "/media/hamsafar/2026-10-16-purushottam-meghwal-do-adalaten-1.jpg",
+   "w": 1200,
+   "h": 840,
+   "alt": "शहर की इमारतों की क़तार: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+   "cap": "कोलाज: देशकाल"
+  }
+ ],
  "body": [
   "गुरुवार को सुप्रीम कोर्ट ने एक ही दिन में चार नोटिस जारी किये। इन्हें क्रम से रखिए, क्योंकि क्रम ही असली ख़बर है। पहला नोटिस, निर्वाचन आयोग को। दूसरा, मुख्य निर्वाचन आयुक्त ज्ञानेश कुमार को। तीसरा, दोनों आयुक्तों सुखबीर सिंह संधू और विवेक जोशी को। पंद्रह दिन के भीतर जवाब दो कि तेरह करोड़ नाम कैसे और क्यों हटे। यह वह क्षण है जिसके लिए सड़क पर हज़ारों लोग उठाये गये। जो आयोग पूरे सप्ताह चुप रहा, वह अब अदालत में बोलेगा, क्योंकि वहां चुप रहना विकल्प नहीं है।",
   "और चौथा नोटिस। राहुल गांधी, अखिलेश यादव और उन नेताओं को, जो सोमवार को अदालत तक पैदल चले थे। कारण, \"कोई न्यायपालिका को डराने की कोशिश न करे। हम हाथीदांत की मीनार में नहीं बैठे।\" और पीठ ने बिना नाम लिए जोड़ा, \"एक याचिकाकर्ता से उसके आचरण के बारे में पूछना चाहेंगे।\"",
@@ -48,7 +56,12 @@
    "A lie lives only as long as two truthful people do not talk to each other. On Thursday, two courts talked to each other. The High Court had been told one thing, the Supreme Court another. Now the same paper lies in both rooms, and paper speaks.",
    "A system whose apology could not stand in court, whose affidavit did not arrive on time, and whose \"committee\" was formed after the court in one court and before the court in the other, does that system today have the moral right to ask a boy why he came to the park carrying the Tricolour?"
   ],
-  "images": [],
+  "images": [
+   {
+    "alt": "A row of city buildings, cut from paper, with lines from the piece itself",
+    "cap": "Collage: Deshkaal"
+   }
+  ],
   "tr": "Translated from Hindi by the Deshkaal desk.",
   "fine": "The Deshkaal desk chose this writing by Dr. Purushottam Meghwal with his permission. All rights remain with the writer."
  },
@@ -73,7 +86,12 @@
    "جھوٹ کی عمر اتنی ہی ہوتی ہے جتنی دیر دو سچے لوگ آپس میں بات نہیں کرتے۔ جمعرات کو دو عدالتوں نے آپس میں بات کر لی۔ ہائی کورٹ کو کچھ اور بتایا گیا تھا، سپریم کورٹ کو کچھ اور۔ اب دونوں کمروں میں وہی کاغذ پڑا ہے، اور کاغذ بولتا ہے۔",
    "جس نظام کی معافی عدالت میں ٹک نہیں سکی، جس کا حلف نامہ وقت پر نہیں پہنچا، اور جس کی \"کمیٹی\" ایک عدالت میں عدالت کے بعد اور دوسری میں عدالت سے پہلے بنی، کیا وہ نظام آج ایک لڑکے سے یہ پوچھنے کا اخلاقی حق رکھتا ہے کہ تم ترنگا لے کر پارک میں کیوں آئے؟"
   ],
-  "images": [],
+  "images": [
+   {
+    "alt": "شہر کی عمارتوں کی قطار: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+    "cap": "کولاج: دیش کال"
+   }
+  ],
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
   "fine": "ڈاکٹر پرشوتم میگھوال کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے ہیں۔"
  }

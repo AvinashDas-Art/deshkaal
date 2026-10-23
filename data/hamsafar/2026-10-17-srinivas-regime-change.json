@@ -11,7 +11,15 @@
   "cat": "राजनीति",
   "pull": "तो जो लोग 'रिजीम चेंज' की बात करते हैं, ग़लत क्या कर रहे हैं?",
   "lang": "hi",
-  "images": [],
+  "images": [
+    {
+      "src": "/media/hamsafar/2026-10-17-srinivas-regime-change-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "रोशनी बिखेरती मेहराबदार खिड़की: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
+    }
+  ],
   "body": [
     "अंततः 1977 में लोकसभा चुनाव हुए; और पहली बार कांग्रेस केंद्र की सत्ता से बाहर हो गयी! जी हां, वह आंदोलन ‘रिजीम चेंज’ के लिए भी था, जिसमें मौजूदा सत्तारूढ़ लोग शामिल थे. अब यदि लोग ‘रिजीम चेंज’ की बात करते हैं, तो ग़लत कर रहे हैं?",
     "बारह साल सत्ता में रहने के बाद आप 2047 में ‘विकसित भारत’ का सपना दिखा रहे हैं! यानी जनता 21 साल और इंतज़ार करे! इस बीच जो आपके पिछले वादों के बारे में सवाल करे, वह देशद्रोही है?",
@@ -39,6 +47,12 @@
       "At that time Dushyant Kumar had written: 'There is no ground beneath your feet, the wonder is that even then you are not convinced!' Is this anger of yours, really this panic of yours, not a sign that you have begun to feel that the ground under your feet is slowly slipping away!",
       "Also remember that in 1977 the Janata Party government at the Centre, on the argument that where the Congress had been badly defeated in the Lok Sabha its state government's mandate too had ended, used Article 356 to dismiss the governments of nine Congress-ruled states (Bihar, Uttar Pradesh, Madhya Pradesh, Rajasthan, Haryana, Himachal Pradesh, Punjab, Odisha and West Bengal) and dissolved the assemblies: 'regime change' had happened. Later, on the same argument, Indira Gandhi in 1980, on returning to the Centre, dismissed nine Janata Party state governments in return. So 'regime change' is neither unique nor undemocratic!",
       "Srinivas; 17.10.26"
+    ],
+    "images": [
+      {
+        "alt": "An arched window spilling light, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
+      }
     ]
   },
   "ur": {
@@ -58,6 +72,12 @@
       "اس وقت دشیانت کمار نے لکھا تھا: 'تمہارے قدموں کے نیچے کوئی زمین نہیں، کمال یہ ہے کہ پھر بھی تمہیں یقین نہیں!' آپ کا یہ غصہ، دراصل آپ کی یہ گھبراہٹ اس بات کا اشارہ تو نہیں کہ آپ کو احساس ہونے لگا ہے کہ آپ کے قدموں کے نیچے سے آہستہ آہستہ زمین سرک رہی ہے!",
       "یہ بھی یاد رکھیں کہ 1977 میں مرکز کی جنتا پارٹی حکومت نے اس دلیل کی بنیاد پر کہ جہاں لوک سبھا میں کانگریس بری طرح ہاری ہے، وہاں اس کی ریاستی حکومت کا بھی عوامی مینڈیٹ ختم ہو گیا ہے، دفعہ 356 کا استعمال کر کے کانگریس کی حکومت والی نو ریاستوں (بہار، اتر پردیش، مدھیہ پردیش، راجستھان، ہریانہ، ہماچل پردیش، پنجاب، اوڈیشا اور مغربی بنگال) کی حکومتیں برخاست کر کے اسمبلیاں تحلیل کر دیں، 'ریجیم چینج' ہو گیا۔ بعد میں اسی دلیل سے 1980 میں اندرا گاندھی نے مرکز میں واپسی کے ساتھ ہی بدلے میں جنتا پارٹی کی 9 ریاستی حکومتیں برخاست کر دیں۔ تو 'ریجیم چینج' کوئی انوکھی اور غیر جمہوری چیز بھی نہیں ہے!",
       "سری نواس؛ 17.10.26"
+    ],
+    "images": [
+      {
+        "alt": "روشنی بکھیرتی محرابی کھڑکی: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
+      }
     ]
   }
 }

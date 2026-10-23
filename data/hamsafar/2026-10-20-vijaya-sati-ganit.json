@@ -23,7 +23,15 @@
     "ठीक ही गये हम\nरहीम-रसखान-अज्ञेय-भवानी के पास ...",
     "गणित कमज़ोर ही रहा हमारा!\nदुःख कहां है इस बात का!"
   ],
-  "images": [],
+  "images": [
+    {
+      "src": "/media/hamsafar/2026-10-20-vijaya-sati-ganit-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "चांद, तारे और क़लम: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
+    }
+  ],
   "en": {
     "h": "Arithmetic",
     "dek": "Sums never suited her: the reckoning of a life raised among Mother's bhajans, Father's verses and the prayers of an ashram.",
@@ -44,7 +52,12 @@
       "We did well to go\nto Rahim, Raskhan, Agyeya, Bhawani ...",
       "Our arithmetic stayed weak!\nWhere is the sorrow in that!"
     ],
-    "images": []
+    "images": [
+      {
+        "alt": "A moon, stars and a pen, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
+      }
+    ]
   },
   "ur": {
     "h": "ریاضی",
@@ -66,6 +79,11 @@
       "ٹھیک ہی گئے ہم\nرحیم-رسکھان-اگیہ-بھوانی کے پاس ...",
       "ریاضی کمزور ہی رہی ہماری!\nدکھ کہاں ہے اس بات کا!"
     ],
-    "images": []
+    "images": [
+      {
+        "alt": "چاند، ستارے اور قلم: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
+      }
+    ]
   }
 }

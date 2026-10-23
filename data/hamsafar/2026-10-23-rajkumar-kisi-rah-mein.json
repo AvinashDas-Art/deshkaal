@@ -38,7 +38,15 @@
     "*",
     "आज भी मैं उसी बस में था। पसंद की एक सीट पर बैठा। बस अपने निर्धारित समय पर चलने को तैयार थी। तभी मैंने देखा, उस अकेली लड़की को, बस में चढ़ते। अब अकेले नहीं एक लड़के के साथ। फिर मैंने उस लड़के के चेहरे को देखा, जिसका वह लड़की हाथ थामे थी। फिर ये कोई दूसरा… मैं भीतर से गुनगुना उठा, किसी राह में किसी मोड़ पर…"
   ],
-  "images": [],
+  "images": [
+    {
+      "src": "/media/hamsafar/2026-10-23-rajkumar-kisi-rah-mein-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "शहर की इमारतों की क़तार: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
+    }
+  ],
   "en": {
     "h": "On Some Road, at Some Turn",
     "dek": "The daily ride on a Delhi U-Special bus, the city outside the window, and a girl two seats ahead who breaks and then steadies herself.",
@@ -73,7 +81,12 @@
       "*",
       "Today too I was on the same bus. I sat on a seat I liked. The bus was ready to leave at its set time. Just then I saw that lonely girl climbing into the bus. No longer alone, with a boy. Then I looked at the face of the boy whose hand that girl was holding. Then this was someone else… and inside me I began to hum, kisi raah mein kisi mod par…"
     ],
-    "images": []
+    "images": [
+      {
+        "alt": "A row of city buildings, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
+      }
+    ]
   },
   "ur": {
     "h": "کسی راہ میں کسی موڑ پر",
@@ -109,6 +122,11 @@
       "*",
       "آج بھی میں اسی بس میں تھا۔ پسند کی ایک سیٹ پر بیٹھا۔ بس اپنے مقررہ وقت پر چلنے کو تیار تھی۔ تبھی میں نے دیکھا، اس اکیلی لڑکی کو، بس میں چڑھتے۔ اب اکیلے نہیں ایک لڑکے کے ساتھ۔ پھر میں نے اس لڑکے کے چہرے کو دیکھا، جس کا وہ لڑکی ہاتھ تھامے تھی۔ پھر یہ کوئی دوسرا… میں اندر سے گنگنا اٹھا، کسی راہ میں کسی موڑ پر…"
     ],
-    "images": []
+    "images": [
+      {
+        "alt": "شہر کی عمارتوں کی قطار: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
+      }
+    ]
   }
 }

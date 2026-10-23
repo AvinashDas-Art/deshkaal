@@ -13,7 +13,15 @@
  "pull": "मेरे अपने शहर में एक सिनेमाघर या एक सिनेमा स्टुडियो की मृत्यु हमारे अपने उस अंश की मृत्यु भी है।",
  "note": "विजय कुमार की 'रहगुज़र' शृंखला से।",
  "fine": "विजय कुमार की यह लिखाई देशकाल डेस्क ने उनकी इजाज़त से चुनी है। इसके सारे अधिकार उन्हीं के हैं।",
- "images": [],
+ "images": [
+  {
+   "src": "/media/hamsafar/2026-10-15-vijay-kumar-ek-shahar-jo-kho-gaya-1.jpg",
+   "w": 1200,
+   "h": 840,
+   "alt": "शहर की इमारतों की क़तार: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+   "cap": "कोलाज: देशकाल"
+  }
+ ],
  "body": [
   "अपने निजी जीवन में हम जाने-अनजाने अपना कितना कुछ खोते रहते हैं। दोस्तियां, प्रेम-संबंध, नाते-रिश्तेदार, सफलताओं के अवसर, चाबियों के गुच्छे, छाते, पुरानी चिट्ठियां, डायरियां, टेलिफ़ोन के नंबर आदि-आदि। इस सबकी एक लंबी सूची बनायी जा सकती है। इन्हें खो देने की भीतर बहुधा एक कचोट भी बनी रहती है। पर ये हमारे निजी जीवन में खो गयी चीज़ें होती हैं। अपने सार्वजनिक जीवन में भी तो हम कितना कुछ खोते चले जाते हैं, जिसकी हमें ख़बर तक नहीं होती। समय की परतों के भीतर हम अपना वह शहर खो देते हैं, अपनी वे पुरानी गलियां-मोहल्ले हमसे कहीं छूट जाते हैं, उन मोहल्लों में बसी हुई वे आवाज़ें कहीं बिला गयी होती हैं। ये गलियां, मोहल्ले, चौराहे, पार्क, बाज़ार, पुरानी इमारतें, उनकी बुनावट और उनमें बसा हुआ वह समय कभी-कभी चेतना के घुप्प अंधेरे में महज़ एक बिजली की कौंध की तरह दमकता है। वह खो गया शहर और उसका वह मंज़र सिर्फ़ एक प्रेत-समय बनकर हमारी स्मृतियों में टंगा रह जाता है, जबकि हम कभी भी इस शहर को छोड़कर कहीं नहीं गये थे, हम यहीं थे और एक पूरी उम्र हमने यहां गुज़ार दी। स्मृतियों में लिपटा हुआ वह शहर हमारा अपना हड़प्पा, मोहनजोदड़ो या बेबिलोन बन जाता है।",
   "गुरुदत्त द्वारा निर्देशित पुरानी फ़िल्म 'सी आई डी' को पिछले दिनों मुझे दोबारा देखने का अवसर मिला। मुझे सहसा यह एहसास हुआ कि उस फ़िल्म के एक गाने 'ये है बम्बई मेरी जान' में जॉनी वॉकर जिस 1955 की बम्बई को दिखा रहा है, वह मैं बहुत पहले खो चुका हूं। न चर्चगेट स्टेशन की वह छोटी-सी सादा इमारत रही, न चौपाटी वैसा रहा, न फ़्लोरा फ़ाउंटेन का चौराहा, न पायधुनी, न वर्ली सी फ़ेस और न मरीन ड्राइव का वह अंतिम छोर वैसा रह गया। और वे चालीस के दशक की ब्यूक और ऑस्टिन मॉडल की बड़ी-बड़ी टैक्सियां नहीं रहीं, ट्रामें ख़त्म हो गयीं, नीली वर्दी और हाफ़ पैंट पहने हुए वे पुलिस हवलदार हमारी यादों से बाहर निकल गये। विडंबना तो यह है कि जॉनी वॉकर जिस विक्टोरिया की ऊंची सीट पर बैठकर अलमस्त होकर वह गाना गा रहा है, 'ऐ दिल मुश्किल है जीना यहां, ये है बम्बई, ये है बम्बई, ये है बम्बई मेरी जान', विक्टोरिया की वह सवारी भी चलन से बाहर हो गयी। इन विक्टोरिया सवारियों के सैकड़ों घोड़ों को कभी मैं बम्बई सेंट्रल के पास एक विशाल अस्तबल में देखा करता था। आज वहां ऊंची-ऊंची इमारतें हैं।",
@@ -31,7 +39,12 @@
   "note": "From Vijay Kumar's series 'Rahguzar' (the way, the path).",
   "fine": "The Deshkaal desk chose this writing by Vijay Kumar with his permission. All rights remain with the writer.",
   "tr": "Translated from Hindi by the Deshkaal desk.",
-  "images": [],
+  "images": [
+   {
+    "alt": "A row of city buildings, cut from paper, with lines from the piece itself",
+    "cap": "Collage: Deshkaal"
+   }
+  ],
   "body": [
    "In our private lives, knowingly and unknowingly, we keep losing so much of our own. Friendships, love affairs, relatives and kin, chances of success, bunches of keys, umbrellas, old letters, diaries, telephone numbers, and so on and so on. One could make a long list of it all. Having lost them, a pang often stays on inside. But these are things lost in our private lives. In our public lives too we go on losing so much, and we do not even get the news of it. Within the layers of time we lose that city of ours; those old lanes and neighbourhoods of ours slip away somewhere; the voices that lived in those neighbourhoods have vanished somewhere. These lanes, neighbourhoods, crossroads, parks, bazaars, old buildings, their weave and the time that lived in them, sometimes flash in the pitch darkness of consciousness, merely like a stroke of lightning. That lost city and that scene of it remain hanging in our memories only as a ghost-time, though we never left this city to go anywhere; we were here, and we spent a whole lifetime here. Wrapped in memories, that city becomes our own Harappa, Mohenjodaro or Babylon.",
    "Some days ago I had the chance to watch Guru Dutt's old film 'C.I.D.' again. It struck me suddenly that the Bombay of 1955 which Johnny Walker shows in one of its songs, 'Yeh hai Bombay meri jaan', I lost long ago. Neither that small, plain building of Churchgate station remains, nor is Chowpatty the same, nor the Flora Fountain crossing, nor Pydhonie, nor Worli Sea Face, nor that last end of Marine Drive. And those big Buick and Austin model taxis of the forties are gone, the trams ended, those police havaldars in blue uniforms and half pants walked out of our memories. The irony is that the victoria on whose high seat Johnny Walker sits, carefree, singing that song, 'Ai dil mushkil hai jeena yahan, yeh hai Bombay, yeh hai Bombay, yeh hai Bombay meri jaan', that ride, the victoria, has also gone out of use. Once I used to see hundreds of the horses of these victorias in a huge stable near Bombay Central. Today there are tall, tall buildings there.",
@@ -50,7 +63,12 @@
   "note": "وجے کمار کے سلسلے 'رہ گزر' سے۔",
   "fine": "وجے کمار کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے ہیں۔",
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
-  "images": [],
+  "images": [
+   {
+    "alt": "شہر کی عمارتوں کی قطار: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+    "cap": "کولاج: دیش کال"
+   }
+  ],
   "body": [
    "اپنی نجی زندگی میں ہم جانے انجانے اپنا کتنا کچھ کھوتے رہتے ہیں۔ دوستیاں، محبت کے رشتے، ناتے رشتہ دار، کامیابیوں کے مواقع، چابیوں کے گچھے، چھاتے، پرانی چٹھیاں، ڈائریاں، ٹیلیفون کے نمبر وغیرہ وغیرہ۔ اس سب کی ایک لمبی فہرست بنائی جا سکتی ہے۔ انہیں کھو دینے کی اندر اکثر ایک کسک بھی بنی رہتی ہے۔ پر یہ ہماری نجی زندگی میں کھوئی ہوئی چیزیں ہوتی ہیں۔ اپنی عوامی زندگی میں بھی تو ہم کتنا کچھ کھوتے چلے جاتے ہیں جس کی ہمیں خبر تک نہیں ہوتی۔ وقت کی تہوں کے اندر ہم اپنا وہ شہر کھو دیتے ہیں، اپنی وہ پرانی گلیاں محلے ہم سے کہیں چھوٹ جاتے ہیں، ان محلوں میں بسی ہوئی وہ آوازیں کہیں گم ہو گئی ہوتی ہیں۔ یہ گلیاں، محلے، چوراہے، پارک، بازار، پرانی عمارتیں، ان کی بناوٹ اور ان میں بسا ہوا وہ وقت کبھی کبھی شعور کے گھپ اندھیرے میں محض ایک بجلی کی کوند کی طرح دمکتا ہے۔ وہ کھویا ہوا شہر اور اس کا وہ منظر صرف ایک آسیبی وقت بن کر ہماری یادوں میں ٹنگا رہ جاتا ہے، حالانکہ ہم کبھی بھی اس شہر کو چھوڑ کر کہیں نہیں گئے تھے، ہم یہیں تھے اور ایک پوری عمر ہم نے یہاں گزار دی۔ یادوں میں لپٹا ہوا وہ شہر ہمارا اپنا ہڑپا، موہن جودڑو یا بابل بن جاتا ہے۔",
    "گرو دت کی ہدایت کاری میں بنی پرانی فلم 'سی آئی ڈی' کو پچھلے دنوں مجھے دوبارہ دیکھنے کا موقع ملا۔ مجھے اچانک یہ احساس ہوا کہ اس فلم کے ایک گانے 'یہ ہے بمبئی میری جان' میں جانی واکر جس 1955 کی بمبئی کو دکھا رہا ہے، وہ میں بہت پہلے کھو چکا ہوں۔ نہ چرچ گیٹ اسٹیشن کی وہ چھوٹی سی سادہ عمارت رہی، نہ چوپاٹی ویسی رہی، نہ فلورا فاؤنٹین کا چوراہا، نہ پائیدھونی، نہ ورلی سی فیس اور نہ میرین ڈرائیو کا وہ آخری سرا ویسا رہ گیا۔ اور وہ چالیس کی دہائی کی بیوک اور آسٹن ماڈل کی بڑی بڑی ٹیکسیاں نہیں رہیں، ٹرامیں ختم ہو گئیں، نیلی وردی اور ہاف پینٹ پہنے وہ پولیس حوالدار ہماری یادوں سے باہر نکل گئے۔ ستم ظریفی تو یہ ہے کہ جانی واکر جس وکٹوریہ کی اونچی سیٹ پر بیٹھ کر المست ہو کر وہ گانا گا رہا ہے، 'اے دل مشکل ہے جینا یہاں، یہ ہے بمبئی، یہ ہے بمبئی، یہ ہے بمبئی میری جان'، وکٹوریہ کی وہ سواری بھی چلن سے باہر ہو گئی۔ ان وکٹوریہ سواریوں کے سیکڑوں گھوڑوں کو کبھی میں بمبئی سینٹرل کے پاس ایک وسیع اصطبل میں دیکھا کرتا تھا۔ آج وہاں اونچی اونچی عمارتیں ہیں۔",
