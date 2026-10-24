@@ -582,10 +582,19 @@ function liveArchivePage() {
 }
 
 function archivePage() {
+  /* आर्काइव की "विशेष" शेल्फ़: लंबी प्रस्तुतियां यहां भी मिलें, सिर्फ़ मुखपृष्ठ के भरोसे न रहें */
+  const AR = { hi: "विशेष", en: "Special features", ur: "خصوصی تحریریں" }[LG];
+  const vhRows = VH.ALL.map(w => {
+    const t = LG === "hi" ? w : (w[LG] || {});
+    const h = t.h || w.h, by = t.by || w.by || "", src = t.src || w.src || "";
+    const meta = [by, src, dayLabel(w.date)].filter(Boolean).join(" · ");
+    return `<div class="arow" data-cat="विशेष"><span class="k">${AR}</span><a href="${PRE}/vishesh/${w.id}/"><h4>${esc(h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(meta)}</span></a></div>`;
+  }).join("");
   const body = `<section class="page2"><h2>${T.archive}</h2><p style="color:var(--ink-2);margin:0">${T.archIntro}</p>
     <div class="sub" style="margin-top:20px"><input class="search" id="aq" type="search" placeholder="${T.archSearch}" aria-label="${T.archSearch}"></div>
     <div class="chips">${["सब", ...CATS].map(c => `<button class="chip" data-ac="${c}" aria-pressed="${c === "सब"}">${c === "सब" ? T.all : cn(c)}</button>`).join("")}</div>
     <p class="src" id="acount"></p>
+    ${vhRows ? `<div class="aday" id="vishesh-arch"><h4>${AR}</h4>${vhRows}</div>` : ""}
     ${days.map(d => `<div class="aday"><h4>${dayLabel(d.date)} · ${T.count(d.items.length)}</h4>${d.items.map(a => `<div class="arow" data-cat="${a.cat}"><span class="k">${cn(a.cat)}</span><a href="${href(a)}"><h4>${esc(a.h)}</h4><span class="src" style="display:block;margin-top:4px">${esc(a.by)} · ${esc(a.pub)} · ${esc(a.date)}</span></a></div>`).join("")}</div>`).join("")}
     ${LIVE_ARCHIVE ? `<div class="lv-note"><p class="lv-ak">${(LA[LG] || LA.hi).k}</p><a href="${PRE}/live/">${esc((LA[LG] || LA.hi).t)} →</a></div>` : ""}
   </section>`;
