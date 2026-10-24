@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-10-24-srinivas-bhagalpur-1989-tamauni-laugain-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 610,
+  "bg": [
+    88,
+    30,
+    72
+  ],
+  "dark": [
+    22,
+    7,
+    18
+  ],
+  "halftone": [
+    63,
+    21,
+    51
+  ],
+  "motif": "books",
+  "strips": [
+    {
+      "t": "भागलपुर दंगा: त्रासद यादें",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "इसे कैलेंडरी लेखन भी कह सकते हैं",
+      "x": 688,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "मैं उसकी रिपोर्टिंग की थी",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "अब भी आती है",
+      "x": 711,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}

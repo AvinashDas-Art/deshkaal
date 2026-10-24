@@ -1,0 +1,71 @@
+{
+  "out": "public/media/hamsafar/2026-10-24-dilip-khan-konspiresi-chachcha-chachchi-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 848,
+  "bg": [
+    138,
+    84,
+    22
+  ],
+  "dark": [
+    35,
+    21,
+    5
+  ],
+  "halftone": [
+    99,
+    60,
+    15
+  ],
+  "motif": "window",
+  "strips": [
+    {
+      "t": "हर दावा साज़िश नहीं होता",
+      "x": 66,
+      "y": 44,
+      "r": -4,
+      "style": "ink",
+      "px": 40,
+      "front": true
+    },
+    {
+      "t": "चच्चा-चच्ची के नाम!",
+      "x": 100,
+      "y": 124,
+      "r": 2,
+      "style": "ink",
+      "px": 40,
+      "front": true
+    },
+    {
+      "t": "किसी नकली डॉक्टर का वीडियो",
+      "x": 657,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "देखो, मैंने पहले ही कहा था",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "एक और उदाहरण है क्लाउड सीडिंग का",
+      "x": 630,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
