@@ -1,0 +1,53 @@
+{
+  "out": "public/media/hamsafar/2026-10-25-vinay-saurabh-naukar-ki-jaat-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 800,
+  "bg": [
+    138,
+    84,
+    22
+  ],
+  "dark": [
+    35,
+    21,
+    5
+  ],
+  "halftone": [
+    99,
+    60,
+    15
+  ],
+  "motif": "moon",
+  "strips": [
+    {
+      "t": "नौकर की जात!",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "अपनी जात दिखा ही दी!",
+      "x": 668,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "वे अब भी उस लड़के को याद करते हैं",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 26,
+      "front": true
+    }
+  ]
+}
