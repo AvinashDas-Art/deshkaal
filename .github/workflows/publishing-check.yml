@@ -2,7 +2,7 @@ name: Verify daily publishing
 on:
   push:
     branches: [main]
-    paths: ['data/**', 'build.js', 'src/**', 'scripts/verify-publishing.js', '.github/workflows/publishing-check.yml']
+    paths: ['data/**', 'build.js', 'src/**', 'public/_redirects', 'public/media/**', 'scripts/verify-publishing.js', 'scripts/test-seo.js', 'scripts/test-links.js', '.github/workflows/publishing-check.yml']
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 20
       - name: Build and verify committed edition
-        run: node build.js && node scripts/verify-publishing.js
+        run: node build.js && node scripts/test-seo.js && node scripts/test-links.js && node scripts/verify-publishing.js
       - name: Wait for production and verify live edition
         shell: bash
         run: |

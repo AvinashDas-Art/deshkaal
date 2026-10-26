@@ -16,7 +16,13 @@ const TAGLINE = S.hi.tagline;
 /* चैनलों के लिंक: ख़ाली हों तो बटन "जल्द" दिखाते हैं */
 const CHANNELS = { whatsapp: "https://whatsapp.com/channel/0029Vb8hHGPBadmUpTWYYI1W", telegram: "https://t.me/deshkaal" };
 const CATS = ["देश","दुनिया","समाज","अर्थ","पर्यावरण","स्त्री","संस्कृति","साहित्य"];
-const SLUG = {"देश":"desh","दुनिया":"duniya","समाज":"samaj","अर्थ":"arth","पर्यावरण":"paryavaran","स्त्री":"stri","संस्कृति":"sanskriti","साहित्य":"sahitya"};
+/* SLUG में वे सारी श्रेणियां रहेंगी जो data/days/*.json के cat में आती हैं। जिस श्रेणी का यहां
+   नाम न हो, उसका पता /shreni/undefined/ बन जाता था और Google उसे 404 गिनता था
+   (25 अक्टूबर 2026 की Search Console शिकायत)। */
+const SLUG = {"देश":"desh","दुनिया":"duniya","समाज":"samaj","अर्थ":"arth","पर्यावरण":"paryavaran","स्त्री":"stri","संस्कृति":"sanskriti","साहित्य":"sahitya","राजनीति":"rajniti","लोकतंत्र":"loktantra"};
+/* श्रेणी का पन्ना सिर्फ़ तब, जब उसका साफ़ पता हो — वरना लिंक घर पर ले जाए, टूटा पता न बने */
+const catSlug = c => SLUG[c] || null;
+const catURL = c => catSlug(c) ? `${PRE}/shreni/${SLUG[c]}/` : `${PRE}/`;
 
 const CHAN_ICON = {
   whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>',
@@ -73,6 +79,13 @@ function daysFor(l) {
 }
 const HAS = Object.fromEntries(LANGS.map(l => [l, new Set(daysFor(l).flatMap(d => d.items.map(a => a.id)))]));
 let days = DAYS_HI, all = days.flatMap(d => d.items), today = days[0];
+
+/* जिन श्रेणियों के पन्ने बनेंगे: आठ नेविगेशन वालियां + अंकों में आने वाली बाक़ी सब
+   (जैसे राजनीति, लोकतंत्र) — जिनका SLUG तय है। जिसका नहीं, उसकी चेतावनी छपेगी। */
+const DATA_CATS = [...new Set(DAYS_HI.flatMap(d => d.items.map(a => a.cat)))];
+const SITE_CATS = [...new Set([...CATS, ...DATA_CATS])].filter(c => SLUG[c]);
+const NO_SLUG_CATS = DATA_CATS.filter(c => !SLUG[c]);
+if (NO_SLUG_CATS.length) console.warn(`चेतावनी: इन श्रेणियों का पता (slug) तय नहीं है, पन्ना नहीं बनेगा और कड़ी घर पर जाएगी: ${NO_SLUG_CATS.join(", ")}`);
 
 /* ---------- layout ---------- */
 
@@ -530,6 +543,8 @@ function catPage(c) {
   const u = l => `${l === "hi" ? "" : "/" + l}/shreni/${SLUG[c]}/`;
   return layout({ title: cn(c), desc: T.catDesc(cn(c)), url: u(LG), body, catOn: c, alt: { hi: u("hi"), en: u("en"), ur: u("ur") } });
 }
+/* कड़ी वहीं जाए जहां पन्ना है — बिना पते वाली श्रेणी पर /shreni/undefined/ न बने */
+const catKicker = c => catSlug(c) ? `<a href="${catURL(c)}">${cn(c)}</a>` : cn(c);
 const shareBlock = a => { const u = encodeURIComponent(SITE + href(a)), t = encodeURIComponent(a.h);
   return `<div class="share" data-url="${SITE}${href(a)}" data-title="${esc(a.h)}"><span class="share-l">${T.share}</span>
     <button class="sh sh-native" type="button" hidden>${T.shareNative}</button>
@@ -545,7 +560,7 @@ function articlePage(a) {
   const ld = { "@context": "https://schema.org", "@type": "Article", headline: a.h, description: a.dek, datePublished: a.day, inLanguage: LG, publisher: { "@type": "Organization", name: BRAND[LG] }, isBasedOn: a.url };
   const body = `<article class="read">
     <a class="back" href="${PRE}/">${T.back}</a>
-    <p class="kicker" style="margin-top:22px"><a href="${PRE}/shreni/${SLUG[a.cat]}/">${cn(a.cat)}</a></p>
+    <p class="kicker" style="margin-top:22px">${catKicker(a.cat)}</p>
     <h1>${esc(a.h)}</h1><p class="dek">${esc(a.dek)}</p>${isVid(a) ? `<p class="ytnote">${T.ytNote}</p>` : ""}
     <div class="meta"><span>${T.orig}: <b>${esc(a.by)}</b>, ${esc(a.pub)}, ${esc(a.date)}</span>
       <span class="tools"><button class="ctl" id="listen">${T.listenBtn(listenMin(a))}</button>${saveBtn(a)}</span></div>
@@ -784,7 +799,7 @@ for (const l of LANGS) {
   setLang(l); days = daysFor(l); if (!days.length) continue; all = days.flatMap(d => d.items); today = days[0];
   const P = l === "hi" ? "" : l + "/";
   out(P + "index.html", homePage());
-  CATS.forEach(c => out(`${P}shreni/${SLUG[c]}/index.html`, catPage(c)));
+  SITE_CATS.forEach(c => out(`${P}shreni/${SLUG[c]}/index.html`, catPage(c)));
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
@@ -807,6 +822,9 @@ for (const l of ["en", "ur"]) {
   const P = l + "/";
   out(P + "niti/index.html", policyPage()); out(P + "nijta/index.html", privacyPage()); out(P + "judiye/index.html", joinPage()); out(P + "bhejiye/index.html", HS.invitePage(LG));
   PUB_TOONS.forEach(c => out(`${cartoonURL(c).slice(1)}/index.html`, cartoonPage(c)));
+  /* कार्टूनिस्ट के पन्ने हर भाषा में — होमपेज की "पूरा पन्ना" कड़ी /en/cartoon/<slug>/ पर जाती है,
+     और वह पन्ना सिर्फ़ हिंदी में बन रहा था, इसलिए अंग्रेज़ी-उर्दू में 404 मिलता था। */
+  Object.keys(CARTOONISTS).forEach(slug => out(`${P}cartoon/${slug}/index.html`, artistPage(slug)));
   if (LIVE_ARCHIVE) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
     out(P + "live/index.html", liveArchivePage());

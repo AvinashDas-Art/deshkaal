@@ -1,3 +1,9 @@
 # Repair the accidentally repeated language prefixes in old canonical URLs.
 /en/en/* /en/:splat 301
 /ur/ur/* /ur/:splat 301
+# A category page whose slug came out empty was built as /shreni/undefined/ before
+# 26 October 2026 and Google saw it as 404. The bug is fixed in build.js; this keeps
+# the old address (already crawled) out of the 404 list.
+/shreni/undefined/ / 301
+/en/shreni/undefined/ /en/ 301
+/ur/shreni/undefined/ /ur/ 301
