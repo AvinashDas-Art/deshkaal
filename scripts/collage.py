@@ -13,14 +13,60 @@ motif: pen-chain (क़लम पर ज़ंजीर और ताला), c
 import json, math, os, random, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops, features
 
+try:
+    import shapedtext as ST
+except Exception:          # शेपिंग न मिले तो पुराना रास्ता
+    ST = None
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 F = os.path.join(ROOT, "scripts", "fonts")
 LAYOUT = ImageFont.Layout.RAQM if features.check("raqm") else ImageFont.Layout.BASIC
+# बिना raqm Pillow देवनागरी टूटी छापता है ("किस" का "कसि" बन जाता है); तब HarfBuzz से शेप करें.
+USE_SHAPE = bool(ST and ST.ok and not features.check("raqm"))
 S = 2  # सुपरसैंपलिंग
 
 
 def font(name, px):
     return ImageFont.truetype(os.path.join(F, name), int(px * S), layout_engine=LAYOUT)
+
+
+def shaped_mask(text, name, px, wght=None):
+    """HarfBuzz से शेप करके पाठ का सफ़ेद मास्क (L), किनारों से कटा हुआ.
+    wght देने पर वैरिएबल फ़ॉन्ट को उसी वज़न पर सेट करते हैं (नक़ली मोटाई नहीं)."""
+    import freetype
+    path = os.path.join(F, name)
+    sh = ST._Shaper(path)
+    if wght:
+        try:
+            sh.font.set_variations({"wght": wght})
+            sh.ft.set_var_design_coords([wght])
+        except Exception:
+            pass
+    infos, pos = sh.shape(text, px)
+    asc = sh.ft.size.ascender // 64
+    adv = sum(p.x_advance for p in pos) / 64.0
+    pen, boxes = 0, []
+    for info, p in zip(infos, pos):
+        sh.ft.load_glyph(info.codepoint, freetype.FT_LOAD_RENDER)
+        bm = sh.ft.glyph.bitmap
+        gx = pen + p.x_offset // 64 + sh.ft.glyph.bitmap_left
+        gy = asc - p.y_offset // 64 - sh.ft.glyph.bitmap_top
+        if bm.width and bm.rows:
+            g = Image.frombytes("L", (bm.width, bm.rows), bytes(bm.buffer), "raw", "L", bm.pitch)
+            boxes.append((gx, gy, g))
+        pen += p.x_advance // 64
+    minx = min([0] + [b[0] for b in boxes])
+    miny = min([0] + [b[1] for b in boxes])
+    maxx = max([int(adv)] + [b[0] + b[2].width for b in boxes])
+    maxy = max([1] + [b[1] + b[2].height for b in boxes])
+    m = Image.new("L", (max(1, maxx - minx), max(1, maxy - miny)), 0)
+    for gx, gy, g in boxes:
+        m.paste(g, (gx - minx, gy - miny), g)
+    return m
+
+
+def paste_mask(base, mask, xy, fill):
+    base.paste(Image.new("RGBA", mask.size, tuple(fill) + (255,)), (int(xy[0]), int(xy[1])), mask)
 
 
 def v(x):
@@ -67,15 +113,19 @@ def torn_poly(w, h, rnd, step=14, amp=4):
 
 
 def strip(text, px, style, rnd):
-    f = font("NotoSansDevanagari.ttf", px)
-    try:
-        f.set_variation_by_axes([800 if "wght" in str(ax.get("name", b"")).lower() or "weight" in str(ax.get("name", b"")).lower() else 100 for ax in f.get_variation_axes()])
-    except Exception:
-        pass
-    tmp = ImageDraw.Draw(Image.new("RGB", (4, 4)))
-    tw = int(tmp.textlength(text, font=f))
-    padx, pady = v(18), v(10)
-    w, h = tw + 2 * padx, int(px * S * 1.55) + 2 * pady // 2
+    padx, pady = v(22), v(12)
+    if USE_SHAPE:
+        _m = shaped_mask(text, "NotoSansDevanagari.ttf", px * S, wght=800)
+        tw = _m.width
+    else:
+        f = font("NotoSansDevanagari.ttf", px)
+        try:
+            f.set_variation_by_axes([800 if "wght" in str(ax.get("name", b"")).lower() or "weight" in str(ax.get("name", b"")).lower() else 100 for ax in f.get_variation_axes()])
+        except Exception:
+            pass
+        tmp = ImageDraw.Draw(Image.new("RGB", (4, 4)))
+        tw = int(tmp.textlength(text, font=f))
+    w, h = tw + 2 * padx, int(px * S * 1.5) + 2 * pady
     bg, fg = {"paper": ((238, 230, 211), (24, 22, 22)), "ink": ((26, 24, 26), (240, 232, 214)), "red": ((214, 58, 40), (250, 244, 230))}[style]
     lay = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
@@ -85,7 +135,10 @@ def strip(text, px, style, rnd):
         px_, py_ = rnd.randrange(w), rnd.randrange(h)
         c = rnd.randint(-14, 8)
         d.point((px_, py_), fill=tuple(max(0, min(255, k + c)) for k in bg) + (255,))
-    d.text((padx, pady // 2 - int(px * S * 0.12)), text, font=f, fill=fg)
+    if USE_SHAPE:
+        paste_mask(lay, _m, ((w - _m.width) // 2, (h - _m.height) // 2), fg)
+    else:
+        d.text((padx, pady // 2 - int(px * S * 0.12)), text, font=f, fill=fg)
     return lay
 
 
@@ -444,16 +497,21 @@ def build(spec):
     front = [s for s in strips if s.get("front")]
     for s in back:
         lay = rotated(strip(s["t"], s.get("px", 44), s.get("style", "paper"), rnd), s.get("r", 0))
-        shadow_paste(canvas, lay, (s["x"], s["y"]), blur=8, off=(6, 9), alpha=120)
+        x = max(24, min(s["x"], W - 40 - lay.width / S))
+        shadow_paste(canvas, lay, (x, s["y"]), blur=8, off=(6, 9), alpha=120)
     MOTIFS[spec.get("motif", "pen-chain")](canvas, rnd, (W, H))
     for s in front:
         lay = rotated(strip(s["t"], s.get("px", 44), s.get("style", "paper"), rnd), s.get("r", 0))
-        shadow_paste(canvas, lay, (s["x"], s["y"]), blur=8, off=(6, 9), alpha=140)
+        x = max(24, min(s["x"], W - 40 - lay.width / S))   # किनारे से बाहर न जाए
+        shadow_paste(canvas, lay, (x, s["y"]), blur=8, off=(6, 9), alpha=140)
     st = spec.get("stamp")
     if st:
-        f = font("YatraOne.ttf", st.get("px", 76))
-        tmp = ImageDraw.Draw(Image.new("RGB", (4, 4)))
-        tw = int(tmp.textlength(st["t"], font=f))
+        if USE_SHAPE:
+            tw = int(ST.width(st["t"], os.path.join(F, "YatraOne.ttf"), st.get("px", 76) * S))
+        else:
+            f = font("YatraOne.ttf", st.get("px", 76))
+            tmp = ImageDraw.Draw(Image.new("RGB", (4, 4)))
+            tw = int(tmp.textlength(st["t"], font=f))
         pad = v(26)
         lay = Image.new("RGBA", (tw + 2 * pad, int(st.get("px", 76) * S * 1.5) + pad), (0, 0, 0, 0))
         ld = ImageDraw.Draw(lay)
@@ -461,7 +519,11 @@ def build(spec):
         ld.rectangle((0, 0, lay.width, lay.height), fill=(34, 8, 8, 235))
         ld.rectangle((v(3), v(3), lay.width - v(3), lay.height - v(3)), outline=col, width=v(7))
         ld.rectangle((v(14), v(14), lay.width - v(14), lay.height - v(14)), outline=col, width=v(2))
-        ld.text((pad, int(pad * 0.5)), st["t"], font=f, fill=col)
+        if USE_SHAPE:
+            m = shaped_mask(st["t"], "YatraOne.ttf", st.get("px", 76) * S)
+            paste_mask(lay, m, ((lay.width - m.width) // 2, (lay.height - m.height) // 2), col[:3])
+        else:
+            ld.text((pad, int(pad * 0.5)), st["t"], font=f, fill=col)
         # घिसा हुआ ठप्पा: छोटे-छोटे धब्बे मिटाएं
         a = lay.split()[3]
         mk = Image.new("L", lay.size, 255)

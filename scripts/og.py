@@ -165,7 +165,8 @@ def main():
         item = {"id": w["id"], "h": w["h"], "by": w["by"], "cat": w.get("cat", "साहित्य"), "pub": "हमसफ़र", "photo": None}
         ph = None
         src = ((w.get("images") or [{}])[0].get("src")) or w.get("photo")
-        if src and src.startswith("/"):
+        # SVG/डेटा-URI को Pillow नहीं खोल सकता; ऐसी सूरत में बिना तस्वीर का कार्ड बने, पूरा नौबत न आए.
+        if src and src.startswith("/") and src.lower().rsplit(".", 1)[-1] in ("jpg", "jpeg", "png", "webp"):
             local = os.path.join(ROOT, "public", src.lstrip("/"))
             if os.path.exists(local): ph = Image.open(local).convert("RGB")
         make(item, ph).save(out, optimize=True); n += 1

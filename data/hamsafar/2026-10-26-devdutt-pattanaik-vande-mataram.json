@@ -1,5 +1,5 @@
 {
-  "id": "devdutt-pattanaik-vande-mataram",
+  "id": "2026-10-26-devdutt-pattanaik-vande-mataram",
   "date": "2026-10-26",
   "pub": "2026-10-26T20:45:00+05:30",
   "h": "वंदे मातरम् किस देश का गीत है?",
@@ -33,10 +33,12 @@
     "bio": "Devdutt Pattanaik is a mythologist and writer. He reads old stories against today's politics and everyday life, and writes regularly for newspapers in India and abroad.",
     "images": [
       {
-        "alt": "The song, geography and the imagining of a nation. Collage: Deshkaal Desk.",
-        "cap": "Collage: Deshkaal Desk."
+        "alt": "A moon, stars and a pen, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
       }
-    ]
+    ],
+    "dek": "Vande Mataram may not be a Hindu song, or even an Indian one. A reading of the song's geography, history and politics.",
+    "tr": "Original English text."
   },
   "ur": {
     "h": "وندے ماترم کس ملک کا گیت ہے؟",
@@ -55,10 +57,12 @@
     "bio": "دیودت پٹنایک اساطیر کے عالم اور مصنف ہیں۔ وہ پرانی کہانیوں کو آج کی سیاست اور روزمرہ سے جوڑ کر پڑھتے ہیں، اور ملک و بیرونِ ملک کے اخبارات میں باقاعدگی سے لکھتے ہیں۔",
     "images": [
       {
-        "alt": "گیت، جغرافیے اور قوم کے تصور پر دیش کال ڈیسک کا کولاج۔",
-        "cap": "کولاج: دیش کال ڈیسک۔"
+        "alt": "چاند، ستارے اور قلم: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
       }
-    ]
+    ],
+    "dek": "وندے ماترم شاید ہندوؤں کا گیت نہیں، شاید بھارت کا بھی نہیں۔ گیت کے جغرافیے، تاریخ اور سیاست کی پڑتال۔",
+    "tr": "انگریزی سے ترجمہ: دیش کال ڈیسک"
   },
   "bio": "देवदत्त पटनायक मिथक-शास्त्री और लेखक हैं। वे पुरानी कथाओं को आज की राजनीति और रोज़मर्रा से जोड़कर पढ़ते हैं, और देश-दुनिया के अख़बारों में नियमित लिखते हैं।",
   "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
@@ -66,9 +70,12 @@
   "pic": true,
   "images": [
     {
-      "src": "/media/hamsafar/devdutt-pattanaik-vande-mataram-deshkaal.svg",
-      "alt": "गीत, भूगोल और राष्ट्र की कल्पना पर देशकाल डेस्क का कोलाज।",
-      "cap": "कोलाज: देशकाल डेस्क।"
+      "src": "/media/hamsafar/2026-10-26-devdutt-pattanaik-vande-mataram-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "चांद, तारे और क़लम: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
     }
-  ]
+  ],
+  "dek": "वंदे मातरम् किस देश का गीत है? गीत के भूगोल, इतिहास और उसकी राजनीति की पड़ताल।"
 }

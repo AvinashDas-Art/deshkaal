@@ -587,7 +587,7 @@ module.exports = function (H) {
     </article>`;
     const ld = { "@context": "https://schema.org", "@type": w.kind === "photo" || w.kind === "cartoon" ? "CreativeWork" : "Article", headline: w.h, description: w.dek || "", datePublished: w.date, inLanguage: lg, ...(lg !== "hi" ? { translationOfWork: { "@type": "CreativeWork", url: SITE + url(w0) , inLanguage: "hi" } } : {}), author: { "@type": "Person", name: w.by }, publisher: { "@type": "Organization", name: "देशकाल" } };
     const alt = Object.fromEntries(langs.map(l => [l, url(w0, l)]));
-    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: fs.existsSync(path.join("public", "og", "hs-" + w0.id + ".png")) ? "/og/hs-" + w0.id + ".png" : (imgs[0] && /\.(jpe?g|png)$/i.test(imgs[0].src) ? imgs[0].src : "/og-bhejiye.png"), published: w.date });
+    return layout({ tab: "hamsafar", alt, title: `${w.h}: ${w.by}`, desc: w.dek || X.desc(w, X.kind[w.kind]), url: url(w0, lg), body: page + `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, image: fs.existsSync(path.join("public", "og", "hs-" + w0.id + ".png")) ? "/og/hs-" + w0.id + ".png" : (imgs[0] && /\.(jpe?g|png|webp)$/i.test(imgs[0].src) ? imgs[0].src : "/og.png"), published: w.date });
   }
 
   return { ALL, has, band, invitePage, galleryPage, workPage, url };
