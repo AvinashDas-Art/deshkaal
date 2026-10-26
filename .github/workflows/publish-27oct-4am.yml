@@ -1,0 +1,74 @@
+name: 27 अक्टूबर — सुबह 4 बजे का प्रकाशन
+
+# 27 अक्टूबर 2026 का अंक रात में edition/2026-10-27 शाखा में तैयार होता है
+# (इसी मैक पर, check/run-27oct.sh से)। यह वर्कफ़्लो ठीक 4:00 बजे IST पर उसे
+# main में मिलाकर पुश करता है — तब मैक बंद/सोया भी हो तो कोई फ़र्क़ नहीं।
+on:
+  schedule:
+    - cron: "25 22 26 10 *"   # 26 Oct 22:25 UTC = 27 Oct 03:55 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-27oct
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      DAY: "2026-10-27"
+      BR: "edition/2026-10-27"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: मुख्य शाखा में मिलाना और पुश
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # सिर्फ़ 2026 में (क्रॉन हर साल 26 अक्टूबर को लगेगा)
+          if [ "$(date -u +%Y)" != "2026" ]; then
+            echo "यह सिर्फ़ 2026 के लिए है"; exit 0
+          fi
+
+          git config user.name "deshkaal-bot"
+          git config user.email "patra@deshkaal.xyz"
+
+          # अंक 3 बजे तक तैयार हो जाता है; देर हो तो 10 मिनट तक इंतज़ार
+          for i in $(seq 1 10); do
+            if git fetch -q origin "refs/heads/$BR:refs/remotes/origin/$BR" 2>/dev/null; then
+              break
+            fi
+            echo "शाखा $BR अभी नहीं — 60 सेकंड बाद फिर देखेंगे ($i/10)"
+            sleep 60
+          done
+
+          if ! git rev-parse --verify -q "origin/$BR" >/dev/null; then
+            echo "शाखा नहीं मिली — अंक तैयार नहीं हुआ; 6 बजे वाला रन ख़ुद बना लेगा"; exit 0
+          fi
+
+          if git cat-file -e "origin/main:data/days/$DAY.json" 2>/dev/null; then
+            echo "$DAY पहले से मुख्य शाखा में है"; exit 0
+          fi
+
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main
+            git reset -q --hard FETCH_HEAD
+            git merge --no-edit -q "origin/$BR"
+            if ! git cat-file -e "HEAD:data/days/$DAY.json" 2>/dev/null; then
+              echo "मिलाने के बाद भी $DAY नहीं मिला"; exit 1
+            fi
+            if git push -q origin HEAD:main; then
+              echo "प्रकाशित: $DAY — Cloudflare अब डिप्लॉय करेगा"
+              exit 0
+            fi
+            echo "पुश नहीं हुआ — फिर कोशिश ($i/5)"
+            sleep $((i * 10))
+          done
+          exit 1
