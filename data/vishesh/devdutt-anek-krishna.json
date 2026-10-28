@@ -1,0 +1,218 @@
+{
+ "kind": "hamsafar",
+ "tag": "विशेष हमसफ़र",
+ "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+ "bandPos": "center 24%",
+ "photoAlt": "देवदत्त पटनायक, पीली पोलो टी-शर्ट में मुस्कुराते हुए",
+ "translationNote": "हिंदी अनुवाद: देशकाल",
+ "author": {
+  "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+  "site": "https://devdutt.com",
+  "hi": {
+   "name": "देवदत्त पटनायक",
+   "role": "मिथकशास्त्री, लेखक, चित्रकार",
+   "bio": [
+    "मिथकों को कहानियों, प्रतीकों और रस्मों से पढ़ने वाले लेखक, चित्रकार और वक्ता। वह मिथक को किसी संस्कृति का व्यक्तिपरक सत्य मानते हैं, यानी वह तरीक़ा जिससे कोई समाज ज़िंदगी को कल्पना में देखता है।",
+    "पेशे से डॉक्टर रहे। क़रीब पंद्रह साल दवा और स्वास्थ्य उद्योग में काम किया, फिर कारोबारी सलाहकार बने और फ़्यूचर ग्रुप में चीफ़ बिलीफ़ ऑफ़िसर रहे। आख़िर में लिखना ही पेशा बन गया। पचास से ज़्यादा किताबें, एक हज़ार से ज़्यादा स्तंभ और पंद्रह भाषाओं में अनुवाद। टेलीविज़न पर देवलोक और बिज़नेस सूत्र जैसे कार्यक्रम भी उन्हीं के नाम हैं।"
+   ]
+  },
+  "en": {
+   "name": "Devdutt Pattanaik",
+   "role": "Mythologist, author, illustrator",
+   "bio": [
+    "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+    "A doctor by training, he spent about fifteen years in the pharma and health industry, became a business consultant and served as Chief Belief Officer at the Future Group, before writing became his profession. He has written over fifty books and over a thousand columns, translated into fifteen languages, and television programmes such as Devlok and Business Sutra carry his name."
+   ]
+  },
+  "ur": {
+   "name": "دیودت پٹنایک",
+   "role": "اساطیر کے ماہر، مصنف، مصور",
+   "bio": [
+    "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+    "پیشے سے ڈاکٹر رہے۔ تقریباً پندرہ سال دوا اور صحت کی صنعت میں کام کیا، پھر کاروباری مشیر بنے اور فیوچر گروپ میں چیف بیلیف آفیسر رہے۔ آخر میں لکھنا ہی پیشہ بن گیا۔ پچاس سے زیادہ کتابیں، ایک ہزار سے زیادہ کالم اور پندرہ زبانوں میں ترجمے۔ ٹیلی ویژن پر دیولوک اور بزنس سوتر جیسے پروگرام بھی انہی کے نام ہیں۔"
+   ]
+  }
+ },
+ "allBooksUrl": "https://devdutt.com/category/translations/hindi/?tag=books/",
+ "midBook": 0,
+ "books": [
+  {
+   "url": "https://www.amazon.in/dp/9389915880",
+   "c": "#2E3F8F",
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9391242677",
+   "c": "#A63E26",
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/014345613X",
+   "c": "#1F2126",
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9389373840",
+   "c": "#8A5E0F",
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
+  }
+ ],
+ "id": "devdutt-anek-krishna",
+ "date": "2026-10-28",
+ "pub": "2026-10-28T06:00:00+05:30",
+ "active": true,
+ "by": "देवदत्त पटनायक",
+ "src": "The Hindu",
+ "srcDate": "17 सितंबर 2026",
+ "srcUrl": "https://devdutt.com/india-has-many-krishnas/",
+ "h": "भारत के कई कृष्ण: हर इलाक़े ने अपना कृष्ण गढ़ा",
+ "dek": "देवदत्त पटनायक दिखाते हैं कि मध्यकाल के भक्त संतों ने कृष्ण को पूजा भी, और अपने समय, समाज और ज़रूरतों के हिसाब से नये सिरे से गढ़ा भी।",
+ "note": "यह लेख देवदत्त पटनायक का है और सबसे पहले 17 सितंबर 2026 को द हिंदू में छपा था। इसमें वे महाराष्ट्र के चक्रधर स्वामी और ज्ञानेश्वर, असम के शंकरदेव, बंगाल के चैतन्य महाप्रभु, तमिल आलवारों, ब्रज के सूरदास और गुजरात के नरसिंह मेहता के कृष्ण को एक साथ रखते हैं। कहीं कृष्ण कठोर योगी हैं, कहीं ब्रह्मांड के स्वामी, कहीं विरह में डूबे प्रेमी, कहीं माखन चुराता बच्चा, और कहीं चमड़े का काम करने वालों और विधवाओं के बीच चलता देवता। लेखक का तर्क है कि हर समुदाय ने अपने डर, उम्मीद और संघर्ष के हिसाब से अपना कृष्ण तराशा। इसे इसलिए पढ़ना चाहिए कि जब आस्था को एक ही, तय और ऊपर से थोपे गये रूप में ढालने की कोशिश तेज़ है, यह लेख याद दिलाता है कि भारत की भक्ति परंपरा कितनी बहुरंगी रही है।",
+ "pull": "भारत में एक कृष्ण नहीं, कई कृष्ण हैं।",
+ "body": [
+  "भारत में एक कृष्ण नहीं, कई कृष्ण हैं। हर इलाक़े, हर भाषा, हर सामाजिक वर्ग और हर ऐतिहासिक दौर ने अपनी समझ से गढ़ा कि कृष्ण कौन थे और उनका क्या अर्थ था।",
+  "मध्यकाल के भक्त संतों ने कृष्ण की पूजा की, पर उन्हें नये सिरे से रचा भी: कविता, गीत, दर्शन, रंगमंच और अनुष्ठान के ज़रिये। ये कृष्ण स्थानीय चिंताओं, राजनीतिक दबावों, जातियों के आपसी मोलभाव, स्त्री-पुरुष के आदर्शों और आध्यात्मिक आकांक्षाओं का आईना हैं।",
+  "महाराष्ट्र में चक्रधर स्वामी (1194-1274 ईस्वी) ने शायद सबसे सख़्त कृष्ण सामने रखे। महानुभाव या मनोभाव परंपरा के संस्थापक इस हिंदू दार्शनिक ने लोकप्रिय भक्ति के चंचल, शृंगारी कृष्ण को नकार दिया। स्वामी के लिए कृष्ण एक ऐतिहासिक मानव अवतार थे, एक सिद्ध योगी और नैतिकता का कठोर आदर्श। राधा, गोपियां और रासलीला, सबको उन्होंने विकृति कहकर ख़ारिज कर दिया। जो बचा, वह एक कठोर कृष्ण थे, और भक्ति का मतलब था आज्ञापालन, नैतिक अनुशासन, ब्रह्मचर्य और मन पर संयम। यह कृष्ण उस समुदाय के अनुकूल थे जो राजनीतिक अस्थिरता और सामाजिक उथल-पुथल के दौर में त्याग, इच्छाओं पर नियंत्रण और भीतरी अनुशासन को मूल्य देता था।",
+  "## कोमल मार्गदर्शक से प्रिय प्रेमी तक",
+  "मुश्किल से एक पीढ़ी बाद, मराठी संत-कवि ज्ञानेश्वर (1275-1296 ईस्वी) ने कृष्ण को बिल्कुल अलग ढंग से देखा। 'ज्ञानेश्वरी' में कृष्ण ब्रह्मांडीय चेतना भी हैं और कोमल मार्गदर्शक भी। एक आत्मीय साथी भी और एक तात्त्विक सिद्धांत भी। सगुण (रूप वाले) और निर्गुण (रूप से परे) के बीच की दूरी मिट जाती है। यह कृष्ण एक ऐसी दुनिया को दिखाते हैं जिसे अनुशासन की कम फ़िक्र है और अनुभव और काव्यात्मक धर्मशास्त्र में ज़्यादा दिलचस्पी। यहां देवता कोई दूर बैठा शासक नहीं है।",
+  "असम में श्रीमंत शंकरदेव (1449-1568 ईस्वी) ने संप्रभुता और नैतिक व्यवस्था वाले कृष्ण गढ़े। इस बहुमुखी विद्वान का एकशरण नाम धर्म एक ही परम ईश्वर के आगे समर्पण पर ज़ोर देता था। यहां कृष्ण मुख्य रूप से विष्णु-नारायण हैं, ब्रह्मांड के शासक और रचयिता। राधा हाशिये पर हैं, रासलीला संयमित है। लक्ष्य है नैतिक अनुशासन और समाज-सुधार। शंकरदेव के कृष्ण ने सत्रों (मठों), नाटक, संगीत और नृत्य के ज़रिये असमिया सांस्कृतिक पहचान गढ़ने में मदद की, और आदिवासी विविधता और राजनीतिक उथल-पुथल से भरे एक सीमांत इलाक़े को स्थिरता दी।",
+  "बंगाल में संत चैतन्य महाप्रभु (1486-1534 ईस्वी) ने कृष्ण की सबसे भावप्रवण परंपरा रची। यहां वे वृंदावन के प्रिय प्रेमी बन जाते हैं, जिनसे मिलना तड़प, विरह, आंसुओं, आनंद-विभोर कीर्तन और भावनाओं में बिखर जाने से होता है। राधा केंद्र में आ जाती हैं और ब्रह्मांडीय विष्णु पीछे हट जाते हैं। छाया रहता है माधुर्य भाव, यानी शृंगारी रहस्यवाद, जहां भक्ति नशा है और मुक्ति भावनात्मक मिलन। यह कृष्ण बंगाल के हरे-भरे खेतिहर भूदृश्य, उसकी संगीत संस्कृति और उसकी गहरी भावनात्मक अभिव्यक्ति से निकलते हैं, और धर्मशास्त्र को सौंदर्य के अनुभव में बदल देते हैं।",
+  "## जब ईश्वर हमारे बीच चलता था",
+  "महाप्रभु से बहुत पहले, तमिल आलवार (600-900 ईस्वी के कवि-संत) भावनाओं से भरे कृष्ण रच चुके थे। अपने प्रिय के लिए तड़पती स्त्रियों की आवाज़ में लिखते हुए उन्होंने कृष्ण को एक साथ प्रेमी, बालक, राजा और ब्रह्मांडीय देवता बना दिया। आलवारों के कृष्ण भावनात्मक रूप से कमज़ोर पड़ सकते हैं, और भक्ति आवेग का रंगमंच बन जाती है, जहां ईश्वर और मनुष्य की भावनाएं एक-दूसरे का प्रतिबिंब हैं। उनकी कविता ने पूरे दक्षिण भारत में मंदिर के अनुष्ठान, मूर्ति-विधान और धर्मशास्त्र को आकार दिया, और ऐसे कृष्ण रचे जो रोते हैं, छिपते हैं, लुभाते हैं और छोड़कर चले जाते हैं, बस फिर लौट आने के लिए।",
+  "ब्रज में भक्त कवि सूरदास (1478-1583 ईस्वी) ने कृष्ण को और कोमल बना दिया, शरारती बच्चा और प्यारा ग्वाला। उनकी कविता बाल-लीला, मां की ममता, घरेलू आत्मीयता और चंचल आकर्षण पर टिकी है। कृष्ण माखन चुराते हैं, मटकियां फोड़ते हैं, गोपियों को छेड़ते हैं और ध्यान मांगते हैं। शृंगारी रहस्यवाद यहां भी है, पर कोमल और गहरे स्नेह से भरा। यह कृष्ण रसोई और आंगन में आते हैं, भावनात्मक रूप से सुलभ और मानवीय हैं। वे ऐसी भक्ति संस्कृति के अनुकूल हैं जिसकी जड़ें मठ के एकांत या दार्शनिक अमूर्तता में नहीं, घर-गृहस्थी की आस्था में हैं।",
+  "गुजरात में नरसिंह मेहता (1414-1481 ईस्वी) ने कृष्ण में सामाजिक विवेक भर दिया। इस कवि के कृष्ण ग़रीबों और हाशिये के लोगों के साथ खड़े हैं। ईश्वर चमड़े का काम करने वालों, विधवाओं और दबे-कुचलों के बीच चलता है, और भक्ति सहानुभूति और नैतिक ज़िम्मेदारी बन जाती है। यहां भक्ति जाति के घमंड और कर्मकांड के अहंकार की आलोचना बन जाती है। यह कृष्ण गुजरात की व्यापारी दुनिया का अक्स हैं, उसका कई संस्कृतियों से वास्ता और सामाजिक मेलजोल की उसकी फ़िक्र।",
+  "## ईश्वर कभी एक नहीं था",
+  "इन सारी परंपराओं में कृष्ण भावनाओं की कई धुरियों पर चलते हैं। हर रूप किसी अलग मानवीय ज़रूरत का जवाब है। स्वामी के कृष्ण इच्छा पर लगाम लगाते हैं; ज्ञानेश्वर के कृष्ण अहं को घोल देते हैं; शंकरदेव के कृष्ण समाज को व्यवस्था देते हैं; महाप्रभु के कृष्ण भावनाओं को मदहोश करते हैं; आलवारों के कृष्ण तड़प को नाटक में बदलते हैं; सूरदास के कृष्ण घर को सांत्वना देते हैं; और मेहता के कृष्ण करुणा जगाते हैं।",
+  "मध्यकालीन भारत के ये कई कृष्ण बताते हैं कि ईश्वर कभी एक या स्थिर नहीं था। ईश्वर कोई ऊपर से थोपा गया निरपेक्ष विचार नहीं था। हर समुदाय ने अपने डर, उम्मीदों, संघर्षों और सपनों के हिसाब से अपना कृष्ण तराशा। ऐसा करते हुए मध्यकाल के संतों ने धर्मशास्त्र को मानवशास्त्र में बदल दिया, और कृष्ण का इस्तेमाल दुनिया से भागने के लिए नहीं, उसे और गहराई से समझने के लिए किया।"
+ ],
+ "sawal": "आपके इलाक़े का कृष्ण किस डर या उम्मीद से बना?",
+ "homePoints": [
+  "चक्रधर स्वामी के कृष्ण कठोर योगी हैं, ज्ञानेश्वर के कोमल मार्गदर्शक, शंकरदेव के ब्रह्मांड के स्वामी।",
+  "चैतन्य और आलवारों के कृष्ण प्रेमी हैं, सूरदास के माखन चुराते बच्चे।",
+  "नरसिंह मेहता के कृष्ण चमड़े का काम करने वालों और विधवाओं के बीच चलते हैं।"
+ ],
+ "rights": {
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
+ },
+ "firstPub": {
+  "hi": "यह लेख सबसे पहले द हिंदू में छपा था।",
+  "en": "This article first appeared in The Hindu.",
+  "ur": "یہ مضمون سب سے پہلے دی ہندو میں شائع ہوا تھا۔"
+ },
+ "en": {
+  "h": "India has many Krishnas",
+  "dek": "Devdutt Pattanaik shows how medieval Bhakti saints worshipped Krishna and also reinvented him for their own time, society and needs.",
+  "note": "This piece is by Devdutt Pattanaik and was first published in The Hindu on 17 September 2026. In it he sets side by side the Krishnas of Chakradhar Swami and Dnyaneshwar in Maharashtra, Sankardev in Assam, Chaitanya Mahaprabhu in Bengal, the Tamil Alvars, Surdas in Braj and Narsinh Mehta in Gujarat. Here Krishna is a stern yogi, there the lord of the cosmos, elsewhere a lover lost in longing, a child stealing butter, or a god who walks among leather workers and widows. His argument is that every community carved its own Krishna out of its fears, hopes and struggles. It is worth reading because, at a time of growing pressure to fit faith into one fixed shape imposed from above, it is a reminder of how many-coloured India's devotional tradition has been.",
+  "pull": "India does not have one Krishna, it has many.",
+  "body": [
+   "India does not have one Krishna, it has many. Each region, language, social class, and historical moment has shaped its own idea of who Krishna was, and what he meant.",
+   "Medieval Bhakti saints worshipped Krishna but they also reinvented him, through poetry, song, philosophy, theatre, and ritual. These Krishnas reflect local anxieties, political pressures, caste negotiations, gender ideals, and spiritual aspirations.",
+   "In Maharashtra, Chakradhar Swami (1194-1274 CE) offered perhaps the starkest Krishna. Founder of the Mahanubhava or Manobhava tradition, the Hindu philosopher rejected the playful, erotic Krishna of popular devotion. For Swami, he was a historical human incarnation, a perfected yogi, and a strict ethical exemplar. And Radha, the gopis, and the rasa-lila were all dismissed as corruptions. What remained was a severe Krishna and devotion meant obedience, moral rigour, celibacy, and mental restraint. This Krishna suited a community that valued renunciation, control of desire, and inward discipline in a time of political instability and social flux.",
+   "## From tender guide to beloved lover",
+   "Barely a generation later, Marathi saint-poet Dnyaneshwar (1275-1296 CE) reimagined Krishna in radically different terms. In the book Dnyaneshwari, Krishna becomes cosmic consciousness and tender guide. An intimate companion and a metaphysical principle. The gap between saguna (having form) and nirguna (formless) collapses. This Krishna reflects a world less anxious about discipline and more interested in experience and poetic theology. The deity here is not a distant ruler.",
+   "In Assam, Srimanta Sankardev (1449-1568 CE) shaped a Krishna of sovereignty and moral order. The polymath’s eka-sarana-nama-dharma emphasised surrender to a single supreme god. Krishna here is primarily Vishnu-Narayana, the cosmic ruler and creator. Radha is marginal; rasa-lila is restrained. The goal is ethical discipline and communal reform. Sankardev’s Krishna helped forge Assamese cultural identity through monasteries, theatre, music, and dance, offering stability in a frontier region marked by tribal diversity and political turbulence.",
+   "In Bengal, saint Chaitanya Mahaprabhu (1486-1534 CE) created the most emotionally intense Krishna tradition. Here he becomes the beloved lover of Vrindavan, encountered through longing, separation, tears, ecstatic singing, and emotional collapse. Radha moves to the centre and the cosmic Vishnu retreats. What dominates is madhurya bhava, erotic mysticism, where devotion is intoxication and salvation is emotional union. This Krishna emerges from Bengal’s lush agrarian landscape, its musical culture, and its deep emotional expressiveness, transforming theology into aesthetic experience.",
+   "## When god walked among us",
+   "Long before Mahaprabhu, the Tamil Alvars (the poet-saints from 600-900 CE) had already created an emotionally charged Krishna. Writing in the voice of women longing for their beloved, they turned him into lover, child, king, and cosmic god simultaneously. The Alvar Krishna is emotionally vulnerable, and Bhakti becomes a theatre of passion, where divine and human emotions mirror each other. Their poetry shaped temple ritual, iconography, and theology across south India, creating a Krishna who cries, hides, seduces, and abandons, only to return again.",
+   "In the Braj region, devotional poet Surdas (1478-1583 CE) softened Krishna further, turning him into the mischievous child and tender cowherd. His poetry focuses on bal-lila, maternal affection, domestic intimacy, and playful charm. Krishna steals butter, breaks pots, teases gopis, and demands attention. Erotic mysticism exists but remains gentle and deeply affectionate. This Krishna enters kitchens and courtyards, and is emotionally accessible and human. He suits a devotional culture rooted in household piety rather than monastic withdrawal or philosophical abstraction.",
+   "In Gujarat, Narsinh Mehta (1414-1481 CE) infused Krishna with social conscience. The poet’s Krishna stands with the poor and the marginalised. The divine walks among leather workers, widows, and the oppressed, and devotion becomes empathy and ethical responsibility. Bhakti here becomes a critique of caste arrogance and ritual pride. This Krishna reflects Gujarat’s mercantile world, its exposure to plural cultures and its concern with social harmony.",
+   "## Divinity was never singular",
+   "Across these traditions, Krishna moves along multiple emotional axes. Each answers a different human need. Swami’s Krishna restrains desire; Dnyaneshwar’s dissolves the self; Sankardev’s orders society; Mahaprabhu’s intoxicates emotion; the Alvars’ dramatises longing; Surdas’ comforts the household; and Mehta’s awakens compassion.",
+   "The many Krishnas of medieval India reveal that divinity was never singular or fixed. God was not an absolute idea imposed from above. Each community carved its own Krishna, reflecting its fears, hopes, struggles, and dreams. In doing so, medieval saints turned theology into anthropology, using Krishna not to escape the world, but to understand it more deeply."
+  ],
+  "sawal": "Which fear or hope made the Krishna of your region?",
+  "homePoints": [
+   "Chakradhar Swami's Krishna is a stern yogi, Dnyaneshwar's a tender guide, Sankardev's the lord of the cosmos.",
+   "For Chaitanya and the Alvars Krishna is a lover; for Surdas, a child stealing butter.",
+   "Narsinh Mehta's Krishna walks among leather workers and widows."
+  ],
+  "by": "Devdutt Pattanaik",
+  "tag": "Special Hamsafar",
+  "translationNote": "Original English text by the author.",
+  "srcDate": "17 September 2026",
+  "photoAlt": "देवदत्त पटनायक, पीली पोलो टी-शर्ट में मुस्कुराते हुए",
+  "bio": "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+  "tr": "Translated from English by the Deshkaal desk."
+ },
+ "ur": {
+  "h": "ہندوستان کے کئی کرشن: ہر علاقے نے اپنا کرشن گڑھا",
+  "dek": "دیودت پٹنایک دکھاتے ہیں کہ قرونِ وسطیٰ کے بھکت سنتوں نے کرشن کی پوجا بھی کی، اور اپنے زمانے، سماج اور ضرورتوں کے حساب سے انہیں نئے سرے سے گڑھا بھی۔",
+  "note": "یہ مضمون دیودت پٹنایک کا ہے اور پہلی بار 17 ستمبر 2026 کو دی ہندو میں شائع ہوا تھا۔ اس میں وہ مہاراشٹر کے چکردھر سوامی اور گیانیشور، آسام کے شنکردیو، بنگال کے چیتنیہ مہاپربھو، تمل آلواروں، برج کے سورداس اور گجرات کے نرسنگھ مہتا کے کرشن کو ایک ساتھ رکھتے ہیں۔ کہیں کرشن سخت گیر یوگی ہیں، کہیں کائنات کے مالک، کہیں ہجر میں ڈوبے عاشق، کہیں مکھن چراتا بچہ، اور کہیں چمڑے کا کام کرنے والوں اور بیواؤں کے بیچ چلتا دیوتا۔ مصنف کا استدلال ہے کہ ہر برادری نے اپنے خوف، امید اور جدوجہد کے حساب سے اپنا کرشن تراشا۔ اسے اس لیے پڑھنا چاہیے کہ جب ایمان کو ایک ہی، طے شدہ اور اوپر سے تھوپی گئی شکل میں ڈھالنے کی کوشش تیز ہے، یہ مضمون یاد دلاتا ہے کہ ہندوستان کی بھکتی روایت کتنی رنگا رنگ رہی ہے۔",
+  "pull": "ہندوستان میں ایک کرشن نہیں، کئی کرشن ہیں۔",
+  "body": [
+   "ہندوستان میں ایک کرشن نہیں، کئی کرشن ہیں۔ ہر علاقے، ہر زبان، ہر سماجی طبقے اور ہر تاریخی دور نے اپنی سمجھ سے یہ گڑھا کہ کرشن کون تھے اور ان کے کیا معنی تھے۔",
+   "قرونِ وسطیٰ کے بھکت سنتوں نے کرشن کی پوجا کی، مگر انہیں نئے سرے سے رچا بھی: شاعری، گیت، فلسفے، تھیٹر اور رسموں کے ذریعے۔ یہ کرشن مقامی فکروں، سیاسی دباؤ، ذاتوں کے آپسی لین دین، عورت اور مرد کے آدرشوں اور روحانی تمناؤں کا آئینہ ہیں۔",
+   "مہاراشٹر میں چکردھر سوامی (1194-1274 عیسوی) نے شاید سب سے سخت کرشن پیش کیے۔ مہانوبھاو یا منوبھاو روایت کے بانی اس ہندو فلسفی نے عوامی بھکتی کے شوخ، عشقیہ کرشن کو رد کر دیا۔ سوامی کے لیے کرشن ایک تاریخی انسانی اوتار تھے، ایک کامل یوگی اور اخلاق کا سخت نمونہ۔ رادھا، گوپیاں اور راس لیلا، سب کو انہوں نے بگاڑ کہہ کر خارج کر دیا۔ جو بچا وہ ایک سخت گیر کرشن تھے، اور بھکتی کا مطلب تھا فرماں برداری، اخلاقی ضبط، برہمچریہ اور ذہن پر قابو۔ یہ کرشن اس برادری کے موافق تھے جو سیاسی بے یقینی اور سماجی اتھل پتھل کے دور میں ترک، خواہشوں پر قابو اور باطنی ضبط کو اہمیت دیتی تھی۔",
+   "## نرم رہنما سے محبوب عاشق تک",
+   "بمشکل ایک نسل بعد، مراٹھی سنت شاعر گیانیشور (1275-1296 عیسوی) نے کرشن کو بالکل مختلف انداز میں دیکھا۔ 'گیانیشوری' میں کرشن کائناتی شعور بھی ہیں اور نرم رہنما بھی۔ ایک قریبی ساتھی بھی اور ایک مابعدالطبیعی اصول بھی۔ سگن (صورت والا) اور نرگن (بے صورت) کے بیچ کا فاصلہ مٹ جاتا ہے۔ یہ کرشن ایک ایسی دنیا کو دکھاتے ہیں جسے ضبط کی کم فکر ہے اور تجربے اور شاعرانہ الٰہیات میں زیادہ دلچسپی۔ یہاں دیوتا کوئی دور بیٹھا حاکم نہیں ہے۔",
+   "آسام میں شریمنت شنکردیو (1449-1568 عیسوی) نے حاکمیت اور اخلاقی نظم والے کرشن گڑھے۔ اس ہمہ جہت عالم کا ایک شرن نام دھرم ایک ہی برتر خدا کے آگے سپردگی پر زور دیتا تھا۔ یہاں کرشن بنیادی طور پر وشنو نارائن ہیں، کائنات کے حاکم اور خالق۔ رادھا حاشیے پر ہیں، راس لیلا محدود ہے۔ مقصد ہے اخلاقی ضبط اور سماجی اصلاح۔ شنکردیو کے کرشن نے ستروں (خانقاہوں)، ناٹک، موسیقی اور رقص کے ذریعے آسامی تہذیبی شناخت گڑھنے میں مدد کی، اور قبائلی تنوع اور سیاسی ہلچل سے بھرے ایک سرحدی علاقے کو استحکام دیا۔",
+   "بنگال میں سنت چیتنیہ مہاپربھو (1486-1534 عیسوی) نے کرشن کی سب سے جذباتی روایت رچی۔ یہاں وہ ورنداون کے محبوب عاشق بن جاتے ہیں، جن سے ملاقات تڑپ، ہجر، آنسوؤں، وجد بھرے کیرتن اور جذبات میں ٹوٹ کر بکھر جانے سے ہوتی ہے۔ رادھا مرکز میں آ جاتی ہیں اور کائناتی وشنو پیچھے ہٹ جاتے ہیں۔ چھایا رہتا ہے مادھریہ بھاو، یعنی عشقیہ تصوف، جہاں بھکتی نشہ ہے اور نجات جذباتی وصال۔ یہ کرشن بنگال کے ہرے بھرے زرعی منظر، اس کی موسیقی کی تہذیب اور اس کے گہرے جذباتی اظہار سے نکلتے ہیں، اور الٰہیات کو جمالیاتی تجربے میں بدل دیتے ہیں۔",
+   "## جب خدا ہمارے بیچ چلتا تھا",
+   "مہاپربھو سے بہت پہلے، تمل آلوار (600-900 عیسوی کے شاعر سنت) جذبات سے بھرے کرشن رچ چکے تھے۔ اپنے محبوب کے لیے تڑپتی عورتوں کی آواز میں لکھتے ہوئے انہوں نے کرشن کو ایک ساتھ عاشق، بچہ، بادشاہ اور کائناتی دیوتا بنا دیا۔ آلواروں کے کرشن جذباتی طور پر کمزور پڑ سکتے ہیں، اور بھکتی جذبے کا تھیٹر بن جاتی ہے، جہاں خدا اور انسان کے جذبات ایک دوسرے کا عکس ہیں۔ ان کی شاعری نے پورے جنوبی ہند میں مندر کی رسموں، مورتی سازی اور الٰہیات کو شکل دی، اور ایسے کرشن رچے جو روتے ہیں، چھپتے ہیں، لبھاتے ہیں اور چھوڑ کر چلے جاتے ہیں، بس پھر لوٹ آنے کے لیے۔",
+   "برج میں بھکت شاعر سورداس (1478-1583 عیسوی) نے کرشن کو اور نرم بنا دیا، شرارتی بچہ اور پیارا گوالا۔ ان کی شاعری بال لیلا، ماں کی ممتا، گھریلو قربت اور شوخ کشش پر ٹکی ہے۔ کرشن مکھن چراتے ہیں، مٹکیاں پھوڑتے ہیں، گوپیوں کو چھیڑتے ہیں اور توجہ مانگتے ہیں۔ عشقیہ تصوف یہاں بھی ہے، مگر نرم اور گہری محبت سے بھرا۔ یہ کرشن باورچی خانے اور آنگن میں آتے ہیں، جذباتی طور پر قریب اور انسانی ہیں۔ وہ ایسی بھکتی تہذیب کے موافق ہیں جس کی جڑیں خانقاہ کی گوشہ نشینی یا فلسفیانہ تجرید میں نہیں، گھر گرہستی کے ایمان میں ہیں۔",
+   "گجرات میں نرسنگھ مہتا (1414-1481 عیسوی) نے کرشن میں سماجی ضمیر بھر دیا۔ اس شاعر کے کرشن غریبوں اور حاشیے کے لوگوں کے ساتھ کھڑے ہیں۔ خدا چمڑے کا کام کرنے والوں، بیواؤں اور مظلوموں کے بیچ چلتا ہے، اور بھکتی ہمدردی اور اخلاقی ذمہ داری بن جاتی ہے۔ یہاں بھکتی ذات کے غرور اور رسم پرستی کے گھمنڈ پر تنقید بن جاتی ہے۔ یہ کرشن گجرات کی تجارتی دنیا کا عکس ہیں، کئی تہذیبوں سے اس کا واسطہ اور سماجی میل جول کی اس کی فکر۔",
+   "## خدا کبھی ایک نہیں تھا",
+   "ان سب روایتوں میں کرشن جذبات کے کئی محوروں پر چلتے ہیں۔ ہر روپ کسی الگ انسانی ضرورت کا جواب ہے۔ سوامی کے کرشن خواہش پر لگام لگاتے ہیں؛ گیانیشور کے کرشن انا کو گھول دیتے ہیں؛ شنکردیو کے کرشن سماج کو نظم دیتے ہیں؛ مہاپربھو کے کرشن جذبات کو مدہوش کرتے ہیں؛ آلواروں کے کرشن تڑپ کو ڈرامے میں بدلتے ہیں؛ سورداس کے کرشن گھر کو تسلی دیتے ہیں؛ اور مہتا کے کرشن رحم جگاتے ہیں۔",
+   "قرونِ وسطیٰ کے ہندوستان کے یہ کئی کرشن بتاتے ہیں کہ خدا کبھی ایک یا ٹھہرا ہوا نہیں تھا۔ خدا کوئی اوپر سے تھوپا گیا مطلق خیال نہیں تھا۔ ہر برادری نے اپنے خوف، امیدوں، جدوجہد اور خوابوں کے حساب سے اپنا کرشن تراشا۔ ایسا کرتے ہوئے قرونِ وسطیٰ کے سنتوں نے الٰہیات کو بشریات میں بدل دیا، اور کرشن کو دنیا سے بھاگنے کے لیے نہیں، اسے اور گہرائی سے سمجھنے کے لیے استعمال کیا۔"
+  ],
+  "sawal": "آپ کے علاقے کا کرشن کس خوف یا امید سے بنا؟",
+  "homePoints": [
+   "چکردھر سوامی کے کرشن سخت گیر یوگی ہیں، گیانیشور کے نرم رہنما، شنکردیو کے کائنات کے مالک۔",
+   "چیتنیہ اور آلواروں کے کرشن عاشق ہیں، سورداس کے مکھن چراتے بچے۔",
+   "نرسنگھ مہتا کے کرشن چمڑے کا کام کرنے والوں اور بیواؤں کے بیچ چلتے ہیں۔"
+  ],
+  "by": "دیودت پٹنایک",
+  "tag": "خصوصی ہمسفر",
+  "translationNote": "اردو ترجمہ: دیش کال ڈیسک",
+  "srcDate": "17 ستمبر 2026",
+  "photoAlt": "دیودت پٹنایک، پیلی پولو ٹی شرٹ میں مسکراتے ہوئے",
+  "bio": "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+  "tr": "انگریزی سے ترجمہ: دیش کال ڈیسک"
+ }
+}
