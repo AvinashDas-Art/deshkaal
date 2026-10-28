@@ -1,0 +1,120 @@
+{
+  "id": "2026-10-28-dilip-khan-5-rupaye-mein-data",
+  "kind": "lekh",
+  "date": "2026-10-28",
+  "pub": "2026-10-28T12:40:00+05:30",
+  "h": "5 रुपये में डेटा लीजिए",
+  "dek": "गाड़ियों के डेटा की चोरी पर चुपचाप ताला लगा, और उसी हफ़्ते 11 करोड़ किसानों का पूरा ब्योरा एक नंबर के नीचे जमा हो गया। एग्रीस्टैक पर दिलीप ख़ान।",
+  "by": "दिलीप ख़ान",
+  "place": "पांडिचेरी",
+  "photo": "/media/hamsafar/lekhak-dilip-khan.jpg",
+  "bio": "दिलीप ख़ान पांडिचेरी में रहते हैं और अपने सब्सटैक पर दुनिया की राजनीति पर हिंदी में लिखते हैं, ख़ास कर अमेरिका, यूरोप और पश्चिम एशिया के ताने-बाने पर।",
+  "cat": "देश",
+  "lang": "hi",
+  "pull": "जो सचमुच खेत जोतता है, सिस्टम में वह अभी गुम है।",
+  "fine": "दिलीप ख़ान की यह लिखाई देशकाल डेस्क ने उनकी इजाज़त से चुनी है। इसके सारे अधिकार उन्हीं के हैं।",
+  "body": [
+    "पिछले महीने पता चला था कि टेलीग्राम पर एक गिरोह सरकारी वाहन पोर्टल पर मौजूद लोगों की गाड़ी का डेटा सिर्फ़ पांच रुपये में बेच रहा है। गाड़ी नंबर डालिए और मालिक की पूरी जानकारी हाज़िर। इंटरनेट फ़्रीडम फ़ाउंडेशन की RTI पर NIC ने 16 अक्टूबर को जवाब दिया। उसने माना कि निजी कंपनियों को 25,314 लॉग-इन जारी किये गये थे और जनवरी 2024 से सितंबर 2026 के बीच उनके ज़रिए एक करोड़ 70 लाख से ज़्यादा बार डेटा निकाला गया, यानी रोज़ाना तक़रीबन 17 हज़ार बार।",
+    "यह भी पता चला कि 1 अक्टूबर से यह सिलसिला चुपचाप बंद कर दिया गया। किसके कहने पर बंद हुआ, इसका जवाब मिला कि सड़क परिवहन मंत्रालय के निर्देश पर। क्यों बंद हुआ, इसका कोई जवाब नहीं मिला।",
+    "यानी डेटा चोरी पकड़ी गयी, तो बिना बताये ताला लगा दिया। अब कोई पूछेगा, तो सरकार कह देगी कि उसने डेटा देना बंद कर दिया है। जिसका डेटा गया, वह अब कुछ नहीं पूछ सकता!",
+    "लेकिन रुकिए।",
+    "एक जगह बंद किया, तो दूसरी जगह संभावना खोल दी है। ठीक उसी हफ़्ते सरकार ने एलान किया कि एग्रीस्टैक के तहत 11 करोड़ किसानों की डिजिटल आईडी बन चुकी है और यह तय समय सीमा से पांच महीने पहले हुआ है।",
+    "अब ज़रा देखिए कि इस आईडी में क्या-क्या है। हर फ़ार्मर आईडी को किसान के आधार, उसके ज़मीन के रिकॉर्ड, और उसके पशुधन की जानकारी से लिंक किया गया है। साथ में डिजिटल फ़सल सर्वे है, जो बताता है कि किस खेत में क्या बोया गया।",
+    "और जियो-रेफ़रेंस्ड गांव के नक़्शे हैं।",
+    "यानी किसके पास कितनी ज़मीन है, उसमें इस बार क्या उगा, उस पर कितना क़र्ज़ है, और उसके पास कितनी मवेशी हैं, सब एक जगह पर है। एक ही नंबर के नीचे, एक ही क्लिक पर हाज़िर।",
+    "यह डेटा किसके लिए गोल्ड है, इसे समझने के लिए अर्थशास्त्री होने की ज़रूरत नहीं। बीमा कंपनी के हाथ अगर डेटा लग गया, तो उसे आराम से पता चल जाएगा कि किसका जोखिम ज़्यादा है। बैंक को पता चल जाएगा कि किसे क़र्ज़ न दिया जाए। और अनाज ख़रीदने वाली कंपनी को किसान के मंडी पहुंचने से पहले ही पता होगा कि इस साल फ़सल कितनी होगी और भाव कितना दबाया जा सकता है।",
+    "अब सवाल यह कि यह व्यवस्था बनायी किसने?",
+    "2021 में कृषि मंत्रालय ने एग्रीस्टैक के लिए एक के बाद एक कई निजी कंपनियों के साथ MoU किये। इनमें माइक्रोसॉफ़्ट, अमेज़न वेब सर्विसेज़, पतंजलि, जियो प्लैटफ़ॉर्म्स, ITC, सिस्को, और स्टार एग्रीबाज़ार शामिल थे।",
+    "इंटरनेट फ़्रीडम फ़ाउंडेशन ने इन दस्तावेज़ों को खंगाला।",
+    "उसके मुताबिक़ सौ गांवों के पायलट में किसान रजिस्ट्री बनाने का ज़िम्मा पतंजलि को मिला था। स्टार एग्रीबाज़ार को पीएम-किसान, सॉयल हेल्थ कार्ड, और फ़सल बीमा का डेटा ज़मीन के रिकॉर्ड से मिलाकर ‘साफ़’ करना था और किसानों को क्रेडिट स्कोर देना था।",
+    "इन समझौतों में डेटा की सुरक्षा के ठोस इंतज़ाम दर्ज नहीं थे। दिसंबर 2024 में संसद में इन MoU पर सवाल पूछा गया, तो मंत्री ने उसका जवाब ही नहीं दिया। सरकार ने राज्यों, मंत्रालयों, और वित्तीय संस्थाओं से सलाह ली, लेकिन उसमें किसान कहीं नहीं थे।",
+    "अगर डेटा लीक हुआ, तो? डेटा संरक्षण क़ानून के तहत निजी डेटा लीक होने की जानकारी देने की व्यवस्था मई 2027 से लागू होगी। यानी 11 करोड़ लोगों का ब्योरा अभी तैयार है, लेकिन उसकी हिफ़ाज़त के लिए अभी कोई क़ानूनी ताला नहीं लगा है।",
+    "एक बात और। ज़मीन के रिकॉर्ड पर टिकी इस व्यवस्था में बटाईदार और काश्तकार अभी तक शामिल नहीं हैं। सरकार कहती है कि राज्य उन्हें जोड़ने की तैयारी कर रहे हैं। यानी जो सचमुच खेत जोतता है, सिस्टम में वह अभी गुम है। जिसके नाम ज़मीन है, सिस्टम उसी को किसान मानता है।",
+    "2020 में किसानों ने सड़क पर एक साल बैठकर तीन क़ानून वापस करवाये थे, क्योंकि उन्हें डर था कि खेती कॉरपोरेट के हाथ में चली जाएगी।",
+    "एग्रीस्टैक पर देश में कहीं कोई बड़ा धरना हुआ हो, ध्यान नहीं है।",
+    "शायद इसलिए कि इस बार दरवाज़ा खोलने के लिए कोई क़ानून नहीं लाया गया है। इस बार डेटा से ही बात बन जाएगी। कॉरपोरेट को 5 रुपये में वह सब मिल जाएगा, जो उसे चाहिए। क्या पता रेट इससे कम ही हो।"
+  ],
+  "en": {
+    "h": "Get the data for 5 rupees",
+    "dek": "The theft of vehicle data was quietly locked away, and in the same week the full record of 110 million farmers was gathered under a single number. Dilip Khan on AgriStack.",
+    "by": "Dilip Khan",
+    "place": "Puducherry",
+    "bio": "Dilip Khan lives in Puducherry and writes in Hindi on world politics on his Substack, especially on the threads of America, Europe and West Asia.",
+    "pull": "So the one who actually tills the field is still missing from the system.",
+    "fine": "This is Dilip Khan's writing, chosen by the Deshkaal desk with his permission. All rights remain with him.",
+    "tr": "Translated from Hindi by the Deshkaal desk.",
+    "body": [
+      "Last month we learned that a gang on Telegram was selling people's vehicle data from a government vehicle portal for just five rupees. Type in a number plate and the owner's full details appear. On 16 October the NIC replied to an RTI request from the Internet Freedom Foundation. It admitted that 25,314 log-ins had been issued to private companies, and that between January 2024 and September 2026 data was pulled through them more than 17 million times, that is, about 17,000 times a day.",
+      "We also learned that from 1 October this was quietly shut down. On whose say-so? The answer: on the instructions of the Ministry of Road Transport. Why was it shut? No answer.",
+      "So, when the data theft was caught, they put a lock on it without telling anyone. Now if someone asks, the government will say it has stopped giving out data. The person whose data is gone can no longer ask anything!",
+      "But wait.",
+      "Close one door and you open a possibility somewhere else. That very week the government announced that under AgriStack digital IDs had been made for 110 million farmers, five months ahead of the deadline.",
+      "Now look at what is in this ID. Every Farmer ID has been linked to the farmer's Aadhaar, his land records and details of his livestock. Along with it comes the digital crop survey, which tells what was sown in which field.",
+      "And there are geo-referenced village maps.",
+      "So who owns how much land, what grew on it this time, how much debt sits on it, and how many cattle he has, all of it is in one place. Under a single number, ready at a single click.",
+      "You do not need to be an economist to understand who this data is gold for. If an insurance company gets hold of it, it will easily know whose risk is higher. The bank will know whom not to lend to. And the company buying grain will know, before the farmer even reaches the mandi, how big this year's crop will be and how far the price can be pushed down.",
+      "Now the question: who built this system?",
+      "In 2021 the agriculture ministry signed MoUs for AgriStack with one private company after another. Among them were Microsoft, Amazon Web Services, Patanjali, Jio Platforms, ITC, Cisco and Star Agribazaar.",
+      "The Internet Freedom Foundation combed through these documents.",
+      "According to it, in a pilot of a hundred villages, Patanjali was given the job of building the farmer registry. Star Agribazaar was to match PM-Kisan, Soil Health Card and crop insurance data with land records, 'clean' it, and give farmers credit scores.",
+      "These agreements recorded no solid arrangements for protecting the data. When a question was asked about these MoUs in Parliament in December 2024, the minister simply did not answer it. The government consulted states, ministries and financial institutions, but farmers were nowhere in it.",
+      "What if the data leaks? Under the data protection law, the rules for reporting a leak of personal data come into force only from May 2027. So the records of 110 million people are ready now, but no legal lock has yet been put on them to keep them safe.",
+      "One more thing. Sharecroppers and tenant farmers are still not part of this system, which rests on land records. The government says the states are preparing to add them. So the one who actually tills the field is still missing from the system. The system counts as a farmer only the one in whose name the land stands.",
+      "In 2020 farmers sat on the roads for a year and got three laws taken back, because they feared farming would pass into corporate hands.",
+      "I do not recall any big sit-in anywhere in the country over AgriStack.",
+      "Perhaps because this time no law has been brought to open the door. This time data alone will do the job. Corporations will get everything they need for 5 rupees. Who knows, the rate may be even lower."
+    ],
+    "images": [
+      {
+        "alt": "Stacks of coins on steps, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
+      }
+    ]
+  },
+  "ur": {
+    "h": "5 روپے میں ڈیٹا لیجیے",
+    "dek": "گاڑیوں کے ڈیٹا کی چوری پر چپ چاپ تالا لگا، اور اسی ہفتے 11 کروڑ کسانوں کا پورا بیورا ایک نمبر کے نیچے جمع ہو گیا۔ ایگری اسٹیک پر دلیپ خان۔",
+    "by": "دلیپ خان",
+    "place": "پانڈیچیری",
+    "bio": "دلیپ خان پانڈیچیری میں رہتے ہیں اور اپنے سب اسٹیک پر دنیا کی سیاست پر ہندی میں لکھتے ہیں، خاص کر امریکہ، یورپ اور مغربی ایشیا کے تانے بانے پر۔",
+    "pull": "جو سچ مچ کھیت جوتتا ہے، سسٹم میں وہ ابھی گم ہے۔",
+    "fine": "دلیپ خان کی یہ تحریر دیش کال ڈیسک نے ان کی اجازت سے چنی ہے۔ اس کے تمام حقوق انہی کے پاس ہیں۔",
+    "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
+    "body": [
+      "پچھلے مہینے پتہ چلا تھا کہ ٹیلی گرام پر ایک گروہ سرکاری گاڑی پورٹل پر موجود لوگوں کی گاڑی کا ڈیٹا صرف پانچ روپے میں بیچ رہا ہے۔ گاڑی نمبر ڈالیے اور مالک کی پوری جانکاری حاضر۔ انٹرنیٹ فریڈم فاؤنڈیشن کی آر ٹی آئی پر این آئی سی نے 16 اکتوبر کو جواب دیا۔ اس نے مانا کہ نجی کمپنیوں کو 25,314 لاگ اِن جاری کیے گئے تھے اور جنوری 2024 سے ستمبر 2026 کے بیچ ان کے ذریعے ایک کروڑ 70 لاکھ سے زیادہ بار ڈیٹا نکالا گیا، یعنی روزانہ تقریباً 17 ہزار بار۔",
+      "یہ بھی پتہ چلا کہ 1 اکتوبر سے یہ سلسلہ چپ چاپ بند کر دیا گیا۔ کس کے کہنے پر بند ہوا، اس کا جواب ملا کہ سڑک ٹرانسپورٹ کی وزارت کی ہدایت پر۔ کیوں بند ہوا، اس کا کوئی جواب نہیں ملا۔",
+      "یعنی ڈیٹا چوری پکڑی گئی، تو بغیر بتائے تالا لگا دیا۔ اب کوئی پوچھے گا، تو سرکار کہہ دے گی کہ اس نے ڈیٹا دینا بند کر دیا ہے۔ جس کا ڈیٹا گیا، وہ اب کچھ نہیں پوچھ سکتا!",
+      "لیکن رکیے۔",
+      "ایک جگہ بند کیا، تو دوسری جگہ امکان کھول دیا ہے۔ ٹھیک اسی ہفتے سرکار نے اعلان کیا کہ ایگری اسٹیک کے تحت 11 کروڑ کسانوں کی ڈیجیٹل آئی ڈی بن چکی ہے اور یہ مقررہ مدت سے پانچ مہینے پہلے ہوا ہے۔",
+      "اب ذرا دیکھیے کہ اس آئی ڈی میں کیا کیا ہے۔ ہر فارمر آئی ڈی کو کسان کے آدھار، اس کی زمین کے ریکارڈ، اور اس کے مویشیوں کی جانکاری سے جوڑا گیا ہے۔ ساتھ میں ڈیجیٹل فصل سروے ہے، جو بتاتا ہے کہ کس کھیت میں کیا بویا گیا۔",
+      "اور جیو ریفرنسڈ گاؤں کے نقشے ہیں۔",
+      "یعنی کس کے پاس کتنی زمین ہے، اس میں اس بار کیا اُگا، اس پر کتنا قرض ہے، اور اس کے پاس کتنے مویشی ہیں، سب ایک جگہ پر ہے۔ ایک ہی نمبر کے نیچے، ایک ہی کلک پر حاضر۔",
+      "یہ ڈیٹا کس کے لیے سونا ہے، یہ سمجھنے کے لیے ماہرِ معاشیات ہونے کی ضرورت نہیں۔ بیمہ کمپنی کے ہاتھ اگر ڈیٹا لگ گیا، تو اسے آرام سے پتہ چل جائے گا کہ کس کا جوکھم زیادہ ہے۔ بینک کو پتہ چل جائے گا کہ کسے قرض نہ دیا جائے۔ اور اناج خریدنے والی کمپنی کو کسان کے منڈی پہنچنے سے پہلے ہی پتہ ہوگا کہ اس سال فصل کتنی ہوگی اور بھاؤ کتنا دبایا جا سکتا ہے۔",
+      "اب سوال یہ کہ یہ نظام بنایا کس نے؟",
+      "2021 میں زراعت کی وزارت نے ایگری اسٹیک کے لیے ایک کے بعد ایک کئی نجی کمپنیوں کے ساتھ ایم او یو کیے۔ ان میں مائیکروسافٹ، ایمیزون ویب سروسز، پتنجلی، جیو پلیٹ فارمز، آئی ٹی سی، سسکو، اور اسٹار ایگری بازار شامل تھے۔",
+      "انٹرنیٹ فریڈم فاؤنڈیشن نے ان دستاویزوں کو کھنگالا۔",
+      "اس کے مطابق سو گاؤوں کے پائلٹ میں کسان رجسٹری بنانے کا ذمہ پتنجلی کو ملا تھا۔ اسٹار ایگری بازار کو پی ایم کسان، سوائل ہیلتھ کارڈ، اور فصل بیمہ کا ڈیٹا زمین کے ریکارڈ سے ملا کر ’صاف‘ کرنا تھا اور کسانوں کو کریڈٹ اسکور دینا تھا۔",
+      "ان معاہدوں میں ڈیٹا کی حفاظت کے ٹھوس انتظامات درج نہیں تھے۔ دسمبر 2024 میں پارلیمنٹ میں ان ایم او یو پر سوال پوچھا گیا، تو وزیر نے اس کا جواب ہی نہیں دیا۔ سرکار نے ریاستوں، وزارتوں، اور مالیاتی اداروں سے صلاح لی، لیکن اس میں کسان کہیں نہیں تھے۔",
+      "اگر ڈیٹا لیک ہوا، تو؟ ڈیٹا تحفظ قانون کے تحت نجی ڈیٹا لیک ہونے کی اطلاع دینے کا نظام مئی 2027 سے لاگو ہوگا۔ یعنی 11 کروڑ لوگوں کا بیورا ابھی تیار ہے، لیکن اس کی حفاظت کے لیے ابھی کوئی قانونی تالا نہیں لگا ہے۔",
+      "ایک بات اور۔ زمین کے ریکارڈ پر ٹکے اس نظام میں بٹائی دار اور کاشتکار ابھی تک شامل نہیں ہیں۔ سرکار کہتی ہے کہ ریاستیں انہیں جوڑنے کی تیاری کر رہی ہیں۔ یعنی جو سچ مچ کھیت جوتتا ہے، سسٹم میں وہ ابھی گم ہے۔ جس کے نام زمین ہے، سسٹم اسی کو کسان مانتا ہے۔",
+      "2020 میں کسانوں نے سڑک پر ایک سال بیٹھ کر تین قانون واپس کروائے تھے، کیونکہ انہیں ڈر تھا کہ کھیتی کارپوریٹ کے ہاتھ میں چلی جائے گی۔",
+      "ایگری اسٹیک پر ملک میں کہیں کوئی بڑا دھرنا ہوا ہو، دھیان نہیں ہے۔",
+      "شاید اس لیے کہ اس بار دروازہ کھولنے کے لیے کوئی قانون نہیں لایا گیا ہے۔ اس بار ڈیٹا سے ہی بات بن جائے گی۔ کارپوریٹ کو 5 روپے میں وہ سب مل جائے گا، جو اسے چاہیے۔ کیا پتہ ریٹ اس سے بھی کم ہو۔"
+    ],
+    "images": [
+      {
+        "alt": "سیڑھیوں پر سکوں کی ڈھیریاں: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
+      }
+    ]
+  },
+  "images": [
+    {
+      "src": "/media/hamsafar/2026-10-28-dilip-khan-5-rupaye-mein-data-1.jpg",
+      "w": 1200,
+      "h": 840,
+      "alt": "सीढ़ियों पर सिक्कों की ढेरियां: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
+    }
+  ]
+}
