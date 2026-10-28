@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-10-28-devdutt-pattanaik-karva-chauth-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 253,
+  "bg": [
+    40,
+    56,
+    68
+  ],
+  "dark": [
+    10,
+    14,
+    17
+  ],
+  "halftone": [
+    28,
+    40,
+    48
+  ],
+  "motif": "moon",
+  "strips": [
+    {
+      "t": "करवा चौथ",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "चांद महान प्रेमी है",
+      "x": 882,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "चांद और उसके बीच एक परदा आ जाता है",
+      "x": 593,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "बेकार की मेहनत, कोई सोच सकता है",
+      "x": 66,
+      "y": 770,
+      "r": 2,
+      "style": "red",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
