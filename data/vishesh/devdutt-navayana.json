@@ -1,0 +1,222 @@
+{
+ "id": "devdutt-navayana",
+ "kind": "hamsafar",
+ "tag": "विशेष हमसफ़र",
+ "date": "2026-10-30",
+ "pub": "2026-10-30T06:00:00+05:30",
+ "active": true,
+ "h": "बुद्ध से नवयान तक: आंबेडकर का नया रास्ता",
+ "dek": "आंबेडकर ने बौद्ध धर्म को सामाजिक बराबरी के आंदोलन में कैसे बदला।",
+ "by": "देवदत्त पटनायक",
+ "src": "Indian Express",
+ "srcDate": "28 सितंबर 2026",
+ "srcUrl": "https://indianexpress.com/article/upsc-current-affairs/upsc-essentials/devdutt-how-ambedkar-turned-buddhism-into-a-movement-for-social-equality-10894091/",
+ "mirror": {
+  "label": "devdutt.com",
+  "url": "https://devdutt.com/how-buddhism-became-navayana/"
+ },
+ "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+ "bandPos": "center 24%",
+ "translationNote": "हिंदी अनुवाद: देशकाल",
+ "rights": {
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
+ },
+ "note": "नागपुर में 14 अक्टूबर 1956 को आंबेडकर ने जो बौद्ध धर्म अपनाया, वह पुराने मठों वाला बौद्ध धर्म नहीं था। देवदत्त पटनायक इस लेख में बताते हैं कि आंबेडकर ने उसे नवयान के रूप में क्यों और कैसे नये सिरे से गढ़ा। उनके मुताबिक़ बौद्ध धर्म ढाई हज़ार बरसों में बार-बार बदला है, और नवयान उसी बदलाव का एक और पड़ाव है। आंबेडकर ने कर्म, पुनर्जन्म और निर्वाण की जगह तर्क, बराबरी, आज़ादी और सामाजिक न्याय को बीच में रखा। उनके लिए धर्म दुनिया से भागने का नहीं, उसे बदलने का रास्ता था। लेख यह भी याद दिलाता है कि गांधी, नेहरू और कुछ हिंदू विचारक, सब बुद्ध को अपने-अपने ढंग से अपना रहे थे। जाति पर आज की बहसों के लिए यह छोटा और साफ़ लेख एक ज़रूरी संदर्भ देता है।",
+ "pull": "उनकी व्याख्या में बौद्ध धर्म अकेले भिक्षुओं का नहीं, सक्रिय नागरिकों का धर्म बन गया।",
+ "body": [
+  "14 अक्टूबर 1956 को नागपुर में जब डॉक्टर बीआर आंबेडकर ने बौद्ध धर्म अपनाया, तो वह सिर्फ़ अपना धर्म नहीं बदल रहे थे। वह एक ज़ोरदार सामाजिक और राजनीतिक बयान दे रहे थे। लेकिन जो बौद्ध धर्म उन्होंने अपनाया, वह ठीक वैसा नहीं था जैसा प्राचीन मठों में सिखाया जाता था। उन्होंने उसे एक नये रूप में ढाला, जिसे नवयान यानी “नया यान” कहा गया। उन्होंने ऐसा क्यों किया, यह समझने के लिए पहले यह समझना होगा कि ख़ुद बौद्ध धर्म समय के साथ कैसे बदलता रहा था।",
+  "बीसवीं सदी तक बौद्ध धर्म ढाई हज़ार से ज़्यादा बरसों से कई रूपों में मौजूद था। हर परंपरा ने बुद्ध की शिक्षाओं को अपने ढंग से समझा, फिर भी कुछ बुनियादी विचार सबमें साझा रहे, जैसे कर्म, पुनर्जन्म, निर्वाण और आध्यात्मिक मुक्ति की अहमियत।",
+  "यह लंबा विकास आज की बहसों से अक्सर ग़ायब रहता है। बहुत से लोग बौद्ध धर्म की बात ऐसे करते हैं, मानो वह बुद्ध के ज़माने से जस का तस चला आ रहा हो। असल में बौद्ध धर्म हमेशा अलग-अलग समाजों और ऐतिहासिक हालात के मुताबिक़ ख़ुद को ढालता रहा। आंबेडकर का नवयान बदलाव के इसी लंबे इतिहास का एक और पड़ाव बना।",
+  "## आंबेडकर ने बौद्ध धर्म क्यों चुना",
+  "आंबेडकर उन समुदायों के प्रतिनिधि थे जिन्होंने सदियों तक जाति व्यवस्था की मार झेली थी। दलितों को, जिन्हें तब अछूत कहा जाता था, भयानक भेदभाव का सामना करना पड़ता था। उन्हें मंदिरों, स्कूलों, कुओं और कई सार्वजनिक जगहों से दूर रखा जाता था। वे कितनी भी मेहनत कर लें या पढ़-लिख जाएं, जाति अक्सर उन्हें बराबरी का दर्जा पाने से रोक देती थी। आंबेडकर मानते थे कि सिर्फ़ क़ानूनी सुधारों से यह गहरा सामाजिक पूर्वाग्रह नहीं मिटेगा। जब तक दलित हिंदू सामाजिक व्यवस्था के भीतर रहेंगे, जाति ही उनकी ज़िंदगी तय करती रहेगी।",
+  "इसलिए वह इस नतीजे पर पहुंचे कि मुक्ति के लिए हिंदू धर्म को पूरी तरह छोड़ना होगा। 1935 में उन्होंने वह मशहूर एलान किया: “मैं हिंदू पैदा हुआ, लेकिन हिंदू मरूंगा नहीं।” फिर सवाल उठा: उसकी जगह कौन सा धर्म ले?",
+  "फ़ैसला करने से पहले आंबेडकर ने कई धर्मों का अध्ययन किया। उन्होंने ईसाई धर्म, इस्लाम, सिख धर्म और बौद्ध धर्म को परखा। बौद्ध धर्म उन्हें इसलिए खींच रहा था कि वह भारत में ही पैदा हुआ था, उसने वेदों की सत्ता को नकारा था और जाति व्यवस्था पर सवाल उठाये थे। बुद्ध ने अलग-अलग सामाजिक पृष्ठभूमि के लोगों को संघ में जगह दी थी और जन्म से ज़्यादा नैतिकता पर ज़ोर दिया था।",
+  "## नवयान ने बुद्ध के संदेश को नये सिरे से कैसे पढ़ा",
+  "फिर भी पारंपरिक बौद्ध धर्म में ऐसे विचार भी थे जो आंबेडकर के लक्ष्यों से मेल नहीं खाते थे। बौद्ध दर्शन का बड़ा हिस्सा कर्म, पुनर्जन्म और निर्वाण की खोज के इर्द-गिर्द घूमता था। सबसे ऊंचा आदर्श अक्सर यही माना जाता था कि दुनियावी मोह छोड़ दिया जाए और जन्म-मरण के चक्र से छुटकारा पाया जाए। बौद्ध परंपरा में मठ के जीवन की अहम जगह थी। कुछ ग्रंथों में अपने समय के सामाजिक रवैये भी झलकते थे, जिनमें औरतों पर लगायी गयी पाबंदियां भी शामिल थीं।",
+  "आंबेडकर मानते थे कि आधुनिक भारत में दलितों के सामने खड़ी समस्याओं को सुलझाने के लिए ये विचार काफ़ी नहीं थे। उनके अनुयायियों को इसी जीवन में शिक्षा, रोज़गार, राजनीतिक अधिकार और सामाजिक बराबरी चाहिए थी। वे आने वाले जन्मों में बेहतर पुनर्जन्म का इंतज़ार नहीं कर सकते थे। उनकी नज़र में धर्म ऐसा होना चाहिए जो लोगों को समाज से किनारा करने के बजाय उसे बदलने में मदद करे।",
+  "इसीलिए उन्होंने नवयान बौद्ध धर्म की रचना की। नवयान ने ख़ुद बुद्ध को नहीं नकारा। इसके बजाय उसने एक आधुनिक लोकतांत्रिक समाज के लिए बुद्ध के संदेश की नयी व्याख्या की। आंबेडकर ने कर्म, पुनर्जन्म, चमत्कारों और निर्वाण को कम अहमियत दी। उनकी जगह उन्होंने तर्क, बराबरी, करुणा, आज़ादी और सामाजिक न्याय पर ध्यान दिया। वह बौद्ध धर्म को सिर्फ़ निजी मोक्ष पाने के रास्ते के बजाय एक न्यायपूर्ण समाज बनाने की राह दिखाने वाले के रूप में देखते थे।",
+  "आंबेडकर ने उन रिवाजों को भी ठुकराया जिनके बारे में उनका मानना था कि वे जातिगत बंटवारे को और पक्का करते हैं। उन्होंने इस विचार का विरोध किया कि शाकाहार पवित्रता का पैमाना है, क्योंकि ऐसे विचारों का इस्तेमाल अक्सर समुदायों को एक-दूसरे से अलग करने के लिए होता रहा था। उन्होंने लैंगिक बराबरी का पुरज़ोर समर्थन किया और कहा कि औरतों को भी मर्दों जितने ही अधिकार मिलने चाहिए। उनकी व्याख्या में बौद्ध धर्म अकेले भिक्षुओं का नहीं, सक्रिय नागरिकों का धर्म बन गया।",
+  "## बीसवीं सदी के भारत की हक़ीक़तों का जवाब",
+  "आंबेडकर का यह फ़ैसला ऐसे वक़्त में भी आया जब कई समूह बुद्ध को अपने-अपने मक़सद के लिए अपनाने की कोशिश कर रहे थे। महात्मा गांधी बुद्ध के अहिंसा और करुणा पर ज़ोर के क़ायल थे। जवाहरलाल नेहरू सम्राट अशोक का गुणगान करते थे, जिन्होंने कलिंग युद्ध के बाद बौद्ध धर्म फैलाया था, और उन्हें शांतिपूर्ण नेतृत्व की मिसाल मानते थे।",
+  "कुछ हिंदू विचारकों का तर्क था कि बुद्ध व्यापक हिंदू परंपरा के भीतर बस एक और महान गुरु थे। कुछ दूसरे लोग प्राचीन काल में भारत की सैनिक ताक़त कमज़ोर करने के लिए बौद्ध धर्म की आलोचना करते थे। आंबेडकर ने इन सारी व्याख्याओं को ख़ारिज कर दिया। सामूहिक धर्मांतरण की अगुवाई करके उन्होंने बौद्ध धर्म को सामाजिक बराबरी के आंदोलन में बदल दिया।",
+  "नवयान बौद्ध धर्म आज भी पुरानी बौद्ध परंपराओं से अलग है, और कुछ बौद्ध विद्वान आंबेडकर की व्याख्या से असहमत हैं। लेकिन इस पर हमें हैरानी नहीं होनी चाहिए। बौद्ध धर्म इससे पहले भी कई बार बदल चुका था, आरंभिक बौद्ध धर्म से थेरवाद, महायान और वज्रयान तक। नवयान ढलने की इसी लंबी प्रक्रिया का एक और पड़ाव था। उसने प्राचीन ग्रंथों में मिलने वाले हर विचार को दोहराने के बजाय बीसवीं सदी के भारत की हक़ीक़तों का जवाब दिया।",
+  "आंबेडकर समझते थे कि धर्म भी समाज को उतना ही गढ़ सकता है जितना क़ानून। संविधान ने दलितों को क़ानूनी बराबरी दी, लेकिन उनका मानना था कि उन्हें एक ऐसी नैतिक और आध्यात्मिक पहचान की भी ज़रूरत है जो उनकी गरिमा को मान्यता दे। बौद्ध धर्म की नयी कल्पना करके उन्होंने एक ऐसा आंदोलन खड़ा किया जिसने लाखों लोगों को उम्मीद, आत्म-सम्मान और अपनेपन का एहसास दिया। कोई नवयान के हर पहलू से सहमत हो या न हो, यह इस बात की सबसे अहम मिसालों में से एक है कि एक प्राचीन धर्म को आधुनिक लोकतांत्रिक समाज की चुनौतियों से जूझने के लिए किस तरह नया रूप दिया गया।"
+ ],
+ "sawal": "धर्म दुनिया से छुटकारा दे, या दुनिया बदलने का हौसला?",
+ "homePoints": [
+  "आंबेडकर ने 1956 में बौद्ध धर्म अपनाकर जाति के ख़िलाफ़ बयान दिया।",
+  "नवयान ने कर्म और पुनर्जन्म की जगह तर्क और बराबरी को रखा।",
+  "बौद्ध धर्म पहले भी थेरवाद, महायान और वज्रयान के रूप में बदला था।"
+ ],
+ "author": {
+  "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+  "site": "https://devdutt.com",
+  "hi": {
+   "name": "देवदत्त पटनायक",
+   "role": "मिथकशास्त्री, लेखक, चित्रकार",
+   "bio": [
+    "मिथकों को कहानियों, प्रतीकों और रस्मों से पढ़ने वाले लेखक, चित्रकार और वक्ता। वह मिथक को किसी संस्कृति का व्यक्तिपरक सत्य मानते हैं, यानी वह तरीक़ा जिससे कोई समाज ज़िंदगी को कल्पना में देखता है।",
+    "पेशे से डॉक्टर रहे। क़रीब पंद्रह साल दवा और स्वास्थ्य उद्योग में काम किया, फिर कारोबारी सलाहकार बने और फ़्यूचर ग्रुप में चीफ़ बिलीफ़ ऑफ़िसर रहे। आख़िर में लिखना ही पेशा बन गया। पचास से ज़्यादा किताबें, एक हज़ार से ज़्यादा स्तंभ और पंद्रह भाषाओं में अनुवाद। टेलीविज़न पर देवलोक और बिज़नेस सूत्र जैसे कार्यक्रम भी उन्हीं के नाम हैं।"
+   ]
+  },
+  "en": {
+   "name": "Devdutt Pattanaik",
+   "role": "Mythologist, author, illustrator",
+   "bio": [
+    "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+    "A doctor by training, he spent about fifteen years in the pharma and health industry, became a business consultant and served as Chief Belief Officer at the Future Group, before writing became his profession. He has written over fifty books and over a thousand columns, translated into fifteen languages, and television programmes such as Devlok and Business Sutra carry his name."
+   ]
+  },
+  "ur": {
+   "name": "دیودت پٹنایک",
+   "role": "اساطیر کے ماہر، مصنف، مصور",
+   "bio": [
+    "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+    "پیشے سے ڈاکٹر رہے۔ تقریباً پندرہ سال دوا اور صحت کی صنعت میں کام کیا، پھر کاروباری مشیر بنے اور فیوچر گروپ میں چیف بیلیف آفیسر رہے۔ آخر میں لکھنا ہی پیشہ بن گیا۔ پچاس سے زیادہ کتابیں، ایک ہزار سے زیادہ کالم اور پندرہ زبانوں میں ترجمے۔ ٹیلی ویژن پر دیولوک اور بزنس سوتر جیسے پروگرام بھی انہی کے نام ہیں۔"
+   ]
+  }
+ },
+ "allBooksUrl": "https://devdutt.com/category/translations/hindi/?tag=books/",
+ "midBook": 0,
+ "books": [
+  {
+   "url": "https://www.amazon.in/dp/9389915880",
+   "c": "#2E3F8F",
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9391242677",
+   "c": "#A63E26",
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/014345613X",
+   "c": "#1F2126",
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9389373840",
+   "c": "#8A5E0F",
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
+  }
+ ],
+ "en": {
+  "h": "How Buddhism Became Navayana",
+  "dek": "How BR Ambedkar turned Buddhism into a movement for social equality.",
+  "by": "Devdutt Pattanaik",
+  "tag": "Special Hamsafar",
+  "translationNote": "",
+  "note": "The Buddhism Ambedkar embraced in Nagpur on 14 October 1956 was not the Buddhism of the old monasteries. In this piece Devdutt Pattanaik explains why and how Ambedkar reshaped it as Navayana. In his telling, Buddhism has changed again and again over two and a half thousand years, and Navayana is one more stage of that change. Ambedkar moved reason, equality, liberty and social justice to the centre, in place of karma, rebirth and nirvana. For him religion was a way to change the world, not to escape it. The piece also reminds us that Gandhi, Nehru and some Hindu thinkers were all claiming the Buddha in their own ways. For today's debates on caste, this short, clear essay offers necessary context.",
+  "pull": "In his interpretation, Buddhism became a religion of active citizens rather than isolated monks.",
+  "body": [
+   "When Dr BR Ambedkar converted to Buddhism on 14 October 1956 in Nagpur, he was not simply changing his religion. He was making a powerful social and political statement. However, the Buddhism he adopted was not exactly the same as the Buddhism taught in ancient monasteries. He reshaped it into a new form called Navayana, or the “New Vehicle”. To understand why he did this, we must first understand how Buddhism itself had changed over time.",
+   "By the twentieth century, Buddhism had existed in many forms for over two thousand five hundred years. Each tradition interpreted the Buddha’s teachings differently, but they still shared certain core ideas such as karma, rebirth, nirvana, and the importance of spiritual liberation.",
+   "This long evolution is often missing from discussions today. Many people speak of Buddhism as if it had remained unchanged since the Buddha’s lifetime. In reality, Buddhism had always adapted to different societies and historical conditions. Ambedkar’s Navayana became another stage in this long history of change.",
+   "## Why Ambedkar chose Buddhism",
+   "Ambedkar represented communities that had suffered under the caste system for centuries. Dalits, then called untouchables, faced severe discrimination. They were denied access to temples, schools, wells, and many public spaces. Even if they worked hard or became educated, caste often prevented them from being treated as equals. Ambedkar believed that legal reforms alone would not remove this deep social prejudice. As long as Dalits remained within the Hindu social order, caste would continue to define their lives.",
+   "He therefore concluded that liberation required leaving Hinduism altogether. In 1935, he famously declared, “I was born a Hindu, but I will not die a Hindu.” The question then became: which religion should replace it?",
+   "Ambedkar studied many religions before making his decision. He examined Christianity, Islam, Sikhism, and Buddhism. Buddhism attracted him because it had originated in India, rejected the authority of the Vedas, and questioned the caste system. The Buddha had accepted people from different social backgrounds into the Sangha and had emphasised morality over birth.",
+   "## How Navayana reinterpreted Buddha’s message",
+   "Yet traditional Buddhism also contained ideas that did not align with Ambedkar’s goals. Much of Buddhist philosophy centred on karma, rebirth, and the search for nirvana. The highest ideal was often to leave behind worldly attachments and escape the cycle of birth and death. Monastic life occupied an important place in Buddhist tradition. Some texts also reflected social attitudes of their own time, including limitations placed on women.",
+   "Ambedkar believed that these ideas were not enough to solve the problems facing Dalits in modern India. His followers needed education, employment, political rights, and social equality in this life. They could not wait for better rebirths in future lives. Religion, in his view, should help people transform society rather than withdraw from it.",
+   "This is why he created Navayana Buddhism. Navayana did not reject the Buddha himself. Instead, it reinterpreted the Buddha’s message for a modern democratic society. Ambedkar gave less importance to karma, rebirth, miracles, and nirvana. Instead, he focused on reason, equality, compassion, liberty, and social justice. He saw Buddhism as a guide for building a fair society rather than simply achieving personal salvation.",
+   "Ambedkar also rejected practices that he believed reinforced caste divisions. He opposed the idea that vegetarianism was a measure of purity because such ideas had often been used to separate communities. He strongly supported gender equality and argued that women should enjoy the same rights as men. In his interpretation, Buddhism became a religion of active citizens rather than isolated monks.",
+   "## Responding to realities of twentieth-century India",
+   "Ambedkar’s decision also came at a time when many groups were trying to claim the Buddha for their own purposes. Mahatma Gandhi admired the Buddha’s emphasis on non-violence and compassion. Jawaharlal Nehru celebrated Emperor Ashoka, who had spread Buddhism after the Kalinga War, as an example of peaceful leadership.",
+   "Some Hindu thinkers argued that the Buddha was simply another great teacher within the broader Hindu tradition. Others criticised Buddhism for weakening India’s military strength in ancient times. Ambedkar rejected all these interpretations. By leading a mass conversion, he transformed Buddhism into a movement for social equality.",
+   "Navayana Buddhism remains different from older Buddhist traditions, and some Buddhist scholars disagree with Ambedkar’s interpretation. However, this should not surprise us. Buddhism had changed many times before, from early Buddhism to Theravada, Mahayana, and Vajrayana. Navayana was another stage in this long process of adaptation. It responded to the realities of twentieth-century India instead of repeating every idea found in ancient texts.",
+   "Ambedkar understood that religion could shape society as much as laws could. The Constitution gave Dalits legal equality, but he believed they also needed a moral and spiritual identity that affirmed their dignity. By reimagining Buddhism, he created a movement that offered millions of people hope, self-respect, and a sense of belonging. Whether one agrees with every aspect of Navayana or not, it remains one of the most important examples of how an ancient religion was reshaped to meet the challenges of a modern democratic society."
+  ],
+  "sawal": "Should religion offer escape from the world, or courage to change it?",
+  "homePoints": [
+   "By embracing Buddhism in 1956, Ambedkar made a statement against caste.",
+   "Navayana put reason and equality in place of karma and rebirth.",
+   "Buddhism had changed before, as Theravada, Mahayana and Vajrayana."
+  ]
+ },
+ "ur": {
+  "h": "بدھ سے نویان تک: امبیڈکر کا نیا راستہ",
+  "dek": "امبیڈکر نے بدھ مت کو سماجی برابری کی تحریک میں کیسے بدلا۔",
+  "by": "دیودت پٹنایک",
+  "tag": "خصوصی ہم سفر",
+  "translationNote": "اردو ترجمہ: دیش کال",
+  "note": "ناگپور میں 14 اکتوبر 1956 کو امبیڈکر نے جو بدھ مت قبول کیا، وہ پرانی خانقاہوں والا بدھ مت نہیں تھا۔ دیودت پٹنایک اس مضمون میں بتاتے ہیں کہ امبیڈکر نے اسے نویان کی شکل میں کیوں اور کیسے نئے سرے سے گڑھا۔ ان کے مطابق بدھ مت ڈھائی ہزار برسوں میں بار بار بدلا ہے، اور نویان اسی تبدیلی کا ایک اور پڑاؤ ہے۔ امبیڈکر نے کرم، پنرجنم اور نروان کی جگہ عقل، برابری، آزادی اور سماجی انصاف کو بیچ میں رکھا۔ ان کے لیے مذہب دنیا سے بھاگنے کا نہیں، اسے بدلنے کا راستہ تھا۔ مضمون یہ بھی یاد دلاتا ہے کہ گاندھی، نہرو اور کچھ ہندو مفکرین، سب بدھ کو اپنے اپنے ڈھنگ سے اپنا رہے تھے۔ ذات پات پر آج کی بحثوں کے لیے یہ مختصر اور صاف مضمون ایک ضروری پس منظر دیتا ہے۔",
+  "pull": "ان کی تشریح میں بدھ مت اکیلے بھکشوؤں کا نہیں، سرگرم شہریوں کا مذہب بن گیا۔",
+  "body": [
+   "جب ڈاکٹر بی آر امبیڈکر نے 14 اکتوبر 1956 کو ناگپور میں بدھ مت قبول کیا، تو وہ صرف اپنا مذہب نہیں بدل رہے تھے۔ وہ ایک زوردار سماجی اور سیاسی بیان دے رہے تھے۔ لیکن جو بدھ مت انہوں نے اپنایا، وہ بالکل ویسا نہیں تھا جیسا قدیم خانقاہوں میں سکھایا جاتا تھا۔ انہوں نے اسے ایک نئی شکل میں ڈھالا، جسے نویان یعنی “نئی سواری” کہا گیا۔ انہوں نے ایسا کیوں کیا، یہ سمجھنے کے لیے پہلے یہ سمجھنا ہوگا کہ خود بدھ مت وقت کے ساتھ کیسے بدلتا رہا تھا۔",
+   "بیسویں صدی تک بدھ مت ڈھائی ہزار سال سے زیادہ عرصے سے کئی شکلوں میں موجود تھا۔ ہر روایت نے بدھ کی تعلیمات کو اپنے ڈھنگ سے سمجھا، پھر بھی کچھ بنیادی خیالات سب میں مشترک رہے، جیسے کرم، پنرجنم، نروان اور روحانی نجات کی اہمیت۔",
+   "یہ لمبا ارتقا آج کی بحثوں سے اکثر غائب رہتا ہے۔ بہت سے لوگ بدھ مت کی بات ایسے کرتے ہیں جیسے وہ بدھ کے زمانے سے جوں کا توں چلا آ رہا ہو۔ اصل میں بدھ مت ہمیشہ الگ الگ سماجوں اور تاریخی حالات کے مطابق خود کو ڈھالتا رہا۔ امبیڈکر کا نویان تبدیلی کی اسی لمبی تاریخ کا ایک اور پڑاؤ بنا۔",
+   "## امبیڈکر نے بدھ مت کیوں چنا",
+   "امبیڈکر ان برادریوں کے نمائندے تھے جنہوں نے صدیوں تک ذات پات کے نظام کی مار جھیلی تھی۔ دلتوں کو، جنہیں تب اچھوت کہا جاتا تھا، شدید امتیاز کا سامنا کرنا پڑتا تھا۔ انہیں مندروں، اسکولوں، کنوؤں اور بہت سی عوامی جگہوں سے دور رکھا جاتا تھا۔ وہ کتنی بھی محنت کر لیں یا پڑھ لکھ جائیں، ذات اکثر انہیں برابری کا درجہ پانے سے روک دیتی تھی۔ امبیڈکر مانتے تھے کہ صرف قانونی اصلاحات سے یہ گہرا سماجی تعصب نہیں مٹے گا۔ جب تک دلت ہندو سماجی نظام کے اندر رہیں گے، ذات ہی ان کی زندگی طے کرتی رہے گی۔",
+   "اس لیے وہ اس نتیجے پر پہنچے کہ نجات کے لیے ہندو مذہب کو پوری طرح چھوڑنا ہوگا۔ 1935 میں انہوں نے وہ مشہور اعلان کیا: “میں ہندو پیدا ہوا، لیکن ہندو مروں گا نہیں۔” پھر سوال اٹھا: اس کی جگہ کون سا مذہب لے؟",
+   "فیصلہ کرنے سے پہلے امبیڈکر نے کئی مذاہب کا مطالعہ کیا۔ انہوں نے عیسائیت، اسلام، سکھ مت اور بدھ مت کو پرکھا۔ بدھ مت انہیں اس لیے کھینچ رہا تھا کہ وہ ہندوستان ہی میں پیدا ہوا تھا، اس نے ویدوں کی سند کو رد کیا تھا اور ذات پات کے نظام پر سوال اٹھائے تھے۔ بدھ نے مختلف سماجی پس منظر کے لوگوں کو سنگھ میں جگہ دی تھی اور پیدائش سے زیادہ اخلاق پر زور دیا تھا۔",
+   "## نویان نے بدھ کے پیغام کو نئے سرے سے کیسے پڑھا",
+   "پھر بھی روایتی بدھ مت میں ایسے خیالات بھی تھے جو امبیڈکر کے مقاصد سے میل نہیں کھاتے تھے۔ بدھ فلسفے کا بڑا حصہ کرم، پنرجنم اور نروان کی تلاش کے گرد گھومتا تھا۔ سب سے اونچا آدرش اکثر یہی مانا جاتا تھا کہ دنیاوی لگاؤ چھوڑ دیا جائے اور جنم مرن کے چکر سے چھٹکارا پایا جائے۔ بدھ روایت میں خانقاہی زندگی کی اہم جگہ تھی۔ کچھ متون میں اپنے زمانے کے سماجی رویے بھی جھلکتے تھے، جن میں عورتوں پر لگائی گئی پابندیاں بھی شامل تھیں۔",
+   "امبیڈکر مانتے تھے کہ جدید ہندوستان میں دلتوں کے سامنے کھڑے مسائل کو حل کرنے کے لیے یہ خیالات کافی نہیں تھے۔ ان کے پیروکاروں کو اسی زندگی میں تعلیم، روزگار، سیاسی حقوق اور سماجی برابری چاہیے تھی۔ وہ آنے والے جنموں میں بہتر پنرجنم کا انتظار نہیں کر سکتے تھے۔ ان کی نظر میں مذہب ایسا ہونا چاہیے جو لوگوں کو سماج سے کنارہ کرنے کے بجائے اسے بدلنے میں مدد دے۔",
+   "اسی لیے انہوں نے نویان بدھ مت کی بنیاد رکھی۔ نویان نے خود بدھ کو رد نہیں کیا۔ اس کے بجائے اس نے ایک جدید جمہوری سماج کے لیے بدھ کے پیغام کی نئی تشریح کی۔ امبیڈکر نے کرم، پنرجنم، معجزوں اور نروان کو کم اہمیت دی۔ ان کی جگہ انہوں نے عقل، برابری، رحم دلی، آزادی اور سماجی انصاف پر توجہ دی۔ وہ بدھ مت کو صرف ذاتی نجات پانے کے راستے کے بجائے ایک منصفانہ سماج بنانے کی رہنمائی کے طور پر دیکھتے تھے۔",
+   "امبیڈکر نے ان رواجوں کو بھی ٹھکرایا جن کے بارے میں ان کا ماننا تھا کہ وہ ذات پات کی تقسیم کو اور پکا کرتے ہیں۔ انہوں نے اس خیال کی مخالفت کی کہ سبزی خوری پاکیزگی کا پیمانہ ہے، کیونکہ ایسے خیالات کا استعمال اکثر برادریوں کو ایک دوسرے سے الگ کرنے کے لیے ہوتا رہا تھا۔ انہوں نے صنفی برابری کی پرزور حمایت کی اور کہا کہ عورتوں کو بھی مردوں جتنے ہی حقوق ملنے چاہئیں۔ ان کی تشریح میں بدھ مت اکیلے بھکشوؤں کا نہیں، سرگرم شہریوں کا مذہب بن گیا۔",
+   "## بیسویں صدی کے ہندوستان کی حقیقتوں کا جواب",
+   "امبیڈکر کا یہ فیصلہ ایسے وقت میں بھی آیا جب کئی گروہ بدھ کو اپنے اپنے مقصد کے لیے اپنانے کی کوشش کر رہے تھے۔ مہاتما گاندھی بدھ کے عدم تشدد اور رحم دلی پر زور کے قائل تھے۔ جواہر لال نہرو شہنشاہ اشوک کی تعریف کرتے تھے، جنہوں نے کلنگ کی جنگ کے بعد بدھ مت پھیلایا تھا، اور انہیں پرامن قیادت کی مثال مانتے تھے۔",
+   "کچھ ہندو مفکرین کی دلیل تھی کہ بدھ وسیع ہندو روایت کے اندر بس ایک اور عظیم گرو تھے۔ کچھ دوسرے لوگ قدیم زمانے میں ہندوستان کی فوجی طاقت کمزور کرنے کے لیے بدھ مت پر تنقید کرتے تھے۔ امبیڈکر نے ان سب تشریحات کو رد کر دیا۔ اجتماعی طور پر مذہب کی تبدیلی کی قیادت کر کے انہوں نے بدھ مت کو سماجی برابری کی تحریک میں بدل دیا۔",
+   "نویان بدھ مت آج بھی پرانی بدھ روایتوں سے الگ ہے، اور کچھ بدھ عالم امبیڈکر کی تشریح سے اتفاق نہیں کرتے۔ لیکن اس پر ہمیں حیرت نہیں ہونی چاہیے۔ بدھ مت اس سے پہلے بھی کئی بار بدل چکا تھا، ابتدائی بدھ مت سے تھیرواد، مہایان اور وجریان تک۔ نویان ڈھلنے کے اسی لمبے عمل کا ایک اور پڑاؤ تھا۔ اس نے قدیم متون میں ملنے والے ہر خیال کو دہرانے کے بجائے بیسویں صدی کے ہندوستان کی حقیقتوں کا جواب دیا۔",
+   "امبیڈکر سمجھتے تھے کہ مذہب بھی سماج کو اتنا ہی گڑھ سکتا ہے جتنا قانون۔ آئین نے دلتوں کو قانونی برابری دی، لیکن ان کا ماننا تھا کہ انہیں ایک ایسی اخلاقی اور روحانی پہچان کی بھی ضرورت ہے جو ان کے وقار کو تسلیم کرے۔ بدھ مت کا نیا تصور پیش کر کے انہوں نے ایک ایسی تحریک کھڑی کی جس نے لاکھوں لوگوں کو امید، عزت نفس اور اپنائیت کا احساس دیا۔ کوئی نویان کے ہر پہلو سے متفق ہو یا نہ ہو، یہ اس بات کی سب سے اہم مثالوں میں سے ایک ہے کہ ایک قدیم مذہب کو جدید جمہوری سماج کے چیلنجوں سے نمٹنے کے لیے کس طرح نئی شکل دی گئی۔"
+  ],
+  "sawal": "مذہب دنیا سے چھٹکارا دے، یا دنیا بدلنے کا حوصلہ؟",
+  "homePoints": [
+   "امبیڈکر نے 1956 میں بدھ مت قبول کر کے ذات پات کے خلاف بیان دیا۔",
+   "نویان نے کرم اور پنرجنم کی جگہ عقل اور برابری کو رکھا۔",
+   "بدھ مت پہلے بھی تھیرواد، مہایان اور وجریان کی شکل میں بدلا تھا۔"
+  ]
+ },
+ "firstPub": {
+  "hi": "यह लेख सबसे पहले इंडियन एक्सप्रेस में छपा था।",
+  "en": "This article first appeared in the Indian Express.",
+  "ur": "یہ مضمون سب سے پہلے انڈین ایکسپریس میں شائع ہوا تھا۔"
+ }
+}
