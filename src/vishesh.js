@@ -156,7 +156,7 @@ module.exports = function (H) {
     ${(t.sawal || w.sawal) ? `<aside class="vh-sawal"><span>${X.thinkTitle}</span><p>${esc(t.sawal || w.sawal)}</p></aside>` : ""}
     ${refsBlock}
     ${authorBox(w, lg, X)}
-    ${pageSrcUrl && w.firstPub ? `<p class="vh-first">${esc(w.firstPub[lg] || w.firstPub.hi)}</p>` : ""}
+    ${w.firstPub ? `<p class="vh-first">${esc(w.firstPub[lg] || w.firstPub.hi)}</p>` : ""}
     ${pageSrcUrl ? `<a class="vh-original" href="${esc(pageSrcUrl)}" target="_blank" rel="noopener"><span>${esc(pageSrc)}${pageSrcDate ? ` · ${esc(pageSrcDate)}` : ""}</span><strong>${X.originalLink}</strong><i aria-hidden="true">↗</i></a>` : ""}
     ${rightsText ? `<p class="vh-rights">${esc(rightsText)}</p>` : ""}
 
