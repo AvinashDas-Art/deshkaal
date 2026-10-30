@@ -521,9 +521,10 @@ module.exports = function (H) {
   }
 
   /* नोट में [शीर्षक](/hamsafar/...) जैसी कड़ी: उसी भाषा के पन्ने पर ले जाए */
-  const mdLink = (t, lg = "hi") => esc(t).replace(/\[\[kamal-email\]\]/g, '<a href="mailto:kranti.koria%40gmail.com">kranti.koria@gmail.com</a>').replace(/\[([^\]]+)\]\((\/[^)\s]+)\)/g, (m, a, u) => {
+  const mdLink = (t, lg = "hi") => esc(t).replace(/\[\[kamal-email\]\]/g, '<a href="mailto:kranti.koria%40gmail.com">kranti.koria@gmail.com</a>').replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)\s]+)\)/g, (m, a, u) => {
     const href = u.startsWith("/hamsafar/") && lg !== "hi" ? "/" + lg + u : u;
-    return `<a href="${href}">${a}</a>`;
+    const ext = /^https?:/.test(u) ? ' target="_blank" rel="noopener nofollow"' : "";
+    return `<a href="${href}"${ext}>${a}</a>`;
   });
 
   /* एक रचना का पन्ना */
