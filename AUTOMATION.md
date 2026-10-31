@@ -68,6 +68,7 @@ Snippets are enough for discovery, for a `khabar` or live-wall line, and for che
 - Body: 4-5 short paragraphs, 220-320 words. Enough to understand the argument, not a replacement for reading the original.
 - `nazar` (देशकाल की नज़र): 1-2 short paragraphs on what it means for India and for the people named in the editorial policy. Opinion is clearly ours.
 - `sawal`: one question, under 12 words, that stays with the reader.
+  **Freshness (owner's rule, 31 Oct 2026):** the lead's `sawal` prints on the home page as "आज का सवाल", so it must never sound like an earlier one. Build it from this piece's own particular argument, image or fact (a place, a figure, a turn in the writer's reasoning), not from a general complaint. Retired formulas, never use them: "X कब से जुर्म/गुनाह/अपराध हो गया?", "कब से ... बन गया?", and other "since when" questions. Before writing the day file, compare every new `sawal` with all earlier ones in `data/days/*.json` (python: exact repeats, and questions sharing the same frame or key words). Change any question that repeats or echoes one, and also vary the frames within the day.
 - `ref` (संदर्भ): 1-2 terms or events a general reader may not know, two lines each.
 - Headline (`h`): our own, sharp, under 12 words. Dek: one sentence.
 - Spelling: अनुस्वार, never चंद्रबिंदु (हां, यहां, पहुंच). Never em dash or en dash; use comma or hyphen. गये/गयी (not गए/गई). रोशनदान (not रौशनदान). शृंखला, शृंगार (not श्रृंखला, श्रृंगार: never श्रृ). हुई (not हुयी). जाएगा/जाएगी. संपूर्ण. अन्य. Correct नुक़्ता (ज़िंदगी, फ़ैसला, ख़ामोशी).
