@@ -1777,3 +1777,18 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .vh-refs li a:hover{color:var(--lal)}
 .vh-refs li span{display:block;font:400 13px/1.5 var(--f-ui);color:var(--ink-2)}
 @media (prefers-reduced-motion:reduce){.nbc figure{animation:none}}
+
+/* विशेष ख़बर-खंड: ज्ञानेश कुमार पर जनता का महाभियोग (sec "rajaji"), विशेष हमसफ़र के ऊपर */
+.rajaji{margin:34px 0 8px}
+.sec-rajaji h3::before{border-radius:0}
+.rj-lead{border-top:3px solid var(--ink);border-bottom:1px solid var(--rule,#cfc6bd);padding:22px 0;margin-bottom:6px}
+.rj-lead>a{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:30px;align-items:center;text-decoration:none;color:inherit}
+.rj-lead .art{width:100%;height:auto;aspect-ratio:4/3;display:block}
+.rj-lead .in{min-width:0}
+.rj-lead .kicker{margin:0 0 10px}
+.rj-lead h3{font-family:var(--f-head);font-weight:500;font-size:clamp(28px,3.8vw,46px);line-height:1.2;margin:0;text-wrap:balance}
+.rj-lead .dek{font-size:18px;color:var(--ink-2);line-height:1.7;margin:14px 0 0}
+.rajaji .clist article{padding-block:18px}
+.rajaji .clist .dek{font-size:16.5px;color:var(--ink-2);margin:6px 0 0;line-height:1.65}
+.rajaji .clist h4{font-size:22px}
+@media(max-width:760px){.rj-lead>a{grid-template-columns:1fr;gap:16px}}
