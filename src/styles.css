@@ -1200,6 +1200,9 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
   .grid.g3.gv2>.card>a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 22px;align-items:start}
   .grid.g3.gv2>.card .art{margin:0;aspect-ratio:4/3}
   .grid.g3.gv2>.card:last-child:nth-child(odd){grid-column:1/-1}
+  /* अकेला या पूरी चौड़ाई वाला आड़ा कार्ड (जैसे गांव-जवार की एक ही ख़बर):
+     शीर्षक और प्रस्तुति तस्वीर के ठीक बीच में, ऊपर से नहीं */
+  .grid.g3.gv2>.card:last-child:nth-child(odd)>a{align-items:center}
   /* gv3: क्रमांक वाले कार्ड */
   .grid.g3.gv3{counter-reset:gv}
   .grid.g3.gv3>.card{counter-increment:gv;position:relative}
