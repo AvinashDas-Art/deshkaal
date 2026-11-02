@@ -49,7 +49,8 @@ const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${es
 
 /* ---------- data ---------- */
 const dayFiles = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse();
-const DAYS_HI = dayFiles.map(f => ({ date: f.slice(0, 10), items: JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8")) }));
+const DAYS_HI = dayFiles.map(f => { const j = JSON.parse(fs.readFileSync(path.join("data/days", f), "utf8"));
+  return Array.isArray(j) ? { date: f.slice(0, 10), items: j } : { date: f.slice(0, 10), items: j.items, voices: j.voices }; });
 if (!DAYS_HI.length) throw new Error("data/days में कोई दिन नहीं मिला");
 require("./src/validate-days.js").validateDays(DAYS_HI);
 /* हर टिप्पणी का खंड (sec): amukh आमुख, vichar संपादकीय टिप्पणियां, khabar कल की ख़बरें, pari देहात की ख़बरें, video रोशनदान, sahitya साहित्य. */
@@ -74,7 +75,8 @@ function daysFor(l) {
       if (a.photo) m.photo = { ...a.photo, note: t.photo_note || "", credit: t.photo_credit || (CREDIT_TR[l] || {})[a.photo.credit] || a.photo.credit };
       if (a.chart && t.chart) m.chart = { ...a.chart, ...t.chart };
       return m; });
-    return items.length ? { date: d.date, items } : null;
+    const lv = d.voices && d.voices.map(v => (tr[v.id] && tr[v.id].voice ? { ...v, ...tr[v.id].voice } : v));
+    return items.length ? { date: d.date, items, voices: lv || d.voices } : null;
   }).filter(Boolean);
 }
 const HAS = Object.fromEntries(LANGS.map(l => [l, new Set(daysFor(l).flatMap(d => d.items.map(a => a.id)))]));
@@ -267,8 +269,33 @@ const heroPick = d => { const t = new Date(d + "T00:00:00Z"); if (t.getUTCDay() 
 const presPick = (d, n) => { const k = dayNo(d); const gv = (k + Math.floor(k / 4)) % 4, kv = (k + Math.floor(k / 5)) % 4;
   const ok = (v, c) => v === 1 && !(c >= 6 && c % 3 === 0) ? 2 : v;
   return { vichar: ok(gv, n.vichar), pari: ok((gv + 2) % 4, n.pari), khabar: kv }; };
+function heroRally(L, kick) {
+  const R = { hi: { tag: "विशेष कवरेज", sub: "रामलीला मैदान · 1 नवंबर 2026 · सात भाषण, एक मंच", more: "पूरी कवरेज पढ़िए", of: "नेताओं की आवाज़ें" },
+    en: { tag: "Special coverage", sub: "Ramlila Maidan · 1 November 2026 · seven speeches, one stage", more: "Read the full coverage", of: "The voices" },
+    ur: { tag: "خصوصی کوریج", sub: "رام لیلا میدان · 1 نومبر 2026 · سات تقریریں، ایک اسٹیج", more: "پوری کوریج پڑھیں", of: "آوازیں" } }[LG] || {};
+  const v = (today.voices || []).slice(0, 7);
+  const [a1, a2] = splitHead(L.h);
+  return `<section class="hero-rally" data-id="${esc(L.id)}">
+  <div class="hrl-top"><span class="hrl-tag">${esc(R.tag)}</span><span class="hrl-sub">${esc(R.sub)}</span></div>
+  <div class="hrl-main">
+    <div class="hrl-copy">
+      <p class="kicker">${esc(kick)} · ${cn(L.cat)}</p>
+      <a href="${href(L)}"><h2 class="hrl-h"><span class="acc">${esc(a1)}</span> ${esc(a2)}</h2></a>
+      <p class="hrl-dek">${esc(L.dek)}</p>
+      <p class="hrl-first">${esc(L.body[0])}</p>
+      <div class="hrl-ank">${(L.ank || []).slice(0, 4).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>
+      <div class="hrl-foot"><a class="hrl-more" href="${href(L)}">${esc(R.more)} →</a><p class="hrl-credit">${L.photo ? `${esc(L.photo.note || "")} · ${esc(T.photo)}: ${esc(L.photo.credit)}` : ""}</p></div>
+    </div>
+    <div class="hrl-faces" aria-label="${esc(R.of)}">
+      <a class="hrl-hero-face" href="${href(L)}"><img src="${esc(L.photo ? L.photo.src : "")}" width="640" height="800" alt="${esc(L.by)}" loading="eager"></a>
+      <div class="hrl-strip">${v.map(x => `<a href="${href({ id: x.id })}" title="${esc(x.name)}"><img src="${esc(x.photo)}" width="120" height="150" alt="${esc(x.name)}" loading="lazy"><span>${esc(x.name.split(" ")[0])}</span></a>`).join("")}</div>
+    </div>
+  </div>
+</section>`;
+}
 function hero(L, kick = T.bigDebate) {
   const type = LG === "ur" && L.hero === "shabd" ? "poster" : (L.hero || "poster");
+  if (type === "rally") return heroRally(L, kick);
   if (type === "shabd" && L.shabd) return `<section class="hero hero-shabd">
     <a class="shabd-art" href="${href(L)}" tabindex="-1">${art(L, "", L.shabd)}</a>
     <div class="shabd-grid"><div>${heroText(L, kick)}${ankBlock(L)}</div><div>${heroFoot(L)}</div></div></section>`;
@@ -344,7 +371,9 @@ function morchaSet(ds, upto) {
   if (!SPECIAL.active) return null;
   const d = ds.find(x => x.date <= upto && x.date >= (SPECIAL.since || "") && x.items.some(a => a.sec === "morcha"));
   if (!d) return null;
-  const its = d.items.filter(a => a.sec === "morcha"), lead = its.find(a => a.lead) || its[0], rest = its.filter(a => a !== lead);
+  const its = d.items.filter(a => a.sec === "morcha"), lead = its.find(a => a.lead) || its[0];
+  const voiced = new Set(((d.voices) || []).map(v => v.id));   /* नेता-स्वर में जो भाषण दिख रहे हैं, वे ग्रिड में दोहराए न जाएं */
+  const rest = its.filter(a => a !== lead && !voiced.has(a.id));
   return { day: d.date, lead, six: rest.slice(0, 6), more: rest.slice(6) };
 }
 const morchaAll = () => all.filter(a => a.sec === "morcha");
@@ -514,7 +543,7 @@ function homePage() {
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
-  ${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
+  ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
   ${VH.band(LG) || weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
@@ -654,6 +683,7 @@ function mdPage(file, title, desc, url, h2) {
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
 const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY, supportEnd });
+const VOICES = require("./src/voices.js")({ esc, href });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
   en: { pol: ["Editorial policy", "What commentary Deshkaal chooses, and why.", "Our editorial policy"], pri: ["Privacy policy", "What information Deshkaal keeps, where, and how to have it removed.", "Privacy policy"] },

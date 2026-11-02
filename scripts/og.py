@@ -145,7 +145,8 @@ def main():
     redo, photos = "--all" in sys.argv, "--photos" in sys.argv
     n, miss = 0, 0
     for f in sorted(glob.glob(os.path.join(ROOT, "data", "days", "*.json"))):
-        for a in json.load(open(f, encoding="utf-8")):
+        _j = json.load(open(f, encoding="utf-8"))
+        for a in (_j if isinstance(_j, list) else _j.get("items", [])):
             out = os.path.join(OUT, a["id"] + ".png"); mark = os.path.join(ROOT, "data", "og-photo", a["id"]); os.makedirs(os.path.dirname(mark), exist_ok=True)
             if photos:
                 if not a.get("photo") or (os.path.exists(mark) and not redo): continue
