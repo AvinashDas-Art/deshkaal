@@ -44,7 +44,7 @@ const languageURLs = (url, langs = LANGS) => {
 /* पेंटिंग वग़ैरह GitHub पर public/media/<id>.jpg में उतर आती हैं; हों तो वही, वरना मूल पता */
 const imgSrc = a => fs.existsSync(path.join("public", "media", a.id + ".jpg")) ? `/media/${a.id}.jpg` : (a.photo ? a.photo.src : "");
 const art = (a, cls = "", word = "") => `<canvas class="art ${cls}" data-id="${esc(a.id)}" data-motif="${esc(a.motif)}" data-seed="${a.seed}" data-h="${esc(a.h)}" data-cat="${esc(a.cat)}" data-catl="${esc(cn(a.cat))}"${a.photo ? ` data-photo="${esc(imgSrc(a))}" data-kind="${esc(a.photo.kind || "photo")}"` : ""}${word ? ` data-word="${esc(word)}"` : ""} role="img" aria-label="${esc(T.collageOf(word || a.h))}"></canvas>`;
-const credit = a => a.photo && a.photo.kind === "collage" ? `<span class="credit">${T.collage}</span>` : a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: <a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a></span>` : "";
+const credit = a => a.photo && a.photo.kind === "collage" ? `<span class="credit">${T.collage}</span>` : a.photo ? `<span class="credit">${a.photo.note ? esc(a.photo.note) + " · " : ""}${a.photo.kind === "painting" ? T.painting : T.photo}: ${a.photo.page ? `<a href="${esc(a.photo.page)}" target="_blank" rel="noopener">${esc(a.photo.credit)}</a>` : esc(a.photo.credit)}</span>` : "";
 const saveBtn = a => `<button class="save" data-save="${esc(a.id)}" data-h="${esc(a.h)}" aria-pressed="false">${T.save}</button>`;
 
 /* ---------- data ---------- */
@@ -270,10 +270,10 @@ const presPick = (d, n) => { const k = dayNo(d); const gv = (k + Math.floor(k / 
   const ok = (v, c) => v === 1 && !(c >= 6 && c % 3 === 0) ? 2 : v;
   return { vichar: ok(gv, n.vichar), pari: ok((gv + 2) % 4, n.pari), khabar: kv }; };
 function heroRally(L, kick) {
-  const R = { hi: { tag: "विशेष कवरेज", sub: "रामलीला मैदान · 1 नवंबर 2026 · सात भाषण, एक मंच", more: "पूरी कवरेज पढ़िए", of: "नेताओं की आवाज़ें" },
-    en: { tag: "Special coverage", sub: "Ramlila Maidan · 1 November 2026 · seven speeches, one stage", more: "Read the full coverage", of: "The voices" },
-    ur: { tag: "خصوصی کوریج", sub: "رام لیلا میدان · 1 نومبر 2026 · سات تقریریں، ایک اسٹیج", more: "پوری کوریج پڑھیں", of: "آوازیں" } }[LG] || {};
-  const v = (today.voices || []).slice(0, 7);
+  const R = { hi: { tag: "विशेष कवरेज", sub: "रामलीला मैदान · 1 नवंबर 2026 · आठ भाषण, एक मंच", more: "पूरी कवरेज पढ़िए", of: "नेताओं की आवाज़ें" },
+    en: { tag: "Special coverage", sub: "Ramlila Maidan · 1 November 2026 · eight speeches, one stage", more: "Read the full coverage", of: "The voices" },
+    ur: { tag: "خصوصی کوریج", sub: "رام لیلا میدان · 1 نومبر 2026 · آٹھ تقریریں، ایک اسٹیج", more: "پوری کوریج پڑھیں", of: "آوازیں" } }[LG] || {};
+  const v = (today.voices || []).slice(0, 8);
   const [a1, a2] = splitHead(L.h);
   return `<section class="hero-rally" data-id="${esc(L.id)}">
   <div class="hrl-top"><span class="hrl-tag">${esc(R.tag)}</span><span class="hrl-sub">${esc(R.sub)}</span></div>

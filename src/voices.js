@@ -3,9 +3,9 @@
 module.exports = function (H) {
   const { esc, href } = H;
   const T = {
-    hi: { k: "रामलीला मैदान · 1 नवंबर 2026", h: "नेता-स्वर", sub: "सात आवाज़ें, एक मंच। रैली में सबने अपनी बात कही, मगर हर एक का सुर अलग था। तस्वीर पर क्लिक करके पूरा भाषण पढ़िए।", read: "पूरा पढ़िए", all: "सारे भाषण" },
-    en: { k: "Ramlila Maidan · 1 November 2026", h: "Voices from the stage", sub: "Seven voices, one stage. Everyone at the rally made their case, but no two made it the same way. Click a face to read the full speech.", read: "Read on", all: "All the speeches" },
-    ur: { k: "رام لیلا میدان · 1 نومبر 2026", h: "اسٹیج کی آوازیں", sub: "سات آوازیں، ایک اسٹیج۔ ریلی میں سب نے اپنی بات کہی، مگر ہر ایک کا لہجہ الگ تھا۔ تصویر پر کلک کر کے پوری تقریر پڑھیں۔", read: "پوری پڑھیں", all: "ساری تقریریں" }
+    hi: { k: "रामलीला मैदान · 1 नवंबर 2026", h: "नेता-स्वर", sub: "आठ आवाज़ें, एक मंच। रैली में सबने अपनी बात कही, मगर हर एक का सुर अलग था। तस्वीर पर क्लिक करके पूरा भाषण पढ़िए।", read: "पूरा पढ़िए", all: "सारे भाषण" },
+    en: { k: "Ramlila Maidan · 1 November 2026", h: "Voices from the stage", sub: "Eight voices, one stage. Everyone at the rally made their case, but no two made it the same way. Click a face to read the full speech.", read: "Read on", all: "All the speeches" },
+    ur: { k: "رام لیلا میدان · 1 نومبر 2026", h: "اسٹیج کی آوازیں", sub: "آٹھ آوازیں، ایک اسٹیج۔ ریلی میں سب نے اپنی بات کہی، مگر ہر ایک کا لہجہ الگ تھا۔ تصویر پر کلک کر کے پوری تقریر پڑھیں۔", read: "پوری پڑھیں", all: "ساری تقریریں" }
   };
   return function (LG, today, PRE) {
     const v = today && today.voices;
