@@ -287,7 +287,7 @@ function heroRally(L, kick) {
       <div class="hrl-foot"><a class="hrl-more" href="${href(L)}">${esc(R.more)} →</a><p class="hrl-credit">${L.photo ? `${esc(L.photo.note || "")} · ${esc(T.photo)}: ${esc(L.photo.credit)}` : ""}</p></div>
     </div>
     <div class="hrl-faces" aria-label="${esc(R.of)}">
-      <a class="hrl-hero-face" href="${href(L)}"><img src="${esc(L.photo ? L.photo.src : "")}" width="640" height="800" alt="${esc(L.by)}" loading="eager"></a>
+      <a class="hrl-hero-face" href="${href(L)}"><img src="${esc(L.photo ? L.photo.src : "")}" width="640" height="800" alt="${esc(L.photo && L.photo.note ? L.photo.note : L.by)}" loading="eager"></a>
       <div class="hrl-strip">${v.map(x => `<a href="${href({ id: x.id })}" title="${esc(x.name)}"><img src="${esc(x.photo)}" width="120" height="150" alt="${esc(x.name)}" loading="lazy"><span>${esc(x.name.split(" ")[0])}</span></a>`).join("")}</div>
     </div>
   </div>
