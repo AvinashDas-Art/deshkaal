@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-11-02-purushottam-meghwal-ninayanve-pratishat-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 366,
+  "bg": [
+    176,
+    28,
+    24
+  ],
+  "dark": [
+    45,
+    7,
+    6
+  ],
+  "halftone": [
+    126,
+    20,
+    17
+  ],
+  "motif": "window",
+  "strips": [
+    {
+      "t": "निन्यानवे प्रतिशत का कठघरा",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "आज रामलीला मैदान में बहुत भाषण हुए",
+      "x": 617,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "और दूसरा सवाल, जो पहले से बड़ा है",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "वे जिनके घर में अलमारी नहीं है",
+      "x": 724,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
