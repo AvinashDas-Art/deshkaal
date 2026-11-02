@@ -244,13 +244,16 @@ nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--
 .hero a:hover .hero-h{color:var(--neel)}
 .hero a:hover .hero-h .acc{color:var(--lal)}
 .ank{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.ank div{display:flex;align-items:center;gap:12px;background:var(--lal);color:#fff;padding:8px 16px 8px 12px;max-width:340px}
+.ank div{display:flex;align-items:center;gap:12px;background:var(--lal);color:#fff;padding:8px 16px 8px 12px;max-width:340px;flex-wrap:wrap}
 .ank b{font-family:var(--f-paint);font-weight:400;font-size:44px;line-height:1;white-space:nowrap}
-.ank span{font-family:var(--f-paint);font-size:19px;line-height:1.3}
+.ank span{font-family:var(--f-paint);font-size:19px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
 .hero .dek{font-family:var(--f-head);font-weight:300;font-size:clamp(20px,2vw,24px);line-height:1.6;color:var(--ink-2);margin:20px 0 0;max-width:34em}
 .hero-foot{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;margin-top:22px;align-items:start}
 .hero-open p{margin:0;font-size:17px;line-height:1.85}
 .hero-open p::first-letter{font-family:var(--f-paint);font-size:3.4em;float:left;line-height:.9;padding:6px 10px 0 0;color:var(--lal)}
+/* जब अनुच्छेद अंग्रेज़ी अक्षर या अंक से शुरू हो (SIR, PARI, 10...), ड्रॉप-कैप नहीं:
+   वरना "SIR" का S बड़ा होकर बाक़ी अक्षर अलग दिखते हैं। */
+.hero-open p.nofc::first-letter{font:inherit;float:none;padding:0;color:inherit;line-height:inherit;font-size:inherit}
 .hero-more{display:inline-block;margin-top:8px;font-family:var(--f-ui);font-size:15px;color:var(--neel)}
 .hero .sawal{margin-top:0;border-top:0;padding-top:0}
 .hero .row{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:20px;font-family:var(--f-ui);font-size:14.5px;color:var(--ink-2)}
@@ -268,7 +271,7 @@ nav.cats a.on{color:var(--neel);font-weight:500;box-shadow:inset 0 -2px 0 var(--
 }
 
 /* photo credit */
-.credit{font-family:var(--f-ui);font-size:12.5px;color:var(--ink-2)}
+.credit{font-family:var(--f-ui);font-size:12.5px;color:var(--ink-2);overflow-wrap:anywhere;word-break:break-word}
 .credit a{text-decoration:underline;text-underline-offset:2px}
 .hero-credit{position:absolute;z-index:3;right:0;bottom:18px}
 @media (max-width:1023px){.hero-credit{position:static;display:block;text-align:right;margin-top:6px}}
@@ -562,7 +565,10 @@ html[lang="ur"] .mast.small{font-size:58px}
 
 /* मंगल: बैनर, पूरी चौड़ाई की सुर्ख़ी और नीचे चौड़ी पट्टी */
 .hero-banner{display:block}
-.hero-banner .hero-h{font-size:clamp(64px,8.8vw,136px);line-height:.96;max-width:15ch}
+/* कड़ी (kicker) और सुर्ख़ी आपस में न टकराएं: देवनागरी के ऊपर के अक्षर/मात्राएं
+   लाइन-बॉक्स से ऊपर निकल जाते हैं, इसलिए बैनर में लाइन-हाइट ढीली और ऊपर जगह रखी गई है। */
+.hb-top .kicker{position:relative;z-index:2;margin:0 0 14px}
+.hero-banner .hero-h{font-size:clamp(58px,8.2vw,124px);line-height:1.14;max-width:15ch;margin-top:8px}
 .hero-banner .hero-h .acc{display:inline}
 .hb-strip{position:relative;margin:24px -20px 0}
 .hb-art{display:block}
@@ -655,6 +661,17 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 @media (max-width:699px){
   .hero:is(.hero-banner,.hero-sun,.hero-ink,.hero-q,.hero-red,.hero-ravi) .hero-h{font-size:clamp(42px,11.5vw,58px)}
   .hq-q p{font-size:clamp(30px,8.5vw,40px)}
+  /* बैनर की पट्टी पर लाल आंकड़े फ़ोन में किनारे से बाहर न जाएं */
+  .hb-strip .ank{inset-inline:12px;bottom:14px;gap:8px;margin:0}
+  .hb-strip .ank>div{max-width:100%;flex:1 1 100%;padding:7px 12px}
+  .hb-strip .ank b{font-size:30px}
+  .hb-strip .ank span{font-size:16px}
+  /* फ़ोन में "आंदोलन का संग्रह" पट्टी अपनी पूरी कतार ले, किनारे से बाहर न जाए */
+  .morcha-rib{gap:8px}
+  .morcha-rib b{font-size:21px}
+  .mr-wall{flex:1 1 100%;margin-inline-start:0;text-align:center}
+  /* क्रेडिट फ़ोन में बाएं से लिपटे और टूटे, किनारे से बाहर न जाए */
+  .hero-credit{display:block;text-align:start!important;max-width:100%;margin:8px -20px 0;padding-inline:20px}
 }
 .hero-sun .hero-text{grid-column:2}
 .hero-ink .hero-text{grid-column:1}

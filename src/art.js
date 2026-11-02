@@ -128,6 +128,9 @@ function draw(c){
   const dark=cs.colorScheme.includes("dark")||root.dataset.theme==="dark"||(!root.dataset.theme&&matchMedia("(prefers-color-scheme: dark)").matches);
   const pal=(CATCOL[a.cat]||CATCOL["दुनिया"])[dark?1:0];
   const C={paper,ink,main:pal[0],soft:pal[1],accent:a.cat==="समाज"?lal:haldi};
+  /* बैनर की पट्टी (hb-strip) में कोलाज के काग़ज़ी शब्द नहीं चाहिए: वहां नीचे लाल आंकड़े
+     (ank) बैठते हैं और दोनों आपस में टकरा जाते हैं। सिर्फ़ तस्वीर और हाफ़टोन रहें। */
+  const bare=!!c.closest(".hb-strip");
   const R=rng(a.seed*7+3), small=W<200, m=Math.min(W,H);
   const pos=parseInt((a.id||"").slice(-2),10);const variant=a.word?(a.photo?0:1):(Number.isFinite(pos)?(pos*5+1)%6:Math.abs(a.seed)%6);
   const F1='"Yatra One", serif',F2='"Laila", serif',F3='"Noto Sans Devanagari", sans-serif';
@@ -139,19 +142,19 @@ function draw(c){
     g.save();g.translate(bx+bw/2,by+bh/2);g.rotate((R()*5+1)*Math.PI/180);g.translate(-bw/2,-bh/2);torn(g,0,0,bw,bh,R,2.5);g.fillStyle=C.soft;g.fill();g.clip();halftone(g,0,0,bw,bh,step,C.main,R);g.restore();
     const ax=W*.05,ay=H*(.12+R()*.06),aw=W*.6,ah=H*.74;motifPiece(g,a,ax,ay,aw,ah,(-1-R()*3)*Math.PI/180,R,C);
     tape(g,ax+aw*.1,ay-6,-8,W*.1,haldi);
-    if(!small)pickWords(a,R,2).forEach((w,i)=>strip(g,R,w,W*(.5+R()*.1),H*(.72+i*.15),Math.round(H*(i?.085:.12)),i?F3:F1,i?ink:paper,i?paper:ink));
+    if(!small&&!bare)pickWords(a,R,2).forEach((w,i)=>strip(g,R,w,W*(.5+R()*.1),H*(.72+i*.15),Math.round(H*(i?.085:.12)),i?F3:F1,i?ink:paper,i?paper:ink));
   }else if(variant===1){ /* poster: colour field, circular cut-out */
     g.fillStyle=C.main;g.fillRect(0,0,W,H);halftone(g,W*.45,0,W*.55,H,step,C.soft,R,.35);
     const cx=W*(.36+R()*.06),cy=H*.5,rr=m*.38;
     g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);fillPiece(g,a,rr*2,rr*2,C,R);g.restore();
     g.strokeStyle=paper;g.lineWidth=Math.max(3,m*.02);g.beginPath();g.arc(cx,cy,rr+m*.03,0,7);g.stroke();
-    if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.2)}px ${F1}`;g.fillStyle=paper;g.textBaseline="alphabetic";g.save();g.translate(W*.55,H*.88);g.rotate(-.04);g.fillText(w,0,0);g.restore()}
+    if(!small&&!bare){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.2)}px ${F1}`;g.fillStyle=paper;g.textBaseline="alphabetic";g.save();g.translate(W*.55,H*.88);g.rotate(-.04);g.fillText(w,0,0);g.restore()}
   }else if(variant===2){ /* split: category block with oversized word */
     g.fillStyle=C.main;g.fillRect(0,0,W*.42,H);
-    g.save();g.beginPath();g.rect(0,0,W*.42,H);g.clip();g.font=`${Math.round(H*.62)}px ${F1}`;g.fillStyle=C.soft;g.globalAlpha=.9;g.textBaseline="alphabetic";g.fillText(a.catl,-W*.04,H*.98);g.restore();g.globalAlpha=1;
+    g.save();g.beginPath();g.rect(0,0,W*.42,H);g.clip();g.font=`${Math.round(H*.62)}px ${F1}`;g.fillStyle=C.soft;g.globalAlpha=.9;g.textBaseline="alphabetic";if(!bare)g.fillText(a.catl,-W*.04,H*.98);g.restore();g.globalAlpha=1;
     motifPiece(g,a,W*.34,H*.12,W*.6,H*.72,(1+R()*2.5)*Math.PI/180,R,C);
     tape(g,W*.36,H*.14,-30,W*.09,haldi);tape(g,W*.92,H*.8,-28,W*.09,haldi);
-    if(!small)strip(g,R,pickWords(a,R,1)[0],W*.06,H*.18,Math.round(H*.1),F2,paper,ink);
+    if(!small&&!bare)strip(g,R,pickWords(a,R,1)[0],W*.06,H*.18,Math.round(H*.1),F2,paper,ink);
   }else if(variant===3){ /* triptych: three torn strips of one picture */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
     const off=document.createElement("canvas");off.width=W*d;off.height=H*d;const og=off.getContext("2d");og.direction="ltr";og.scale(d,d);fillPiece(og,a,W,H,C,R);
@@ -160,7 +163,7 @@ function draw(c){
       g.save();g.translate(3,4);torn(g,0,0,sw,hh,R);g.fillStyle=ink;g.globalAlpha=.15;g.fill();g.restore();g.globalAlpha=1;
       torn(g,0,0,sw,hh,R);g.clip();g.drawImage(off,(x-W*.02)*d,y*d,sw*d,hh*d,0,0,sw,hh);g.restore();
       tape(g,x+sw/2,y-4,(R()-.5)*20,sw*.4,haldi)});
-    if(!small)strip(g,R,pickWords(a,R,1)[0],W*.58,H*.9,Math.round(H*.11),F1,ink,paper);
+    if(!small&&!bare)strip(g,R,pickWords(a,R,1)[0],W*.58,H*.9,Math.round(H*.11),F1,ink,paper);
   }else if(variant===4){ /* newsprint: ruled columns, round photo, stamp */
     g.strokeStyle=ink;g.globalAlpha=.18;g.lineWidth=1.5;
     for(let col=0;col<4;col++)for(let y=H*.1;y<H*.92;y+=Math.max(7,H/28)){const x=W*(.05+col*.235),w=W*.2*(R()<.12?.5:1);g.beginPath();g.moveTo(x,y);g.lineTo(x+w,y);g.stroke()}
@@ -168,14 +171,14 @@ function draw(c){
     g.save();g.beginPath();g.arc(cx,cy,rr,0,7);g.fillStyle=paper;g.fill();g.clip();g.translate(cx-rr,cy-rr);fillPiece(g,a,rr*2,rr*2,C,R);g.restore();
     g.strokeStyle=C.main;g.lineWidth=Math.max(4,m*.035);g.beginPath();g.arc(cx,cy,rr,0,7);g.stroke();
     g.save();g.translate(W*.2,H*.72);g.rotate(-.18);g.strokeStyle=lal;g.lineWidth=3;g.strokeRect(-W*.12,-H*.1,W*.24,H*.2);
-    if(!small){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.catl,0,0)}g.restore();g.textAlign="start";
+    if(!small&&!bare){g.font=`${Math.round(H*.09)}px ${F3}`;g.fillStyle=lal;g.textAlign="center";g.textBaseline="middle";g.fillText(a.catl,0,0)}g.restore();g.textAlign="start";
   }else{ /* frame: thick stamp border, word overprinted */
     g.fillStyle=C.soft;g.fillRect(0,0,W,H);
     g.save();g.translate(W/2,H/2);g.rotate((R()-.5)*.08);const fw=W*.74,fh=H*.74;
     g.fillStyle=paper;g.fillRect(-fw/2,-fh/2,fw,fh);g.save();g.beginPath();g.rect(-fw/2,-fh/2,fw,fh);g.clip();g.translate(-fw/2,-fh/2);fillPiece(g,a,fw,fh,C,R);g.restore();
     g.strokeStyle=C.main;g.lineWidth=Math.max(6,m*.05);g.strokeRect(-fw/2,-fh/2,fw,fh);g.restore();
     halftone(g,0,H*.78,W,H*.22,step,C.main,R,.5);
-    if(!small){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.18)}px ${F1}`;g.fillStyle=C.main;g.globalAlpha=.92;g.textBaseline="alphabetic";g.fillText(w,W*.08,H*.9);g.globalAlpha=1}
+    if(!small&&!bare){const w=pickWords(a,R,1)[0];g.font=`${Math.round(H*.18)}px ${F1}`;g.fillStyle=C.main;g.globalAlpha=.92;g.textBaseline="alphabetic";g.fillText(w,W*.08,H*.9);g.globalAlpha=1}
   }
   if(a.word){ /* शब्द-चित्र: collage shows only through the letters */
     let fs=H*1.02;g.font=`${fs}px ${F1}`;let tw=g.measureText(a.word).width;if(tw>W*.96){fs*=W*.96/tw;g.font=`${fs}px ${F1}`;tw=g.measureText(a.word).width}

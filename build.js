@@ -253,7 +253,7 @@ const heroText = (L, kick) => { const [a1, a2] = splitHead(L.h); return `
 const ankBlock = L => L.ank && L.ank.length ? `<div class="ank">${L.ank.slice(0, 2).map(([n, t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div>` : "";
 const heroFoot = L => `<p class="dek">${esc(L.dek)}</p>
     <div class="hero-foot">
-      <div class="hero-open"><p>${esc(L.body[0])}</p><a class="hero-more" href="${href(L)}">${T.readFull}</a></div>
+      <div class="hero-open"><p${/^[A-Za-z0-9]/.test(L.body[0] || "") ? ' class="nofc"' : ""}>${esc(L.body[0])}</p><a class="hero-more" href="${href(L)}">${T.readFull}</a></div>
       <aside class="sawal"><small>${T.question}</small><p>${esc(L.sawal)}</p></aside>
     </div>
     <div class="row"><span>${T.orig}: ${esc(L.by)} · ${esc(L.pub)} · ${esc(L.date)}</span><span>${T.read(readMin(L))} · ${T.listen(listenMin(L))}</span>${saveBtn(L)}</div>`;
