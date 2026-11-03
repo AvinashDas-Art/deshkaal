@@ -4,7 +4,8 @@ const { normalizeSection, isRuralReport } = require('../src/sections');
 const files = fs.readdirSync('data/days').filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
 const ids = new Set();
 for (const file of files) {
-  const items = JSON.parse(fs.readFileSync('data/days/' + file));
+  const raw = JSON.parse(fs.readFileSync('data/days/' + file));
+  const items = Array.isArray(raw) ? raw : (raw.items || []);
   for (const a of items) {
     assert(!ids.has(a.id), `Duplicate article ID: ${a.id}`); ids.add(a.id);
     assert.equal(a.day, file.slice(0,10), `Wrong day: ${a.id}`);
@@ -20,7 +21,7 @@ assert.equal(normalizeSection({pub:'Gaon Connection',sec:'pari',cat:'समा�
 assert.equal(normalizeSection({pub:'हिन्दवी',sec:'pari',cat:'संस्कृति'}), 'vichar');
 assert.equal(normalizeSection({pub:'Mongabay',sec:'vichar',cat:'पर्यावरण'}), 'vichar');
 const latest = files.at(-1).slice(0,10);
-const items = JSON.parse(fs.readFileSync('data/days/'+latest+'.json')).map((a,i)=>({...a,sec:normalizeSection(a,i)}));
+const items = (r=>Array.isArray(r)?r:(r.items||[]))(JSON.parse(fs.readFileSync('data/days/'+latest+'.json'))).map((a,i)=>({...a,sec:normalizeSection(a,i)}));
 const expected = items.filter(isRuralReport).map(a=>a.id);
 function verify(html) {
  const band = html.match(/<section class="pariband">([\s\S]*?)<\/section>/);
