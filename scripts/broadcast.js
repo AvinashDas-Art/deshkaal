@@ -5,7 +5,8 @@ const SITE = "https://deshkaal.xyz";
 const env = process.env;
 const files = fs.readdirSync("data/days").filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
 const file = files[files.length - 1], day = file.slice(0, 10);
-const items = JSON.parse(fs.readFileSync(path.join("data/days", file), "utf8"));
+const dayJson = JSON.parse(fs.readFileSync(path.join("data/days", file), "utf8"));
+const items = Array.isArray(dayJson) ? dayJson : dayJson.items; /* नये अंकों में {voices, items} */
 /* खंडों के हिसाब से: आमुख पहले, फिर नुक़्ता-ए-नज़र, कल का कच्चा चिट्ठा, गांव-जवार; पुराने अंकों में sec नहीं था */
 const secOf = (a, i) => a.sec || (a.cat === "साहित्य" ? "sahitya" : a.yt ? "video" : a.pub === "PARI" ? "pari" : i === 0 ? "amukh" : "vichar");
 items.forEach((a, i) => { a.sec = secOf(a, i); });
