@@ -48,7 +48,8 @@ def main():
     if "--all" not in sys.argv: files = files[-2:]
     n = miss = 0
     for f in files:
-        for a in json.load(open(f, encoding="utf-8")):
+        _j = json.load(open(f, encoding="utf-8"))
+        for a in (_j if isinstance(_j, list) else _j.get("items", [])):
             if not need(a): continue
             out = os.path.join(OUT, a["id"] + ".jpg")
             if os.path.exists(out): continue

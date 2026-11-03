@@ -188,6 +188,7 @@ def main():
     for fpath in files:
         day = os.path.basename(fpath)[:10]
         items = json.load(open(fpath, encoding="utf-8"))
+        if not isinstance(items, list): items = items.get("items", [])
         for i, a in enumerate(items, 1):
             p = os.path.join(OUT, a["id"] + ".jpg")
             if os.path.exists(p) and not redo: continue

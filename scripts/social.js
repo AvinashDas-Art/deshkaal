@@ -10,7 +10,7 @@ const day = env.DAY || istDay();
 const file = path.join("data/days", day + ".json");
 const CHECK = process.argv[2] === "check";
 if (!CHECK && !fs.existsSync(file)) { console.log("आज का अंक नहीं मिला:", day); process.exit(0); }
-const items = CHECK ? [] : JSON.parse(fs.readFileSync(file, "utf8"));
+const items = CHECK ? [] : (j => Array.isArray(j) ? j : j.items)(JSON.parse(fs.readFileSync(file, "utf8"))); /* नये अंकों में {voices, items} */
 const news = items.filter(a => a.cat !== "साहित्य"), lit = items.filter(a => a.cat === "साहित्य");
 const d = new Date(day + "T00:00:00Z"), label = `${d.getUTCDate()} ${M[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 const url = a => `${SITE}/lekh/${a.id}/`;
