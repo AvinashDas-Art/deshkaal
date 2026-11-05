@@ -1,0 +1,53 @@
+{
+  "out": "public/media/hamsafar/2026-11-05-srinivas-bahas-ki-chunauti-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 717,
+  "bg": [
+    88,
+    30,
+    72
+  ],
+  "dark": [
+    22,
+    7,
+    18
+  ],
+  "halftone": [
+    63,
+    21,
+    51
+  ],
+  "motif": "window",
+  "strips": [
+    {
+      "t": "बहस की चुनौती का ये जवाब!",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "दिन और समय तय कर लीजिए",
+      "x": 727,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "मगर तमाम संस्कारी पहलवान मैदान में कूद पड़े",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
