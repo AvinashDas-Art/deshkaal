@@ -1,0 +1,893 @@
+[
+ {
+  "id": "2026-11-07-01",
+  "h": "A people's impeachment: when an institution looks away, people write the testimony",
+  "dek": "Congress-linked Gurdeep Singh Sappal says the opposition's symbolic hearing on Gyanesh Kumar is no spectacle but a link in a tradition, from Jallianwala to public hearings, in which people run the inquiry themselves.",
+  "by": "Gurdeep Singh Sappal",
+  "pub": "The Wire",
+  "date": "3 November 2026",
+  "lang": "English",
+  "body": [
+   "The 'public impeachment' of Chief Election Commissioner Gyanesh Kumar by the INDIA alliance was not a legal proceeding. For Gurdeep Singh Sappal, a permanent invitee to the Congress Working Committee, it gives voice to the unease that arises when a constitutional body abandons its job.",
+   "His list of charges is long: the allegation that voter rolls in Maharashtra were altered through a private app, Rahul Gandhi's demonstration of how the OTP system was misused in Aland in Karnataka, and hundreds of false Form 7 applications filed to get names deleted. The writer says the Karnataka CID asked for basic data 18 times in 18 months, but the Commission did not cooperate, and the powers of district officers were pulled into Nirvachan Sadan, the Commission's headquarters.",
+   "His sharpest argument is about SIR. Sappal says that instead of an inquiry, a revision of the entire roll was imposed, with the stated aim of checking citizenship, even though the Commission itself admitted in the Supreme Court that it cannot decide citizenship. Nearly 100 crore people were asked for documents, about 15 percent of names were cut, and in October the Commission went back to the old summary revision without giving a reason. On top of that came a rule to erase polling CCTV footage after 45 days, and a 2023 law gave the commissioners immunity from lawsuits.",
+   "Then he turns to history. After Jallianwala Bagh in 1919, the Congress rejected the government's Hunter Committee and set up its own committee of Gandhi, Motilal Nehru, C.R. Das, Abbas Tyabji and M.R. Jayakar. In Champaran, thousands of statements by indigo farmers ended the tinkathia system, and the public hearings of Rajasthan led all the way to the Right to Information Act of 2005.",
+   "The writer claims the pressure is working: two election commissioners recorded written objections, the Commission agreed to provide searchable voter rolls, and two officials were suspended in Pilibhit. Still, in his view these fixes came far too late, because crores of people have already been shut out of the vote."
+  ],
+  "nazar": [
+   "It is important to remember that Sappal is a Congress insider, and the Commission's side on many of his charges is not in the piece. But his basic point is not partisan: when an institution refuses to investigate and the law exempts it from accountability, what is left to people except recording their own testimony? Champaran and the public hearings show that such testimony turns into law over time. The Commission has the simplest answer to this: open up its logs and files."
+  ],
+  "sawal": "Who will hold to account a Commission that is immune from lawsuits?",
+  "ref": [
+   [
+    "Form 7",
+    "An application to object to a name on the voter roll and get it removed; the article says a false objection can bring up to a year in jail."
+   ],
+   [
+    "Tinkathia system",
+    "The planters' system in Champaran under which farmers had to grow indigo on three kathas of every bigha."
+   ]
+  ],
+  "ank": [
+   [
+    "15%",
+    "names cut from voter rolls in SIR"
+   ],
+   [
+    "18",
+    "Karnataka CID reminders that went unanswered"
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-02",
+  "h": "ECINet should be audited by an outsider, not the Commission's own committee",
+  "dek": "A.J. Prabal argues that for software through which crores of names were cut, the 'glitch' excuse and an audit by a committee the Commission picked itself cannot restore trust.",
+  "by": "A.J. Prabal",
+  "pub": "National Herald",
+  "date": "31 October 2026",
+  "lang": "English",
+  "body": [
+   "The Election Commission built ECINet by merging the old ERONet with about 40 other apps. Prabal says that when investigations exposed its flaws, the Commission brushed them off as minor 'glitches', even though there are reports that more than 13 crore names were cut in SIR.",
+   "The Commission's 250-page affidavit in the Supreme Court says newspaper reports are not evidence, that ECINet cannot be tampered with, and that only officers on the ground have the power to add or delete names. The writer asks why, then, the local officer in Goa could not himself restore 89 deleted voters, after sending eight reminders to Delhi in seven days and getting no reply from IT head Seema Khanna.",
+   "In Bengal the Commission plays ignorant about 16 lakh appeals against names that had already passed a judicial check, yet an August file note by Election Commissioner S.S. Sandhu had already questioned these identical appeals. The civic tech group Charchagram found one feature that could stop officers from viewing forms and was switched on only in Bengal, and another that sorted voters as 'VIP'.",
+   "A committee of experts from IIT and IISc does not reassure the writer, because it was formed after the newspaper report, while Commissioner Vivek Joshi had already asked for an audit in May. Translation errors, such as one in which the name 'Ramhit Yadav' got garbled into a sentence about murder, are unlikely to fall within its scope.",
+   "Prabal points out that banking, defence and aviation systems go through security audits without exposing their code. Even if TCS holds the intellectual property, the CAG, CERT-In, a parliamentary committee or a court-appointed panel could carry out a confidential check. His argument is simple: if every rule was followed, the logs will account for every name."
+  ],
+  "nazar": [
+   "Votes are now won and lost less on paper and more on servers. In that world, hiding the account of a voter's own roll from him in the name of 'business confidentiality' leaves democracy in the hands of a contractor. An independent audit accuses no one; it only asks that the machine, too, answer for itself."
+  ],
+  "sawal": "How did TCS's trade secrets become bigger than the voter's rights?",
+  "ref": [
+   [
+    "ECINet",
+    "The Election Commission's unified digital platform, into which the old ERONet voter roll system and dozens of apps were merged."
+   ],
+   [
+    "Software independence",
+    "A principle of election security that no undetected error in software should be able to cause a change in the result that goes unnoticed."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-03",
+  "h": "The language of the Constitution is not enough; tie the vote to bread",
+  "dek": "JNU political scientist Ajay Gudavarthy says the 'vote theft' movement has dented Modi's image, but unless the right to vote is tied to schools, hospitals and jobs, it will stay trapped in the educated circle of Jantar Mantar.",
+  "by": "Ajay Gudavarthy",
+  "pub": "ThePrint",
+  "date": "30 October 2026",
+  "lang": "English",
+  "body": [
+   "The anger of young people, which began with paper leaks and education, reached the Election Commission after it cost the education minister his chair. Ajay Gudavarthy believes this has dealt a blow to the Prime Minister's image, but he sees no danger of the government falling, because the movement is confined to educated urban youth and activists.",
+   "His first objection is about language. 'Save the Constitution' and 'Save democracy' feel too abstract to the ordinary voter, and constitutional arguments have rarely drawn crowds. Gandhi made an everyday thing like salt a symbol of freedom; the writer wants the right to vote, too, to be tied to concrete demands for schooling, healthcare and jobs.",
+   "The second difficulty is the race over welfare. The BJP already runs a 'new welfarism' of free rations, free bus rides for women, and roads and highways, and its grip on the bureaucracy gives it an edge in delivering it. Gudavarthy argues for 'structural welfarism', meaning large budgets for education and health, and says it is precisely because the opposition's economic thinking is no different from the BJP's that 'vote theft' became its only demand. In Bihar, the big rallies of Rahul Gandhi and Tejashwi Yadav did not turn into votes, while last time the promise of 10 lakh jobs had brought a better result.",
+   "The third point is about SIR. The writer claims it is not just about cutting names but is a strategy of social polarisation, and that Muslims and Dalits have been cut the most, though he gives no figures or sources for this. In his view the opposition shies away from bringing these very affected people onto the streets, for fear of handing the BJP a Hindu-Muslim narrative.",
+   "The result, as he sees it, is that the movement is increasingly becoming one of the privileged, and the story of a crisis of democracy stays confined to Jantar Mantar, which will not worry the BJP much."
+  ],
+  "nazar": [
+   "Gudavarthy's warning has weight, but one thing is missing: this movement grew out of paper leaks, that is, out of questions of schooling and jobs, so linking it to bread is not impossible. The real gap is the one he points to: the voices of those whose names were cut are not on the stage. His claim that Muslim and Dalit voters were hit hardest should be tested against data, but keeping a distance from them out of fear would cut the movement off from its own roots."
+  ],
+  "sawal": "Why are those whose names were cut not on this movement's stage?",
+  "ref": [
+   [
+    "Structural welfarism",
+    "The writer's term: instead of handing out free goods, a lasting increase in budgets for education, health and the social sector."
+   ],
+   [
+    "Salt Satyagraha",
+    "Gandhi's Dandi March of 1930, which broke the salt law and made an everyday necessity a symbol of the freedom struggle."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-04",
+  "h": "Round one to the cockroaches, round two to the government, round three to whom?",
+  "dek": "K.S. Dakshina Murthy of The Federal says peace bonds and detentions have pushed the Cockroach Janta Party back for now, but the questions that gave rise to the movement remain exactly where they were.",
+  "by": "K.S. Dakshina Murthy",
+  "pub": "The Federal",
+  "date": "27 October 2026",
+  "lang": "English",
+  "body": [
+   "Dakshina Murthy's question is direct: has the government crushed the 'cockroach' movement? He says that with the extraordinary power of police and law, almost the entire top leadership of the Cockroach Janta Party was neutralised, just as it was preparing fresh protests at Jantar Mantar and Connaught Place.",
+   "The weapon was the peace bond. Abhijeet Dipke, Ashutosh Ranka and Saurav Das signed a bond before a police officer that they would not breach the peace, which means they can neither lead a protest nor take part in one. The bond will last until the police complete their investigation into the 13 October gathering at Jantar Mantar, even though that spot had been removed from the list of protest sites only a day earlier. The writer fears this investigation could be dragged out on purpose. Student leader Neha Bora refused to sign the bond and has challenged it in court.",
+   "The writer makes an interesting comparison. The Congress was given permission for its rally at Ramlila Maidan on 1 November, which suggests to him that the government fears party-less students more than any party. The BJP knows how to handle established parties, with agencies, defections and deals; students are hard to buy, and many of them have already clashed with their own Modi-supporting families.",
+   "He places this within a worldwide youth wave: corruption in Nepal, Hasina's fall in Bangladesh, the schools question in France, the rent crisis in Spain. Governments call these foreign conspiracies, but the writer says such charges have never been proven and the issues are real.",
+   "By his count, the first round, in which Dharmendra Pradhan went, was won by the movement and the second by the government. But Gyanesh Kumar is still in his chair, government schools are in a bad state, and the effect of SIR has yet to be wiped from the election process."
+  ],
+  "nazar": [
+   "A peace bond is not a punishment after a crime but a restraint before one, and when its term is tied to an endless investigation, it becomes a lock on dissent. The government may have won this round, but the writer's point holds: issues do not end by being suppressed; they become the slogans of the next generation."
+  ],
+  "sawal": "Whose peace does a bond with no end date protect?",
+  "ref": [
+   [
+    "Peace bond",
+    "A preventive legal provision under which a person signs a written bond not to breach the peace for a set period, with forfeiture or jail if it is broken."
+   ],
+   [
+    "Cockroach Janta Party",
+    "A youth movement born out of satire, which forced the education minister's resignation over paper leaks and is now up against the Election Commission."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-05",
+  "h": "When even the home minister picks up the tricolour to save democracy",
+  "dek": "An Urdu satire by Rajendra Sharma, editor of Lok Lahar, looks at Amit Shah's 'Save Democracy' march in Hyderabad from the wrong end and asks whom democracy is being saved from when everything is already in hand.",
+  "by": "Rajendra Sharma",
+  "pub": "The Wire Urdu",
+  "date": "6 November 2026",
+  "lang": "Urdu",
+  "body": [
+   "Rajendra Sharma's satire opens with mock sympathy. The opposition raised the flag of saving democracy, Gen Z youth went from Jantar Mantar to Connaught Place and then towards jail, waving the tricolour and taking lathi blows, so now Home Minister Amit Shah too put the tricolour on his shoulder and set out on foot on the bumpy roads of Hyderabad. The writer feigns regret that the country's 'informal number two' has left his convoy of luxury cars to walk in the dust, and his opponents are laughing instead of asking after him.",
+   "This is where the layers of the joke open up. Someone said his gait was unsteady, someone noticed that in the whole procession the tricolour was on Shah's shoulder alone and all the other flags were the party's two colours. To someone, the whole scene looked like a southern masala film.",
+   "Then the satire reaches its real target. The writer puts all the 'blame' on the opposition: had it not raised a din about vote theft, demanded Gyanesh Kumar's resignation, or held such a huge rally at Ramlila Maidan, why would Shah have had to take to the street? He also adds that had the Election Commission not been handed over to their own pawns by changing the law over twelve years, the charge of rigging would never have arisen. On one side, young people beaten by the police and by 'Bhagwat ji's' stick-wielders; on the other, a 62-year-old minister strolling with a flag. The writer says this is no contest between equals at all.",
+   "The last part is the sharpest. The writer grants that 'Gyanu' is in the pocket, the media in the lap and the courts at the palace's beck and call, yet no one can take away the right to save democracy, and if needed there will even be a 'Dandi March 2.0'. So the question arises: when everything is in their own hands, where is the threat coming from? The answer is the heart of the satire: the threat, too, will be manufactured in self-reliant fashion, and if none is found, democracy will be saved from the people themselves."
+  ],
+  "nazar": [
+   "When power starts borrowing the language of protest, know that the street is having an effect. The 'Save Democracy' slogan started at Jantar Mantar and is now on the banner of the government's most powerful minister. This satire captures that reversal.",
+   "Beneath the laughter lies the real question: when institutions seem to lean to one side, in whose name and against whom is the claim of 'saving' being made? For the young people who took the lathi blows, this difference is very concrete."
+  ],
+  "sawal": "What threat was the Save Democracy march actually against?",
+  "ref": [
+   [
+    "Lok Lahar",
+    "A Hindi weekly edited by Rajendra Sharma, who is known for political satire."
+   ],
+   [
+    "Dandi March",
+    "Gandhi's Salt Satyagraha march of 1930; the writer's 'Dandi March 2.0' is a jibe at Shah being Gujarati."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-06",
+  "h": "Gyanesh Kumar, ground between two millstones",
+  "dek": "In Dainik Tribune's 'Tirchhi Nazar' column, Sahiram shows with a laugh that both the ruling side and the opposition are now 'saving' democracy, both are lamenting deleted names, and the Election Commission is stuck in the middle.",
+  "by": "Sahiram",
+  "pub": "Dainik Tribune",
+  "date": "7 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "Sahiram starts with an old film idiom: no contest feels real until one side asks, how are we any less? Films of the 'Hum Kisise Kum Naheen' (We are no less than anyone) kind go back even before the patriotic phase of Hindi cinema, and Aamir Khan's line about daughters in 'Dangal' has become something like settled truth.",
+   "In the same vein the writer looks at the BJP. The opposition launched a campaign to save democracy, so why should the BJP lag behind; it too set out to save it. The opposition jibes that you are not saving democracy, you are saving Gyanesh Kumar. Sahiram reminds us that earlier each side accused the other of murdering democracy, and now both are its guardians; you can judge the state of democracy from this alone, and pity it too if you like.",
+   "Then comes the turn of deleted names. The opposition alleges that genuine voters' names were removed wholesale through SIR. Now Uttar Pradesh Chief Minister Yogi Adityanath has claimed that the names of 1.27 crore Hindu voters were cut in the state. So, one charge, two accusers.",
+   "This is where the column gets its headline. The opposition says the government is saving Gyanesh Kumar, meaning he is the government's friend, and at the same time it demands his resignation. In such a situation, even Kabir's 'friendship with none, enmity with none' is of no use to him. Sahiram says he is left with only the path the common man speaks of when it comes to the police: neither friendship is good, nor enmity."
+  ],
+  "nazar": [
+   "The satire hits both sides, and that is both its strength and its weakness. Yogi Adityanath's 1.27 crore claim is a genuinely interesting twist: when even a chief minister from the ruling side accepts that names were cut on a large scale, the Commission's 'all is well' stance grows weaker.",
+   "But calling Gyanesh Kumar a 'poor fellow' is not the full picture. Even if we accept that he did not choose the two millstones himself, accountability still rests with the person whose signature made the rolls. This question should not get lost in the laughter."
+  ],
+  "sawal": "Did Yogi's 1.27 crore claim weaken the Commission?",
+  "ref": [
+   [
+    "Tirchhi Nazar",
+    "Dainik Tribune's regular satire column (the name means 'a sidelong glance')."
+   ],
+   [
+    "SIR",
+    "Special Intensive Revision of the voter rolls; the opposition alleges it removed genuine voters' names on a large scale."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-07",
+  "h": "Three BJP worries behind the battle over crowd counts",
+  "dek": "Amitabh Dubey argues that the BJP is busy calling the Ramlila Maidan rally a flop because three trends, legitimacy, momentum and cracks within power, appear to be moving in the opposition's favour.",
+  "by": "Amitabh Dubey",
+  "pub": "ThePrint Hindi",
+  "date": "5 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "On 1 November the INDIA alliance held a rally at Ramlila Maidan demanding Gyanesh Kumar's resignation. Amitabh Dubey notes that the BJP neither answered the issues raised nor defended the Chief Election Commissioner; it only questioned the crowd figures. The writer says editors like Prabhu Chawla counted it among the biggest gatherings since JP's rally at Patna's Gandhi Maidan in 1974, Newslaundry estimated at least one lakh people, and many people were turned back at the gates.",
+   "Dubey's basic argument is that when trust in elections wavers, the crowd on the street becomes the measure of public consent. Especially when it is made up not of party workers but of students and the middle class. He says dozens of his friends, who used to stay away from Congress processions, joined the 12 October march to the Supreme Court and this rally.",
+   "The first trend is legitimacy: like the JP and Anna movements, a large crowd weakens the government's claim that it alone represents the people. The second is momentum: three months after the July student movement, the pressure has not broken, moving through the symbolic 'people's impeachment' of 31 October to Ramlila.",
+   "The third trend is the crack within power. Citing news reports, the writer says Modi and Shah differ on how to handle the protests, some ministers refused to resign, some allies asked the Commission for an explanation on SIR, and leaders such as Jagan Mohan Reddy, Naveen Patnaik and KT Rama Rao have joined the demand for resignation. Most important, in his view, is that senior officers are now advising that every decision be recorded in writing."
+  ],
+  "nazar": [
+   "Amitabh Dubey is linked to the Congress, and this piece should be read with that in mind. Still, one point of his carries weight even for a neutral reader: when bureaucrats start leaving written notes on files to protect themselves, it says more than any crowd figure about which way the wind is blowing.",
+   "The size of the crowd is not the real issue in this debate. The real issue is the crores of names in question. If the BJP stays stuck on the count and does not answer the question of deleted names, what the writer says will happen: its credibility will slip further."
+  ],
+  "sawal": "What fear does officers keeping decisions in writing signal?",
+  "ref": [
+   [
+    "JP's Gandhi Maidan rally",
+    "Jayaprakash Narayan's historic 1974 gathering in Patna, which became the emblem of the 'Total Revolution' movement."
+   ],
+   [
+    "People's impeachment",
+    "The opposition's symbolic event on 31 October, at which six charges were laid against Gyanesh Kumar."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-08",
+  "h": "Ramlila's unity will last only if slogans become evidence",
+  "dek": "Journalist Iftikhar Ahmad Qadri writes in Urdu that the rally brought the opposition onto one stage, but its real test will come when the charges of vote theft turn into documents, legal action and concrete reforms.",
+  "by": "Iftikhar Ahmad Qadri",
+  "pub": "Al-Hilal Media",
+  "date": "2 November 2026",
+  "lang": "Urdu",
+  "body": [
+   "Iftikhar Ahmad Qadri sees the Ramlila Maidan rally as an important turning point for electoral transparency and trust in constitutional institutions. Rahul, Sonia and Priyanka Gandhi, Kharge, Mamata Banerjee, Akhilesh Yadav, Tejashwi Yadav, Farooq Abdullah, all were on one stage. His opening point is simple: the worry of a citizen who fears his name will be cut from the roll is not one party's affair but a question for the whole system.",
+   "But alongside the enthusiasm he also sounds a warning. By talking of sending the Chief Election Commissioner to jail, Rahul Gandhi made the rally's tone much sharper. Qadri says sharp protest is a democratic right, but harsh statements are not evidence in themselves; charges must be proved through documents and legal channels, and action against anyone holding a constitutional post must follow due process.",
+   "His demand of the Commission is just as clear. Its capital is public trust, so adding and deleting names, hearing complaints and investigating irregularities should all happen in the open. Wrongly deleted names should be restored through an easy process. It is wrong to treat the institution as above criticism, and equally wrong to call a charge true without evidence.",
+   "The writer reminds us that for the poor, workers, minorities, women and migrants who move cities for a living, losing their name is not a clerical slip but the loss of political representation. Finally, he sets a test for the opposition: if this unity turns into a tussle for power, it will fall apart; if it produces concrete proposals on transparent monitoring, quick resolution of complaints and voters' rights, it can become the foundation of a large democratic movement."
+  ],
+  "nazar": [
+   "Amid the noise of the movement, this measured voice is needed. Qadri neither acquits the Commission nor gives the opposition a blank cheque; he asks both for accountability. For Urdu readers, his emphasis is that political parties, social organisations and religious institutions should help people check their names and get legal aid, without any communal colour.",
+   "This is the movement's real ground. A rally lasts a day, but the person whose name was cut has to return to the booth every time. The test of unity will not be the picture on the stage but how many deleted names are restored."
+  ],
+  "sawal": "What concrete reforms can Ramlila's opposition unity turn into?",
+  "ref": [
+   [
+    "Al-Hilal Media",
+    "An Urdu news and opinion website, where this piece appeared under the 'Mazameen' (essays) section."
+   ],
+   [
+    "Removal from the voter roll",
+    "A name is cut through a Form 7 objection or during a revision; if it is wrongly cut, there is a route to appeal and get it added back."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-09",
+  "h": "Cosying up to Trump: what price will Pakistan pay now?",
+  "dek": "After the Democrats' win in the US midterm elections, Khurram Husain asks how heavily Pakistan's big bet on Trump will now weigh on it.",
+  "by": "Khurram Husain",
+  "pub": "Dawn",
+  "date": "5 November 2026",
+  "lang": "English",
+  "body": [
+   "In the US midterm elections the Democratic Party has won both houses of Congress, even in places like Texas and Kansas. Economic journalist Khurram Husain says voters were angry about inflation, tariffs and the Iran war, and in Trump's last two years Congress will now hold the power to issue subpoenas.",
+   "The writer believes Pakistan's role in brokering the April ceasefire was a real achievement; in return it got lower tariffs and a White House dinner. But the praise went too far: Trump's nomination for the Nobel Peace Prize, the line at the United Nations about saving three crore lives, and the Prime Minister's gushing post on the day the Nobel went to someone else. Husain warns that a move that looks clever at the time can look quite different under later scrutiny.",
+   "The real danger is scrutiny, because Democratic Senator Richard Blumenthal has promised to investigate the Trump family's crypto companies. In January Pakistan's finance minister signed a stablecoin agreement with an entity of World Liberty linked to the Trump family, and in September the defence ministry gave a small order to a drone company in which two of Trump's sons have money. The writer says plainly that no wrongdoing has been proven, yet he sees the deal as a way of buying access.",
+   "Husain thinks fresh bombing of Iran is unlikely, since voters punished this very war. More likely, America will pull back faster from its security responsibilities in the Middle East and the Gulf monarchies will look for new arrangements, in which Pakistan could find a place.",
+   "In the 1960s, 1980s and 2000s, American friendship brought money, but it stopped as soon as Washington lost interest. This time the friendship brought fewer dollars and more photographs, and the irony is that America turning inward may teach Pakistan to stand on its own feet."
+  ],
+  "nazar": [
+   "This piece is a mirror for India too. The habit of mistaking leaders' personal friendships and hugs on stage for foreign policy is no less common here. In our view, diplomacy that bets on a single president runs into trouble when the balance of power shifts, and it is the people, not the leaders, who pay the price."
+  ],
+  "sawal": "Will a friendship that included a Nobel nomination now become a burden for Pakistan?",
+  "ref": [
+   [
+    "Midterm elections",
+    "Elections to the US Congress held midway through a president's four-year term.\nAll seats in the House of Representatives and about one-third of Senate seats are at stake."
+   ],
+   [
+    "Stablecoin",
+    "A cryptocurrency whose value is pegged to a stable currency such as the dollar.\nWorld Liberty Financial is a crypto company linked to the Trump family."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-10",
+  "h": "Why do jobless graduates resent garment workers' demands?",
+  "dek": "Maisha Islam Monamee says the anger in Dhaka over the demand for a minimum wage of 30,000 taka is a veil for class prejudice.",
+  "by": "Maisha Islam Monamee",
+  "pub": "The Daily Star",
+  "date": "4 November 2026",
+  "lang": "English",
+  "body": [
+   "Bangladesh's garment workers are demanding 30,000 taka a month, and one question echoes from social media to offices: when educated young people do not get that much, why should someone who runs a machine? Monamee says that in this debate, the underpaid graduate has become the yardstick by which everyone else is supposed to scale down their demands.",
+   "The writer accepts that graduates' hardship is real, but says it is wrong to weigh a 15,000 taka job against a worker's 12,500 taka. A new graduate often lives at home, eats food cooked by his mother and has his parents to fall back on when he is ill. The worker pays rent in an industrial area, raises two children and sends money to elderly parents in the village.",
+   "Her argument is that this resentment is really class prejudice dressed in the language of merit and fairness. Pay for office work is decided by qualifications, while talk of factory wages gets stuck on how much owners can afford. A degree does not give anyone a greater claim to a dignified life.",
+   "She also asks why the garment industry is held up as the country's success story, yet when workers ask for a share, the debate turns to whether they are asking too much. The owners' difficulties, foreign buyers, rising costs and power shortages, are treated as structural problems, while the worker's hardship is seen as a private demand. The worker has the least bargaining power, so the street is the only road left.",
+   "Finally she tells graduates to fight for better pay and against unpaid internships, but not to set that fight against the workers. A worker's life of dignity is no insult to any degree."
+  ],
+  "nazar": [
+   "The same debate keeps coming back in India too, whether over sanitation workers, gig workers or domestic workers. In our view, setting those at the bottom against each other is exactly the trick that keeps the profits at the top safe from questions. The jobless graduate and the low-paid worker are victims of the same economic structure."
+  ],
+  "sawal": "Why are the hardships of graduates and workers weighed differently?",
+  "ref": [
+   [
+    "Ready-made garment (RMG) industry",
+    "The backbone of Bangladesh's exports, employing lakhs of workers, most of them women.\nThere have been repeated protests there over demands for higher wages."
+   ],
+   [
+    "Living wage",
+    "A wage high enough for a family to meet basic needs such as food, rent, healthcare and schooling.\nIt is often well above the official minimum wage."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-11",
+  "h": "An 11,200 MW dam on the Siang, and the Adi community's refusal",
+  "dek": "Bhupen Sarmah says the opposition to dams in Arunachal is not against development but a fight to protect ancestral land and identity.",
+  "by": "Bhupen Sarmah",
+  "pub": "Countercurrents",
+  "date": "4 November 2026",
+  "lang": "English",
+  "body": [
+   "The Siang Upper Multipurpose Project is an 11,200 megawatt scheme now being presented as an answer to the dam China is building upstream. Researcher Bhupen Sarmah writes that organisations of the Adi community fear it will submerge 27 villages and displace about 1.5 lakh people. On 23 September the Arunachal cabinet approved a high-level committee for the survey.",
+   "The writer alleges that those asking for transparency and a rehabilitation plan were called 'anti-national' and 'anti-development', a pro-dam lobby was built up through village headmen, and paramilitary forces were deployed in three districts. On the night of 23 October the protest in Pasighat turned violent, and a police station and an NHPC office were set on fire.",
+   "Sarmah recounts the long history of dams in the region: from the Subansiri scheme of the 1950s to the 2,000 megawatt Lower Subansiri and the 3,000 megawatt Dibang. He says opposition was weakened with help for pig rearing, silk and handlooms, along with roads and jobs, but downstream fears of floods, erosion and earthquakes still demand answers. Under the 2005 hydro policy, projects went even to companies with no experience in hydropower.",
+   "The Central Electricity Authority's plan of October 2025 speaks of 208 large hydropower projects in the Brahmaputra basin. The writer says this plan rests on slogans of national security and development and takes questions of earthquakes, ecology and society lightly. Because the Siang valley is densely populated, the impact here will be deeper.",
+   "Sarmah says this movement is not blind opposition to hydropower but is tied to traditional land rights, distrust of corporate development and old fears about the environment. He demands that large dams be halted until a cumulative impact assessment of all projects is made public, and that the Northeast Water Management Authority, pending since 2004, is finally set up."
+  ],
+  "nazar": [
+   "Shutting down every question about a project by calling it 'the answer to China' is a dangerous trend. In our view, no dam can be in the national interest without the consent of the people of the valley it will drown. Approving projects one by one on the seismic ground of the Himalayas is gambling with the future of the whole region."
+  ],
+  "sawal": "Whose security is served by uprooting 1.5 lakh people?",
+  "ref": [
+   [
+    "Siang river",
+    "The river called the Yarlung Tsangpo in Tibet becomes the Siang in Arunachal and the Brahmaputra in Assam.\nChina is building a giant dam on its upper reaches at Medog."
+   ],
+   [
+    "NHPC",
+    "The central government's hydropower company, which is building several large dams in the Northeast.\nThe Lower Subansiri and Dibang projects are also with it."
+   ]
+  ],
+  "photo_note": "The Brahmaputra, Jorhat (representative image)"
+ },
+ {
+  "id": "2026-11-07-12",
+  "h": "The Facebook page that questioned power is now power itself",
+  "dek": "Anup Kafle read 265 posts by Balen Shah to show how his social media drifted away from accountability as soon as he went from mayor to prime minister.",
+  "by": "Anup Kafle",
+  "pub": "The Kathmandu Post",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "On 30 October plainclothes police entered newsrooms in Nepal and detained journalists. The next day Prime Minister Balendra Shah wrote on Facebook about easing rules for the mobile gaming industry. Starting from this, Anup Kafle, editorial director of the Kantipur Media Group, analysed Shah's 58 posts as prime minister and more than 200 as mayor of Kathmandu.",
+   "His conclusion is that as mayor, Shah used Facebook to put power in the dock: 39 of 207 posts attacked someone by name, with hard figures and measurable targets. Since becoming prime minister he has attacked only once, figures have almost vanished, and reassurances like 'rest assured' have taken their place. The page is still listed under the 'Musician/Band' category.",
+   "Kafle says Shah speaks up at once when the government is delivering help, such as the nightly bulletins during the floods. But when power is questioned, as with cutting short the parliamentary session in April to bring in ordinances, or the debate over impeaching judges over leaked chats, the page stayed silent.",
+   "On 1 November Shah wrote, without naming anyone, that 'one or two people' would not be spared. The same day his chief adviser had tagged 28 journalists and questioned whether the rest could even be called journalists. The Prime Minister has posted 58 times but has appeared in Parliament only twice, and has not replied to a single one of thousands of comments. The writer sent seven questions to his office and got no reply.",
+   "Kafle's point is that to escape scrutiny, leaders do not need to shut down communication; they only need to set its terms."
+  ],
+  "nazar": [
+   "This story is no stranger to India. Leaders who speak constantly on social media but hold no press conferences are not having a conversation; they are broadcasting one way. In our view, Kafle's method of counting the posts, testing them and sending questions is a good model for examining the digital image of power, one Indian journalism could adopt too."
+  ],
+  "sawal": "58 posts and two appearances in Parliament: what kind of accountability is this?",
+  "ref": [
+   [
+    "Balendra Shah (Balen)",
+    "A rapper turned politician, Balen was elected mayor of Kathmandu as an independent in 2022.\nThe article says he has been Nepal's prime minister since March 2026."
+   ],
+   [
+    "Kantipur Media Group",
+    "Nepal's largest private media group, which publishes The Kathmandu Post and the Kantipur daily.\nThe article says its people were among the journalists who were tagged."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-13",
+  "h": "Women's empowerment in the conference hall, the same old jibes in the corridors",
+  "dek": "Rakhshinda Perveen came back from a conference in Islamabad with two reasons for hope, and two remarks that show who really needs to change.",
+  "by": "Rakhshinda Perveen",
+  "pub": "The Friday Times",
+  "date": "4 November 2026",
+  "lang": "English",
+  "body": [
+   "Pakistani feminist activist Dr Rakhshinda Perveen went to speak at a session of SDPI's 29th Sustainable Development Conference in Islamabad on women's opportunities, from skills to economic freedom. The writer, who has worked on this subject for years, says the debate was a familiar one, but she came back with two small hopes and two stinging remarks.",
+   "The first hope was the simple courtesy of the head of a large company, who poured water for the writer sitting beside him and spoke without notes, from a feminist point of view. The writer says women in professional spaces do not always get even this basic respect. The second hope was four students, two boys and two girls, among whom a girl from Chitral said, you have spoken what is in our hearts.",
+   "Then came the remarks of two older men. One said you have put on weight; the other suggested that she would have earned more selling samosas than from years of professional work. The writer does not name them, because for her the mindset matters, not the people. She says she understands a joke, but something that again and again belittles a woman's rights and standing cannot be brushed off as harmless laughter.",
+   "Perveen argues that research and policy frameworks cannot replace real experience. The woman who learns a skill but gets no capital, the woman who toils in the family business but never becomes its owner, and the woman who does uncounted housework are all examples of this. She says that for economic freedom it is not enough to prepare women for the market; the behaviour of those already sitting in the market has to change."
+  ],
+  "nazar": [
+   "In India too, platforms and certificates for 'women's entrepreneurship' have multiplied, but the climate of offices and meetings has not changed as fast. In our view, this piece is a reminder that equality is decided less by the paper of policies and more by everyday behaviour, and that change should begin with men."
+  ],
+  "sawal": "Who will change the mindset that weighs a woman's work against samosas?",
+  "ref": [
+   [
+    "SDPI",
+    "Sustainable Development Policy Institute, an independent policy research institute in Islamabad.\nIt holds a large conference on development questions every year."
+   ],
+   [
+    "Unpaid care work",
+    "Work such as running the home and caring for children and the elderly, for which no wage is paid.\nIn South Asia most of this burden falls on women and it is not counted in national income."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-14",
+  "h": "Delhi's smog will not clear by putting up checkpoints at the border",
+  "dek": "Vaishali Basu Sharma says the ban on older vehicles is a showpiece step, while coal power plants and regional pollution are left ignored.",
+  "by": "Vaishali Basu Sharma",
+  "pub": "The Wire",
+  "date": "4 November 2026",
+  "lang": "English",
+  "body": [
+   "Every winter Delhi's air turns toxic, and every winter the government's response is fixed too: restrictions and emergency orders. This time, from 1 November to 31 January 2027, BS-4 and older vehicles are barred from entering Delhi. Vaishali Basu Sharma, an analyst of strategic and economic affairs, asks whether this is a real cure or just for show.",
+   "She cites a CREA report that studied four winters. Delhi spent about 80 percent of winter under GRAP's second stage or a stricter one, and of the 12 times the third or fourth stage was imposed, the air got worse the following week on 10 occasions. The writer says taking the same steps again and again and expecting a different result turns environmental governance into symbolism.",
+   "Her larger argument is that pollution does not respect city limits. The same sources exist outside Delhi, and studies show that a large share of the city's PM2.5 can come from outside. Stubble burning, construction and road dust, industry, waste burning, brick kilns and diesel generators all add their share, but policy fixes on private vehicles because they are visible and easy to act against.",
+   "The biggest blind spot is coal power plants. The order to install FGD units, which curb sulphur dioxide, is nearly ten years old, but the deadline has been extended again and again. CREA estimates that power plants within a 300 kilometre radius of Delhi-NCR emit about 154 kilotonnes of sulphur dioxide every year, 90 percent of it from plants without FGD.",
+   "Meanwhile, lakhs of people coming in from Gurugram, Noida, Ghaziabad and Faridabad get caught in the shifting rules, and business takes a hit in the festive season. Experiments like last year's inconclusive cloud seeding also seem to the writer to be part of the same show."
+  ],
+  "nazar": [
+   "The burden of Delhi's air is always put on the common man, whether a labourer with an old vehicle or a street vendor. In our view, as long as coal power plants keep getting deadline extensions and there is no shared plan for the whole region, the same smog and the same restrictions will keep returning every November."
+  ],
+  "sawal": "At the cost of whose breath do coal plants keep getting extensions?",
+  "ref": [
+   [
+    "GRAP",
+    "Graded Response Action Plan, a system of staged restrictions in Delhi-NCR based on air quality.\nIt has four stages, and the restrictions get stricter at each stage."
+   ],
+   [
+    "FGD",
+    "Flue gas desulphurisation, a technology that curbs the sulphur dioxide coming out of a coal power plant's chimney.\nIndia's deadline for installing it has been extended several times."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-15",
+  "h": "Hut or mansion, eviction only by law: Calcutta High Court",
+  "dek": "Over fears that tea garden workers would be removed for a land port project, the court said the work can go on, but no one can be uprooted without due legal process.",
+  "by": "Srinjoy Das",
+  "pub": "LiveLaw",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "A vacation bench of the Calcutta High Court said on 6 November that existing laws cannot be set aside in the name of pushing a government project forward. The case concerns land that is to be handed over for building a land port and on which tea garden workers and others live. The petitioners feared they would be driven out. Senior advocate Bikash Ranjan Bhattacharya appeared for them.",
+   "The state government denied any plan of eviction. It said these people were obstructing the project by staging a sit-in, that the police had registered an FIR on their own and made some arrests, and that those whose occupation is unauthorised cannot seek protection unless they are proven to be lawful occupants.",
+   "The court relied on the government's own report, which accepted that these people live on that very land. The bench said that even if the occupation is unauthorised, the law lays down a route of eviction proceedings for removing them. It also questioned the use of bulldozers against the protesters. The court said a person living in a hut and a person living in a big house are both entitled to equal protection of the law, and that people struggling for basic needs have a greater need for the court's support.",
+   "No stay was placed on the project. The government can continue the work, but if any structure is to be demolished or anyone removed, it must follow due legal process. These observations will not affect the FIR, and the arguments of both sides will remain open before the regular bench."
+  ],
+  "nazar": [
+   "Workers who have lived in tea gardens for generations often have no land papers, so every new project turns them into 'encroachers' in an instant. The court reminded us that having no papers does not put anyone outside the law. The real test is now on the ground: whether officials truly honour notice and hearing, or turn them into a ritual before the bulldozer."
+  ],
+  "sawal": "Why did tea workers have to go to the High Court to save their homes?",
+  "ref": [
+   [
+    "Land port",
+    "A border post for the movement of goods and travellers, with customs and immigration facilities in one place."
+   ],
+   [
+    "Vacation bench",
+    "A bench that hears urgent cases during court holidays; the final decision in the case is made later by the regular bench."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-16",
+  "h": "Held as a 'foreigner' despite an Indian passport, court halts deportation",
+  "dek": "The Calcutta High Court barred authorities from sending Mainul Haque Khan out of the country without legal proceedings until 24 December, and asked officials to account for his arrest.",
+  "by": "Srinjoy Das",
+  "pub": "LiveLaw",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "In an interim order on 6 November, a vacation bench of the Calcutta High Court barred the authorities from sending Mainul Haque Khan out of the country without any legal proceedings. The bar will stay in force until 24 December or until further orders. Khan's sister had filed a habeas corpus petition challenging his detention and possible deportation.",
+   "According to the petition, Khan was travelling to Bangladesh with his wife when officials picked both of them up. The suspicion was that they were foreign nationals. But Khan held a valid Indian passport, with a Bangladeshi visa stamped on it. In other words, the man arrested as a foreigner was travelling on a document issued by the Government of India itself.",
+   "The report records no argument from the government side, and the court has said nothing yet on the merits of the case. But it has asked officials plainly under what circumstances the arrest was made and whether any legal proceedings have been started against Khan. The answer must be filed as a report before the regular bench, which will hear the matter on the next date.",
+   "The condition in the order matters: the bar is on deportation without proceedings. The authorities can pursue the case through the law if they wish, but they cannot simply send someone across the border."
+  ],
+  "nazar": [
+   "For months, complaints of Bengali-speaking workers being picked up as 'Bangladeshis' have been reaching the courts. In this case the man held the strongest proof of citizenship there is, a passport. If even that could not clear the suspicion, what chance do the crores of poor people who have no passport at all stand?"
+  ],
+  "sawal": "On what basis was an Indian with a passport treated as a 'foreigner'?",
+  "ref": [
+   [
+    "Habeas corpus",
+    "A petition in which the court has a detained person produced before it and examines whether the detention is lawful."
+   ],
+   [
+    "Deportation",
+    "Sending a person out of the country as a foreigner; the law lays down a process of inquiry and hearing for it."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-17",
+  "h": "Bengal: action against three social media creators for criticising the government",
+  "dek": "Three people who took on the government over the Chorbagan Durga Puja stampede and idol immersion have been booked under BNS sections, one of them also under Section 152, meant for threats to unity and integrity.",
+  "by": "Maktoob Desk",
+  "pub": "Maktoob Media",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "Police have acted against three social media creators in West Bengal. All three had criticised the state's BJP government, its policies and its handling of the stampede at the Chorbagan Durga Puja pandal in Kolkata. Nineteen people died in that stampede.",
+   "Akash Sarkar, 30, of Nagerbazar, was arrested from his home on 25 October. A Barrackpore court sent him to three days of police custody, and he got bail on 29 October. He faces charges of defamation, public nuisance and hurting religious sentiments. The complaint called his posts about the Prime Minister and Chief Minister Suvendu Adhikari false and provocative. Akash had written that the Chief Minister's nephew was the chief patron of the puja committee where the stampede took place.",
+   "Sreemoyee Chakraborty of Bidhannagar was taken to the police station on 26 October and released the same day on a personal bond of 2,000 rupees. She had shared a video of the Chief Minister saying that only followers of Sanatan Dharma could take part in the immersion. Surajit Shee of Dantan in Paschim Medinipur, whose Facebook page has more than 2.5 lakh followers, has been charged under Sections 152, 197 and 353. Citing Alt News, the report says he was first held in Medinipur Central Jail and then sent to police custody until 6 November. He had posted a video questioning the official account of the stampede, which was later blocked in India.",
+   "According to the report, Trinamool leader Debashish Dey in August, and a man from Bandel in Hooghly in October, had already been arrested for remarks about the Chief Minister."
+  ],
+  "nazar": [
+   "Using a section meant for threats to the country's sovereignty and integrity against a Facebook video shows that the old sedition law has changed its name, not its habits. Power changed hands in Bengal, but the practice of summoning critics to the police station stayed the same. Asking questions about 19 deaths is a demand for accountability, not a crime."
+  ],
+  "sawal": "How is questioning a stampede a threat to national unity?",
+  "ref": [
+   [
+    "BNS Section 152",
+    "A section of the Bharatiya Nyaya Sanhita that makes acts endangering the country's sovereignty, unity and integrity a crime; critics call it a new form of sedition."
+   ],
+   [
+    "Personal bond",
+    "A bail condition in which the accused is released on taking responsibility for a fixed sum themselves, with no need for a surety."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-18",
+  "h": "AMU gets a students' union after eight years, and its first woman vice-president",
+  "dek": "Elections returned to Aligarh Muslim University after a student movement; Noman Ashraf became president and law student Nashra Naeem was elected vice-president.",
+  "by": "Ghazala Ahmad",
+  "pub": "Maktoob Media",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "Aligarh Muslim University held students' union elections after eight years, and the results recorded something new: law student Nashra Naeem became the first woman vice-president of the AMU students' union. She got 7,091 votes and won by 1,273 votes. The elections came back after a movement in which students demanded an elected union.",
+   "The president's post went to Noman Ashraf, a PhD scholar in history who is also a speaker and an Urdu poet. He got 7,797 votes and won by a margin of 4,121. Mohammad Hamdan won the post of honorary secretary with 8,385 votes, by a margin of 1,503. A ten-member cabinet was also elected, with several women students including Haniya Khan, Ariba Dilshad, Shazia Shamim, Anika Rumman Rahi and Shaheen Parveen.",
+   "Nashra is from Uttar Pradesh and sits on the national executive of the Fraternity Movement. Speaking to Maktoob a day before the vote, she said students of minority institutions like AMU are viewed with suspicion, because such places can produce leaders who understand the pain of their community and can put it before national and global platforms. In her view, this is the kind of representation students need.",
+   "In the separate Women's College students' union election, Anam Riyaz was elected president, Ayesha Khan vice-president and Mariyam Jan secretary."
+  ],
+  "nazar": [
+   "At a time when student politics is being watched ever more closely on many campuses across the country, the return of the ballot box to AMU is no small win. Women students of a Muslim university reaching leadership through the vote is also an answer to the tired image forced on such institutions. The test now will be how boldly the union raises questions of fees, hostels and campus freedom."
+  ],
+  "sawal": "The union is back. Which campus demands will come up first?",
+  "ref": [
+   [
+    "AMUSU",
+    "The Aligarh Muslim University Students' Union, one of the oldest student unions in the country, whose elections were held this time after eight years."
+   ],
+   [
+    "Fraternity Movement",
+    "A student and youth organisation active on campuses on questions of social justice and minorities."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-19",
+  "h": "In the police versus lawyers war, the complainant was forgotten",
+  "dek": "Sheetal Thakur, who runs a salon in Shahdara, says there is still no FIR on her assault complaint two weeks on, while the fight has gone as far as transfers, a suspension and a police protest.",
+  "by": "Ashwini Kumar Singh and Avdhesh Kumar",
+  "pub": "Newslaundry",
+  "date": "5 November 2026",
+  "lang": "English",
+  "body": [
+   "On 23 October, an argument broke out over a parked motorcycle in Rohtash Nagar in Delhi's Shahdara. Sheetal Thakur, who runs a salon, alleges that Vishnu, the brother-in-law of lawyer Amulya Ratan, threatened her husband, and that around 4 pm Vishnu, Amulya and four or five others came back and beat her and her husband. Amulya says it was the other way round, and that Sheetal's husband and brother-in-law attacked him.",
+   "Sheetal called 112 and filed a complaint at Shahdara police station. She says lawyers who arrived at the station misbehaved with her family and with the police. The police registered two FIRs, one against the lawyers and the other at 11:51 pm on Amulya's complaint against 'unknown' persons. Sheetal says her complaint was filed before that, yet no case was made on it, and she was not shown the CCTV footage either.",
+   "After that the matter became a fight between two powerful groups. The lawyers accused ACP Manasvi Vashisht of waving a revolver and of a bribe of five lakh rupees; the police registered an FIR against 15-20 lawyers for entering the SHO's office and threatening him. On 27 October lawyers of the district courts went on strike, and the next day both officers were removed. On 2 November about 150 police personnel protested outside police headquarters. On 3 November the Home Ministry suspended Vashisht, and on 4 November SHO Arun Kumar was transferred again.",
+   "The Shahdara DCP declined to comment. A senior officer said an inquiry is on and a case will be registered after it."
+  ],
+  "nazar": [
+   "In Delhi, lawyers have the power to strike, and the police have the uniform and the sit-in. Both won and lost their own battles, there were transfers and a suspension, and deals were struck in meetings. In all this noise, the woman whose complaint started the story was left behind. For an ordinary citizen the first door to justice is the FIR, and that door is still shut."
+  ],
+  "sawal": "Why is there still no FIR on Sheetal Thakur's complaint?",
+  "ref": [
+   [
+    "Cognisable offence and FIR",
+    "When the police get a complaint of a cognisable offence such as assault, they must register an FIR; the Supreme Court said so in the Lalita Kumari case."
+   ],
+   [
+    "Tis Hazari clash",
+    "In November 2019 lawyers and police clashed at Delhi's Tis Hazari court, after which police personnel held a large protest outside their headquarters."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-20",
+  "h": "Fake notices in the name of the RSS and Delhi Police, and questions that remain",
+  "dek": "Both takedown notices sent to digital rights groups IFF and SFLC.in turned out to be fake, but there is still no answer to who sent them and why.",
+  "by": "Ayush Tiwari",
+  "pub": "Scroll",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "At 9:54 pm on 29 October, the Internet Freedom Foundation (IFF) received an email. A person calling himself lawyer Gaurav Tiwari wrote that he was acting on behalf of the RSS and that the group should stop opposing government orders to take down content. Similar emails went to SFLC.in and to an account on X. According to Scroll's investigation, the Proton Mail address they came from had been created about six hours earlier that same day, and the address and phone number in the notice belonged to a different body registered in Nainital, the 'Rashtriya Sewa Sangh', which denied sending any such notice.",
+   "On 3 November, X told both groups that it had received requests in the name of Delhi Police calling 23 tweets, and their handles themselves, illegal on the ground of defaming the RSS. SFLC pointed out that criminal defamation is a non-cognisable offence that needs a court order, that the officer in whose name the report came was not authorised to issue such notices under a June 2026 notification, and that the notices had not come through the government's Sahyog portal either. X's form also had no way to verify the identity of the sender.",
+   "On 5 November both groups went to the Delhi High Court. On 6 November X told the court that the notices in Delhi Police's name had been sent by an impersonator and that it had filed a police complaint. A Delhi Police officer, speaking on condition of anonymity, also called them fake.",
+   "Questions remain open all the same: who controls these email addresses, why the officer's address in the police directory changed after SFLC asked about it, and why the RSS and the police are officially silent."
+  ],
+  "nazar": [
+   "The notices were fake, but they exposed a real weakness. If anyone can fill in a form in the name of the police to try to get accounts taken down, and platforms pass it along, then silencing critics no longer even needs a real order. Until the impersonator is caught and the police answer openly, this fear will remain."
+  ],
+  "sawal": "Who is the impersonator sending notices in the name of the police?",
+  "ref": [
+   [
+    "Sahyog portal",
+    "A government platform launched in October 2024, through which authorised agencies send content takedown requests to social media companies."
+   ],
+   [
+    "Non-cognisable offence",
+    "An offence in which the police cannot investigate or arrest without a magistrate's permission; criminal defamation falls in this category."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-21",
+  "h": "Refugees from six communities who came without papers now need a visa",
+  "dek": "The Home Ministry has amended a 2025 exemption order to make a 'proper visa' mandatory for non-Muslim refugees from Afghanistan, Bangladesh and Pakistan to stay in India.",
+  "by": "Nachiket Deuskar",
+  "pub": "Scroll",
+  "date": "6 November 2026",
+  "lang": "English",
+  "body": [
+   "The Union Home Ministry has amended the Immigration and Foreigners (Exemption) Order, 2025, notified on Wednesday and published on Thursday. Under it, people from the Hindu, Sikh, Buddhist, Christian, Jain and Parsi communities of Afghanistan, Bangladesh and Pakistan who came to India without valid papers by 31 December 2024, citing religious persecution, must now get a 'proper visa' to keep living here. The same condition applies to those whose papers have expired.",
+   "Under the old rules these people were exempt from both passport and visa. After the amendment, the exemption from entering without a passport and visa stays, but a visa condition has been added for staying. According to Scroll, these rules line up with the Citizenship Amendment Act (CAA), 2019, which gives these same six communities from these same three countries, leaving out Muslims, a fast track to citizenship. The difference is that the CAA cut-off date is 31 December 2014, while the exemption order speaks of people who came until 2024.",
+   "The amendment makes other changes too. Some Pakistani nationals who came to settle permanently before 2009, some Partition-era returning migrants settled in Keralam, and people of Indian origin from Malaysia and Singapore stuck in passport renewal will also now stay on visas. The exemption for Tibetan refugees who came between 1959 and 2003 continues, but they must get a registration certificate. The exemption for registered Sri Lankan Tamils who came by 9 January 2015 will remain.",
+   "The report does not say how many people this change will affect, nor does it record any response from the government or from these communities."
+  ],
+  "nazar": [
+   "When the CAA was brought in, it was said that it would give relief to persecuted minorities from neighbouring countries. But those who came after 2014 are outside that law, and now their stay too comes with a visa condition, which means years of running after papers. And for those who are not counted among these six communities at all, no door opens."
+  ],
+  "sawal": "On what visa will refugees who came after 2014 depend?",
+  "ref": [
+   [
+    "Citizenship Amendment Act (CAA)",
+    "A 2019 law that gives six non-Muslim communities from Afghanistan, Bangladesh and Pakistan a fast track to citizenship if they came by 2014; its rules came in March 2024."
+   ],
+   [
+    "Immigration and Foreigners (Exemption) Order, 2025",
+    "A government order that decides which people are exempt from the passport or visa requirement to enter and stay in India."
+   ]
+  ],
+  "photo_note": "Representative image"
+ },
+ {
+  "id": "2026-11-07-22",
+  "h": "Police action of 20 July: committee must not wait for complaints",
+  "dek": "The Supreme Court has asked the committee probing police excesses at the Delhi protest against the NEET paper leak for its first fact-finding report within a month.",
+  "by": "Rajan Chaudhary",
+  "pub": "The Mooknayak",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "On 5 November the Supreme Court looked at the action-taken report of the High-Powered Enquiry Committee (HPEC) that is probing police excesses at the protest in Delhi on 20 July. That protest against the NEET-UG 2026 paper leak had been called by the 'Cockroach Janta Party', and according to the report several people were seriously injured in the police action. After these protests, the then education minister Dharmendra Pradhan resigned.",
+   "The court itself set up this committee in August 2026, and it is headed by former Supreme Court judge Justice R. Subhash Reddy. In mid-October it launched an online portal where complaints could be filed without giving a name, phone number, address or Aadhaar. Even so, the report of 31 October says very few complaints came in on the portal, and not a single one by email, post or in person at the office.",
+   "A bench led by Chief Justice Surya Kant said the committee should not wait indefinitely for material, should start its inquiry on the complaints it has, and add new ones as they come. The petitioners were told to hand over the videos and evidence they have to the committee, and officials must file replies to the questions raised in the petitions without delay. The first report is due in a month, and the next hearing will be in December.",
+   "Advocate Vrinda Grover told the court that the police had not given the committee any information or evidence, and asked who ordered pellet guns to be fired and where the ammunition register is. Senior advocate N. Hariharan called the surveillance of protesters a violation of the rights to privacy and peaceful assembly."
+  ],
+  "nazar": [
+   "Few complaints despite an anonymous portal does not show that there was no brutality; it is more likely that people are still afraid. The court rightly said an inquiry cannot rest on waiting. The real question is Vrinda Grover's: if pellet guns were fired, whose order was it? Until that name comes out, accountability will remain incomplete."
+  ],
+  "sawal": "Who ordered pellet guns to be fired at protesters in Delhi?",
+  "ref": [
+   [
+    "HPEC",
+    "The High-Powered Enquiry Committee set up by the Supreme Court, which is conducting a fact-finding inquiry into the police action at the 20 July protest in Delhi."
+   ],
+   [
+    "Pellet gun",
+    "A gun that fires pellets, described as 'less lethal' for crowd control, though cases of lost eyesight and serious injuries from it have been recorded."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-23",
+  "h": "Sickles, nylon saris and smoke: Uttarakhand's unpaid fire brigade",
+  "dek": "When fire breaks out in Uttarakhand's forests, the village women get there first, with no uniform, no tools and no wages.",
+  "by": "Swati Thapa",
+  "pub": "Mongabay",
+  "date": "8 September 2026",
+  "lang": "English",
+  "body": [
+   "In Marhamnale village in Almora district, news of a forest fire spreads not by phone but by whistles and shouts. Kamla Devi, head of the van panchayat (village forest council), says a woman without a phone calls out, and the other women set off with their sickles. Small flames are beaten down with a 'jhapa', a bunch of green branches.",
+   "Uttarakhand is the most fire-prone state in the western Himalaya. According to the report, heat is rising faster at high altitudes than the global average, the fire season has stretched into winter, and the first four months of 2026 saw a sharp jump in fire incidents. About 71 percent of the state is forest, which supplies water, fodder and firewood.",
+   "Why are women on the front line? According to Kavya Pandey, a researcher at the Centre for Wildlife Studies, fetching wood and fodder is their work, so they are the closest when a fire starts. The men have left for cities to find jobs. The fire watchers paid by the forest department are mostly men; the women get neither wages nor safety gear. They fight fires in nylon saris, without proper shoes, and come back with burnt hands, singed eyebrows and a cough.",
+   "The 2024 Binsar fire is a reminder of the risk. Meena Bhoj went to put out a fire at night and was injured when she fell into a pit. The next day her husband Bhuwan Bhoj, a fire watcher, survived the disaster but his hands were badly burnt. According to the report, the compensation of 10 lakh rupees that was announced has still not been paid, and the villagers now put out only fires close to home.",
+   "Even so, Marhamnale has shown a way. Kamla Devi brought the women together to stop careless burning and started the practice of small, controlled, planned fires. The village women say there has been no big fire there for three years."
+  ],
+  "nazar": [
+   "Policy does not even count the women who carry the burden of saving the forest. Work that is called a job when men do it becomes 'service' when women do it. Village women should get an equal share in fire watcher recruitment, insurance and safety gear.",
+   "Women's share in van panchayats should show in decisions, not on paper. The lesson of Marhamnale is that when a village gets both the right to the forest and the duty to care for it, fire prevention starts not with satellites but with footpaths."
+  ],
+  "sawal": "Who is responsible for insuring a woman fighting fire in a nylon sari?",
+  "ref": [
+   [
+    "Van panchayat",
+    "A system special to Uttarakhand in which an elected village council manages the village forest. It began in the 1930s, during British rule."
+   ],
+   [
+    "Binsar fire",
+    "A fire in June 2024 in the Binsar Wildlife Sanctuary in Almora, in which several forest department staff and fire watchers were killed while fighting it."
+   ]
+  ]
+ },
+ {
+  "id": "2026-11-07-24",
+  "h": "Manager Pandey's lost cassette: to save criticism, save resistance",
+  "dek": "A long conversation recorded in 2002, in which Manager Pandey speaks on the responsibility of criticism, from Surdas to Dalit literature and the market.",
+  "by": "Shridharam",
+  "pub": "Samalochan",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "On Manager Pandey's death anniversary, Samalochan has published an old conversation with him. It was taped in November 2002 by Shridharam, once his research student. The cassette lay around for years, the recorder broke down, and only now has the conversation made it onto paper.",
+   "Pandey begins with Surdas. In his view, in a society where panchayats still sentence lovers to death, Sur's poetry, which speaks of love, equality and a refusal of deceit, becomes necessary all over again. He also reads Sur's verses on childhood as a lesson in saving childhood in the age of the market.",
+   "He explains why he moved from Marxist criticism towards the sociology of literature. It is not enough to understand the social meaning of a work; one must also see how a book is printed, sold and read. Ignoring popular literature, in his view, means ignoring half the world of literature. The market and cultural nationalism look like opponents on the surface, but they strengthen each other, and the answer to this is not poetry alone but organised struggle.",
+   "He speaks plainly about Dalit literature. In Marathi Dalit writing, Ambedkar and Marx go together, while in Hindi the stress is more on caste. He recalls that Heera Dom's Bhojpuri poem 'Achhoot ki Shikayat' (An Untouchable's Complaint) was published in 'Saraswati' in 1914, and that Ramvilas Sharma later brought it back to light. He disagrees with attempts to call the poems of Nagarjun or Nirala Brahminical.",
+   "The conversation also includes a debate with Virbharat Talwar's book on the Hindi renaissance, 'Rassakashi' (Tug of War), and a section describing Adivasis (indigenous communities) as victims of 'internal colonialism', where the published excerpt breaks off incomplete."
+  ],
+  "nazar": [
+   "This 24-year-old conversation feels like today's: love under watch, the duet of the market and majoritarian nationalism, and writers who speak of resistance in their work but stay away from the street.",
+   "In our view, Pandey's most useful point is that criticism is not clerical bookkeeping but the work of preparing the ground for the writing still to come."
+  ],
+  "sawal": "What does Surdas's love say in the age of khap panchayats?",
+  "ref": [
+   [
+    "Manager Pandey",
+    "A leading Marxist critic of Hindi, long a professor at JNU. 'Sahitya ke Samajshastra ki Bhumika' and 'Bhakti Andolan aur Surdas ka Kavya' are his well-known books."
+   ],
+   [
+    "Heera Dom",
+    "A Bhojpuri poet whose 'Achhoot ki Shikayat' (1914) is counted among the earliest Dalit poems of the Hindi region."
+   ]
+  ],
+  "photo_note": "The Old Storyteller, Amrita Sher-Gil, 1940"
+ },
+ {
+  "id": "2026-11-07-25",
+  "h": "Ambar Pandey's stories: the unclaimed baggage room of power",
+  "dek": "Jyoti Sharma reads 'Lawaris Saman ka Kamra' as a book that questions the state, caste, patriarchy and capital without raising slogans.",
+  "by": "Jyoti Sharma",
+  "pub": "Samalochan",
+  "date": "5 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "The room at a railway station where ownerless trunks and bundles lie piled up seems to Jyoti Sharma the most fitting picture of Ambar Pandey's story collection, 'Lawaris Saman ka Kamra' (The Unclaimed Baggage Room). This book, published by Rajkamal, gathers similar things: a telephone operator's diaries running to thousands of pages, a painter's biography written in twelve volumes, the Yiddish language a Polish Jewish woman kept alive for years.",
+   "According to the reviewer, these stories clash with every form of power, but they do not preach and do not make saints of victims. In 'Soochi ke Bare Mein Sochte Hue' (Thinking About the List), a man finds that his name is missing from a government list, and without naming any party the story shows the terror of bureaucratic logic.",
+   "'Hathat Vrishti' (Sudden Rain) touches communal fantasies and shows how suspicion takes root even in a liberal mind. In another story, a Jewish orphan girl later blends into majority customs and herself joins the oppressors, and the writer neither makes her a villain nor acquits her. One story is about the self-admiring buildings of a university, where the guest house is named after Walter Benjamin and a Dalit professor is in jail.",
+   "Sharma also praises the language, in which Marathi, Bangla, Urdu, Bhojpuri, Yiddish and English blend without footnotes. She traces its lineage from Kafka and Sebald to Dharamvir Bharati and Vinod Kumar Shukla.",
+   "She lists the flaws too: the book demands patience, its learning is sometimes intimidating, and it offers no comfort. Even so, she says Hindi fiction should claim it as its own."
+  ],
+  "nazar": [
+   "In an age when citizenship lists and the fear of names being struck off are the real lives of crores of people, a story about a 'list' becomes literature's most direct political testimony.",
+   "In our view, the reviewer's point that simplifying things is itself the language of power matters. Avoiding slogans is not escape; it can also be a kind of resistance."
+  ],
+  "sawal": "Which party should a story about a name struck off a list name?",
+  "ref": [
+   [
+    "Ambar Pandey",
+    "A Hindi poet and fiction writer, known for his experiments with language and his deep interest in history."
+   ],
+   [
+    "Walter Benjamin",
+    "German thinker (1892-1940). His 'angel of history', facing the wreckage while being pushed forward, is a famous image of history."
+   ]
+  ],
+  "photo_note": "Rain, Steam and Speed, Turner"
+ },
+ {
+  "id": "2026-11-07-26",
+  "h": "Behind a viral song, the long story of Saraiki and Multan",
+  "dek": "Musharraf Parvez starts from the online success of a folk song and travels to the Saraiki language, Multan and the beginnings of Hindi poetry.",
+  "by": "Musharraf Parvez",
+  "pub": "Janki Pul",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "Recently a folk song took over Instagram, Facebook and YouTube, with singer Shanze Sial accompanied by Lashari on guitar. According to the writer, its reels have been viewed more than ten crore times. But it is not a new pop song: its lyrics are by Shafaullah Khan Rokhri, and Pakistani folk singer Muhammad Hussain Bandial sang it in 1983, when it did not catch on much.",
+   "Many listeners take it to be Punjabi, but its language is Saraiki. The writer does not take sides in the old debate over whether Saraiki is a separate language or a dialect of Punjabi, and leaves the verdict to linguists. He explains that it belongs to the Lahnda group, is spoken in the south-west of Pakistani Punjab in areas such as Multan, Rahim Yar Khan and Dera Ghazi Khan, and was earlier called 'Multani'.",
+   "The piece mentions beliefs that take its roots far back to the Indus Valley, and, citing linguist Aslam Rasoolpuri, places its origin in Sindh. There is also the story of its changing script, from Brahmi to Arabic Naskh. A long list of great Saraiki poets, from Khwaja Ghulam Farid to Shakir Shujabadi, is also given.",
+   "Then the piece comes to Multan: a city of undivided India before Partition, from where thousands of Multani families were uprooted and settled around Delhi. Multan, called 'the city of shrines', was also a stop on Muhammad Ghori's first invasion.",
+   "In the end the writer adds an interesting link: Abdur Rahman (Addahman), whom Hazari Prasad Dwivedi regarded as the first poet of Hindi, mentions Multan in his Apabhramsha work 'Sandesh Rasak' (The Message)."
+  ],
+  "nazar": [
+   "Partition drew a border, but the Multani families of Delhi and the popularity of a viral folk song make it clear that languages and tunes do not respect that line.",
+   "In our view, this piece is a reminder that Hindi's story is not a lonely one either; one end of its beginning is tied to Multan, in today's Pakistan."
+  ],
+  "sawal": "Why does Multan appear in the book of Hindi's first poet?",
+  "ref": [
+   [
+    "Saraiki",
+    "A language spoken in southern Punjab (Pakistan), a member of the Lahnda group. Khwaja Ghulam Farid is its most famous Sufi poet."
+   ],
+   [
+    "Sandesh Rasak",
+    "Abdur Rahman's Apabhramsha work, in which a heroine pining in separation sends a message to her husband gone to a distant land. Hazari Prasad Dwivedi linked it to early Hindi poetry."
+   ]
+  ],
+  "photo_note": "Shrine and pilgrims, Murshidabad style"
+ },
+ {
+  "id": "2026-11-07-27",
+  "h": "Delhi, the Parrot of India and a bond of master and disciple",
+  "dek": "Through Amir Khusrau, Manoj Kumar Gupta shows that Sultanate Delhi was a laboratory of many languages and cultures.",
+  "by": "Manoj Kumar Gupta",
+  "pub": "Hindwi (Bela)",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "The piece begins in the thirteenth century, when Mongol invasions laid waste to cities like Bukhara, Samarkand and Baghdad. According to the writer, Delhi then became a place of hope for the displaced. Scholars, soldiers, craftsmen, merchants and singers arrived here with their languages, skills, food and memories, and the city's character grew ever more mixed.",
+   "In this setting Hindavi grew, the speech of ordinary people that came out of Apabhramsha and Avahattha. The language of the court was Persian, religious and scholarly work was done in Arabic, but Hindavi ruled the markets and homes. Gupta considers Amir Khusrau the greatest voice of this language, the man called 'Tuti-e-Hind' (the Parrot of India).",
+   "Khusrau's father was a Turk and his mother Indian. He wanted to be a great Persian poet and his Persian work is weighty, but in people's memory he lives on through riddles, mukris (playful quatrains), songs and the qawwali tradition. The writer also mentions 'Khaliq Bari', described as a verse dictionary of several languages, though scholars disagree about who wrote it.",
+   "The piece does not fit Khusrau into a simple image. He served at the courts of several sultans and wrote in their praise, but his real bond was with the khanqah (Sufi lodge) of Hazrat Nizamuddin Auliya, where wealth and rank counted for nothing.",
+   "When Nizamuddin died in 1325, Khusrau was away from Delhi. On his return he spoke a famous couplet of mourning, and he too passed away that same year. Today pilgrims pay their respects at both shrines together."
+  ],
+  "nazar": [
+   "At a time when Delhi's streets and buildings are being renamed to write a single-strand story, this piece reminds us that the shared roots of Hindi and Urdu lie in the very city that gave shelter to the uprooted.",
+   "In our view, Khusrau's legacy is that the court and the khanqah, Persian and Hindavi, could all live together in one man."
+  ],
+  "sawal": "How did a man who wanted to be a Persian poet become immortal through Hindavi?",
+  "ref": [
+   [
+    "Hindavi",
+    "A name used in medieval times for the everyday spoken language of north India, from which both Hindi and Urdu later grew."
+   ],
+   [
+    "Nizamuddin Auliya",
+    "A Sufi saint of the Chishti order (died 1325). Amir Khusrau's grave lies close to his shrine in Delhi."
+   ]
+  ],
+  "photo_note": "A page from the Tutinama, 16th century"
+ },
+ {
+  "id": "2026-11-07-28",
+  "h": "How the Ramlila of Ramnagar gave the 'Manas' its correct text",
+  "dek": "Manish Tripathi explains how an authentic edition of Tulsidas's work came out of a folk tradition of Banaras.",
+  "by": "Manish Tripathi",
+  "pub": "Hindwi (Bela)",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "In the Ramlila season, Manish Tripathi asks what faith and tradition sometimes manage to save. In his view the market is making everything the same, but because of the Kumbh, open land survives in Allahabad, and in many cities open grounds survive because the records list them as 'Lila Maidan' (Ramlila grounds), even if the Lila stopped long ago.",
+   "He mentions a 1928 essay by Rai Bahadur Hiralal, which placed the Lanka of the Ramayana not in Sri Lanka but around Amarkantak. Then he turns to the three big Ramlilas of Banaras: Chitrakoot's in the north, the Tulsi Ramlila of Bhadaini in the middle, and Ramnagar's in the south, which the Kashi royal family has run.",
+   "At the heart of the piece is an interesting tale. The Kashi Naresh (Maharaja of Kashi), Vibhuti Narayan Singh, watched the Lila every day and noticed that the text differed among the reciters' books, the Vyases' (narrators') handwritten copies and the king's own copy. He asked whether a single correct text could be prepared.",
+   "Vishwanath Prasad Mishra, a disciple of Acharya Ramchandra Shukla and a professor at BHU, took on the task. Under the All India Kashiraj Trust, work began on Vijayadashami in 1953 and was completed in 1972 with a team of several scholars. The writer considers this 'Kashiraj edition' authentic, and says it was the book in everyday folk use that made this scholarship possible.",
+   "In the end he recreates the atmosphere of the Lila: Vyases checking the text by torchlight, the king arriving on an elephant, the wedding procession going all the way to Janakpur, and the fair of Bharat Milap, which takes a month's patience to understand."
+  ],
+  "nazar": [
+   "This tale turns around the common belief that scholarship flows from the top down. Here a neighbourhood Lila gave the university its work.",
+   "In our view, today, when the Ram story is being pressed into a single political mould, it is important to remember that it has had so many texts, so many books and so many Lilas."
+  ],
+  "sawal": "Why did the king's book and the Vyas's book differ?",
+  "ref": [
+   [
+    "Ramlila of Ramnagar",
+    "A month-long Ramlila staged by the Kashi royal family at Ramnagar near Varanasi, whose scenes are played out at different places around the town."
+   ],
+   [
+    "Vishwanath Prasad Mishra",
+    "A Hindi scholar and BHU professor, known for his work on Riti poetry and textual editing."
+   ]
+  ],
+  "photo_note": "Illustrated manuscript of the Ramayana, Marwar, 17th century"
+ },
+ {
+  "id": "2026-11-07-29",
+  "h": "Poems of Ashutosh Prasiddh: a dry Aashadh and fearful speech",
+  "dek": "New poems by a young poet on Sammukh, carrying the ache of love along with the fear of speaking and the insecurity of making a living.",
+  "by": "Ashutosh Prasiddh",
+  "pub": "Sammukh",
+  "date": "6 November 2026",
+  "lang": "Hindi",
+  "body": [
+   "Sammukh has published a new selection of poems by the young poet Ashutosh Prasiddh. According to his introduction, he also writes prose, diaries and reviews, and works as an editor at a publishing house. The editorial note sees these poems as a bridge between love and separation, and between the inner world and social and political reality.",
+   "Most of the poems are in the voice of a lover who, buying bangles and flowers for his beloved, fears whether he is even worthy of her, or who finds and loses her as he moves from one city to another. 'Phool ke Vishay Mein' (About the Flower) says that only its stem truly knows a flower, and only such a one can speak about someone.",
+   "But the other end of these poems is political. In 'Abhivyakti ka Paniyana' (The Watering of Expression), the urge to speak is like a mouth watering at the sight of tamarind, but the poet censors himself, says things in a roundabout way, and then fears that even saying it roundabout is dangerous. Government slogans and posters of development are also targets. 'Purvabhas' (Premonition) imagines a future in which the poet writes in others' names to buy cheap clothes and passes time leaning against a wall.",
+   "The densest part of the collection is 'Aashadh', in four sections. Water dripping from a leaking thatch, an aunt's folk song remembering her parents' home, and finally an Aashadh that did not rain at all this time, because the ground is covered with concrete and tar. Here the drought also becomes a metaphor for unheard love.",
+   "Some poems also carry tiredness, loneliness and inner fear, which the poet records without decoration."
+  ],
+  "nazar": [
+   "A young poet saying that even speaking in a roundabout way now feels dangerous is small but clear testimony on freedom of expression in our time.",
+   "In our view, writing love poems amid the dry earth of 'Aashadh' and concrete also shows that the climate crisis has now reached deep inside poetry."
+  ],
+  "sawal": "How do you silence a mouth that waters at the sight of tamarind?",
+  "ref": [
+   [
+    "Aashadh",
+    "The fourth month of the Hindu calendar (June-July), when the monsoon reaches north India. In Hindi poetry, the season of separation and waiting."
+   ]
+  ],
+  "photo_note": "Raga Megh Malhar, a Ragamala painting"
+ }
+]
