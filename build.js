@@ -243,7 +243,8 @@ const lead = (L, kick) => `<section class="lead"><a href="${href(L)}" tabindex="
 
 const heroSize = h => { const n = [...new Intl.Segmenter("hi", { granularity: "grapheme" }).segment(String(h || ""))].length; return n <= 24 ? "h-s" : n <= 34 ? "h-m" : n <= 46 ? "h-l" : "h-xl"; };
 function splitHead(h) {
-  let i = h.indexOf(":"); if (i < 0) i = h.indexOf(","); if (i < 0) i = h.indexOf("،");
+  // संख्या के भीतर का कॉमा (1,600) विराम नहीं है, वहां हेडलाइन नहीं टूटती
+  let i = h.indexOf(":"); if (i < 0) i = h.search(/,(?!\d)|(?<!\d),/); if (i < 0) i = h.indexOf("،");
   if (i > 0 && i < h.length - 4) return [h.slice(0, h[i] === ":" ? i : i + 1).trim(), h.slice(i + 1).trim()];
   const w = h.split(" "); return [w.slice(0, 2).join(" "), w.slice(2).join(" ")];
 }
