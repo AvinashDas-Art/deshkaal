@@ -81,7 +81,7 @@ module.exports = function (H) {
         <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
         <p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${w.src === "The Hindu" ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
       </div>
-      ${img ? `<figure class="vh-art">${img}${w.photoCap ? `<figcaption>${esc(w.photoCap)}</figcaption>` : ""}</figure>` : ""}
+      ${img ? `<figure class="vh-art">${img}${(t.bandCap ?? w.bandCap ?? w.photoCap) ? `<figcaption>${esc(t.bandCap ?? w.bandCap ?? w.photoCap)}</figcaption>` : ""}</figure>` : ""}
     </div>
     ${points.length ? `<div class="vh-bottom">
       <div class="vh-points">${points.slice(0, 3).map((p, i) => `<div class="vh-point"><span>${String(i + 1).padStart(2, "0")}</span><p>${esc(p)}</p></div>`).join("")}</div>
