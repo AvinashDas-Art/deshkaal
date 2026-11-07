@@ -327,7 +327,8 @@ const CARTOONISTS = {
   "panju-ganguli": { hi: "पंजू का पंच", en: "Panju's Punch", ur: "پنجو کا پنچ", artist: "पंजू गांगुली", artist_en: "Panju Ganguli", artist_ur: "پنجو گانگولی" },
   "alok": { hi: "आलोक का तीर", en: "Alok's Arrow", ur: "الوک کا تیر", artist: "आलोक", artist_en: "Alok", artist_ur: "الوک" },
   "alankar-goswami": { hi: "अलंकार का अंदाज़", en: "Alankar's Angle", ur: "الانکار کا انداز", artist: "अलंकार गोस्वामी", artist_en: "Alankar Goswami", artist_ur: "الانکار گوسوامی" },
-  "raju-rahate": { hi: "राहटे का वार", en: "Rahate's Strike", ur: "راہٹے کا وار", artist: "राजू राहटे", artist_en: "Raju Rahate", artist_ur: "راجو راہٹے" }
+  "raju-rahate": { hi: "राहटे का वार", en: "Rahate's Strike", ur: "راہٹے کا وار", artist: "राजू राहटे", artist_en: "Raju Rahate", artist_ur: "راجو راہٹے" },
+  "sandeep-adhwaryu": { hi: "बेक़ाबू लकीर", en: "Line of No Control", ur: "بے قابو لکیر", artist: "संदीप अध्वर्यु", artist_en: "Sandeep Adhwaryu", artist_ur: "سندیپ ادھوریو" }
 };
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();

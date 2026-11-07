@@ -1,0 +1,59 @@
+{
+  "out": "public/media/vishesh/devdutt-saviour-dependable.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 23,
+  "bg": [
+    26,
+    62,
+    98
+  ],
+  "motif": "coin-stairs",
+  "strips": [
+    {
+      "t": "कोई आख़िरी लड़ाई नहीं है",
+      "x": 40,
+      "y": 80,
+      "r": -5,
+      "style": "ink",
+      "px": 40,
+      "front": true
+    },
+    {
+      "t": "उधार एहसान में बांधता है",
+      "x": 700,
+      "y": 120,
+      "r": 4,
+      "style": "paper",
+      "px": 32,
+      "front": true
+    },
+    {
+      "t": "निवेश अनिश्चितता क़बूल करता है",
+      "x": 50,
+      "y": 690,
+      "r": 3,
+      "style": "paper",
+      "px": 32,
+      "front": true
+    },
+    {
+      "t": "मक्खन मथने से निकलता है",
+      "x": 690,
+      "y": 720,
+      "r": -4,
+      "style": "red",
+      "px": 34,
+      "front": true
+    }
+  ],
+  "stamp": {
+    "t": "मसीहा?",
+    "x": 70,
+    "y": 440,
+    "r": -7,
+    "px": 84
+  }
+}
