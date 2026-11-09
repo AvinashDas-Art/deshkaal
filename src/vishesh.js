@@ -129,7 +129,22 @@ module.exports = function (H) {
     const translationNote = t.translationNote || (pageSrc === "The Hindu" ? X.tr : "");
 
     const alt = { hi: url(w, "hi"), en: url(w, "en"), ur: url(w, "ur") };
-    const img = w.photo ? `<figure class="vh-cover"><img src="${esc(w.photo)}" alt="${esc(t.photoAlt || w.photoAlt || t.h)}" width="1200" height="840" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)">${(t.photoCap || w.photoCap) ? `<figcaption>${esc(t.photoCap || w.photoCap)}</figcaption>` : ""}</figure>` : "";
+    const img = w.photo ? `<figure class="vh-cover${w.cover === "portrait" ? " vh-cover-portrait" : ""}"><img src="${esc(w.photo)}" alt="${esc(t.photoAlt || w.photoAlt || t.h)}" width="${w.photoW || 1200}" height="${w.photoH || 840}" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)">${(t.photoCap || w.photoCap) ? `<figcaption>${esc(t.photoCap || w.photoCap)}</figcaption>` : ""}</figure>` : "";
+    /* पाठ में "[[img:N]]" वाली अकेली पंक्ति = N-वीं तस्वीर ठीक वहीं (तीनों भाषाओं में एक ही जगह) */
+    const figs = (w.images || []).map((im, k) => ({ ...im, ...((t.images || [])[k] || {}) }));
+    const fig = im => `<figure class="vh-fig"><img src="${esc(im.src)}" alt="${esc(im.alt || im.cap || "")}"${im.w ? ` width="${im.w}" height="${im.h}"` : ""} loading="lazy">${im.cap ? `<figcaption>${esc(im.cap)}</figcaption>` : ""}</figure>`;
+    const imgMark = p => /^\[\[img:\d+\]\]$/.test(p);
+    const proseN = (t.body || []).filter(p => !imgMark(p) && !/^## /.test(p)).length;
+    let proseI = 0;
+    const bodyHtml = (t.body || []).map(p => {
+      const m = p.match(/^\[\[img:(\d+)\]\]$/);
+      if (m) return figs[+m[1]] ? fig(figs[+m[1]]) : "";
+      const isSub = /^## /.test(p);
+      let out = para(p);
+      if (!isSub) proseI++;
+      if (w.books && !isSub && proseI === Math.max(1, Math.ceil(proseN / 2))) out += midBook(w, lg, X);
+      return out;
+    }).join("");
     const credit = pageSrc ? `<p class="vh-credit">${X.orig}: <a href="${esc(pageSrcUrl || "#")}" target="_blank" rel="noopener">${esc(pageSrc)}</a>${pageSrcDate ? `, ${esc(pageSrcDate)}` : ""}${translationNote ? ` · ${esc(translationNote)}` : ""}${w.mirror ? ` · <a href="${esc(w.mirror.url)}" target="_blank" rel="noopener">${esc(w.mirror.label)}</a>` : ""}</p>` : "";
     const vLabel = t.videoLabel || (lg === "en" ? "Watch the interview" : lg === "ur" ? "انٹرویو دیکھیے" : "इंटरव्यू देखिए");
     const vidBlock = w.video && (w.video.id || w.video.src) ? `<section class="vh-video${w.video.src ? " vh-video-own" : ""}" id="video"><p class="vh-section-k">${esc(vLabel)}</p>${w.video.src ? `<div class="nb-vframe">${videoTag(w, t)}</div><p class="vh-video-link">${t.videoCap ? `<span>${esc(t.videoCap)}</span> ` : ""}<a href="${esc(w.video.src)}" download>${X.dlVideo}</a></p>` : `${videoTag(w, t)}<p class="vh-video-link"><a href="https://youtu.be/${esc(w.video.id)}" target="_blank" rel="noopener">${lg === "en" ? "Open on YouTube ↗" : lg === "ur" ? "یوٹیوب پر دیکھیں ↗" : "यूट्यूब पर देखें ↗"}</a></p>`}</section>` : "";
@@ -149,7 +164,7 @@ module.exports = function (H) {
   <div class="vh-txt">
     ${w.video && w.video.top ? vidBlock : ""}
     ${t.pull ? `<blockquote class="vh-q vh-q-lead">${esc(t.pull)}</blockquote>` : ""}
-    ${(t.body || []).map((p, i, arr) => para(p) + (w.books && i === Math.floor((arr.length - 1) / 2) ? midBook(w, lg, X) : "")).join("")}
+    ${bodyHtml}
     ${w.video && !w.video.top ? vidBlock : ""}
     ${(t.nazar || w.nazar || []).length ? `<aside class="vh-editorial"><p class="vh-section-k">${X.viewTitle}</p><h2>${t.nazarTitle || w.nazarTitle || (lg === "hi" ? "आंदोलन का चेहरा, उसके पीछे की मेहनत" : lg === "en" ? "The face of a movement, and the work behind it" : "تحریک کا چہرہ، اور اس کے پیچھے کی محنت")}</h2>${(t.nazar || w.nazar).map(p => `<p>${esc(p)}</p>`).join("")}</aside>` : ""}
     ${qBlock}

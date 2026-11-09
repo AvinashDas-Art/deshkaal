@@ -1528,6 +1528,11 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .vh-cover{margin:0 0 var(--s4)}
 .vh-cover img{width:100%;height:auto;display:block}
 .vh-cover figcaption{font-family:var(--f-ui);font-size:12.5px;color:var(--ink-2);margin-top:8px}
+.vh-cover-portrait img{width:auto;max-width:min(420px,100%);max-height:74vh;margin-inline:auto;box-shadow:0 18px 40px rgba(31,33,38,.18)}
+.vh-cover-portrait figcaption{max-width:min(420px,100%);margin-inline:auto}
+.vh-fig{margin:var(--s5) 0}
+.vh-fig img{display:block;width:100%;height:auto}
+.vh-fig figcaption{font-family:var(--f-ui);font-size:12.5px;color:var(--ink-2);margin-top:8px}
 .vh-txt{font-size:var(--read);line-height:1.85}
 .vh-txt p{margin:0 0 var(--s3)}
 .vh-q-lead{font-size:clamp(20px,2.2vw,25px);margin:var(--s4) 0 var(--s5)}
@@ -1872,3 +1877,8 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .hrl-strip span{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#F1EEE4;font-family:var(--f-ui);font-size:9.5px;line-height:1.2;padding:10px 3px 3px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:860px){.hrl-main{grid-template-columns:1fr;gap:18px}.hrl-faces{order:-1}.hrl-ank{grid-template-columns:repeat(2,1fr)}.hrl-h{font-size:clamp(30px,8vw,44px)}}
 @media (max-width:520px){.hero-rally{margin:14px 0 24px}.hrl-main{padding:18px 15px 20px}.hrl-top{padding:12px 15px}}
+
+/* किताब का खड़ा कवर: नीचे आए सामान्य .vh-cover (3:2, कटा हुआ) नियमों से ऊपर */
+.vh-page .vh-cover.vh-cover-portrait{position:static;aspect-ratio:auto;overflow:visible;background:none}
+.vh-page .vh-cover.vh-cover-portrait img{position:static;inset:auto;width:auto;max-width:min(420px,100%);max-height:74vh;margin-inline:auto;object-fit:contain;box-shadow:0 18px 40px rgba(31,33,38,.18)}
+.vh-page .vh-cover.vh-cover-portrait figcaption{position:static;inset:auto;margin:10px auto 0;padding:0;background:none;color:var(--ink-2);text-shadow:none;max-width:min(420px,100%)}

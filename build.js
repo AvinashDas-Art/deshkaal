@@ -329,7 +329,8 @@ const CARTOONISTS = {
   "alankar-goswami": { hi: "अलंकार का अंदाज़", en: "Alankar's Angle", ur: "الانکار کا انداز", artist: "अलंकार गोस्वामी", artist_en: "Alankar Goswami", artist_ur: "الانکار گوسوامی" },
   "raju-rahate": { hi: "राहटे का वार", en: "Rahate's Strike", ur: "راہٹے کا وار", artist: "राजू राहटे", artist_en: "Raju Rahate", artist_ur: "راجو راہٹے" },
   "sandeep-adhwaryu": { hi: "बेक़ाबू लकीर", en: "Line of No Control", ur: "بے قابو لکیر", artist: "संदीप अध्वर्यु", artist_en: "Sandeep Adhwaryu", artist_ur: "سندیپ ادھوریو" },
-  "carlos-latuff": { hi: "लतुफ़ की लकीर", en: "Latuff's Line", ur: "لطوف کی لکیر", artist: "कार्लोस लतुफ़", artist_en: "Carlos Latuff", artist_ur: "کارلوس لطوف" }
+  "carlos-latuff": { hi: "लतुफ़ की लकीर", en: "Latuff's Line", ur: "لطوف کی لکیر", artist: "कार्लोस लतुफ़", artist_en: "Carlos Latuff", artist_ur: "کارلوس لطوف" },
+  "titas-panda": { hi: "तितास का तंज़", en: "Titas's Tone", ur: "تتاس کا طنز", artist: "तितास पांडा", artist_en: "Titas Panda", artist_ur: "تتاس پانڈا" }
 };
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
@@ -338,6 +339,7 @@ const artistSlug = c => c.artist_slug || (c.artist_en === "Satish Acharya" ? "sa
 const artistCfg = c => CARTOONISTS[artistSlug(c)] || CARTOONISTS["rajendra-dhodapkar"];
 const cartoonURL = c => artistSlug(c) === "rajendra-dhodapkar" ? `${PRE}/cartoon/${c.date}/` : `${PRE}/cartoon/${artistSlug(c)}/${c.date}/`;
 const artistURL = slug => `${PRE}/cartoon/${slug}/`;
+const LIVE_ARTISTS = Object.keys(CARTOONISTS).filter(slug => PUB_TOONS.some(c => artistSlug(c) === slug));
 const toonL = c => { const cfg = artistCfg(c); if (LG === "hi") return { ...c, artist: c.artist || cfg.artist }; const f = path.join("data/i18n", LG, "cartoon-" + c.key + ".json"); const t = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; const ar = LG === "ur" ? (cfg.artist_ur || c.artist_en || c.artist) : (c.artist_en || c.artist); return { ...c, ...t, artist: ar, chutki: t.chutki || c.chutki || null }; };
 const TC = { hi: { read: "पूरी चुटकी पढ़ें →", fine: a => `कार्टून के सारे अधिकार ${a} के हैं। देशकाल पर उनकी अनुमति से।`, k: "देशकाल की चुटकी", between: "रेखाओं<br>के बीच", on: a => `${a} के कार्टून पर`, more: "और कार्टून", of: a => `${a} का कार्टून` }, en: { read: "Read the full note →", fine: a => `All rights in the cartoon belong to ${a}. On Deshkaal with his permission.`, k: "Deshkaal's note", between: "Between<br>the lines", on: a => `On ${a}'s cartoon`, more: "More cartoons", of: a => `${a}'s cartoon` }, ur: { read: "پوری چٹکی پڑھیں ←", fine: a => `کارٹون کے سارے حقوق ${a} کے پاس ہیں۔ دیشکال پر ان کی اجازت سے۔`, k: "دیشکال کی چٹکی", between: "لکیروں<br>کے بیچ", on: a => `${a} کے کارٹون پر`, more: "اور کارٹون", of: a => `${a} کا کارٹون` } };
 /* किसी दिन का कार्टून: पहले वह जिस पर slot: true हो (जैसे पंजू का पंच), वरना धोड़पकर */
@@ -854,7 +856,7 @@ for (const l of LANGS) {
     LIVE_DAYS.forEach(d => out(`live/${d.date}/index.html`, livePage(d, `/live/${d.date}/`)));
   }
   if (l === "hi") { out("niti/index.html", policyPage()); out("nijta/index.html", privacyPage()); out("judiye/index.html", joinPage());
-    out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); Object.keys(CARTOONISTS).forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug))); }
+    out("bhejiye/index.html", HS.invitePage()); out("hamsafar/index.html", HS.galleryPage()); HS.ALL.forEach(w => out(`hamsafar/${w.id}/index.html`, HS.workPage(w))); LIVE_ARTISTS.forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug))); }
 }
 
 for (const l of ["en", "ur"]) {
@@ -864,7 +866,7 @@ for (const l of ["en", "ur"]) {
   PUB_TOONS.forEach(c => out(`${cartoonURL(c).slice(1)}/index.html`, cartoonPage(c)));
   /* कार्टूनिस्ट के पन्ने हर भाषा में — होमपेज की "पूरा पन्ना" कड़ी /en/cartoon/<slug>/ पर जाती है,
      और वह पन्ना सिर्फ़ हिंदी में बन रहा था, इसलिए अंग्रेज़ी-उर्दू में 404 मिलता था। */
-  Object.keys(CARTOONISTS).forEach(slug => out(`${P}cartoon/${slug}/index.html`, artistPage(slug)));
+  LIVE_ARTISTS.forEach(slug => out(`${P}cartoon/${slug}/index.html`, artistPage(slug)));
   if (LIVE_ARCHIVE) {
     const T0 = LIVE_DAYS.find(d => d.date === IST_TODAY) || { date: IST_TODAY, updated: "", counters: [], items: [] };
     out(P + "live/index.html", liveArchivePage());
@@ -878,7 +880,7 @@ out("feed.xml", feed());
   out("akhbar/index.html", akhbarPage(desc[0], asc.length, desc).replace('<link rel="canonical"', `<meta name="robots" content="noindex"><link rel="canonical"`)); }
 out("akhbar.css", fs.readFileSync("src/akhbar.css", "utf8"));
 PUB_TOONS.forEach(c => out(cartoonURL(c).slice(1) + "index.html", cartoonPage(c)));
-Object.keys(CARTOONISTS).forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug)));
+LIVE_ARTISTS.forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug)));
 PUB_TOONS.forEach(c => { const src = path.join("data/cartoons/img", c.file || (c.date + ".jpg")), dst = path.join("dist", c.img.replace(/^\//, "")); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(src, dst); });
 out("sitemap.xml", require("./src/seo.js").sitemap("dist", SITE));
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
