@@ -1222,7 +1222,14 @@
    "id": "2026-11-10-29",
    "day": "2026-11-10",
    "motif": "book",
-   "seed": 90728
+   "seed": 90728,
+   "photo": {
+    "kind": "painting",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/3/30/Unknown_Indian_-_Miniature_Portrait_of_Dara_Shikoh_-_Google_Art_Project.jpg",
+    "credit": "Unknown Indian / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Unknown_Indian_-_Miniature_Portrait_of_Dara_Shikoh_-_Google_Art_Project.jpg",
+    "note": "दारा शिकोह का चित्र, मुग़ल लघुचित्र"
+   }
   }
  ]
 }
