@@ -27,6 +27,9 @@ Snippets are enough for discovery, for a `khabar` or live-wall line, and for che
 
 **3. Owner-approved sources for `amukh`, `vichar` and `morcha` (analysis):** The Caravan (https://caravanmagazine.in/) and कारवां हिंदी (https://hindi.caravanmagazine.in/). Long reported essays and signed analysis from both may lead or fill these sections. Free-to-read rule applies: use a piece only if its full text opens without login or payment (or comes through a full-text feed or readable copy, as in rule 2); never a paywalled or cut-off piece. Both count as one source for the 2-a-day limit.
 
+## ताज़गी का सख़्त नियम (owner's rule, 11 November 2026: stale news hurts the site's reputation)
+**News is only from the last one or two days.** Every `khabar`, `jan` and `rajaji` item must have been published **yesterday or the day before (IST)**; nothing older, ever, whatever the subject. If a story is important but older, find yesterday's development on it or leave it out. `amukh` and `vichar` stay within 72 hours as before (opinion ages slower, but prefer the newest). Only PARI (3 months), literature (3 weeks), videos (30 days) and owner's picks keep their own longer windows. Before writing the day file, check every item's `date` against this rule in python; a stale news item is removed, never pushed. Put the publication date exactly as the source states it, never guessed.
+
 ## Steps
 1. `git pull` the repo. Read `EDITORIAL.md`, `SOURCES.md`, `WRITERS.md`, `TRANSLATION.md` and this file.
 1a. **Owner's picks:** if `data/picks/YYYY-MM-DD.json` exists for the day being published, every link in it MUST go into the issue (follow its `note` for where it goes). These are exempt from the 72-hour rule. If a pick carries a ready `item`, use that item as written (add only `id` and `day`); do not rewrite it. If a pick truly cannot be read (paywall, page will not open after every route in its note), leave it out and say so at the top of the report.
