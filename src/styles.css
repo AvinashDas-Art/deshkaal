@@ -607,7 +607,7 @@ html[dir="rtl"] .hs-art{box-shadow:-22px 22px 0 var(--lal);margin:10px 0 22px 22
 .hq-art .art{width:100%;height:100%;aspect-ratio:auto}
 .hq-q{position:relative;text-align:center;padding:30px 20px}
 .hq-q small{font-family:var(--f-ui);font-size:15px;font-weight:600;letter-spacing:.08em;color:var(--lal)}
-.hq-q p{margin:10px auto 0;max-width:15em;font-family:var(--f-paint);font-size:clamp(40px,5.4vw,82px);line-height:1.25;color:var(--ink);text-wrap:balance}
+.hq-q p{margin:10px auto 0;max-width:15em;font-family:var(--f-head);font-weight:600;font-size:clamp(40px,5.4vw,82px);line-height:1.25;color:var(--ink);text-wrap:balance}
 .hq-q p::before{content:"“";color:var(--lal)} .hq-q p::after{content:"”";color:var(--lal)}
 .hq-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;margin-top:28px;align-items:start}
 .hero-q .hero-h{font-size:clamp(50px,5.6vw,90px)}

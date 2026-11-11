@@ -1,0 +1,213 @@
+{
+ "id": "devdutt-devi-shakahar",
+ "kind": "hamsafar",
+ "tag": "विशेष हमसफ़र",
+ "date": "2026-11-11",
+ "pub": "2026-11-11T06:00:00+05:30",
+ "active": true,
+ "h": "देवी की थाली: ख़ून से मोदक तक",
+ "dek": "कोकण में गौरी को मछली चढ़ती है, बंगाल में उमा को दशमी पर हिलसा; फिर वैष्णव और जैन कथाओं ने देवी की थाली बदल दी।",
+ "by": "देवदत्त पटनायक",
+ "src": "न्यू इंडियन एक्सप्रेस",
+ "srcDate": "18 अक्टूबर 2026",
+ "srcUrl": "https://www.newindianexpress.com/magazine/2026/Oct/18/how-to-turn-the-goddess-vegetarian-2",
+ "photo": "/media/vishesh/devdutt-devi-shakahar.jpg",
+ "photoAlt": "देवदत्त पटनायक का रेखांकन: सफ़ेद पृष्ठभूमि पर काली लकीरों में कई भुजाओं वाली देवी सिंह पर खड़ी हैं, हाथों में तलवार और शस्त्र हैं, नीचे सिंह का बड़ा मुख है।",
+ "photoCap": "रेखांकन: देवदत्त पटनायक",
+ "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+ "bandPos": "center 24%",
+ "translationNote": "हिंदी अनुवाद: देशकाल",
+ "rights": {
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
+ },
+ "note": "हर शरद में देवी मायके आती हैं, और मायके में बेटी वही खाती है जो घर खाता है। देवदत्त पटनायक इसी छोटी बात से एक लंबी बहस खोलते हैं: कोंकण में गौरी को मछली और मटन, बंगाल में उमा को दशमी पर हिलसा, और पुराने ज़मींदार घरों में बकरे की बलि। फिर वैष्णव और जैन कथाएं आती हैं, जो देवी को मांस और शराब से दूर कर देती हैं। पटनायक दिखाते हैं कि देवी नहीं बदलीं, उनका खाना बदला, और उसके पीछे संप्रदायों की रार के साथ मारवाड़ी-गुजराती व्यापारी ट्रस्टों का पैसा था। देवी भागवत पुराण के वे श्लोक भी वे सामने रखते हैं जो मांसाहारी भक्तों को भी मंज़ूर करते हैं, और जिन्हें आधुनिक हिंदी अनुवाद ने ग़ायब कर दिया। यह लेख इसलिए पढ़ने लायक़ है कि वह धर्म, खान-पान और ताक़त को एक थाली में बैठाकर दिखाता है।",
+ "pull": "देवियां बदलती नहीं, उनका खाना बदलता है।",
+ "body": [
+  "हर शरद में दो बेटियां मायके आती हैं। कोंकण में वह गौरी हैं, जो भाद्रपद में गणेश के कुछ दिन बाद आती हैं और घर में ब्याही बेटी की तरह बैठती हैं। बंगाल में वह उमा हैं, जो अश्विन में चार दिन के लिए कैलाश पर शिव को छोड़कर बच्चों के साथ मां-बाप के घर लौटती हैं। अगमनी गीतों में एक मां दरवाज़े पर इंतज़ार करती है। दोनों में कोई भी सिंहासन पर बैठी दूर की महारानी नहीं हैं। वह बेटी हैं, और मायके आई बेटी वही खाती है जो घर वाले खाते हैं।",
+  "इसलिए कोंकण के किनारे उन्हें मछली खिलाई जाती है। कोंकण के कई कोली, आगरी और मराठा घरों में गौरी की पूजा वाले दिन उनकी थाली में मटन या मछली होती है। बंगाल में पुराने ज़मींदार घरों, बोनेदी बाड़ी में देवी के सामने बकरे काटे जाते थे, और दशमी पर, उनके जाने से पहले, पूर्वी बंगाल के कई परिवार उन्हें चावल के साथ मछली, कभी-कभी हिलसा, देते हैं, ताकि वह ससुराल भूखी न लौटें।",
+  "फिर वैष्णव आए और उन्होंने दूसरी कहानी सुनाई।",
+  "जम्मू की त्रिकूट पहाड़ियों में वैष्णो देवी इसकी सबसे साफ़ मिसाल हैं। यहां देवी वैष्णवी हैं, एक लड़की जो राम का इंतज़ार करते हुए तपस्या करती है, जिन्होंने कलियुग के आख़िर में कल्कि बनकर लौटने पर उससे ब्याह का वादा किया है। वह न पत्नी हैं, न मां। वह ब्याह की प्रतीक्षा करती, पवित्र और धैर्यवान दुल्हन हैं। उनका दुश्मन भैरवनाथ है, एक तांत्रिक योगी, जिसे मंदिर के अपने बयान में गोरखनाथ का शिष्य कहा गया है। भक्त श्रीधर के भोज में भैरव मांस और शराब मांगता है। वह मना कर देती हैं। वह पहाड़ पर उनका पीछा करता है। वह नौ महीने गुफा में छिपती हैं, फिर उसका सिर काट देती हैं। सिर पास की पहाड़ी पर गिरता है, भैरव पछताता है, और वह तय करती हैं कि उनकी यात्रा भैरव के दर पर जाए बिना पूरी नहीं होगी।",
+  "इस कहानी में मांस और शराब नाथ और तांत्रिक की हो जाती हैं। देवी दोनों से नफ़रत करती हैं। तांत्रिक का सिर कटता है और वह यात्रा के एक छोटे, अधीन पड़ाव के तौर पर बचता है। यह कथा बीसवीं सदी में आर्य समाज और बाप्स स्वामी नारायण के असर, कैलेंडर कला, भजन कैसेट और पौराणिक फ़िल्मों के साथ उत्तर भारत के शाकाहारी मंदिरों में फैली, और उसने शाकाहारी देवी को पुराना बना दिया। लिखित कथा असल में कितनी पुरानी है, यह अब भी साफ़ नहीं। मंदिर की लोकप्रियता हाल की है। इसीलिए उत्तर भारतीय नवरात्रि में शाकाहारी होते जा रहे हैं और बंगाल के दुर्गा पंडालों में अंडा-चिकन पर चौंकते, बल्कि घिनाते हैं।",
+  "फिर जैन दावा है। जिनसेन के हरिवंशपुराण में, 783 ईस्वी, अध्याय 49 में, दुर्गा की उत्पत्ति एक भूल के तौर पर बताई गयी है। कृष्ण की बहन एकानसा जैन भिक्षुणी बन जाती हैं और विंध्य में कायोत्सर्ग में खड़ी हो जाती हैं। शबर शिकारी, किसी क़ाफ़िले को लूटने जाते हुए, उन्हें वन देवी समझकर सफलता की दुआ मांगते हैं। वह ध्यान में ही मर जाती हैं। एक बाघ उनका शरीर खा जाता है, ख़ून और तीन उंगलियां छोड़ जाता है। शिकारी लौटकर ख़ून देखते हैं और मान लेते हैं कि देवी को ख़ून पसंद है। वे उन उंगलियों का मंदिर बनाते हैं और भैंसों की बलि शुरू कर देते हैं। जिनसेन के हाथों ख़ून की बलि आदिवासियों की एक भूल बन जाती है। और बाघ, जो दुर्गा का अपना वाहन है, वही जानवर है जो उन्हें खाता है।",
+  "राजस्थान के ओसियां में उपकेश गच्छ पट्टावली अगला क़दम उठाती है। देवी सच्चिया माता, चामुंडा का एक रूप, जिन्हें पहले भैंसे और बकरे चढ़ते थे, कुछ चबाने को मांगती हैं। भिक्षु रत्नप्रभसूरी उन्हें ढेरों मोदक देते हैं। वह बदल जाती हैं, महावीर की श्रावक बन जाती हैं, और इतनी शाकाहारी कि लाल फूल तक नहीं सह पातीं। अब वह ओसवाल जैनों की कुलदेवी हैं। यही कहानी आदि शंकराचार्य को भी दी जाती है, यह समझाने के लिए कि कांची की कामाक्षी शाकाहारी हैं और कामाख्या नहीं।",
+  "यानी देवियां बदलती नहीं, उनका खाना बदलता है। और इसमें बहुत कुछ संप्रदायों की रार और पैसे की ताक़त का हाथ है। मारवाड़ी और गुजराती व्यापारी परिवार, जैन और वैष्णव दोनों, मरम्मत, संगमरमर के फ़र्श, भंडारों और प्रबंधन ट्रस्टों का ख़र्च उठाते हैं। जब तक थैली उनके हाथ में, तब तक बकरा जाता रहता है। बलि चुपचाप बंद हो जाती है, उसकी जगह नारियल टूटता है, और एक कहानी निकल आती है कि मां को ख़ून कभी चाहिए ही नहीं था। गीता प्रेस गोरखपुर, जो ख़ुद मारवाड़ी परियोजना है, ने शाकाहारी देवी को लाखों घरों में छाप दिया।",
+  "देवी भागवत पुराण (3.26) में व्यास जनमेजय को बताते हैं कि नवरात्र कैसे रखें। फल की भेंट (श्लोक 30-31) के बाद श्लोक 32-34 मांसाहारियों के लिए दूसरा रास्ता जोड़ते हैं: भैंसा, बकरा और सूअर सबसे अच्छी बलियां हैं, देवी के सामने मारे गये जानवर स्वर्ग जाते हैं, और बलि देना भी अहिंसा है, मनुस्मृति 5.44 की गूंज। दो तरह के भक्त, दोनों मंज़ूर। एक प्रचलित आधुनिक हिंदी अनुवाद पांचों श्लोकों को फल और शुद्ध भेंट वाली एक पंक्ति में सिमटा देता है। मांसाहारी, जानवर, उनका स्वर्ग और अहिंसा वाला दावा, सब ग़ायब।",
+  "इतना सब कहने के बाद भी, कोंकण की गौरी आज भी मांस खाती हैं। बंगाल की उमा शायद जल्दी ही ढोकला खाने लगें। जिस बेटी को कभी उसका अपना घर खिलाता था, वह अब मंदिर ट्रस्टों की सात्विक कैंटीनों पर निर्भर हो सकती है।"
+ ],
+ "sawal": "देवी का खाना बदला, तो बदलने वाला कौन था?",
+ "homePoints": [
+  "कोंकण में गौरी को मछली और मटन चढ़ता है, बंगाल में दशमी पर उमा को हिलसा।",
+  "वैष्णव और जैन कथाओं ने देवी को शाकाहारी बनाया, और उसके पीछे मंदिर ट्रस्टों का पैसा था।",
+  "देवी भागवत पुराण के श्लोक मांसाहारी बलि को भी जायज़ ठहराते हैं; आधुनिक अनुवाद उन्हें छिपा देते हैं।"
+ ],
+ "author": {
+  "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+  "site": "https://devdutt.com",
+  "hi": {
+   "name": "देवदत्त पटनायक",
+   "role": "मिथकशास्त्री, लेखक, चित्रकार",
+   "bio": [
+    "मिथकों को कहानियों, प्रतीकों और रस्मों से पढ़ने वाले लेखक, चित्रकार और वक्ता। वह मिथक को किसी संस्कृति का व्यक्तिपरक सत्य मानते हैं, यानी वह तरीक़ा जिससे कोई समाज ज़िंदगी को कल्पना में देखता है।",
+    "पेशे से डॉक्टर रहे। क़रीब पंद्रह साल दवा और स्वास्थ्य उद्योग में काम किया, फिर कारोबारी सलाहकार बने और फ़्यूचर ग्रुप में चीफ़ बिलीफ़ ऑफ़िसर रहे। आख़िर में लिखना ही पेशा बन गया। पचास से ज़्यादा किताबें, एक हज़ार से ज़्यादा स्तंभ और पंद्रह भाषाओं में अनुवाद। टेलीविज़न पर देवलोक और बिज़नेस सूत्र जैसे कार्यक्रम भी उन्हीं के नाम हैं।"
+   ]
+  },
+  "en": {
+   "name": "Devdutt Pattanaik",
+   "role": "Mythologist, author, illustrator",
+   "bio": [
+    "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+    "A doctor by training, he spent about fifteen years in the pharma and health industry, became a business consultant and served as Chief Belief Officer at the Future Group, before writing became his profession. He has written over fifty books and over a thousand columns, translated into fifteen languages, and television programmes such as Devlok and Business Sutra carry his name."
+   ]
+  },
+  "ur": {
+   "name": "دیودت پٹنایک",
+   "role": "اساطیر کے ماہر، مصنف، مصور",
+   "bio": [
+    "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+    "پیشے سے ڈاکٹر رہے۔ تقریباً پندرہ سال دوا اور صحت کی صنعت میں کام کیا، پھر کاروباری مشیر بنے اور فیوچر گروپ میں چیف بیلیف آفیسر رہے۔ آخر میں لکھنا ہی پیشہ بن گیا۔ پچاس سے زیادہ کتابیں، ایک ہزار سے زیادہ کالم اور پندرہ زبانوں میں ترجمے۔ ٹیلی ویژن پر دیولوک اور بزنس سوتر جیسے پروگرام بھی انہی کے نام ہیں۔"
+   ]
+  }
+ },
+ "allBooksUrl": "https://devdutt.com/category/translations/hindi/?tag=books/",
+ "midBook": 0,
+ "books": [
+  {
+   "url": "https://www.amazon.in/dp/9389915880",
+   "c": "#2E3F8F",
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9391242677",
+   "c": "#A63E26",
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/014345613X",
+   "c": "#1F2126",
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9389373840",
+   "c": "#8A5E0F",
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
+  }
+ ],
+ "firstPub": {
+  "hi": "यह लेख सबसे पहले न्यू इंडियन एक्सप्रेस में छपा था।",
+  "en": "This article first appeared in The New Indian Express.",
+  "ur": "یہ مضمون سب سے پہلے دی نیو انڈین ایکسپریس میں شائع ہوا تھا۔"
+ },
+ "en": {
+  "h": "How a goddess is made vegetarian",
+  "dek": "In the Konkan, Gauri is fed fish; in Bengal, Uma gets hilsa on Dashami. Then the Vaishnavas and the Jains changed the goddess's plate.",
+  "by": "Devdutt Pattanaik",
+  "tag": "Special Hamsafar",
+  "translationNote": "",
+  "srcDate": "18 October 2026",
+  "note": "Every autumn the goddess comes home as a daughter, and a daughter at home eats what the household eats. Devdutt Pattanaik starts from that small fact: fish and mutton for Gauri on the Konkan coast, goat sacrifices in old zamindar houses, hilsa for Uma before she leaves. Then the Vaishnavas and the Jains arrived with stories that put meat and wine on the wrong side of the goddess. He shows that the goddesses were not replaced, their food was, and that the change followed sectarian rivalry and the money of Marwari and Gujarati trading trusts. He also reads the Devi Bhagavata Purana verses that allow meat offerings, and notes how a popular Hindi translation folds them into one line about fruit. Worth reading because it puts faith, food and power on one plate.",
+  "pull": "Goddesses are thus not replaced. Their food is.",
+  "body": [
+   "Every autumn two daughters come home. In the Konkan it is Gauri, who arrives in Bhadrapad, a few days after Ganesha, and is seated in the house as a married girl visiting her maher. In Bengal it is Uma, who leaves Shiva on Kailash for four days in Ashvin and returns to her parents’ house with her children. The agamani songs are about a mother waiting at the door. Neither is a distant empress on a throne. She is a daughter, and a daughter at home eats what the household eats.",
+   "So on the Konkan coast she is fed fish. In many Koli, Agri, and Maratha homes along the Konkan, the meal for Gauri includes mutton or fish, served on the day she is worshipped. In Bengal, goats were cut in front of the goddess in the old zamindar houses, the bonedi bari, and on Dashami, before she leaves, many East Bengal families give her rice with fish, sometimes hilsa, so she does not go back to her husband’s house hungry.",
+   "Then the Vaishnavas arrived and told a different story.",
+   "Vaishno Devi in the Trikuta hills of Jammu is the clearest case. Here the goddess is Vaishnavi, a girl who does tapasya waiting for Rama, who has promised to marry her at the end of Kali Yuga when he comes back as Kalki. She is no wife and no mother. She is bride-in-waiting, chaste and patient. Her enemy is Bhairon Nath, a tantric yogi, described in the shrine’s own telling as a disciple of Gorakhnath. At a feast hosted by the devotee Sridhar, Bhairon demands meat and liquor. She refuses. He chases her up the mountain. She hides in a cave for nine months, then cuts off his head. The head lands on a nearby ridge, Bhairon repents, and she rules that no pilgrimage to her is complete without a visit to his shrine.",
+   "In this version, meat and wine belong to the Nath and the tantric. The goddess hates both. The tantric gets beheaded and survives only as a subordinate stop on the pilgrim route. This telling spread across north Indian vegetarian shrines through the 20th century, with Arya Samaj and BAPS Swami Narayan influence, with calendar art, bhajan cassettes, and mythological films, and it made the vegetarian Devi feel ancient. How old the written legend actually is remains unclear. The shrine’s mass popularity is recent. This is why North Indians are becoming vegetarian during Navratri and shocked, even disgusted, at eggs and chicken being served in Bengal Durga pandals.",
+   "Then there is the Jain claim. Jinasena’s Harivamshapurana, written in 783 CE, chapter 49, tells the origin of Durga as a mistake. Krishna’s sister Ekanasa becomes a Jain nun and stands in kayotsarga in the Vindhyas. Shabara hunters on their way to rob a caravan take her for a forest goddess and pray for success. She dies in meditation. A tiger eats the body, leaving blood and three fingers. The hunters return, see the blood, and conclude the goddess loves blood. They build a shrine to the fingers and start killing buffaloes. Blood sacrifice, in Jinasena’s hands, is a misreading by tribals. And the tiger, Durga’s own mount, is the animal that eats her.",
+   "At Osian in Rajasthan the Upakesha Gaccha Pattavali takes the next step. The goddess Sacciya Mata, a form of Chamunda once fed buffaloes and goats, demands something to crunch. The monk Ratnaprabhasuri gives her heaps of modakas. She converts, becomes a lay follower of Mahavira, and turns so vegetarian she cannot stand even a red flower. She is now the kuldevi of the Osval Jains. This same story is attributed to Adi Shankara to explain why Kamakshi of Kanchi is vegetarian whereas Kamakhya of Assam is not.",
+   "Goddesses are thus not replaced. Their food is. And much of it has to do with sectarian rivalry and the rise of money power. Marwari and Gujarati trading families, Jain and Vaishnava both, fund the renovations, the marble floors, the bhandaras, the management trusts. Once they hold the purse, the goat goes. Bali stops quietly, a coconut is broken instead, and a story appears explaining that the Mother never wanted blood. Gita Press Gorakhpur, itself a Marwari project, printed vegetarian Devi into millions of homes.",
+   "In the Devi Bhagavata Purana (3.26), Vyasa tells Janamejaya how to keep Navaratra. After the fruit offering (verses 30 to 31), verses 32 to 34 add a second path for meat-eaters: buffalo, goat, and boar are the best offerings, animals killed before the Goddess go to heaven, and sacrificial killing counts as ahimsa, echoing Manusmriti 5.44. Two kinds of devotee, both accepted. A popular modern Hindi translation folds all five verses into one line about fruits and a ‘purified offering’. The meat-eaters, the animals, their heaven, and the ahimsa claim, all disappear.",
+   "That being said, the Konkan Gauri still eats flesh. The Bengal Uma may soon be eating dhokla. A daughter once fed by her own family may soon depend on a satvik canteens of temple trusts."
+  ],
+  "sawal": "The goddess's food changed. Who changed it?",
+  "homePoints": [
+   "In the Konkan, Gauri is served fish and mutton; in Bengal, Uma gets hilsa before she leaves.",
+   "Vaishnava and Jain retellings made the goddess vegetarian, helped by temple trusts and their money.",
+   "The Devi Bhagavata Purana also allows meat offerings; popular Hindi translations drop those verses."
+  ],
+  "photoAlt": "Devdutt Pattanaik's line drawing: a many-armed goddess stands on a lion, weapons in her hands, the lion's face below; black lines on white.",
+  "photoCap": "Drawing: Devdutt Pattanaik",
+  "bio": "Mythologist, author, illustrator",
+  "tr": "Original article in English.",
+  "src": "The New Indian Express"
+ },
+ "ur": {
+  "h": "دیوی کو سبزی خور کیسے بنایا گیا",
+  "dek": "کنکن میں گوری کو مچھلی کھلائی جاتی ہے، بنگال میں دشہرہ پر اوما کو ہلسہ؛ پھر ویشنو اور جین کہانیوں نے دیوی کی تھالی بدل دی۔",
+  "by": "دیودت پٹنایک",
+  "tag": "خصوصی ہم سفر",
+  "translationNote": "اردو ترجمہ: دیش کال",
+  "srcDate": "18 اکتوبر 2026",
+  "note": "ہر خزاں میں دیوی میکے آتی ہیں، اور میکے میں بیٹی وہی کھاتی ہے جو گھر کھاتا ہے۔ دیودت پٹنایک اِسی چھوٹی بات سے ایک لمبی بحث کھولتے ہیں: کنکن میں گوری کو مچھلی اور مٹن، بنگال میں اوما کو دشہرہ پر ہلسہ، اور پرانے زمیندار گھروں میں بکرے کی قربانی۔ پھر ویشنو اور جین کہانیاں آتی ہیں، جو دیوی کو گوشت اور شراب سے دور کر دیتی ہیں۔ پٹنایک دکھاتے ہیں کہ دیوی نہیں بدلیں، اُن کا کھانا بدلا، اور اُس کے پیچھے فرقوں کی رقابت کے ساتھ مارواڑی گجراتی تاجر ٹرسٹوں کا پیسہ تھا۔ دیوی بھاگوت پران کے وہ شلوک بھی وہ سامنے رکھتے ہیں جو گوشت خور بھکتوں کو بھی منظور کرتے ہیں، اور جنہیں جدید ہندی ترجمے نے غائب کر دیا۔ یہ مضمون اِس لیے پڑھنے لائق ہے کہ وہ دھرم، کھان پان اور طاقت کو ایک تھالی میں بٹھا کر دکھاتا ہے۔",
+  "pull": "دیویاں بدلتی نہیں، بدلتا ہے اُن کا کھانا۔",
+  "body": [
+   "ہر خزاں میں دو بیٹیاں میکے آتی ہیں۔ کنکن میں وہ گوری ہیں، جو بھادرو میں گنیش کے کچھ دن بعد آتی ہیں اور گھر میں بیاہی بیٹی کی طرح بیٹھتی ہیں۔ بنگال میں وہ اوما ہیں، جو اشون میں چار دن کے لیے کیلاش پر شیو کو چھوڑ کر بچوں کے ساتھ ماں باپ کے گھر لوٹتی ہیں۔ اگمنی گیتوں میں ایک ماں دروازے پر انتظار کرتی ہے۔ دونوں میں کوئی بھی تخت پر بیٹھی دور کی مہارانی نہیں ہیں۔ وہ بیٹی ہیں، اور میکے آئی بیٹی وہی کھاتی ہے جو گھر والے کھاتے ہیں۔",
+   "اسی لیے کنکن کے کنارے اُنہیں مچھلی کھلائی جاتی ہے۔ کنکن کے کئی کولی، آگری اور مراٹھا گھروں میں گوری کی پوجا والے دن اُن کی تھالی میں مٹن یا مچھلی ہوتی ہے۔ بنگال میں پرانے زمیندار گھروں، بونیڈی باڑی میں دیوی کے سامنے بکرے کاٹے جاتے تھے، اور دشہرہ پر، اُن کے جانے سے پہلے، مشرقی بنگال کے کئی خاندان اُنہیں چاول کے ساتھ مچھلی، کبھی ہلسہ، دیتے ہیں، تاکہ وہ سسرال بھوکی نہ لوٹیں۔",
+   "پھر ویشنو آئے اور اُنہوں نے دوسری کہانی سنائی۔",
+   "جموں کی ترِکُوٹ پہاڑیوں میں ویشنو دیوی اِس کی سب سے صاف مثال ہیں۔ یہاں دیوی ویشنوی ہیں، ایک لڑکی جو رام کا انتظار کرتے ہوئے تپسیا کرتی ہے، جنہوں نے کلجگ کے آخر میں کلکی بن کر لوٹنے پر اُس سے بیاہ کا وعدہ کیا ہے۔ وہ نہ بیوی ہیں، نہ ماں۔ وہ بیاہ کی منتظر، پاک اور صابر دلہن ہیں۔ اُن کا دشمن بھیروناتھ ہے، ایک تانترک جوگی، جسے مندر کے اپنے بیان میں گورکھناتھ کا شاگرد کہا گیا ہے۔ بھگت شری دھر کی دعوت میں بھیرو گوشت اور شراب مانگتا ہے۔ وہ انکار کر دیتی ہیں۔ وہ پہاڑ پر اُن کا پیچھا کرتا ہے۔ وہ نو مہینے غار میں چھپتی ہیں، پھر اُس کا سر کاٹ دیتی ہیں۔ سر پاس کی پہاڑی پر گرتا ہے، بھیرو پچھتاتا ہے، اور وہ طے کرتی ہیں کہ اُن کی یاترا بھیرو کے در پر گئے بغیر پوری نہیں ہوگی۔",
+   "اِس کہانی میں گوشت اور شراب ناتھ اور تانترک کی ہو جاتی ہیں۔ دیوی دونوں سے نفرت کرتی ہیں۔ تانترک کا سر کٹتا ہے اور وہ یاترا کے ایک چھوٹے، ماتحت پڑاؤ کے طور پر بچتا ہے۔ یہ کہانی بیسویں صدی میں آریہ سماج اور باپس سوامی نارائن کے اثر، کیلنڈر آرٹ، بھجن کیسٹ اور پورانک فلموں کے ساتھ شمالی بھارت کے سبزی خور مندروں میں پھیلی، اور اُس نے سبزی خور دیوی کو پرانا بنا دیا۔ لکھی کہانی اصل میں کتنی پرانی ہے، یہ اب بھی واضح نہیں۔ مندر کی مقبولیت حال کی ہے۔ اسی لیے شمالی بھارتی نوٹرا میں سبزی خور ہوتے جا رہے ہیں اور بنگال کے درگا پنڈالوں میں انڈے اور چکن پر چونک پڑتے، بلکہ گھن کھاتے ہیں۔",
+   "پھر جین دعویٰ ہے۔ جنسین کے ہری ونش پران میں، 783 عیسوی، باب 49 میں، درگا کی پیدائش ایک بھول کے طور پر بتائی گئی ہے۔ کرشن کی بہن ایکاناسہ جین راہبہ بن جاتی ہیں اور وندھیا میں کایوت سرگ میں کھڑی ہو جاتی ہیں۔ شبَر شکاری، کسی قافلے کو لوٹنے جاتے ہوئے، اُنہیں جنگل کی دیوی سمجھ کر کامیابی کی دعا مانگتے ہیں۔ وہ دھیان ہی میں مر جاتی ہیں۔ ایک باگھ اُن کا جسم کھا جاتا ہے، خون اور تین انگلیاں چھوڑ جاتا ہے۔ شکاری لوٹ کر خون دیکھتے ہیں اور مان لیتے ہیں کہ دیوی کو خون پسند ہے۔ وہ اُن انگلیوں کا مندر بناتے ہیں اور بھینسوں کی قربانی شروع کر دیتے ہیں۔ جنسین کے ہاتھوں خون کی قربانی قبائلیوں کی ایک بھول بن جاتی ہے۔ اور باگھ، جو درگا کا اپنا سوار ہے، وہی جانور ہے جو اُنہیں کھاتا ہے۔",
+   "راجستھان کے اوسیّاں میں اوپکیشہ گچھ پٹاولی اگلا قدم اُٹھاتی ہے۔ دیوی سچیا ماتا، چامنڈا کا ایک روپ، جنہیں پہلے بھینسیں اور بکرے چڑھتے تھے، کچھ چبانے کو مانگتی ہیں۔ راہب رتنا پربھاسوری اُنہیں ڈھیروں مودک دیتے ہیں۔ وہ بدل جاتی ہیں، مہاویر کی شراوک بن جاتی ہیں، اور اتنی سبزی خور کہ لال پھول تک برداشت نہیں کرتیں۔ اب وہ اوسوال جینوں کی کل دیوی ہیں۔ یہی کہانی آدی شنکراچاریہ کو بھی دی جاتی ہے، یہ سمجھانے کے لیے کہ کانچی کی کاماکشی سبزی خور ہیں اور کاماکھیا نہیں۔",
+   "یعنی دیویاں بدلتی نہیں، بدلتا ہے اُن کا کھانا۔ اور اِس میں بہت کچھ فرقوں کی رقابت اور پیسے کی طاقت کا ہاتھ ہے۔ مارواڑی اور گجراتی تاجر خاندان، جین اور ویشنو دونوں، مرمت، سنگ مرمر کے فرش، بھنڈاروں اور انتظامی ٹرسٹوں کا خرچ اُٹھاتے ہیں۔ جب تک تھیلی اُن کے ہاتھ میں، تب تک بکرا جاتا رہتا ہے۔ قربانی خاموشی سے بند ہو جاتی ہے، اُس کی جگہ ناریل ٹوٹتا ہے، اور ایک کہانی نکل آتی ہے کہ ماں کو خون کبھی چاہیے ہی نہ تھا۔ گیتا پریس گورکھپور، جو خود مارواڑی منصوبہ ہے، نے سبزی خور دیوی کو لاکھوں گھروں میں چھاپ دیا۔",
+   "دیوی بھاگوت پران (3.26) میں ویاس جنمیجے کو بتاتے ہیں کہ نوٹرا کیسے رکھیں۔ پھل کی بھینٹ (شلوک 30-31) کے بعد شلوک 32-34 گوشت خوروں کے لیے دوسرا راستہ جوڑتے ہیں: بھینسا، بکرا اور سور بہترین قربانیاں ہیں، دیوی کے سامنے مارے گئے جانور جنت جاتے ہیں، اور قربانی دینا بھی اہنسا ہے، منوسمرتی 5.44 کی بازگشت۔ دو طرح کے بھگت، دونوں منظور۔ ایک رائج جدید ہندی ترجمہ پانچوں شلوکوں کو پھل اور پاک بھینٹ والی ایک سطر میں سمیٹ دیتا ہے۔ گوشت خور، جانور، اُن کا جنت اور اہنسا والا دعویٰ، سب غائب۔",
+   "اتنا سب کہنے کے بعد بھی، کنکن کی گوری آج بھی گوشت کھاتی ہیں۔ بنگال کی اوما شاید جلد ہی ڈھوکلا کھانے لگیں۔ جس بیٹی کو کبھی اُس کا اپنا گھر کھلاتا تھا، وہ اب مندر ٹرسٹوں کی ساتوک کینٹینوں پر منحصر ہو سکتی ہے۔"
+  ],
+  "sawal": "دیوی کا کھانا بدلا، تو بدلنے والا کون تھا؟",
+  "homePoints": [
+   "کنکن میں گوری کو مچھلی اور مٹن چڑھتا ہے، بنگال میں دشہرہ پر اوما کو ہلسہ۔",
+   "ویشنو اور جین کہانیوں نے دیوی کو سبزی خور بنایا، اور اُس کے پیچھے مندر ٹرسٹوں کا پیسہ تھا۔",
+   "دیوی بھاگوت پران کے شلوک گوشت کی قربانی کو بھی جائز ٹھہراتے ہیں؛ جدید ترجمے اُنہیں چھپا دیتے ہیں۔"
+  ],
+  "photoAlt": "دیودت پٹنایک کا خاکہ: سفید پس منظر پر کالی لکیروں میں کئی بازوؤں والی دیوی شیر پر کھڑی ہیں، ہاتھوں میں تلوار اور ہتھیار ہیں، نیچے شیر کا بڑا چہرہ ہے۔",
+  "photoCap": "خاکہ: دیودت پٹنایک",
+  "bio": "اساطیر کے ماہر، مصنف، مصور",
+  "tr": "اردو ترجمہ: دیش کال",
+  "src": "دی نیو انڈین ایکسپریس"
+ },
+ "cover": "portrait"
+}

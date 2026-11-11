@@ -77,7 +77,7 @@ module.exports = function (H) {
   <div class="vh-wrap">
     <div class="vh-top">
       <div class="vh-heading">
-        <p class="vh-k"><span class="vh-tag">${esc(tagOf(w, t, X))}</span> ${esc(w.src || "")}${w.srcDate ? ` · ${esc(w.srcDate)}` : ""}</p>
+        <p class="vh-k"><span class="vh-tag">${esc(tagOf(w, t, X))}</span> ${esc(t.src || w.src || "")}${(t.srcDate || w.srcDate) ? ` · ${esc(t.srcDate || w.srcDate)}` : ""}</p>
         <h2 class="vh-h"><a href="${url(w, lg)}">${esc(t.h)}</a></h2>
         <p class="vh-by"><strong>${esc(t.by || w.by)}</strong>${(t.place || w.place) ? `<span>·</span>${esc(t.place || w.place)}` : ""}${w.src === "The Hindu" ? `<span>·</span>${esc(X.forSrc)}` : ""}</p>
       </div>
