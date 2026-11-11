@@ -547,31 +547,36 @@
   ]
  },
  {
-  "id": "2026-11-12-19",
-  "h": "Shivamogga farmer climbs a tree over his khata, accuses tahsildar of taking bribes",
-  "dek": "Papers for land granted in 1962 have still not been transferred to the farmers' names, and a farmer protested by climbing a banyan tree in the taluk office compound.",
-  "by": "ETV Bharat",
-  "pub": "ETV Bharat",
-  "date": "11 November 2026",
+  "h": "Torsa tea garden sit-in razed, 11 workers arrested",
+  "dek": "As Adivasi and Gorkha families in Alipurduar face eviction for a land port, a lawyers' group has demanded a halt to the displacement.",
+  "by": "Correspondent",
+  "pub": "Counterview",
+  "date": "10 November 2026",
   "lang": "English",
-  "place": "Raminkoppa, Shivamogga",
-  "state": "Karnataka",
-  "ask": "Put the khata for the land the government gave us in our names",
   "body": [
-   "In Shivamogga, Karnataka, a farmer named Nagaraj protested by climbing a banyan tree in the compound of the tahsildar's office. His complaint was that the land record, or khata, had not been put in his and his fellow farmers' names. He stayed up the tree for hours.",
-   "The case goes back to 1962, when the government gave four acres each to 11 people in survey number 57 of Raminkoppa village. According to the farmers, influential people later had this land registered in their own names. After an agitation the Deputy Commissioner ordered the khata to be registered in the names of the 11 beneficiaries, but this has still not been done.",
-   "The farmers allege that the then tahsildar took Rs 25 lakh in instalments, was then transferred, and the khata stayed stuck. Nagaraj admitted he has no written proof of the payments. Assistant Commissioner Maitri reached the spot and promised to resolve the matter, after which Nagaraj came down at the urging of villagers. She said the matter lies within the powers of the Deputy Commissioner and the tahsildar."
+   "Adivasi and Gorkha families who have lived for generations in the Torsa tea garden in Alipurduar district, in West Bengal's Dooars region, had been on an indefinite sit-in beside the Asian Highway since 23 July. According to the report, on 2 November two bulldozers and a large police contingent demolished the protest site and arrested 11 people, including four Adivasi women. An Alipurduar court granted them bail on 7 November.",
+   "The land is earmarked for the Jaigaon land port project. The Land Port Authority of India asked for 30 acres in 2022, which the state government acquired and sold to the authority. The families say they were never even consulted. They petitioned the district magistrate, the chief minister and local MLAs and proposed an alternative plot, but received no substantive response.",
+   "On a complaint by an authority junior engineer, activists Anuradha Talwar, Binay Kerketta and Mahesh Khalkho have been accused of inciting the crowd, though according to the statement they were not at the site. On 6 November the Calcutta High Court said the project may proceed, but anyone removed must be removed through due process of law.",
+   "NAJAR, a lawyers' collective linked to the NAPM, has issued a statement demanding a halt to evictions, withdrawal of the cases and compliance with the High Court's order."
   ],
   "nazar": [
-   "That land given to the landless six decades ago has still not made it into the records shows how incomplete land reform remained on the ground. Both the failure to change the khata despite the Deputy Commissioner's order and the bribery allegations should be investigated. If a farmer gets a hearing only by climbing a tree, the system has failed."
+   "Tea garden workers have lived on this land since colonial times, yet the titles are still not in their names. That weakness was used first to sell the land and then to clear the protest with bulldozers. The High Court has reminded the state that development too must stay within the law. The government now has to engage seriously with the families' proposal for alternative land."
   ],
-  "sawal": "Why has the khata not been changed despite the Deputy Commissioner's order?",
+  "sawal": "Who will decide compensation for those evicted without land titles?",
   "ref": [
    [
-    "Khata",
-    "The revenue record of land in Karnataka, which carries the owner's name; without it a farmer cannot take a loan, sell the land or benefit from government schemes."
+    "Land port",
+    "An integrated border checkpost where customs and immigration checks are done on goods and people crossing by road. Jaigaon is on the Bhutan border."
+   ],
+   [
+    "Paschim Banga Cha Majur Samity",
+    "A union of North Bengal tea garden workers, which filed a PIL in the Calcutta High Court on behalf of the Torsa families."
    ]
-  ]
+  ],
+  "place": "Torsa tea garden, Kalchini, Alipurduar",
+  "state": "West Bengal",
+  "ask": "No eviction without land, rehabilitation and compensation",
+  "id": "2026-11-12-19"
  },
  {
   "id": "2026-11-12-20",
