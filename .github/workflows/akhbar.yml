@@ -1,8 +1,6 @@
 name: आज का अख़बार (PDF)
+# ईपेपर बंद (11 नवंबर 2026): अब अपने आप नहीं चलता, सिर्फ़ हाथ से (workflow_dispatch) चलाया जा सकता है।
 on:
-  push:
-    branches: [main]
-    paths: ["data/days/**", "src/akhbar.css", "scripts/akhbar-pdf.js", "build.js"]
   workflow_dispatch:
     inputs:
       day:

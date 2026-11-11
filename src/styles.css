@@ -1960,3 +1960,29 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
  .sg-band{padding:24px 20px 18px}
  .sg-dek{font-size:17px}
 }
+
+/* ज़मीन के मोर्चे (sec "jan"): मोर्चा-पट्टी, जगहों की चिप-पंक्ति और टिकट-जैसे कार्ड */
+.jan{margin:38px 0 8px}
+.sec-jan h3::before{border-radius:0;background:var(--neel,#2E3F8F);transform:rotate(45deg) scale(.82)}
+.jan-states{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 22px;font:600 13px/1.4 var(--f-ui)}
+.jan-states span{color:var(--ink-2);margin-inline-end:4px}
+.jan-states b{font-weight:600;padding:4px 11px;border:1px solid var(--ink);border-radius:999px;background:transparent}
+.jan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.jan-card{position:relative;background:var(--paper-2,#F6F1E6);border:1px solid var(--rule,#cfc6bd);border-top:5px solid var(--lal);padding:18px 18px 12px;display:flex;flex-direction:column;justify-content:space-between}
+.jan-card:nth-child(3n+2){border-top-color:var(--neel,#2E3F8F)}
+.jan-card:nth-child(3n){border-top-color:var(--haldi,#B27D1E)}
+.jan-card>a{display:block;text-decoration:none;color:inherit}
+.jan-no{position:absolute;inset-inline-end:14px;top:8px;font:800 42px/1 var(--f-head);color:rgba(0,0,0,.07)}
+.jan-place{margin:0 0 8px;font:700 12.5px/1.4 var(--f-ui);letter-spacing:.02em;color:var(--lal)}
+.jan-card h4{font-family:var(--f-head);font-weight:500;font-size:22px;line-height:1.3;margin:0;text-wrap:balance}
+.jan-card .dek{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin:8px 0 0}
+.jan-ask{margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--rule,#cfc6bd);font:400 14px/1.55 var(--f-ui)}
+.jan-ask b{font-weight:700}
+.jan-card .src{margin:14px 0 0}
+@media(max-width:980px){.jan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.jan-grid{grid-template-columns:1fr}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .jan-card{background:rgba(255,255,255,.04)}:root:not([data-theme="light"]) .jan-no{color:rgba(255,255,255,.08)}}
+:root[data-theme="dark"] .jan-card{background:rgba(255,255,255,.04)}:root[data-theme="dark"] .jan-no{color:rgba(255,255,255,.08)}
+
+.toon-credit{font:400 14px/1.6 var(--f-ui);color:var(--ink-2);margin:10px 0 0}
+.toon-credit a{color:var(--neel)}

@@ -218,7 +218,7 @@ ${["/", "/en/", "/ur/"].includes(url) ? `<script type="application/ld+json">${JS
 }
 
 const AV = require("crypto").createHash("md5").update(["src/styles.css", "src/client.js", "src/art.js", "src/akhbar.css"].map(f => fs.readFileSync(f, "utf8")).join("")).digest("hex").slice(0, 8);
-const SHOW_PAPER = true;
+const SHOW_PAPER = false; // ईपेपर बंद (मालिक का फ़ैसला, 11 नवंबर 2026): पुराने अंक /akhbar/<date>/ पर बने रहते हैं, लिंक और नयी PDF नहीं
 const SR = {
   hi: { ph: "कोई ख़बर, लेखक, जगह या मुद्दा खोजिए", t: "खोज", close: "बंद करें", hint: "जैसे: मज़दूर, बिहार, PARI, ग़ज़ा, किसान" },
   en: { ph: "Search a story, writer, place or issue", t: "Search", close: "Close", hint: "For example: workers, Bihar, PARI, Gaza, farmers" },
@@ -337,9 +337,10 @@ const TOON = { hi: ["तिरछी नज़र", "का कार्टू�
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
 const PUB_TOONS = CARTOONS.filter(c => c.date <= LATEST_DAY);
 const artistSlug = c => c.artist_slug || (c.artist_en === "Satish Acharya" ? "satish-acharya" : "rajendra-dhodapkar");
-const artistCfg = c => CARTOONISTS[artistSlug(c)] || CARTOONISTS["rajendra-dhodapkar"];
+const artistCfg = c => CARTOONISTS[artistSlug(c)] || (c.artist_slug && c.artist ? (CARTOONISTS[c.artist_slug] = { hi: c.artist + " की लकीर", en: (c.artist_en || c.artist) + "'s Line", ur: (c.artist_ur || c.artist_en || c.artist) + " کی لکیر", artist: c.artist, artist_en: c.artist_en || c.artist, artist_ur: c.artist_ur || c.artist_en || c.artist }) : CARTOONISTS["rajendra-dhodapkar"]);
 const cartoonURL = c => artistSlug(c) === "rajendra-dhodapkar" ? `${PRE}/cartoon/${c.date}/` : `${PRE}/cartoon/${artistSlug(c)}/${c.date}/`;
 const artistURL = slug => `${PRE}/cartoon/${slug}/`;
+PUB_TOONS.forEach(c => artistCfg(c)); /* नये कार्टूनिस्ट की config अपने आप */
 const LIVE_ARTISTS = Object.keys(CARTOONISTS).filter(slug => PUB_TOONS.some(c => artistSlug(c) === slug));
 const toonL = c => { const cfg = artistCfg(c); if (LG === "hi") return { ...c, artist: c.artist || cfg.artist }; const f = path.join("data/i18n", LG, "cartoon-" + c.key + ".json"); const t = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; const ar = LG === "ur" ? (cfg.artist_ur || c.artist_en || c.artist) : (c.artist_en || c.artist); return { ...c, ...t, artist: ar, chutki: t.chutki || c.chutki || null }; };
 const TC = { hi: { read: "पूरी चुटकी पढ़ें →", fine: a => `कार्टून के सारे अधिकार ${a} के हैं। देशकाल पर उनकी अनुमति से।`, k: "देशकाल की चुटकी", between: "रेखाओं<br>के बीच", on: a => `${a} के कार्टून पर`, more: "और कार्टून", of: a => `${a} का कार्टून` }, en: { read: "Read the full note →", fine: a => `All rights in the cartoon belong to ${a}. On Deshkaal with his permission.`, k: "Deshkaal's note", between: "Between<br>the lines", on: a => `On ${a}'s cartoon`, more: "More cartoons", of: a => `${a}'s cartoon` }, ur: { read: "پوری چٹکی پڑھیں ←", fine: a => `کارٹون کے سارے حقوق ${a} کے پاس ہیں۔ دیشکال پر ان کی اجازت سے۔`, k: "دیشکال کی چٹکی", between: "لکیروں<br>کے بیچ", on: a => `${a} کے کارٹون پر`, more: "اور کارٹون", of: a => `${a} کا کارٹون` } };
@@ -361,7 +362,8 @@ function cartoonPage(c0) {
     <figure class="toon-board big"><a class="toon-frame" href="${c.img}" target="_blank" rel="noopener"><span class="toon-tape l"></span><span class="toon-tape r"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}"></a><figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${esc(c.subject || "")}</span></figcaption></figure>
     <div class="share" data-url="${SITE}${url}" data-title="${cfg[LG]}"><span class="share-l">${T.share}</span><a class="sh" href="https://wa.me/?text=${t}%0A${u}" target="_blank" rel="noopener">WhatsApp</a><a class="sh" href="https://t.me/share/url?url=${u}&text=${t}" target="_blank" rel="noopener">Telegram</a><a class="sh" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">X</a><a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a></div>
     ${c.chutki ? `<aside class="toon-chutki"><div class="tc-side"><span class="tc-k">${K.k}</span><h3>${K.between}</h3><svg class="tc-squiggle" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8 C 22 1, 32 13, 52 7 S 82 1, 102 8 S 132 13, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><p class="tc-note">${esc(K.on(c.artist))}</p></div><div class="tc-text">${c.chutki.map(p => `<p>${esc(p)}</p>`).join("")}</div></aside>` : ""}
-    <p class="fine">${esc(K.fine(c.artist))}</p>
+    ${c.srcUrl || c.credit ? `<p class="toon-credit">${esc(c.credit || (LG === "en" ? "Courtesy: " : LG === "ur" ? "بشکریہ: " : "साभार: ") + c.artist)}${c.srcUrl ? ` · <a href="${esc(c.srcUrl)}" target="_blank" rel="noopener nofollow">${LG === "en" ? "Source" : LG === "ur" ? "ماخذ" : "मूल स्रोत"} ↗</a>` : ""}</p>` : ""}
+    <p class="fine">${esc(c.srcUrl ? (LG === "en" ? `All rights to the cartoon rest with ${c.artist}. Republished on Deshkaal with credit, for comment and criticism; it will be taken down on request.` : LG === "ur" ? `کارٹون کے سارے حقوق ${c.artist} کے ہیں۔ دیش کال پر بشکریہ، تبصرے اور تنقید کے لیے؛ درخواست پر ہٹا دیا جائے گا۔` : `कार्टून के सारे अधिकार ${c.artist} के हैं। देशकाल पर साभार, टिप्पणी और आलोचना के लिए; कहने पर हटा दिया जाएगा।`) : K.fine(c.artist))}</p>
     ${others.length ? `<h3 class="toon-more">${K.more}</h3><div class="toon-grid">${others.map(o => `<a href="${cartoonURL(o)}"><img src="${o.img}" alt="${esc(o.alt)}" loading="lazy"><span>${dayLabel(o.date)}</span></a>`).join("")}</div>` : ""}</section>`;
   const available = LANGS.filter(l => l === "hi" || fs.existsSync(path.join("data/i18n", l, "cartoon-" + c.key + ".json")));
   return layout({ title: `${cfg[LG]}: ${K.of(c.artist)}, ${dayLabel(c.date)}`, desc: c.alt, url, body, image: c.img, published: c.date, alt: languageURLs(url.replace(PRE, ""), available), noindex: !available.includes(LG) });
@@ -409,7 +411,7 @@ const IST_TODAY = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10)
 /* दीवार सिर्फ़ तब दिखे जब आज के लिए कुछ दर्ज हो; पुरानी दीवारें आर्काइव में रहती हैं */
 const LIVE_TODAY_DAY = LIVE_DAYS.find(d => d.date === IST_TODAY);
 const LIVE_ON = false; // पुरानी दीवारें आर्काइव में रहेंगी; साइट पर लाइव कवरेज बंद है।
-const LIVE_ARCHIVE = SPECIAL.active && LIVE_DAYS.length > 0;
+const LIVE_ARCHIVE = LIVE_DAYS.length > 0; // पुरानी लाइव दीवारें आर्काइव में बनी रहें, सड़क की संसद बंद होने पर भी (404 न हों)
 const PAHAR = { hi: ["रात", "सुबह", "दोपहर", "शाम", "रात"], en: ["am", "am", "pm", "pm", "pm"], ur: ["رات", "صبح", "دوپہر", "شام", "رات"] };
 const clockParts = (t, lg = LG) => { const m = /T?(\d{2}):(\d{2})/.exec((t || "").slice(10)) || /(\d{2}):(\d{2})/.exec(t || ""); if (!m) return null;
   const H = +m[1], h = H % 12 || 12, i = H < 4 ? 0 : H < 12 ? 1 : H < 16 ? 2 : H < 19 ? 3 : 4; return { hm: `${h}:${m[2]}`, p: PAHAR[lg][i] }; };
@@ -539,11 +541,19 @@ function weeklyPage() {
   return layout({ title: W.t, desc: weeklyIntro(), url: PRE + "/weekly/", body, tab: "home", catOn: "सब", alt: { hi: "/weekly/", en: "/en/weekly/", ur: "/ur/weekly/" } });
 }
 
+/* ज़मीन के मोर्चे (sec "jan"): देश भर के जनपक्षीय और मानवाधिकार आंदोलनों की रोज़ की ख़बरें, "मोर्चा-पट्टी" के ढंग में */
+function janBand(items, head) {
+  if (!items.length) return "";
+  const states = [...new Set(items.map(a => a.state).filter(Boolean))];
+  return `<section class="jan">${head("jan")}${states.length ? `<p class="jan-states"><span>${T.janToday}</span>${states.map(x => `<b>${esc(x)}</b>`).join("")}</p>` : ""}
+  <div class="jan-grid">${items.map((a, i) => `<article class="jan-card"><a href="${href(a)}"><span class="jan-no" aria-hidden="true">${i + 1}</span><p class="jan-place">${esc(a.place || a.state || cn(a.cat))}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p>${a.ask ? `<p class="jan-ask"><b>${T.janAsk}</b> ${esc(a.ask)}</p>` : ""}</a><p class="src">${esc(a.pub)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`).join("")}</div></section>`;
+}
+
 function homePage() {
   const by = k => today.items.filter(a => a.sec === k);
   const M = morchaSet(days, today.date), vis = by("amukh").filter(a => a.visesh), amukh = by("amukh").filter(a => !a.visesh)[0];
   const L = M ? M.lead : amukh || today.items.find(a => a.sec !== "sahitya");
-  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya"), rajaji = by("rajaji");
+  const vichar = M && amukh ? [amukh, ...by("vichar")] : by("vichar"), khabar = by("khabar"), lits = by("sahitya"), rajaji = by("rajaji"), jan = by("jan");
   
   /* गांव-जवार: PARI, ख़बर लहरिया और अन्य ग्रामीण पत्रकारिता (sec "pari") */
   const pari = today.items.filter(a => isRuralReport(a));
@@ -557,6 +567,7 @@ function homePage() {
   const body = `${SONIA.band(LG)}${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
+  ${janBand(jan, head)}
   ${VH.band(LG) || weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}

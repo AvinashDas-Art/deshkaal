@@ -19,6 +19,12 @@ async function post(u, opt, tries = 4) {
   return fetch(u, opt);
 }
 const url = a => `${SITE}/lekh/${a.id}/`;
+/* हमसफ़र: पाठकों की मौलिक रचनाएं जो इस अंक के दिन (या उससे एक दिन पहले, सुबह की चिट्ठी के बाद) छपीं */
+const prevDay = new Date(new Date(day + "T00:00:00Z").getTime() - 864e5).toISOString().slice(0, 10);
+const hamsafar = fs.existsSync("data/hamsafar") ? fs.readdirSync("data/hamsafar").filter(f => f.endsWith(".json")).map(f => JSON.parse(fs.readFileSync(path.join("data/hamsafar", f), "utf8")))
+  .filter(w => w.date === day || w.date === prevDay).sort((a, b) => (b.pub || b.date).localeCompare(a.pub || a.date)).slice(0, 4) : [];
+const hsUrl = w => `${SITE}/hamsafar/${w.id}/`;
+const jan = items.filter(a => a.sec === "jan");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const M = ["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
 const d = new Date(day + "T00:00:00Z"), label = `${d.getUTCDate()} ${M[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
@@ -34,7 +40,7 @@ async function telegram() {
     `<b>आज की बड़ी बहस</b>`, `<b>${esc(lead.h)}</b>`, esc(lead.dek), "", `<i>आज का सवाल: ${esc(lead.sawal)}</i>`, "",
     "नीचे किसी भी शीर्षक को छू कर पूरा सार पढ़िए।"].join("\n");
   const btn = (a, pre = "") => [{ text: cut(pre + a.h, 60), url: url(a) }];
-  const keyboard = [btn(lead, "▶ "), ...news.slice(1, 10).map(a => btn(a)), ...lit.slice(0, 3).map(a => btn(a, "साहित्य · ")), [{ text: "पूरा अंक देखें", url: SITE }]];
+  const keyboard = [btn(lead, "▶ "), ...news.slice(1, 10).map(a => btn(a)), ...lit.slice(0, 3).map(a => btn(a, "साहित्य · ")), ...hamsafar.slice(0, 3).map(w => [{ text: cut("हमसफ़र · " + w.by + ": " + w.h, 60), url: hsUrl(w) }]), [{ text: "पूरा अंक देखें", url: SITE }]];
   const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: "POST", headers: { "content-type": "application/json" },
     body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: "HTML", link_preview_options: { is_disabled: true }, reply_markup: { inline_keyboard: keyboard } })
@@ -52,7 +58,9 @@ async function whatsappDraft() {
     ...(news.some(a => a.sec === "khabar") ? [`*कल का कच्चा चिट्ठा*`, ...news.filter(a => a.sec === "khabar").slice(0, 6).flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
     ...(news.some(a => a.sec === "pari") ? [`*गांव-जवार*`, ...news.filter(a => a.sec === "pari").flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
     ...(vid ? [`*रोशनदान*`, `▪️ ${vid.h}`, short(vid), ""] : []),
+    ...(jan.length ? [`*ज़मीन के मोर्चे*`, ...jan.slice(0, 6).flatMap(a => [`▪️ ${a.place ? a.place + ": " : ""}${a.h}`, short(a)]), ""] : []),
     ...(lit.length ? [`*सुख़न-सराय*`, ...lit.slice(0, 3).flatMap(a => [`▪️ ${a.h}`, short(a)]), ""] : []),
+    ...(hamsafar.length ? [`*हमसफ़र*`, ...hamsafar.flatMap(w => [`▪️ ${w.by}: ${w.h}`, hsUrl(w)]), ""] : []),
     `पूरा अंक: ${SITE}`].join("\n");
   const html = `<div style="font-family:Arial,sans-serif;max-width:640px"><p style="color:#555">नीचे का संदेश पूरा कॉपी कर के WhatsApp चैनल में चिपकाइए। सितारे (*) WhatsApp में मोटे अक्षर बन जाएंगे।</p>
 <pre style="white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.6;background:#F1F2EE;padding:18px;border:1px solid #CFD2C8">${esc(msg)}</pre></div>`;
@@ -78,7 +86,9 @@ async function newsletter() {
 <div style="font-size:16px;line-height:1.7">${esc(lead.dek)}</div>
 <div style="margin-top:12px;font-size:16px"><i>आज का सवाल: ${esc(lead.sawal)}</i></div></div>
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0">${news.slice(1).map(row).join("")}</table>
+${jan.length ? `<div style="font-size:26px;font-weight:800;margin:26px 0 4px">ज़मीन के मोर्चे</div><div style="font-size:14px;color:#555963;margin-bottom:6px">देश भर के जनपक्षीय और मानवाधिकार आंदोलनों की आज की ख़बरें</div><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${jan.map(a => `<tr><td style="padding:14px 0;border-top:1px solid #CFD2C8"><div style="font-size:13px;color:#CF3A2E;font-weight:700">${esc(a.place || a.state || a.cat)} · ${esc(a.pub)}</div><a href="${url(a)}" style="display:block;font-size:20px;line-height:1.4;color:#1F2126;text-decoration:none;font-weight:700;margin:4px 0">${esc(a.h)}</a><div style="font-size:15px;line-height:1.7;color:#555963">${esc(a.dek)}</div>${a.ask ? `<div style="font-size:14px;line-height:1.6;color:#1F2126;margin-top:6px"><b>मांग:</b> ${esc(a.ask)}</div>` : ""}</td></tr>`).join("")}</table>` : ""}
 ${lit.length ? `<div style="font-size:26px;font-weight:800;margin:26px 0 4px">सुख़न-सराय</div><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${lit.map(row).join("")}</table>` : ""}
+${hamsafar.length ? `<div style="background:#FBF8F0;border:1px solid #E6DCC3;padding:18px 20px;margin:28px 0 6px"><div style="font-size:26px;font-weight:800;margin:0 0 2px">हमसफ़र</div><div style="font-size:14px;color:#555963;margin-bottom:8px">पाठकों की मौलिक रचनाएं, जो सिर्फ़ देशकाल पर छपी हैं</div><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${hamsafar.map(w => `<tr><td style="padding:14px 0;border-top:1px solid #E6DCC3"><div style="font-size:13px;color:#B27D1E;font-weight:600">${esc(w.by)}${w.place ? " · " + esc(w.place) : ""}</div><a href="${hsUrl(w)}" style="display:block;font-size:21px;line-height:1.4;color:#1F2126;text-decoration:none;font-weight:700;margin:4px 0">${esc(w.h)}</a><div style="font-size:16px;line-height:1.7;color:#555963">${esc(w.dek || w.pull || "")}</div></td></tr>`).join("")}</table><p style="font-size:14px;margin:12px 0 0"><a href="${SITE}/bhejiye/" style="color:#2E3F8F">आप भी अपनी रचना भेजिए →</a></p></div>` : ""}
 <p style="font-size:15px;margin-top:26px"><a href="${SITE}" style="color:#2E3F8F">पूरा अंक deshkaal.xyz पर पढ़िए</a></p>
 <p style="color:#555963;font-size:13px;line-height:1.7">ये सार देशकाल का अपना लेखन हैं, मूल लेखों के लिंक हर पन्ने पर हैं।<br>
 <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#555963">न्यूज़लेटर बंद करें</a></p></div></body></html>`;
