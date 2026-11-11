@@ -381,8 +381,10 @@ const connect = () => `<section class="band">
   <ol><li>${T.app1}</li><li>${T.app2}</li></ol>
   <button class="btn" id="install" hidden style="margin-top:10px">${T.appBtn}</button></div></section>`;
 
+/* बंद होने के बाद भी, जिन अंकों में morcha था (until तक), उनका खंड घर और अख़बार पर दिखता रहे */
+const morchaOn = upto => SPECIAL.active || (SPECIAL.until && upto <= SPECIAL.until);
 function morchaSet(ds, upto) {
-  if (!SPECIAL.active) return null;
+  if (!morchaOn(upto)) return null;
   const d = ds.find(x => x.date <= upto && x.date >= (SPECIAL.since || "") && x.items.some(a => a.sec === "morcha"));
   if (!d) return null;
   const its = d.items.filter(a => a.sec === "morcha"), lead = its.find(a => a.lead) || its[0];
