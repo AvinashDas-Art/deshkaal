@@ -7,3 +7,5 @@
   Content-Type: application/xml; charset=utf-8
 /icons/*
   Cache-Control: public, max-age=604800
+/news-sitemap.xml
+  Content-Type: application/xml; charset=utf-8

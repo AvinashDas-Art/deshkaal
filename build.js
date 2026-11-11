@@ -897,6 +897,10 @@ PUB_TOONS.forEach(c => out(cartoonURL(c).slice(1) + "index.html", cartoonPage(c)
 LIVE_ARTISTS.forEach(slug => out(`cartoon/${slug}/index.html`, artistPage(slug)));
 PUB_TOONS.forEach(c => { const src = path.join("data/cartoons/img", c.file || (c.date + ".jpg")), dst = path.join("dist", c.img.replace(/^\//, "")); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(src, dst); });
 out("sitemap.xml", require("./src/seo.js").sitemap("dist", SITE));
+/* Google News sitemap: पिछले दो दिनों के लेख, हमसफ़र और कार्टून (Google News / Discover के लिए; SEO, 11 नवंबर 2026) */
+out("news-sitemap.xml", require("./src/seo.js").newsSitemap("dist", SITE));
+/* IndexNow (Bing, Yandex, Seznam, Naver): हर पुश पर नये पन्ने भेजे जाते हैं (scripts/indexnow.js) */
+out("indexnow-urls.txt", require("./src/seo.js").pagesIn("dist", SITE).filter(p => p.indexable && p.published && p.published >= IST_TODAY.slice(0, 8) + "01").map(p => p.url).join("\n"));
 out("styles.css", fs.readFileSync("src/styles.css", "utf8"));
 out("art.js", fs.readFileSync("src/art.js", "utf8"));
 out("client.js", fs.readFileSync("src/client.js", "utf8"));

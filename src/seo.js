@@ -24,4 +24,10 @@ function sitemap(root,site) {
   const pages=pagesIn(root,site).filter(p=>p.indexable);
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p=>`<url><loc>${xml(p.url)}</loc>${p.published?`<lastmod>${p.published}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`;
 }
-module.exports={pagesIn,sitemap};
+function newsSitemap(root,site){
+  const cut=new Date(Date.now()-2*864e5).toISOString().slice(0,10);
+  const pages=pagesIn(root,site).filter(p=>p.indexable&&p.published&&p.published>=cut&&!/\/(en|ur)\//.test(p.url.slice(site.length)));
+  const title=h=>(h.match(/<meta property="og:title" content="([^"]*)"/i)||[])[1]||(h.match(/<title>([^<]*)<\/title>/i)||[])[1]||'';
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n${pages.map(p=>`<url><loc>${xml(p.url)}</loc><news:news><news:publication><news:name>देशकाल</news:name><news:language>hi</news:language></news:publication><news:publication_date>${p.published}</news:publication_date><news:title>${xml(title(p.html).replace(/&quot;/g,'"').replace(/&amp;/g,'&'))}</news:title></news:news></url>`).join('\n')}\n</urlset>\n`;
+}
+module.exports={pagesIn,sitemap,newsSitemap};

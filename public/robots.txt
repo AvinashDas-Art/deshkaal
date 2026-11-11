@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://deshkaal.xyz/sitemap.xml
+Sitemap: https://deshkaal.xyz/news-sitemap.xml
