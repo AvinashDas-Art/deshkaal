@@ -554,7 +554,7 @@ function homePage() {
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
-  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `${SONIA.band(LG)}${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
   ${VH.band(LG) || weeklyBand()}
@@ -695,6 +695,7 @@ function mdPage(file, title, desc, url, h2) {
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
 const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY, supportEnd });
+const SONIA = require("./src/sonia.js")({ layout: (...a) => layout(...a), esc, SITE, LATEST: IST_TODAY });
 const VOICES = require("./src/voices.js")({ esc, href });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
@@ -847,6 +848,7 @@ for (const l of LANGS) {
   out(P + "purane/index.html", archivePage());
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
   VH.ALL.forEach(w => out(`${P}vishesh/${w.id}/index.html`, VH.page(w, l)));
+  { const sp = SONIA.page(l); if (sp) out(P + "belonging/index.html", sp); }
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
