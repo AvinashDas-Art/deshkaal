@@ -1,0 +1,209 @@
+{
+ "id": "devdutt-google-vs-guru",
+ "kind": "hamsafar",
+ "tag": "विशेष हमसफ़र",
+ "date": "2026-11-12",
+ "pub": "2026-11-12T06:00:00+05:30",
+ "active": true,
+ "h": "गूगल बनाम गुरु: आख़िरी मुक़ाबला",
+ "dek": "गुरु जानकारी नहीं, छनी हुई जानकारी बेचते थे। अब चैटबॉट रात दो बजे भी जवाब देता है और चंदा नहीं मांगता। फिर गुरुओं के पास बचा क्या है?",
+ "by": "देवदत्त पटनायक",
+ "src": "मुंबई मिरर",
+ "srcDate": "18 अक्टूबर 2026",
+ "srcUrl": "https://devdutt.com/google-vs-guru-the-final-showdown/",
+ "photo": "/media/vishesh/devdutt-google-vs-guru.jpg",
+ "photoW": 1536,
+ "photoH": 1024,
+ "photoAlt": "देवदत्त पटनायक का रेखांकन: सफ़ेद पृष्ठभूमि पर काली लकीरों में एक लंबी दाढ़ी वाले गुरु चबूतरे पर पालथी मारकर बैठे हैं और नीचे बाईं ओर एक चेला घुटनों के बल झुका हाथ जोड़े उनकी ओर देख रहा है।",
+ "photoCap": "रेखांकन: देवदत्त पटनायक",
+ "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+ "bandPos": "center 24%",
+ "translationNote": "हिंदी अनुवाद: देशकाल",
+ "rights": {
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
+ },
+ "note": "गूगल और एआई ने गुरुओं का सबसे पुराना हथियार छीन लिया है: जानकारी तक पहुंच। अब कोई भी रात दो बजे ऋग्वेद से लेकर क़ुरआन तक की व्याख्याएं आपस में मिला सकता है, बिना किसी दीक्षा या दान के। पटनायक पूछते हैं कि जब हर व्याख्या की जांच हो सकती है, तो गुरु बेचता क्या है? उनका जवाब है: जानकारी नहीं, छनी हुई जानकारी; और आज भी लोग सच नहीं, अपनापन ख़रीदते हैं। गूगल बेहद जानकार है, पर उसमें कोई भाव नहीं, इसलिए कोई उससे आध्यात्मिक पुष्टि नहीं पाता। समझदार गुरु अब व्याख्या के क्यूरेटर बन गये हैं - पुराना धंधा, नया पैकेजिंग। एआई गुरु-अर्थव्यवस्था को ख़त्म नहीं करेगा, बस उसे सच्चा होने पर मजबूर करेगा कि वह सच नहीं, एहसास बेचती है।",
+ "pull": "जानकारी मुफ़्त है, पर अपनापन अब भी दुर्लभ है, और दुर्लभता ही इस कारोबार की नींव है।",
+ "body": [
+  "सदियों से, अगर आप जानना चाहते थे कि अच्छे लोगों के साथ बुरा क्यों होता है, या मरने के बाद क्या होता है, या कटहल खाने से कोई युद्ध-अपराधी बन जाता है या नहीं, तो आपको एक बिचौलिया चाहिए था। कोई ऋषि। कोई सूफ़ी। लंबी दाढ़ी वाला कोई ब्राह्मण, जिसकी प्रतीक्षा-सूची बहुत लंबी हो। व्याख्या एक दुर्लभ चीज़ थी, और दुर्लभता ही हर उस गुरु का धंधा रही है जो आज तक हुआ। अब एआई आ गया है, और बिचौलिये की सबसे बड़ी ताक़त - “जो मैंने पढ़ा है, वह तुमने नहीं पढ़ा” - सोशल मीडिया के ट्रेंड की तरह ग़ायब हो रही है।",
+  "कुछ महीने पहले पोप ने चेताया था कि एआई हमारी नौकरियां छीन लेगा। माफ़ कीजिए, होली फ़ादर, वह तो बारीक अक्षरों वाली बात है। असली सुर्ख़ी यह है कि एआई व्याख्याकारों की नौकरियां छीनेगा। दशकों की पढ़ाई। एक वंश-परंपरा। चोगे। और ऐसा धुंधला व्यक्तित्व जिस पर लाखों अनुयायी अपनी छवि आरोपित कर सकें। पता चलता है कि आप रात के दो बजे, पजामे में बैठे, किसी चैटबॉट से ऋग्वेद, क़ुरआन, बाइबल और स्टोइक दर्शन पर एक रेडिट थ्रेड - चारों को आपस में मिलाकर पूछ सकते हैं, और वह चंदा भी नहीं मांगेगा।",
+  "सच कहें तो परंपरा से गुरु क्या बेचता था? जानकारी नहीं। बिकती थी छनी हुई जानकारी। उसे पूरा समझने के लिए आपको स्रोत तक ख़ुद पहुंचना पड़ता। और स्रोत था संस्कृत, या अरबी की तफ़्सीर, या अरामाइक। मतलब, आपको एक विशेषज्ञ चाहिए था। अब ऐसा विशेषज्ञ है जो दरवाज़ा नहीं रोकता, पहले सांसारिक सुख-सुविधाएं त्यागने को नहीं कहता, और जिसके रोल्स-रॉयस के कलेक्शन के लिए चंदा नहीं जुटाना पड़ता।",
+  "पर मुझे लगता है यहीं बात दिलचस्प हो जाती है। क्या होता है जब आपके ब्रांड का आधा हिस्सा यह दावा हो - “मुझ पर भरोसा करो, ज़िंदगी का राज़ मुझे पता है”? क्या होता है जब लोग आपका फ़ैक्ट-चेक कर सकें? जब मैं किसी बात की जांच मिलीसेकंड में कर सकूं? जब मैं तय कर सकूं कि कौन-सा गुरु बेहतर है? और यह सब बिना ग़रीबी का व्रत लिए? मुझे लगता है यह कहना ठीक होगा कि गूगल जैसे सर्च इंजनों के आने ने रहस्यवादी गुरु-दुनिया को हमेशा के लिए बदल दिया है। कोई यह नहीं कह सकता कि गूगल जैसी कोई चीज़ नहीं है। कोई यह नहीं कह सकता कि रहस्यवादी व्याख्याओं की जांच नहीं हो सकती। आसार यही हैं कि लोग आपसे बेहतर “गुरु” ढूंढ लेंगे। इसलिए जांच होने से पहले यह पक्का कर लें कि आप सबसे अच्छे “गुरु” हैं।",
+  "गूगल में एक बड़ी कमी है, जो गुरुओं में कभी नहीं थी: उसे अपने अनुयायियों में कोई दिलचस्पी नहीं। वह आपकी भक्ति नहीं मांगता। वह आपके मां-बाप से आपकी सिफ़ारिश नहीं करेगा। वह आपसे यह नहीं कहेगा कि आप किसी गुप्त समाज का हिस्सा हैं। एआई आपको सच देते हैं; गुरु उन सचों को अपनी आवाज़ में सुनाते हैं। आप किसी सच पर तभी भरोसा करते हैं जब वह ऐसे स्रोत से आए जो आपसे प्यार करता लगे और इंसानी लगे। आप किसी सच पर तभी भरोसा करते हैं जब वह ऐसे स्रोत से आए जिससे आप घृणा महसूस कर सकें। किसी मशीन जैसी बेजान चीज़ से आए सच पर आप भरोसा महसूस नहीं करेंगे। छापाखाना, रेडियो और इंटरनेट का पहला रूप - ये सब सच तक आसान पहुंच के अलग-अलग रास्ते थे। लोगों का यह सोचना तर्कसंगत है कि जो सच किसी शून्य-भाव वाली चीज़ से मिले, उसकी कोई क़ीमत नहीं।",
+  "यह टकराव सच बनाम सच का नहीं है। यह टकराव है - कौन सत्ता में रहेगा बनाम कौन नियम बनाएगा। नियम कौन बनाए, इस पर गुरुओं का एकाधिकार है। वे समझते हैं कि सच काफ़ी नहीं होते। लोग चाहते हैं कि कोई उन्हें आध्यात्मिक रूप से सही ठहराए - कोई व्यक्ति, कोई चीज़ नहीं। आप उस सच से आध्यात्मिक पुष्टि नहीं पा सकते जो ऐसी चीज़ से आए जिसमें कोई भाव नहीं, जो बेजान और आत्माहीन लगे। गूगल बेहद जानकार है, पर उसमें शून्य भाव हैं। कोई उससे घृणा या निराशा महसूस नहीं करेगा। इसीलिए गुरुओं के पास गूगल से हमेशा एक खाई बची रहेगी।",
+  "शायद इसी से “समझदार” गुरुओं का सुकून समझ आता है। अब बात “मेरी व्याख्या पर भरोसा करो” की नहीं रही। अब बात है - “आने दो, मैं तुम्हारी व्याख्या का क्यूरेटर बनूं”। पुराना काम लौट आया है, बस ज़्यादा मेहनत के साथ। आप रिट्रीट के पैसे अब भी देंगे। ब्रांडेड मर्च अब भी ख़रीदेंगे। जानकारी मुफ़्त है, पर अपनापन अब भी दुर्लभ है, और दुर्लभता ही इस कारोबार की नींव है।",
+  "एआई शायद गुरु-अर्थव्यवस्था को ख़त्म नहीं करेगा, वह बस गुरुओं को इस बात पर सच्चा होने को मजबूर करेगा कि वे असल में क्या बेच रहे थे। जानकारी नहीं। एक एहसास। सुरक्षा का एक झूठा भरोसा, जिसे गूगल नक़ल नहीं कर सकता। अभी तक। कुछ और अपडेट के साथ एआई और बेहतर हो सकता है। और गुरु उससे भी मुनाफ़ा कमाने का रास्ता निकाल लेंगे।"
+ ],
+ "sawal": "गुरु जानकारी बेचते थे या अपनापन?",
+ "homePoints": [
+  "गुरु जानकारी नहीं, छनी हुई जानकारी बेचते थे; दुर्लभता ही उनका कारोबार था।",
+  "गूगल के पास ज्ञान है, भाव नहीं; इसीलिए लोग उससे आध्यात्मिक पुष्टि नहीं पाते।",
+  "समझदार गुरु अब व्याख्या के क्यूरेटर हैं - जानकारी मुफ़्त, अपनापन दुर्लभ।"
+ ],
+ "author": {
+  "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+  "site": "https://devdutt.com",
+  "hi": {
+   "name": "देवदत्त पटनायक",
+   "role": "मिथकशास्त्री, लेखक, चित्रकार",
+   "bio": [
+    "मिथकों को कहानियों, प्रतीकों और रस्मों से पढ़ने वाले लेखक, चित्रकार और वक्ता। वह मिथक को किसी संस्कृति का व्यक्तिपरक सत्य मानते हैं, यानी वह तरीक़ा जिससे कोई समाज ज़िंदगी को कल्पना में देखता है।",
+    "पेशे से डॉक्टर रहे। क़रीब पंद्रह साल दवा और स्वास्थ्य उद्योग में काम किया, फिर कारोबारी सलाहकार बने और फ़्यूचर ग्रुप में चीफ़ बिलीफ़ ऑफ़िसर रहे। आख़िर में लिखना ही पेशा बन गया। पचास से ज़्यादा किताबें, एक हज़ार से ज़्यादा स्तंभ और पंद्रह भाषाओं में अनुवाद। टेलीविज़न पर देवलोक और बिज़नेस सूत्र जैसे कार्यक्रम भी उन्हीं के नाम हैं।"
+   ]
+  },
+  "en": {
+   "name": "Devdutt Pattanaik",
+   "role": "Mythologist, author, illustrator",
+   "bio": [
+    "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+    "A doctor by training, he spent about fifteen years in the pharma and health industry, became a business consultant and served as Chief Belief Officer at the Future Group, before writing became his profession. He has written over fifty books and over a thousand columns, translated into fifteen languages, and television programmes such as Devlok and Business Sutra carry his name."
+   ]
+  },
+  "ur": {
+   "name": "دیودت پٹنایک",
+   "role": "اساطیر کے ماہر، مصنف، مصور",
+   "bio": [
+    "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+    "پیشے سے ڈاکٹر رہے۔ تقریباً پندرہ سال دوا اور صحت کی صنعت میں کام کیا، پھر کاروباری مشیر بنے اور فیوچر گروپ میں چیف بیلیف آفیسر رہے۔ آخر میں لکھنا ہی پیشہ بن گیا۔ پچاس سے زیادہ کتابیں، ایک ہزار سے زیادہ کالم اور پندرہ زبانوں میں ترجمے۔ ٹیلی ویژن پر دیولوک اور بزنس سوتر جیسے پروگرام بھی انہی کے نام ہیں۔"
+   ]
+  }
+ },
+ "allBooksUrl": "https://devdutt.com/category/translations/hindi/?tag=books/",
+ "midBook": 0,
+ "books": [
+  {
+   "url": "https://www.amazon.in/dp/9389915880",
+   "c": "#2E3F8F",
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9391242677",
+   "c": "#A63E26",
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/014345613X",
+   "c": "#1F2126",
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9389373840",
+   "c": "#8A5E0F",
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
+  }
+ ],
+ "firstPub": {
+  "hi": "यह लेख सबसे पहले मुंबई मिरर में छपा था।",
+  "en": "This article first appeared in Mumbai Mirror.",
+  "ur": "یہ مضمون سب سے پہلے ممبئی مرر میں شائع ہوا تھا۔"
+ },
+ "cover": "",
+ "en": {
+  "h": "Google vs Guru: The Final Showdown",
+  "dek": "Gurus sold filtered truth, not information. Now a chatbot answers at 2 a.m. and asks for no donation. What is left for the guru to sell?",
+  "by": "Devdutt Pattanaik",
+  "tag": "Special Hamsafar",
+  "translationNote": "",
+  "src": "Mumbai Mirror",
+  "srcDate": "18 October 2026",
+  "note": "Google and AI have taken away the guru’s oldest weapon: access to information. Anyone can now cross-reference the Rig Veda with the Quran at 2 a.m., with no initiation and no donation. Pattanaik asks what a guru sells when every interpretation can be checked. His answer: not information but filtered information, and what people still buy is not truth but belonging. Google is extremely knowledgeable but has no emotions, so nobody feels spiritually validated by it. The smart gurus have become curators of interpretation: the old trade, repackaged. AI will not kill the guru economy; it will only force it to be honest that what it sells is a feeling.",
+  "pull": "The information is free, but belonging is still scarce, and scarcity is the foundation of the business.",
+  "body": [
+   "For centuries, if you wanted to know why bad things happen to good people, or what happens after you die, or whether eating jackfruit makes you a war criminal, you needed a middleman. A sage. A Sufi. A long-bearded Brahmin with a very long waitlist. Interpretation was a scarce resource, and scarcity is the business model of every guru who’s ever lived. Enter AI, and the middleman’s biggest competitive advantage (“I have read things you have not read”) rapidly disappears like social media trends.",
+   "The Pope, a few months ago, warned that AI will take our jobs. Respectfully, Your Holiness, that’s the small print. The real headline is AI will take the interpreter jobs. Decades of study. A lineage. Robes. And a personality vague enough to be projected onto by millions of followers. Turns out you can ask a chatbot to cross-reference the Rig Veda, the Quran, the Bible and a Reddit thread about Stoicism, at 2 AM, in your pyjamas, and it won’t even ask for a donation.",
+   "Let’s be real here. Traditionally, what did a guru sell? Not information. What was sold was filtered information. In order to understand it fully, you’d need access to the source information yourself. Well, the source information was Sanskrit, or Arabic Exegesis, or Aramaic. So, what does all of this mean? You needed an expert. Now, there is an expert that doesn’t gate-keep, ask you to renounce your worldly possessions first, and most definitely doesn’t have a Rolls-Royce collection to fund.",
+   "But I think this is where things get interesting. What happens when half of your brand is “trust me, I know the secret to life?” What happens when people can fact check you? What happens when I can check the fact, and in milliseconds? What happens when I get to decide which guru is best? And I can do all of that without having to take a vow of poverty? I think it’s fair to say that the appearance of Google, or other such search engines, has altered the mystical guru scene for good. No one can deny that something like Google exists. No one can deny that mystical interpretations can be checked. The odds are, people can and will find a better “guru” than you. So, make sure you are the best “guru” before you get checked.",
+   "Google has a critical flaw that gurus never had: they have no interest in their followers. They don’t ask for your devotion. They won’t vouch for you to your parents. They can’t tell you that you’re part of a secret society. AIs give you truths; gurus deliver them in voice messages. You have to trust a truth if it comes from a source that seems to love you and feels human. You have to trust a truth if it comes from a source that you can feel disgusted by. You wouldn’t feel trust in a truth if it comes from something lifeless like a machine. The printing press, radio, and the first version of the internet were all different ways to gain easy access to truths. People are rational to think a truth has no value if it’s delivered by something that has zero emotions.",
+   "The conflict is not truth versus truth. It’s who gets to be in charge versus who gets to make the rules. Gurus have the monopoly over who gets to make the rules. They understand that truths aren’t enough. People want to feel validated spiritually by someone, not something. You can’t be spiritually validated by a truth if it comes from something that has no emotions and feels soulless and lifeless. Google is extremely knowledgeable but has zero emotions. No one will feel disgusted or disappointed by it. This is why gurus will always have a moat over Google.",
+   "That probably explains the calm of the ‘smart’ gurus. It’s not ‘trust my interpretation’ anymore. Now it’s ‘let me be your curator of interpretation’. The old job is back, just with more work. You’ll still pay for the retreats. You’ll still buy the branded merch. The information is free, but belonging is still scarce, and scarcity is the foundation of the business.",
+   "AI probably won’t kill the guru economy, it will just force them to be truthful about what they were really selling. It wasn’t information. It was a feeling. A false sense of security that Google can’t replicate. Yet. With a few more updates, the AI could get even better. The gurus will find a way to profit from that, too."
+  ],
+  "sawal": "Did the guru sell information, or belonging?",
+  "homePoints": [
+   "Gurus sold not information but filtered information; scarcity was the business model.",
+   "Google is knowledgeable but emotionless, so nobody feels spiritually validated by it.",
+   "Smart gurus are now curators of interpretation: information free, belonging scarce."
+  ],
+  "photoAlt": "Devdutt Pattanaik’s line drawing: on white, in black lines, a long-bearded guru sits cross-legged on a low platform while a disciple kneels below on the left, hands folded, looking up at him.",
+  "photoCap": "Drawing: Devdutt Pattanaik",
+  "bio": "Mythologist, author, illustrator",
+  "tr": "Original article in English."
+ },
+ "ur": {
+  "h": "گوگل بمقابلہ گرو: آخری مقابلہ",
+  "dek": "گرو معلومات نہیں، چھنی ہوئی معلومات بیچتے تھے۔ اب چیٹ بوٹ رات دو بجے بھی جواب دیتا ہے اور چندہ نہیں مانگتا۔ پھر گروؤں کے پاس کیا بچا ہے؟",
+  "by": "دیودت پٹنایک",
+  "tag": "خصوصی ہم سفر",
+  "translationNote": "اردو ترجمہ: دیش کال",
+  "src": "ممبئی مرر",
+  "srcDate": "18 اکتوبر 2026",
+  "note": "گوگل اور اے آئی نے گروؤں کا سب سے پرانا ہتھیار چھین لیا ہے: معلومات تک رسائی۔ اب کوئی بھی رات دو بجے رگ وید سے لے کر قرآن تک کی تشریحات ملا سکتا ہے، بغیر کسی دخول یا چندے کے۔ پٹنایک پوچھتے ہیں کہ جب ہر تشریح کی جانچ ہو سکتی ہے تو گرو بیچتا کیا ہے؟ اُن کا جواب ہے: معلومات نہیں، چھنی ہوئی معلومات؛ اور آج بھی لوگ سچ نہیں، اپنائیت خریدتے ہیں۔ گوگل بے حد جانکار ہے مگر اُس میں کوئی جذبہ نہیں، اسی لیے کوئی اُس سے روحانی تصدیق نہیں پاتا۔ سمجھدار گرو اب تشریح کے کیوریٹر بن گئے ہیں، پرانا کاروبار، نئی پیکنگ۔ اے آئی گرو معیشت کو ختم نہیں کرے گا، بس اُسے سچا ہونے پر مجبور کرے گا کہ وہ سچ نہیں، احساس بیچتی ہے۔",
+  "pull": "معلومات مفت ہے، مگر اپنائیت اب بھی نایاب ہے، اور نایابی ہی اِس کاروبار کی بنیاد ہے۔",
+  "body": [
+   "صدیوں سے، اگر آپ جاننا چاہتے تھے کہ اچھے لوگوں کے ساتھ برا کیوں ہوتا ہے، یا مرنے کے بعد کیا ہوتا ہے، یا کٹہل کھانے سے کوئی جنگی مجرم بن جاتا ہے یا نہیں، تو آپ کو ایک بیچوان چاہیے تھا۔ کوئی رشی۔ کوئی صوفی۔ لمبی داڑھی والا کوئی براہمن، جس کی انتظار کی فہرست بہت لمبی ہو۔ تشریح ایک نایاب چیز تھی، اور نایابی ہی ہر اُس گرو کا کاروباری ماڈل رہی ہے جو آج تک ہوا۔ اب اے آئی آ گیا ہے، اور بیچوان کی سب سے بڑی طاقت، ”جو میں نے پڑھا ہے، وہ تم نے نہیں پڑھا“، سوشل میڈیا کے ٹرینڈ کی طرح غائب ہو رہی ہے۔",
+   "کچھ مہینے پہلے پوپ نے خبردار کیا تھا کہ اے آئی ہماری نوکریاں لے لے گا۔ معاف کیجیے، ہولی فادر، وہ تو باریک حروف کی بات ہے۔ اصل سرخی یہ ہے کہ اے آئی تشریح کرنے والوں کی نوکریاں لے گا۔ دہائیوں کی پڑھائی۔ ایک خاندانی روایت۔ چوغے۔ اور ایسی دھندلی شخصیت جس پر لاکھوں پیروکار اپنی شبیہ ڈال سکیں۔ پتہ چلتا ہے کہ آپ رات دو بجے، پاجامے میں، کسی چیٹ بوٹ سے رگ وید، قرآن، بائبل اور اسٹوئک فلسفے پر ایک ریڈٹ تھریڈ، چاروں کو آپس میں ملا کر پوچھ سکتے ہیں، اور وہ چندہ بھی نہیں مانگے گا۔",
+   "سچ کہیں تو روایتی طور پر گرو کیا بیچتا تھا؟ معلومات نہیں۔ بکتی تھی چھنی ہوئی معلومات۔ اُسے پوری طرح سمجھنے کے لیے آپ کو ماخذ تک خود پہنچنا پڑتا۔ اور ماخذ تھا سنسکرت، یا عربی کی تفسیر، یا آرامک۔ مطلب، آپ کو ایک ماہر چاہیے تھا۔ اب ایسا ماہر ہے جو دروازہ نہیں روکتا، پہلے دنیاوی آسائشیں چھوڑنے کو نہیں کہتا، اور جس کے رولز رائس کے کلیکشن کے لیے چندہ نہیں جمع کرنا پڑتا۔",
+   "لیکن مجھے لگتا ہے یہیں بات دلچسپ ہو جاتی ہے۔ کیا ہوتا ہے جب آپ کے برانڈ کا آدھا حصہ یہ دعویٰ ہو، ”مجھ پر بھروسا کرو، زندگی کا راز مجھے معلوم ہے“؟ کیا ہوتا ہے جب لوگ آپ کا فیکٹ چیک کر سکیں؟ جب میں کسی بات کی جانچ ملی سیکنڈ میں کر سکوں؟ جب میں طے کر سکوں کہ کون سا گرو بہتر ہے؟ اور یہ سب بغیر غریبی کے ورت کے؟ مجھے لگتا ہے یہ کہنا ٹھیک ہوگا کہ گوگل جیسے سرچ انجنوں کے آنے نے رہبانیت والی گرو دنیا کو ہمیشہ کے لیے بدل دیا ہے۔ کوئی یہ نہیں کہہ سکتا کہ گوگل جیسی کوئی چیز نہیں ہے۔ کوئی یہ نہیں کہہ سکتا کہ رہبانیت والی تشریحات کی جانچ نہیں ہو سکتی۔ امکانات یہی ہیں کہ لوگ آپ سے بہتر ”گرو“ ڈھونڈ لیں گے۔ اس لیے جانچ سے پہلے یہ یقینی بنا لیں کہ آپ سب سے اچھے ”گرو“ ہیں۔",
+   "گوگل میں ایک بڑی کمی ہے جو گروؤں میں کبھی نہیں تھی: اُسے اپنے پیروکاروں میں کوئی دلچسپی نہیں۔ وہ آپ کی عقیدت نہیں مانگتا۔ وہ آپ کے ماں باپ سے آپ کی سفارش نہیں کرے گا۔ وہ آپ سے یہ نہیں کہے گا کہ آپ کسی خفیہ معاشرے کا حصہ ہیں۔ اے آئی آپ کو سچ دیتے ہیں؛ گرو اُن سچوں کو اپنی آواز میں سناتے ہیں۔ آپ کسی سچ پر اُس وقت بھروسا کرتے ہیں جب وہ ایسے ماخذ سے آئے جو آپ سے پیار کرتا لگے اور انسان لگے۔ آپ کسی سچ پر اُس وقت بھروسا کرتے ہیں جب وہ ایسے ماخذ سے آئے جس سے آپ نفرت محسوس کر سکیں۔ کسی مشین جیسی بے جان چیز سے آئے سچ پر آپ بھروسا محسوس نہیں کریں گے۔ چھاپہ خانہ، ریڈیو اور انٹرنیٹ کی پہلی شکل، یہ سب سچ تک آسان رسائی کے مختلف راستے تھے۔ لوگوں کا یہ سوچنا منطقی ہے کہ جو سچ کسی صفر جذبات والی چیز سے ملے، اُس کی کوئی قیمت نہیں۔",
+   "یہ تصادم سچ بمقابلہ سچ کا نہیں ہے۔ یہ تصادم ہے، کون اقتدار میں رہے گا بمقابلہ کون قواعد بنائے گا۔ قواعد کون بنائے، اِس پر گروؤں کی اجارہ داری ہے۔ وہ سمجھتے ہیں کہ سچ کافی نہیں ہوتے۔ لوگ چاہتے ہیں کہ کوئی اُنہیں روحانی طور پر درست ٹھہرائے، کوئی شخص، کوئی چیز نہیں۔ آپ اُس سچ سے روحانی تصدیق نہیں پا سکتے جو ایسی چیز سے آئے جس میں کوئی جذبہ نہیں، جو بے جان اور بے روح لگے۔ گوگل بے حد جانکار ہے، مگر اُس میں صفر جذبات ہیں۔ کوئی اُس سے نفرت یا مایوسی محسوس نہیں کرے گا۔ اسی لیے گروؤں کے پاس گوگل سے ہمیشہ ایک خلیج باقی رہے گی۔",
+   "شاید اسی سے ”سمجھدار“ گروؤں کا سکون سمجھ آتا ہے۔ اب بات ”میری تشریح پر بھروسا کرو“ کی نہیں ہے۔ اب بات ہے، ”آنے دو، میں تمہاری تشریح کا کیوریٹر بنوں“۔ پرانا کام لوٹ آیا ہے، بس زیادہ محنت کے ساتھ۔ آپ ریٹریٹ کے پیسے اب بھی دیں گے۔ برانڈڈ مرچ اب بھی خریدیں گے۔ معلومات مفت ہے، مگر اپنائیت اب بھی نایاب ہے، اور نایابی ہی اِس کاروبار کی بنیاد ہے۔",
+   "اے آئی شاید گرو معیشت کو ختم نہیں کرے گا، وہ بس گروؤں کو اِس بات پر سچا ہونے پر مجبور کرے گا کہ وہ اصل میں کیا بیچ رہے تھے۔ معلومات نہیں۔ ایک احساس۔ تحفظ کا ایک جھوٹا بھروسا، جس کی گوگل نقل نہیں کر سکتا۔ ابھی تک۔ کچھ اور اپ ڈیٹ کے ساتھ اے آئی اور بہتر ہو سکتا ہے۔ اور گرو اُس سے بھی منافع کمانے کا راستہ نکال لیں گے۔"
+  ],
+  "sawal": "گرو معلومات بیچتے تھے یا اپنائیت؟",
+  "homePoints": [
+   "گرو معلومات نہیں، چھنی ہوئی معلومات بیچتے تھے؛ نایابی ہی اُن کا کاروبار تھی۔",
+   "گوگل کے پاس علم ہے، جذبہ نہیں؛ اسی لیے لوگ اُس سے روحانی تصدیق نہیں پاتے۔",
+   "سمجھدار گرو اب تشریح کے کیوریٹر ہیں، معلومات مفت، اپنائیت نایاب۔"
+  ],
+  "photoAlt": "دیودت پٹنایک کی لکیروں سے بنی تصویر: سفید پس منظر پر کالی لکیروں میں ایک لمبی داڑھی والے گرو چبوترے پر پالتی مار کر بیٹھے ہیں اور نیچے بائیں طرف ایک چیلا گھٹنوں کے بل جھکا، ہاتھ جوڑے اُن کی طرف دیکھ رہا ہے۔",
+  "photoCap": "تصویر: دیودت پٹنایک",
+  "bio": "اساطیر کے ماہر، مصنف، مصور",
+  "tr": "اصل مضمون انگریزی میں۔"
+ }
+}

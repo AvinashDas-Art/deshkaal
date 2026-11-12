@@ -1884,32 +1884,36 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
 .vh-page .vh-cover.vh-cover-portrait figcaption{position:static;inset:auto;margin:10px auto 0;padding:0;background:none;color:var(--ink-2);text-shadow:none;max-width:min(420px,100%)}
 
 /* ---------- विशेष: सोनिया गांधी की 'बिलॉन्गिंग' (src/sonia.js) ---------- */
-.sg-band{--sg-ink:#f3ecdf;--sg-dim:#cfc2ad;--sg-gold:#d3ab5e;position:relative;margin:26px 0 38px;padding:34px 36px 24px;border-radius:3px;color:var(--sg-ink);background:
- radial-gradient(120% 150% at 85% -10%, #3a2b1c 0%, transparent 55%),
- radial-gradient(80% 120% at 0% 110%, #2a1a17 0%, transparent 55%),
- linear-gradient(155deg,#171310,#221b15 55%,#15110e);box-shadow:0 34px 70px -46px #000, inset 0 0 0 1px #d3ab5e33}
-.sg-band::before,.sg-band::after{content:"";position:absolute;left:18px;right:18px;height:1px;background:linear-gradient(90deg,transparent,#d3ab5e88,transparent)}
-.sg-band::before{top:10px}.sg-band::after{bottom:10px}
-.sg-top{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.62fr);gap:44px;align-items:center}
+/* ---------- विशेष: सोनिया गांधी की 'बिलॉन्गिंग' (src/sonia.js) ----------
+   किताब जैसा निवाला: हल्का काग़ज़, सुनहरी दोहरी लकीर, बाईं ओर लाल किनारी,
+   सफ़ेद मैट में टेढ़ा कवर, और नीचे किताब के पन्नों की पट्टी। */
+.sg-band{--sg-bg:#fbf6ea;--sg-bg2:#f2e8d2;--sg-line:#d9c49b;--sg-accent:#8a5a2b;--sg-dim:var(--ink-2);position:relative;margin:44px 0 50px;padding:32px 36px 26px 44px;border:1px solid var(--sg-line);border-radius:2px;color:var(--ink);background:linear-gradient(180deg,var(--sg-bg),var(--sg-bg2));box-shadow:0 34px 60px -52px rgba(31,33,38,.6)}
+.sg-band::before{content:"";position:absolute;inset:7px;border:1px solid var(--sg-line);opacity:.55;pointer-events:none}
+.sg-band::after{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(180deg,var(--lal),var(--geru));pointer-events:none}
+.sg-top{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.6fr);gap:42px;align-items:center}
 .sg-k{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 12px;font-family:var(--f-ui);font-size:12.5px;letter-spacing:.06em;color:var(--sg-dim)}
 .sg-tag{background:var(--lal);color:#fff;font-weight:700;padding:3px 10px;border-radius:2px;letter-spacing:.08em}
-.sg-when{color:var(--sg-gold)}
+.sg-when{color:var(--sg-accent);font-weight:600}
 .sg-h{margin:6px 0 14px;font-family:var(--f-head);font-weight:600;font-size:clamp(30px,4.3vw,52px);line-height:1.16;letter-spacing:-.003em}
 .sg-h a{color:inherit;text-decoration:none}
-.sg-h a:hover{color:var(--sg-gold)}
-.sg-dek{margin:0 0 14px;max-width:44em;color:#e6dccb;font-size:18.5px;line-height:1.72}
-.sg-meta{margin:0 0 18px;font-family:var(--f-ui);font-size:13px;color:var(--sg-gold);letter-spacing:.03em}
-.sg-cta{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid #d3ab5e88;color:#f7ecd6;font-family:var(--f-ui);font-size:14.5px;font-weight:600;text-decoration:none;transition:background .2s,border-color .2s}
-.sg-cta:hover{background:#d3ab5e1f;border-color:var(--sg-gold)}
+.sg-h a:hover{color:var(--geru)}
+.sg-dek{margin:0 0 14px;max-width:44em;color:var(--ink-2);font-size:18.5px;line-height:1.72}
+.sg-meta{margin:0 0 18px;font-family:var(--f-ui);font-size:12.5px;color:var(--sg-accent);letter-spacing:.09em;text-transform:uppercase}
+.sg-cta{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:14.5px;font-weight:600;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.sg-cta span{transition:transform .2s}
+.sg-cta:hover{background:var(--lal);border-color:var(--lal);color:#fff}
+.sg-cta:hover span{transform:translateX(3px)}
 .sg-cover{margin:0;text-align:center}
-.sg-cover img{display:block;width:100%;max-width:264px;height:auto;margin:0 auto;border:6px solid #f3ecdf;transform:rotate(-2.4deg);box-shadow:0 26px 46px -18px #000,0 0 0 1px #d3ab5e66}
-.sg-cover figcaption{margin-top:14px;font-family:var(--f-ui);font-size:11.5px;line-height:1.5;color:var(--sg-dim)}
-.sg-strip{margin-top:30px;border-top:1px solid #d3ab5e33;padding-top:16px}
-.sg-strip-k{margin:0 0 10px;font-family:var(--f-ui);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sg-gold)}
-.sg-strip-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sg-cover img{display:block;width:100%;max-width:258px;height:auto;margin:0 auto;padding:10px;background:#fff;border:0;transform:rotate(-2.2deg);box-shadow:0 24px 38px -22px rgba(31,33,38,.6),0 0 0 1px var(--sg-line)}
+.sg-cover figcaption{margin-top:16px;font-family:var(--f-ui);font-size:11.5px;line-height:1.5;color:var(--sg-dim)}
+.sg-strip{position:relative;z-index:1;margin-top:26px;padding-top:18px;border-top:1px dashed var(--sg-line)}
+.sg-strip-k{margin:0 0 10px;font-family:var(--f-ui);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sg-accent)}
+.sg-strip-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .sg-strip figure{margin:0}
-.sg-strip img{display:block;width:100%;height:150px;object-fit:cover;filter:saturate(.9) contrast(1.02);box-shadow:0 10px 26px -18px #000}
-.sg-strip figcaption{margin-top:7px;font-family:var(--f-ui);font-size:11.5px;line-height:1.45;color:var(--sg-dim)}
+.sg-strip img{display:block;width:100%;height:150px;object-fit:cover;border:5px solid #fff;filter:saturate(.95) contrast(1.02);box-shadow:0 12px 26px -20px rgba(31,33,38,.75)}
+.sg-strip figcaption{margin-top:8px;font-family:var(--f-ui);font-size:11.5px;line-height:1.45;color:var(--sg-dim)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .sg-band{--sg-bg:#1b1f25;--sg-bg2:#22272e;--sg-line:#3c424b;--sg-accent:#d9ae5c} }
+:root[data-theme="dark"] .sg-band{--sg-bg:#1b1f25;--sg-bg2:#22272e;--sg-line:#3c424b;--sg-accent:#d9ae5c}
 
 .sg-page{padding:8px 0 40px}
 .sg-page .sg-cover img{max-width:224px}
@@ -1957,7 +1961,7 @@ html[dir="rtl"] .hw-fig figcaption{padding:0;border:0}
  .sg-strip img{height:130px}
  .sg-g-grid{columns:2}
  .sg-cards ol{grid-template-columns:minmax(0,1fr)}
- .sg-band{padding:24px 20px 18px}
+ .sg-band{padding:22px 20px 18px 26px;margin:34px 0 40px}
  .sg-dek{font-size:17px}
 }
 
