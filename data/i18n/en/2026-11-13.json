@@ -662,6 +662,40 @@
   ]
  },
  {
+  "id": "2026-11-13-29",
+  "h": "A farm worker died in a thresher, his file has been stuck for 18 months",
+  "dek": "Sumit of Beriakhedi village in Rajgarh died while working on a farm, but the compensation under a government scheme is still moving between offices.",
+  "by": "Abdul Wasim Ansari",
+  "pub": "Ground Report",
+  "date": "31 October 2026",
+  "lang": "Hindi",
+  "body": [
+   "In March 2025, Sumit, the son of farm labourer Purushottam of Beriakhedi village in Madhya Pradesh's Rajgarh district, was caught in a thresher while threshing wheat and died. According to Ground Report, a year and a half later the family has still not received money under the Mukhyamantri Krishak Jeevan Kalyan Yojana (the Chief Minister's farmer welfare scheme), which provides Rs 4 lakh for a death in an accident during farm work and Rs 4,000 for the funeral.",
+   "The paper trail has been long. A merg (unnatural death report) was registered on 16 March 2025, and the family applied with that report. In November 2025 the Collector's office asked for the FIR papers, which the tehsil sent again. According to panchayat secretary Omprakash Sharma, the case is pending at the Collector's office. Sarpanch Kamal Panwar says he spoke to the Collector three times: first he was told the papers were incomplete, then that the file had been sent to the Mandi Board.",
+   "The farm owner, Sonu Meena, faces a case of death by negligence under Section 106 of the Bharatiya Nyaya Sanhita, and a chargesheet has been filed. According to him, the thresher's top cover was off and Sumit had climbed up to cover it. According to Deputy Collector Nidhi Bhardwaj, the case is not known to her.",
+   "According to figures from the Collector's office, 62 cases under the scheme came up in the district between 1 January 2024 and 9 October 2026. 37 were sanctioned, but 15 of those families have not been paid, 12 were rejected and 12 are still in process.",
+   "The report cites a study by Dr L.P. Gite, formerly of the Central Institute of Agricultural Engineering, Bhopal, which found that about 14 percent of accidents involving farm machines are caused by threshers. According to mechanics, many threshers are locally made and uncertified, while the Indian standard requires a chute at least 90 centimetres long and iron guards on rotating parts."
+  ],
+  "nazar": [
+   "A farm labourer has no land, and no paper that records his work. Even after his death, his family goes round and round between the merg, the FIR, the postmortem and the Mandi Board. A relief scheme is relief only when it arrives on time; otherwise it becomes one more test for a poor family.",
+   "The second question is about the machines. As long as threshers without guards keep running in the fields and the burden of safety stays on the worker, such accidents will go on being treated as 'part' of farming."
+  ],
+  "sawal": "If the cause of death was clear, where was the approval stuck for 18 months?",
+  "ref": [
+   [
+    "Merg",
+    "In Madhya Pradesh, the first police record of an unnatural or suspicious death.",
+    "Only after its inquiry is it decided whether an FIR will be registered."
+   ],
+   [
+    "Mukhyamantri Krishak Jeevan Kalyan Yojana",
+    "A Madhya Pradesh government scheme that gives financial help to a farmer or labourer hurt in an accident during farm work.",
+    "A death brings Rs 4 lakh, and the payment is made through the Mandi Board."
+   ]
+  ],
+  "photo_note": "Symbolic image: women gleaning leftover ears of grain in a field, by Jean-François Millet."
+ },
+ {
   "id": "2026-11-13-22",
   "h": "Straightened rivers, drying land: how can Germany hold on to its water?",
   "dek": "A DW documentary travels through three German states to ask how far it is possible to give rivers back their room in a time of falling groundwater and dry soil.",
