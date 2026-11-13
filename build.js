@@ -331,7 +331,8 @@ const CARTOONISTS = {
   "sandeep-adhwaryu": { hi: "बेक़ाबू लकीर", en: "Line of No Control", ur: "بے قابو لکیر", artist: "संदीप अध्वर्यु", artist_en: "Sandeep Adhwaryu", artist_ur: "سندیپ ادھوریو" },
   "carlos-latuff": { hi: "लतुफ़ की लकीर", en: "Latuff's Line", ur: "لطوف کی لکیر", artist: "कार्लोस लतुफ़", artist_en: "Carlos Latuff", artist_ur: "کارلوس لطوف" },
   "titas-panda": { hi: "तितास का तंज़", en: "Titas's Tone", ur: "تتاس کا طنز", artist: "तितास पांडा", artist_en: "Titas Panda", artist_ur: "تتاس پانڈا" },
-  "kamal-kishore": { hi: "कमल की क़लम", en: "Kamal's Pen", ur: "کمل کا قلم", artist: "कमल किशोर", artist_en: "Kamal Kishore", artist_ur: "کمل کشور" }
+  "kamal-kishore": { hi: "कमल की क़लम", en: "Kamal's Pen", ur: "کمل کا قلم", artist: "कमल किशोर", artist_en: "Kamal Kishore", artist_ur: "کمل کشور" },
+  "viju": { hi: "विजू का निशाना", en: "Viju's Aim", ur: "وجو کا نشانہ", artist: "विजू", artist_en: "Viju", artist_ur: "وجو" }
 };
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
@@ -353,7 +354,7 @@ const toonBand = c0 => { const c = toonL(c0), K = TC[LG], cfg = artistCfg(c); re
   <figure class="toon-board"><a class="toon-frame" href="${cartoonURL(c)}" aria-label="${TOON[LG][2]}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a>
   <figcaption><span class="toon-sig">${esc(c.artist)}</span><span>${dayLabel(c.date)}</span></figcaption></figure></section>`; };
 
-const toonDuoBand = () => { const today = PUB_TOONS.filter(c => c.date === LATEST_DAY); const slot = toonFor(LATEST_DAY); let cards = today.length >= 2 ? today.slice(0, 2) : DUO_SLUGS.map(slug => latestArtist(slug)).filter(Boolean); if (today.length < 2 && slot && artistSlug(slot) !== "rajendra-dhodapkar") cards = [slot, ...cards.filter(c => artistSlug(c) !== artistSlug(slot) && artistSlug(c) !== "rajendra-dhodapkar")].slice(0, 2); if (!cards.length) return ""; return `<section class="toon-duo"><div class="toon-duo-head"><div><p class="kicker">${LG === "en" ? "CARTOONS" : LG === "ur" ? "کارٹون" : "कार्टून"}</p><h3>${LG === "en" ? "Two lines, two views" : LG === "ur" ? "دو لکیریں، دو نظریے" : "रेखाओं की दो आवाज़ें"}</h3></div><p>${LG === "en" ? "Two cartoonists, two ways of looking at the day." : LG === "ur" ? "دو کارٹونسٹ، دن کو دیکھنے کے دو انداز۔" : "दो कार्टूनिस्ट, दिन को देखने के दो अलग अंदाज़।"}</p></div><div class="toon-duo-grid">${cards.map(c0 => { const c = toonL(c0), cfg = artistCfg(c); return `<article class="toon-card"><div class="toon-card-top"><div><h4>${esc(cfg[LG])}</h4><p>${esc(c.artist)}</p></div><a href="${artistURL(artistSlug(c))}">${LG === "en" ? "All cartoons →" : LG === "ur" ? "سب کارٹون ←" : "पूरा पन्ना →"}</a></div><a class="toon-card-img" href="${cartoonURL(c)}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a><div class="toon-card-foot"><span>${dayLabel(c.date)}</span><a href="${cartoonURL(c)}">${LG === "en" ? "Open cartoon" : LG === "ur" ? "کارٹون دیکھیں" : "कार्टून देखिए"} ↗</a></div></article>`; }).join("")}</div></section>`; };
+const toonDuoBand = () => { const today = PUB_TOONS.filter(c => c.date === LATEST_DAY).sort((a, b) => (b.slot ? 1 : 0) - (a.slot ? 1 : 0)); const slot = toonFor(LATEST_DAY); let cards = today.length >= 2 ? today.slice(0, 2) : DUO_SLUGS.map(slug => latestArtist(slug)).filter(Boolean); if (today.length < 2 && slot && artistSlug(slot) !== "rajendra-dhodapkar") cards = [slot, ...cards.filter(c => artistSlug(c) !== artistSlug(slot) && artistSlug(c) !== "rajendra-dhodapkar")].slice(0, 2); if (!cards.length) return ""; return `<section class="toon-duo"><div class="toon-duo-head"><div><p class="kicker">${LG === "en" ? "CARTOONS" : LG === "ur" ? "کارٹون" : "कार्टून"}</p><h3>${LG === "en" ? "Two lines, two views" : LG === "ur" ? "دو لکیریں، دو نظریے" : "रेखाओं की दो आवाज़ें"}</h3></div><p>${LG === "en" ? "Two cartoonists, two ways of looking at the day." : LG === "ur" ? "دو کارٹونسٹ، دن کو دیکھنے کے دو انداز۔" : "दो कार्टूनिस्ट, दिन को देखने के दो अलग अंदाज़।"}</p></div><div class="toon-duo-grid">${cards.map(c0 => { const c = toonL(c0), cfg = artistCfg(c); return `<article class="toon-card"><div class="toon-card-top"><div><h4>${esc(cfg[LG])}</h4><p>${esc(c.artist)}</p></div><a href="${artistURL(artistSlug(c))}">${LG === "en" ? "All cartoons →" : LG === "ur" ? "سب کارٹون ←" : "पूरा पन्ना →"}</a></div><a class="toon-card-img" href="${cartoonURL(c)}"><span class="toon-tape l" aria-hidden="true"></span><span class="toon-tape r" aria-hidden="true"></span><img src="${c.img}" width="${c.w}" height="${c.h}" alt="${esc(c.alt)}" loading="lazy"></a><div class="toon-card-foot"><span>${dayLabel(c.date)}</span><a href="${cartoonURL(c)}">${LG === "en" ? "Open cartoon" : LG === "ur" ? "کارٹون دیکھیں" : "कार्टून देखिए"} ↗</a></div></article>`; }).join("")}</div></section>`; };
 
 function cartoonPage(c0) {
   const c = toonL(c0), K = TC[LG], cfg = artistCfg(c), others = PUB_TOONS.filter(x => x !== c0 && artistSlug(x) === artistSlug(c0)).slice(0, 8).map(toonL), url = cartoonURL(c), u = encodeURIComponent(`${SITE}${url}`), t = encodeURIComponent(`${cfg[LG]}: ${K.of(c.artist)}`);
@@ -570,7 +571,6 @@ function homePage() {
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
   ${janBand(jan, head)}
-  ${SONIA.band(LG)}
   ${VH.band(LG) || weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
   ${vichar.length ? `<section class="vichar">${head("vichar")}<div class="grid g3 gv${PV.vichar}">${vichar.map(card).join("")}</div></section>` : ""}
@@ -709,7 +709,6 @@ function mdPage(file, title, desc, url, h2) {
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
 const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY, supportEnd });
-const SONIA = require("./src/sonia.js")({ layout: (...a) => layout(...a), esc, SITE, LATEST: IST_TODAY });
 const VOICES = require("./src/voices.js")({ esc, href });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
@@ -862,7 +861,6 @@ for (const l of LANGS) {
   out(P + "purane/index.html", archivePage());
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
   VH.ALL.forEach(w => out(`${P}vishesh/${w.id}/index.html`, VH.page(w, l)));
-  { const sp = SONIA.page(l); if (sp) out(P + "belonging/index.html", sp); }
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());

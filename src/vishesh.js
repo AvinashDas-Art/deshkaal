@@ -72,7 +72,7 @@ module.exports = function (H) {
     const points = t.homePoints || w.homePoints || [];
     const related = w.homeLinks || [];
 
-    const bandImg = w.bandPhoto || w.photo, img = bandImg ? `<img src="${esc(bandImg)}"${w.bandPos ? ` style="object-position:${esc(w.bandPos)}"` : ""} alt="${esc(w.photoAlt || t.h)}" width="320" height="400" loading="lazy" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)" />` : "";
+    const bandImg = w.bandPhoto || w.photo, img = bandImg ? `<img src="${esc(bandImg)}"${w.bandPos ? ` style="object-position:${esc(w.bandPos)}"` : ""} alt="${esc(t.photoAlt || w.photoAlt || t.h)}" width="320" height="400" loading="lazy" onerror="this.hidden=true;this.parentNode.classList.add(&quot;vh-art-missing&quot;)" />` : "";
     return `<section class="vh-band" data-id="${esc(w.id)}">
   <div class="vh-wrap">
     <div class="vh-top">
