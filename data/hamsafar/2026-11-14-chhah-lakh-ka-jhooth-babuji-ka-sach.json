@@ -2,12 +2,13 @@
   "id": "2026-11-14-chhah-lakh-ka-jhooth-babuji-ka-sach",
   "kind": "kahani",
   "date": "2026-11-14",
+  "pub": "2026-11-14T11:35:00+05:30",
   "h": "छह लाख का झूठ और बाबूजी का सच",
   "dek": "दरभंगा से पुणे गयी एक बेटी, नौकरी के झूठ और छठ का ठेकुआ लेकर पहुंचे बाबूजी की कहानी।",
   "by": "अज्ञात लेखिका",
   "place": "दरभंगा / पुणे",
   "bio": "इस रचना की मूल लेखिका की पहचान और मूल प्रकाशन-स्रोत की पुष्टि नहीं हुई है।",
-  "cat": "कहानी",
+  "cat": "समाज",
   "lang": "hi",
   "pull": "कुछ झूठ घर का बोझ संभालते हैं।",
   "note": "यह कहानी इंटरनेट पर अनाम रूप से प्रसारित हुई है। इसकी मूल लेखिका और प्रकाशन-स्रोत की पुष्टि नहीं हो सकी है। शिक्षाविद् विशाल गौरव ने इसे देशकाल तक पहुंचाया। मूल रचनाकार से अनुरोध है कि श्रेय और प्रकाशन-अनुमति के लिए sampark@deshkaal.xyz पर संपर्क करें।",
@@ -64,7 +65,13 @@
     "bio": "The identity of the original writer and the source of first publication remain unverified.",
     "pull": "Some lies are load-bearing.",
     "note": "This story has circulated online without a verified author or original source. Educationist Vishal Gaurav brought it to Deshkaal. The original creator is invited to contact sampark@deshkaal.xyz about credit and publication permission.",
-    "tr": "Original English text shared with Deshkaal. Author unverified.",
+    "tr": "Translated from Hindi by the Deshkaal desk.",
+    "images": [
+      {
+        "alt": "An illustrated collage: thekua and a passbook in a Pune room, with Darbhanga's skyline at dusk",
+        "cap": "Collage: Deshkaal desk"
+      }
+    ],
     "body": [
       "I am a software engineer from Darbhanga, Bihar. In four years in Pune I have told my father five lies. He has told me one. His was bigger, and I only found out eleven days ago, so forgive me if this is not written well. I'm not a writer. I'm a girl who was on bench for seven months and then out of a proper job, and I need to put this somewhere that is not my own head.",
       "Campus placement, final year, the company was one of the big Indian IT names, the ones whose buses you see on every highway. The offer letter said three lakh sixty thousand per annum. I read it on my phone in the hostel bathroom and cried, from relief, and then I called Babuji and heard myself say \"chhau lakh.\"",
@@ -119,7 +126,13 @@
     "bio": "اس تحریر کی اصل لکھاری اور پہلی اشاعت کے ذریعے کی تصدیق نہیں ہو سکی۔",
     "pull": "کچھ جھوٹ گھر کا بوجھ سنبھالتے ہیں۔",
     "note": "یہ کہانی انٹرنیٹ پر گمنام شکل میں گردش کرتی رہی ہے۔ اصل لکھاری اور پہلی اشاعت کی تصدیق نہیں ہوئی۔ ماہرِ تعلیم وشال گورو اسے دیش کال تک لائے۔ اصل لکھاری سے گزارش ہے کہ نام اور اشاعت کی اجازت کے لیے sampark@deshkaal.xyz پر رابطہ کریں۔",
-    "tr": "انگریزی سے ترجمہ: دیش کال ڈیسک",
+    "tr": "ہندی سے ترجمہ: دیش کال ڈیسک",
+    "images": [
+      {
+        "alt": "پونے کے کمرے میں چھٹھ کا ٹھیکوا اور پاس بک، اور دور دربھنگہ کی شام کے آسمان کا مصوری کولاج",
+        "cap": "کولاج: دیش کال ڈیسک"
+      }
+    ],
     "body": [
       "میں بہار کے دربھنگہ کی ایک سافٹ ویئر انجینئر ہوں۔ پونے میں 4 سال کے دوران میں نے بابوجی سے 5 جھوٹ بولے۔ انہوں نے مجھ سے صرف ایک جھوٹ بولا، مگر وہ بہت بڑا تھا۔ 11 دن پہلے اس کا پتا چلا۔ میں لکھنے والی نہیں ہوں۔ 7 مہینے بینچ پر گزارنے اور پھر پکی نوکری کھو دینے والی ایک لڑکی ہوں، جسے دل کی بات کہیں رکھنی ہے۔",
       "کالج کے آخری سال کیمپس پلیسمنٹ میں ملک کی ایک بڑی آئی ٹی کمپنی سے پیش کش ملی۔ سالانہ تنخواہ 3 لاکھ 60 ہزار۔ ہاسٹل کے باتھ روم میں فون پر آفر لیٹر پڑھ کر راحت سے رو پڑی۔ بابوجی کو فون کیا اور منہ سے نکلا، 'چھ لاکھ۔'",
