@@ -69,8 +69,8 @@
     "tr": "Original English text shared with Deshkaal. Author unverified.",
     "images": [
       {
-        "alt": "An illustrated collage: thekua and a passbook in a Pune room, with Darbhanga's skyline at dusk",
-        "cap": "Collage: Deshkaal desk"
+        "alt": "An arched window spilling light, cut from paper, with lines from the piece itself",
+        "cap": "Collage: Deshkaal"
       }
     ],
     "body": [
@@ -130,8 +130,8 @@
     "tr": "انگریزی سے ترجمہ: دیش کال ڈیسک",
     "images": [
       {
-        "alt": "پونے کے کمرے میں چھٹھ کا ٹھیکوا اور پاس بک، اور دور دربھنگہ کی شام کے آسمان کا مصوری کولاج",
-        "cap": "کولاج: دیش کال ڈیسک"
+        "alt": "روشنی بکھیرتی محرابی کھڑکی: کاغذ سے کٹی شکلوں پر تحریر کے اپنے ٹکڑے",
+        "cap": "کولاج: دیش کال"
       }
     ],
     "body": [
@@ -182,11 +182,11 @@
   },
   "images": [
     {
-      "src": "/media/hamsafar/2026-11-14-chhah-lakh-ka-jhooth-babuji-ka-sach.svg",
+      "src": "/media/hamsafar/2026-11-14-chhah-lakh-ka-jhooth-babuji-ka-sach-1.jpg",
       "w": 1200,
       "h": 840,
-      "alt": "पुणे के कमरे में छठ का ठेकुआ, पासबुक, और दूर दरभंगा की यादों का चित्रित कोलाज",
-      "cap": "कोलाज: देशकाल डेस्क"
+      "alt": "रोशनी बिखेरती मेहराबदार खिड़की: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+      "cap": "कोलाज: देशकाल"
     }
   ]
 }
