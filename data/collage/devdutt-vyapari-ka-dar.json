@@ -1,0 +1,59 @@
+{
+  "out": "public/media/vishesh/devdutt-vyapari-ka-dar.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 41,
+  "bg": [
+    22,
+    74,
+    58
+  ],
+  "motif": "coin-stairs",
+  "strips": [
+    {
+      "t": "व्यापारी कुछ नहीं बनाता?",
+      "x": 40,
+      "y": 80,
+      "r": -5,
+      "style": "ink",
+      "px": 40,
+      "front": true
+    },
+    {
+      "t": "समुराई के पास तलवार",
+      "x": 720,
+      "y": 120,
+      "r": 4,
+      "style": "paper",
+      "px": 32,
+      "front": true
+    },
+    {
+      "t": "व्यापारी के पास बही-खाता",
+      "x": 50,
+      "y": 690,
+      "r": 3,
+      "style": "paper",
+      "px": 32,
+      "front": true
+    },
+    {
+      "t": "ब्याज की दर जाति से",
+      "x": 690,
+      "y": 720,
+      "r": -4,
+      "style": "red",
+      "px": 34,
+      "front": true
+    }
+  ],
+  "stamp": {
+    "t": "कंजूस?",
+    "x": 70,
+    "y": 440,
+    "r": -7,
+    "px": 84
+  }
+}
