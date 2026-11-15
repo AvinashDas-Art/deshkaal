@@ -333,7 +333,8 @@ const CARTOONISTS = {
   "titas-panda": { hi: "तितास का तंज़", en: "Titas's Tone", ur: "تتاس کا طنز", artist: "तितास पांडा", artist_en: "Titas Panda", artist_ur: "تتاس پانڈا" },
   "kamal-kishore": { hi: "कमल की क़लम", en: "Kamal's Pen", ur: "کمل کا قلم", artist: "कमल किशोर", artist_en: "Kamal Kishore", artist_ur: "کمل کشور" },
   "viju": { hi: "विजू का निशाना", en: "Viju's Aim", ur: "وجو کا نشانہ", artist: "विजू", artist_en: "Viju", artist_ur: "وجو" },
-  "rakesh-ranjan": { hi: "रंजन की रेखा", en: "Ranjan's Line", ur: "رنجن کی لکیر", artist: "राकेश रंजन", artist_en: "Rakesh Ranjan", artist_ur: "راکیش رنجن" }
+  "rakesh-ranjan": { hi: "रंजन की रेखा", en: "Ranjan's Line", ur: "رنجن کی لکیر", artist: "राकेश रंजन", artist_en: "Rakesh Ranjan", artist_ur: "راکیش رنجن" },
+  "subhani": { hi: "सुभानी की लकीर", en: "Subhani's Line", ur: "سبحانی کی لکیر", artist: "सुभानी", artist_en: "Subhani", artist_ur: "سبحانی" }
 };
 const TOON = { hi: ["तिरछी नज़र", "का कार्टून", "कार्टून बड़ा देखें"], en: ["Sideways Glance", "'s cartoon", "See it large"], ur: ["ترچھی نظر", " کا کارٹون", "کارٹون بڑا دیکھیں"] };
 const LATEST_DAY = DAYS_HI.map(d => d.date).sort().pop();
