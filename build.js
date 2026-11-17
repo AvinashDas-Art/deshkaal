@@ -710,7 +710,9 @@ function mdPage(file, title, desc, url, h2) {
   return layout({ title, desc, url: PRE + url, body: `<section class="page2 policy"><h2>${h2}</h2>${html}</section>`, alt: languageURLs(url, available), noindex: !available.includes(LG) });
 }
 const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY });
-const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY, supportEnd });
+/* विशेष भी अंक के साथ ही छपता है, कार्टूनों की तरह: रात में अगली तारीख़ की फ़ाइल
+   जुड़ जाए तो भी वह अंतिम अंक के बनने तक साइट पर नहीं आती (मालिक का निर्देश, 18 नवंबर 2026)। */
+const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: LATEST_DAY, supportEnd });
 const VOICES = require("./src/voices.js")({ esc, href });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
