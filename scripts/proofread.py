@@ -204,6 +204,10 @@ def scan(rep, path):
     except Exception as e:
         rep.add("error", path, "—", f"JSON टूटा: {e}")
         return
+    # मालिक की पसंद (data/picks/) सिर्फ़ रन के लिए निर्देश है, छपा पाठ नहीं:
+    # यहां के `item` की जांच तब होती है जब वह अंक की फ़ाइल में पहुंचता है
+    if "/picks/" in path:
+        return
     is_hs = "/hamsafar/" in path or os.path.basename(path).count("-") >= 3 and "days" not in path and "/vishesh/" not in path
     body = d.get("body") if isinstance(d, dict) else None
     kind = (d.get("kind") if isinstance(d, dict) else "") or ""
