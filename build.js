@@ -325,7 +325,7 @@ const CARTOONISTS = {
   "rajendra-dhodapkar": { hi: "तिरछी नज़र", en: "Sideways Glance", ur: "ترچھی نظر", artist: "राजेंद्र धोड़पकर", artist_en: "Rajendra Dhodapkar", artist_ur: "راجندر دھوڑپکر" },
   "satish-acharya": { hi: "सतीश की स्याही", en: "Satish's Ink", ur: "ستیش کی سیاہی", artist: "सतीश आचार्य", artist_en: "Satish Acharya", artist_ur: "ستیش آچاریہ" },
   "panju-ganguli": { hi: "पंजू का पंच", en: "Panju's Punch", ur: "پنجو کا پنچ", artist: "पंजू गांगुली", artist_en: "Panju Ganguli", artist_ur: "پنجو گانگولی" },
-  "alok": { hi: "आलोक का तीर", en: "Alok's Arrow", ur: "الوک کا تیر", artist: "आलोक", artist_en: "Alok", artist_ur: "الوک" },
+  "alok": { hi: "कुमार आलोक का तीर", en: "Kumar Alok's Arrow", ur: "کمار الوک کا تیر", artist: "कुमार आलोक", artist_en: "Kumar Alok", artist_ur: "کمار الوک" },
   "alankar-goswami": { hi: "अलंकार का अंदाज़", en: "Alankar's Angle", ur: "الانکار کا انداز", artist: "अलंकार गोस्वामी", artist_en: "Alankar Goswami", artist_ur: "الانکار گوسوامی" },
   "raju-rahate": { hi: "राहटे का वार", en: "Rahate's Strike", ur: "راہٹے کا وار", artist: "राजू राहटे", artist_en: "Raju Rahate", artist_ur: "راجو راہٹے" },
   "sandeep-adhwaryu": { hi: "बेक़ाबू लकीर", en: "Line of No Control", ur: "بے قابو لکیر", artist: "संदीप अध्वर्यु", artist_en: "Sandeep Adhwaryu", artist_ur: "سندیپ ادھوریو" },
