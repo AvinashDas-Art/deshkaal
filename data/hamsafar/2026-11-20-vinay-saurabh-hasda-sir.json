@@ -32,10 +32,17 @@
  "images": [
   {
    "src": "/media/hamsafar/2026-11-20-vinay-saurabh-hasda-sir-1.jpg",
-   "w": 443,
-   "h": 332,
-   "alt": "नीले रंग का फाटक, ऊपर काली पट्टी पर सफ़ेद अक्षरों में स्कूल का नाम: रानी सोनावती कुमारी राजकीयकृत उच्च विद्यालय, नोनीहाट।",
-   "cap": "रानी सोनावती कुमारी राजकीयकृत उच्च विद्यालय, नोनीहाट का फाटक। तस्वीर: विनय सौरभ"
+   "w": 1600,
+   "h": 1040,
+   "alt": "धूप में सफ़ेद-हरे स्कूल भवन; बाईं ओर से एक बड़े पेड़ की टहनियां फैली हैं, दाईं ओर मोटा तना; सामने खुला मिट्टी का आंगन और दीवार पर स्कूल का नाम।",
+   "cap": "रानी सोनावती कुमारी राजकीयकृत उच्च विद्यालय, नोनीहाट का आंगन और वही पुराना पेड़। तस्वीर: विनय सौरभ"
+  },
+  {
+   "src": "/media/hamsafar/2026-11-20-vinay-saurabh-hasda-sir-2.jpg",
+   "w": 1200,
+   "h": 1440,
+   "alt": "नीले आसमान के नीचे स्कूल के पुराने दरख़्तों के झुके हुए तने; नीचे पत्तों से भरा मिट्टी का मैदान और पीछे सफ़ेद स्कूल की इमारत।",
+   "cap": "स्कूल के पुराने पेड़, नीचे मिट्टी का मैदान और पीछे कक्षाएं। तस्वीर: विनय सौरभ"
   }
  ],
  "en": {
@@ -65,8 +72,12 @@
   ],
   "images": [
    {
-    "alt": "A blue gate with a black board above it, white letters carrying the school's name: Rani Sonawati Kumari Rajkiyakrit Uchch Vidyalaya, Nonihat.",
-    "cap": "The gate of Rani Sonawati Kumari Rajkiyakrit Uchch Vidyalaya, Nonihat. Photo: Vinay Saurabh"
+    "alt": "A white and green school building in the sun; branches of a large tree spread from the left, a thick trunk on the right; an open earth courtyard in front and the school's name on the wall.",
+    "cap": "The courtyard of Rani Sonawati Kumari Rajkiyakrit Uchch Vidyalaya, Nonihat, and that same old tree. Photo: Vinay Saurabh"
+   },
+   {
+    "alt": "The leaning trunks of the school's old trees under a blue sky; a leaf-strewn earth ground below and the white school building behind.",
+    "cap": "The school's old trees, the earth ground below and the classrooms behind. Photo: Vinay Saurabh"
    }
   ]
  },
@@ -97,8 +108,12 @@
   ],
   "images": [
    {
-    "alt": "نیلے رنگ کا پھاٹک، اوپر کالی پٹی پر سفید حروف میں اسکول کا نام: رانی سوناوتی کماری راجکیتی کرت اُچّ ودیاالیہ، نونی ہاٹ۔",
-    "cap": "رانی سوناوتی کماری راجکیت کرت اُچّ ودیاالیہ، نونی ہاٹ کا پھاٹک۔ تصویر: ونے سوربھ"
+    "alt": "دھوپ میں سفید ہرے اسکول کی عمارت؛ بائیں طرف سے ایک بڑے پیڑ کی شاخیں پھیلی ہیں، دائیں طرف موٹا تنا؛ سامنے کھلا مٹی کا آنگن اور دیوار پر اسکول کا نام۔",
+    "cap": "رانی سوناوتی کماری راجکیت کرت اُچّ ودیاالیہ، نونی ہاٹ کا آنگن اور وہی پرانا پیڑ۔ تصویر: ونے سوربھ"
+   },
+   {
+    "alt": "نیلے آسمان کے نیچے اسکول کے پرانے درختوں کے جھکے ہوئے تنے؛ نیچے پتوں سے بھرا مٹی کا میدان اور پیچھے سفید اسکول کی عمارت۔",
+    "cap": "اسکول کے پرانے درخت، نیچے مٹی کا میدان اور پیچھے کلاس روم۔ تصویر: ونے سوربھ"
    }
   ]
  }
