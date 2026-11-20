@@ -547,6 +547,29 @@ function weeklyPage() {
   return layout({ title: W.t, desc: weeklyIntro(), url: PRE + "/weekly/", body, tab: "home", catOn: "सब", alt: { hi: "/weekly/", en: "/en/weekly/", ur: "/ur/weekly/" } });
 }
 
+
+/* ===== विशेष खंड: TIME100 Next India 2026 की स्त्रियां ===== */
+const T100 = fs.existsSync("data/time100.json") ? JSON.parse(fs.readFileSync("data/time100.json", "utf8")) : null;
+const T1 = o => (o && (o[LG] || o.hi)) || "";
+const T1MORE = () => LG === "en" ? "All 50 profiles →" : LG === "ur" ? "سب 50 پروفائل ←" : "सभी 50 प्रोफ़ाइल →";
+function time100Band() {
+  if (!T100 || !T100.women || !T100.women.length) return "";
+  const M = T100.meta, hero = T100.women[0], rest = T100.women.slice(1, 9);
+  return `<section class="t100"><div class="t100-h"><p class="t100-k">${esc(T1(M.kicker))}</p><h3>${esc(T1(M.title))}</h3><p class="t100-dek">${esc(T1(M.dek))}</p><a class="t100-more" href="${PRE}/time100/">${T1MORE()}</a></div>
+  <figure class="t100-hero"><a href="${PRE}/time100/"><img src="${hero.img}" alt="${esc(T1(hero.name))}" width="640" height="960" loading="lazy"></a><figcaption><b>${esc(T1(hero.name))}</b> · ${esc(T1(hero.role))} <span class="t100-cr">${esc(T1(hero.credit))}</span></figcaption></figure>
+  <div class="t100-strip">${rest.map(w => `<a class="t100-s" href="${PRE}/time100/"><img src="${w.img}" alt="${esc(T1(w.name))}" width="320" height="480" loading="lazy"><b>${esc(T1(w.name))}</b><span>${esc(T1(w.role))}</span></a>`).join("")}</div></section>`;
+}
+function time100Page() {
+  if (!T100) return "";
+  const M = T100.meta, W = T100.women, hero = W[0];
+  const card = w => `<article class="t100-p"><img src="${w.img}" alt="${esc(T1(w.name))}" width="640" height="960" loading="lazy"><h3>${esc(T1(w.name))}</h3><p class="t100-pr">${esc(T1(w.role))}</p><p class="t100-pt">${esc(T1(w.text))}</p><p class="t100-pc">${esc(T1(w.credit))}</p></article>`;
+  const body = `<section class="t100-page"><p class="t100-k">${esc(T1(M.kicker))}</p><h1>${esc(T1(M.title))}</h1><p class="t100-dek">${esc(T1(M.dek))}</p>
+  <div class="t100-lead"><figure><img src="${hero.img}" alt="${esc(T1(hero.name))}" width="640" height="960"><figcaption><span class="t100-cr">${esc(T1(hero.credit))}</span></figcaption></figure><div class="t100-lt"><h2>${esc(T1(hero.name))}</h2><p class="t100-pr">${esc(T1(hero.role))}</p><p class="t100-pt">${esc(T1(hero.text))}</p></div></div>
+  <div class="t100-all">${W.slice(1).map(card).join("")}</div>
+  <p class="t100-note">${esc(T1(M.source))} · ${esc(T1(M.note))}</p></section>`;
+  return layout({ title: T1(M.title), desc: T1(M.dek), url: PRE + "/time100/", body, tab: "home", catOn: "सब", image: hero.img, published: "2026-11-20", alt: { hi: "/time100/", en: "/en/time100/", ur: "/ur/time100/" } });
+}
+
 /* ज़मीन के मोर्चे (sec "jan"): देश भर के जनपक्षीय और मानवाधिकार आंदोलनों की रोज़ की ख़बरें, "मोर्चा-पट्टी" के ढंग में */
 function janBand(items, head) {
   if (!items.length) return "";
@@ -573,6 +596,7 @@ function homePage() {
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
+  ${time100Band()}
   ${janBand(jan, head)}
   ${VH.band(LG) || weeklyBand()}
   ${vis.length ? `<section class="visesh-band"><div class="sechead sec-visesh"><h3>${LG === "en" ? "Special feature" : LG === "ur" ? "خصوصی تحریر" : "विशेष आलेख"}</h3><p>${LG === "en" ? "One piece worth a pause" : LG === "ur" ? "ایک تحریر جو ٹھہر کر پڑھنے کی ہے" : "एक टिप्पणी, जो ठहरकर पढ़ने लायक़ है"}</p></div>${vis.map(a => `<article class="visesh"><a href="${href(a)}">${art(a)}<div class="in"><p class="kicker">${cn(a.cat)} · ${esc(a.by)}</p><h3>${esc(a.h)}</h3><p class="dek">${esc(a.dek)}</p><span class="vmore">${LG === "en" ? "Read the piece →" : LG === "ur" ? "پوری تحریر پڑھیں ←" : "पूरा आलेख पढ़ें →"}</span></div></a></article>`).join("")}</section>` : ""}
@@ -865,6 +889,7 @@ for (const l of LANGS) {
   all.forEach(a => out(`${P}lekh/${a.id}/index.html`, articlePage(a)));
   out(P + "purane/index.html", archivePage());
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
+  if (T100) out(P + "time100/index.html", time100Page());
   VH.ALL.forEach(w => out(`${P}vishesh/${w.id}/index.html`, VH.page(w, l)));
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
