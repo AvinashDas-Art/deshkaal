@@ -554,18 +554,17 @@ const T1 = o => (o && (o[LG] || o.hi)) || "";
 const T1MORE = () => LG === "en" ? "All 50 profiles →" : LG === "ur" ? "سب 50 پروفائل ←" : "सभी 50 प्रोफ़ाइल →";
 function time100Band() {
   if (!T100 || !T100.women || !T100.women.length) return "";
-  const M = T100.meta, hero = T100.women[0], rest = T100.women.slice(1, 9);
-  return `<section class="t100"><div class="t100-h"><p class="t100-k">${esc(T1(M.kicker))}</p><h3>${esc(T1(M.title))}</h3><p class="t100-dek">${esc(T1(M.dek))}</p><a class="t100-more" href="${PRE}/time100/">${T1MORE()}</a></div>
-  <figure class="t100-hero"><a href="${PRE}/time100/"><img src="${hero.img}" alt="${esc(T1(hero.name))}" width="640" height="960" loading="lazy"></a><figcaption><b>${esc(T1(hero.name))}</b> · ${esc(T1(hero.role))} <span class="t100-cr">${esc(T1(hero.credit))}</span></figcaption></figure>
-  <div class="t100-strip">${rest.map(w => `<a class="t100-s" href="${PRE}/time100/"><img src="${w.img}" alt="${esc(T1(w.name))}" width="320" height="480" loading="lazy"><b>${esc(T1(w.name))}</b><span>${esc(T1(w.role))}</span></a>`).join("")}</div></section>`;
+  const M = T100.meta, faces = T100.women.slice(0, 12);
+  return `<section class="t100bar"><a class="t100bar-l" href="${PRE}/time100/"><span class="t100bar-top"><span class="t100bar-tag">${LG === "en" ? "Special" : LG === "ur" ? "خصوصی" : "विशेष"}</span><span class="t100bar-k">${esc(T1(M.kicker).replace(/^[^·]*·\s*/, ""))}</span></span><b class="t100bar-h">${esc(T1(M.title))}</b></a>
+  <a class="t100bar-f" href="${PRE}/time100/" aria-label="${T1MORE()}"><span class="t100bar-faces">${faces.map(w => `<img src="${w.img}" alt="" width="68" height="68" loading="lazy">`).join("")}</span><span class="t100bar-more">${T1MORE()}</span></a></section>`;
 }
 function time100Page() {
   if (!T100) return "";
   const M = T100.meta, W = T100.women, hero = W[0];
-  const card = w => `<article class="t100-p"><img src="${w.img}" alt="${esc(T1(w.name))}" width="640" height="960" loading="lazy"><h3>${esc(T1(w.name))}</h3><p class="t100-pr">${esc(T1(w.role))}</p><p class="t100-pt">${esc(T1(w.text))}</p><p class="t100-pc">${esc(T1(w.credit))}</p></article>`;
+  const card = (w, i) => `<article class="t100-p"><span class="t100-no" aria-hidden="true">${String(i).padStart(2, "0")}</span><img src="${w.img}" alt="${esc(T1(w.name))}" width="640" height="960" loading="lazy"><h3>${esc(T1(w.name))}</h3><p class="t100-pr">${esc(T1(w.role))}</p><p class="t100-pt">${esc(T1(w.text))}</p><p class="t100-pc">${esc(T1(w.credit))}</p></article>`;
   const body = `<section class="t100-page"><p class="t100-k">${esc(T1(M.kicker))}</p><h1>${esc(T1(M.title))}</h1><p class="t100-dek">${esc(T1(M.dek))}</p>
-  <div class="t100-lead"><figure><img src="${hero.img}" alt="${esc(T1(hero.name))}" width="640" height="960"><figcaption><span class="t100-cr">${esc(T1(hero.credit))}</span></figcaption></figure><div class="t100-lt"><h2>${esc(T1(hero.name))}</h2><p class="t100-pr">${esc(T1(hero.role))}</p><p class="t100-pt">${esc(T1(hero.text))}</p></div></div>
-  <div class="t100-all">${W.slice(1).map(card).join("")}</div>
+  <div class="t100-lead"><figure><span class="t100-no" aria-hidden="true">01</span><img src="${hero.img}" alt="${esc(T1(hero.name))}" width="640" height="960"><figcaption><span class="t100-cr">${esc(T1(hero.credit))}</span></figcaption></figure><div class="t100-lt"><h2>${esc(T1(hero.name))}</h2><p class="t100-pr">${esc(T1(hero.role))}</p><p class="t100-pt">${esc(T1(hero.text))}</p></div></div>
+  <div class="t100-all">${W.slice(1).map((w, i) => card(w, i + 2)).join("")}</div>
   <p class="t100-note">${esc(T1(M.source))} · ${esc(T1(M.note))}</p></section>`;
   return layout({ title: T1(M.title), desc: T1(M.dek), url: PRE + "/time100/", body, tab: "home", catOn: "सब", image: hero.img, published: "2026-11-20", alt: { hi: "/time100/", en: "/en/time100/", ur: "/ur/time100/" } });
 }
