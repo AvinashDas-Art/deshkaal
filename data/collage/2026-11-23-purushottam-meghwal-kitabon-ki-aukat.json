@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-11-23-purushottam-meghwal-kitabon-ki-aukat-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 893,
+  "bg": [
+    26,
+    46,
+    104
+  ],
+  "dark": [
+    6,
+    11,
+    27
+  ],
+  "halftone": [
+    18,
+    33,
+    74
+  ],
+  "motif": "books",
+  "strips": [
+    {
+      "t": "किताबों की औकात",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "हल्कू को कंबल कभी नहीं मिला था",
+      "x": 682,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "कोई होरी तक यह समाचार पहुँचा दे",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "एक नाम पर लाल स्याही की लकीर थी",
+      "x": 646,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
