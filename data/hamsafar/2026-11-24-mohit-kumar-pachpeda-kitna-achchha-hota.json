@@ -1,0 +1,69 @@
+{
+ "id": "2026-11-24-mohit-kumar-pachpeda-kitna-achchha-hota",
+ "kind": "kavita",
+ "date": "2026-11-24",
+ "pub": "2026-11-24T05:45:00+05:30",
+ "h": "कितना अच्छा होता",
+ "dek": "गांव से पढ़ने शहर आये एक बेटे की रसोई, और मां के हाथ की रोटी की याद: मोहित कुमार पचपेड़ा की कविता।",
+ "by": "मोहित कुमार पचपेड़ा",
+ "place": "एटा, उत्तर प्रदेश",
+ "photo": "/media/hamsafar/lekhak-mohit-kumar-pachpeda.jpg",
+ "bio": "मोहित कुमार पचपेड़ा दिल्ली विश्वविद्यालय में एमए हिंदी के पहले साल के छात्र हैं। अपने बारे में वे लिखते हैं: ‘ज़्यादा तो बता नहीं सकता अपने बारे में, लेकिन हां, जनपद एटा का कवि हूं।’",
+ "cat": "साहित्य",
+ "lang": "hi",
+ "pull": "कितना अच्छा होता,\nअगर मेरी मां मेरे साथ होती।",
+ "body": [
+  "कितना अच्छा होता,\nअगर मेरी मां मेरे साथ होती।\nफिर खाने-पीने की,\nकोई भी दिक़्क़त न होती,\nछोड़ आया मैं वो,\nअपना प्यारा-सा गांव,\nजहां कितनी अच्छी लगती थी,\nमां के हाथ की रोटी।",
+  "आज मां की याद,\nबहुत सता रही है।\nअंदर ही अंदर मुझे,\nबहुत रुला रही है।\nन ख़ुद खाना बनाके खाना पड़ता,\nऔर न फिर कोई बात होती।\nकितना अच्छा होता,\nअगर मेरी मां मेरे साथ होती।",
+  "मां के साथ गांव में,\nबिताये हुए वो पल।\nजहां मैं उनके साथ,\nरहता था, बीत गया वो कल।\nन फिर मेरी इस,\nरसोईघर से मुलाक़ात होती,\nकितना अच्छा होता,\nअगर मेरी मां मेरे साथ होती।"
+ ],
+ "images": [
+  {
+   "src": "/media/hamsafar/2026-11-24-mohit-kumar-pachpeda-kitna-achchha-hota-1.jpg",
+   "w": 1200,
+   "h": 840,
+   "alt": "चांद, तारे और क़लम: काग़ज़ से कटी आकृतियों पर रचना के अपने अंश",
+   "cap": "कोलाज: देशकाल"
+  }
+ ],
+ "en": {
+  "h": "How Good It Would Be",
+  "dek": "The kitchen of a son who came from the village to the city to study, and the memory of roti from his mother's hands: a poem by Mohit Kumar Pachpeda.",
+  "by": "Mohit Kumar Pachpeda",
+  "place": "Etah, Uttar Pradesh",
+  "bio": "Mohit Kumar Pachpeda is a first-year MA Hindi student at Delhi University. About himself he writes: 'I can't tell you much about myself, but yes, I am a poet of Etah district.'",
+  "pull": "How good it would be,\nif my mother were with me.",
+  "body": [
+   "How good it would be,\nif my mother were with me.\nThen with eating and drinking\nthere would be no trouble at all,\nI have left behind\nmy dear little village,\nwhere it tasted so good,\nthe roti from my mother's hands.",
+   "Today the memory of my mother\nis troubling me so much.\nDeep down inside,\nit is making me weep so much.\nI would not have to cook my own food to eat,\nnor would there be any more to say.\nHow good it would be,\nif my mother were with me.",
+   "In the village with my mother,\nthose moments that I spent.\nWhere I lived\nwith her, that yesterday has passed.\nThen I would never have\nto meet this kitchen of mine,\nhow good it would be,\nif my mother were with me."
+  ],
+  "images": [
+   {
+    "cap": "Collage: Deshkaal",
+    "alt": "Moon, stars and a pen: lines from the work itself on paper-cut shapes"
+   }
+  ],
+  "tr": "Translated from Hindi by the Deshkaal desk."
+ },
+ "ur": {
+  "h": "کتنا اچھا ہوتا",
+  "dek": "گاؤں سے پڑھنے شہر آئے ایک بیٹے کا باورچی خانہ، اور ماں کے ہاتھ کی روٹی کی یاد: موہت کمار پچپیڑا کی نظم۔",
+  "by": "موہت کمار پچپیڑا",
+  "place": "ایٹہ، اتر پردیش",
+  "bio": "موہت کمار پچپیڑا دہلی یونیورسٹی میں ایم اے ہندی کے پہلے سال کے طالب علم ہیں۔ اپنے بارے میں وہ لکھتے ہیں: 'زیادہ تو بتا نہیں سکتا اپنے بارے میں، لیکن ہاں، ضلع ایٹہ کا شاعر ہوں۔'",
+  "pull": "کتنا اچھا ہوتا،\nاگر میری ماں میرے ساتھ ہوتی۔",
+  "body": [
+   "کتنا اچھا ہوتا،\nاگر میری ماں میرے ساتھ ہوتی۔\nپھر کھانے پینے کی،\nکوئی بھی دقت نہ ہوتی،\nچھوڑ آیا میں وہ،\nاپنا پیارا سا گاؤں،\nجہاں کتنی اچھی لگتی تھی،\nماں کے ہاتھ کی روٹی۔",
+   "آج ماں کی یاد،\nبہت ستا رہی ہے۔\nاندر ہی اندر مجھے،\nبہت رلا رہی ہے۔\nنہ خود کھانا بنا کے کھانا پڑتا،\nاور نہ پھر کوئی بات ہوتی۔\nکتنا اچھا ہوتا،\nاگر میری ماں میرے ساتھ ہوتی۔",
+   "ماں کے ساتھ گاؤں میں،\nبتائے ہوئے وہ پل۔\nجہاں میں ان کے ساتھ،\nرہتا تھا، بیت گیا وہ کل۔\nنہ پھر میری اس،\nباورچی خانے سے ملاقات ہوتی،\nکتنا اچھا ہوتا،\nاگر میری ماں میرے ساتھ ہوتی۔"
+  ],
+  "images": [
+   {
+    "cap": "کولاژ: دیش کال",
+    "alt": "چاند، تارے اور قلم: کاغذ سے کٹی شکلوں پر تخلیق کے اپنے حصے"
+   }
+  ],
+  "tr": "ہندی سے ترجمہ: دیش کال ڈیسک"
+ }
+}

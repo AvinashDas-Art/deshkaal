@@ -1,0 +1,53 @@
+{
+  "out": "public/media/hamsafar/2026-11-24-mohit-kumar-pachpeda-kitna-achchha-hota-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 343,
+  "bg": [
+    176,
+    28,
+    24
+  ],
+  "dark": [
+    45,
+    7,
+    6
+  ],
+  "halftone": [
+    126,
+    20,
+    17
+  ],
+  "motif": "moon",
+  "strips": [
+    {
+      "t": "कितना अच्छा होता",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "अगर मेरी मां मेरे साथ होती",
+      "x": 772,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "जहां कितनी अच्छी लगती थी…",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
