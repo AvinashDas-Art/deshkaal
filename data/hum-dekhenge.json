@@ -1,0 +1,29 @@
+{
+ "active": true,
+ "pdf": "/hum-dekhenge/november-2026.pdf",
+ "kicker": { "hi": "दो ज़ुबानें · एक पन्ना · नवंबर 2026", "en": "Two languages · one page · November 2026" },
+ "title": { "hi": "हम देखेंगे", "en": "Hum Dekhenge" },
+ "lede": {
+  "hi": "हिंदी और अंग्रेज़ी में साथ-साथ छपने वाला अखिल भारतीय सांस्कृतिक न्यूज़लेटर। हर पन्ने पर एक तरफ़ अंग्रेज़ी, दूसरी तरफ़ हिंदी। इस अंक में संपादकीय, संस्मरण, पत्रिकाओं का इतिहास, कला की बहस और लेखकों की कार्यशालाओं की रिपोर्टें हैं।",
+  "en": "An all-India cultural newsletter in two languages, side by side on every page. This issue has the editorial, a memoir, the history of a magazine, a debate on art and reports from writers' workshops."
+ },
+ "meta": { "hi": "Volume XXX · 48 पन्ने", "en": "Volume XXX · 48 pages" },
+ "button": { "hi": "पूरा अंक पढ़ें (PDF)", "en": "Read the full issue (PDF)" },
+ "listLabel": { "hi": "इस अंक में", "en": "In this issue" },
+ "items": [
+  { "pg": 2, "hi": "संपादकीय पत्र: ग़ाज़ा से कोलकाता पुस्तक मेले तक", "en": "Editorial: from Gaza to the Calcutta Book Fair" },
+  { "pg": 5, "hi": "राही साहब का जवाब नहीं - सुभाषिनी अली", "en": "Rahi Sahab ka Jawab Naheen! Subhashini Ali on Rahi Masoom Raza" },
+  { "pg": 10, "hi": "ज़ुबीन गर्ग: जन-जन की आवाज़, हमारे हृदय की धड़कन", "en": "Zubeen Garg: the voice of the people" },
+  { "pg": 14, "hi": "पंजाबी पत्रिका प्रीत लड़ी: 92 वर्ष, 3 पीढ़ियां", "en": "Preet Lari: 92 years, three generations" },
+  { "pg": 23, "hi": "स्त्री-संघर्ष की मुखर आवाज़: कृष्णा सोबती", "en": "Krishna Sobti: a powerful voice of women's struggles" },
+  { "pg": 28, "hi": "लखनऊ में स्त्री-लेखन पर दो दिवसीय राष्ट्रीय कार्यशाला", "en": "Women's writing: a two-day workshop in Lucknow" },
+  { "pg": 32, "hi": "क्या कला को संग्रहालयों और गैलरियों तक सीमित रहना चाहिए?", "en": "Should art be confined to museums? Lessons from East Germany's walls" },
+  { "pg": 37, "hi": "नामवर सिंह: एक अविस्मरणीय आलोचक, संपादक और शिक्षक", "en": "Namvar Singh: a towering critic, editor and teacher" },
+  { "pg": 41, "hi": "अलवर में कहानी-लेखन कार्यशाला", "en": "A national story-writing workshop in Alwar" },
+  { "pg": 44, "hi": "डॉ. नरेंद्र दाभोलकर की याद में तीन दिवसीय प्रगतिशील साहित्य मेला", "en": "A three-day book fair in memory of Dr. Narendra Dabholkar" }
+ ],
+ "board": {
+  "hi": "संपादक-मंडल: मालिनी भट्टाचार्य, अकबर अहमद, अशोकन चारुविल, के एस विमला, मनोज कुलकर्णी, एम के मनोहरन, आधवन धीत्चन्या, सुधन्वा देशपांडे, रामआह्लाद चौधरी, अनिल वासम, गुरबख़्श सिंह मोंगा, नरेश प्रेरणा, पुर्बाशा सरकार",
+  "en": "Editorial board: Malini Bhattacharya, Akbar Ahmed, Ashokan Charuvil, K.S. Vimala, Manoj Kulkarni, M.K. Manoharan, Aadhavan Dheetchanya, Sudhanva Deshpande, Ramahlad Choudhary, Anil Wasam, Gurbakhsh Singh Monga, Naresh Prerna, Purbasha Sarkar"
+ }
+}

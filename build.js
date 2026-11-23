@@ -552,6 +552,15 @@ function weeklyPage() {
 /* ===== विशेष खंड: TIME100 Next India 2026 की स्त्रियां ===== */
 const T100 = fs.existsSync("data/time100.json") ? JSON.parse(fs.readFileSync("data/time100.json", "utf8")) : null;
 const T1 = o => (o && (o[LG] || o.hi)) || "";
+/* हम देखेंगे: दो ज़ुबानों की पत्रिका का अंक-पट्टा (data/hum-dekhenge.json; आमुख के ठीक नीचे) */
+const HDK = fs.existsSync("data/hum-dekhenge.json") ? JSON.parse(fs.readFileSync("data/hum-dekhenge.json", "utf8")) : null;
+function humDekhengeBlock() {
+  if (!HDK || !HDK.active) return "";
+  const A = LG === "en" ? "en" : "hi", B = A === "hi" ? "en" : "hi";
+  const li = HDK.items.map(i => `<li><span class="hdk-pg">${i.pg}</span><span><span class="hdk-a" lang="${A}">${esc(i[A])}</span><span class="hdk-b" lang="${B}">${esc(i[B])}</span></span></li>`).join("");
+  return `<section class="hdk" dir="ltr" aria-labelledby="hdk-t"><div class="hdk-grid"><div class="hdk-l"><p class="hdk-k">${esc(HDK.kicker[A])}</p><h3 class="hdk-t" id="hdk-t"><span lang="hi">${esc(HDK.title.hi)}</span><span class="hdk-en" lang="en">${esc(HDK.title.en)}</span></h3><hr class="hdk-rule"><p class="hdk-lede" lang="${A}">${esc(HDK.lede[A])}</p><p class="hdk-lede2" lang="${B}">${esc(HDK.lede[B])}</p><p class="hdk-meta">${esc(HDK.meta[A])}</p><a class="hdk-btn" href="${HDK.pdf}" target="_blank" rel="noopener"><b lang="${A}">${esc(HDK.button[A])}</b><small lang="${B}">${esc(HDK.button[B])}</small></a></div>
+  <div class="hdk-r"><ol class="hdk-list" aria-label="${esc(HDK.listLabel[A])}">${li}</ol><p class="hdk-board" lang="${A}">${esc(HDK.board[A])}</p></div></div></section>`;
+}
 const T1MORE = () => LG === "en" ? "All 50 profiles →" : LG === "ur" ? "سب 50 پروفائل ←" : "सभी 50 प्रोफ़ाइल →";
 function time100Band() {
   if (!T100 || !T100.women || !T100.women.length) return "";
@@ -593,8 +602,8 @@ function homePage() {
   const kRow = a => `<article><a href="${href(a)}"><p class="kicker">${cn(a.cat)} · ${esc(a.pub)}</p><h4>${esc(a.h)}</h4><p class="dek">${esc(a.dek)}</p></a><p class="src">${esc(a.by)} · ${esc(a.date)} · ${saveBtn(a)}</p></article>`;
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
-  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}${time100Band()}
-  ${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}
+  const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}
+  ${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}${humDekhengeBlock()}
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
   ${janBand(jan, head)}
