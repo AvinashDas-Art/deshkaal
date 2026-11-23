@@ -165,7 +165,7 @@ def main():
         if os.path.exists(out) and not redo: continue
         item = {"id": w["id"], "h": w["h"], "by": w["by"], "cat": w.get("cat", "साहित्य"), "pub": "हमसफ़र", "photo": None}
         ph = None
-        src = ((w.get("images") or [{}])[0].get("src")) or w.get("photo")
+        src = w.get("ogImage") or ((w.get("images") or [{}])[0].get("src")) or w.get("photo")
         # SVG/डेटा-URI को Pillow नहीं खोल सकता; ऐसी सूरत में बिना तस्वीर का कार्ड बने, पूरा नौबत न आए.
         if src and src.startswith("/") and src.lower().rsplit(".", 1)[-1] in ("jpg", "jpeg", "png", "webp"):
             local = os.path.join(ROOT, "public", src.lstrip("/"))
