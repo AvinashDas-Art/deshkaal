@@ -552,18 +552,21 @@ module.exports = function (H) {
       const mark = p => p === "*" ? `<p class="hw-sep" aria-hidden="true">*</p>` : `<p class="hw-part">${esc(p)}</p>`;
       const sub = p => `<h2 class="hw-sub">${esc(p.slice(3))}</h2>`;
       const link = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
+      /* "[[video]]" वाली अकेली पंक्ति = बीच में यूट्यूब वीडियो (video: {id, label, cap}) */
+      const hasVid = body.includes("[[video]]");
+      const videoFig = () => { const v = w.video || {}; if (!v.id) return ""; return `<figure class="hw-video"><div class="hw-vframe"><iframe src="https://www.youtube-nocookie.com/embed/${esc(v.id)}" title="${esc(v.label || w.h)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>${v.cap ? `<figcaption>${esc(v.cap)}</figcaption>` : ""}</figure>`; };
       if (inl) {
-        const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p) && !isSub(p)).length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
-        const paras = body.map(p => { const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
-        main = `${imgs[0] && !used.has(0) ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
+        const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p) && !isSub(p) && p !== "[[video]]").length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
+        const paras = body.map(p => { if (p === "[[video]]") return videoFig(); const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
+        main = `${imgs[0] && !used.has(0) && !hasVid ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
       } else {
-      const nT = body.filter(p => !isMark(p) && !isSub(p)).length;
-      const tx = body.map((p, i) => ({ p, i })).filter(x => !isMark(x.p) && !isSub(x.p));
+      const nT = body.filter(p => !isMark(p) && !isSub(p) && p !== "[[video]]").length;
+      const tx = body.map((p, i) => ({ p, i })).filter(x => !isMark(x.p) && !isSub(x.p) && x.p !== "[[video]]");
       let ti = Math.max(0, Math.round(tx.length * 0.4) - 1);
       if (isMark(body[(tx[ti] || { i: -1 }).i + 1] || "")) ti = Math.max(0, ti - 1);
       const at = ti + 1; let k = 0;
-      const paras = body.map(p => { if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
-      main = `${imgs[0] ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
+      const paras = body.map(p => { if (p === "[[video]]") return videoFig(); if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
+      main = `${imgs[0] && !hasVid ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
       }
     }
     const others = ALL.filter(has(lg)).filter(x => x.id !== w.id).slice(0, 3);

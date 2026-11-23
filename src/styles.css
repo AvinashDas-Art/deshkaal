@@ -1240,6 +1240,11 @@ img.hw-av{object-fit:cover;padding:0;background:var(--paper-2);box-shadow:0 0 0 
 }
 /* पाठ के बीच की तस्वीरें (हमसफ़र) */
 .hw-inl .hw-fig{margin-block:var(--s6);width:min(1000px,calc(100vw - 40px));max-width:none;margin-inline:calc(50% - min(500px,50vw - 20px))}
+.hw-video{margin:var(--s6) 0}
+.hw-vframe{position:relative;aspect-ratio:16/9;background:#111;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(20,20,20,.16)}
+.hw-vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hw-video figcaption{font-family:var(--f-hand);font-size:17px;line-height:1.5;color:var(--ink-2);margin-top:var(--s1);padding-left:var(--s2);border-left:3px solid var(--lal)}
+html[dir="rtl"] .hw-video figcaption{padding-left:0;padding-right:var(--s2);border-left:0;border-right:3px solid var(--lal)}
 .hw-inl .hw-fig img{max-height:min(80vh,660px)}
 .hw-inl .hw-fig figcaption{max-width:740px;margin-inline:auto}
 .hw-body a{color:var(--neel);text-decoration:underline;text-underline-offset:3px}

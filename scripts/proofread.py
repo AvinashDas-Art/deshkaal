@@ -62,7 +62,7 @@ class Report:
 
 
 def is_prose_para(p):
-    return not (MD_IMG.match(p) or SUBHEAD.match(p) or PARA_NUM.match(p) or p.strip() == "*")
+    return not (MD_IMG.match(p) or SUBHEAD.match(p) or PARA_NUM.match(p) or p.strip() in ("*", "[[video]]"))
 
 
 def check_hindi_text(rep, f, where, text, level="error"):
