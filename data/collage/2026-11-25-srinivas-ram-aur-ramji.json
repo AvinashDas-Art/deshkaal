@@ -1,0 +1,62 @@
+{
+  "out": "public/media/hamsafar/2026-11-25-srinivas-ram-aur-ramji-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 550,
+  "bg": [
+    26,
+    46,
+    104
+  ],
+  "dark": [
+    6,
+    11,
+    27
+  ],
+  "halftone": [
+    18,
+    33,
+    74
+  ],
+  "motif": "window",
+  "strips": [
+    {
+      "t": "‘राम’ और ‘रामजी’",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "मां, जो नहीं है",
+      "x": 736,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "आगे रामजी की ज़ुबानी",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "राम को शतकोटि प्रणाम",
+      "x": 717,
+      "y": 690,
+      "r": -2,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "out": "public/media/hamsafar/2026-11-25-janved-singh-sach-mein-jee-rahe-ho-1.jpg",
+  "size": [
+    1200,
+    840
+  ],
+  "seed": 226,
+  "bg": [
+    88,
+    30,
+    72
+  ],
+  "dark": [
+    22,
+    7,
+    18
+  ],
+  "halftone": [
+    63,
+    21,
+    51
+  ],
+  "motif": "city",
+  "strips": [
+    {
+      "t": "क्या तुम सच में जी रहे हो?",
+      "x": 66,
+      "y": 48,
+      "r": -4,
+      "style": "ink",
+      "px": 44,
+      "front": true
+    },
+    {
+      "t": "रोटी की चादर डालकर सो रहे हो",
+      "x": 716,
+      "y": 190,
+      "r": 3,
+      "style": "paper",
+      "px": 30,
+      "front": true
+    },
+    {
+      "t": "कब तक ख़ुश रहने का नाटक करते रहोगे",
+      "x": 66,
+      "y": 560,
+      "r": -3,
+      "style": "red",
+      "px": 30,
+      "front": true
+    }
+  ]
+}
