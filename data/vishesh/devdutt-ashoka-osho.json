@@ -1,0 +1,194 @@
+{
+ "kind": "hamsafar",
+ "tag": "विशेष हमसफ़र",
+ "active": true,
+ "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+ "bandPos": "center 24%",
+ "rights": {
+  "hi": "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।",
+  "en": "All rights in the original article belong to Devdutt Pattanaik. It is published on Deshkaal with his permission.",
+  "ur": "اصل مضمون کے تمام حقوق دیودت پٹنایک کے پاس ہیں۔ ان کی اجازت سے اسے دیش کال میں شائع کیا گیا ہے۔"
+ },
+ "author": {
+  "photo": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
+  "site": "https://devdutt.com",
+  "hi": {
+   "name": "देवदत्त पटनायक",
+   "role": "मिथकशास्त्री, लेखक, चित्रकार",
+   "bio": [
+    "मिथकों को कहानियों, प्रतीकों और रस्मों से पढ़ने वाले लेखक, चित्रकार और वक्ता। वह मिथक को किसी संस्कृति का व्यक्तिपरक सत्य मानते हैं, यानी वह तरीक़ा जिससे कोई समाज ज़िंदगी को कल्पना में देखता है।",
+    "पेशे से डॉक्टर रहे। क़रीब पंद्रह साल दवा और स्वास्थ्य उद्योग में काम किया, फिर कारोबारी सलाहकार बने और फ़्यूचर ग्रुप में चीफ़ बिलीफ़ ऑफ़िसर रहे। आख़िर में लिखना ही पेशा बन गया। पचास से ज़्यादा किताबें, एक हज़ार से ज़्यादा स्तंभ और पंद्रह भाषाओं में अनुवाद। टेलीविज़न पर देवलोक और बिज़नेस सूत्र जैसे कार्यक्रम भी उन्हीं के नाम हैं।"
+   ]
+  },
+  "en": {
+   "name": "Devdutt Pattanaik",
+   "role": "Mythologist, author, illustrator",
+   "bio": [
+    "A writer, illustrator and speaker who reads myth through stories, symbols and rituals. He treats myth as a culture's subjective truth, the way a society imagines life.",
+    "A doctor by training, he spent about fifteen years in the pharma and health industry, became a business consultant and served as Chief Belief Officer at the Future Group, before writing became his profession. He has written over fifty books and over a thousand columns, translated into fifteen languages, and television programmes such as Devlok and Business Sutra carry his name."
+   ]
+  },
+  "ur": {
+   "name": "دیودت پٹنایک",
+   "role": "اساطیر کے ماہر، مصنف، مصور",
+   "bio": [
+    "کہانیوں، علامتوں اور رسموں کے ذریعے اساطیر کو پڑھنے والے مصنف، مصور اور مقرر۔ وہ اساطیر کو کسی تہذیب کا موضوعی سچ مانتے ہیں، یعنی وہ طریقہ جس سے کوئی سماج زندگی کو تخیل میں دیکھتا ہے۔",
+    "پیشے سے ڈاکٹر رہے۔ تقریباً پندرہ سال دوا اور صحت کی صنعت میں کام کیا، پھر کاروباری مشیر بنے اور فیوچر گروپ میں چیف بیلیف آفیسر رہے۔ آخر میں لکھنا ہی پیشہ بن گیا۔ پچاس سے زیادہ کتابیں، ایک ہزار سے زیادہ کالم اور پندرہ زبانوں میں ترجمے۔ ٹیلی ویژن پر دیولوک اور بزنس سوتر جیسے پروگرام بھی انہی کے نام ہیں۔"
+   ]
+  }
+ },
+ "allBooksUrl": "https://devdutt.com/category/translations/hindi/?tag=books/",
+ "midBook": 0,
+ "books": [
+  {
+   "url": "https://www.amazon.in/dp/9389915880",
+   "c": "#2E3F8F",
+   "hi": {
+    "t": "आस्था",
+    "s": "हिंदू धर्म पर चालीस विचार, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Aastha",
+    "s": "Forty insights into Hinduism, Hindi edition"
+   },
+   "ur": {
+    "t": "آستھا",
+    "s": "ہندو مت پر چالیس خیالات، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9391242677",
+   "c": "#A63E26",
+   "hi": {
+    "t": "पिलग्रिम नेशन",
+    "s": "भारतवर्ष के बनने की कहानी, हिंदी संस्करण"
+   },
+   "en": {
+    "t": "Pilgrim Nation",
+    "s": "The making of Bharatvarsh, Hindi edition"
+   },
+   "ur": {
+    "t": "پلگرم نیشن",
+    "s": "بھارت ورش کے بننے کی کہانی، ہندی ایڈیشن"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/014345613X",
+   "c": "#1F2126",
+   "hi": {
+    "t": "ईडन",
+    "s": "यहूदी, ईसाई और इस्लामिक कथाओं पर भारतीय दृष्टि"
+   },
+   "en": {
+    "t": "Eden",
+    "s": "Jewish, Christian and Islamic stories through an Indian lens"
+   },
+   "ur": {
+    "t": "عدن",
+    "s": "یہودی، عیسائی اور اسلامی کتھاؤں پر ہندوستانی نظر"
+   }
+  },
+  {
+   "url": "https://www.amazon.in/dp/9389373840",
+   "c": "#8A5E0F",
+   "hi": {
+    "t": "गरुड़ पुराण",
+    "s": "ग्यारह अध्यायों का सरल हिंदी सार"
+   },
+   "en": {
+    "t": "Garud Puran",
+    "s": "The Garuda Purana in simple Hindi"
+   },
+   "ur": {
+    "t": "گرُڑ پران",
+    "s": "گرُڑ پران کا آسان ہندی خلاصہ"
+   }
+  }
+ ],
+ "id": "devdutt-ashoka-osho",
+ "date": "2026-11-25",
+ "pub": "2026-11-25T06:00:00+05:30",
+ "h": "अशोक और ओशो: ख़ुद को सब माफ़, दूसरों की थाली पर नज़र",
+ "dek": "अशोक और ओशो के चाहने वाले जिन समानताओं को मानना नहीं चाहेंगे, देवदत्त पटनायक उन्हीं को सामने रखते हैं: दोनों की नैतिकता आख़िर में खान-पान पर आकर रुक जाती है।",
+ "by": "देवदत्त पटनायक",
+ "translationNote": "",
+ "note": "अशोक को बहुत से लोग अहिंसा का प्रतीक मानते हैं, और ओशो को नौजवान उस गुरु की तरह चाहते हैं जिसने सेक्स को अध्यात्म कहा। देवदत्त पटनायक इस लेख में दोनों के बीच एक अटपटी समानता दिखाते हैं: थाली। उनके मुताबिक़ अशोक के शिलालेखों में वर्ण, यज्ञ, चोरी या बलात्कार की चिंता नहीं मिलती, कसाइयों और मछुआरों की मिलती है। और कलिंग का पछतावा उस जगह पर नहीं, उससे दूर के शिलालेखों में दर्ज है। रजनीश जैन परिवार में पले और जो उन्हें पसंद था उसे आध्यात्मिक घोषित करते गये, मगर मांस उनके लिए अनआध्यात्मिक ही रहा। पटनायक कहते हैं कि वामपंथी और दक्षिणपंथी, दोनों तरह के इतिहासकार ये छोटी बातें नहीं बताते, इसलिए दोनों के प्रशंसक अधूरी जानकारी पर टिके हैं। यह लेख इसलिए पढ़ने लायक़ है कि वह सुविधाजनक कहानियों को चैन से नहीं बैठने देता।",
+ "pull": "उन्हें जो भी पसंद था, उन्होंने उसे ‘आध्यात्मिक’ घोषित कर दिया।",
+ "body": [
+  "अशोक और ओशो रजनीश में ऐसी कई बातें समान हैं, जिन्हें उनके प्रशंसक शायद ही मानना चाहें।",
+  "शुरुआत अशोक से करते हैं। वह कभी कर्म, संसार, दुःख या निर्वाण के बारे में बात नहीं करते। फिर भी, हर कोई मान लेता है कि वह बौद्ध थे, सिर्फ़ इसलिए क्योंकि उन्हें बौद्ध दार्शनिकों से बात करना पसंद था और वह ख़ुद को ‘उपासक’ कहते थे, यानी एक ऐसा अनुयायी जो शिक्षाओं का सम्मान करता है और उन्हें समझना चाहता है। लेकिन उन्होंने आजीविकों को भी गुफाएं दान में दी थीं। वह ब्राह्मणों का भी सम्मान करते थे। तो असल में वह किस धर्म का पालन करते थे? यह कोई नहीं जानता।",
+  "उन्होंने कभी वर्ण का ज़िक्र नहीं किया। उन्होंने कभी यज्ञ का भी ज़िक्र नहीं किया। बेशक, वह अहिंसा को लेकर बहुत जुनूनी थे। लेकिन यह जुनून काफी सीमित है। उन्हें चोरी, लालच या बलात्कार जैसी चीजों की कोई परवाह नहीं थी। उन्हें बस खान-पान की चिंता थी। वह चाहते थे कि कसाई अपना काम बंद कर दें। वह चाहते थे कि मछुआरे भी अपना काम छोड़ दें। शाकाहारी भोजन करें और स्वर्ग जाएं। ताकतवर और दबदबा रखने वाले बनें, इसमें कोई हर्ज नहीं, बस आपकी थाली ‘साफ़’ (शाकाहारी) होनी चाहिए और जीवनशैली सरल।",
+  "क्या यह कुछ जाना-पहचाना सा लगता है?",
+  "अशोक ने लाखों लोगों को मारा था। उनका समाधान यह था कि भविष्य में हत्या न करके इस ‘हिसाब’ को बराबर कर दिया जाए। और कलिंग युद्ध के बाद के उस मशहूर पछतावे का क्या? वह शिलालेख कलिंग में नहीं है। वह तो अपराध स्थल से बहुत दूर, दूसरी जगहों पर मिलता है। इतिहासकार, चाहे वे वामपंथी हों या दक्षिणपंथी, हमें ये छोटी-छोटी बातें नहीं बताते। वामपंथी चाहते हैं कि अशोक को एक सौम्य, दार्शनिक राजा के रूप में देखा जाए। लेकिन उन्होंने कभी यह नहीं कहा कि बलात्कार कोई अपराध है। उनके लिए सिर्फ़ हत्या करना अपराध था, चोरी करना नहीं। उन्होंने वनवासी जनजातियों को हिंसा न करने की चेतावनी दी थी, बिल्कुल वैसे ही, जैसे आज की सरकारें करती हैं। ऐसा लगता है कि उन्होंने शायद सबके साथ शांति समझौते (पीस बॉन्ड) भी किए होंगे।",
+  "अब बात करते हैं रजनीश की। युवा, ख़ासकर किशोर, उन्हें बहुत पसंद करते हैं क्योंकि उन्होंने सेक्स के बारे में बात की और कहा कि सेक्स ही आध्यात्मिकता है। लेकिन वे यह भूल जाते हैं कि रजनीश का जन्म एक जैन परिवार में हुआ था। उन्होंने जैन धर्म की उस धारणा को अपनाए रखा कि मांस से ‘बुरी ऊर्जा’ (बैड वाइब्रेशंस) आती है और शाकाहारी भोजन इंसान को शुद्ध करता है। उन्हें सेक्स पसंद था। उन्हें पैसा, शोहरत और रॉल्स-रॉयस कारों का क़ाफ़िला भी पसंद था। उन्हें जो भी पसंद था, उन्होंने उसे ‘आध्यात्मिक’ घोषित कर दिया। और चूंकि वह एक शाकाहारी परिवार में पले-बढ़े थे, इसलिए मांस उनके लिए ‘अध्यात्म-विरोधी’ (अनस्पिरिचुअल) हो गया। अजीब है, पर सुविधाजनक भी।",
+  "खाने-पीने का वह नियम एक बेतुका विचार है। इसका सीधा सा मतलब यह है कि उनका खाना, चीनी और अमेरिकी खाने से बेहतर है। यह वही अहंकार है जो भारत के हर ब्रह्मचारी साधु में देखने को मिलता है। रजनीश ने ऐसे साधुओं का खूब मज़ाक उड़ाया, लेकिन फिर उसी एक बात पर उनसे सहमत हो गये जो उनके लिए सबसे अहम थी: शाकाहारी कैंटीन।",
+  "इसलिए, जब आपके दोस्त अशोक या ओशो की बहुत तारीफ करें, तो गौर करें कि उनमें क्या समानता है। दोनों ही समूहों के पास अधूरी जानकारी है। और दोनों ही मामलों में एक ही बात छूट गयी है: एक ऐसा इंसान, जिसने ख़ुद की हर ग़लती को तो माफ़ कर दिया, लेकिन दूसरों की थाली में क्या है, इसे कभी माफ़ नहीं किया।"
+ ],
+ "sawal": "जो ख़ुद को सब माफ़ करे, वह दूसरों की थाली क्यों तौले?",
+ "homePoints": [
+  "पटनायक के मुताबिक़ अशोक और ओशो, दोनों के प्रशंसक अधूरी जानकारी पर टिके हैं।",
+  "अशोक को कसाइयों और मछुआरों की फ़िक्र थी, चोरी या बलात्कार की नहीं; ओशो ने जो पसंद किया उसे आध्यात्मिक घोषित कर दिया।",
+  "दोनों के यहां जो छूट गया: ख़ुद की हर ग़लती माफ़, दूसरों की थाली माफ़ नहीं।"
+ ],
+ "photo": "/media/vishesh/devdutt-ashoka-osho.jpg",
+ "photoAlt": "पत्थर पर उकेरे उभरे चित्र जैसी तस्वीर: एक युवती की गोद में लेटे दाढ़ी वाले आदमी के माथे पर एक बुज़ुर्ग दाढ़ीधारी हाथ रखे हैं; ऊपर कोने में घोड़ों के रथ पर सवार राजा और उसके पीछे खड़े लोग।",
+ "photoCap": "चित्र: लेख के साथ मिला",
+ "en": {
+  "h": "Ashoka and Osho: forgiving himself everything, watching other people’s plates",
+  "dek": "Devdutt Pattanaik sets out the similarities that admirers of Ashoka and Osho would rather not accept: in both, morality ends up stopping at what people eat.",
+  "by": "Devdutt Pattanaik",
+  "tag": "Special Hamsafar",
+  "translationNote": "",
+  "note": "Many people see Ashoka as the face of non-violence, and young people love Osho as the guru who called sex spirituality. In this essay Devdutt Pattanaik points to an awkward likeness between them: the plate. By his account Ashoka’s inscriptions show no concern about varna, yajna, theft or rape, but plenty about butchers and fisherfolk, and the famous remorse over Kalinga is recorded not there but at sites far away. Rajneesh, raised in a Jain family, kept declaring whatever he loved to be spiritual, while meat stayed unspiritual for him. Pattanaik says historians, left and right alike, leave out these little details, so the admirers of both men work with incomplete information. The essay is worth reading because it will not let convenient stories sit comfortably.",
+  "pull": "Whatever he loved, he declared spiritual.",
+  "body": [
+   "Ashoka and Osho Rajneesh have more in common than their admirers would like to admit.",
+   "Start with Ashoka. He never talks about karma, samsara, dukkha or nirvana. Yet everyone assumes he was a Buddhist, simply because he liked talking to Buddhist philosophers and called himself an upasaka, a lay follower, someone who admires the teaching and wants to understand it. But he also donated caves to Ajivikas too. He also respected Brahmanas. So which religion did he actually follow? Nobody really knows.",
+   "He never mentions varna. He never mentions yajna. He is obsessed with non-violence, of course. But that obsession is narrow. He shows no concern about theft, greed or rape. What worries him is diet. He wants butchers to stop working. He wants fisherfolk to stop working. Eat vegetarian food and you go to heaven. Be powerful and dominating, that is fine, so long as the plate is clean and lifestyle simple.",
+   "Sounds familiar?",
+   "Ashoka had killed lakhs of people. His solution was to balance the books by not killing in the future. And the famous guilt over the Kalinga war? That inscription is not in Kalinga. It is far away, in other sites, far away from the site of crime. Historians, left as well as right, do not tell us these little details. The left wants Ashoka to be a gentle philosopher-king. But he never said rape was a crime. Only killing was a crime. Not theft. He warned forest tribes not to be violent, very much like today's government does. One imagines he would have signed peace bonds with everyone too.",
+   "Now Rajneesh. Young people love him, teenagers especially, because he spoke about sex and said sex is spirituality. What they forget is that he was born a Jain, and he held on to the Jain idea that meat carries bad vibrations and vegetarian food purifies. He loved sex. He loved money and fame and a fleet of Rolls-Royces. Whatever he loved, he declared spiritual. And because he grew up in a vegetarian household, meat became unspiritual. Strange, but convenient.",
+   "That food rule is a foolish idea. It amounts to saying his food is better than Chinese food and American food. This is the same arrogance found in every celibate monk of India. Rajneesh mocked those monks endlessly, then agreed with them on the one thing that mattered most to them: the vegetarian canteen.",
+   "So when friends gush about Ashoka, or about Osho, notice what they share. Both groups are working with incomplete information. And in both cases, what got left out is the same thing: a man who forgave himself everything except what was on other people's plates."
+  ],
+  "sawal": "Why should one who forgives himself everything weigh other people’s plates?",
+  "homePoints": [
+   "Pattanaik says the admirers of both Ashoka and Osho work with incomplete information.",
+   "Ashoka worried about butchers and fisherfolk, not theft or rape; Osho declared whatever he loved to be spiritual.",
+   "What both leave out: every fault of his own forgiven, nothing forgiven about what is on others’ plates."
+  ],
+  "photoAlt": "A picture in the manner of a relief carved in stone: an elderly bearded man rests his hand on the forehead of a bearded man lying in a young woman’s lap; in the upper corner a king rides a horse-drawn chariot with people standing behind.",
+  "photoCap": "Picture: supplied with the article",
+  "bio": "Mythologist, author, illustrator",
+  "tr": "Original article in English."
+ },
+ "ur": {
+  "h": "اشوک اور اوشو: خود کو سب معاف، دوسروں کی تھالی پر نظر",
+  "dek": "اشوک اور اوشو کے چاہنے والے جن مماثلتوں کو ماننا نہیں چاہیں گے، دیودت پٹنایک انھی کو سامنے رکھتے ہیں: دونوں کی اخلاقیات آخر میں کھانے پینے پر آ کر رک جاتی ہے۔",
+  "by": "دیودت پٹنایک",
+  "tag": "خصوصی ہم سفر",
+  "translationNote": "اردو ترجمہ: دیش کال",
+  "note": "بہت سے لوگ اشوک کو اہنسا کی علامت مانتے ہیں، اور اوشو کو نوجوان اس گرو کی طرح چاہتے ہیں جس نے جنس کو روحانیت کہا۔ دیودت پٹنایک اس مضمون میں دونوں کے بیچ ایک بے ڈھب مماثلت دکھاتے ہیں: تھالی۔ ان کے مطابق اشوک کے کتبوں میں ورن، یگیہ، چوری یا زنا بالجبر کی فکر نہیں ملتی، قصائیوں اور مچھیروں کی ملتی ہے۔ اور کلنگ کا پچھتاوا اس جگہ پر نہیں، اس سے دور کے کتبوں میں درج ہے۔ رجنیش جین گھرانے میں پلے اور جو انھیں پسند تھا اسے روحانی قرار دیتے گئے، مگر گوشت ان کے لیے غیر روحانی ہی رہا۔ پٹنایک کہتے ہیں کہ بائیں اور دائیں بازو، دونوں طرح کے مؤرخ یہ چھوٹی باتیں نہیں بتاتے، اس لیے دونوں کے مداح ادھوری معلومات پر ٹکے ہیں۔ یہ مضمون اس لیے پڑھنے کے لائق ہے کہ وہ سہولت بھری کہانیوں کو چین سے بیٹھنے نہیں دیتا۔",
+  "pull": "انھیں جو کچھ پسند تھا، انھوں نے اسے ‘روحانی’ قرار دے دیا۔",
+  "body": [
+   "اشوک اور اوشو رجنیش میں ایسی کئی باتیں مشترک ہیں جنھیں ان کے مداح شاید ہی ماننا چاہیں۔",
+   "اشوک سے شروع کرتے ہیں۔ وہ کبھی کرم، سنسار، دکھ یا نروان کی بات نہیں کرتے۔ پھر بھی ہر کوئی مان لیتا ہے کہ وہ بدھ مت کے پیروکار تھے، صرف اس لیے کہ انھیں بودھ فلسفیوں سے بات کرنا پسند تھا اور وہ خود کو ‘اپاسک’ کہتے تھے، یعنی ایسا پیروکار جو تعلیمات کا احترام کرتا ہے اور انھیں سمجھنا چاہتا ہے۔ لیکن انھوں نے آجیویکوں کو بھی غاریں عطیے میں دی تھیں۔ وہ برہمنوں کا بھی احترام کرتے تھے۔ تو اصل میں وہ کس دھرم پر چلتے تھے؟ یہ کوئی نہیں جانتا۔",
+   "انھوں نے کبھی ورن کا ذکر نہیں کیا۔ انھوں نے کبھی یگیہ کا بھی ذکر نہیں کیا۔ بے شک وہ اہنسا کے بارے میں بہت جنون رکھتے تھے۔ مگر یہ جنون خاصا محدود ہے۔ انھیں چوری، لالچ یا زنا بالجبر جیسی چیزوں کی کوئی پروا نہیں تھی۔ انھیں بس کھانے پینے کی فکر تھی۔ وہ چاہتے تھے کہ قصائی اپنا کام بند کر دیں۔ وہ چاہتے تھے کہ مچھیرے بھی اپنا کام چھوڑ دیں۔ سبزی خور کھانا کھائیں اور سورگ جائیں۔ طاقتور اور دبدبے والے بنیں، اس میں کوئی حرج نہیں، بس آپ کی تھالی ‘صاف’ (سبزی خور) ہونی چاہیے اور طرزِ زندگی سادہ۔",
+   "کیا یہ کچھ جانا پہچانا سا لگتا ہے؟",
+   "اشوک نے لاکھوں لوگوں کو مارا تھا۔ ان کا حل یہ تھا کہ آئندہ قتل نہ کر کے اس ‘حساب’ کو برابر کر لیا جائے۔ اور کلنگ کی جنگ کے بعد کے اس مشہور پچھتاوے کا کیا؟ وہ کتبہ کلنگ میں نہیں ہے۔ وہ تو جرم کی جگہ سے بہت دور، دوسری جگہوں پر ملتا ہے۔ مؤرخین، چاہے وہ بائیں بازو کے ہوں یا دائیں بازو کے، ہمیں یہ چھوٹی چھوٹی باتیں نہیں بتاتے۔ بائیں بازو والے چاہتے ہیں کہ اشوک کو ایک نرم خو، فلسفی بادشاہ کے طور پر دیکھا جائے۔ لیکن انھوں نے کبھی نہیں کہا کہ زنا بالجبر جرم ہے۔ ان کے لیے صرف قتل جرم تھا، چوری نہیں۔ انھوں نے جنگلوں میں رہنے والے قبائل کو تشدد نہ کرنے کی تنبیہ کی تھی، بالکل ویسے ہی جیسے آج کی حکومتیں کرتی ہیں۔ ایسا لگتا ہے کہ انھوں نے شاید سب کے ساتھ امن کے معاہدے (پیس بانڈ) بھی کیے ہوں گے۔",
+   "اب بات رجنیش کی۔ نوجوان، خاص طور پر نوعمر، انھیں بہت پسند کرتے ہیں کیونکہ انھوں نے جنس کے بارے میں بات کی اور کہا کہ جنس ہی روحانیت ہے۔ لیکن وہ یہ بھول جاتے ہیں کہ رجنیش ایک جین گھرانے میں پیدا ہوئے تھے۔ انھوں نے جین مت کے اس تصور کو تھامے رکھا کہ گوشت سے ‘بری توانائی’ (بیڈ وائبریشنز) آتی ہے اور سبزی خور کھانا انسان کو پاک کرتا ہے۔ انھیں جنس پسند تھی۔ انھیں پیسہ، شہرت اور رولز رائس گاڑیوں کا قافلہ بھی پسند تھا۔ انھیں جو کچھ پسند تھا، انھوں نے اسے ‘روحانی’ قرار دے دیا۔ اور چونکہ وہ سبزی خور گھرانے میں پلے بڑھے تھے، اس لیے گوشت ان کے لیے ‘غیر روحانی’ (ان اسپریچوئل) ہو گیا۔ عجیب ہے، مگر سہولت بھری بھی۔",
+   "کھانے پینے کا وہ اصول ایک بے تکا خیال ہے۔ اس کا سیدھا مطلب یہ ہے کہ ان کا کھانا چینی اور امریکی کھانے سے بہتر ہے۔ یہ وہی غرور ہے جو ہندوستان کے ہر برہمچاری سادھو میں دیکھنے کو ملتا ہے۔ رجنیش نے ایسے سادھوؤں کا خوب مذاق اڑایا، لیکن پھر اسی ایک بات پر ان سے متفق ہو گئے جو ان کے لیے سب سے اہم تھی: سبزی خور کینٹین۔",
+   "اس لیے، جب آپ کے دوست اشوک یا اوشو کی بہت تعریف کریں، تو غور کریں کہ ان میں کیا مشترک ہے۔ دونوں گروہوں کے پاس ادھوری معلومات ہیں۔ اور دونوں صورتوں میں ایک ہی بات چھوٹ گئی ہے: ایک ایسا انسان، جس نے اپنی ہر غلطی کو معاف کر دیا، لیکن دوسروں کی تھالی میں کیا ہے، اسے کبھی معاف نہیں کیا۔"
+  ],
+  "sawal": "جو خود کو سب معاف کرے، وہ دوسروں کی تھالی کیوں تولے؟",
+  "homePoints": [
+   "پٹنایک کے مطابق اشوک اور اوشو، دونوں کے مداح ادھوری معلومات پر ٹکے ہیں۔",
+   "اشوک کو قصائیوں اور مچھیروں کی فکر تھی، چوری یا زنا بالجبر کی نہیں؛ اوشو نے جو پسند کیا اسے روحانی قرار دے دیا۔",
+   "دونوں کے یہاں جو چھوٹ گیا: اپنی ہر غلطی معاف، دوسروں کی تھالی معاف نہیں۔"
+  ],
+  "photoAlt": "پتھر پر تراشے ابھرواں نقش جیسی تصویر: ایک نوجوان عورت کی گود میں لیٹے داڑھی والے آدمی کے ماتھے پر ایک بزرگ داڑھی والا ہاتھ رکھے ہے؛ اوپر کونے میں گھوڑوں کے رتھ پر سوار بادشاہ اور اس کے پیچھے کھڑے لوگ۔",
+  "photoCap": "تصویر: مضمون کے ساتھ موصول",
+  "bio": "اساطیر کے ماہر، مصنف، مصور",
+  "tr": "انگریزی سے اردو ترجمہ: دیش کال"
+ }
+}
