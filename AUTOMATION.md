@@ -162,6 +162,14 @@ On Sundays, also pick the five most important pieces of the week from the last 7
 5. The closing `rights` text, exactly: "मूल लेख के सारे अधिकार देवदत्त पटनायक के पास हैं। उनकी अनुमति से इसे देशकाल में प्रकाशित किया गया है।" (en/ur equivalents as in `data/vishesh/devdutt-vishnu-shakahar.json`). Use `translationNote` "हिंदी अनुवाद: देशकाल".
 6. Author intro with his books and buy links stays in every article.
 
+## शैलेश मिश्र की तस्वीरों का ख़ज़ाना (owner's instruction, 24 November 2026)
+शैलेश मिश्र (फ़ोटोग्राफ़र) ने देशकाल के लिए अपनी तस्वीरें इस्तेमाल करने की इजाज़त दी है। मालिक के Mac पर इनका फ़ोल्डर `~/deshkaal-work/shailesh-mishra-photography/` है (WhatsApp से आयी JPEG तस्वीरें, कुछ ज़िप खोलकर उप-फ़ोल्डरों में, दो छोटे वीडियो भी)। मालिक आगे इसमें और तस्वीरें जोड़ता रहेगा, इसलिए **हर रन में फ़ोल्डर फिर से देखें**, नयी फ़ाइलें अपने आप जुड़ी मिलेंगी।
+- **कैसे इस्तेमाल करें:** आगे के अंकों में, जहां किसी टुकड़े (`khabar`, `vichar`, `pari`, `sahitya`, हमसफ़र, कोलाज की जगह) को तस्वीर चाहिए और विषय से मेल खाती शैलेश की तस्वीर इस फ़ोल्डर में हो, वहां उसे चुनें। हर तस्वीर को ख़ुद देखकर (Read से) चुनें: जगह, मौक़ा और चेहरे पहचानें; कभी अंदाज़े से कैप्शन न लिखें। जिस तस्वीर में क्या है, यह पक्का न हो, उसे प्रतीकात्मक कहें या छोड़ दें।
+- **रेपो में कैसे लाएं:** चुनी हुई तस्वीर को 1600 px तक छोटा करके, EXIF हटाकर `public/media/shailesh/<नाम>.jpg` में रखें (पूरा फ़ोल्डर रेपो में न डालें, रेपो सार्वजनिक है), `photo = {"kind": "photo", "src": "/media/shailesh/<नाम>.jpg", "credit": "शैलेश मिश्र", "note": "..."}`।
+- **श्रेय हमेशा:** "फ़ोटो: शैलेश मिश्र" (en: "Photo: Shailesh Mishra", ur: "تصویر: شیلیش مشرا")। इजाज़त सिर्फ़ देशकाल पर इस्तेमाल की है: सोशल पोस्ट के कार्ड में भी श्रेय रहे।
+- **निजता:** तस्वीर में पहचाने जा सकने वाले बच्चे, हिरासत, हिंसा या शोक के पल हों तो इस्तेमाल न करें। एक तस्वीर एक हफ़्ते में दोबारा नहीं।
+- **वीडियो:** `.mp4` फ़ाइलें मालिक से पूछे बिना न लगाएं।
+
 ## Permissions
 The owner is asleep during the run and has given standing permission for all routine work on the site: choose, write, translate, build, commit and push, and fix anything that breaks. Never stop to ask; decide, and note the decision in the report.
 
