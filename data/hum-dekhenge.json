@@ -1,6 +1,11 @@
 {
  "active": true,
  "pdf": "/hum-dekhenge/november-2026.pdf",
+ "strip": {
+  "hi": "संपादकीय, संस्मरण, पत्रिकाओं का इतिहास, कला की बहस, कार्यशालाएं",
+  "en": "Editorial, memoir, magazine history, the debate on art, workshops",
+  "ur": "اداریہ، یادداشت، رسالوں کی تاریخ، فن کی بحث، کارگاہیں"
+ },
  "kicker": { "hi": "दो ज़ुबानें · एक पन्ना · नवंबर 2026", "en": "Two languages · one page · November 2026" },
  "title": { "hi": "हम देखेंगे", "en": "Hum Dekhenge" },
  "lede": {

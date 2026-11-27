@@ -558,10 +558,27 @@ const T1 = o => (o && (o[LG] || o.hi)) || "";
 const HDK = fs.existsSync("data/hum-dekhenge.json") ? JSON.parse(fs.readFileSync("data/hum-dekhenge.json", "utf8")) : null;
 function humDekhengeBlock() {
   if (!HDK || !HDK.active) return "";
-  const A = LG === "en" ? "en" : "hi", B = A === "hi" ? "en" : "hi";
-  const li = HDK.items.map(i => `<li><span class="hdk-pg">${i.pg}</span><span><span class="hdk-a" lang="${A}">${esc(i[A])}</span><span class="hdk-b" lang="${B}">${esc(i[B])}</span></span></li>`).join("");
-  return `<section class="hdk" dir="ltr" aria-labelledby="hdk-t"><div class="hdk-grid"><div class="hdk-l"><p class="hdk-k">${esc(HDK.kicker[A])}</p><h3 class="hdk-t" id="hdk-t"><span lang="hi">${esc(HDK.title.hi)}</span><span class="hdk-en" lang="en">${esc(HDK.title.en)}</span></h3><hr class="hdk-rule"><p class="hdk-lede" lang="${A}">${esc(HDK.lede[A])}</p><p class="hdk-lede2" lang="${B}">${esc(HDK.lede[B])}</p><p class="hdk-meta">${esc(HDK.meta[A])}</p><a class="hdk-btn" href="${HDK.pdf}" target="_blank" rel="noopener"><b lang="${A}">${esc(HDK.button[A])}</b><small lang="${B}">${esc(HDK.button[B])}</small></a></div>
-  <div class="hdk-r"><ol class="hdk-list" aria-label="${esc(HDK.listLabel[A])}">${li}</ol><p class="hdk-board" lang="${A}">${esc(HDK.board[A])}</p></div></div></section>`;
+  /* पतली विज़ुअल पट्टी: अंक का कवर, नाम, एक पंक्ति का परिचय और PDF की कड़ी */
+  const X = {
+    hi: { tag: "विशेष", k: "दो ज़ुबानें · एक पन्ना · नवंबर 2026", meta: "48 पन्ने · 10 टुकड़े", cta: "पूरा अंक पढ़ें (PDF)" },
+    en: { tag: "Special", k: "Two languages · one page · November 2026", meta: "48 pages · 10 pieces", cta: "Read the full issue (PDF)" },
+    ur: { tag: "خصوصی", k: "دو زبانیں · ایک صفحہ · نومبر 2026", meta: "48 صفحات · 10 تحریریں", cta: "پورا شمارہ پڑھیں (PDF)" }
+  }[LG] || {};
+  const A = LG === "en" ? "en" : "hi";
+  return `<section class="hdkbar" dir="ltr" aria-labelledby="hdk-t">
+  <a class="hdkbar-l" href="${HDK.pdf}" target="_blank" rel="noopener">
+    <img class="hdkbar-cover" src="/media/hum-dekhenge/november-2026-cover.jpg" alt="" width="52" height="72" loading="lazy" decoding="async">
+    <span class="hdkbar-tx">
+      <span class="hdkbar-top"><span class="hdkbar-tag">${esc(X.tag)}</span><span class="hdkbar-k">${esc(X.k)}</span></span>
+      <b class="hdkbar-h" id="hdk-t"><span lang="hi">हम देखेंगे</span><span class="hdkbar-en" lang="en">Hum Dekhenge</span></b>
+      <span class="hdkbar-dek" lang="${LG}">${esc((HDK.strip && (HDK.strip[LG] || HDK.strip.hi)) || HDK.lede[A])}</span>
+    </span>
+  </a>
+  <a class="hdkbar-r" href="${HDK.pdf}" target="_blank" rel="noopener">
+    <span class="hdkbar-meta">${esc(X.meta)}</span>
+    <span class="hdkbar-cta">${esc(X.cta)} <i aria-hidden="true">→</i></span>
+  </a>
+</section>`;
 }
 const T1MORE = () => LG === "en" ? "All 50 profiles →" : LG === "ur" ? "سب 50 پروفائل ←" : "सभी 50 प्रोफ़ाइल →";
 function time100Band() {
@@ -605,7 +622,7 @@ function homePage() {
   const NT = fs.existsSync("data/notice.json") ? JSON.parse(fs.readFileSync("data/notice.json", "utf8")) : null;
   const notice = NT && NT.date === IST_TODAY && NT[LG] ? `<aside class="notice" data-date="${NT.date}"><span class="nt-k">${LG === "en" ? "A note" : LG === "ur" ? "ایک گزارش" : "एक गुज़ारिश"}</span><p>${esc(NT[LG])}</p></aside>` : "";
   const body = `${notice}<div class="lastread" id="lastread" hidden></div>${VH.lead(LG)}${campaignBand()}${M ? `<section class="special"><div class="morcha-rib"><span class="mr-tag">${T.special}</span><b>${T.sec.morcha[0]}</b>${LIVE_ON ? `<a class="mr-wall" href="/live/">${T.liveWall}</a>` : (LIVE_ARCHIVE ? `<a class="mr-wall" href="${PRE}/live/">${(LA[LG] || LA.hi).k} →</a>` : "")}</div>` : ""}
-  ${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}${humDekhengeBlock()}
+  ${hero(L, (M ? T.sec.morcha[0] : T.sec.amukh[0]) + (L.by ? " · " + esc(L.by) : ""))}${humDekhengeBlock()}${VJ.promo(LG)}
   ${VOICES(LG, today, PRE)}${M ? liveTeaser() + morchaBand(M) + "</section>" : liveTeaser()}
   ${rajaji.length ? `<section class="rajaji">${head("rajaji")}${rajaji[0].photo ? `<article class="rj-lead"><a href="${href(rajaji[0])}">${art(rajaji[0])}<div class="in"><p class="kicker">${esc(rajaji[0].pub)} · ${esc(rajaji[0].date)}</p><h3>${esc(rajaji[0].h)}</h3><p class="dek">${esc(rajaji[0].dek)}</p></div></a></article>` : ""}<div class="clist">${(rajaji[0].photo ? rajaji.slice(1) : rajaji).map(kRow).join("")}</div></section>` : ""}
   ${janBand(jan, head)}
@@ -749,6 +766,7 @@ const HS = require("./src/hamsafar.js")({ layout: (...a) => layout(...a), esc, d
 /* विशेष भी अंक के साथ ही छपता है, कार्टूनों की तरह: रात में अगली तारीख़ की फ़ाइल
    जुड़ जाए तो भी वह अंतिम अंक के बनने तक साइट पर नहीं आती (मालिक का निर्देश, 18 नवंबर 2026)। */
 const VH = require("./src/vishesh.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: LATEST_DAY, supportEnd });
+const VJ = require("./src/vijnipti.js")({ layout: (...a) => layout(...a), esc, dayLabel: d => dayLabel(d), SITE, LATEST: IST_TODAY, supportEnd });
 const VOICES = require("./src/voices.js")({ esc, href });
 const PG = {
   hi: { pol: ["संपादकीय नीति", "देशकाल किन टिप्पणियों को चुनता है और क्यों।", "हमारी संपादकीय नीति"], pri: ["निजता नीति", "देशकाल आपकी कौन सी जानकारी रखता है, कहां और कैसे हटवाएं।", "निजता नीति"] },
@@ -902,6 +920,7 @@ for (const l of LANGS) {
   if (WEEKLY) out(P + "weekly/index.html", weeklyPage());
   if (T100) out(P + "time100/index.html", time100Page());
   VH.ALL.forEach(w => out(`${P}vishesh/${w.id}/index.html`, VH.page(w, l)));
+  VJ.ALL.forEach(w => out(`${P}vijnipti/${w.id}/index.html`, VJ.page(w, l)));
   if (morchaAll().length) out(P + "morcha/index.html", morchaPage());
   out(P + "mera/index.html", minePage());
   out(P + "khoj.json", searchIndex());
