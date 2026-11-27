@@ -11,11 +11,10 @@
  "src": "दैनिक भास्कर",
  "srcDate": "22 नवंबर 2026",
  "photo": "/media/vishesh/devdutt-kaikeyi-kunti.jpg",
- "cover": "portrait",
- "photoW": 700,
- "photoH": 700,
- "photoAlt": "देवदत्त पटनायक का चित्र।",
- "photoCap": "चित्र: सौजन्य देवदत्त पटनायक।",
+ "photoW": 1200,
+ "photoH": 840,
+ "photoAlt": "काग़ज़ की कटी-फटी पट्टियों पर रचना के अंश, बीच में किताबों की ढेरी और ठप्पा: धर्म या आदेश?",
+ "photoCap": "कोलाज: देशकाल",
  "bandPhoto": "/media/hamsafar/lekhak-devdutt-pattanaik.jpg",
  "bandPos": "center 24%",
  "rights": {
@@ -170,8 +169,8 @@
    "Every decision must be tested on the touchstone of its consequences. The Ramayana and the Mahabharata are epics founded on rajdharma. Even in them, importance is given to what the consequence of an act will be, and not merely to whose command it obeys.",
    "But even today, in schools and homes, the ideals of obedient sons are placed before children to explain the idea of dharma. They are taught the story of Shravan Kumar, but the example of Bharata, who upheld dharma by opposing his mother's unjust decision, is not given. Nor are they encouraged to question Draupadi's silence."
   ],
-  "photoAlt": "Portrait of Devdutt Pattanaik.",
-  "photoCap": "Photo: courtesy Devdutt Pattanaik.",
+  "photoAlt": "Cut-paper strips carrying lines from the piece, a stack of books at the centre, and a stamp reading: dharma or orders?",
+  "photoCap": "Collage: Deshkaal",
   "translationNote": "Translated from Hindi by the Deshkaal desk.",
   "tr": "Translated from Hindi by the Deshkaal desk."
  },
@@ -202,8 +201,8 @@
    "کسی بھی فیصلے کو اس کے نتائج کی کسوٹی پر پرکھنا ضروری ہے۔ راماین اور مہابھارت راج دھرم پر مبنی مہاکاوی ہیں۔ ان میں بھی اس بات کو اہمیت دی گئی ہے کہ کسی کرم کا نتیجہ کیا ہوگا، نہ کہ صرف یہ کہ وہ کس کے حکم پر کیا جا رہا ہے۔",
    "مگر آج بھی اسکولوں اور گھروں میں دھرم کا تصور سمجھانے کے لیے بچوں کے سامنے فرمانبردار بیٹوں کے مثالیں رکھی جاتی ہیں۔ انھیں شرون کمار کی کہانی پڑھائی جاتی ہے، لیکن ماں کے نادرست فیصلے کی مخالفت کر کے دھرم نبھانے والے بھرت کی مثال نہیں دی جاتی۔ نہ ہی دروپدی کی خاموشی پر سوال اٹھانے کے لیے ان کی حوصلہ افزائی کی جاتی ہے۔"
   ],
-  "photoAlt": "دیودت پٹنایک کی تصویر۔",
-  "photoCap": "تصویر: بشکریہ دیودت پٹنایک۔",
+  "photoAlt": "کاغذ کی پھٹی پٹیوں پر تحریر کے اقتباسات، بیچ میں کتابوں کی ڈھیری اور ایک مہر: دھرم یا حکم؟",
+  "photoCap": "کولاج: دیش کال",
   "translationNote": "ہندی سے ترجمہ: دیش کال ڈیسک",
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک"
  }
