@@ -208,5 +208,34 @@
    }
   ],
   "tr": "ہندی سے ترجمہ: دیش کال ڈیسک"
- }
+ },
+ "series": [
+  {
+   "id": "2026-11-28-dilip-khan-parisiman-bill",
+   "no": 1,
+   "h": {
+    "hi": "परिसीमन बिल: अंपायर भी, खिलाड़ी भी",
+    "en": "Delimitation bill: umpire as well as player",
+    "ur": "حد بندی بل: امپائر بھی، کھلاڑی بھی"
+   }
+  },
+  {
+   "id": "2026-11-28-dilip-khan-parisiman-2",
+   "no": 2,
+   "h": {
+    "hi": "परिसीमन क्या है, और 2011 पर ज़ोर क्यों?",
+    "en": "Delimitation: what it is for, and why 2011 is the wrong base",
+    "ur": "ڈی لیمیٹیشن: مقصد کیا ہے، اور 2011 کیوں غلط بنیاد ہے"
+   }
+  },
+  {
+   "id": "2026-11-28-dilip-khan-parisiman-3",
+   "no": 3,
+   "h": {
+    "hi": "ओबीसी महिलाओं की सीटें, और 2051 तक का इंतज़ार",
+    "en": "OBC seats in legislatures, and a wait until 2051",
+    "ur": "مقننہ میں او بی سی نشستیں، اور 2051 تک کا انتظار"
+   }
+  }
+ ]
 }

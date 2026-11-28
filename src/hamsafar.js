@@ -37,17 +37,17 @@ module.exports = function (H) {
   const para = p => /^\*$/.test(p) ? `<p class="hw-sep" aria-hidden="true">*</p>` : /^\d+\.$/.test(p) ? `<p class="hw-part">${esc(p)}</p>` : /^## /.test(p) ? `<h2 class="hw-sub">${esc(p.slice(3))}</h2>` : `<p>${esc(p)}</p>`;
   const loc = (w, lg) => lg === "hi" || !w[lg] ? w : { ...w, ...w[lg], images: (w.images || []).map((im, i) => ({ ...im, ...((w[lg].images || [])[i] || {}) })) };
   const TX = {
-    hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
+    hi: { sec: "हमसफ़र", kind: KIND, back: "← हमसफ़र", ed: "संपादक की बात", author: "रचनाकार", seriesK: "इस बहस के हिस्से", seriesNow: "यह हिस्सा", seriesRead: "पढ़िए →", share: "आगे भेजिए", native: "शेयर करें", copy: "लिंक कॉपी",
       fine: by => `इस रचना के सारे अधिकार ${by} के पास हैं।`, invK: "आप भी हमसफ़र बनिए", invB: "अपनी रचना देशकाल को भेजिए →", more: "हमसफ़र में और",
       bandSub: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें", all: "सारी रचनाएं →", send: "अपनी रचना भेजिए", galK: "लेखकों-पत्रकारों की रचनाएं",
       galI: "हमसफ़र में लेखकों-पत्रकारों की रचनाएं, उनकी अनुमति के साथ।", first: "पहली रचना आपकी हो सकती है।",
       galT: "हमसफ़र: लेखकों-पत्रकारों की रचनाएं", galD: "लेखकों-पत्रकारों की रचनाएं, कार्टून और तस्वीरें, उनकी अनुमति के साथ।", also: "यह रचना इन भाषाओं में भी:", orig: "", origEn: "", origUr: "", desc: (w, k) => `${w.by} की ${k}, हमसफ़र में` },
-    en: { sec: "Hamsafar", kind: { lekh: "Essay", tipanni: "Comment", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", share: "Share", native: "Share", copy: "Copy link",
+    en: { sec: "Hamsafar", kind: { lekh: "Essay", tipanni: "Comment", reportaj: "Report", kahani: "Story", kavita: "Poem", cartoon: "Cartoon", photo: "Photographs", sansmaran: "Memoir", diary: "Diary" }, back: "← Hamsafar", ed: "Editor's note", author: "The writer", seriesK: "This debate, in parts", seriesNow: "You are here", seriesRead: "Read →", share: "Share", native: "Share", copy: "Copy link",
       fine: by => `All rights to this work remain with ${by}.`, invK: "Walk with us", invB: "Send your own work to Deshkaal →", more: "More from Hamsafar",
       bandSub: "Writers' and journalists' work, cartoons and photographs", all: "All pieces →", send: "Send your work", galK: "Writers and journalists",
       galI: "Hamsafar means fellow traveller. Work by writers and journalists, published with their permission.", first: "The first piece could be yours.",
       galT: "Hamsafar: writers' and journalists' work", galD: "Essays, poems, stories, cartoons and photographs, published with their creators' permission.", also: "Read this piece in:", orig: "Original in Hindi", origEn: "Original in English", origUr: "Original in Urdu", desc: (w, k) => `${k} by ${w.by}, in Hamsafar` },
-    ur: { sec: "ہم سفر", kind: { lekh: "مضمون", tipanni: "تبصرہ", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
+    ur: { sec: "ہم سفر", kind: { lekh: "مضمون", tipanni: "تبصرہ", reportaj: "رپورتاژ", kahani: "کہانی", kavita: "نظم", cartoon: "کارٹون", photo: "تصویریں", sansmaran: "یادداشت", diary: "ڈائری" }, back: "→ ہم سفر", ed: "مدیر کی بات", author: "قلم کار", seriesK: "اس بحث کے حصے", seriesNow: "یہ حصہ", seriesRead: "پڑھیں ←", share: "آگے بھیجیے", native: "شیئر کریں", copy: "لنک کاپی",
       fine: by => `اس تحریر کے تمام حقوق ${by} کے پاس ہیں۔`, invK: "آپ بھی ہم سفر بنیے", invB: "اپنی تحریر دیش کال کو بھیجیے ←", more: "ہم سفر میں اور",
       bandSub: "لکھنے والوں اور صحافیوں کی تحریریں، کارٹون اور تصویریں", all: "ساری تحریریں ←", send: "اپنی تحریر بھیجیے", galK: "لکھنے والوں اور صحافیوں کی تحریریں",
       galI: "ہم سفر میں لکھنے والوں اور صحافیوں کی تحریریں، ان کی اجازت کے ساتھ۔", first: "پہلی تحریر آپ کی ہو سکتی ہے۔",
@@ -531,6 +531,8 @@ module.exports = function (H) {
   function workPage(w0, lg = "hi") {
     const w = loc(w0, lg), X = TX[lg], langs = ["hi", "en", "ur"].filter(l => l === "hi" || w0[l]);
     const imgs = w.images || [], body = w.body || [];
+    const paraHtml = p => /^\d+\.\s/.test(p) ? `<p class="hw-num"><b>${esc(p.slice(0, p.indexOf(".") + 1))}</b> ${linkify(p.slice(p.indexOf(".") + 1).trim())}</p>` : `<p>${linkify(p)}</p>`;
+    const linkify = t => t.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener nofollow">${a}</a>`);
     const fig = (im, cls = "") => `<figure class="hw-fig ${cls}"><img src="${esc(im.src)}" alt="${esc(im.alt || im.cap || w.h)}"${im.w ? ` width="${im.w}" height="${im.h}"` : ""} loading="lazy">${im.cap ? `<figcaption>${mdLink(im.cap, lg)}</figcaption>` : ""}</figure>`;
     let main = "";
     if (w.kind === "cartoon") {
@@ -557,7 +559,7 @@ module.exports = function (H) {
       const videoFig = () => { const v = w.video || {}; if (!v.id) return ""; return `<figure class="hw-video"><div class="hw-vframe"><iframe src="https://www.youtube-nocookie.com/embed/${esc(v.id)}" title="${esc(v.label || w.h)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>${v.cap ? `<figcaption>${esc(v.cap)}</figcaption>` : ""}</figure>`; };
       if (inl) {
         const nTxt = body.filter(p => !/^\[\[img:\d+\]\]$/.test(p) && !isSub(p) && p !== "[[video]]").length, atI = Math.max(1, Math.round(nTxt * 0.4)); let k = 0;
-        const paras = body.map(p => { if (p === "[[video]]") return videoFig(); const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
+        const paras = body.map(p => { if (p === "[[video]]") return videoFig(); const m = p.match(/^\[\[img:(\d+)\]\]$/); if (m) return imgs[+m[1]] ? fig(imgs[+m[1]]) : ""; if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `${paraHtml(esc(p))}${w.pull && k === atI && nTxt > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}`; }).join("");
         main = `${imgs[0] && !used.has(0) && !hasVid ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body hw-inl">${paras}<span class="hw-end" aria-hidden="true"></span></div>`;
       } else {
       const nT = body.filter(p => !isMark(p) && !isSub(p) && p !== "[[video]]").length;
@@ -565,7 +567,7 @@ module.exports = function (H) {
       let ti = Math.max(0, Math.round(tx.length * 0.4) - 1);
       if (isMark(body[(tx[ti] || { i: -1 }).i + 1] || "")) ti = Math.max(0, ti - 1);
       const at = ti + 1; let k = 0;
-      const paras = body.map(p => { if (p === "[[video]]") return videoFig(); if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `<p>${link(esc(p))}</p>${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
+      const paras = body.map(p => { if (p === "[[video]]") return videoFig(); if (isMark(p)) return mark(p); if (isSub(p)) return sub(p); k++; return `${paraHtml(esc(p))}${w.pull && k === at && nT > 3 ? `<blockquote class="hw-pull">${esc(w.pull)}</blockquote>` : ""}${imgs[1] && k === Math.min(nT - 2, at + 1) ? fig(imgs[1]) : ""}`; }).join("");
       main = `${imgs[0] && !hasVid ? fig(imgs[0], "hw-cover") : ""}<div class="hw-body">${paras}<span class="hw-end" aria-hidden="true"></span></div>${imgs.slice(2).map(im => fig(im)).join("")}`;
       }
     }
@@ -581,6 +583,7 @@ module.exports = function (H) {
         ${langs.length > 1 ? `<p class="hw-langs"><span>${X.also}</span>${langs.filter(l => l !== lg).map(l => `<a href="${url(w0, l)}" lang="${l}"${l === "ur" ? ' dir="rtl"' : ""}>${LN[l]}</a>`).join("")}</p>` : ""}
       </header>
       ${main}
+      ${(w.series || []).length ? `<nav class="hw-series" aria-label="${esc(X.seriesK)}"><p class="hw-series-k">${esc(X.seriesK)}</p><ol>${w.series.map(s => `<li${s.id === w0.id ? ' class="cur"' : ""}>${s.id === w0.id ? `<span><i>${s.no}</i><b>${esc(s.h[lg] || s.h.hi)}</b><em>${X.seriesNow}</em></span>` : `<a href="${url({ id: s.id }, lg)}"><i>${s.no}</i><b>${esc(s.h[lg] || s.h.hi)}</b><em>${X.seriesRead}</em></a>`}</li>`).join("")}</ol></nav>` : ""}
       ${w.source_url ? `<p class="orig"><a href="${esc(w.source_url)}" target="_blank" rel="noopener">${lg === "en" ? "Read the original" : lg === "ur" ? "اصل مضمون پڑھیے" : "मूल लेख पढ़िए"}: ${esc(w.source_name || "")} →</a></p>` : ""}
       ${w.note ? `<aside class="hw-ed"><small>${X.ed}</small><p>${mdLink(w.note, lg)}</p></aside>` : ""}
       <aside class="hw-author">${av(w, " big")}<div><small>${X.author}</small><h3>${esc(w.by)}</h3>${w.bio ? `<p>${esc(w.bio)}</p>` : ""}${w.bio_url ? `<p><a href="${esc(w.bio_url)}" target="_blank" rel="noopener">${esc(w.bio_source || "परिचय का स्रोत")}</a></p>` : ""}</div></aside>
